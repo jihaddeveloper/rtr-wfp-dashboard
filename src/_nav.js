@@ -11,6 +11,18 @@ import {
   cilPuzzle,
   cilSpeedometer,
   cilStar,
+  cilPeople,
+  cilStorage,
+  cilSchool,
+  cilUser,
+  cilFile,
+  cilRoom,
+  cilLibrary,
+  cilBook,
+  cilColumns,
+  cilColorBorder,
+  cilInstitution,
+  cilWc,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -20,10 +32,207 @@ const _nav = [
     name: 'Dashboard',
     to: '/dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW',
+    // },
+  },
+  {
+    component: CNavTitle,
+    name: 'Main Infomation',
+  },
+
+  {
+    component: CNavGroup,
+    name: 'School',
+    to: '/',
+    icon: <CIcon icon={cilInstitution} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All School',
+        to: '/school/allschool',
+      },
+      {
+        component: CNavItem,
+        name: 'Add new school',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Teacher',
+    to: '/',
+    icon: <CIcon icon={cilWc} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Teacher',
+        to: '/base/accordion',
+      },
+      {
+        component: CNavItem,
+        name: 'Add new teacher',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Student',
+    to: '/',
+    icon: <CIcon icon={cilSchool} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Teacher',
+        to: '/base/accordion',
+      },
+      {
+        component: CNavItem,
+        name: 'Add new teacher',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Library',
+    to: '/',
+    icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Teacher',
+        to: '/base/accordion',
+      },
+      {
+        component: CNavItem,
+        name: 'Add new teacher',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Employee',
+    to: '/',
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Employee',
+        to: '/base/accordion',
+      },
+      {
+        component: CNavItem,
+        name: 'Add new employee',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Collected Data',
+  },
+  {
+    component: CNavGroup,
+    name: 'BCO/I School',
+    to: '/',
+    icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All BCO/I Data',
+        to: '/bco/allbco',
+      },
+      {
+        component: CNavItem,
+        name: 'WFP Summarize Report',
+        to: '/bco/wfp-summarize',
+      },
+      {
+        component: CNavItem,
+        name: 'CFO Analysis Report',
+        to: '/bco/cfo-analysis',
+      },
+      {
+        component: CNavItem,
+        name: 'Ukhiya Report',
+        to: '/bco/ukhiya-report',
+      },
+      {
+        component: CNavItem,
+        name: 'Kutubdia Report',
+        to: '/bco/kutubdia-report',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'BCO/I Community',
+    to: '/',
+    icon: <CIcon icon={cilColumns} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All BCO/I data',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Library Observation',
+    to: '/',
+    icon: <CIcon icon={cilColumns} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All LO data',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Bangla Class',
+    to: '/',
+    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All bangla-class data',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'SRM Class',
+    to: '/',
+    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All SRM data',
+        to: '/base/accordion',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Overall School',
+    to: '/',
+    icon: <CIcon icon={cilInstitution} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Overall data',
+        to: '/base/accordion',
+      },
+    ],
   },
   {
     component: CNavTitle,

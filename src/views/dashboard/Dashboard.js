@@ -53,16 +53,17 @@ import avatar6 from 'src/assets/images/avatars/6.jpg'
 
 import WidgetsBrand from '../widgets/WidgetsBrand'
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
+import WidgetsDropdown2 from '../widgets/WidgetsDropDown2'
 
 const Dashboard = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
   const progressExample = [
-    { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
-    { title: 'Unique', value: '24.093 Users', percent: 20, color: 'info' },
-    { title: 'Pageviews', value: '78.706 Views', percent: 60, color: 'warning' },
-    { title: 'New Users', value: '22.123 Users', percent: 80, color: 'danger' },
-    { title: 'Bounce Rate', value: 'Average Rate', percent: 40.15, color: 'primary' },
+    { title: 'BCO/I School', value: '137', percent: 100, color: 'success' },
+    { title: 'BCO/I Community', value: '24', percent: 20, color: 'info' },
+    { title: 'Bangla Class', value: '78', percent: 60, color: 'warning' },
+    { title: 'Library Observation', value: '22', percent: 80, color: 'danger' },
+    { title: 'Library SRM', value: '13', percent: 40, color: 'primary' },
   ]
 
   const progressGroupExample1 = [
@@ -186,9 +187,9 @@ const Dashboard = () => {
           <CRow>
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
-                Traffic
+                Basic Information
               </h4>
-              <div className="small text-medium-emphasis">January - July 2021</div>
+              <div className="small text-medium-emphasis">January - July 2022</div>
             </CCol>
             <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
@@ -293,7 +294,7 @@ const Dashboard = () => {
             }}
           />
         </CCardBody>
-        <CCardFooter>
+        {/* <CCardFooter>
           <CRow xs={{ cols: 1 }} md={{ cols: 5 }} className="text-center">
             {progressExample.map((item, index) => (
               <CCol className="mb-sm-2 mb-0" key={index}>
@@ -305,99 +306,214 @@ const Dashboard = () => {
               </CCol>
             ))}
           </CRow>
-        </CCardFooter>
+        </CCardFooter> */}
       </CCard>
 
-      <WidgetsBrand withCharts />
+      {/* <WidgetsBrand withCharts /> */}
 
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
-            <CCardHeader>Traffic {' & '} Sales</CCardHeader>
+            <CCardHeader>
+              School {' & '} Visit
+              <br />
+              <strong>Total School: 132</strong>
+            </CCardHeader>
             <CCardBody>
               <CRow>
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
-                    <CCol sm={6}>
+                    <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
-                        <div className="text-medium-emphasis small">New Clients</div>
-                        <div className="fs-5 fw-semibold">9,123</div>
+                        <div className="fs-5 fw-semibold">Library Observation</div>
+                        <div className="text-medium-emphasis small">Total Visited: 0</div>
                       </div>
                     </CCol>
-                    <CCol sm={6}>
+                    <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="text-medium-emphasis small">Recurring Clients</div>
-                        <div className="fs-5 fw-semibold">22,643</div>
+                        <div className="fs-5 fw-semibold">BCO/I School</div>
+                        <div className="text-medium-emphasis small">Total Visited: 132</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">BCO/I Community</div>
+                        <div className="text-medium-emphasis small">Total Visited: 0</div>
                       </div>
                     </CCol>
                   </CRow>
-
-                  <hr className="mt-0" />
-                  {progressGroupExample1.map((item, index) => (
-                    <div className="progress-group mb-4" key={index}>
-                      <div className="progress-group-prepend">
-                        <span className="text-medium-emphasis small">{item.title}</span>
-                      </div>
-                      <div className="progress-group-bars">
-                        <CProgress thin color="info" value={item.value1} />
-                        <CProgress thin color="danger" value={item.value2} />
-                      </div>
-                    </div>
-                  ))}
                 </CCol>
 
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
-                    <CCol sm={6}>
+                    <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                        <div className="text-medium-emphasis small">Pageviews</div>
-                        <div className="fs-5 fw-semibold">78,623</div>
+                        <div className="fs-5 fw-semibold">Bangla Class</div>
+                        <div className="text-medium-emphasis small">Total Visited: 0</div>
                       </div>
                     </CCol>
-                    <CCol sm={6}>
+                    <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="text-medium-emphasis small">Organic</div>
-                        <div className="fs-5 fw-semibold">49,123</div>
+                        <div className="fs-5 fw-semibold">Library SRM</div>
+                        <div className="text-medium-emphasis small">Total Visited: 0</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Overall School</div>
+                        <div className="text-medium-emphasis small">Total Visited: 0</div>
                       </div>
                     </CCol>
                   </CRow>
+                </CCol>
+              </CRow>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+      <CRow>
+        <CCol xs>
+          <CCard className="mb-4">
+            <CCardHeader>
+              Teacher {' & '} Traning
+              <br />
+              <strong>Total Teacher: 833</strong>
+            </CCardHeader>
 
-                  <hr className="mt-0" />
+            <CCardBody>
+              <CRow>
+                <CCol xs={12} md={6} xl={6}>
+                  <CRow>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-info py-1 px-3">
+                        <div className="fs-5 fw-semibold">Headteacher Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 200</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Bangla G1 Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 400</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Bangla G2 Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 300</div>
+                      </div>
+                    </CCol>
+                  </CRow>
+                </CCol>
 
-                  {progressGroupExample2.map((item, index) => (
-                    <div className="progress-group mb-4" key={index}>
-                      <div className="progress-group-header">
-                        <CIcon className="me-2" icon={item.icon} size="lg" />
-                        <span>{item.title}</span>
-                        <span className="ms-auto fw-semibold">{item.value}%</span>
+                <CCol xs={12} md={6} xl={6}>
+                  <CRow>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Library Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 300</div>
                       </div>
-                      <div className="progress-group-bars">
-                        <CProgress thin color="warning" value={item.value} />
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Governence Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 600</div>
                       </div>
-                    </div>
-                  ))}
-
-                  <div className="mb-5"></div>
-
-                  {progressGroupExample3.map((item, index) => (
-                    <div className="progress-group" key={index}>
-                      <div className="progress-group-header">
-                        <CIcon className="me-2" icon={item.icon} size="lg" />
-                        <span>{item.title}</span>
-                        <span className="ms-auto fw-semibold">
-                          {item.value}{' '}
-                          <span className="text-medium-emphasis small">({item.percent}%)</span>
-                        </span>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">SRM Traning</div>
+                        <div className="text-medium-emphasis small">#Teacher: 200</div>
                       </div>
-                      <div className="progress-group-bars">
-                        <CProgress thin color="success" value={item.percent} />
+                    </CCol>
+                  </CRow>
+                </CCol>
+              </CRow>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+      <CRow>
+        <CCol xs>
+          <CCard className="mb-4">
+            <CCardHeader>
+              Student {' & '} Visit
+              <br />
+              <strong>Total Student: 11833</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CRow>
+                <CCol xs={24} md={12} xl={12}>
+                  <CRow>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-info py-1 px-3">
+                        <div className="fs-5 fw-semibold">Sr .LPO</div>
+                        <div className="text-medium-emphasis small">#Visited: 5123</div>
                       </div>
-                    </div>
-                  ))}
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">LPO</div>
+                        <div className="text-medium-emphasis small">#Visited: 7135</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">LF</div>
+                        <div className="text-medium-emphasis small">#Visited: 10135</div>
+                      </div>
+                    </CCol>
+                  </CRow>
+                </CCol>
+              </CRow>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+      <CRow>
+        <CCol xs>
+          <CCard className="mb-4">
+            <CCardHeader>
+              Status
+              <br />
+              <strong>Total School: 137</strong>
+              <br />
+              <strong>Total Library: 833</strong>
+              <br />
+              <strong>Total Teacher: 1083</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CRow>
+                <CCol xs={24} md={12} xl={12}>
+                  <CRow>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-info py-1 px-3">
+                        <div className="fs-5 fw-semibold">School</div>
+                        <div className="text-medium-emphasis small">#Developing: 100</div>
+                        <div className="text-medium-emphasis small">#Functioning: 150</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 200</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Library</div>
+                        <div className="text-medium-emphasis small">#Developing: 700</div>
+                        <div className="text-medium-emphasis small">#Functioning: 150</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 300</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Teacher</div>
+                        <div className="text-medium-emphasis small">#Developing: 400</div>
+                        <div className="text-medium-emphasis small">#Functioning: 250</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 100</div>
+                      </div>
+                    </CCol>
+                  </CRow>
                 </CCol>
               </CRow>
 
-              <br />
+              {/* <br />
 
               <CTable align="middle" className="mb-0 border" hover responsive>
                 <CTableHead color="light">
@@ -405,11 +521,11 @@ const Dashboard = () => {
                     <CTableHeaderCell className="text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
-                    <CTableHeaderCell>User</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Country</CTableHeaderCell>
-                    <CTableHeaderCell>Usage</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Payment Method</CTableHeaderCell>
-                    <CTableHeaderCell>Activity</CTableHeaderCell>
+                    <CTableHeaderCell>Employee</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Area</CTableHeaderCell>
+                    <CTableHeaderCell>Visit Rate</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">EMP ID</CTableHeaderCell>
+                    <CTableHeaderCell>View</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
@@ -449,7 +565,7 @@ const Dashboard = () => {
                     </CTableRow>
                   ))}
                 </CTableBody>
-              </CTable>
+              </CTable> */}
             </CCardBody>
           </CCard>
         </CCol>

@@ -1,5 +1,5 @@
 export const logo = [
-  '608 134',
+  '160 160',
   `
   <title>coreui react pro</title>
   <g>

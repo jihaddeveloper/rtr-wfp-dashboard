@@ -5,6 +5,9 @@ const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 // Base
+const AllSchool = React.lazy(() => import('./views/base/school/AllSchool'))
+const AllBCO = React.lazy(() => import('./views/base/bco/AllBCO'))
+
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/base/cards/Cards'))
@@ -49,6 +52,12 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
+
+// Report
+const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
+const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
+const UkhiyaReport = React.lazy(() => import('./views/base/bco/UkhiyaReport'))
+const KutubdiaReport = React.lazy(() => import('./views/base/bco/KutubdiaReport'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -95,6 +104,14 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+
+  { path: '/school/allschool', name: 'AllSchool', element: AllSchool },
+
+  { path: '/bco/allbco', name: 'AllBCO', element: AllBCO },
+  { path: '/bco/wfp-summarize', name: 'WFPSummarize', element: WFPSummarizeBCO },
+  { path: '/bco/cfo-analysis', name: 'CFOAnalysisBCO', element: CFOAnalysisBCO },
+  { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
+  { path: '/bco/ukhiya-report', name: 'UkhiyaReport', element: UkhiyaReport },
 ]
 
 export default routes
