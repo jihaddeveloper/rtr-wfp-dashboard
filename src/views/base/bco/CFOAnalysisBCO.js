@@ -49,6 +49,8 @@ const CFOAnalysisBCO = () => {
 
   const [checkbox1, setCheckbox1] = React.useState('')
 
+  let [currentData, setCurrentData] = useState([])
+
   const showLogs2 = (e) => {
     setCheckbox1(e)
   }
@@ -65,6 +67,21 @@ const CFOAnalysisBCO = () => {
         },
       })
       setAllBCOData(response.data)
+
+      let allData = response.data.filter(
+        (item) => new Date(item.date).getMonth() === new Date().getMonth(),
+      )
+
+      allData.forEach((item) => {
+        item.avarageBCO = item.schoolTotalNoStudentBC / item.schoolTotalNoStudent
+        item.percentStudentBCO = (item.schoolTotalNoStudentBC * 100) / item.schoolTotalNoStudent
+        item.percentStudentBCI = (item.schoolTotalNoStudentBCIn * 100) / item.schoolTotalNoStudent
+        item.percentGirlsBCO = (item.schoolTotalNoGirlBC * 100) / item.schoolTotalNoGirl
+        item.percentBoysBCO = (item.schoolTotalNoBoyBC * 100) / item.schoolTotalNoBoy
+      })
+
+      setCurrentData(allData)
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -73,15 +90,17 @@ const CFOAnalysisBCO = () => {
   }
 
   const pushReportData = async () => {
-    setReportData(allBCOData)
+    currentData = allBCOData.filter(
+      (item) => new Date(item.date).getMonth() === new Date().getMonth(),
+    )
 
-    console.log(reportData)
+    setReportData(currentData)
   }
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    pushReportData(console.log('pushReportData called'))
+    //pushReportData(console.log('pushReportData called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
@@ -100,21 +119,23 @@ const CFOAnalysisBCO = () => {
             <MaterialTable
               title=""
               columns={[
-                // { title: 'Sl', field: 'id' },
+                //{ title: 'Sl', field: 'id' },
                 { title: 'Name of School', field: 'school' },
                 { title: 'Total Student', field: 'schoolTotalNoStudent' },
+                { title: 'Total Girls', field: 'schoolTotalNoGirl' },
+                { title: 'Total Boys', field: 'schoolTotalNoBoy' },
                 { title: 'Total BCO', field: 'schoolTotalNoStudentBC' },
                 { title: 'Total BCI', field: 'schoolTotalNoStudentBCIn' },
-                { title: '# of BCO happend', field: '' },
-                { title: '# of Students checkedbout', field: 'schoolTotalNoStudentBC' },
-                { title: '% of Students checked out books', field: '' },
-                { title: '# of Girls checkedbout books', field: '' },
-                { title: '% of Girls checked out books', field: '' },
-                { title: '# of Boys checkedbout books', field: '' },
-                { title: '% of Boys checked out books', field: '' },
+                { title: 'Avarage BCO per Child', field: 'avarageBCO' },
+                { title: '# of Students checked out Books', field: 'schoolTotalNoStudentBC' },
+                { title: '% of Students checked out Books', field: 'percentStudentCO' },
+                { title: '# of Students checked in Books', field: 'schoolTotalNoStudentBCIn' },
+                { title: '% of Students checked in Books', field: 'percentStudentBCI' },
+                { title: '# of Girls checkedbout books', field: 'schoolTotalNoGirlBC' },
+                { title: '% of Girls checked out books', field: 'percentGirlsBCO' },
+                { title: '# of Boys checkedbout books', field: 'schoolTotalNoBoyBC' },
+                { title: '% of Boys checked out books', field: 'percentBoysBCO' },
                 { title: '# of  Total Special Child', field: 'schoolTotalNoSpStudent' },
-                { title: '# of Special Child Girl', field: '' },
-                { title: '# of Special Child Boy', field: '' },
                 { title: '# of BCO by Special Child', field: 'schoolTotalNoSpStudentBC' },
                 { title: 'Respective LF', field: 'lf' },
                 { title: 'Respective LF', field: 'lpo' },
@@ -150,7 +171,7 @@ const CFOAnalysisBCO = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={allBCOData}
+              data={currentData}
             />
           </CCardBody>
         </CCard>
