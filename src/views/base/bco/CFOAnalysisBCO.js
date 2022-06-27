@@ -72,12 +72,21 @@ const CFOAnalysisBCO = () => {
         (item) => new Date(item.date).getMonth() === new Date().getMonth(),
       )
 
+      // Set some cumulated value
       allData.forEach((item) => {
-        item.avarageBCO = item.schoolTotalNoStudentBC / item.schoolTotalNoStudent
-        item.percentStudentBCO = (item.schoolTotalNoStudentBC * 100) / item.schoolTotalNoStudent
-        item.percentStudentBCI = (item.schoolTotalNoStudentBCIn * 100) / item.schoolTotalNoStudent
-        item.percentGirlsBCO = (item.schoolTotalNoGirlBC * 100) / item.schoolTotalNoGirl
-        item.percentBoysBCO = (item.schoolTotalNoBoyBC * 100) / item.schoolTotalNoBoy
+        item.avarageBCO = (item.schoolTotalNoStudentBC / item.schoolTotalNoStudent).toFixed(2)
+        item.percentStudentBCO = (
+          (item.schoolTotalNoStudentBC * 100) /
+          item.schoolTotalNoStudent
+        ).toFixed(2)
+        item.percentStudentBCI = (
+          (item.schoolTotalNoStudentBCIn * 100) /
+          item.schoolTotalNoStudent
+        ).toFixed(2)
+        item.percentGirlsBCO = ((item.schoolTotalNoGirlBC * 100) / item.schoolTotalNoGirl).toFixed(
+          2,
+        )
+        item.percentBoysBCO = ((item.schoolTotalNoBoyBC * 100) / item.schoolTotalNoBoy).toFixed(2)
       })
 
       setCurrentData(allData)
@@ -91,7 +100,7 @@ const CFOAnalysisBCO = () => {
 
   const pushReportData = async () => {
     currentData = allBCOData.filter(
-      (item) => new Date(item.date).getMonth() === new Date().getMonth(),
+      (item) => new Date(item.createDate).getMonth() === new Date().getMonth(),
     )
 
     setReportData(currentData)
@@ -112,7 +121,7 @@ const CFOAnalysisBCO = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>CFO Analysis Data</strong>
+            <strong>CFO Analysis Data For Current Month</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
@@ -128,7 +137,7 @@ const CFOAnalysisBCO = () => {
                 { title: 'Total BCI', field: 'schoolTotalNoStudentBCIn' },
                 { title: 'Avarage BCO per Child', field: 'avarageBCO' },
                 { title: '# of Students checked out Books', field: 'schoolTotalNoStudentBC' },
-                { title: '% of Students checked out Books', field: 'percentStudentCO' },
+                { title: '% of Students checked out Books', field: 'percentStudentBCO' },
                 { title: '# of Students checked in Books', field: 'schoolTotalNoStudentBCIn' },
                 { title: '% of Students checked in Books', field: 'percentStudentBCI' },
                 { title: '# of Girls checkedbout books', field: 'schoolTotalNoGirlBC' },
@@ -146,6 +155,7 @@ const CFOAnalysisBCO = () => {
                 grouping: false,
                 sorting: false,
                 search: false,
+                paging: false,
                 pageSize: 10,
                 pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '550px',
@@ -172,6 +182,15 @@ const CFOAnalysisBCO = () => {
                 },
               }}
               data={currentData}
+              footerData={[{ school: '', schoolTotalNoStudent: 1000 }]}
+              renderSummaryRow={({ column, data }) =>
+                column.field === 'schoolTotalNoStudent'
+                  ? {
+                      value: data.reduce((agg, row) => agg + row.schoolTotalNoStudent, 0),
+                      style: { background: 'red' },
+                    }
+                  : undefined
+              }
             />
           </CCardBody>
         </CCard>

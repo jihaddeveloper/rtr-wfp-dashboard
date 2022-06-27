@@ -80,7 +80,7 @@ const KutubdiaReport = () => {
   const currentDate = new Date()
   const kutubdiaReportData = allBCOData.filter(
     (item) =>
-      item.upazilla == 'Kutubdia' && new Date(item.date).getMonth() == currentDate.getMonth(),
+      item.upazilla == 'Kutubdia' && new Date(item.createDate).getMonth() == currentDate.getMonth(),
   )
 
   return (
@@ -263,6 +263,7 @@ const KutubdiaReport = () => {
                 grouping: false,
                 sorting: false,
                 search: false,
+                paging: false,
                 pageSize: 10,
                 pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '550px',

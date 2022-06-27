@@ -78,7 +78,8 @@ const UkhiyaReport = () => {
 
   // Generate current month repoort for Ukhiye
   const ukhiyaReportData = allBCOData.filter(
-    (item) => item.upazilla == 'Ukhiya' && new Date(item.date).getMonth() == new Date().getMonth(),
+    (item) =>
+      item.upazilla == 'Ukhiya' && new Date(item.createDate).getMonth() == new Date().getMonth(),
   )
 
   return (
@@ -261,6 +262,7 @@ const UkhiyaReport = () => {
                 grouping: false,
                 sorting: false,
                 search: false,
+                paging: false,
                 pageSize: 10,
                 pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '550px',

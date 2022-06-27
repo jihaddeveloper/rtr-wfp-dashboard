@@ -57,6 +57,8 @@ const WFPSummarizeBCO = () => {
   let uNoBCOPerStudent = 0
   let uNoStudentBCO = 0
   let uPercentStudentBCO = 0
+  let uNoStudentBCI = 0
+  let uPercentStudentBCI = 0
   let uNoGirlBCO = 0
   let uPercentGirlBCO = 0
   let uNoBoyBCO = 0
@@ -72,6 +74,8 @@ const WFPSummarizeBCO = () => {
   let kNoBCOPerStudent = 0
   let kNoStudentBCO = 0
   let kPercentStudentBCO = 0
+  let kNoStudentBCI = 0
+  let kPercentStudentBCI = 0
   let kNoGirlBCO = 0
   let kPercentGirlBCO = 0
   let kNoBoyBCO = 0
@@ -87,6 +91,8 @@ const WFPSummarizeBCO = () => {
   let cfoNoBCOPerStudent = 0
   let cfoNoStudentBCO = 0
   let cfoPercentStudentBCO = 0
+  let cfoNoStudentBCI = 0
+  let cfoPercentStudentBCI = 0
   let cfoNoGirlBCO = 0
   let cfoPercentGirlBCO = 0
   let cfoNoBoyBCO = 0
@@ -120,14 +126,15 @@ const WFPSummarizeBCO = () => {
       setUkhiyaReportData(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         ),
       )
       setKutubdiaReportData(
         response.data.filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         ),
       )
       // console.log('Ukhiya Data Length: ' + ukhiyaReportData.length)
@@ -137,7 +144,8 @@ const WFPSummarizeBCO = () => {
       uTotalStudent = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -149,7 +157,7 @@ const WFPSummarizeBCO = () => {
           (item) =>
             item.schoolTotalNoStudentBC != 0 &&
             item.upazilla === 'Ukhiya' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
         .reduce(function (acc, value) {
@@ -159,20 +167,21 @@ const WFPSummarizeBCO = () => {
       uTotalBookCheckin = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      uNoBCOPerStudent =
+      uNoBCOPerStudent = (
         response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
@@ -188,24 +197,26 @@ const WFPSummarizeBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       uNoStudentBCO = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      uPercentStudentBCO =
+      uPercentStudentBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
@@ -216,30 +227,32 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       uNoGirlBCO = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      uPercentGirlBCO =
+      uPercentGirlBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
@@ -250,30 +263,32 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       uNoBoyBCO = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      uPercentBoyBCO =
+      uPercentBoyBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
@@ -284,24 +299,25 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       uNoSchoolBCO = response.data.filter(
         (item) =>
           item.schoolTotalNoStudentBC != 0 &&
           item.upazilla === 'Ukhiya' &&
-          new Date(item.date).getMonth() === new Date().getMonth(),
+          new Date(item.createDate).getMonth() === new Date().getMonth(),
       ).length
 
       uNoSchoolZeroBCO = response.data.filter(
         (item) =>
           item.upazilla === 'Ukhiya' &&
-          new Date(item.date).getMonth() === new Date().getMonth() &&
+          new Date(item.createDate).getMonth() === new Date().getMonth() &&
           item.schoolTotalNoStudentBC === 0,
       ).length
       // Ukhiya
@@ -311,7 +327,7 @@ const WFPSummarizeBCO = () => {
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -323,7 +339,7 @@ const WFPSummarizeBCO = () => {
           (item) =>
             item.schoolTotalNoStudentBC != 0 &&
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
         .reduce(function (acc, value) {
@@ -334,20 +350,20 @@ const WFPSummarizeBCO = () => {
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      kNoBCOPerStudent =
+      kNoBCOPerStudent = (
         response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
@@ -358,30 +374,31 @@ const WFPSummarizeBCO = () => {
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       kNoStudentBCO = response.data
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      kPercentStudentBCO =
+      kPercentStudentBCO = (
         (response.data
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
@@ -392,30 +409,31 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       kNoGirlBCO = response.data
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      kPercentGirlBCO =
+      kPercentGirlBCO = (
         (response.data
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
@@ -426,30 +444,31 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       kNoBoyBCO = response.data
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+            new Date(item.createDate).getMonth() === new Date().getMonth(),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      kPercentBoyBCO =
+      kPercentBoyBCO = (
         (response.data
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
@@ -460,22 +479,24 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
 
       kNoSchoolBCO = response.data.filter(
         (item) =>
-          item.upazilla === 'Kutubdia' && new Date(item.date).getMonth() === new Date().getMonth(),
+          item.upazilla === 'Kutubdia' &&
+          new Date(item.createDate).getMonth() === new Date().getMonth(),
       ).length
 
       kNoSchoolZeroBCO = response.data.filter(
         (item) =>
           item.upazilla === 'Kutubdia' &&
-          new Date(item.date).getMonth() === new Date().getMonth() &&
+          new Date(item.createDate).getMonth() === new Date().getMonth() &&
           item.schoolTotalNoStudentBC === 0,
       ).length
       //Kutubdia
@@ -484,12 +505,12 @@ const WFPSummarizeBCO = () => {
       cfoTotalStudent = kTotalStudent + uTotalStudent
       cfoTotalBookCheckout = kTotalBookCheckout + uTotalBookCheckout
       cfoTotalBookCheckin = kTotalBookCheckin + uTotalBookCheckin
-      cfoNoBCOPerStudent =
+      cfoNoBCOPerStudent = (
         response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
@@ -499,19 +520,20 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
       cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
-      cfoPercentStudentBCO =
+      cfoPercentStudentBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
@@ -522,19 +544,20 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
       cfoNoGirlBCO = kNoGirlBCO + uNoGirlBCO
-      cfoPercentGirlBCO =
+      cfoPercentGirlBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
@@ -545,19 +568,20 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
       cfoNoBoyBCO = kNoBoyBCO + uNoBoyBCO
-      cfoPercentBoyBCO =
+      cfoPercentBoyBCO = (
         (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
@@ -568,12 +592,13 @@ const WFPSummarizeBCO = () => {
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC != 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth(),
+              new Date(item.createDate).getMonth() === new Date().getMonth(),
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
           })
+      ).toFixed(2)
       cfoNoSchoolBCO = kNoSchoolBCO + uNoSchoolBCO
       cfoNoSchoolZeroBCO = kNoSchoolZeroBCO + uNoSchoolZeroBCO
       // CFO
@@ -589,7 +614,7 @@ const WFPSummarizeBCO = () => {
     const reportObject = [
       {
         sl: 1,
-        area: 'Total Students(Grade 1-5)',
+        area: 'Total Students( PriPraimary - 5)',
         kutubdia: kTotalStudent,
         ukhiya: uTotalStudent,
         cfo: cfoTotalStudent,
@@ -610,14 +635,14 @@ const WFPSummarizeBCO = () => {
       },
       {
         sl: 4,
-        area: 'Number of BCO happend per student',
+        area: 'Average Books Read by Per Child',
         kutubdia: kNoBCOPerStudent,
         ukhiya: uNoBCOPerStudent,
         cfo: cfoNoBCOPerStudent,
       },
       {
         sl: 5,
-        area: 'Number of Students checked out books',
+        area: '# of Students checked out books',
         kutubdia: kNoStudentBCO,
         ukhiya: uNoStudentBCO,
         cfo: cfoNoStudentBCO,
@@ -720,7 +745,7 @@ const WFPSummarizeBCO = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>WFP Summarize Report</strong>
+            <strong>WFP Summarize Report For Current Month</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
@@ -740,6 +765,7 @@ const WFPSummarizeBCO = () => {
                 grouping: false,
                 sorting: false,
                 search: false,
+                paging: false,
                 pageSize: 12,
                 pageSizeOptions: [12, 24, 36],
                 maxBodyHeight: '550px',
