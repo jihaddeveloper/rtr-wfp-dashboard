@@ -175,29 +175,29 @@ const UkhiyaReport = () => {
                 { title: 'C-5 #Book Total Checkout', field: 'classFiveNoBookTotalBC' },
 
                 // Book checkin information
-                { title: 'C-PP #Book Boys Checkin', field: 'district' },
-                { title: 'C-PP #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-PP #Book Total Checkin', field: 'visitor' },
+                { title: 'C-PP #Book Boys Checkin', field: 'priPrimaryNoBookBoyBCIn' },
+                { title: 'C-PP #Book Girls Checkin', field: 'priPrimaryNoBookGirlBCIn' },
+                { title: 'C-PP #Book Total Checkin', field: 'priPrimaryNoBookTotalBCIn' },
 
-                { title: 'C-1 #Book Boys Checkin', field: 'district' },
-                { title: 'C-1 #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-1 #Book Total Checkin', field: 'visitor' },
+                { title: 'C-1 #Book Boys Checkin', field: 'classOneNoBookBoyBCIn' },
+                { title: 'C-1 #Book Girls Checkin', field: 'classOneNoBookGirlBCIn' },
+                { title: 'C-1 #Book Total Checkin', field: 'classOneNoBookTotalBCIn' },
 
-                { title: 'C-2 #Book Boys Checkin', field: 'district' },
-                { title: 'C-2 #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-2 #Book Total Checkin', field: 'visitor' },
+                { title: 'C-2 #Book Boys Checkin', field: 'classTwoNoBookBoyBCIn' },
+                { title: 'C-2 #Book Girls Checkin', field: 'classTwoNoBookGirlBCIn' },
+                { title: 'C-2 #Book Total Checkin', field: 'classTwoNoBookTotalBCIn' },
 
-                { title: 'C-3 #Book Boys Checkin', field: 'district' },
-                { title: 'C-3 #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-3 #Book Total Checkin', field: 'visitor' },
+                { title: 'C-3 #Book Boys Checkin', field: 'classThreeNoBookBoyBCIn' },
+                { title: 'C-3 #Book Girls Checkin', field: 'classThreeNoBookGirlBCIn' },
+                { title: 'C-3 #Book Total Checkin', field: 'classThreeNoBookTotalBCIn' },
 
-                { title: 'C-4 #Book Boys Checkin', field: 'district' },
-                { title: 'C-4 #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-4 #Book Total Checkin', field: 'visitor' },
+                { title: 'C-4 #Book Boys Checkin', field: 'classFourNoBookBoyBCIn' },
+                { title: 'C-4 #Book Girls Checkin', field: 'classFourNoBookGirlBCIn' },
+                { title: 'C-4 #Book Total Checkin', field: 'classFourNoBookTotalBCIn' },
 
-                { title: 'C-5 #Book Boys Checkin', field: 'district' },
-                { title: 'C-5 #Book Girls Checkin', field: 'upazilla' },
-                { title: 'C-5 #Book Total Checkin', field: 'visitor' },
+                { title: 'C-5 #Book Boys Checkin', field: 'classFiveNoBookBoyBCIn' },
+                { title: 'C-5 #Book Girls Checkin', field: 'classFiveNoBookGirlBCIn' },
+                { title: 'C-5 #Book Total Checkin', field: 'classFiveNoBookTotalBCIn' },
 
                 // Special Need Student enrollment information
                 { title: 'C-PP SP #Boys ', field: 'priPrimarySpBoy' },
