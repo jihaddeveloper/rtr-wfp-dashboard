@@ -69,7 +69,7 @@ const CFOAnalysisBCO = () => {
       setAllBCOData(response.data)
 
       let allData = response.data.filter(
-        (item) => new Date(item.date).getMonth() === new Date().getMonth(),
+        (item) => new Date(item.createDate).getMonth() === new Date().getMonth(),
       )
 
       // Set some cumulated value
@@ -98,13 +98,13 @@ const CFOAnalysisBCO = () => {
     }
   }
 
-  const pushReportData = async () => {
-    currentData = allBCOData.filter(
-      (item) => new Date(item.createDate).getMonth() === new Date().getMonth(),
-    )
+  // const pushReportData = async () => {
+  //   currentData = allBCOData.filter(
+  //     (item) => new Date(item.createDate).getMonth() === new Date().getMonth(),
+  //   )
 
-    setReportData(currentData)
-  }
+  //   setReportData(currentData)
+  // }
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
