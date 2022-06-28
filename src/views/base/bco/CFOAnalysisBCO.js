@@ -51,6 +51,11 @@ const CFOAnalysisBCO = () => {
 
   let [currentData, setCurrentData] = useState([])
 
+  // Get previous month
+  const current = new Date()
+  current.setMonth(current.getMonth() - 1)
+  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
   const showLogs2 = (e) => {
     setCheckbox1(e)
   }
@@ -121,7 +126,10 @@ const CFOAnalysisBCO = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>CFO Analysis Data For Current Month</strong>
+            <strong>
+              CFO Analysis Data For_
+              {previousMonth}
+            </strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>

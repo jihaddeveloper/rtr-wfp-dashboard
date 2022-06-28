@@ -50,6 +50,11 @@ const WFPSummarizeBCO = () => {
   // Report Data Kutubdia
   const [kutubdiaReportData, setKutubdiaReportData] = useState([])
 
+  // Get previous month
+  const current = new Date()
+  current.setMonth(current.getMonth() - 1)
+  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
   // Ukhiya Data
   let uTotalStudent = 0
   let uTotalBookCheckout = 0
@@ -745,7 +750,10 @@ const WFPSummarizeBCO = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>WFP Summarize Report For Current Month</strong>
+            <strong>
+              WFP Summarize Report_
+              {previousMonth}
+            </strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>

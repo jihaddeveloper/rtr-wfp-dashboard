@@ -46,6 +46,11 @@ const KutubdiaReport = () => {
 
   const [checkbox1, setCheckbox1] = React.useState('')
 
+  // Get previous month
+  const current = new Date()
+  current.setMonth(current.getMonth() - 1)
+  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
   const showLogs2 = (e) => {
     setCheckbox1(e)
   }
@@ -91,7 +96,9 @@ const KutubdiaReport = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Kutubdia Report (Total {kutubdiaReportData.length})</strong>
+            <strong>
+              Kutubdia Report (Total {kutubdiaReportData.length}) {previousMonth}
+            </strong>
             {/* <strong>{ukhiyaReportData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
