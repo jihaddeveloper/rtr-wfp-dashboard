@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import {
   CAvatar,
   CButton,
@@ -17,6 +17,7 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CLink,
 } from '@coreui/react'
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
@@ -56,6 +57,101 @@ import WidgetsDropdown from '../widgets/WidgetsDropdown'
 import WidgetsDropdown2 from '../widgets/WidgetsDropDown2'
 
 const Dashboard = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [allBCOdata, setAllBCOdata] = useState([])
+  const [allSchoolData, setAllSchoolData] = useState([])
+  const [allTeacherData, setAllTeacherData] = useState([])
+  const [allEmployeeData, setAllEmployeeData] = useState([])
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    console.log('use effect called')
+    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+    getAllSchool(console.log('get all school called'))
+    getAllTeacher(console.log('get all teacher called'))
+    getAllEmployee(console.log('get all employee called'))
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+  // Get All School Data
+  const getAllSchool = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/schools', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School Data
+
+  // Get All Employee Data
+  const getAllEmployee = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllEmployeeData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Employee Data
+
+  // Get All Teacher
+  const getAllTeacher = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllTeacherData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Teacher
+
+  // Get All Book-checkout Data for school
+  const getAllBookCheckoutSchool = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllBCOdata(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Book-checkout Data for school
+
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
   const progressExample = [
@@ -187,11 +283,11 @@ const Dashboard = () => {
           <CRow>
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
-                Basic Information
+                Demo Basic Information
               </h4>
               <div className="small text-medium-emphasis">January - July 2022</div>
             </CCol>
-            <CCol sm={7} className="d-none d-md-block">
+            {/* <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
                 <CIcon icon={cilCloudDownload} />
               </CButton>
@@ -207,7 +303,7 @@ const Dashboard = () => {
                   </CButton>
                 ))}
               </CButtonGroup>
-            </CCol>
+            </CCol> */}
           </CRow>
           <CChartLine
             style={{ height: '300px', marginTop: '40px' }}
@@ -324,22 +420,28 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-info py-1 px-3">
-                        <div className="fs-5 fw-semibold">Library Observation</div>
-                        <div className="text-medium-emphasis small">Total Visited: 0</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-info py-1 px-3">
+                          <div className="fs-5 fw-semibold">Library Observation</div>
+                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                        </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">BCO/I School</div>
-                        <div className="text-medium-emphasis small">Total Visited: 132</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">BCO/I School</div>
+                          <div className="text-medium-emphasis small">Total Visited: 132</div>
+                        </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">BCO/I Community</div>
-                        <div className="text-medium-emphasis small">Total Visited: 0</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">BCO/I Community</div>
+                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                        </div>
+                      </CLink>
                     </CCol>
                   </CRow>
                 </CCol>
@@ -347,22 +449,28 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Bangla Class</div>
-                        <div className="text-medium-emphasis small">Total Visited: 0</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">Bangla Class</div>
+                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                        </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Library SRM</div>
-                        <div className="text-medium-emphasis small">Total Visited: 0</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">Library SRM</div>
+                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                        </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Overall School</div>
-                        <div className="text-medium-emphasis small">Total Visited: 0</div>
-                      </div>
+                      <CLink href="/bco/allbco">
+                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">Overall School</div>
+                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                        </div>
+                      </CLink>
                     </CCol>
                   </CRow>
                 </CCol>

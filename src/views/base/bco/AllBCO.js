@@ -585,7 +585,26 @@ const AllBCO = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>BCO Data</strong>
+            <strong>Report</strong>
+          </CCardHeader>
+          <CCardBody>
+            <CButton color="primary" href="/bco/wfp-summarize">
+              WFP Summarize Report
+            </CButton>
+            <CButton color="secondary" href="/bco/cfo-analysis">
+              CFO Analysis Report
+            </CButton>
+            <CButton color="success" href="/bco/ukhiya-report">
+              Ukhiya Report
+            </CButton>
+            <CButton color="warning" href="/bco/kutubdia-report">
+              Kutubdia Report
+            </CButton>
+          </CCardBody>
+        </CCard>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>ALL BCO Data</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
