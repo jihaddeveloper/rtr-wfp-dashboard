@@ -413,7 +413,7 @@ const Dashboard = () => {
             <CCardHeader>
               School {' & '} Visit
               <br />
-              <strong>Total School: 132</strong>
+              <strong>Total School: {allSchoolData.length}</strong>
             </CCardHeader>
             <CCardBody>
               <CRow>
@@ -431,7 +431,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">BCO/I School</div>
-                          <div className="text-medium-emphasis small">Total Visited: 132</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited: {allSchoolData.length}
+                          </div>
                         </div>
                       </CLink>
                     </CCol>

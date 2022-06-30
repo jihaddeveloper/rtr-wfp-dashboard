@@ -202,14 +202,14 @@ const WidgetsDropdown = () => {
         </CLink>
       </CCol>
       <CCol sm={6} lg={3}>
-        <CLink href="/school/allschool">
+        <CLink href="/teacher/all-teacher">
           <CWidgetStatsA
             className="mb-4"
             color="info"
             value="Teacher"
             title={
               <>
-                {allBCOdata.length} <span className="fs-6 fw-normal">(Total)</span>
+                {allTeacherData.length} <span className="fs-6 fw-normal">(Total)</span>
               </>
             }
             action={

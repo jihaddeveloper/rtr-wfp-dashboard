@@ -69,7 +69,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'All Teacher',
-        to: '/base/accordion',
+        to: '/teacher/all-teacher',
       },
       {
         component: CNavItem,
@@ -87,7 +87,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'All Teacher',
-        to: '/base/accordion',
+        to: '/teacher/all-teacher',
       },
       {
         component: CNavItem,
@@ -104,7 +104,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Teacher',
+        name: 'All Library',
         to: '/base/accordion',
       },
       {
@@ -123,7 +123,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'All Employee',
-        to: '/base/accordion',
+        to: '/employee/all-employee',
       },
       {
         component: CNavItem,

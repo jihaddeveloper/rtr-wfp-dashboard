@@ -7,6 +7,8 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 // Base
 const AllSchool = React.lazy(() => import('./views/base/school/AllSchool'))
 const AllBCO = React.lazy(() => import('./views/base/bco/AllBCO'))
+const AllTeacher = React.lazy(() => import('./views/base/teacher/AllTeacher'))
+const AllEmployee = React.lazy(() => import('./views/base/employee/AllEmployee'))
 
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
@@ -112,6 +114,9 @@ const routes = [
   { path: '/bco/cfo-analysis', name: 'CFOAnalysisBCO', element: CFOAnalysisBCO },
   { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
   { path: '/bco/ukhiya-report', name: 'UkhiyaReport', element: UkhiyaReport },
+
+  { path: '/teacher/all-teacher', name: 'AllTeacher', element: AllTeacher },
+  { path: '/employee/all-employee', name: 'AllEmployee', element: AllEmployee },
 ]
 
 export default routes
