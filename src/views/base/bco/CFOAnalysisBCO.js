@@ -53,7 +53,7 @@ const CFOAnalysisBCO = () => {
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 1)
+  current.setMonth(current.getMonth() - 2)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   const showLogs2 = (e) => {
@@ -74,7 +74,7 @@ const CFOAnalysisBCO = () => {
       setAllBCOData(response.data)
 
       let allData = response.data.filter(
-        (item) => new Date(item.createDate).getMonth() === new Date().getMonth(),
+        (item) => new Date(item.date).getMonth() === new Date().getMonth() - 1,
       )
 
       // Set some cumulated value

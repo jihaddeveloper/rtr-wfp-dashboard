@@ -48,7 +48,7 @@ const UkhiyaReport = () => {
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 1)
+  current.setMonth(current.getMonth() - 2)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   const showLogs2 = (e) => {
@@ -84,7 +84,7 @@ const UkhiyaReport = () => {
   // Generate current month repoort for Ukhiye
   const ukhiyaReportData = allBCOData.filter(
     (item) =>
-      item.upazilla == 'Ukhiya' && new Date(item.createDate).getMonth() == new Date().getMonth(),
+      item.upazilla == 'Ukhiya' && new Date(item.date).getMonth() == new Date().getMonth() - 1,
   )
 
   return (
