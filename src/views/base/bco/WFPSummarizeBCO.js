@@ -4,6 +4,7 @@ import { MDBDataTableV5 } from 'mdbreact'
 import idLocale from 'date-fns/locale/id'
 
 import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import {
   CCard,
@@ -149,6 +150,9 @@ const WFPSummarizeBCO = () => {
             new Date(item.date).getMonth() === new Date().getMonth(),
         ),
       )
+
+      console.log('selected date:' + selectedDate)
+
       // console.log('Ukhiya Data Length: ' + ukhiyaReportData.length)
       // console.log('Kutubdia Data Length: ' + kutubdiaReportData.length)
 
@@ -775,18 +779,14 @@ const WFPSummarizeBCO = () => {
           </CCardBody>
           <CCardBody>
             <strong>Select date</strong>
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              scrollableYearDropdown
-              showMonthDropdown
-              popperProps={{
-                strategy: 'fixed', // use this to make the popper position: fixed
-              }}
-            />
+            <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
           </CCardBody>
         </CCard>
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>
