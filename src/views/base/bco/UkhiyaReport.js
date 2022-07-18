@@ -44,16 +44,10 @@ const UkhiyaReport = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
-  const [checkbox1, setCheckbox1] = React.useState('')
-
   // Get previous month
   const current = new Date()
   current.setMonth(current.getMonth() - 2)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
-
-  const showLogs2 = (e) => {
-    setCheckbox1(e)
-  }
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
@@ -281,6 +275,7 @@ const UkhiyaReport = () => {
                   field: 'lf',
                   type: 'string',
                 },
+                { title: 'Visitor/LF', field: 'visitor' },
               ]}
               options={{
                 exportButton: true,

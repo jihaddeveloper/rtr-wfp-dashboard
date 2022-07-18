@@ -251,6 +251,42 @@ const WFPSummarizeBCO = () => {
           })
       ).toFixed(2)
 
+      uNoStudentBCI = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentStudentBCI = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC != 0 &&
+              item.upazilla === 'Ukhiya' &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
       uNoGirlBCO = response.data
         .filter(
           (item) =>
@@ -433,6 +469,41 @@ const WFPSummarizeBCO = () => {
           })
       ).toFixed(2)
 
+      kNoStudentBCI = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentStudentBCI = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
       kNoGirlBCO = response.data
         .filter(
           (item) =>
@@ -567,6 +638,31 @@ const WFPSummarizeBCO = () => {
             return acc + value
           })
       ).toFixed(2)
+
+      cfoNoStudentBCI = kNoStudentBCI + uNoStudentBCI
+      cfoPercentStudentBCI = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC != 0 &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC != 0 &&
+              new Date(item.date).getMonth() === new Date().getMonth() - 1,
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
       cfoNoGirlBCO = kNoGirlBCO + uNoGirlBCO
       cfoPercentGirlBCO = (
         (response.data
@@ -672,41 +768,55 @@ const WFPSummarizeBCO = () => {
       },
       {
         sl: 7,
+        area: '# of Students checked in books',
+        kutubdia: kNoStudentBCI,
+        ukhiya: uNoStudentBCI,
+        cfo: cfoNoStudentBCI,
+      },
+      {
+        sl: 8,
+        area: '% of Students checked in books',
+        kutubdia: kPercentStudentBCI,
+        ukhiya: uPercentStudentBCI,
+        cfo: cfoPercentStudentBCI,
+      },
+      {
+        sl: 9,
         area: 'Number of Girls checkout book',
         kutubdia: kNoGirlBCO,
         ukhiya: uNoGirlBCO,
         cfo: cfoNoGirlBCO,
       },
       {
-        sl: 8,
+        sl: 10,
         area: '% of Girls checked out books',
         kutubdia: kPercentGirlBCO,
         ukhiya: uPercentGirlBCO,
         cfo: cfoPercentGirlBCO,
       },
       {
-        sl: 9,
+        sl: 11,
         area: 'Number of Boys checkout book',
         kutubdia: kNoBoyBCO,
         ukhiya: uNoBoyBCO,
         cfo: cfoNoBoyBCO,
       },
       {
-        sl: 10,
+        sl: 12,
         area: '% of Boys checked out books',
         kutubdia: kPercentBoyBCO,
         ukhiya: uPercentBoyBCO,
         cfo: cfoPercentBoyBCO,
       },
       {
-        sl: 11,
+        sl: 13,
         area: 'Number of School BCO',
         kutubdia: kNoSchoolBCO,
         ukhiya: uNoSchoolBCO,
         cfo: cfoNoSchoolBCO,
       },
       {
-        sl: 12,
+        sl: 14,
         area: 'Number of Zero BCO School ',
         kutubdia: kNoSchoolZeroBCO,
         ukhiya: uNoSchoolZeroBCO,

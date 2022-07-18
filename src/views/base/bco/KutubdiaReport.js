@@ -44,16 +44,10 @@ const KutubdiaReport = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
-  const [checkbox1, setCheckbox1] = React.useState('')
-
   // Get previous month
   const current = new Date()
   current.setMonth(current.getMonth() - 2)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
-
-  const showLogs2 = (e) => {
-    setCheckbox1(e)
-  }
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
@@ -81,11 +75,11 @@ const KutubdiaReport = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
-  // Generate current month repoort for Ukhiye
-  const currentDate = new Date()
+  // Generate current month repoort for Kutubdia
+
   const kutubdiaReportData = allBCOData.filter(
     (item) =>
-      item.upazilla == 'Kutubdia' && new Date(item.date).getMonth() == currentDate.getMonth() - 1,
+      item.upazilla == 'Kutubdia' && new Date(item.date).getMonth() == new Date().getMonth() - 1,
   )
 
   return (
@@ -282,6 +276,7 @@ const KutubdiaReport = () => {
                   field: 'lf',
                   type: 'string',
                 },
+                { title: 'Visitor/LF', field: 'visitor' },
               ]}
               options={{
                 exportButton: true,

@@ -79,7 +79,7 @@ const CFOAnalysisBCO = () => {
 
       // Set some cumulated value
       allData.forEach((item) => {
-        item.avarageBCO = (item.schoolTotalNoStudentBC / item.schoolTotalNoStudent).toFixed(2)
+        item.avarageBCO = (item.schoolTotalNoBookBC / item.schoolTotalNoStudent).toFixed(2)
         item.percentStudentBCO = (
           (item.schoolTotalNoStudentBC * 100) /
           item.schoolTotalNoStudent
@@ -160,8 +160,8 @@ const CFOAnalysisBCO = () => {
                 { title: 'Total Student', field: 'schoolTotalNoStudent' },
                 { title: 'Total Girls', field: 'schoolTotalNoGirl' },
                 { title: 'Total Boys', field: 'schoolTotalNoBoy' },
-                { title: 'Total BCO', field: 'schoolTotalNoStudentBC' },
-                { title: 'Total BCI', field: 'schoolTotalNoStudentBCIn' },
+                { title: 'Total BCO', field: 'schoolTotalNoBookBC' },
+                { title: 'Total BCI', field: 'schoolTotalNoBookBCIn' },
                 { title: 'Avarage BCO per Child', field: 'avarageBCO' },
                 { title: '# of Students checked out Books', field: 'schoolTotalNoStudentBC' },
                 { title: '% of Students checked out Books', field: 'percentStudentBCO' },
@@ -175,6 +175,7 @@ const CFOAnalysisBCO = () => {
                 { title: '# of BCO by Special Child', field: 'schoolTotalNoSpStudentBC' },
                 { title: 'Respective LF', field: 'lf' },
                 { title: 'Respective LF', field: 'lpo' },
+                { title: 'Visitor/LF', field: 'visitor' },
               ]}
               options={{
                 exportButton: true,
