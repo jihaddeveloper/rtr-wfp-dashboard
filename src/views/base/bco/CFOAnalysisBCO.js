@@ -157,7 +157,14 @@ const CFOAnalysisBCO = () => {
               columns={[
                 //{ title: 'Sl', field: 'id' },
                 { title: 'Name of School', field: 'school' },
-                { title: 'Total Student', field: 'schoolTotalNoStudent' },
+                {
+                  title: 'Total Student',
+                  field: 'schoolTotalNoStudent',
+                  cellStyle: {
+                    backgroundColor: '#9c988f',
+                    color: '#FFF',
+                  },
+                },
                 { title: 'Total Girls', field: 'schoolTotalNoGirl' },
                 { title: 'Total Boys', field: 'schoolTotalNoBoy' },
                 { title: 'Total BCO', field: 'schoolTotalNoBookBC' },
