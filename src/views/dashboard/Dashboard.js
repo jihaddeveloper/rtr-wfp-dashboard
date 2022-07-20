@@ -619,17 +619,17 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Library</div>
-                        <div className="text-medium-emphasis small">#Developing: 700</div>
-                        <div className="text-medium-emphasis small">#Functioning: 150</div>
-                        <div className="text-medium-emphasis small">#Highly Functioning: 300</div>
+                        <div className="text-medium-emphasis small">#Developing: 0</div>
+                        <div className="text-medium-emphasis small">#Functioning: 0</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Teacher</div>
-                        <div className="text-medium-emphasis small">#Developing: 400</div>
-                        <div className="text-medium-emphasis small">#Functioning: 250</div>
-                        <div className="text-medium-emphasis small">#Highly Functioning: 100</div>
+                        <div className="text-medium-emphasis small">#Developing: 0</div>
+                        <div className="text-medium-emphasis small">#Functioning: 0</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
                       </div>
                     </CCol>
                   </CRow>
