@@ -100,25 +100,6 @@ const AllTeacher = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CButton color="primary" href="/bco/wfp-summarize">
-              Demo Report
-            </CButton>
-            <CButton color="secondary" href="/bco/cfo-analysis">
-              Demo Report
-            </CButton>
-            <CButton color="success" href="/bco/ukhiya-report">
-              Demo Report
-            </CButton>
-            <CButton color="warning" href="/bco/kutubdia-report">
-              Demo Report
-            </CButton>
-          </CCardBody>
-        </CCard>
-        <CCard className="mb-4">
-          <CCardHeader>
             <strong>ALL Teacher Data</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
@@ -136,31 +117,31 @@ const AllTeacher = () => {
                 },
                 { title: 'Training', field: 'teacherTraining' },
               ]}
-              actions={[
-                {
-                  icon: DeleteOutline,
-                  tooltip: 'Delete BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: ViewColumn,
-                  tooltip: 'View BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: AddBox,
-                  tooltip: 'Add BCO',
-                  isFreeAction: true,
-                  onClick: (event) => alert('You want to add a new row'),
-                },
-              ]}
+              // actions={[
+              //   {
+              //     icon: DeleteOutline,
+              //     tooltip: 'Delete BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: ViewColumn,
+              //     tooltip: 'View BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: AddBox,
+              //     tooltip: 'Add BCO',
+              //     isFreeAction: true,
+              //     onClick: (event) => alert('You want to add a new row'),
+              //   },
+              // ]}
               options={{
                 exportButton: true,
                 exportAllData: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
+                pageSize: 5,
+                pageSizeOptions: [5, 10, 20],
                 maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',
@@ -173,6 +154,7 @@ const AllTeacher = () => {
                 },
                 rowStyle: {
                   fontSize: 14,
+                  backgroundColor: '#ede9df',
                 },
               }}
               data={allTeacherData}

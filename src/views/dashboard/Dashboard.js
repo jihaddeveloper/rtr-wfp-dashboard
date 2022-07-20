@@ -63,6 +63,8 @@ const Dashboard = () => {
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
 
+  const currentMonth = new Date().toLocaleString('default', { month: 'long', year: 'numeric' })
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     console.log('use effect called')
@@ -278,15 +280,16 @@ const Dashboard = () => {
   return (
     <>
       <WidgetsDropdown />
+
       <CCard className="mb-4">
         <CCardBody>
           <CRow>
-            <CCol sm={5}>
+            {/* <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
                 Demo Basic Information
               </h4>
               <div className="small text-medium-emphasis">January - July 2022</div>
-            </CCol>
+            </CCol> */}
             {/* <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
                 <CIcon icon={cilCloudDownload} />
@@ -305,7 +308,7 @@ const Dashboard = () => {
               </CButtonGroup>
             </CCol> */}
           </CRow>
-          <CChartLine
+          {/* <CChartLine
             style={{ height: '300px', marginTop: '40px' }}
             data={{
               labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -388,7 +391,7 @@ const Dashboard = () => {
                 },
               },
             }}
-          />
+          /> */}
         </CCardBody>
         {/* <CCardFooter>
           <CRow xs={{ cols: 1 }} md={{ cols: 5 }} className="text-center">
@@ -423,7 +426,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
                           <div className="fs-5 fw-semibold">Library Observation</div>
-                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -432,7 +437,7 @@ const Dashboard = () => {
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">BCO/I School</div>
                           <div className="text-medium-emphasis small">
-                            Total Visited: {allSchoolData.length}
+                            Total Visited in {currentMonth}: {allSchoolData.length}
                           </div>
                         </div>
                       </CLink>
@@ -441,7 +446,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">BCO/I Community</div>
-                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -454,7 +461,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">Bangla Class</div>
-                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -462,7 +471,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">Library SRM</div>
-                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -470,7 +481,9 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco">
                         <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                           <div className="fs-5 fw-semibold">Overall School</div>
-                          <div className="text-medium-emphasis small">Total Visited: 0</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -487,7 +500,7 @@ const Dashboard = () => {
             <CCardHeader>
               Teacher {' & '} Traning
               <br />
-              <strong>Total Teacher: 833</strong>
+              <strong>Total Teacher: {allTeacherData.length}</strong>
             </CCardHeader>
 
             <CCardBody>
@@ -497,19 +510,19 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
                         <div className="fs-5 fw-semibold">Headteacher Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 200</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Bangla G1 Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 400</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Bangla G2 Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 300</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                   </CRow>
@@ -520,19 +533,19 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Library Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 300</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Governence Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 600</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">SRM Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 200</div>
+                        <div className="text-medium-emphasis small">#Teacher: 0</div>
                       </div>
                     </CCol>
                   </CRow>
@@ -542,7 +555,7 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow>
-      <CRow>
+      {/* <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -578,18 +591,18 @@ const Dashboard = () => {
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
               Status
               <br />
-              <strong>Total School: 137</strong>
+              <strong>Total School: {allSchoolData.length}</strong>
               <br />
-              <strong>Total Library: 833</strong>
+              <strong>Total Library: 0</strong>
               <br />
-              <strong>Total Teacher: 1083</strong>
+              <strong>Total Teacher: {allTeacherData.length}</strong>
             </CCardHeader>
             <CCardBody>
               <CRow>
@@ -598,9 +611,9 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
                         <div className="fs-5 fw-semibold">School</div>
-                        <div className="text-medium-emphasis small">#Developing: 100</div>
-                        <div className="text-medium-emphasis small">#Functioning: 150</div>
-                        <div className="text-medium-emphasis small">#Highly Functioning: 200</div>
+                        <div className="text-medium-emphasis small">#Developing: 0</div>
+                        <div className="text-medium-emphasis small">#Functioning: 0</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
                       </div>
                     </CCol>
                     <CCol sm={4}>

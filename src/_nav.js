@@ -86,8 +86,8 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Teacher',
-        to: '/teacher/all-teacher',
+        name: 'All Student',
+        to: '/',
       },
       {
         component: CNavItem,

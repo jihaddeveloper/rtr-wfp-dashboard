@@ -887,10 +887,10 @@ const WFPSummarizeBCO = () => {
               Kutubdia Report
             </CButton>
           </CCardBody>
-          <CCardBody>
-            <strong>Select date</strong>
+          {/* <CCardBody>
+            <strong>Select Month</strong>
             <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
-          </CCardBody>
+          </CCardBody> */}
         </CCard>
         <br></br>
         <br></br>

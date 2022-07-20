@@ -124,7 +124,6 @@ const WidgetsDropdown = () => {
                 {allSchoolData.length} <span className="fs-6 fw-normal">(Total )</span>
               </>
             }
-            href="/school/allschool"
             value="School"
             action={
               <CDropdown alignment="end">
@@ -293,7 +292,7 @@ const WidgetsDropdown = () => {
             color="warning"
             title={
               <>
-                {allEmployeeData.length} <span className="fs-6 fw-normal">(Total)</span>
+                0 <span className="fs-6 fw-normal">(Total)</span>
               </>
             }
             value="Student"
@@ -365,7 +364,7 @@ const WidgetsDropdown = () => {
             color="danger"
             title={
               <>
-                440 <span className="fs-6 fw-normal">(Total)</span>
+                0 <span className="fs-6 fw-normal">(Total)</span>
               </>
             }
             value="Library"

@@ -151,39 +151,43 @@ const AllBCO = () => {
 
                 { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
 
-                { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                { title: 'PP Girl', field: 'priPrimaryGirl' },
+                { title: 'PP Boy', field: 'priPrimaryBoy' },
+                { title: 'PP Total', field: 'priPrimaryTotal' },
 
                 { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
                 { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
                 { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
               ]}
-              actions={[
-                {
-                  icon: DeleteOutline,
-                  tooltip: 'Delete BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: ViewColumn,
-                  tooltip: 'View BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: AddBox,
-                  tooltip: 'Add BCO',
-                  isFreeAction: true,
-                  onClick: (event) => alert('You want to add a new row'),
-                },
-              ]}
+              // actions={[
+              //   {
+              //     icon: DeleteOutline,
+              //     tooltip: 'Delete BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: ViewColumn,
+              //     tooltip: 'View BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: AddBox,
+              //     tooltip: 'Add BCO',
+              //     isFreeAction: true,
+              //     onClick: (event) => alert('You want to add a new row'),
+              //   },
+              // ]}
               options={{
                 exportButton: true,
                 exportAllData: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
+                pageSize: 5,
+                pageSizeOptions: [5, 10, 20],
                 maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',

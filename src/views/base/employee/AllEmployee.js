@@ -158,24 +158,24 @@ const AllEmployee = () => {
 
                 { title: 'Supervisor', field: 'supervisor' },
               ]}
-              actions={[
-                {
-                  icon: DeleteOutline,
-                  tooltip: 'Delete BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: ViewColumn,
-                  tooltip: 'View BCO',
-                  onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                },
-                {
-                  icon: AddBox,
-                  tooltip: 'Add BCO',
-                  isFreeAction: true,
-                  onClick: (event) => alert('You want to add a new row'),
-                },
-              ]}
+              // actions={[
+              //   {
+              //     icon: DeleteOutline,
+              //     tooltip: 'Delete BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: ViewColumn,
+              //     tooltip: 'View BCO',
+              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+              //   },
+              //   {
+              //     icon: AddBox,
+              //     tooltip: 'Add BCO',
+              //     isFreeAction: true,
+              //     onClick: (event) => alert('You want to add a new row'),
+              //   },
+              // ]}
               options={{
                 exportButton: true,
                 exportAllData: true,
