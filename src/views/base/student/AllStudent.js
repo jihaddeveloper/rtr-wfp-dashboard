@@ -37,12 +37,14 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllEmployee = () => {
+const AllStudent = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allBCOData, setAllBCOData] = useState([])
+  const [allStudentData, setAllStudentData] = useState([])
+  const [allLibraryData, setAllLibraryData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
   // Using useEffect to call the API once mounted and set the data
@@ -113,6 +115,46 @@ const AllEmployee = () => {
   }
   // Get All Employee Data
 
+  // Get All Library Data
+  const getAllLibrary = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/library', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllLibraryData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Library Data
+
+  // Get All Student Data
+  const getAllStudent = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/student', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllStudentData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Student Data
+
   return (
     <CRow>
       {/* <CCol xs={12}>
@@ -140,11 +182,14 @@ const AllEmployee = () => {
         </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Employee Data</strong>
+            <strong>ALL Student Data</strong>
           </CCardHeader>
           <CCardBody>
-            <MaterialTable
-              title={allEmployeeData.length + ' Employee Data'}
+            <strong>
+              <code>This is under construction</code>
+            </strong>
+            {/* <MaterialTable
+              title={allLibraryData.length + ' Library Data'}
               columns={[
                 { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
                 { title: 'Name', field: 'name', type: 'string' },
@@ -198,7 +243,7 @@ const AllEmployee = () => {
                 },
               }}
               data={allEmployeeData}
-            />
+            /> */}
           </CCardBody>
         </CCard>
       </CCol>
@@ -206,4 +251,4 @@ const AllEmployee = () => {
   )
 }
 
-export default AllEmployee
+export default AllStudent

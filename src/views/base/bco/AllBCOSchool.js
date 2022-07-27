@@ -37,7 +37,7 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllBCO = () => {
+const AllBCOSchool = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -307,4 +307,4 @@ const AllBCO = () => {
   )
 }
 
-export default AllBCO
+export default AllBCOSchool

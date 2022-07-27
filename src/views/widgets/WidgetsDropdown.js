@@ -10,11 +10,38 @@ import {
   CDropdownToggle,
   CWidgetStatsA,
   CLink,
+  CWidgetStatsF,
 } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import CIcon from '@coreui/icons-react'
-import { cilArrowBottom, cilArrowTop, cilOptions } from '@coreui/icons'
+import {
+  cilArrowBottom,
+  cilArrowTop,
+  cilOptions,
+  cilChartPie,
+  cilBell,
+  cilCalculator,
+  cilCursor,
+  cilDrop,
+  cilNotes,
+  cilPencil,
+  cilPuzzle,
+  cilSpeedometer,
+  cilStar,
+  cilPeople,
+  cilStorage,
+  cilSchool,
+  cilUser,
+  cilFile,
+  cilRoom,
+  cilLibrary,
+  cilBook,
+  cilColumns,
+  cilColorBorder,
+  cilInstitution,
+  cilWc,
+} from '@coreui/icons'
 
 const WidgetsDropdown = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -116,7 +143,18 @@ const WidgetsDropdown = () => {
     <CRow>
       <CCol sm={6} lg={3}>
         <CLink href="/school/allschool">
-          <CWidgetStatsA
+          <CWidgetStatsF
+            className="mb-3"
+            color="primary"
+            icon={<CIcon icon={cilInstitution} height={24} />}
+            title={
+              <>
+                {allSchoolData.length} <span className="fs-6 fw-normal">(Total )</span>
+              </>
+            }
+            value="School"
+          />
+          {/* <CWidgetStatsA
             className="mb-4"
             color="primary"
             title={
@@ -197,12 +235,23 @@ const WidgetsDropdown = () => {
                 }}
               />
             }
-          />
+          /> */}
         </CLink>
       </CCol>
       <CCol sm={6} lg={3}>
         <CLink href="/teacher/all-teacher">
-          <CWidgetStatsA
+          <CWidgetStatsF
+            className="mb-3"
+            color="info"
+            icon={<CIcon icon={cilWc} height={24} />}
+            title={
+              <>
+                {allTeacherData.length} <span className="fs-6 fw-normal">(Total )</span>
+              </>
+            }
+            value="Teacher"
+          />
+          {/* <CWidgetStatsA
             className="mb-4"
             color="info"
             value="Teacher"
@@ -282,12 +331,23 @@ const WidgetsDropdown = () => {
                 }}
               />
             }
-          />
+          /> */}
         </CLink>
       </CCol>
       <CCol sm={6} lg={3}>
-        <CLink href="/school/allschool">
-          <CWidgetStatsA
+        <CLink href="/student/all-student">
+          <CWidgetStatsF
+            className="mb-3"
+            color="warning"
+            icon={<CIcon icon={cilSchool} height={24} />}
+            title={
+              <>
+                41903 <span className="fs-6 fw-normal">(Total )</span>
+              </>
+            }
+            value="Student"
+          />
+          {/* <CWidgetStatsA
             className="mb-4"
             color="warning"
             title={
@@ -354,12 +414,23 @@ const WidgetsDropdown = () => {
                 }}
               />
             }
-          />
+          /> */}
         </CLink>
       </CCol>
       <CCol sm={6} lg={3}>
-        <CLink href="/school/allschool">
-          <CWidgetStatsA
+        <CLink href="/library/all-library">
+          <CWidgetStatsF
+            className="mb-3"
+            color="danger"
+            icon={<CIcon icon={cilBook} height={24} />}
+            title={
+              <>
+                817 <span className="fs-6 fw-normal">(Total )</span>
+              </>
+            }
+            value="Library (classroom corner library)"
+          />
+          {/* <CWidgetStatsA
             className="mb-4"
             color="danger"
             title={
@@ -445,7 +516,7 @@ const WidgetsDropdown = () => {
                 }}
               />
             }
-          />
+          /> */}
         </CLink>
       </CCol>
     </CRow>

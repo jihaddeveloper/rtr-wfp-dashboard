@@ -37,22 +37,12 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllEmployee = () => {
+const LibrarySRM = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allBCOData, setAllBCOData] = useState([])
-  const [allTeacherData, setAllTeacherData] = useState([])
-  const [allEmployeeData, setAllEmployeeData] = useState([])
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
-    getAllTeacher(console.log('get all teacheAllTeacherr called'))
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllEmployee(console.log('get all employee called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
@@ -72,46 +62,13 @@ const AllEmployee = () => {
       console.log(error)
     }
   }
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    console.log('use effect called')
 
-  // Get All Teacher
-  const getAllTeacher = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllTeacherData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Teacher
-
-  // Get All Employee Data
-  const getAllEmployee = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllEmployeeData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Employee Data
+    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
 
   return (
     <CRow>
@@ -119,44 +76,92 @@ const AllEmployee = () => {
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
       <CCol xs={12}>
-        {/* <CCard className="mb-4">
+        <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report</strong>
+            <strong>Report Library SRM</strong>
           </CCardHeader>
           <CCardBody>
             <CButton color="primary" href="/base/construction">
-              Demo Report
+              Summarize Report
             </CButton>
             <CButton color="secondary" href="/base/construction">
-              Demo Report
+              CFO Analysis Report
             </CButton>
             <CButton color="success" href="/base/construction">
-              Demo Report
+              Ukhiya Report
             </CButton>
             <CButton color="warning" href="/base/construction">
-              Demo Report
+              Kutubdia Report
             </CButton>
           </CCardBody>
-        </CCard> */}
+        </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Employee Data</strong>
+            <strong>ALL Library SRM Data</strong>
+            {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
             <MaterialTable
-              title={allEmployeeData.length + ' Employee Data'}
+              title={allBCOData.length + ' Library SRM Data(Demo)'}
               columns={[
-                { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
-                { title: 'Name', field: 'name', type: 'string' },
-                { title: 'Gender', field: 'gender', sorting: 'true' },
-                { title: 'Office', field: 'office', sorting: 'true' },
+                { title: 'School', field: 'school' },
                 {
-                  title: 'Designation',
-                  field: 'designation',
+                  title: 'Date',
+                  field: 'date',
+                  type: 'date',
                   sorting: 'true',
                 },
+                { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
-                { title: 'Supervisor', field: 'supervisor' },
+                { title: 'District', field: 'district' },
+                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                { title: 'Visitor', field: 'visitor' },
+                {
+                  title: 'Head Teacher',
+                  field: 'headTeacher',
+                },
+                { title: 'LPO', field: 'lpo', type: 'string' },
+                {
+                  title: 'LF',
+                  field: 'lf',
+                  type: 'string',
+                },
+
+                { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                { title: 'PP Girl', field: 'priPrimaryGirl' },
+                { title: 'PP Boy', field: 'priPrimaryBoy' },
+                { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
               ]}
               // actions={[
               //   {
@@ -181,8 +186,8 @@ const AllEmployee = () => {
                 exportAllData: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
+                pageSize: 5,
+                pageSizeOptions: [5, 10, 20],
                 maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',
@@ -195,9 +200,10 @@ const AllEmployee = () => {
                 },
                 rowStyle: {
                   fontSize: 14,
+                  backgroundColor: '#ede9df',
                 },
               }}
-              data={allEmployeeData}
+              data={allBCOData}
             />
           </CCardBody>
         </CCard>
@@ -206,4 +212,4 @@ const AllEmployee = () => {
   )
 }
 
-export default AllEmployee
+export default LibrarySRM

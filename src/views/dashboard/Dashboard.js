@@ -74,6 +74,24 @@ const Dashboard = () => {
     getAllEmployee(console.log('get all employee called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Filter Teacher data
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter(
+    (item) => item.instruction_srm_preprimary === 'Yes',
+  )
+  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const goodGovornanceTrained = allTeacherData.filter(
+    (item) => item.good_governance_headteacher === 'Yes',
+  )
+  const schoolPerformanceTrained = allTeacherData.filter(
+    (item) => item.school_performance_headteacher === 'Yes',
+  )
+
+  // Filter Teacher data
+
   // Get All School Data
   const getAllSchool = async () => {
     try {
@@ -420,67 +438,44 @@ const Dashboard = () => {
             </CCardHeader>
             <CCardBody>
               <CRow>
-                <CCol xs={12} md={6} xl={6}>
+                <CCol xs={24} md={12} xl={12}>
                   <CRow>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
+                    <CCol sm={3}>
+                      <CLink href="/library/library-combined">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
-                          <div className="fs-5 fw-semibold">Library Observation</div>
+                          <div className="fs-5 fw-semibold">
+                            Library Performance(Observation & SRM)
+                          </div>
                           <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
                           </div>
                         </div>
                       </CLink>
                     </CCol>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
+                    <CCol sm={3}>
+                      <CLink href="/bco/allbco-combined">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">BCO/I School</div>
+                          <div className="fs-5 fw-semibold">BCO/I (School & CRF)</div>
                           <div className="text-medium-emphasis small">
-                            Total Visited in {currentMonth}: {allSchoolData.length}
+                            Total Visited in {currentMonth}: 0
                           </div>
                         </div>
                       </CLink>
                     </CCol>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
+                    <CCol sm={3}>
+                      <CLink href="/bangla/bangla-class">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">BCO/I Community</div>
+                          <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
                           <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
                           </div>
                         </div>
                       </CLink>
                     </CCol>
-                  </CRow>
-                </CCol>
-
-                <CCol xs={12} md={6} xl={6}>
-                  <CRow>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
-                        <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">Bangla Class</div>
-                          <div className="text-medium-emphasis small">
-                            Total Visited in {currentMonth}: 0
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
-                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">Library SRM</div>
-                          <div className="text-medium-emphasis small">
-                            Total Visited in {currentMonth}: 0
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol>
-                    <CCol sm={4}>
-                      <CLink href="/bco/allbco">
-                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">Overall School</div>
+                    <CCol sm={3}>
+                      <CLink href="/school/overall-school">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">School Performance(Overall)</div>
                           <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
                           </div>
@@ -510,19 +505,25 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
                         <div className="fs-5 fw-semibold">Headteacher Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {headTeacherTrained.length}
+                        </div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Bangla G1 Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {instructG1Trained.length}
+                        </div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Bangla G2 Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {instructG2Trained.length}
+                        </div>
                       </div>
                     </CCol>
                   </CRow>
@@ -533,19 +534,25 @@ const Dashboard = () => {
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Library Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {libraryTrained.length}
+                        </div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                         <div className="fs-5 fw-semibold">Governence Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {goodGovornanceTrained.length}
+                        </div>
                       </div>
                     </CCol>
                     <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">SRM Traning</div>
-                        <div className="text-medium-emphasis small">#Teacher: 0</div>
+                        <div className="fs-5 fw-semibold">School Performance Traning</div>
+                        <div className="text-medium-emphasis small">
+                          #Teacher: {schoolPerformanceTrained.length}
+                        </div>
                       </div>
                     </CCol>
                   </CRow>
@@ -600,7 +607,7 @@ const Dashboard = () => {
               <br />
               <strong>Total School: {allSchoolData.length}</strong>
               <br />
-              <strong>Total Library: 0</strong>
+              <strong>Total Library: 817</strong>
               <br />
               <strong>Total Teacher: {allTeacherData.length}</strong>
             </CCardHeader>
@@ -609,24 +616,24 @@ const Dashboard = () => {
                 <CCol xs={24} md={12} xl={12}>
                   <CRow>
                     <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Teacher Status</div>
+                        <div className="text-medium-emphasis small">#Developing: 0</div>
+                        <div className="text-medium-emphasis small">#Functioning: 0</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
+                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                        <div className="fs-5 fw-semibold">Library Status</div>
+                        <div className="text-medium-emphasis small">#Developing: 0</div>
+                        <div className="text-medium-emphasis small">#Functioning: 0</div>
+                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
+                      </div>
+                    </CCol>
+                    <CCol sm={4}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
-                        <div className="fs-5 fw-semibold">School</div>
-                        <div className="text-medium-emphasis small">#Developing: 0</div>
-                        <div className="text-medium-emphasis small">#Functioning: 0</div>
-                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
-                      </div>
-                    </CCol>
-                    <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Library</div>
-                        <div className="text-medium-emphasis small">#Developing: 0</div>
-                        <div className="text-medium-emphasis small">#Functioning: 0</div>
-                        <div className="text-medium-emphasis small">#Highly Functioning: 0</div>
-                      </div>
-                    </CCol>
-                    <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Teacher</div>
+                        <div className="fs-5 fw-semibold">School Status</div>
                         <div className="text-medium-emphasis small">#Developing: 0</div>
                         <div className="text-medium-emphasis small">#Functioning: 0</div>
                         <div className="text-medium-emphasis small">#Highly Functioning: 0</div>

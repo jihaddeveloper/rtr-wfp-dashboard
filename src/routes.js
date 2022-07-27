@@ -4,11 +4,31 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
+const UnderConstruction = React.lazy(() => import('./views/base/accordion/UnderConstruction'))
+
 // Base
+const AllStudent = React.lazy(() => import('./views/base/student/AllStudent'))
+const AllLibrary = React.lazy(() => import('./views/base/library/AllLibrary'))
 const AllSchool = React.lazy(() => import('./views/base/school/AllSchool'))
-const AllBCO = React.lazy(() => import('./views/base/bco/AllBCO'))
 const AllTeacher = React.lazy(() => import('./views/base/teacher/AllTeacher'))
 const AllEmployee = React.lazy(() => import('./views/base/employee/AllEmployee'))
+
+// Overall School
+const OverallSchoolData = React.lazy(() => import('./views/base/school/OverallSchoolData'))
+const OverallSchoolReport = React.lazy(() => import('./views/base/school/OverallSchoolReport'))
+
+// BCO/I
+const AllBCOSchool = React.lazy(() => import('./views/base/bco/AllBCOSchool'))
+const AllBCOCombined = React.lazy(() => import('./views/base/bco/AllBCOCombined'))
+
+// Library
+const LibraryDataCombined = React.lazy(() => import('./views/base/library/LibraryDataCombined'))
+const LibraryObservation = React.lazy(() => import('./views/base/library/LibraryObservation'))
+const LibrarySRM = React.lazy(() => import('./views/base/library/LibrarySRM'))
+
+// Bangla
+const BanglaCalssData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
+const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
 
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
@@ -108,15 +128,33 @@ const routes = [
   { path: '/widgets', name: 'Widgets', element: Widgets },
 
   { path: '/school/allschool', name: 'AllSchool', element: AllSchool },
+  { path: '/school/overall-school', name: 'OverallSchoolData', element: OverallSchoolData },
+  {
+    path: '/school/overall-school-report',
+    name: 'OverallSchoolReport',
+    element: OverallSchoolReport,
+  },
 
-  { path: '/bco/allbco', name: 'AllBCO', element: AllBCO },
+  { path: '/bco/allbco-combined', name: 'AllBCOCombined', element: AllBCOCombined },
+  { path: '/bco/allbco-school', name: 'AllBCOSchool', element: AllBCOSchool },
   { path: '/bco/wfp-summarize', name: 'WFPSummarize', element: WFPSummarizeBCO },
   { path: '/bco/cfo-analysis', name: 'CFOAnalysisBCO', element: CFOAnalysisBCO },
   { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
   { path: '/bco/ukhiya-report', name: 'UkhiyaReport', element: UkhiyaReport },
 
+  { path: '/student/all-student', name: 'AllStudent', element: AllStudent },
   { path: '/teacher/all-teacher', name: 'AllTeacher', element: AllTeacher },
   { path: '/employee/all-employee', name: 'AllEmployee', element: AllEmployee },
+
+  { path: '/library/all-library', name: 'AllLibrary', element: AllLibrary },
+  { path: '/library/library-combined', name: 'LibraryCombined', element: LibraryDataCombined },
+  { path: '/library/library-observation', name: 'LibraryObservation', element: LibraryObservation },
+  { path: '/library/library-srm', name: 'LibrarySRM', element: LibrarySRM },
+
+  { path: '/base/construction', name: 'UnderConstruction', element: UnderConstruction },
+
+  { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaCalssData },
+  { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaCalssReport },
 ]
 
 export default routes

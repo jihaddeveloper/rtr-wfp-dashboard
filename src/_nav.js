@@ -45,7 +45,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'School',
-    to: '/',
+    to: '#',
     icon: <CIcon icon={cilInstitution} customClassName="nav-icon" />,
     items: [
       {
@@ -53,17 +53,12 @@ const _nav = [
         name: 'All School',
         to: '/school/allschool',
       },
-      {
-        component: CNavItem,
-        name: 'Add new school',
-        to: '/base/accordion',
-      },
     ],
   },
   {
     component: CNavGroup,
     name: 'Teacher',
-    to: '/',
+    to: '#',
     icon: <CIcon icon={cilWc} customClassName="nav-icon" />,
     items: [
       {
@@ -71,64 +66,44 @@ const _nav = [
         name: 'All Teacher',
         to: '/teacher/all-teacher',
       },
-      {
-        component: CNavItem,
-        name: 'Add new teacher',
-        to: '/base/accordion',
-      },
     ],
   },
   {
     component: CNavGroup,
     name: 'Student',
-    to: '/',
+    to: '*',
     icon: <CIcon icon={cilSchool} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'All Student',
-        to: '/',
-      },
-      {
-        component: CNavItem,
-        name: 'Add new teacher',
-        to: '/base/accordion',
+        to: '/student/all-student',
       },
     ],
   },
   {
     component: CNavGroup,
     name: 'Library',
-    to: '/',
+    to: '#',
     icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'All Library',
-        to: '/base/accordion',
-      },
-      {
-        component: CNavItem,
-        name: 'Add new teacher',
-        to: '/base/accordion',
+        to: '/library/all-library',
       },
     ],
   },
   {
     component: CNavGroup,
     name: 'Employee',
-    to: '/',
+    to: '#',
     icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'All Employee',
         to: '/employee/all-employee',
-      },
-      {
-        component: CNavItem,
-        name: 'Add new employee',
-        to: '/base/accordion',
       },
     ],
   },
@@ -138,99 +113,144 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'BCO/I School',
-    to: '/',
+    name: 'BCO/I Data',
+    to: '#',
     icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'All BCO/I Data',
-        to: '/bco/allbco',
+        name: 'BCO/I Combined',
+        to: '/bco/allbco-combined',
       },
       {
         component: CNavItem,
-        name: 'WFP Summarize Report',
+        name: 'BCO/I School',
+        to: '/bco/allbco-school',
+      },
+      {
+        component: CNavItem,
+        name: 'BCO/I CRF',
+        to: '*',
+      },
+      {
+        component: CNavItem,
+        name: 'Summarize Report School',
         to: '/bco/wfp-summarize',
       },
       {
         component: CNavItem,
-        name: 'CFO Analysis Report',
+        name: 'CFO Analysis School',
         to: '/bco/cfo-analysis',
       },
       {
         component: CNavItem,
-        name: 'Ukhiya Report',
+        name: 'Ukhiya Report School',
         to: '/bco/ukhiya-report',
       },
       {
         component: CNavItem,
-        name: 'Kutubdia Report',
+        name: 'Kutubdia Report School',
         to: '/bco/kutubdia-report',
       },
     ],
   },
+  // {
+  //   component: CNavGroup,
+  //   name: 'BCO/I Community',
+  //   to: '/',
+  //   icon: <CIcon icon={cilColumns} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'All BCO/I data',
+  //       to: '/base/accordion',
+  //     },
+  //   ],
+  // },
   {
     component: CNavGroup,
-    name: 'BCO/I Community',
-    to: '/',
+    name: 'Library Performance',
+    to: '*',
     icon: <CIcon icon={cilColumns} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'All BCO/I data',
-        to: '/base/accordion',
+        name: 'Library Data Combined',
+        to: '/library/library-combined',
       },
-    ],
-  },
-  {
-    component: CNavGroup,
-    name: 'Library Observation',
-    to: '/',
-    icon: <CIcon icon={cilColumns} customClassName="nav-icon" />,
-    items: [
       {
         component: CNavItem,
-        name: 'All LO data',
-        to: '/base/accordion',
+        name: 'Library Observation',
+        to: '/library/library-observation',
+      },
+      {
+        component: CNavItem,
+        name: 'Library SRM',
+        to: '/library/library-srm',
+      },
+      {
+        component: CNavItem,
+        name: 'Observation Report',
+        to: '/base/construction',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Report',
+        to: '/base/construction',
       },
     ],
   },
   {
     component: CNavGroup,
-    name: 'Bangla Class',
-    to: '/',
+    name: 'Teacher Performance',
+    to: '*',
     icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'All bangla-class data',
-        to: '/base/accordion',
+        name: 'Bangla Class Data',
+        to: '/bangla/bangla-class',
       },
-    ],
-  },
-  {
-    component: CNavGroup,
-    name: 'SRM Class',
-    to: '/',
-    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
-    items: [
       {
         component: CNavItem,
-        name: 'All SRM data',
-        to: '/base/accordion',
+        name: 'Bangla Class Report',
+        to: '/base/construction',
       },
     ],
   },
+  // {
+  //   component: CNavGroup,
+  //   name: 'SRM Class',
+  //   to: '/',
+  //   icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'All SRM data',
+  //       to: '/base/accordion',
+  //     },
+  //   ],
+  // },
   {
     component: CNavGroup,
-    name: 'Overall School',
-    to: '/',
+    name: 'School Performance',
+    to: '*',
     icon: <CIcon icon={cilInstitution} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'All Overall data',
-        to: '/base/accordion',
+        name: 'Overall School Data',
+        to: '/school/overall-school',
+      },
+      {
+        component: CNavItem,
+        name: 'Overall School Report',
+        to: '/base/construction',
+      },
+      {
+        component: CNavItem,
+        name: 'Under Construction',
+        to: '/base/construction',
       },
     ],
   },
