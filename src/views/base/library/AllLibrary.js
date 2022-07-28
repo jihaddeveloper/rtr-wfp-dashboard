@@ -49,6 +49,7 @@ const AllLibrary = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     console.log('use effect called')
+    getAllLibrary()
     getAllTeacher(console.log('get all teacheAllTeacherr called'))
     getAllBookCheckoutSchool(console.log('get bookcheckout called'))
     getAllEmployee(console.log('get all employee called'))
@@ -164,23 +165,34 @@ const AllLibrary = () => {
             <strong>ALL Library Data</strong>
           </CCardHeader>
           <CCardBody>
-            <strong>
-              <code>This is under construction</code>
-            </strong>
-            {/* <MaterialTable
+            <MaterialTable
               title={allLibraryData.length + ' Library Data'}
               columns={[
-                { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
-                { title: 'Name', field: 'name', type: 'string' },
-                { title: 'Gender', field: 'gender', sorting: 'true' },
-                { title: 'Office', field: 'office', sorting: 'true' },
+                { title: 'School', field: 'school', type: 'string' },
+                { title: 'Upazila', field: 'upazilla', type: 'string', sorting: 'true' },
+                { title: 'Book Self Number', field: 'number_book_self' },
+                { title: 'Book Self Active', field: 'number_self_active', sorting: 'true' },
                 {
-                  title: 'Designation',
-                  field: 'designation',
-                  sorting: 'true',
+                  title: 'Total Title',
+                  field: 'titleTotal',
                 },
+                { title: 'Total Book', field: 'bookTotal' },
+                { title: 'Total Book Available', field: 'bookTotal_now' },
 
-                { title: 'Supervisor', field: 'supervisor' },
+                { title: 'Green Title', field: 'titleNoGreen' },
+                { title: 'Green Book', field: 'bookNoGreen' },
+
+                { title: 'Red Title', field: 'titleNoRed' },
+                { title: 'Red Book', field: 'bookNoRed' },
+
+                { title: 'White Title', field: 'titleNoWhite' },
+                { title: 'White Book', field: 'bookNoWhite' },
+
+                { title: 'Blue Title', field: 'titleNoBlue' },
+                { title: 'Blue Book', field: 'bookNoBlue' },
+
+                { title: 'Yellow Title', field: 'titleNoYellow' },
+                { title: 'Yellow Book', field: 'bookNoYellow' },
               ]}
               // actions={[
               //   {
@@ -221,8 +233,8 @@ const AllLibrary = () => {
                   fontSize: 14,
                 },
               }}
-              data={allEmployeeData}
-            /> */}
+              data={allLibraryData}
+            />
           </CCardBody>
         </CCard>
       </CCol>

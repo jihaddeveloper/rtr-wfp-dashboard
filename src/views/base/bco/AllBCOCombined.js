@@ -113,7 +113,11 @@ const AllBCOCombined = () => {
       // Cumulative Summary All BCO/I Data(School+CRF)
       // Ukhiya
       uTotalStudent = response.data
-        .filter((item) => item.upazilla === 'Ukhiya')
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+        )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -302,7 +306,11 @@ const AllBCOCombined = () => {
 
       //Kutubdia
       kTotalStudent = response.data
-        .filter((item) => item.upazilla === 'Kutubdia')
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+        )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
