@@ -116,7 +116,7 @@ const AllBCOCombined = () => {
         .filter(
           (item) =>
             item.upazilla === 'Ukhiya' &&
-            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+            new Date(item.date).getMonth() === new Date().getMonth() - 2,
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -139,22 +139,13 @@ const AllBCOCombined = () => {
 
       uNoBCOPerStudent = (
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
             return acc + value
           }) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -170,23 +161,14 @@ const AllBCOCombined = () => {
 
       uPercentStudentBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -202,23 +184,14 @@ const AllBCOCombined = () => {
 
       uPercentStudentBCI = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -234,23 +207,14 @@ const AllBCOCombined = () => {
 
       uPercentGirlBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
@@ -266,23 +230,14 @@ const AllBCOCombined = () => {
 
       uPercentBoyBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Ukhiya' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Ukhiya')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
@@ -309,7 +264,7 @@ const AllBCOCombined = () => {
         .filter(
           (item) =>
             item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth() - 1,
+            new Date(item.date).getMonth() === new Date().getMonth() - 2,
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -332,23 +287,13 @@ const AllBCOCombined = () => {
 
       kNoBCOPerStudent = (
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
             return acc + value
           }) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -364,22 +309,14 @@ const AllBCOCombined = () => {
 
       kPercentStudentBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -395,22 +332,14 @@ const AllBCOCombined = () => {
 
       kPercentStudentBCI = (
         (response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -426,22 +355,14 @@ const AllBCOCombined = () => {
 
       kPercentGirlBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
@@ -457,39 +378,24 @@ const AllBCOCombined = () => {
 
       kPercentBoyBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.upazilla === 'Kutubdia' &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.upazilla === 'Kutubdia')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
           })
       ).toFixed(2)
 
-      kNoSchoolBCO = response.data.filter(
-        (item) =>
-          item.upazilla === 'Kutubdia' &&
-          new Date(item.date).getMonth() === new Date().getMonth() - 1,
-      ).length
+      kNoSchoolBCO = response.data.filter((item) => item.upazilla === 'Kutubdia').length
 
       kNoSchoolZeroBCO = response.data.filter(
-        (item) =>
-          item.upazilla === 'Kutubdia' &&
-          new Date(item.date).getMonth() === new Date().getMonth() - 1 &&
-          item.schoolTotalNoStudentBC === 0,
+        (item) => item.upazilla === 'Kutubdia' && item.schoolTotalNoStudentBC === 0,
       ).length
       //Kutubdia
 
@@ -499,21 +405,13 @@ const AllBCOCombined = () => {
       cfoTotalBookCheckin = kTotalBookCheckin + uTotalBookCheckin
       cfoNoBCOPerStudent = (
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
             return acc + value
           }) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -522,22 +420,14 @@ const AllBCOCombined = () => {
       cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
       cfoPercentStudentBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -547,22 +437,14 @@ const AllBCOCombined = () => {
       cfoNoStudentBCI = kNoStudentBCI + uNoStudentBCI
       cfoPercentStudentBCI = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -571,22 +453,14 @@ const AllBCOCombined = () => {
       cfoNoGirlBCO = kNoGirlBCO + uNoGirlBCO
       cfoPercentGirlBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
             return acc + value
@@ -595,22 +469,14 @@ const AllBCOCombined = () => {
       cfoNoBoyBCO = kNoBoyBCO + uNoBoyBCO
       cfoPercentBoyBCO = (
         (response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
           .reduce(function (acc, value) {
             return acc + value
           }) *
           100) /
         response.data
-          .filter(
-            (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              new Date(item.date).getMonth() === new Date().getMonth() - 1,
-          )
+          .filter((item) => item.schoolTotalNoStudentBC !== 0)
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
             return acc + value
@@ -808,9 +674,50 @@ const AllBCOCombined = () => {
                   <strong>Summary BCO/I Data(School)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>This is under construction</code>
-                  </strong>
+                  <MaterialTable
+                    title={''}
+                    // title={JSON.stringify(reportData)}
+                    columns={[
+                      { title: 'Sl', field: 'sl' },
+                      { title: 'Particular Area', field: 'area' },
+                      { title: 'Kutubdia', field: 'kutubdia' },
+                      { title: 'Ukhiya', field: 'ukhiya' },
+                      { title: 'CFO', field: 'cfo' },
+                    ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: false,
+                      sorting: false,
+                      search: false,
+                      paging: false,
+                      pageSize: 12,
+                      pageSizeOptions: [12, 24, 36],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={reportDataCombined}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={3}>

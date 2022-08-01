@@ -46,7 +46,7 @@ const UkhiyaReport = () => {
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 2)
+  current.setMonth(current.getMonth() - 3)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   // Get All Book-checkout Data for school
@@ -78,7 +78,7 @@ const UkhiyaReport = () => {
   // Generate current month repoort for Ukhiye
   const ukhiyaReportData = allBCOData.filter(
     (item) =>
-      item.upazilla == 'Ukhiya' && new Date(item.date).getMonth() == new Date().getMonth() - 1,
+      item.upazilla == 'Ukhiya' && new Date(item.date).getMonth() == new Date().getMonth() - 2,
   )
 
   return (

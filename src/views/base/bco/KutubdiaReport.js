@@ -46,7 +46,7 @@ const KutubdiaReport = () => {
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 2)
+  current.setMonth(current.getMonth() - 3)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   // Get All Book-checkout Data for school
@@ -79,7 +79,7 @@ const KutubdiaReport = () => {
 
   const kutubdiaReportData = allBCOData.filter(
     (item) =>
-      item.upazilla == 'Kutubdia' && new Date(item.date).getMonth() == new Date().getMonth() - 1,
+      item.upazilla == 'Kutubdia' && new Date(item.date).getMonth() == new Date().getMonth() - 2,
   )
 
   return (
