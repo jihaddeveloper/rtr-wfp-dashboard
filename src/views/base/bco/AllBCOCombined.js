@@ -25,7 +25,23 @@ const AllBCOCombined = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
+  // ALL BCO School
   const [allBCOData, setAllBCOData] = useState([])
+  // ALL BCO School
+
+  // ALL BCO CRF
+  const [allBCODataCRF, setAllBCODataCRF] = useState([])
+  // ALL BCO CRF
+
+  // Area wise BCO data school
+  const [kutubdiaAllBCOSchool, setKutubdiaAllBCOSchool] = useState([])
+  const [ukhiyaAllBCOSchool, setUkhiyaAllBCOSchool] = useState([])
+  // Area wise BCO data school
+
+  // Area wise BCO data crf
+  const [kutubdiaAllBCOCRF, setKutubdiaAllBCOCRF] = useState([])
+  const [ukhiyaAllBCOCRF, setUkhiyaAllBCOCRF] = useState([])
+  // Area wise BCO data crf
 
   // Get previous month
   const current = new Date()
@@ -90,12 +106,38 @@ const AllBCOCombined = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      await getAllBookCheckoutSchool(console.log('get bookcheckout School called'))
+      await getAllBookCheckoutCRF(console.log('get bookcheckout School called'))
       pushReportDataCombined(console.log('pushReportData called'))
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Get All Book-checkout Data for CRF
+  const getAllBookCheckoutCRF = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkout-community', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllBCODataCRF(response.data)
+
+      setKutubdiaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Book-checkout Data for CRF
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
@@ -109,6 +151,10 @@ const AllBCOCombined = () => {
         },
       })
       setAllBCOData(response.data)
+
+      setKutubdiaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Ukhiya'))
 
       // Cumulative Summary All BCO/I Data(School+CRF)
       // Ukhiya
@@ -752,12 +798,11 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={6}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(School)</strong>
+                  <strong>BCO/I Detail Data(School) Ukhiya</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  {/* <strong>This is the first item</strong> */}
                   <MaterialTable
-                    title={allBCOData.length + ' BCO Data of School'}
+                    title={ukhiyaAllBCOSchool.length + ' BCO Data School Ukhiya'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -858,18 +903,341 @@ const AllBCOCombined = () => {
                         backgroundColor: '#ede9df',
                       },
                     }}
-                    data={allBCOData}
+                    data={ukhiyaAllBCOSchool}
                   />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={7}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(CRF)</strong>
+                  <strong>BCO/I Detail Data(School) Kutubdia</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>This is under construction</code>
-                  </strong>
+                  <MaterialTable
+                    title={kutubdiaAllBCOSchool.length + ' BCO Data School Kutubdia'}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                        type: 'string',
+                      },
+
+                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                      { title: 'PP Girl', field: 'priPrimaryGirl' },
+                      { title: 'PP Boy', field: 'priPrimaryBoy' },
+                      { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={kutubdiaAllBCOSchool}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={8}>
+                <CAccordionHeader>
+                  <strong>BCO/I Detail Data(CRF) Ukhiya</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={ukhiyaAllBCOCRF.length + ' BCO Data CRF Ukhiya'}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                        type: 'string',
+                      },
+
+                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                      { title: 'PP Girl', field: 'priPrimaryGirl' },
+                      { title: 'PP Boy', field: 'priPrimaryBoy' },
+                      { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={ukhiyaAllBCOCRF}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={9}>
+                <CAccordionHeader>
+                  <strong>BCO/I Detail Data(CRF) Kutubdia</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={kutubdiaAllBCOCRF.length + ' BCO Data CRF Kutubdia'}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                        type: 'string',
+                      },
+
+                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                      { title: 'PP Girl', field: 'priPrimaryGirl' },
+                      { title: 'PP Boy', field: 'priPrimaryBoy' },
+                      { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={kutubdiaAllBCOCRF}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
             </CAccordion>

@@ -141,7 +141,7 @@ const WidgetsDropdown = () => {
 
   return (
     <CRow>
-      <CCol sm={6} lg={3}>
+      <CCol sm={4} lg={4}>
         <CLink href="/school/allschool">
           <CWidgetStatsF
             className="mb-3"
@@ -149,7 +149,7 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilInstitution} height={24} />}
             title={
               <>
-                {allSchoolData.length} <span className="fs-6 fw-normal">(Total )</span>
+                {allSchoolData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
             value="School"
@@ -238,15 +238,15 @@ const WidgetsDropdown = () => {
           /> */}
         </CLink>
       </CCol>
-      <CCol sm={6} lg={3}>
+      <CCol sm={4} lg={4}>
         <CLink href="/teacher/all-teacher">
           <CWidgetStatsF
             className="mb-3"
             color="info"
-            icon={<CIcon icon={cilWc} height={24} />}
+            icon={<CIcon icon={cilUser} height={24} />}
             title={
               <>
-                {allTeacherData.length} <span className="fs-6 fw-normal">(Total )</span>
+                {allTeacherData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Teacher"
@@ -334,7 +334,7 @@ const WidgetsDropdown = () => {
           /> */}
         </CLink>
       </CCol>
-      <CCol sm={6} lg={3}>
+      <CCol sm={4} lg={4}>
         <CLink href="/student/all-student">
           <CWidgetStatsF
             className="mb-3"
@@ -342,7 +342,7 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilSchool} height={24} />}
             title={
               <>
-                41903 <span className="fs-6 fw-normal">(Total )</span>
+                41903 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Student"
@@ -417,18 +417,120 @@ const WidgetsDropdown = () => {
           /> */}
         </CLink>
       </CCol>
-      <CCol sm={6} lg={3}>
+      <CCol sm={4} lg={4}>
         <CLink href="/library/all-library">
           <CWidgetStatsF
             className="mb-3"
             color="danger"
-            icon={<CIcon icon={cilBook} height={24} />}
+            icon={<CIcon icon={cilColumns} height={24} />}
             title={
               <>
-                817 <span className="fs-6 fw-normal">(Total )</span>
+                817 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Library (classroom corner library)"
+          />
+          {/* <CWidgetStatsA
+            className="mb-4"
+            color="danger"
+            title={
+              <>
+                0 <span className="fs-6 fw-normal">(Total)</span>
+              </>
+            }
+            value="Library"
+            action={
+              <CDropdown alignment="end">
+                <CDropdownToggle color="transparent" caret={false} className="p-0">
+                  <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem>Action</CDropdownItem>
+                  <CDropdownItem>Another action</CDropdownItem>
+                  <CDropdownItem>Something else here...</CDropdownItem>
+                  <CDropdownItem disabled>Disabled action</CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            }
+            chart={
+              <CChartBar
+                className="mt-3 mx-3"
+                style={{ height: '70px' }}
+                data={{
+                  labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                  ],
+                  datasets: [
+                    {
+                      label: 'My First dataset',
+                      backgroundColor: 'rgba(255,255,255,.2)',
+                      borderColor: 'rgba(255,255,255,.55)',
+                      data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82],
+                      barPercentage: 0.6,
+                    },
+                  ],
+                }}
+                options={{
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: false,
+                    },
+                  },
+                  scales: {
+                    x: {
+                      grid: {
+                        display: false,
+                        drawTicks: false,
+                      },
+                      ticks: {
+                        display: false,
+                      },
+                    },
+                    y: {
+                      grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawTicks: false,
+                      },
+                      ticks: {
+                        display: false,
+                      },
+                    },
+                  },
+                }}
+              />
+            }
+          /> */}
+        </CLink>
+      </CCol>
+      <CCol sm={4} lg={4}>
+        <CLink href="*">
+          <CWidgetStatsF
+            className="mb-3"
+            color="dark"
+            icon={<CIcon icon={cilWc} height={24} />}
+            title={
+              <>
+                0 <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="Book Captain"
           />
           {/* <CWidgetStatsA
             className="mb-4"

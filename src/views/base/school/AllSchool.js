@@ -150,11 +150,12 @@ const AllSchool = () => {
           </CCardHeader>
           <CCardBody>
             <MaterialTable
-              title={allSchoolData.length + ' School Data'}
+              title={allSchoolData.length + ' School'}
               columns={[
+                { title: 'Name', field: 'name' },
                 { title: 'District', field: 'district' },
                 { title: 'Upazilla', field: 'upazilla' },
-                { title: 'Name', field: 'name' },
+
                 { title: 'LPO', field: 'lpo', type: 'string' },
                 {
                   title: 'LF',

@@ -297,7 +297,19 @@ const Dashboard = () => {
 
   return (
     <>
-      <WidgetsDropdown />
+      <CCard className="mb-4">
+        <CCardHeader>
+          <strong>
+            <br></br>
+            <div className="fs-5 fw-semibold">
+              <p align="center">General Information</p>
+            </div>
+          </strong>
+        </CCardHeader>
+        <CCardBody>
+          <WidgetsDropdown />
+        </CCardBody>
+      </CCard>
 
       <CCard className="mb-4">
         <CCardBody>
@@ -432,14 +444,37 @@ const Dashboard = () => {
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
-              School {' & '} Visit
-              <br />
-              <strong>Total School: {allSchoolData.length}</strong>
+              <strong>
+                <br></br>
+                <div className="fs-5 fw-semibold">
+                  <p align="center">Performance</p>
+                </div>
+              </strong>
             </CCardHeader>
             <CCardBody>
               <CRow>
                 <CCol xs={24} md={12} xl={12}>
                   <CRow>
+                    <CCol sm={3}>
+                      <CLink href="/school/overall-school">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">School Performance(Overall)</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
+                        </div>
+                      </CLink>
+                    </CCol>
+                    <CCol sm={3}>
+                      <CLink href="/bangla/bangla-class">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
+                          <div className="text-medium-emphasis small">
+                            Total Visited in {currentMonth}: 0
+                          </div>
+                        </div>
+                      </CLink>
+                    </CCol>
                     <CCol sm={3}>
                       <CLink href="/library/library-combined">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
@@ -462,26 +497,6 @@ const Dashboard = () => {
                         </div>
                       </CLink>
                     </CCol>
-                    <CCol sm={3}>
-                      <CLink href="/bangla/bangla-class">
-                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
-                          <div className="text-medium-emphasis small">
-                            Total Visited in {currentMonth}: 0
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol>
-                    <CCol sm={3}>
-                      <CLink href="/school/overall-school">
-                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">School Performance(Overall)</div>
-                          <div className="text-medium-emphasis small">
-                            Total Visited in {currentMonth}: 0
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol>
                   </CRow>
                 </CCol>
               </CRow>
@@ -489,13 +504,21 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow>
+
+      <CCard className="mb-4">
+        <CCardBody>
+          <CRow></CRow>
+        </CCardBody>
+      </CCard>
+
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
-              Teacher {' & '} Traning
-              <br />
-              <strong>Total Teacher: {allTeacherData.length}</strong>
+              <br></br>
+              <div className="fs-5 fw-semibold">
+                <p align="center">Traning</p>
+              </div>
             </CCardHeader>
 
             <CCardBody>
@@ -599,7 +622,13 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow> */}
-      <CRow>
+      <CCard className="mb-4">
+        <CCardBody>
+          <CRow></CRow>
+        </CCardBody>
+      </CCard>
+
+      {/* <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -642,64 +671,10 @@ const Dashboard = () => {
                   </CRow>
                 </CCol>
               </CRow>
-
-              {/* <br />
-
-              <CTable align="middle" className="mb-0 border" hover responsive>
-                <CTableHead color="light">
-                  <CTableRow>
-                    <CTableHeaderCell className="text-center">
-                      <CIcon icon={cilPeople} />
-                    </CTableHeaderCell>
-                    <CTableHeaderCell>Employee</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Area</CTableHeaderCell>
-                    <CTableHeaderCell>Visit Rate</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">EMP ID</CTableHeaderCell>
-                    <CTableHeaderCell>View</CTableHeaderCell>
-                  </CTableRow>
-                </CTableHead>
-                <CTableBody>
-                  {tableExample.map((item, index) => (
-                    <CTableRow v-for="item in tableItems" key={index}>
-                      <CTableDataCell className="text-center">
-                        <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <div>{item.user.name}</div>
-                        <div className="small text-medium-emphasis">
-                          <span>{item.user.new ? 'New' : 'Recurring'}</span> | Registered:{' '}
-                          {item.user.registered}
-                        </div>
-                      </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.country.flag} title={item.country.name} />
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <div className="clearfix">
-                          <div className="float-start">
-                            <strong>{item.usage.value}%</strong>
-                          </div>
-                          <div className="float-end">
-                            <small className="text-medium-emphasis">{item.usage.period}</small>
-                          </div>
-                        </div>
-                        <CProgress thin color={item.usage.color} value={item.usage.value} />
-                      </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.payment.icon} />
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <div className="small text-medium-emphasis">Last login</div>
-                        <strong>{item.activity}</strong>
-                      </CTableDataCell>
-                    </CTableRow>
-                  ))}
-                </CTableBody>
-              </CTable> */}
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
     </>
   )
 }
