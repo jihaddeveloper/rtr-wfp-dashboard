@@ -37,7 +37,7 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllBCOSchool = () => {
+const AllBCOCRF = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -65,14 +65,14 @@ const AllBCOSchool = () => {
   useEffect(() => {
     console.log('use effect called')
 
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+    getAllBookCheckoutCRF(console.log('get bookcheckout called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
   // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
+  const getAllBookCheckoutCRF = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkout-community', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -116,18 +116,17 @@ const AllBCOSchool = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL BCO Data</strong>
-            {/* <strong>{allBCOData.length}</strong> */}
+            <strong>ALL BCO Data CRF</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Ukhiya(April-2022 Till Now) </strong>
+                  <strong>BCO/I Detail CRF Data Ukhiya(June-2022 Till Now) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaAllBCOSchool.length + ' BCO Data School Ukhiya'}
+                    title={ukhiyaAllBCOSchool.length + ' BCO Data CRF Ukhiya'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -234,11 +233,11 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Kutubdia(April-2022 Till Now)</strong>
+                  <strong>BCO/I Detail CRF Data Kutubdia(June-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={kutubdiaAllBCOSchool.length + ' BCO Data School Kutubdia'}
+                    title={kutubdiaAllBCOSchool.length + ' BCO Data CRF Kutubdia'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -345,7 +344,7 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Combined(April-2022 Till Now) </strong>
+                  <strong>BCO/I Detail CRF Data Combined(June-2022 Till Now) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -456,7 +455,7 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Ukhiya({currentMonth}) </strong>
+                  <strong>BCO/I Detail CRF Data Ukhiya({currentMonth}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -567,7 +566,7 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Kutubdia({currentMonth}) </strong>
+                  <strong>BCO/I Detail CRF Data Kutubdia({currentMonth}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -703,4 +702,4 @@ const AllBCOSchool = () => {
   )
 }
 
-export default AllBCOSchool
+export default AllBCOCRF

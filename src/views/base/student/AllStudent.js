@@ -42,98 +42,19 @@ const AllStudent = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
   const [allStudentData, setAllStudentData] = useState([])
-  const [allLibraryData, setAllLibraryData] = useState([])
-  const [allTeacherData, setAllTeacherData] = useState([])
-  const [allEmployeeData, setAllEmployeeData] = useState([])
+
+  // Area wise student data
+  const [kutubdiaStudent, setKutubdiaStudent] = useState([])
+  const [ukhiyaStudent, setUkhiyaStudent] = useState([])
+  // Area wise student data
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     console.log('use effect called')
-    getAllTeacher(console.log('get all teacheAllTeacherr called'))
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllEmployee(console.log('get all employee called'))
+    getAllStudent()
   }, [])
   // Using useEffect to call the API once mounted and set the data
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // Get All Teacher
-  const getAllTeacher = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllTeacherData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Teacher
-
-  // Get All Employee Data
-  const getAllEmployee = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllEmployeeData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Employee Data
-
-  // Get All Library Data
-  const getAllLibrary = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/library', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllLibraryData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Library Data
 
   // Get All Student Data
   const getAllStudent = async () => {
@@ -147,6 +68,11 @@ const AllStudent = () => {
         },
       })
       setAllStudentData(response.data)
+
+      setKutubdiaStudent(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaStudent(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -182,68 +108,143 @@ const AllStudent = () => {
         </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Student Data</strong>
+            <strong>ALL Student Data({allStudentData.length})</strong>
           </CCardHeader>
           <CCardBody>
-            <strong>
-              <code>This is under construction</code>
-            </strong>
-            {/* <MaterialTable
-              title={allLibraryData.length + ' Library Data'}
-              columns={[
-                { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
-                { title: 'Name', field: 'name', type: 'string' },
-                { title: 'Gender', field: 'gender', sorting: 'true' },
-                { title: 'Office', field: 'office', sorting: 'true' },
-                {
-                  title: 'Designation',
-                  field: 'designation',
-                  sorting: 'true',
-                },
+            <CAccordion alwaysOpen>
+              <CAccordionItem itemKey={1}>
+                <CAccordionHeader>
+                  <strong>Student Data Ukhiya({allStudentData.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={ukhiyaStudent.length + ' School'}
+                    columns={[
+                      { title: 'Name', field: 'name' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla' },
 
-                { title: 'Supervisor', field: 'supervisor' },
-              ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
-              options={{
-                exportButton: true,
-                exportAllData: true,
-                grouping: true,
-                sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
-                maxBodyHeight: '600px',
-                headerStyle: {
-                  position: 'sticky',
-                  top: 0,
-                  backgroundColor: '#bcceeb',
-                  fontWeight: 'bold',
-                  width: 15,
-                  textAlign: 'left',
-                  color: '#884fc9',
-                },
-                rowStyle: {
-                  fontSize: 14,
-                },
-              }}
-              data={allEmployeeData}
-            /> */}
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                      },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add User',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={ukhiyaStudent}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={2}>
+                <CAccordionHeader>
+                  <strong>Student Data Kutubdia({allStudentData.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={kutubdiaStudent.length + ' School'}
+                    columns={[
+                      { title: 'Name', field: 'name' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla' },
+
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                      },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add User',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={kutubdiaStudent}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+            </CAccordion>
           </CCardBody>
         </CCard>
       </CCol>

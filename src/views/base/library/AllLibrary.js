@@ -42,78 +42,19 @@ const AllLibrary = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
   const [allLibraryData, setAllLibraryData] = useState([])
-  const [allTeacherData, setAllTeacherData] = useState([])
-  const [allEmployeeData, setAllEmployeeData] = useState([])
+
+  // Area wise library data
+  const [kutubdiaLibrary, setKutubdiaLibrary] = useState([])
+  const [ukhiyaLibrary, setUkhiyaLibrary] = useState([])
+  // Area wise library data
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     console.log('use effect called')
     getAllLibrary()
-    getAllTeacher(console.log('get all teacheAllTeacherr called'))
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllEmployee(console.log('get all employee called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // Get All Teacher
-  const getAllTeacher = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllTeacherData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Teacher
-
-  // Get All Employee Data
-  const getAllEmployee = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllEmployeeData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Employee Data
 
   // Get All Library Data
   const getAllLibrary = async () => {
@@ -127,6 +68,11 @@ const AllLibrary = () => {
         },
       })
       setAllLibraryData(response.data)
+
+      setKutubdiaLibrary(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaLibrary(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -137,104 +83,168 @@ const AllLibrary = () => {
 
   return (
     <CRow>
-      {/* <CCol xs={12}>
-        <DocsCallout name="Accordion" href="components/accordion" />
-      </CCol> */}
       <CCol xs={12}>
-        {/* <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Report</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CButton color="primary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Demo Report
-            </CButton>
-          </CCardBody>
-        </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Library Data</strong>
+            <strong>ALL Library Data({allLibraryData.length})</strong>
           </CCardHeader>
           <CCardBody>
-            <MaterialTable
-              title={allLibraryData.length + ' Library Data'}
-              columns={[
-                { title: 'School', field: 'school', type: 'string' },
-                { title: 'Upazila', field: 'upazilla', type: 'string', sorting: 'true' },
-                { title: 'Book Self Number', field: 'number_book_self' },
-                { title: 'Book Self Active', field: 'number_self_active', sorting: 'true' },
-                {
-                  title: 'Total Title',
-                  field: 'titleTotal',
-                },
-                { title: 'Total Book', field: 'bookTotal' },
-                { title: 'Total Book Available', field: 'bookTotal_now' },
+            <CAccordion alwaysOpen>
+              <CAccordionItem itemKey={1}>
+                <CAccordionHeader>
+                  <strong>Library Data Ukhiya({ukhiyaLibrary.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={ukhiyaLibrary.length + ' Library Data'}
+                    columns={[
+                      { title: 'School', field: 'school', type: 'string' },
+                      { title: 'Upazila', field: 'upazilla', type: 'string', sorting: 'true' },
+                      { title: 'Book Self Number', field: 'number_book_self' },
+                      { title: 'Book Self Active', field: 'number_self_active', sorting: 'true' },
+                      {
+                        title: 'Total Title',
+                        field: 'titleTotal',
+                      },
+                      { title: 'Total Book', field: 'bookTotal' },
+                      { title: 'Total Book Available', field: 'bookTotal_now' },
 
-                { title: 'Green Title', field: 'titleNoGreen' },
-                { title: 'Green Book', field: 'bookNoGreen' },
+                      { title: 'Green Title', field: 'titleNoGreen' },
+                      { title: 'Green Book', field: 'bookNoGreen' },
 
-                { title: 'Red Title', field: 'titleNoRed' },
-                { title: 'Red Book', field: 'bookNoRed' },
+                      { title: 'Red Title', field: 'titleNoRed' },
+                      { title: 'Red Book', field: 'bookNoRed' },
 
-                { title: 'White Title', field: 'titleNoWhite' },
-                { title: 'White Book', field: 'bookNoWhite' },
+                      { title: 'White Title', field: 'titleNoWhite' },
+                      { title: 'White Book', field: 'bookNoWhite' },
 
-                { title: 'Blue Title', field: 'titleNoBlue' },
-                { title: 'Blue Book', field: 'bookNoBlue' },
+                      { title: 'Blue Title', field: 'titleNoBlue' },
+                      { title: 'Blue Book', field: 'bookNoBlue' },
 
-                { title: 'Yellow Title', field: 'titleNoYellow' },
-                { title: 'Yellow Book', field: 'bookNoYellow' },
-              ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
-              options={{
-                exportButton: true,
-                exportAllData: true,
-                grouping: true,
-                sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
-                maxBodyHeight: '600px',
-                headerStyle: {
-                  position: 'sticky',
-                  top: 0,
-                  backgroundColor: '#bcceeb',
-                  fontWeight: 'bold',
-                  width: 15,
-                  textAlign: 'left',
-                  color: '#884fc9',
-                },
-                rowStyle: {
-                  fontSize: 14,
-                },
-              }}
-              data={allLibraryData}
-            />
+                      { title: 'Yellow Title', field: 'titleNoYellow' },
+                      { title: 'Yellow Book', field: 'bookNoYellow' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 10,
+                      pageSizeOptions: [10, 20, 30],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                      },
+                    }}
+                    data={ukhiyaLibrary}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={2}>
+                <CAccordionHeader>
+                  <strong>Library Data Kutubdia({kutubdiaLibrary.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={kutubdiaLibrary.length + ' Library Data'}
+                    columns={[
+                      { title: 'School', field: 'school', type: 'string' },
+                      { title: 'Upazila', field: 'upazilla', type: 'string', sorting: 'true' },
+                      { title: 'Book Self Number', field: 'number_book_self' },
+                      { title: 'Book Self Active', field: 'number_self_active', sorting: 'true' },
+                      {
+                        title: 'Total Title',
+                        field: 'titleTotal',
+                      },
+                      { title: 'Total Book', field: 'bookTotal' },
+                      { title: 'Total Book Available', field: 'bookTotal_now' },
+
+                      { title: 'Green Title', field: 'titleNoGreen' },
+                      { title: 'Green Book', field: 'bookNoGreen' },
+
+                      { title: 'Red Title', field: 'titleNoRed' },
+                      { title: 'Red Book', field: 'bookNoRed' },
+
+                      { title: 'White Title', field: 'titleNoWhite' },
+                      { title: 'White Book', field: 'bookNoWhite' },
+
+                      { title: 'Blue Title', field: 'titleNoBlue' },
+                      { title: 'Blue Book', field: 'bookNoBlue' },
+
+                      { title: 'Yellow Title', field: 'titleNoYellow' },
+                      { title: 'Yellow Book', field: 'bookNoYellow' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 10,
+                      pageSizeOptions: [10, 20, 30],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                      },
+                    }}
+                    data={kutubdiaLibrary}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+            </CAccordion>
           </CCardBody>
         </CCard>
       </CCol>

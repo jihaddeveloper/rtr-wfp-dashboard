@@ -45,6 +45,7 @@ const AllBCOCombined = () => {
 
   // Get previous month
   const current = new Date()
+  const currentMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
   current.setMonth(current.getMonth() - 2)
   const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
@@ -665,10 +666,11 @@ const AllBCOCombined = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Cumulative Summary All BCO/I Combined Data(School+CRF)</strong>
+                  <strong>
+                    Cumulative Summary All BCO/I Combined Data School+CRF((April-2022 Till Now))
+                  </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  {/* <strong>This is the first item</strong> */}
                   <MaterialTable
                     title={''}
                     // title={JSON.stringify(reportData)}
@@ -717,12 +719,11 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I Data(School)</strong>
+                  <strong>Summary BCO/I School Data(April-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
                     title={''}
-                    // title={JSON.stringify(reportData)}
                     columns={[
                       { title: 'Sl', field: 'sl' },
                       { title: 'Particular Area', field: 'area' },
@@ -768,7 +769,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I Data(CRF)</strong>
+                  <strong>Summary BCO/I CRF Data(June-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>
@@ -778,7 +779,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I Data(School) by Month</strong>
+                  <strong>Summary BCO/I School Data by {currentMonth}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>
@@ -788,7 +789,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I Data(CRF) by Month</strong>
+                  <strong>Summary BCO/I CRF Data by {currentMonth}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>
@@ -798,7 +799,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={6}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(School) Ukhiya</strong>
+                  <strong>BCO/I Detail School Data Ukhiya(April-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -909,7 +910,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={7}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(School) Kutubdia</strong>
+                  <strong>BCO/I Detail School Data Kutubdia(April-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -1020,7 +1021,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={8}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(CRF) Ukhiya</strong>
+                  <strong>BCO/I Detail CRF Data Ukhiya(June-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -1131,7 +1132,7 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={9}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail Data(CRF) Kutubdia</strong>
+                  <strong>BCO/I Detail CRF Data Kutubdia(June-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable

@@ -42,35 +42,19 @@ const AllTeacher = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
+
+  // Area wise teacher data
+  const [kutubdiaTeacher, setKutubdiaTeacher] = useState([])
+  const [ukhiyaTeacher, setUkhiyaTeacher] = useState([])
+  // Area wise teacher data
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     console.log('use effect called')
     getAllTeacher(console.log('get all teacher called'))
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   // Get All Teacher
   const getAllTeacher = async () => {
@@ -84,6 +68,11 @@ const AllTeacher = () => {
         },
       })
       setAllTeacherData(response.data)
+
+      setKutubdiaTeacher(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaTeacher(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -100,65 +89,135 @@ const AllTeacher = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Teacher Data</strong>
-            {/* <strong>{allBCOData.length}</strong> */}
+            <strong>ALL Teacher Data({allTeacherData.length}) </strong>
           </CCardHeader>
           <CCardBody>
-            <MaterialTable
-              title={allTeacherData.length + ' Teacher Data'}
-              columns={[
-                { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
-                { title: 'School', field: 'school', sorting: 'true' },
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                {
-                  title: 'Designation',
-                  field: 'designation',
-                },
-                { title: 'Training', field: 'teacherTraining' },
-              ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
-              options={{
-                exportButton: true,
-                exportAllData: true,
-                grouping: true,
-                sorting: true,
-                pageSize: 5,
-                pageSizeOptions: [5, 10, 20],
-                maxBodyHeight: '600px',
-                headerStyle: {
-                  position: 'sticky',
-                  top: 0,
-                  backgroundColor: '#bcceeb',
-                  fontWeight: 'bold',
-                  width: 15,
-                  textAlign: 'left',
-                  color: '#884fc9',
-                },
-                rowStyle: {
-                  fontSize: 14,
-                  backgroundColor: '#ede9df',
-                },
-              }}
-              data={allTeacherData}
-            />
+            <CAccordion alwaysOpen>
+              <CAccordionItem itemKey={1}>
+                <CAccordionHeader>
+                  <strong>Teacher Data Ukhiya({ukhiyaTeacher.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={ukhiyaTeacher.length + ' Teacher Data'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={ukhiyaTeacher}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={2}>
+                <CAccordionHeader>
+                  <strong>Teacher Data Kutubdia({kutubdiaTeacher.length})</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={kutubdiaTeacher.length + ' Teacher Data'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={kutubdiaTeacher}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+            </CAccordion>
           </CCardBody>
         </CCard>
       </CCol>

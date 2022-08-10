@@ -130,7 +130,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'BCO/I CRF',
-        to: '*',
+        to: '/bco/allbco-crf',
       },
       {
         component: CNavItem,

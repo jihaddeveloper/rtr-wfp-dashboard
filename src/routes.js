@@ -19,6 +19,7 @@ const OverallSchoolReport = React.lazy(() => import('./views/base/school/Overall
 
 // BCO/I
 const AllBCOSchool = React.lazy(() => import('./views/base/bco/AllBCOSchool'))
+const AllBCOCRF = React.lazy(() => import('./views/base/bco/AllBCOCRF'))
 const AllBCOCombined = React.lazy(() => import('./views/base/bco/AllBCOCombined'))
 
 // Library
@@ -137,6 +138,8 @@ const routes = [
 
   { path: '/bco/allbco-combined', name: 'AllBCOCombined', element: AllBCOCombined },
   { path: '/bco/allbco-school', name: 'AllBCOSchool', element: AllBCOSchool },
+  { path: '/bco/allbco-crf', name: 'AllBCOCRF', element: AllBCOCRF },
+
   { path: '/bco/wfp-summarize', name: 'WFPSummarize', element: WFPSummarizeBCO },
   { path: '/bco/cfo-analysis', name: 'CFOAnalysisBCO', element: CFOAnalysisBCO },
   { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
