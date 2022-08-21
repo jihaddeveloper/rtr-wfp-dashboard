@@ -96,6 +96,19 @@ const _nav = [
   },
   {
     component: CNavGroup,
+    name: 'Book Captain',
+    to: '#',
+    icon: <CIcon icon={cilWc} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Book-Captain',
+        to: '/library/all-bookcaptain',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
     name: 'Employee',
     to: '#',
     icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
@@ -151,6 +164,26 @@ const _nav = [
         component: CNavItem,
         name: 'Kutubdia Report School',
         to: '/bco/kutubdia-report',
+      },
+      {
+        component: CNavItem,
+        name: 'Summary Report CRF',
+        to: '/bco/wfp-summary-crf',
+      },
+      {
+        component: CNavItem,
+        name: 'CFO Analysis CRF',
+        to: '/bco/cfo-analysis-crf',
+      },
+      {
+        component: CNavItem,
+        name: 'Ukhiya Report CRF',
+        to: '/bco/ukhiya-report-crf',
+      },
+      {
+        component: CNavItem,
+        name: 'Kutubdia Report CRF',
+        to: '/bco/kutubdia-crf',
       },
     ],
   },

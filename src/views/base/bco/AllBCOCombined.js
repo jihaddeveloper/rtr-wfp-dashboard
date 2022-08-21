@@ -812,6 +812,7 @@ const AllBCOCombined = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -923,6 +924,7 @@ const AllBCOCombined = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -1034,6 +1036,7 @@ const AllBCOCombined = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -1145,6 +1148,7 @@ const AllBCOCombined = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },

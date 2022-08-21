@@ -37,7 +37,7 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllStudent = () => {
+const AllBookCaptain = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -108,17 +108,17 @@ const AllStudent = () => {
         </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Student Data({allStudentData.length})</strong>
+            <strong>ALL Book-Captain Data({allStudentData.length})</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Student Data Ukhiya({allStudentData.length})</strong>
+                  <strong>Book-Captain Data Ukhiya({allStudentData.length})</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaStudent.length + ' School'}
+                    title={ukhiyaStudent.length + ' Book-Captain'}
                     columns={[
                       { title: 'Name', field: 'name' },
                       { title: 'District', field: 'district' },
@@ -180,11 +180,11 @@ const AllStudent = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Student Data Kutubdia({allStudentData.length})</strong>
+                  <strong>Book-Captain Data Kutubdia({allStudentData.length})</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={kutubdiaStudent.length + ' School'}
+                    title={kutubdiaStudent.length + ' Book-Captain'}
                     columns={[
                       { title: 'Name', field: 'name' },
                       { title: 'District', field: 'district' },
@@ -246,7 +246,7 @@ const AllStudent = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Summary of Student</strong>
+                  <strong>Summary of Book-Captain</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>
@@ -262,4 +262,4 @@ const AllStudent = () => {
   )
 }
 
-export default AllStudent
+export default AllBookCaptain

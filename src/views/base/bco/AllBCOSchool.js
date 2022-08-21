@@ -116,7 +116,7 @@ const AllBCOSchool = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL BCO Data</strong>
+            <strong>ALL BCO Data School</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>

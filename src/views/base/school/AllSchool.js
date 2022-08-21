@@ -90,13 +90,13 @@ const AllSchool = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>All School Data({allSchoolData.length})</strong>
+            <strong>Total School-{allSchoolData.length}</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>School Data Ukhiya({ukhiyaSchool.length})</strong>
+                  <strong>Total School Ukhiya-{ukhiyaSchool.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -162,7 +162,7 @@ const AllSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>School Data Kutubdia({kutubdiaSchool.length})</strong>
+                  <strong>Total School Kutubdia-{kutubdiaSchool.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable

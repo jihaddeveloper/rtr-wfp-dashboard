@@ -26,10 +26,22 @@ const AllBCOCombined = React.lazy(() => import('./views/base/bco/AllBCOCombined'
 const LibraryDataCombined = React.lazy(() => import('./views/base/library/LibraryDataCombined'))
 const LibraryObservation = React.lazy(() => import('./views/base/library/LibraryObservation'))
 const LibrarySRM = React.lazy(() => import('./views/base/library/LibrarySRM'))
+const AllBookCaptain = React.lazy(() => import('./views/base/library/AllBookCaptain'))
 
 // Bangla
 const BanglaCalssData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
 const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
+
+// Report
+const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
+const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
+const UkhiyaReport = React.lazy(() => import('./views/base/bco/UkhiyaReport'))
+const KutubdiaReport = React.lazy(() => import('./views/base/bco/KutubdiaReport'))
+
+const WFPSummaryBCOCRF = React.lazy(() => import('./views/base/bco/WFPSummaryBCOCRF'))
+const CFOAnalysisBCOCRF = React.lazy(() => import('./views/base/bco/CFOAnalysisBCOCRF'))
+const UkhiyaReportCRF = React.lazy(() => import('./views/base/bco/UkhiyaReportCRF'))
+const KutubdiaReportCRF = React.lazy(() => import('./views/base/bco/KutubdiaReportCRF'))
 
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
@@ -75,12 +87,6 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
-
-// Report
-const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
-const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
-const UkhiyaReport = React.lazy(() => import('./views/base/bco/UkhiyaReport'))
-const KutubdiaReport = React.lazy(() => import('./views/base/bco/KutubdiaReport'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -145,6 +151,11 @@ const routes = [
   { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
   { path: '/bco/ukhiya-report', name: 'UkhiyaReport', element: UkhiyaReport },
 
+  { path: '/bco/wfp-summary-crf', name: 'WFPSummaryBCOCRF', element: WFPSummaryBCOCRF },
+  { path: '/bco/cfo-analysis-crf', name: 'CFOAnalysisBCOCRF', element: CFOAnalysisBCOCRF },
+  { path: '/bco/ukhiya-report-crf', name: 'UkhiyaReportCRF', element: UkhiyaReportCRF },
+  { path: '/bco/kutubdia-report-crf', name: 'KutubdiaReportCRF', element: KutubdiaReportCRF },
+
   { path: '/student/all-student', name: 'AllStudent', element: AllStudent },
   { path: '/teacher/all-teacher', name: 'AllTeacher', element: AllTeacher },
   { path: '/employee/all-employee', name: 'AllEmployee', element: AllEmployee },
@@ -153,6 +164,8 @@ const routes = [
   { path: '/library/library-combined', name: 'LibraryCombined', element: LibraryDataCombined },
   { path: '/library/library-observation', name: 'LibraryObservation', element: LibraryObservation },
   { path: '/library/library-srm', name: 'LibrarySRM', element: LibrarySRM },
+
+  { path: '/library/all-bookcaptain', name: 'AllBookCaptain', element: AllBookCaptain },
 
   { path: '/base/construction', name: 'UnderConstruction', element: UnderConstruction },
 
