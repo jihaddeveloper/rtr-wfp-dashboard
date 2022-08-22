@@ -125,6 +125,31 @@ const AllLibrary = () => {
         return item.upazilla === 'Kutubdia' && item.className === 'G1'
       }).length
 
+      g2libraryUkhiya = response.data.filter((item) => {
+        return item.upazilla === 'Ukhiya' && item.className === 'G2'
+      }).length
+      g2libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+        return item.upazilla === 'Kutubdia' && item.className === 'G2'
+      }).length
+      g3libraryUkhiya = response.data.filter((item) => {
+        return item.upazilla === 'Ukhiya' && item.className === 'G3'
+      }).length
+      g3libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+        return item.upazilla === 'Kutubdia' && item.className === 'G3'
+      }).length
+      g4libraryUkhiya = response.data.filter((item) => {
+        return item.upazilla === 'Ukhiya' && item.className === 'G4'
+      }).length
+      g4libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+        return item.upazilla === 'Kutubdia' && item.className === 'G4'
+      }).length
+      g5libraryUkhiya = response.data.filter((item) => {
+        return item.upazilla === 'Ukhiya' && item.className === 'G5'
+      }).length
+      g5libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+        return item.upazilla === 'Kutubdia' && item.className === 'G5'
+      }).length
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -196,7 +221,7 @@ const AllLibrary = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Total Library Ukhiya-{ukhiyaLibrary.length}</strong>
+                  <strong>Library in Ukhiya-{ukhiyaLibrary.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -211,6 +236,10 @@ const AllLibrary = () => {
                         field: 'titleTotal',
                       },
                       { title: 'Total Book', field: 'bookTotal' },
+                      {
+                        title: 'Total Title',
+                        field: 'titleTotal',
+                      },
                       { title: 'Total Book Available', field: 'bookTotal_now' },
 
                       { title: 'Green Title', field: 'titleNoGreen' },
@@ -251,8 +280,8 @@ const AllLibrary = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
-                      pageSize: 10,
-                      pageSizeOptions: [10, 20, 30],
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
                       maxBodyHeight: '600px',
                       headerStyle: {
                         position: 'sticky',
@@ -273,7 +302,7 @@ const AllLibrary = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Total Library Kutubdia-{kutubdiaLibrary.length}</strong>
+                  <strong>Library in Kutubdia-{kutubdiaLibrary.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -328,8 +357,8 @@ const AllLibrary = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
-                      pageSize: 10,
-                      pageSizeOptions: [10, 20, 30],
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
                       maxBodyHeight: '600px',
                       headerStyle: {
                         position: 'sticky',

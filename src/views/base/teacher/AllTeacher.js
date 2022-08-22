@@ -268,7 +268,7 @@ const AllTeacher = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Total Teacher Ukhiya-{ukhiyaTeacher.length}</strong>
+                  <strong>Teacher in Ukhiya-{ukhiyaTeacher.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -278,10 +278,12 @@ const AllTeacher = () => {
                       { title: 'School', field: 'school', sorting: 'true' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
                       {
                         title: 'Designation',
                         field: 'designation',
                       },
+                      { title: 'Grade', field: 'grade' },
                       { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[
@@ -330,7 +332,7 @@ const AllTeacher = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Total Teacher Kutubdia-{kutubdiaTeacher.length}</strong>
+                  <strong>Teacher in Kutubdia-{kutubdiaTeacher.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -340,10 +342,12 @@ const AllTeacher = () => {
                       { title: 'School', field: 'school', sorting: 'true' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
                       {
                         title: 'Designation',
                         field: 'designation',
                       },
+                      { title: 'Grade', field: 'grade' },
                       { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[

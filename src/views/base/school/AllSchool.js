@@ -96,7 +96,7 @@ const AllSchool = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Total School Ukhiya-{ukhiyaSchool.length}</strong>
+                  <strong>School in Ukhiya-{ukhiyaSchool.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -114,6 +114,14 @@ const AllSchool = () => {
                       {
                         title: 'Head Teacher',
                         field: 'headTeacher',
+                      },
+                      {
+                        title: 'GPS Data',
+                        field: 'gpsData',
+                      },
+                      {
+                        title: 'EMIS ID',
+                        field: 'emisId',
                       },
                     ]}
                     // actions={[
@@ -162,7 +170,7 @@ const AllSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Total School Kutubdia-{kutubdiaSchool.length}</strong>
+                  <strong>School in Kutubdia-{kutubdiaSchool.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -180,6 +188,14 @@ const AllSchool = () => {
                       {
                         title: 'Head Teacher',
                         field: 'headTeacher',
+                      },
+                      {
+                        title: 'GPS Data',
+                        field: 'gpsData',
+                      },
+                      {
+                        title: 'EMIS ID',
+                        field: 'emisId',
                       },
                     ]}
                     // actions={[

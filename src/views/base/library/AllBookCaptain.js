@@ -49,10 +49,48 @@ const AllBookCaptain = () => {
   const [ukhiyaStudent, setUkhiyaStudent] = useState([])
   // Area wise student data
 
+  // Report Data
+  const [reportData, setReportData] = useState([])
+
+  // Ukhiya Kutubdia
+  let ppBoyUkhiya = 0
+  let ppGirlUkhiya = 0
+  let ppBoyKutubdia = 0
+  let ppGirlKutubdia = 0
+
+  let g1BoyUkhiya = 0
+  let g1GirlUkhiya = 0
+  let g1BoyKutubdia = 0
+  let g1GirlKutubdia = 0
+
+  let g2BoyUkhiya = 0
+  let g2GirlUkhiya = 0
+  let g2BoyKutubdia = 0
+  let g2GirlKutubdia = 0
+
+  let g3BoyUkhiya = 0
+  let g3GirlUkhiya = 0
+  let g3BoyKutubdia = 0
+  let g3GirlKutubdia = 0
+
+  let g4BoyUkhiya = 0
+  let g4GirlUkhiya = 0
+  let g4BoyKutubdia = 0
+  let g4GirlKutubdia = 0
+
+  let g5BoyUkhiya = 0
+  let g5GirlUkhiya = 0
+  let g5BoyKutubdia = 0
+  let g5GirlKutubdia = 0
+  // Ukhiya Kutubdia
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    console.log('use effect called')
-    getAllStudent()
+    const call = async () => {
+      console.log('use effect called')
+      await getAllStudent()
+    }
+    pushReportData(console.log('pushReportData called'))
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
@@ -81,6 +119,55 @@ const AllBookCaptain = () => {
   }
   // Get All Student Data
 
+  const pushReportData = () => {
+    const reportObject = [
+      {
+        year: '2018',
+        boyUkhiya: ppBoyUkhiya,
+        girlUkhiya: ppGirlUkhiya,
+        boyKutubdia: ppBoyKutubdia,
+        girlKutubdia: ppGirlKutubdia,
+      },
+      {
+        year: '2019',
+        boyUkhiya: g1BoyUkhiya,
+        girlUkhiya: g1GirlUkhiya,
+        boyKutubdia: g1BoyKutubdia,
+        girlKutubdia: g1GirlKutubdia,
+      },
+      {
+        year: '2020',
+        boyUkhiya: g2BoyUkhiya,
+        girlUkhiya: g2GirlUkhiya,
+        boyKutubdia: g2BoyKutubdia,
+        girlKutubdia: g2GirlKutubdia,
+      },
+      {
+        year: '2021',
+        boyUkhiya: g3BoyUkhiya,
+        girlUkhiya: g3GirlUkhiya,
+        boyKutubdia: g3BoyKutubdia,
+        girlKutubdia: g3GirlKutubdia,
+      },
+      {
+        year: '2022',
+        boyUkhiya: g4BoyUkhiya,
+        girlUkhiya: g4GirlUkhiya,
+        boyKutubdia: g4BoyKutubdia,
+        girlKutubdia: g4GirlKutubdia,
+      },
+      {
+        year: '2023',
+        boyUkhiya: g5BoyUkhiya,
+        girlUkhiya: g5GirlUkhiya,
+        boyKutubdia: g5BoyKutubdia,
+        girlKutubdia: g5GirlKutubdia,
+      },
+    ]
+    console.log('reportObject', reportObject)
+    setReportData(reportObject)
+  }
+
   return (
     <CRow>
       {/* <CCol xs={12}>
@@ -108,13 +195,13 @@ const AllBookCaptain = () => {
         </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Book-Captain Data({allStudentData.length})</strong>
+            <strong>Book-Captain-{0}</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Book-Captain Data Ukhiya({allStudentData.length})</strong>
+                  <strong>Book-Captain in Ukhiya-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -180,7 +267,7 @@ const AllBookCaptain = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Book-Captain Data Kutubdia({allStudentData.length})</strong>
+                  <strong>Book-Captain in Kutubdia-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -246,12 +333,53 @@ const AllBookCaptain = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Summary of Book-Captain</strong>
+                  <strong>Total Book-Captain-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>Under construction</code>
-                  </strong>
+                  <MaterialTable
+                    title={''}
+                    // title={JSON.stringify(reportData)}
+                    columns={[
+                      { title: 'Year', field: 'year' },
+                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
+                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
+                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
+                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
+                    ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: false,
+                      sorting: false,
+                      search: false,
+                      paging: false,
+                      pageSize: 12,
+                      pageSizeOptions: [12, 24, 36],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={reportData}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
             </CAccordion>
