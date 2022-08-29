@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -40,7 +43,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 const AllBookCaptain = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [allStudentData, setAllStudentData] = useState([])
 
@@ -53,49 +56,82 @@ const AllBookCaptain = () => {
   const [reportData, setReportData] = useState([])
 
   // Ukhiya Kutubdia
-  let ppBoyUkhiya = 0
-  let ppGirlUkhiya = 0
-  let ppBoyKutubdia = 0
-  let ppGirlKutubdia = 0
+  let boyUkhiya2018 = 0
+  let girlUkhiya2018 = 0
+  let totalUkhiya2018 = 0
+  let boyKutubdia2018 = 0
+  let girlKutubdia2018 = 0
+  let totalKutubdia2018 = 0
+  let total2018 = 0
 
-  let g1BoyUkhiya = 0
-  let g1GirlUkhiya = 0
-  let g1BoyKutubdia = 0
-  let g1GirlKutubdia = 0
+  let boyUkhiya2019 = 0
+  let girlUkhiya2019 = 0
+  let totalUkhiya2019 = 0
+  let boyKutubdia2019 = 0
+  let girlKutubdia2019 = 0
+  let totalKutubdia2019 = 0
+  let total2019 = 0
 
-  let g2BoyUkhiya = 0
-  let g2GirlUkhiya = 0
-  let g2BoyKutubdia = 0
-  let g2GirlKutubdia = 0
+  let boyUkhiya2020 = 0
+  let girlUkhiya2020 = 0
+  let totalUkhiya2020 = 0
+  let boyKutubdia2020 = 0
+  let girlKutubdia2020 = 0
+  let totalKutubdia2020 = 0
+  let total2020 = 0
 
-  let g3BoyUkhiya = 0
-  let g3GirlUkhiya = 0
-  let g3BoyKutubdia = 0
-  let g3GirlKutubdia = 0
+  let boyUkhiya2021 = 0
+  let girlUkhiya2021 = 0
+  let totalUkhiya2021 = 0
+  let boyKutubdia2021 = 0
+  let girlKutubdia2021 = 0
+  let totalKutubdia2021 = 0
+  let total2021 = 0
 
-  let g4BoyUkhiya = 0
-  let g4GirlUkhiya = 0
-  let g4BoyKutubdia = 0
-  let g4GirlKutubdia = 0
+  let boyUkhiya2022 = 0
+  let girlUkhiya2022 = 0
+  let totalUkhiya2022 = 0
+  let boyKutubdia2022 = 0
+  let girlKutubdia2022 = 0
+  let totalKutubdia2022 = 0
+  let total2022 = 0
 
-  let g5BoyUkhiya = 0
-  let g5GirlUkhiya = 0
-  let g5BoyKutubdia = 0
-  let g5GirlKutubdia = 0
+  let boyUkhiya2023 = 0
+  let girlUkhiya2023 = 0
+  let totalUkhiya2023 = 0
+  let boyKutubdia2023 = 0
+  let girlKutubdia2023 = 0
+  let totalKutubdia2023 = 0
+  let total2023 = 0
   // Ukhiya Kutubdia
+
+  // Total
+  let totalBoyUkhiya = 0
+  let totalGirlUkhiya = 0
+  let totalU = 0
+  let totalBoyKutubdia = 0
+  let totalGirlKutubdia = 0
+  let totalK = 0
+  let total = 0
+
+  // Total
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
+    setIsLoading(true)
     const call = async () => {
       console.log('use effect called')
       await getAllStudent()
+      pushReportData(console.log('pushReportData called'))
     }
-    pushReportData(console.log('pushReportData called'))
+    call()
+    setIsLoading(false)
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
   // Get All Student Data
   const getAllStudent = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/student', {
         method: 'GET',
@@ -123,49 +159,87 @@ const AllBookCaptain = () => {
     const reportObject = [
       {
         year: '2018',
-        boyUkhiya: ppBoyUkhiya,
-        girlUkhiya: ppGirlUkhiya,
-        boyKutubdia: ppBoyKutubdia,
-        girlKutubdia: ppGirlKutubdia,
+        boyUkhiya: boyUkhiya2018,
+        girlUkhiya: girlUkhiya2018,
+        totalUkhiya: totalUkhiya2018,
+        boyKutubdia: boyKutubdia2018,
+        girlKutubdia: girlKutubdia2018,
+        totalKutubdia: totalKutubdia2018,
+        total: total2018,
       },
       {
         year: '2019',
-        boyUkhiya: g1BoyUkhiya,
-        girlUkhiya: g1GirlUkhiya,
-        boyKutubdia: g1BoyKutubdia,
-        girlKutubdia: g1GirlKutubdia,
+        boyUkhiya: boyUkhiya2019,
+        girlUkhiya: girlUkhiya2019,
+        totalUkhiya: totalUkhiya2019,
+        boyKutubdia: boyKutubdia2019,
+        girlKutubdia: girlKutubdia2019,
+        totalKutubdia: totalKutubdia2019,
+        total: total2019,
       },
       {
         year: '2020',
-        boyUkhiya: g2BoyUkhiya,
-        girlUkhiya: g2GirlUkhiya,
-        boyKutubdia: g2BoyKutubdia,
-        girlKutubdia: g2GirlKutubdia,
+        boyUkhiya: boyUkhiya2020,
+        girlUkhiya: girlUkhiya2020,
+        totalUkhiya: totalUkhiya2020,
+        boyKutubdia: boyKutubdia2020,
+        girlKutubdia: girlKutubdia2020,
+        totalKutubdia: totalKutubdia2020,
+        total: total2020,
       },
       {
         year: '2021',
-        boyUkhiya: g3BoyUkhiya,
-        girlUkhiya: g3GirlUkhiya,
-        boyKutubdia: g3BoyKutubdia,
-        girlKutubdia: g3GirlKutubdia,
+        boyUkhiya: boyUkhiya2021,
+        girlUkhiya: girlUkhiya2021,
+        totalUkhiya: totalUkhiya2021,
+        boyKutubdia: boyKutubdia2021,
+        girlKutubdia: girlKutubdia2021,
+        totalKutubdia: totalKutubdia2021,
+        total: total2021,
       },
       {
         year: '2022',
-        boyUkhiya: g4BoyUkhiya,
-        girlUkhiya: g4GirlUkhiya,
-        boyKutubdia: g4BoyKutubdia,
-        girlKutubdia: g4GirlKutubdia,
+        boyUkhiya: boyUkhiya2022,
+        girlUkhiya: girlUkhiya2022,
+        totalUkhiya: totalUkhiya2022,
+        boyKutubdia: boyKutubdia2022,
+        girlKutubdia: girlKutubdia2022,
+        totalKutubdia: totalKutubdia2022,
+        total: total2022,
       },
       {
         year: '2023',
-        boyUkhiya: g5BoyUkhiya,
-        girlUkhiya: g5GirlUkhiya,
-        boyKutubdia: g5BoyKutubdia,
-        girlKutubdia: g5GirlKutubdia,
+        boyUkhiya: boyUkhiya2023,
+        girlUkhiya: girlUkhiya2023,
+        totalUkhiya: totalUkhiya2023,
+        boyKutubdia: boyKutubdia2023,
+        girlKutubdia: girlKutubdia2023,
+        totalKutubdia: totalKutubdia2023,
+        total: total2023,
+      },
+      {
+        year: 'Total',
+        boyUkhiya: totalBoyUkhiya,
+        girlUkhiya: totalGirlUkhiya,
+        totalUkhiya: totalU,
+        boyKutubdia: totalBoyKutubdia,
+        girlKutubdia: totalGirlKutubdia,
+        totalKutubdia: totalK,
+        total: total,
       },
     ]
     console.log('reportObject', reportObject)
     setReportData(reportObject)
+  }
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
   }
 
   return (
@@ -201,52 +275,32 @@ const AllBookCaptain = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Book-Captain in Ukhiya-{0}</strong>
+                  <strong>Total Book-Captain-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaStudent.length + ' Book-Captain'}
+                    title={''}
+                    // title={JSON.stringify(reportData)}
                     columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla' },
-
-                      { title: 'LPO', field: 'lpo', type: 'string' },
-                      {
-                        title: 'LF',
-                        field: 'lf',
-                      },
-                      {
-                        title: 'Head Teacher',
-                        field: 'headTeacher',
-                      },
+                      { title: 'Year', field: 'year' },
+                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
+                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
+                      { title: 'Total Book-Captain in Ukhiya', field: 'totalUkhiya' },
+                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
+                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
+                      { title: 'Total Book-Captain in Kutubdia', field: 'totalKutubdia' },
+                      { title: 'Total Book-Captain', field: 'total' },
                     ]}
-                    // actions={[
-                    //   {
-                    //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: ViewColumn,
-                    //     tooltip: 'View School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: AddBox,
-                    //     tooltip: 'Add User',
-                    //     isFreeAction: true,
-                    //     onClick: (event) => alert('You want to add a new row'),
-                    //   },
-                    // ]}
                     options={{
                       exportButton: true,
                       exportAllData: true,
-                      grouping: true,
-                      sorting: true,
-                      pageSize: 5,
-                      pageSizeOptions: [5, 10, 20],
-                      maxBodyHeight: '600px',
+                      grouping: false,
+                      sorting: false,
+                      search: false,
+                      paging: false,
+                      pageSize: 12,
+                      pageSizeOptions: [12, 24, 36],
+                      maxBodyHeight: '550px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -255,13 +309,21 @@ const AllBookCaptain = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
-                    data={ukhiyaStudent}
+                    data={reportData}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -333,29 +395,52 @@ const AllBookCaptain = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Total Book-Captain-{0}</strong>
+                  <strong>Book-Captain in Ukhiya-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={''}
-                    // title={JSON.stringify(reportData)}
+                    title={ukhiyaStudent.length + ' Book-Captain'}
                     columns={[
-                      { title: 'Year', field: 'year' },
-                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
-                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
-                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
-                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
+                      { title: 'Name', field: 'name' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla' },
+
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                      },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
                     ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add User',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
                     options={{
                       exportButton: true,
                       exportAllData: true,
-                      grouping: false,
-                      sorting: false,
-                      search: false,
-                      paging: false,
-                      pageSize: 12,
-                      pageSizeOptions: [12, 24, 36],
-                      maxBodyHeight: '550px',
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -364,21 +449,13 @@ const AllBookCaptain = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
-                        borderRight: '1px solid #eee',
-                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#f5f3f2',
-                        borderRight: '1px solid #fff',
-                        borderStyle: 'solid',
-                      },
-                      cellStyle: {
-                        borderRight: '1px solid #fff',
-                        borderStyle: 'solid',
+                        backgroundColor: '#ede9df',
                       },
                     }}
-                    data={reportData}
+                    data={ukhiyaStudent}
                   />
                 </CAccordionBody>
               </CAccordionItem>

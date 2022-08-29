@@ -458,42 +458,54 @@ const Dashboard = () => {
                     <CCol sm={3}>
                       <CLink href="/school/overall-school">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">School Performance(Overall)</div>
-                          <div className="text-medium-emphasis small">
+                          <CButton>
+                            <div className="fs-5 fw-semibold">School Performance(Overall)</div>
+                          </CButton>
+
+                          {/* <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div>
+                          </div> */}
                         </div>
                       </CLink>
                     </CCol>
                     <CCol sm={3}>
                       <CLink href="/bangla/bangla-class">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
-                          <div className="text-medium-emphasis small">
+                          <CButton>
+                            <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
+                          </CButton>
+
+                          {/* <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div>
+                          </div> */}
                         </div>
                       </CLink>
                     </CCol>
                     <CCol sm={3}>
                       <CLink href="/library/library-combined">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
-                          <div className="fs-5 fw-semibold">
-                            Library Performance(Observation & SRM)
-                          </div>
-                          <div className="text-medium-emphasis small">
+                          <CButton>
+                            <div className="fs-5 fw-semibold">
+                              Library Performance(Observation & SRM)
+                            </div>
+                          </CButton>
+
+                          {/* <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div>
+                          </div> */}
                         </div>
                       </CLink>
                     </CCol>
                     <CCol sm={3}>
                       <CLink href="/bco/allbco-combined">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                          <div className="fs-5 fw-semibold">BCO/I (School & CRF)</div>
-                          <div className="text-medium-emphasis small">
+                          <CButton>
+                            <div className="fs-5 fw-semibold">BCO/I (School & CRF)</div>
+                          </CButton>
+
+                          {/* <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div>
+                          </div> */}
                         </div>
                       </CLink>
                     </CCol>

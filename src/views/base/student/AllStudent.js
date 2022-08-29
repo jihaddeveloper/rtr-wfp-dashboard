@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -40,7 +43,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 const AllStudent = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [allStudentData, setAllStudentData] = useState([])
 
@@ -58,7 +61,7 @@ const AllStudent = () => {
   const [reportData, setReportData] = useState([])
 
   // Ukhiya Kutubdia
-  let ppBoyUkhiya = 0
+  let ppBoyUkhiya = 12
   let ppGirlUkhiya = 0
   let ppBoyKutubdia = 0
   let ppGirlKutubdia = 0
@@ -92,9 +95,13 @@ const AllStudent = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
+      setIsLoading(true)
+
       console.log('use effect called')
       await getAllStudent()
       pushReportData(console.log('pushReportData called'))
+
+      setIsLoading(false)
     }
     call()
   }, [])
@@ -102,6 +109,7 @@ const AllStudent = () => {
 
   // Get All Student Data
   const getAllStudent = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/student', {
         method: 'GET',
@@ -121,13 +129,17 @@ const AllStudent = () => {
 
       setFemaleStudent(response.data.filter((item) => item.gender === 'Girl'))
 
-      //ppBoyUkhiya = response.data.filter((item) => item.gradeId === 'PP')
+      //ppBoyUkhiya = response.data.filter((item) => item.gradeId === 'PP' && item.gender === 'Boy')
 
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
+
+    // setIsLoading(true)
+    // ppBoyUkhiya = allStudentData.filter((item) => item.gradeId === 'PP' && item.gender === 'Boy')
+    // setIsLoading(false)
   }
   // Get All Student Data
 
@@ -175,16 +187,30 @@ const AllStudent = () => {
         boyKutubdia: g5BoyKutubdia,
         girlKutubdia: g5GirlKutubdia,
       },
+      {
+        grade: 'Total',
+        boyUkhiya: g5BoyUkhiya,
+        girlUkhiya: g5GirlUkhiya,
+        boyKutubdia: g5BoyKutubdia,
+        girlKutubdia: g5GirlKutubdia,
+      },
     ]
     console.log('reportObject', reportObject)
     setReportData(reportObject)
   }
 
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
+
   return (
     <CRow>
-      {/* <CCol xs={12}>
-        <DocsCallout name="Accordion" href="components/accordion" />
-      </CCol> */}
       <CCol xs={12}>
         {/* <CCard className="mb-4">
           <CCardHeader>
@@ -213,63 +239,35 @@ const AllStudent = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Student in Ukhiya-{ukhiyaStudent.length}</strong>
+                  <strong>
+                    Total Student-{allStudentData.length} (Boy-{maleStudent.length}, Girl-
+                    {femaleStudent.length})
+                  </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaStudent.length + ' School'}
+                    title={''}
+                    // title={JSON.stringify(reportData)}
                     columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'Upazilla', field: 'upazilla' },
-                      { title: 'Gender', field: 'gender', type: 'string' },
-                      { title: 'Grade', field: 'gradeId' },
-                      {
-                        title: 'School',
-                        field: 'schoolName',
-                      },
-                      {
-                        title: 'Mother',
-                        field: 'mother',
-                      },
-                      {
-                        title: 'Father',
-                        field: 'father',
-                      },
-                      {
-                        title: 'LF',
-                        field: 'lf',
-                      },
-                      {
-                        title: 'LPO',
-                        field: 'lpo',
-                      },
+                      { title: 'Grade', field: 'grade' },
+                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
+                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
+                      { title: 'Total Student in Ukhiya', field: '' },
+                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
+                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
+                      { title: 'Total Student in Kutubdia', field: '' },
+                      { title: 'Total Student', field: '' },
                     ]}
-                    // actions={[
-                    //   {
-                    //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: ViewColumn,
-                    //     tooltip: 'View School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: AddBox,
-                    //     tooltip: 'Add User',
-                    //     isFreeAction: true,
-                    //     onClick: (event) => alert('You want to add a new row'),
-                    //   },
-                    // ]}
                     options={{
                       exportButton: true,
                       exportAllData: true,
-                      grouping: true,
-                      sorting: true,
-                      pageSize: 5,
-                      pageSizeOptions: [5, 10, 20],
-                      maxBodyHeight: '600px',
+                      grouping: false,
+                      sorting: false,
+                      search: false,
+                      paging: false,
+                      pageSize: 12,
+                      pageSizeOptions: [12, 24, 36],
+                      maxBodyHeight: '550px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -278,13 +276,21 @@ const AllStudent = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
-                    data={ukhiyaStudent}
+                    data={reportData}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -367,32 +373,63 @@ const AllStudent = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>
-                    Total Student-{allStudentData.length} (Boy-{maleStudent.length}, Girl-
-                    {femaleStudent.length})
-                  </strong>
+                  <strong>Student in Ukhiya-{ukhiyaStudent.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={''}
-                    // title={JSON.stringify(reportData)}
+                    title={ukhiyaStudent.length + ' School'}
                     columns={[
-                      { title: 'Grade', field: 'grade' },
-                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
-                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
-                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
-                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
+                      { title: 'Name', field: 'name' },
+                      { title: 'Upazilla', field: 'upazilla' },
+                      { title: 'Gender', field: 'gender', type: 'string' },
+                      { title: 'Grade', field: 'gradeId' },
+                      {
+                        title: 'School',
+                        field: 'schoolName',
+                      },
+                      {
+                        title: 'Mother',
+                        field: 'mother',
+                      },
+                      {
+                        title: 'Father',
+                        field: 'father',
+                      },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                      },
+                      {
+                        title: 'LPO',
+                        field: 'lpo',
+                      },
                     ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View School',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add User',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
                     options={{
                       exportButton: true,
                       exportAllData: true,
-                      grouping: false,
-                      sorting: false,
-                      search: false,
-                      paging: false,
-                      pageSize: 12,
-                      pageSizeOptions: [12, 24, 36],
-                      maxBodyHeight: '550px',
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -401,21 +438,13 @@ const AllStudent = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
-                        borderRight: '1px solid #eee',
-                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#f5f3f2',
-                        borderRight: '1px solid #fff',
-                        borderStyle: 'solid',
-                      },
-                      cellStyle: {
-                        borderRight: '1px solid #fff',
-                        borderStyle: 'solid',
+                        backgroundColor: '#ede9df',
                       },
                     }}
-                    data={reportData}
+                    data={ukhiyaStudent}
                   />
                 </CAccordionBody>
               </CAccordionItem>
