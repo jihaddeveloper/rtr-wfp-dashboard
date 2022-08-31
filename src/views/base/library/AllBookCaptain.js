@@ -332,65 +332,9 @@ const AllBookCaptain = () => {
                   <strong>Book-Captain in Kutubdia-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <MaterialTable
-                    title={kutubdiaStudent.length + ' Book-Captain'}
-                    columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla' },
-
-                      { title: 'LPO', field: 'lpo', type: 'string' },
-                      {
-                        title: 'LF',
-                        field: 'lf',
-                      },
-                      {
-                        title: 'Head Teacher',
-                        field: 'headTeacher',
-                      },
-                    ]}
-                    // actions={[
-                    //   {
-                    //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: ViewColumn,
-                    //     tooltip: 'View School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: AddBox,
-                    //     tooltip: 'Add User',
-                    //     isFreeAction: true,
-                    //     onClick: (event) => alert('You want to add a new row'),
-                    //   },
-                    // ]}
-                    options={{
-                      exportButton: true,
-                      exportAllData: true,
-                      grouping: true,
-                      sorting: true,
-                      pageSize: 5,
-                      pageSizeOptions: [5, 10, 20],
-                      maxBodyHeight: '600px',
-                      headerStyle: {
-                        position: 'sticky',
-                        top: 0,
-                        backgroundColor: '#bcceeb',
-                        fontWeight: 'bold',
-                        width: 15,
-                        textAlign: 'left',
-                        color: '#884fc9',
-                      },
-                      rowStyle: {
-                        fontSize: 14,
-                        backgroundColor: '#ede9df',
-                      },
-                    }}
-                    data={kutubdiaStudent}
-                  />
+                  <strong>
+                    <code>Under Construction</code>
+                  </strong>
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
@@ -398,65 +342,9 @@ const AllBookCaptain = () => {
                   <strong>Book-Captain in Ukhiya-{0}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <MaterialTable
-                    title={ukhiyaStudent.length + ' Book-Captain'}
-                    columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla' },
-
-                      { title: 'LPO', field: 'lpo', type: 'string' },
-                      {
-                        title: 'LF',
-                        field: 'lf',
-                      },
-                      {
-                        title: 'Head Teacher',
-                        field: 'headTeacher',
-                      },
-                    ]}
-                    // actions={[
-                    //   {
-                    //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: ViewColumn,
-                    //     tooltip: 'View School',
-                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-                    //   },
-                    //   {
-                    //     icon: AddBox,
-                    //     tooltip: 'Add User',
-                    //     isFreeAction: true,
-                    //     onClick: (event) => alert('You want to add a new row'),
-                    //   },
-                    // ]}
-                    options={{
-                      exportButton: true,
-                      exportAllData: true,
-                      grouping: true,
-                      sorting: true,
-                      pageSize: 5,
-                      pageSizeOptions: [5, 10, 20],
-                      maxBodyHeight: '600px',
-                      headerStyle: {
-                        position: 'sticky',
-                        top: 0,
-                        backgroundColor: '#bcceeb',
-                        fontWeight: 'bold',
-                        width: 15,
-                        textAlign: 'left',
-                        color: '#884fc9',
-                      },
-                      rowStyle: {
-                        fontSize: 14,
-                        backgroundColor: '#ede9df',
-                      },
-                    }}
-                    data={ukhiyaStudent}
-                  />
+                  <strong>
+                    <code>Under Construction</code>
+                  </strong>
                 </CAccordionBody>
               </CAccordionItem>
             </CAccordion>

@@ -58,7 +58,12 @@ const AllBCOSchool = () => {
 
   // Current date and month
   const current = new Date()
-  const currentMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+
+  current.setMonth(current.getMonth() - 2)
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
   // Current date and month
 
   // Using useEffect to call the API once mounted and set the data
@@ -88,17 +93,12 @@ const AllBCOSchool = () => {
 
       setKutubdiaAllBCOSchoolCMonth(
         response.data.filter(
-          (item) =>
-            item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+          (item) => item.upazilla === 'Kutubdia' && item.month === previousMonth,
         ),
       )
 
       setUkhiyaAllBCOSchoolCMonth(
-        response.data.filter(
-          (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
-        ),
+        response.data.filter((item) => item.upazilla === 'Ukhiya' && item.month === previousMonth),
       )
 
       setIsLoading(false)
@@ -136,6 +136,7 @@ const AllBCOSchool = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -247,6 +248,7 @@ const AllBCOSchool = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -358,6 +360,7 @@ const AllBCOSchool = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -456,7 +459,7 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Ukhiya({currentMonth}) </strong>
+                  <strong>BCO/I Detail School Data Ukhiya({previousMonthYear}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -469,6 +472,7 @@ const AllBCOSchool = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -567,7 +571,7 @@ const AllBCOSchool = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail School Data Kutubdia({currentMonth}) </strong>
+                  <strong>BCO/I Detail School Data Kutubdia({previousMonthYear}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -580,6 +584,7 @@ const AllBCOSchool = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },

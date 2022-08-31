@@ -32,6 +32,10 @@ const AllBCOCombined = () => {
   const [allBCOData, setAllBCOData] = useState([])
   // ALL BCO School
 
+  const [allBCODataSchoolByMonth, setAllBCODataSchoolByMonth] = useState([])
+
+  const [allBCODataCRFByMonth, setAllBCODataCRFByMonth] = useState([])
+
   // ALL BCO CRF
   const [allBCODataCRF, setAllBCODataCRF] = useState([])
   // ALL BCO CRF
@@ -484,84 +488,104 @@ const AllBCOCombined = () => {
       cfoTotalBookCheckoutCRF = kTotalBookCheckoutCRF + uTotalBookCheckoutCRF
       cfoTotalBookCheckinCRF = kTotalBookCheckinCRF + uTotalBookCheckinCRF
       cfoNoBCOPerStudentCRF = (
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uNoBCOPerStudentCRF) + parseFloat(kNoBCOPerStudentCRF)) /
+        2
       ).toFixed(2)
+      //   (
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoStudentBCOCRF = kNoStudentBCOCRF + uNoStudentBCOCRF
       cfoPercentStudentBCOCRF = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentStudentBCOCRF) + parseFloat(kPercentStudentBCOCRF)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
 
       cfoNoStudentBCICRF = kNoStudentBCICRF + uNoStudentBCICRF
       cfoPercentStudentBCICRF = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentStudentBCICRF) + parseFloat(kPercentStudentBCICRF)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoGirlBCOCRF = kNoGirlBCOCRF + uNoGirlBCOCRF
       cfoPercentGirlBCOCRF = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentGirlBCOCRF) + parseFloat(kPercentGirlBCOCRF)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoBoyBCOCRF = kNoBoyBCOCRF + uNoBoyBCOCRF
       cfoPercentBoyBCOCRF = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentBoyBCOCRF) + parseFloat(kPercentBoyBCOCRF)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoSchoolBCOCRF = kNoSchoolBCOCRF + uNoSchoolBCOCRF
       cfoNoSchoolZeroBCOCRF = kNoSchoolZeroBCOCRF + uNoSchoolZeroBCOCRF
 
@@ -881,84 +905,100 @@ const AllBCOCombined = () => {
       cfoTotalBookCheckout = kTotalBookCheckout + uTotalBookCheckout
       cfoTotalBookCheckin = kTotalBookCheckin + uTotalBookCheckin
       cfoNoBCOPerStudent = (
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uNoBCOPerStudent) + parseFloat(kNoBCOPerStudent)) /
+        2
       ).toFixed(2)
+      //   (
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
       cfoPercentStudentBCO = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentStudentBCO) + parseFloat(kPercentStudentBCO)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
 
       cfoNoStudentBCI = kNoStudentBCI + uNoStudentBCI
       cfoPercentStudentBCI = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
+        (parseFloat(uPercentStudentBCI) + parseFloat(kPercentStudentBCI)) /
+        2
       ).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoGirlBCO = kNoGirlBCO + uNoGirlBCO
-      cfoPercentGirlBCO = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
-      ).toFixed(2)
+      cfoPercentGirlBCO = ((parseFloat(uPercentGirlBCO) + parseFloat(kPercentGirlBCO)) / 2).toFixed(
+        2,
+      )
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoBoyBCO = kNoBoyBCO + uNoBoyBCO
-      cfoPercentBoyBCO = (
-        (response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
-          .reduce(function (acc, value) {
-            return acc + value
-          }) *
-          100) /
-        response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0)
-          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
-          .reduce(function (acc, value) {
-            return acc + value
-          })
-      ).toFixed(2)
+      cfoPercentBoyBCO = ((parseFloat(uPercentBoyBCO) + parseFloat(kPercentBoyBCO)) / 2).toFixed(2)
+      //   (
+      //   (response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   response.data
+      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
       cfoNoSchoolBCO = kNoSchoolBCO + uNoSchoolBCO
       cfoNoSchoolZeroBCO = kNoSchoolZeroBCO + uNoSchoolZeroBCO
       // CFO
@@ -2009,132 +2049,20 @@ const AllBCOCombined = () => {
             </CButton>
           </CCardBody>
           <CCardBody>
-            <CButton color="primary" href="#">
+            <CButton color="primary" href="/bco/wfp-summary-crf">
               Summarize Report(CRF)
             </CButton>
-            <CButton color="secondary" href="#">
+            <CButton color="secondary" href="/bco/cfo-analysis-crf">
               CFO Analysis Report(CRF)
             </CButton>
-            <CButton color="success" href="#">
+            <CButton color="success" href="/bco/ukhiya-report-crf">
               Ukhiya Report(CRF)
             </CButton>
-            <CButton color="warning" href="#">
+            <CButton color="warning" href="/bco/kutubdia-report-crf">
               Kutubdia Report(CRF)
             </CButton>
           </CCardBody>
         </CCard>
-
-        {/* <CCard className="mb-4">
-          <CCardHeader>
-            <strong>ALL BCO Data</strong>
-          </CCardHeader>
-          <CCardBody>
-            <MaterialTable
-              title={allBCOData.length + ' BCO Data'}
-              columns={[
-                { title: 'School', field: 'school' },
-                {
-                  title: 'Date',
-                  field: 'date',
-                  type: 'date',
-                  sorting: 'true',
-                },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
-
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Visitor', field: 'visitor' },
-                {
-                  title: 'Head Teacher',
-                  field: 'headTeacher',
-                },
-                { title: 'LPO', field: 'lpo', type: 'string' },
-                {
-                  title: 'LF',
-                  field: 'lf',
-                  type: 'string',
-                },
-
-                { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                { title: '#Total Student', field: 'schoolTotalNoStudent' },
-
-                { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
-
-                { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
-
-                { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
-
-                { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
-
-                { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
-
-                { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
-
-                { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
-
-                { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
-
-                { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
-
-                { title: 'PP Girl', field: 'priPrimaryGirl' },
-                { title: 'PP Boy', field: 'priPrimaryBoy' },
-                { title: 'PP Total', field: 'priPrimaryTotal' },
-
-                { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
-
-                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
-              ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
-              options={{
-                exportButton: true,
-                exportAllData: true,
-                grouping: true,
-                sorting: true,
-                pageSize: 5,
-                pageSizeOptions: [5, 10, 20],
-                maxBodyHeight: '600px',
-                headerStyle: {
-                  position: 'sticky',
-                  top: 0,
-                  backgroundColor: '#bcceeb',
-                  fontWeight: 'bold',
-                  width: 15,
-                  textAlign: 'left',
-                  color: '#884fc9',
-                },
-                rowStyle: {
-                  fontSize: 14,
-                  backgroundColor: '#ede9df',
-                },
-              }}
-              data={allBCOData}
-            />
-          </CCardBody>
-        </CCard> */}
       </CCol>
     </CRow>
   )

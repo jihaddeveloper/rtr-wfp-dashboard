@@ -47,19 +47,24 @@ const AllBCOCRF = () => {
   // ALL BCO School
 
   // Area wise BCO data school
-  const [kutubdiaAllBCOSchool, setKutubdiaAllBCOSchool] = useState([])
-  const [ukhiyaAllBCOSchool, setUkhiyaAllBCOSchool] = useState([])
+  const [kutubdiaAllBCOCRF, setKutubdiaAllBCOCRF] = useState([])
+  const [ukhiyaAllBCOCRF, setUkhiyaAllBCOCRF] = useState([])
   // Area wise BCO data school
 
   // Area & Month wise BCO data school
-  const [kutubdiaAllBCOSchoolCMonth, setKutubdiaAllBCOSchoolCMonth] = useState([])
-  const [ukhiyaAllBCOSchoolCMonth, setUkhiyaAllBCOSchoolCMonth] = useState([])
+  const [kutubdiaAllBCOCRFPMonth, setKutubdiaAllBCOCRFPMonth] = useState([])
+  const [ukhiyaAllBCOCRFPMonth, setUkhiyaAllBCOCRFPMonth] = useState([])
   // Area & Month wise BCO data school
 
   // Current date and month
   const current = new Date()
-  const currentMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
   // Current date and month
+
+  current.setMonth(current.getMonth() - 2)
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
@@ -82,23 +87,18 @@ const AllBCOCRF = () => {
       })
       setAllBCOData(response.data)
 
-      setKutubdiaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+      setKutubdiaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
-      setUkhiyaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+      setUkhiyaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Ukhiya'))
 
-      setKutubdiaAllBCOSchoolCMonth(
+      setKutubdiaAllBCOCRFPMonth(
         response.data.filter(
-          (item) =>
-            item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
+          (item) => item.upazilla === 'Kutubdia' && item.month === previousMonth,
         ),
       )
 
-      setUkhiyaAllBCOSchoolCMonth(
-        response.data.filter(
-          (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
-        ),
+      setUkhiyaAllBCOCRFPMonth(
+        response.data.filter((item) => item.upazilla === 'Ukhiya' && item.month === previousMonth),
       )
 
       setIsLoading(false)
@@ -126,7 +126,7 @@ const AllBCOCRF = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaAllBCOSchool.length + ' BCO Data CRF Ukhiya'}
+                    title={ukhiyaAllBCOCRF.length + ' BCO Data CRF Ukhiya'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -135,6 +135,7 @@ const AllBCOCRF = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -227,7 +228,7 @@ const AllBCOCRF = () => {
                         backgroundColor: '#ede9df',
                       },
                     }}
-                    data={ukhiyaAllBCOSchool}
+                    data={ukhiyaAllBCOCRF}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -237,7 +238,7 @@ const AllBCOCRF = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={kutubdiaAllBCOSchool.length + ' BCO Data CRF Kutubdia'}
+                    title={kutubdiaAllBCOCRF.length + ' BCO Data CRF Kutubdia'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -246,6 +247,7 @@ const AllBCOCRF = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -338,7 +340,7 @@ const AllBCOCRF = () => {
                         backgroundColor: '#ede9df',
                       },
                     }}
-                    data={kutubdiaAllBCOSchool}
+                    data={kutubdiaAllBCOCRF}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -357,6 +359,7 @@ const AllBCOCRF = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -455,11 +458,11 @@ const AllBCOCRF = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail CRF Data Ukhiya({currentMonth}) </strong>
+                  <strong>BCO/I Detail CRF Data Ukhiya({previousMonthYear}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaAllBCOSchoolCMonth.length + ' BCO Data'}
+                    title={ukhiyaAllBCOCRFPMonth.length + ' BCO Data'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -468,6 +471,7 @@ const AllBCOCRF = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -560,17 +564,17 @@ const AllBCOCRF = () => {
                         backgroundColor: '#ede9df',
                       },
                     }}
-                    data={ukhiyaAllBCOSchoolCMonth}
+                    data={ukhiyaAllBCOCRFPMonth}
                   />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
-                  <strong>BCO/I Detail CRF Data Kutubdia({currentMonth}) </strong>
+                  <strong>BCO/I Detail CRF Data Kutubdia({previousMonthYear}) </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={kutubdiaAllBCOSchoolCMonth.length + ' BCO Data'}
+                    title={kutubdiaAllBCOCRFPMonth.length + ' BCO Data'}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -579,6 +583,7 @@ const AllBCOCRF = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
@@ -671,7 +676,7 @@ const AllBCOCRF = () => {
                         backgroundColor: '#ede9df',
                       },
                     }}
-                    data={kutubdiaAllBCOSchoolCMonth}
+                    data={kutubdiaAllBCOCRFPMonth}
                   />
                 </CAccordionBody>
               </CAccordionItem>

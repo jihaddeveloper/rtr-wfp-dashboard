@@ -459,7 +459,7 @@ const Dashboard = () => {
                       <CLink href="/school/overall-school">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <CButton>
-                            <div className="fs-5 fw-semibold">School Performance(Overall)</div>
+                            <div className="Button">School Performance(Overall)</div>
                           </CButton>
 
                           {/* <div className="text-medium-emphasis small">
@@ -472,7 +472,7 @@ const Dashboard = () => {
                       <CLink href="/bangla/bangla-class">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <CButton>
-                            <div className="fs-5 fw-semibold">Teacher Performance(Bangla)</div>
+                            <div className="Button">Teacher Performance(Bangla)</div>
                           </CButton>
 
                           {/* <div className="text-medium-emphasis small">
@@ -485,9 +485,7 @@ const Dashboard = () => {
                       <CLink href="/library/library-combined">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
                           <CButton>
-                            <div className="fs-5 fw-semibold">
-                              Library Performance(Observation & SRM)
-                            </div>
+                            <div className="Button">Library Performance(Observ & SRM)</div>
                           </CButton>
 
                           {/* <div className="text-medium-emphasis small">
@@ -500,7 +498,7 @@ const Dashboard = () => {
                       <CLink href="/bco/allbco-combined">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <CButton>
-                            <div className="fs-5 fw-semibold">BCO/I (School & CRF)</div>
+                            <div className="Button">Book Check O/I (School & CRF)</div>
                           </CButton>
 
                           {/* <div className="text-medium-emphasis small">
@@ -538,28 +536,34 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-info py-1 px-3">
-                        <div className="fs-5 fw-semibold">Headteacher Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {headTeacherTrained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-info py-1 px-3">
+                          <div className="Button">Headteacher Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {headTeacherTrained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Bangla G1 Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {instructG1Trained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="Button">Bangla G1 Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {instructG1Trained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Bangla G2 Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {instructG2Trained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
+                          <div className="Button">Bangla G2 Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {instructG2Trained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                   </CRow>
                 </CCol>
@@ -567,28 +571,34 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Library Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {libraryTrained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
+                          <div className="Button">Library Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {libraryTrained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">Governence Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {goodGovornanceTrained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                          <div className="Button">Governence Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {goodGovornanceTrained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="fs-5 fw-semibold">School Performance Traning</div>
-                        <div className="text-medium-emphasis small">
-                          #Teacher: {schoolPerformanceTrained.length}
+                      <CLink href="/teacher/all-teacher">
+                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                          <div className="Button">School Performance</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {schoolPerformanceTrained.length}
+                          </div>
                         </div>
-                      </div>
+                      </CLink>
                     </CCol>
                   </CRow>
                 </CCol>
