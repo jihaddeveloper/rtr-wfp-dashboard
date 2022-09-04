@@ -15,6 +15,7 @@ import {
   CBadge,
   CButton,
   CCollapse,
+  CFormSelect,
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
@@ -24,6 +25,32 @@ import Box from '@mui/material/Box'
 import MaterialTable from 'material-table'
 
 const AllBCOCombined = () => {
+  const options = [
+    { value: '', text: 'Choose a month first' },
+    { value: 'January', text: 'January' },
+    { value: 'February', text: 'February' },
+    { value: 'March', text: 'March' },
+    { value: 'April', text: 'April' },
+    { value: 'May', text: 'May' },
+    { value: 'June', text: 'June' },
+    { value: 'July', text: 'July' },
+    { value: 'August', text: 'August' },
+    { value: 'September', text: 'September' },
+    { value: 'October', text: 'October' },
+    { value: 'November', text: 'November' },
+    { value: 'December', text: 'December' },
+    { value: 'apple', text: 'Apple 🍏' },
+    { value: 'banana', text: 'Banana 🍌' },
+    { value: 'kiwi', text: 'Kiwi 🥝' },
+  ]
+
+  const [selectedMonth, setSelectedMonth] = useState(options[0].value)
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setSelectedMonth(event.target.value)
+  }
+
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -52,9 +79,11 @@ const AllBCOCombined = () => {
 
   // Get previous month
   const current = new Date()
-  const currentMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
-  current.setMonth(current.getMonth() - 2)
-  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+  current.setMonth(current.getMonth() - 1)
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
 
   // Cumulative Summary All BCO/I Data(School+CRF)
   // Report Data
@@ -198,6 +227,8 @@ const AllBCOCombined = () => {
         },
       })
       setAllBCODataCRF(response.data)
+
+      setAllBCODataCRFByMonth(response.data.filter((item) => item.month === previousMonth))
 
       setKutubdiaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
@@ -611,6 +642,8 @@ const AllBCOCombined = () => {
       })
       setAllBCOData(response.data)
 
+      setAllBCODataSchoolByMonth(response.data.filter((item) => item.month === selectedMonth))
+
       setKutubdiaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
       setUkhiyaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Ukhiya'))
@@ -762,11 +795,7 @@ const AllBCOCombined = () => {
 
       //Kutubdia
       kTotalStudent = response.data
-        .filter(
-          (item) =>
-            item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth() - 2,
-        )
+        .filter((item) => item.upazilla === 'Kutubdia' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -1561,22 +1590,237 @@ const AllBCOCombined = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I School Data by Month</strong>
+                  <strong>BCO/I School Data by Month</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>This is under construction</code>
-                  </strong>
+                  <CCardHeader>
+                    <CFormSelect aria-label="Default select example" onChange={handleChange}>
+                      {options.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.text}
+                        </option>
+                      ))}
+                    </CFormSelect>
+                  </CCardHeader>
+                  <MaterialTable
+                    title={
+                      allBCODataSchoolByMonth.length + ' BCO Data for School of ' + previousMonth
+                    }
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                        type: 'string',
+                      },
+
+                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                      { title: 'PP Girl', field: 'priPrimaryGirl' },
+                      { title: 'PP Boy', field: 'priPrimaryBoy' },
+                      { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={allBCODataSchoolByMonth}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
-                  <strong>Summary BCO/I CRF Data by Month</strong>
+                  <strong>BCO/I CRF Data by Month</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>This is under construction</code>
-                  </strong>
+                  <MaterialTable
+                    title={allBCODataCRFByMonth.length + ' BCO Data for School of ' + previousMonth}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
+                      {
+                        title: 'Head Teacher',
+                        field: 'headTeacher',
+                      },
+                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      {
+                        title: 'LF',
+                        field: 'lf',
+                        type: 'string',
+                      },
+
+                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
+                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
+                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+
+                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
+                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
+                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+
+                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+
+                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+
+                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+
+                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+
+                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+
+                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+
+                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+
+                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+
+                      { title: 'PP Girl', field: 'priPrimaryGirl' },
+                      { title: 'PP Boy', field: 'priPrimaryBoy' },
+                      { title: 'PP Total', field: 'priPrimaryTotal' },
+
+                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
+                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
+                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+
+                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#ede9df',
+                      },
+                    }}
+                    data={allBCODataCRFByMonth}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={6}>
