@@ -200,7 +200,7 @@ const AllLibrary = () => {
         return item.upazilla === 'Ukhiya' && item.className === 'G2'
       }).length
 
-      g2libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+      g2libraryKutubdia = response.data.filter((item) => {
         return item.upazilla === 'Kutubdia' && item.className === 'G2'
       }).length
 
@@ -212,7 +212,7 @@ const AllLibrary = () => {
         return item.upazilla === 'Ukhiya' && item.className === 'G3'
       }).length
 
-      g3libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+      g3libraryKutubdia = response.data.filter((item) => {
         return item.upazilla === 'Kutubdia' && item.className === 'G3'
       }).length
 
@@ -224,7 +224,7 @@ const AllLibrary = () => {
         return item.upazilla === 'Ukhiya' && item.className === 'G4'
       }).length
 
-      g4libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+      g4libraryKutubdia = response.data.filter((item) => {
         return item.upazilla === 'Kutubdia' && item.className === 'G4'
       }).length
 
@@ -236,7 +236,7 @@ const AllLibrary = () => {
         return item.upazilla === 'Ukhiya' && item.className === 'G5'
       }).length
 
-      g5libraryKutubdia = g1libraryKutubdia = response.data.filter((item) => {
+      g5libraryKutubdia = response.data.filter((item) => {
         return item.upazilla === 'Kutubdia' && item.className === 'G5'
       }).length
 

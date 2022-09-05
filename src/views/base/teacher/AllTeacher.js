@@ -304,7 +304,7 @@ const AllTeacher = () => {
         totalTeacher: g2TotalTeacher,
       },
       {
-        grade: 'Other',
+        grade: 'G3-G5',
         maleukhiya: otherUTeacherMale,
         femaleukhiya: otherUTeacherFemale,
         totalTeacherU: otherUTeacherTotal,

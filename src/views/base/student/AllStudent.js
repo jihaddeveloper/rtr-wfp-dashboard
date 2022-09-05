@@ -61,7 +61,7 @@ const AllStudent = () => {
   const [reportData, setReportData] = useState([])
 
   // Ukhiya Kutubdia
-  let ppBoyUkhiya = 12
+  let ppBoyUkhiya = 0
   let ppGirlUkhiya = 0
   let ppBoyKutubdia = 0
   let ppGirlKutubdia = 0
@@ -129,17 +129,107 @@ const AllStudent = () => {
 
       setFemaleStudent(response.data.filter((item) => item.gender === 'Girl'))
 
-      //ppBoyUkhiya = response.data.filter((item) => item.gradeId === 'PP' && item.gender === 'Boy')
+      ppBoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Boy',
+      ).length
+
+      ppGirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Girl',
+      ).length
+
+      ppBoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Boy',
+      ).length
+
+      ppGirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Girl',
+      ).length
+
+      g1BoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Boy',
+      ).length
+
+      g1GirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Girl',
+      ).length
+
+      g1BoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Boy',
+      ).length
+
+      g1GirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Girl',
+      ).length
+
+      g2BoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Boy',
+      ).length
+
+      g2GirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Girl',
+      ).length
+
+      g2BoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Boy',
+      ).length
+
+      g2GirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Girl',
+      ).length
+
+      g3BoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Boy',
+      ).length
+
+      g3GirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Girl',
+      ).length
+
+      g3BoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Boy',
+      ).length
+
+      g3GirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Girl',
+      ).length
+
+      g4BoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Boy',
+      ).length
+
+      g4GirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Girl',
+      ).length
+
+      g4BoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Boy',
+      ).length
+
+      g4GirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Girl',
+      ).length
+
+      g5BoyUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Boy',
+      ).length
+
+      g5GirlUkhiya = ukhiyaStudent.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Girl',
+      ).length
+
+      g5BoyKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Boy',
+      ).length
+
+      g5GirlKutubdia = kutubdiaStudent.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Girl',
+      ).length
 
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
-
-    // setIsLoading(true)
-    // ppBoyUkhiya = allStudentData.filter((item) => item.gradeId === 'PP' && item.gender === 'Boy')
-    // setIsLoading(false)
   }
   // Get All Student Data
 
@@ -149,50 +239,133 @@ const AllStudent = () => {
         grade: 'PP',
         boyUkhiya: ppBoyUkhiya,
         girlUkhiya: ppGirlUkhiya,
+        totalUkhiya: ppBoyUkhiya + ppGirlUkhiya,
         boyKutubdia: ppBoyKutubdia,
         girlKutubdia: ppGirlKutubdia,
+        totalKutubdia: ppBoyKutubdia + ppGirlKutubdia,
+        total: ppBoyUkhiya + ppGirlUkhiya + ppBoyKutubdia + ppGirlKutubdia,
       },
       {
         grade: 'G1',
         boyUkhiya: g1BoyUkhiya,
         girlUkhiya: g1GirlUkhiya,
+        totalUkhiya: g1BoyUkhiya + g1GirlUkhiya,
         boyKutubdia: g1BoyKutubdia,
         girlKutubdia: g1GirlKutubdia,
+        totalKutubdia: g1BoyKutubdia + g1GirlKutubdia,
+        total: g1BoyUkhiya + g1GirlUkhiya + g1BoyKutubdia + g1GirlKutubdia,
       },
       {
         grade: 'G2',
         boyUkhiya: g2BoyUkhiya,
         girlUkhiya: g2GirlUkhiya,
+        totalUkhiya: g2BoyUkhiya + g2GirlUkhiya,
         boyKutubdia: g2BoyKutubdia,
         girlKutubdia: g2GirlKutubdia,
+        totalKutubdia: g2BoyKutubdia + g2GirlKutubdia,
+        total: g2BoyUkhiya + g2GirlUkhiya + g2BoyKutubdia + g2GirlKutubdia,
       },
       {
         grade: 'G3',
         boyUkhiya: g3BoyUkhiya,
         girlUkhiya: g3GirlUkhiya,
+        totalUkhiya: g3BoyUkhiya + g3GirlUkhiya,
         boyKutubdia: g3BoyKutubdia,
         girlKutubdia: g3GirlKutubdia,
+        totalKutubdia: g3BoyKutubdia + g3GirlKutubdia,
+        total: g3BoyUkhiya + g3GirlUkhiya + g3BoyKutubdia + g3GirlKutubdia,
       },
       {
         grade: 'G4',
         boyUkhiya: g4BoyUkhiya,
         girlUkhiya: g4GirlUkhiya,
+        totalUkhiya: g4BoyUkhiya + g4GirlUkhiya,
         boyKutubdia: g4BoyKutubdia,
         girlKutubdia: g4GirlKutubdia,
+        totalKutubdia: g4BoyKutubdia + g4GirlKutubdia,
+        total: g4BoyUkhiya + g4GirlUkhiya + g4BoyKutubdia + g4GirlKutubdia,
       },
       {
         grade: 'G5',
         boyUkhiya: g5BoyUkhiya,
         girlUkhiya: g5GirlUkhiya,
+        totalUkhiya: g5BoyUkhiya + g5GirlUkhiya,
         boyKutubdia: g5BoyKutubdia,
         girlKutubdia: g5GirlKutubdia,
+        totalKutubdia: g5BoyKutubdia + g5GirlKutubdia,
+        total: g5BoyUkhiya + g5GirlUkhiya + g5BoyKutubdia + g5GirlKutubdia,
       },
       {
         grade: 'Total',
-        boyUkhiya: g5BoyUkhiya,
-        girlUkhiya: g5GirlUkhiya,
-        boyKutubdia: g5BoyKutubdia,
-        girlKutubdia: g5GirlKutubdia,
+        boyUkhiya:
+          ppBoyUkhiya + g1BoyUkhiya + g2BoyUkhiya + g3BoyUkhiya + g4BoyUkhiya + g5BoyUkhiya,
+        girlUkhiya:
+          ppGirlUkhiya + g1GirlUkhiya + g2GirlUkhiya + g3GirlUkhiya + g4GirlUkhiya + g5GirlUkhiya,
+        totalUkhiya:
+          ppBoyUkhiya +
+          ppGirlUkhiya +
+          g1BoyUkhiya +
+          g1GirlUkhiya +
+          g2BoyUkhiya +
+          g2GirlUkhiya +
+          g3BoyUkhiya +
+          g3GirlUkhiya +
+          g4BoyUkhiya +
+          g4GirlUkhiya +
+          g5BoyUkhiya +
+          g5GirlUkhiya,
+        boyKutubdia:
+          ppBoyKutubdia +
+          g1BoyKutubdia +
+          g2BoyKutubdia +
+          g3BoyKutubdia +
+          g4BoyKutubdia +
+          g5BoyKutubdia,
+        girlKutubdia:
+          ppGirlKutubdia +
+          g1GirlKutubdia +
+          g2GirlKutubdia +
+          g3GirlKutubdia +
+          g4GirlKutubdia +
+          g5GirlKutubdia,
+        totalKutubdia:
+          ppBoyKutubdia +
+          ppGirlKutubdia +
+          g1BoyKutubdia +
+          g1GirlKutubdia +
+          g2BoyKutubdia +
+          g2GirlKutubdia +
+          g3BoyKutubdia +
+          g3GirlKutubdia +
+          g4BoyKutubdia +
+          g4GirlKutubdia +
+          g5BoyKutubdia +
+          g5GirlKutubdia,
+        total:
+          ppBoyUkhiya +
+          ppGirlUkhiya +
+          ppBoyKutubdia +
+          ppGirlKutubdia +
+          g1BoyUkhiya +
+          g1GirlUkhiya +
+          g1BoyKutubdia +
+          g1GirlKutubdia +
+          g2BoyUkhiya +
+          g2GirlUkhiya +
+          g2BoyKutubdia +
+          g2GirlKutubdia +
+          g3BoyUkhiya +
+          g3GirlUkhiya +
+          g3BoyKutubdia +
+          g3GirlKutubdia +
+          g4BoyUkhiya +
+          g4GirlUkhiya +
+          g4BoyKutubdia +
+          g4GirlKutubdia +
+          g5BoyUkhiya +
+          g5GirlUkhiya +
+          g5BoyKutubdia +
+          g5GirlKutubdia,
       },
     ]
     console.log('reportObject', reportObject)
@@ -252,11 +425,11 @@ const AllStudent = () => {
                       { title: 'Grade', field: 'grade' },
                       { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
                       { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
-                      { title: 'Total Student in Ukhiya', field: '' },
+                      { title: 'Total Student in Ukhiya', field: 'totalUkhiya' },
                       { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
                       { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
-                      { title: 'Total Student in Kutubdia', field: '' },
-                      { title: 'Total Student', field: '' },
+                      { title: 'Total Student in Kutubdia', field: 'totalKutubdia' },
+                      { title: 'Total Student', field: 'total' },
                     ]}
                     options={{
                       exportButton: true,

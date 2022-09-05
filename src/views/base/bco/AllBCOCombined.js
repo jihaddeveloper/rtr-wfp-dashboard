@@ -26,7 +26,6 @@ import MaterialTable from 'material-table'
 
 const AllBCOCombined = () => {
   const options = [
-    { value: '', text: 'Choose a month first' },
     { value: 'January', text: 'January' },
     { value: 'February', text: 'February' },
     { value: 'March', text: 'March' },
@@ -39,17 +38,10 @@ const AllBCOCombined = () => {
     { value: 'October', text: 'October' },
     { value: 'November', text: 'November' },
     { value: 'December', text: 'December' },
-    { value: 'apple', text: 'Apple 🍏' },
-    { value: 'banana', text: 'Banana 🍌' },
-    { value: 'kiwi', text: 'Kiwi 🥝' },
+    // { value: '', text: 'Choose a month first' },
   ]
 
   const [selectedMonth, setSelectedMonth] = useState(options[0].value)
-
-  const handleChange = (event) => {
-    console.log(event.target.value)
-    setSelectedMonth(event.target.value)
-  }
 
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
@@ -214,6 +206,16 @@ const AllBCOCombined = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
+  // Change Month
+  const handleChange = (event) => {
+    setSelectedMonth(event.target.value)
+    setAllBCODataSchoolByMonth(allBCOData.filter((item) => item.month === selectedMonth))
+    console.log({ allBCODataSchoolByMonth, selectedMonth })
+    setAllBCODataCRFByMonth(allBCODataCRF.filter((item) => item.month === selectedMonth))
+    console.log({ allBCODataCRFByMonth, selectedMonth })
+  }
+  // Change Month
+
   // Get All Book-checkout Data for CRF
   const getAllBookCheckoutCRF = async () => {
     setIsLoading(true)
@@ -227,8 +229,6 @@ const AllBCOCombined = () => {
         },
       })
       setAllBCODataCRF(response.data)
-
-      setAllBCODataCRFByMonth(response.data.filter((item) => item.month === previousMonth))
 
       setKutubdiaAllBCOCRF(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
@@ -641,8 +641,6 @@ const AllBCOCombined = () => {
         },
       })
       setAllBCOData(response.data)
-
-      setAllBCODataSchoolByMonth(response.data.filter((item) => item.month === selectedMonth))
 
       setKutubdiaAllBCOSchool(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
@@ -1439,7 +1437,7 @@ const AllBCOCombined = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Combined Summary Data School+CRF((April-2022 Till Now))</strong>
+                  <strong>Combined Summary Data School+CRF(April-2022 Till Now)</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -1604,7 +1602,7 @@ const AllBCOCombined = () => {
                   </CCardHeader>
                   <MaterialTable
                     title={
-                      allBCODataSchoolByMonth.length + ' BCO Data for School of ' + previousMonth
+                      allBCODataSchoolByMonth.length + ' BCO Data for School of ' + selectedMonth
                     }
                     columns={[
                       { title: 'School', field: 'school' },
@@ -1716,8 +1714,17 @@ const AllBCOCombined = () => {
                   <strong>BCO/I CRF Data by Month</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
+                  <CCardHeader>
+                    <CFormSelect aria-label="Default select example" onChange={handleChange}>
+                      {options.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.text}
+                        </option>
+                      ))}
+                    </CFormSelect>
+                  </CCardHeader>
                   <MaterialTable
-                    title={allBCODataCRFByMonth.length + ' BCO Data for School of ' + previousMonth}
+                    title={allBCODataCRFByMonth.length + ' BCO Data for School of ' + selectedMonth}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
