@@ -111,11 +111,9 @@ const AllTeacher = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      setIsLoading(true)
       await getAllTeacher(console.log('get all teacher called'))
 
       pushReportData(console.log('pushReportData called'))
-      setIsLoading(false)
     }
     call()
   }, [])
@@ -369,7 +367,7 @@ const AllTeacher = () => {
                       { title: 'Male Teacher in Kutubdia', field: 'maleKutubdia' },
                       { title: 'Female Teacher in Kutubdia ', field: 'femaleKutubdia' },
                       { title: 'Total Teacher in Kutubdia', field: 'totalTeacherK' },
-                      { title: 'Total Teacher', field: 'totalTeacher' },
+                      { title: 'Total Trained Teacher', field: 'totalTeacher' },
                     ]}
                     options={{
                       exportButton: true,

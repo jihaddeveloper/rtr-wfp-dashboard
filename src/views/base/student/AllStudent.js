@@ -95,13 +95,9 @@ const AllStudent = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      setIsLoading(true)
-
       console.log('use effect called')
-      getAllStudent(console.log('getAllStudent called'))
+      await getAllStudent(console.log('getAllStudent called'))
       pushReportData(console.log('pushReportData called'))
-
-      setIsLoading(false)
     }
     call()
   }, [])
@@ -129,102 +125,104 @@ const AllStudent = () => {
 
       setFemaleStudent(response.data.filter((item) => item.gender === 'Girl'))
 
+      console.log('response.data:' + response.data)
+
       console.log('ukhiyaStudent:' + ukhiyaStudent)
 
-      ppBoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === 'PP' && item.gender === 'Boy',
+      ppBoyUkhiya = response.data.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      ppGirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === 'PP' && item.gender === 'Girl',
+      ppGirlUkhiya = response.data.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      ppBoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === 'PP' && item.gender === 'Boy',
+      ppBoyKutubdia = response.data.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      ppGirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === 'PP' && item.gender === 'Girl',
+      ppGirlKutubdia = response.data.filter(
+        (item) => item.gradeId === 'PP' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
-      g1BoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '1' && item.gender === 'Boy',
+      g1BoyUkhiya = response.data.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      g1GirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '1' && item.gender === 'Girl',
+      g1GirlUkhiya = response.data.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      g1BoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '1' && item.gender === 'Boy',
+      g1BoyKutubdia = response.data.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      g1GirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '1' && item.gender === 'Girl',
+      g1GirlKutubdia = response.data.filter(
+        (item) => item.gradeId === '1' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
-      g2BoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '2' && item.gender === 'Boy',
+      g2BoyUkhiya = response.data.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      g2GirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '2' && item.gender === 'Girl',
+      g2GirlUkhiya = response.data.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      g2BoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '2' && item.gender === 'Boy',
+      g2BoyKutubdia = response.data.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      g2GirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '2' && item.gender === 'Girl',
+      g2GirlKutubdia = response.data.filter(
+        (item) => item.gradeId === '2' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
-      g3BoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '3' && item.gender === 'Boy',
+      g3BoyUkhiya = response.data.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      g3GirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '3' && item.gender === 'Girl',
+      g3GirlUkhiya = response.data.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      g3BoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '3' && item.gender === 'Boy',
+      g3BoyKutubdia = response.data.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      g3GirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '3' && item.gender === 'Girl',
+      g3GirlKutubdia = response.data.filter(
+        (item) => item.gradeId === '3' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
-      g4BoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '4' && item.gender === 'Boy',
+      g4BoyUkhiya = response.data.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      g4GirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '4' && item.gender === 'Girl',
+      g4GirlUkhiya = response.data.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      g4BoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '4' && item.gender === 'Boy',
+      g4BoyKutubdia = response.data.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      g4GirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '4' && item.gender === 'Girl',
+      g4GirlKutubdia = response.data.filter(
+        (item) => item.gradeId === '4' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
-      g5BoyUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '5' && item.gender === 'Boy',
+      g5BoyUkhiya = response.data.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Boy' && item.upazilla === 'Ukhiya',
       ).length
 
-      g5GirlUkhiya = ukhiyaStudent.filter(
-        (item) => item.gradeId === '5' && item.gender === 'Girl',
+      g5GirlUkhiya = response.data.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Girl' && item.upazilla === 'Ukhiya',
       ).length
 
-      g5BoyKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '5' && item.gender === 'Boy',
+      g5BoyKutubdia = response.data.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Boy' && item.upazilla === 'Kutubdia',
       ).length
 
-      g5GirlKutubdia = kutubdiaStudent.filter(
-        (item) => item.gradeId === '5' && item.gender === 'Girl',
+      g5GirlKutubdia = response.data.filter(
+        (item) => item.gradeId === '5' && item.gender === 'Girl' && item.upazilla === 'Kutubdia',
       ).length
 
       setIsLoading(false)
@@ -236,8 +234,6 @@ const AllStudent = () => {
   // Get All Student Data
 
   const pushReportData = () => {
-    setIsLoading(true)
-
     const reportObject = [
       {
         grade: 'PP',
@@ -374,8 +370,6 @@ const AllStudent = () => {
     ]
     console.log('reportObject', reportObject)
     setReportData(reportObject)
-
-    setIsLoading(false)
   }
 
   if (isLoading) {

@@ -194,13 +194,11 @@ const AllBCOCombined = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      setIsLoading(true)
       await getAllBookCheckoutSchool(console.log('get bookcheckout School called'))
       await getAllBookCheckoutCRF(console.log('get bookcheckout School called'))
       pushReportDataCombined(console.log('pushReportData called'))
       pushReportDataSchool()
       pushReportDataCRF()
-      setIsLoading(false)
     }
     call()
   }, [])
