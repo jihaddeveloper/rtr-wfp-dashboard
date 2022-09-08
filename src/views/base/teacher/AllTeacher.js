@@ -363,11 +363,41 @@ const AllTeacher = () => {
                       { title: 'Grade', field: 'grade' },
                       { title: 'Male Teacher in Ukhiya ', field: 'maleukhiya' },
                       { title: 'Female Teacher in Ukhiya', field: 'femaleukhiya' },
-                      { title: 'Total Teacher in Ukhiya', field: 'totalTeacherU' },
+                      {
+                        title: 'Total Teacher in Ukhiya',
+                        field: 'totalTeacherU',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
                       { title: 'Male Teacher in Kutubdia', field: 'maleKutubdia' },
                       { title: 'Female Teacher in Kutubdia ', field: 'femaleKutubdia' },
-                      { title: 'Total Teacher in Kutubdia', field: 'totalTeacherK' },
-                      { title: 'Total Trained Teacher', field: 'totalTeacher' },
+                      {
+                        title: 'Total Teacher in Kutubdia',
+                        field: 'totalTeacherK',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
+                      {
+                        title: 'Total Trained Teacher',
+                        field: 'totalTeacher',
+                        cellStyle: {
+                          backgroundColor: '#b8a49c',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
                     ]}
                     options={{
                       exportButton: true,
@@ -459,10 +489,18 @@ const AllTeacher = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={kutubdiaTeacher}
@@ -523,10 +561,18 @@ const AllTeacher = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={ukhiyaTeacher}

@@ -105,7 +105,10 @@ const AllSchool = () => {
                       { title: 'Name', field: 'name' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla' },
-
+                      {
+                        title: 'Address',
+                        field: '',
+                      },
                       { title: 'LPO', field: 'lpo', type: 'string' },
                       {
                         title: 'LF',
@@ -158,10 +161,18 @@ const AllSchool = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={ukhiyaSchool}
@@ -179,7 +190,10 @@ const AllSchool = () => {
                       { title: 'Name', field: 'name' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla' },
-
+                      {
+                        title: 'Address',
+                        field: '',
+                      },
                       { title: 'LPO', field: 'lpo', type: 'string' },
                       {
                         title: 'LF',
@@ -192,6 +206,9 @@ const AllSchool = () => {
                       {
                         title: 'GPS Data',
                         field: 'gpsData',
+                        // render: (row) => (
+                        //   <div onClick={() => console.log(row.gpsData)}>{row.gpsData}</div>
+                        // ),
                       },
                       {
                         title: 'EMIS ID',
@@ -232,10 +249,18 @@ const AllSchool = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={kutubdiaSchool}

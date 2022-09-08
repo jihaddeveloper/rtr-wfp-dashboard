@@ -425,10 +425,30 @@ const AllStudent = () => {
                       { title: 'Grade', field: 'grade' },
                       { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
                       { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
-                      { title: 'Total Student in Ukhiya', field: 'totalUkhiya' },
+                      {
+                        title: 'Total Student in Ukhiya',
+                        field: 'totalUkhiya',
+                        cellStyle: {
+                          backgroundColor: '#039be5',
+                          color: '#FFF',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#039be5',
+                        },
+                      },
                       { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
                       { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
-                      { title: 'Total Student in Kutubdia', field: 'totalKutubdia' },
+                      {
+                        title: 'Total Student in Kutubdia',
+                        field: 'totalKutubdia',
+                        cellStyle: {
+                          backgroundColor: '#039be5',
+                          color: '#FFF',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#039be5',
+                        },
+                      },
                       { title: 'Total Student', field: 'total' },
                     ]}
                     options={{
@@ -534,10 +554,18 @@ const AllStudent = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={kutubdiaStudent}
@@ -611,10 +639,18 @@ const AllStudent = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={ukhiyaStudent}
