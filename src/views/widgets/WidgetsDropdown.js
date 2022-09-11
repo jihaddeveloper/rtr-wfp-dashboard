@@ -52,13 +52,41 @@ const WidgetsDropdown = () => {
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    console.log('use effect called')
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllSchool(console.log('get all school called'))
-    getAllTeacher(console.log('get all teacher called'))
-    getAllEmployee(console.log('get all employee called'))
+    const call = async () => {
+      console.log('use effect called')
+      getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      getAllSchool(console.log('get all school called'))
+      getAllTeacher(console.log('get all teacher called'))
+      getAllEmployee(console.log('get all employee called'))
+    }
+    call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Filter Teacher data
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter(
+    (item) => item.instruction_srm_preprimary === 'Yes',
+  )
+  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const goodGovornanceTrained = allTeacherData.filter(
+    (item) => item.good_governance_headteacher === 'Yes',
+  )
+  const schoolPerformanceTrained = allTeacherData.filter(
+    (item) => item.school_performance_headteacher === 'Yes',
+  )
+
+  const allTrainedTeacher =
+    instructG1Trained.length +
+    instructG2Trained.length +
+    headTeacherTrained.length +
+    libraryTrained.length +
+    goodGovornanceTrained.length +
+    schoolPerformanceTrained.length
+  // Filter Teacher data
+
   // Get All School Data
   const getAllSchool = async () => {
     try {
@@ -531,6 +559,21 @@ const WidgetsDropdown = () => {
               </>
             }
             value="Book Captain"
+          />
+        </CLink>
+      </CCol>
+      <CCol sm={4} lg={4}>
+        <CLink href="/training/all-training">
+          <CWidgetStatsF
+            className="mb-3"
+            color="secondary"
+            icon={<CIcon icon={cilColorBorder} height={24} />}
+            title={
+              <>
+                {allTrainedTeacher} <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="Training"
           />
         </CLink>
       </CCol>

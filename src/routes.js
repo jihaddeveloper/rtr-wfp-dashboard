@@ -12,6 +12,7 @@ const AllLibrary = React.lazy(() => import('./views/base/library/AllLibrary'))
 const AllSchool = React.lazy(() => import('./views/base/school/AllSchool'))
 const AllTeacher = React.lazy(() => import('./views/base/teacher/AllTeacher'))
 const AllEmployee = React.lazy(() => import('./views/base/employee/AllEmployee'))
+const AllTraining = React.lazy(() => import('./views/base/training/AllTraining'))
 
 // Overall School
 const OverallSchoolData = React.lazy(() => import('./views/base/school/OverallSchoolData'))
@@ -159,8 +160,9 @@ const routes = [
   { path: '/student/all-student', name: 'AllStudent', element: AllStudent },
   { path: '/teacher/all-teacher', name: 'AllTeacher', element: AllTeacher },
   { path: '/employee/all-employee', name: 'AllEmployee', element: AllEmployee },
-
+  { path: '/training/all-training', name: 'AllTraining', element: AllTraining },
   { path: '/library/all-library', name: 'AllLibrary', element: AllLibrary },
+
   { path: '/library/library-combined', name: 'LibraryCombined', element: LibraryDataCombined },
   { path: '/library/library-observation', name: 'LibraryObservation', element: LibraryObservation },
   { path: '/library/library-srm', name: 'LibrarySRM', element: LibrarySRM },

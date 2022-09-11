@@ -67,11 +67,14 @@ const Dashboard = () => {
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    console.log('use effect called')
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllSchool(console.log('get all school called'))
-    getAllTeacher(console.log('get all teacher called'))
-    getAllEmployee(console.log('get all employee called'))
+    const call = async () => {
+      console.log('use effect called')
+      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      await getAllSchool(console.log('get all school called'))
+      await getAllTeacher(console.log('get all teacher called'))
+      await getAllEmployee(console.log('get all employee called'))
+    }
+    call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
@@ -536,7 +539,7 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-info py-1 px-3">
                           <div className="Button">Headteacher Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -546,7 +549,7 @@ const Dashboard = () => {
                       </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="Button">Bangla G1 Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -556,7 +559,7 @@ const Dashboard = () => {
                       </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="Button">Bangla G2 Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -571,7 +574,7 @@ const Dashboard = () => {
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                           <div className="Button">Library Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -581,7 +584,7 @@ const Dashboard = () => {
                       </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                           <div className="Button">Governence Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -591,7 +594,7 @@ const Dashboard = () => {
                       </CLink>
                     </CCol>
                     <CCol sm={4}>
-                      <CLink href="/teacher/all-teacher">
+                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                           <div className="Button">School Performance</div>
                           <div className="" style={{ color: 'red' }}>

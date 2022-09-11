@@ -285,11 +285,41 @@ const AllBookCaptain = () => {
                       { title: 'Year', field: 'year' },
                       { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
                       { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
-                      { title: 'Total Book-Captain in Ukhiya', field: 'totalUkhiya' },
+                      {
+                        title: 'Total Book-Captain in Ukhiya',
+                        field: 'totalUkhiya',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
                       { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
                       { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
-                      { title: 'Total Book-Captain in Kutubdia', field: 'totalKutubdia' },
-                      { title: 'Total Book-Captain', field: 'total' },
+                      {
+                        title: 'Total Book-Captain in Kutubdia',
+                        field: 'totalKutubdia',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
+                      {
+                        title: 'Total Book-Captain',
+                        field: 'total',
+                        cellStyle: {
+                          backgroundColor: '#b8a49c',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
                     ]}
                     options={{
                       exportButton: true,

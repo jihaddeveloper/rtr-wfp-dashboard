@@ -452,7 +452,7 @@ const AllTeacher = () => {
                         title: 'Designation',
                         field: 'designation',
                       },
-                      { title: 'Grade', field: 'grade' },
+                      // { title: 'Grade', field: 'grade' },
                       { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[
@@ -524,7 +524,7 @@ const AllTeacher = () => {
                         title: 'Designation',
                         field: 'designation',
                       },
-                      { title: 'Grade', field: 'grade' },
+                      // { title: 'Grade', field: 'grade' },
                       { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[

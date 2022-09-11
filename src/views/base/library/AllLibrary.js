@@ -407,16 +407,56 @@ const AllLibrary = () => {
                       { title: 'Grade', field: 'grade' },
                       { title: '#Library in Ukhiya', field: 'libraryUkhiya' },
                       { title: '#Library in Kutubdia', field: 'libraryKutubdia' },
-                      { title: 'Total Library', field: 'totalLibrary' },
+                      {
+                        title: 'Total Library',
+                        field: 'totalLibrary',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
 
                       { title: '#LLP Book Distributed in Ukhiya', field: 'llpBookUkhiya' },
                       { title: '#NLLP Book Distributed in Ukhiya', field: 'nllpBookUkhiya' },
-                      { title: 'Total Book Distributed in Ukhiya', field: 'totalBookUkhiya' },
+                      {
+                        title: 'Total Book Distributed in Ukhiya',
+                        field: 'totalBookUkhiya',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
 
                       { title: '#LLP Book Distributed in Kutubdia', field: 'llpBookKutubdia' },
                       { title: '#NLLP Book Distributed in Kutubdia', field: 'nllpBookKutubdia' },
-                      { title: 'Total Book Distributed in Kutubdia', field: 'totalBookKutubdia' },
-                      { title: 'Grand Total Book Distributed', field: 'grandTotalBook' },
+                      {
+                        title: 'Total Book Distributed in Kutubdia',
+                        field: 'totalBookKutubdia',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
+                      {
+                        title: 'Grand Total Book Distributed',
+                        field: 'grandTotalBook',
+                        cellStyle: {
+                          backgroundColor: '#b8a49c',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
                     ]}
                     options={{
                       exportButton: true,
@@ -525,6 +565,13 @@ const AllLibrary = () => {
                       },
                       rowStyle: {
                         fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={kutubdiaLibrary}
@@ -603,9 +650,18 @@ const AllLibrary = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
                         fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
                     data={ukhiyaLibrary}

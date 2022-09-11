@@ -144,7 +144,7 @@ const AllEmployee = () => {
           </CCardHeader>
           <CCardBody>
             <MaterialTable
-              title={allEmployeeData.length + ' Employee Data'}
+              title={allEmployeeData.length + ' Employee'}
               columns={[
                 { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
                 { title: 'Name', field: 'name', type: 'string' },
@@ -192,9 +192,18 @@ const AllEmployee = () => {
                   width: 15,
                   textAlign: 'left',
                   color: '#884fc9',
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
                 },
                 rowStyle: {
                   fontSize: 14,
+                  backgroundColor: '#f5f3f2',
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
+                },
+                cellStyle: {
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
                 },
               }}
               data={allEmployeeData}

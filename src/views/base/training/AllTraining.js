@@ -40,12 +40,14 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const AllStudent = () => {
+const AllTraining = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   const [allStudentData, setAllStudentData] = useState([])
+
+  const [allTeacherData, setAllTeacherData] = useState([])
 
   // Area wise student
   const [kutubdiaStudent, setKutubdiaStudent] = useState([])
@@ -97,11 +99,58 @@ const AllStudent = () => {
     const call = async () => {
       console.log('use effect called')
       await getAllStudent(console.log('getAllStudent called'))
+      await getAllTeacher(console.log('get all teacher called'))
       pushReportData(console.log('pushReportData called'))
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Filter Teacher data
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter(
+    (item) => item.instruction_srm_preprimary === 'Yes',
+  )
+  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const goodGovornanceTrained = allTeacherData.filter(
+    (item) => item.good_governance_headteacher === 'Yes',
+  )
+  const schoolPerformanceTrained = allTeacherData.filter(
+    (item) => item.school_performance_headteacher === 'Yes',
+  )
+  // Filter Teacher data
+
+  // Total trained teacher
+  const allTrainedTeacher =
+    instructG1Trained.length +
+    instructG2Trained.length +
+    headTeacherTrained.length +
+    libraryTrained.length +
+    goodGovornanceTrained.length +
+    schoolPerformanceTrained.length
+  // Total trained teacher
+
+  // Get All Teacher
+  const getAllTeacher = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllTeacherData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Teacher
 
   // Get All Student Data
   const getAllStudent = async () => {
@@ -406,71 +455,56 @@ const AllStudent = () => {
         </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Student-{allStudentData.length}</strong>
+            <strong>Total Trained Teacher-{allTrainedTeacher}</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>
-                    Total Student-{allStudentData.length} (Boy-{maleStudent.length}, Girl-
-                    {femaleStudent.length})
-                  </strong>
+                  <strong>Bangla G1-{instructG1Trained.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={''}
-                    // title={JSON.stringify(reportData)}
+                    title={instructG1Trained.length + ' Teacher'}
                     columns={[
-                      { title: 'Grade', field: 'grade' },
-                      { title: '#Boy in Ukhiya', field: 'boyUkhiya' },
-                      { title: '#Girl in Ukhiya', field: 'girlUkhiya' },
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
                       {
-                        title: 'Total Student in Ukhiya',
-                        field: 'totalUkhiya',
-                        cellStyle: {
-                          backgroundColor: '#e0d0ca',
-                          color: '#000',
-                        },
-                        headerStyle: {
-                          backgroundColor: '#bcceeb',
-                        },
+                        title: 'Designation',
+                        field: 'designation',
                       },
-                      { title: '#Boy in Kutubdia', field: 'boyKutubdia' },
-                      { title: '#Girl in Kutubdia', field: 'girlKutubdia' },
-                      {
-                        title: 'Total Student in Kutubdia',
-                        field: 'totalKutubdia',
-                        cellStyle: {
-                          backgroundColor: '#e0d0ca',
-                          color: '#000',
-                        },
-                        headerStyle: {
-                          backgroundColor: '#bcceeb',
-                        },
-                      },
-                      {
-                        title: 'Total Student',
-                        field: 'total',
-                        cellStyle: {
-                          backgroundColor: '#b8a49c',
-                          color: '#000',
-                        },
-                        headerStyle: {
-                          backgroundColor: '#bcceeb',
-                        },
-                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
                     ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
                     options={{
                       exportButton: true,
                       exportAllData: true,
-                      grouping: false,
-                      sorting: false,
-                      search: false,
-                      paging: false,
-                      pageSize: 12,
-                      pageSizeOptions: [12, 24, 36],
-                      maxBodyHeight: '550px',
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -479,7 +513,7 @@ const AllStudent = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
-                        borderRight: '1px solid #eee',
+                        borderRight: '1px solid #fff',
                         borderStyle: 'solid',
                       },
                       rowStyle: {
@@ -493,57 +527,44 @@ const AllStudent = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={reportData}
+                    data={instructG1Trained}
                   />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Student in Kutubdia-{kutubdiaStudent.length}</strong>
+                  <strong>Bangla G2-{instructG2Trained.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={kutubdiaStudent.length + ' School'}
+                    title={instructG2Trained.length + ' Teacher'}
                     columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'Upazilla', field: 'upazilla' },
-                      { title: 'Gender', field: 'gender', type: 'string' },
-                      { title: 'Grade', field: 'gradeId' },
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
                       {
-                        title: 'School',
-                        field: 'schoolName',
+                        title: 'Designation',
+                        field: 'designation',
                       },
-                      {
-                        title: 'Mother',
-                        field: 'mother',
-                      },
-                      {
-                        title: 'Father',
-                        field: 'father',
-                      },
-                      {
-                        title: 'Contact',
-                        field: 'phone',
-                      },
-                      {
-                        title: 'Address',
-                        field: 'address',
-                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[
                     //   {
                     //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
+                    //     tooltip: 'Delete BCO',
                     //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
                     //   },
                     //   {
                     //     icon: ViewColumn,
-                    //     tooltip: 'View School',
+                    //     tooltip: 'View BCO',
                     //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
                     //   },
                     //   {
                     //     icon: AddBox,
-                    //     tooltip: 'Add User',
+                    //     tooltip: 'Add BCO',
                     //     isFreeAction: true,
                     //     onClick: (event) => alert('You want to add a new row'),
                     //   },
@@ -578,57 +599,44 @@ const AllStudent = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={kutubdiaStudent}
+                    data={instructG2Trained}
                   />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Student in Ukhiya-{ukhiyaStudent.length}</strong>
+                  <strong>Library Training-{libraryTrained.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={ukhiyaStudent.length + ' School'}
+                    title={libraryTrained.length + ' Teacher'}
                     columns={[
-                      { title: 'Name', field: 'name' },
-                      { title: 'Upazilla', field: 'upazilla' },
-                      { title: 'Gender', field: 'gender', type: 'string' },
-                      { title: 'Grade', field: 'gradeId' },
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
                       {
-                        title: 'School',
-                        field: 'schoolName',
+                        title: 'Designation',
+                        field: 'designation',
                       },
-                      {
-                        title: 'Mother',
-                        field: 'mother',
-                      },
-                      {
-                        title: 'Father',
-                        field: 'father',
-                      },
-                      {
-                        title: 'Contact',
-                        field: 'phone',
-                      },
-                      {
-                        title: 'Address',
-                        field: 'address',
-                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
                     ]}
                     // actions={[
                     //   {
                     //     icon: DeleteOutline,
-                    //     tooltip: 'Delete School',
+                    //     tooltip: 'Delete BCO',
                     //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
                     //   },
                     //   {
                     //     icon: ViewColumn,
-                    //     tooltip: 'View School',
+                    //     tooltip: 'View BCO',
                     //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
                     //   },
                     //   {
                     //     icon: AddBox,
-                    //     tooltip: 'Add User',
+                    //     tooltip: 'Add BCO',
                     //     isFreeAction: true,
                     //     onClick: (event) => alert('You want to add a new row'),
                     //   },
@@ -663,7 +671,223 @@ const AllStudent = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={ukhiyaStudent}
+                    data={libraryTrained}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={4}>
+                <CAccordionHeader>
+                  <strong>Headteacher Training-{headTeacherTrained.length}</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={headTeacherTrained.length + ' Teacher'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={headTeacherTrained}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={5}>
+                <CAccordionHeader>
+                  <strong>School Performance-{schoolPerformanceTrained.length}</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={schoolPerformanceTrained.length + ' Teacher'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={schoolPerformanceTrained}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={6}>
+                <CAccordionHeader>
+                  <strong>Governence Training-{goodGovornanceTrained.length}</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={goodGovornanceTrained.length + ' Teacher'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={goodGovornanceTrained}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -675,4 +899,4 @@ const AllStudent = () => {
   )
 }
 
-export default AllStudent
+export default AllTraining
