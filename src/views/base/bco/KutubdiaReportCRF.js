@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -53,14 +56,18 @@ const KutubdiaReportCRF = () => {
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    console.log('use effect called')
+    const call = async () => {
+      console.log('use effect called')
 
-    getAllBookCheckoutCRF(console.log('get bookcheckout called'))
+      getAllBookCheckoutCRF(console.log('get bookcheckout called'))
+    }
+    call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutCRF = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/book-checkout-community', {
         method: 'GET',
@@ -83,6 +90,16 @@ const KutubdiaReportCRF = () => {
   const kutubdiaReportData = allBCOData.filter(
     (item) => item.upazilla == 'Kutubdia' && item.month === previousMonth,
   )
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>

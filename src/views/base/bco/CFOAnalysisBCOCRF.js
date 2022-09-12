@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -40,7 +43,8 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 const CFOAnalysisBCOCRF = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+
+  const [isLoading, setIsLoading] = useState(true)
 
   // Report Data
   const [reportData, setReportData] = useState([])
@@ -112,6 +116,16 @@ const CFOAnalysisBCOCRF = () => {
   //   setReportData(currentData)
   // }
 
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
+
   return (
     <CRow>
       {/* <CCol xs={12}>
@@ -158,10 +172,13 @@ const CFOAnalysisBCOCRF = () => {
                 {
                   title: 'Total Student',
                   field: 'schoolTotalNoStudent',
-                  cellStyle: {
-                    backgroundColor: '#9c988f',
-                    color: '#FFF',
-                  },
+                  // cellStyle: {
+                  //   backgroundColor: '#e0d0ca',
+                  //   color: '#000',
+                  // },
+                  // headerStyle: {
+                  //   backgroundColor: '#bcceeb',
+                  // },
                 },
                 { title: 'Total Girls', field: 'schoolTotalNoGirl' },
                 { title: 'Total Boys', field: 'schoolTotalNoBoy' },
@@ -214,7 +231,6 @@ const CFOAnalysisBCOCRF = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={currentData}
               footerData={[{ school: '', schoolTotalNoStudent: 1000 }]}
               renderSummaryRow={({ column, data }) =>
                 column.field === 'schoolTotalNoStudent'
@@ -224,6 +240,7 @@ const CFOAnalysisBCOCRF = () => {
                     }
                   : undefined
               }
+              data={currentData}
             />
           </CCardBody>
         </CCard>

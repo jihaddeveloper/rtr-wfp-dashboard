@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -40,7 +43,8 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 const CFOAnalysisBCO = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+
+  const [isLoading, setIsLoading] = useState(true)
 
   // Report Data
   const [reportData, setReportData] = useState([])
@@ -53,15 +57,25 @@ const CFOAnalysisBCO = () => {
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 3)
-  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+  current.setMonth(current.getMonth() - 1)
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
 
-  const showLogs2 = (e) => {
-    setCheckbox1(e)
-  }
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      //pushReportData(console.log('pushReportData called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
         method: 'GET',
@@ -73,9 +87,7 @@ const CFOAnalysisBCO = () => {
       })
       setAllBCOData(response.data)
 
-      let allData = response.data.filter(
-        (item) => new Date(item.date).getMonth() === new Date().getMonth() - 2,
-      )
+      let allData = response.data.filter((item) => item.month === previousMonth)
 
       // Set some cumulated value
       allData.forEach((item) => {
@@ -111,12 +123,15 @@ const CFOAnalysisBCO = () => {
   //   setReportData(currentData)
   // }
 
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    //pushReportData(console.log('pushReportData called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>
@@ -147,7 +162,7 @@ const CFOAnalysisBCO = () => {
           <CCardHeader>
             <strong>
               CFO Analysis Data For_
-              {previousMonth}
+              {previousMonthYear}
             </strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
@@ -160,10 +175,13 @@ const CFOAnalysisBCO = () => {
                 {
                   title: 'Total Student',
                   field: 'schoolTotalNoStudent',
-                  cellStyle: {
-                    backgroundColor: '#9c988f',
-                    color: '#FFF',
-                  },
+                  // cellStyle: {
+                  //   backgroundColor: '#e0d0ca',
+                  //   color: '#000',
+                  // },
+                  // headerStyle: {
+                  //   backgroundColor: '#bcceeb',
+                  // },
                 },
                 { title: 'Total Girls', field: 'schoolTotalNoGirl' },
                 { title: 'Total Boys', field: 'schoolTotalNoBoy' },
@@ -216,7 +234,6 @@ const CFOAnalysisBCO = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={currentData}
               footerData={[{ school: '', schoolTotalNoStudent: 1000 }]}
               renderSummaryRow={({ column, data }) =>
                 column.field === 'schoolTotalNoStudent'
@@ -226,6 +243,7 @@ const CFOAnalysisBCO = () => {
                     }
                   : undefined
               }
+              data={currentData}
             />
           </CCardBody>
         </CCard>

@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -40,17 +43,32 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 const UkhiyaReport = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [allBCOData, setAllBCOData] = useState([])
 
   // Get previous month
   const current = new Date()
-  current.setMonth(current.getMonth() - 3)
-  const previousMonth = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+  current.setMonth(current.getMonth() - 1)
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+
+      getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
         method: 'GET',
@@ -67,19 +85,21 @@ const UkhiyaReport = () => {
       console.log(error)
     }
   }
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
-
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
 
   // Generate current month repoort for Ukhiye
   const ukhiyaReportData = allBCOData.filter(
-    (item) =>
-      item.upazilla == 'Ukhiya' && new Date(item.date).getMonth() == new Date().getMonth() - 2,
+    (item) => item.upazilla == 'Ukhiya' && item.month === previousMonth,
   )
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>
@@ -109,7 +129,7 @@ const UkhiyaReport = () => {
         <CCard className="mb-4">
           <CCardHeader>
             <strong>
-              Ukhiya Report (Total {ukhiyaReportData.length}) {previousMonth}
+              Ukhiya Report (Total {ukhiyaReportData.length}) {previousMonthYear}
             </strong>
             {/* <strong>{ukhiyaReportData.length}</strong> */}
           </CCardHeader>

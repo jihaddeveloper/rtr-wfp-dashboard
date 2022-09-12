@@ -24,6 +24,9 @@ import {
 
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -44,7 +47,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
 const WFPSummaryBCOCRF = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   //Selected Date
   const [selectedDate, setSelectedDate] = useState(new Date())
@@ -141,17 +144,10 @@ const WFPSummaryBCOCRF = () => {
       setAllBCOData(response.data)
 
       setUkhiyaReportData(
-        response.data.filter(
-          (item) =>
-            item.upazilla === 'Ukhiya' && new Date(item.date).getMonth() === new Date().getMonth(),
-        ),
+        response.data.filter((item) => item.upazilla === 'Ukhiya' && item.month === currentMonth),
       )
       setKutubdiaReportData(
-        response.data.filter(
-          (item) =>
-            item.upazilla === 'Kutubdia' &&
-            new Date(item.date).getMonth() === new Date().getMonth(),
-        ),
+        response.data.filter((item) => item.upazilla === 'Kutubdia' && item.month === currentMonth),
       )
 
       console.log('selected date:' + selectedDate)
@@ -694,6 +690,16 @@ const WFPSummaryBCOCRF = () => {
   }
 
   console.log('Ukhiya total student: ' + uTotalStudent)
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>
