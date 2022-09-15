@@ -62,6 +62,7 @@ const Dashboard = () => {
   const [allSchoolData, setAllSchoolData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
+  const [allBookCaptainData, setAllBookCaptainData] = useState([])
 
   const currentMonth = new Date().toLocaleString('default', { month: 'long', year: 'numeric' })
 
@@ -73,6 +74,7 @@ const Dashboard = () => {
       await getAllSchool(console.log('get all school called'))
       await getAllTeacher(console.log('get all teacher called'))
       await getAllEmployee(console.log('get all employee called'))
+      await getAllBookCaptain(console.log('get all BookCaptain called'))
     }
     call()
   }, [])
@@ -97,6 +99,7 @@ const Dashboard = () => {
 
   // Get All School Data
   const getAllSchool = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/schools', {
         method: 'GET',
@@ -117,6 +120,7 @@ const Dashboard = () => {
 
   // Get All Employee Data
   const getAllEmployee = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
         method: 'GET',
@@ -137,6 +141,7 @@ const Dashboard = () => {
 
   // Get All Teacher
   const getAllTeacher = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
         method: 'GET',
@@ -157,6 +162,7 @@ const Dashboard = () => {
 
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
+    setIsLoading(true)
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
         method: 'GET',
@@ -174,6 +180,27 @@ const Dashboard = () => {
     }
   }
   // Get All Book-checkout Data for school
+
+  // Get All BookCaptain Data
+  const getAllBookCaptain = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/book-captain', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllBookCaptainData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All BookCaptain Data
 
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 

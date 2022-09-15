@@ -49,15 +49,21 @@ const WidgetsDropdown = () => {
   const [allSchoolData, setAllSchoolData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
+  const [allBookCaptainData, setAllBookCaptainData] = useState([])
+  const [allStudentData, setAllStudentData] = useState([])
+  const [allLibraryData, setAllLibraryData] = useState([])
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
       console.log('use effect called')
-      getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-      getAllSchool(console.log('get all school called'))
-      getAllTeacher(console.log('get all teacher called'))
-      getAllEmployee(console.log('get all employee called'))
+      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      await getAllSchool(console.log('get all school called'))
+      await getAllTeacher(console.log('get all teacher called'))
+      await getAllEmployee(console.log('get all employee called'))
+      await getAllBookCaptain(console.log('get all BookCaptain called'))
+      await getAllLibrary()
+      await getAllStudent()
     }
     call()
   }, [])
@@ -166,6 +172,69 @@ const WidgetsDropdown = () => {
     }
   }
   // Get All Book-checkout Data for school
+
+  // Get All BookCaptain Data
+  const getAllBookCaptain = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/book-captain', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllBookCaptainData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All BookCaptain Data
+
+  // Get All Library Data
+  const getAllLibrary = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/library', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllLibraryData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Library Data
+
+  // Get All Student Data
+  const getAllStudent = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/student', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllStudentData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Student Data
 
   return (
     <CRow>
@@ -370,7 +439,8 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilSchool} height={24} />}
             title={
               <>
-                41903 <span className="fs-6 fw-normal"></span>
+                41903 {/*  {allStudentData.length} */}
+                <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Student"
@@ -453,7 +523,7 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilColumns} height={24} />}
             title={
               <>
-                817 <span className="fs-6 fw-normal"></span>
+                {allLibraryData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Library (classroom corner library)"
@@ -555,7 +625,7 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilWc} height={24} />}
             title={
               <>
-                0 <span className="fs-6 fw-normal"></span>
+                {allBookCaptainData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
             value="Book Captain"
