@@ -182,17 +182,58 @@ const AllLibrary = () => {
       g1libraryUkhiya = response.data.filter((item) => {
         return item.upazilla === 'Ukhiya' && item.className === 'G1'
       }).length
-      console.log('g1libraryKutubdia: ' + g1libraryKutubdia)
+      //console.log('g1libraryKutubdia: ' + g1libraryKutubdia)
       g1libraryKutubdia = response.data.filter((item) => {
         return item.upazilla === 'Kutubdia' && item.className === 'G1'
       }).length
 
-      console.log('g1libraryUkhiya: ' + g1libraryUkhiya)
-
-      console.log('g1libraryKutubdia: ' + g1libraryKutubdia)
-
       g1TotalLibrary = g1libraryUkhiya + g1libraryKutubdia
       console.log('g1TotalLibrary: ' + g1TotalLibrary)
+      // console.log('g1libraryUkhiya: ' + g1libraryUkhiya)
+
+      // console.log('g1libraryKutubdia: ' + g1libraryKutubdia)
+
+      g1llpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G1'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g1nllpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G1'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g1TotalBookUkhiya = g1llpBookUkhiya + g1nllpBookUkhiya
+
+      g1llpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G1'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g1nllpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G1'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g1TotalBookKutubdia = g1llpBookKutubdia + g1nllpBookKutubdia
+
+      g1TotalBook = g1TotalBookUkhiya + g1TotalBookKutubdia
       // Class1
 
       // Class2
@@ -205,6 +246,48 @@ const AllLibrary = () => {
       }).length
 
       g2TotalLibrary = g2libraryUkhiya + g2libraryKutubdia
+
+      g2llpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G2'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g2nllpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G2'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g2TotalBookUkhiya = g2llpBookUkhiya + g2nllpBookUkhiya
+
+      g2llpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G2'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g2nllpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G2'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g2TotalBookKutubdia = g2llpBookKutubdia + g2nllpBookKutubdia
+
+      g2TotalBook = g2TotalBookUkhiya + g2TotalBookKutubdia
       // Class2
 
       // Class3
@@ -217,6 +300,48 @@ const AllLibrary = () => {
       }).length
 
       g3TotalLibrary = g3libraryUkhiya + g3libraryKutubdia
+
+      g3llpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G3'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g3nllpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G3'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g3TotalBookUkhiya = g3llpBookUkhiya + g3nllpBookUkhiya
+
+      g3llpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G3'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g3nllpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G3'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g3TotalBookKutubdia = g3llpBookKutubdia + g3nllpBookKutubdia
+
+      g3TotalBook = g3TotalBookUkhiya + g3TotalBookKutubdia
       // Class3
 
       // Class4
@@ -229,6 +354,48 @@ const AllLibrary = () => {
       }).length
 
       g4TotalLibrary = g4libraryUkhiya + g4libraryKutubdia
+
+      g4llpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G4'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g4nllpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G5'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g4TotalBookUkhiya = g4llpBookUkhiya + g4nllpBookUkhiya
+
+      g4llpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G4'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g4nllpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G4'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g4TotalBookKutubdia = g4llpBookKutubdia + g4nllpBookKutubdia
+
+      g4TotalBook = g4TotalBookUkhiya + g4TotalBookKutubdia
       // Class4
 
       // Class5
@@ -241,6 +408,48 @@ const AllLibrary = () => {
       }).length
 
       g5TotalLibrary = g5libraryUkhiya + g5libraryKutubdia
+
+      g5llpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G5'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g5nllpBookUkhiya = response.data
+        .filter((item) => {
+          return item.upazilla === 'Ukhiya' && item.className === 'G5'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g5TotalBookUkhiya = g5llpBookUkhiya + g5nllpBookUkhiya
+
+      g5llpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G5'
+        })
+        .map((ureportdata) => ureportdata.book_llp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g5nllpBookKutubdia = response.data
+        .filter((item) => {
+          return item.upazilla === 'Kutubdia' && item.className === 'G5'
+        })
+        .map((ureportdata) => ureportdata.book_nllp)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      g5TotalBookKutubdia = g5llpBookKutubdia + g5nllpBookKutubdia
+
+      g5TotalBook = g5TotalBookUkhiya + g5TotalBookKutubdia
       // Class5
 
       //Total
@@ -267,6 +476,50 @@ const AllLibrary = () => {
         g3TotalLibrary +
         g4TotalLibrary +
         g5TotalLibrary
+
+      totalLLPBookU =
+        ppllpBookUkhiya +
+        g1llpBookUkhiya +
+        g2llpBookUkhiya +
+        g3llpBookUkhiya +
+        g4llpBookUkhiya +
+        g5llpBookUkhiya
+      totalNLLPBookU =
+        ppnllpBookUkhiya +
+        g1nllpBookUkhiya +
+        g2nllpBookUkhiya +
+        g3nllpBookUkhiya +
+        g4nllpBookUkhiya +
+        g5nllpBookUkhiya
+      totalBookU =
+        ppTotalBookUkhiya +
+        g1TotalBookUkhiya +
+        g2TotalBookUkhiya +
+        g3TotalBookUkhiya +
+        g4TotalBookUkhiya +
+        g5TotalBookUkhiya
+      totalLLPBookK =
+        ppllpBookKutubdia +
+        g1llpBookKutubdia +
+        g2llpBookKutubdia +
+        g3llpBookKutubdia +
+        g4llpBookKutubdia +
+        g5llpBookKutubdia
+      totalNLLPBookK =
+        ppnllpBookKutubdia +
+        g1nllpBookKutubdia +
+        g2nllpBookKutubdia +
+        g3nllpBookKutubdia +
+        g4nllpBookKutubdia +
+        g5nllpBookKutubdia
+      totalBookK =
+        ppTotalBookKutubdia +
+        g1TotalBookKutubdia +
+        g2TotalBookKutubdia +
+        g3TotalBookKutubdia +
+        g4TotalBookKutubdia +
+        g5TotalBookKutubdia
+      totalBook = ppTotalBook + g1TotalBook + g2TotalBook + g3TotalBook + g4TotalBook + g5TotalBook
       //Total
 
       setIsLoading(false)
