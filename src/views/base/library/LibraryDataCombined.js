@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -44,6 +47,22 @@ const LibraryDataCombined = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
+  const [allLibraryObservation, setAllLibraryObservation] = useState([])
+
+  const [allLibrarySRM, setAllLibrarySRM] = useState([])
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+
+      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      await getAllLibraryObservation(console.log('Get All Library observation called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
     try {
@@ -62,13 +81,38 @@ const LibraryDataCombined = () => {
       console.log(error)
     }
   }
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
+  // Get All Book-checkout Data for school
 
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
+  // Get All Library observation
+  const getAllLibraryObservation = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/library-observations', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllLibraryObservation(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Library observation
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>
@@ -92,11 +136,8 @@ const LibraryDataCombined = () => {
                   <strong>Library Observation Data</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <strong>
-                    <code>This is under construction</code>
-                  </strong>
-                  {/* <MaterialTable
-                    title={allBCOData.length + ' Library Observation(Demo)'}
+                  <MaterialTable
+                    title={allLibraryObservation.length + ' Library Observation '}
                     columns={[
                       { title: 'School', field: 'school' },
                       {
@@ -105,57 +146,46 @@ const LibraryDataCombined = () => {
                         type: 'date',
                         sorting: 'true',
                       },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: 'Year', field: 'year', sorting: 'true' },
                       { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                       { title: 'Visitor', field: 'visitor' },
+
+                      // { title: 'LPO', field: 'lpo', type: 'string' },
+                      // {
+                      //   title: 'LF',
+                      //   field: 'lf',
+                      //   type: 'string',
+                      // },
+                      { title: 'Library Status', field: 'libraryStatus' },
                       {
-                        title: 'Head Teacher',
-                        field: 'headTeacher',
+                        title: 'Last followup indicator 1',
+                        field: 'lastFollowupIndicator1',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
                       {
-                        title: 'LF',
-                        field: 'lf',
-                        type: 'string',
+                        title: 'Last followup indicator 2',
+                        field: 'lastFollowupIndicator2',
+                      },
+                      {
+                        title: 'Last followup indicator 3',
+                        field: 'lastFollowupIndicator3',
                       },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
-
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
-
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
-
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
-
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
-
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
-
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
-
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
-
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
-
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
-
-                      { title: 'PP Girl', field: 'priPrimaryGirl' },
-                      { title: 'PP Boy', field: 'priPrimaryBoy' },
-                      { title: 'PP Total', field: 'priPrimaryTotal' },
-
-                      { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
-
-                      { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      {
+                        title: 'Ind 1: All teacher trained',
+                        field: 'ind1IsTrainedAllTeacher',
+                      },
+                      {
+                        title: 'Ind 1.1: Trained SRM Teacher Incharge',
+                        field: 'ind11IsTrainedSRMTeacherIncharge',
+                      },
+                      {
+                        title: 'Ind 1.2: Trained Headteacher',
+                        field: 'ind12IsTrainedHeadTeacher',
+                      },
                     ]}
                     // actions={[
                     //   {
@@ -182,7 +212,7 @@ const LibraryDataCombined = () => {
                       sorting: true,
                       pageSize: 5,
                       pageSizeOptions: [5, 10, 20],
-                      maxBodyHeight: '600px',
+                      maxBodyHeight: '550px',
                       headerStyle: {
                         position: 'sticky',
                         top: 0,
@@ -191,14 +221,21 @@ const LibraryDataCombined = () => {
                         width: 15,
                         textAlign: 'left',
                         color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
                       },
                       rowStyle: {
-                        fontSize: 14,
-                        backgroundColor: '#ede9df',
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
                       },
                     }}
-                    data={allBCOData}
-                  /> */}
+                    data={allLibraryObservation}
+                  />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
