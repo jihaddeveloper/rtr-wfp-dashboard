@@ -170,11 +170,6 @@ const LibraryDataCombined = () => {
                         field: 'lastFollowupIndicator2',
                       },
                       {
-                        title: 'Last followup indicator 3',
-                        field: 'lastFollowupIndicator3',
-                      },
-
-                      {
                         title: 'Ind 1: All teacher trained',
                         field: 'ind1IsTrainedAllTeacher',
                       },
@@ -185,6 +180,167 @@ const LibraryDataCombined = () => {
                       {
                         title: 'Ind 1.2: Trained Headteacher',
                         field: 'ind12IsTrainedHeadTeacher',
+                      },
+                      {
+                        title: 'Ind 2: Classroom Suitable SRM',
+                        field: 'ind2ClassroomSuitableSRM',
+                      },
+
+                      {
+                        title: 'Ind 2.1: Classroom Door Window Lock',
+                        field: 'ind21ClassroomDoorWindowLock',
+                      },
+                      {
+                        title: 'Ind 2.2: Classroom Safe Clean',
+                        field: 'ind22ClassroomSafeClean',
+                      },
+                      {
+                        title: 'Ind 3: Bookself Useable',
+                        field: 'ind3BookselfUseable',
+                      },
+                      {
+                        title: 'Ind 3.1: Bookself Accessible',
+                        field: 'ind31BookselfAccessible',
+                      },
+                      {
+                        title: 'Ind 3.2: Bookself Environment Protected',
+                        field: 'ind32BookselfEnvironmentProtected',
+                      },
+                      {
+                        title: 'Ind 3.3: Bookself Table Condition',
+                        field: 'ind33BookselfTableCondition',
+                      },
+                      {
+                        title: 'Ind: 4 BookRegister Updated',
+                        field: 'ind4BookRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 5: Bookself Organized',
+                        field: 'ind5BookselfOrganized',
+                      },
+                      {
+                        title: 'Ind 5.1: Bookself Book Organized Open',
+                        field: 'ind51BookselfBookOrganizedOpen',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.3: Bookself Book Accessible',
+                        field: 'ind53BookselfBookAccessible',
+                      },
+                      {
+                        title: 'Ind 6: PrintRich Displayed',
+                        field: 'ind6PrintRichDisplayed',
+                      },
+                      {
+                        title: 'Ind 7: BookCheckout Functional',
+                        field: 'ind7BookCheckoutFunctional',
+                      },
+                      {
+                        title: 'Ind 7.1: BookCheckout Procedure Displayed',
+                        field: 'ind71BookCheckoutProcedureDisplayed',
+                      },
+                      {
+                        title: 'Ind 7.2: BookCheckout Register Usable',
+                        field: 'ind72BookCheckoutRegisterUsable',
+                      },
+                      {
+                        title: 'Ind 7.3: BookCheckout Register Updated',
+                        field: 'ind73BookCheckoutRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 7.4: BookCheckout PendingBooklist',
+                        field: 'ind74BookCheckoutPendingBooklist',
+                      },
+                      {
+                        title: 'Ind 8: SRM Class Routine',
+                        field: 'ind8SRMClassRoutine',
+                      },
+                      {
+                        title: 'Ind 8.1: SRM Class Weekly',
+                        field: 'ind81SRMClassWeekly',
+                      },
+                      {
+                        title: 'Ind 8.2: Daily BookCheckout Opportunity',
+                        field: 'ind82DailyBookCheckoutOpportunity',
+                      },
+                      {
+                        title: 'Ind 10: Parents Meeting',
+                        field: 'ind10ParentsMeeting',
+                      },
+                      {
+                        title: 'Ind 11: Read Festival',
+                        field: 'ind11ReadFestival',
+                      },
+                      {
+                        title: 'Ind 12: Sustainability Plan',
+                        field: 'ind12SustainabilityPlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.2: Responsibility Plan',
+                        field: 'ind122ResponsibilityPlan',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1',
+                        field: 'bestPracticeIndicator1',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1 Details',
+                        field: 'bestPracticeIndicator1Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2',
+                        field: 'bestPracticeIndicator2',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2 Details',
+                        field: 'bestPracticeIndicator2Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3',
+                        field: 'bestPracticeIndicator3',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3 Details',
+                        field: 'bestPracticeIndicator3Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1',
+                        field: 'coachingSupportIndicator1',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1 Details',
+                        field: 'coachingSupportIndicator1Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2',
+                        field: 'coachingSupportIndicator2',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2 Details',
+                        field: 'coachingSupportIndicator2Details',
+                      },
+                      {
+                        title: 'Agreed Statement 1',
+                        field: 'agreedStatement1',
+                      },
+                      {
+                        title: 'Agreed Statement 2',
+                        field: 'agreedStatement2',
                       },
                     ]}
                     // actions={[
@@ -210,8 +366,8 @@ const LibraryDataCombined = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
-                      pageSize: 5,
-                      pageSizeOptions: [5, 10, 20],
+                      pageSize: 2,
+                      pageSizeOptions: [2, 4, 6],
                       maxBodyHeight: '550px',
                       headerStyle: {
                         position: 'sticky',

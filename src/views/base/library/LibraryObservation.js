@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -44,6 +47,25 @@ const LibraryObservation = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
+  const [allLibraryObservation, setAllLibraryObservation] = useState([])
+
+  // Area wise BCO data school
+  const [kutubdiaLibraryObservation, setKutubdiaLibraryObservation] = useState([])
+  const [ukhiyaLibraryObservation, setUkhiyaLibraryObservation] = useState([])
+  // Area wise BCO data school
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+
+      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      await getAllLibraryObservation(console.log('Get All Library observation called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
     try {
@@ -62,13 +84,42 @@ const LibraryObservation = () => {
       console.log(error)
     }
   }
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
 
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
+  // Get All Library observation
+  const getAllLibraryObservation = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/library-observations', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllLibraryObservation(response.data)
+
+      setKutubdiaLibraryObservation(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+
+      setUkhiyaLibraryObservation(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Library observation
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
 
   return (
     <CRow>
@@ -76,7 +127,7 @@ const LibraryObservation = () => {
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
       <CCol xs={12}>
-        <CCard className="mb-4">
+        {/* <CCard className="mb-4">
           <CCardHeader>
             <strong>Report Library Observation</strong>
           </CCardHeader>
@@ -94,117 +145,804 @@ const LibraryObservation = () => {
               Kutubdia Report
             </CButton>
           </CCardBody>
-        </CCard>
+        </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Library Observation Data</strong>
+            <strong>Library Observation</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
-            <MaterialTable
-              title={allBCOData.length + ' Library Observation Data(Demo)'}
-              columns={[
-                { title: 'School', field: 'school' },
-                {
-                  title: 'Date',
-                  field: 'date',
-                  type: 'date',
-                  sorting: 'true',
-                },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
+            <CAccordion alwaysOpen>
+              <CAccordionItem itemKey={1}>
+                <CAccordionHeader>
+                  <strong>All Library Observation </strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={allLibraryObservation.length + ' Library Observation '}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: 'Year', field: 'year', sorting: 'true' },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Visitor', field: 'visitor' },
-                {
-                  title: 'Head Teacher',
-                  field: 'headTeacher',
-                },
-                { title: 'LPO', field: 'lpo', type: 'string' },
-                {
-                  title: 'LF',
-                  field: 'lf',
-                  type: 'string',
-                },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
 
-                { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      // { title: 'LPO', field: 'lpo', type: 'string' },
+                      // {
+                      //   title: 'LF',
+                      //   field: 'lf',
+                      //   type: 'string',
+                      // },
+                      { title: 'Library Status', field: 'libraryStatus' },
+                      {
+                        title: 'Last followup indicator 1',
+                        field: 'lastFollowupIndicator1',
+                      },
+                      {
+                        title: 'Last followup indicator 2',
+                        field: 'lastFollowupIndicator2',
+                      },
+                      {
+                        title: 'Ind 1: All teacher trained',
+                        field: 'ind1IsTrainedAllTeacher',
+                      },
+                      {
+                        title: 'Ind 1.1: Trained SRM Teacher Incharge',
+                        field: 'ind11IsTrainedSRMTeacherIncharge',
+                      },
+                      {
+                        title: 'Ind 1.2: Trained Headteacher',
+                        field: 'ind12IsTrainedHeadTeacher',
+                      },
+                      {
+                        title: 'Ind 2: Classroom Suitable SRM',
+                        field: 'ind2ClassroomSuitableSRM',
+                      },
 
-                { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      {
+                        title: 'Ind 2.1: Classroom Door Window Lock',
+                        field: 'ind21ClassroomDoorWindowLock',
+                      },
+                      {
+                        title: 'Ind 2.2: Classroom Safe Clean',
+                        field: 'ind22ClassroomSafeClean',
+                      },
+                      {
+                        title: 'Ind 3: Bookself Useable',
+                        field: 'ind3BookselfUseable',
+                      },
+                      {
+                        title: 'Ind 3.1: Bookself Accessible',
+                        field: 'ind31BookselfAccessible',
+                      },
+                      {
+                        title: 'Ind 3.2: Bookself Environment Protected',
+                        field: 'ind32BookselfEnvironmentProtected',
+                      },
+                      {
+                        title: 'Ind 3.3: Bookself Table Condition',
+                        field: 'ind33BookselfTableCondition',
+                      },
+                      {
+                        title: 'Ind: 4 BookRegister Updated',
+                        field: 'ind4BookRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 5: Bookself Organized',
+                        field: 'ind5BookselfOrganized',
+                      },
+                      {
+                        title: 'Ind 5.1: Bookself Book Organized Open',
+                        field: 'ind51BookselfBookOrganizedOpen',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.3: Bookself Book Accessible',
+                        field: 'ind53BookselfBookAccessible',
+                      },
+                      {
+                        title: 'Ind 6: PrintRich Displayed',
+                        field: 'ind6PrintRichDisplayed',
+                      },
+                      {
+                        title: 'Ind 7: BookCheckout Functional',
+                        field: 'ind7BookCheckoutFunctional',
+                      },
+                      {
+                        title: 'Ind 7.1: BookCheckout Procedure Displayed',
+                        field: 'ind71BookCheckoutProcedureDisplayed',
+                      },
+                      {
+                        title: 'Ind 7.2: BookCheckout Register Usable',
+                        field: 'ind72BookCheckoutRegisterUsable',
+                      },
+                      {
+                        title: 'Ind 7.3: BookCheckout Register Updated',
+                        field: 'ind73BookCheckoutRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 7.4: BookCheckout PendingBooklist',
+                        field: 'ind74BookCheckoutPendingBooklist',
+                      },
+                      {
+                        title: 'Ind 8: SRM Class Routine',
+                        field: 'ind8SRMClassRoutine',
+                      },
+                      {
+                        title: 'Ind 8.1: SRM Class Weekly',
+                        field: 'ind81SRMClassWeekly',
+                      },
+                      {
+                        title: 'Ind 8.2: Daily BookCheckout Opportunity',
+                        field: 'ind82DailyBookCheckoutOpportunity',
+                      },
+                      {
+                        title: 'Ind 10: Parents Meeting',
+                        field: 'ind10ParentsMeeting',
+                      },
+                      {
+                        title: 'Ind 11: Read Festival',
+                        field: 'ind11ReadFestival',
+                      },
+                      {
+                        title: 'Ind 12: Sustainability Plan',
+                        field: 'ind12SustainabilityPlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.2: Responsibility Plan',
+                        field: 'ind122ResponsibilityPlan',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1',
+                        field: 'bestPracticeIndicator1',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1 Details',
+                        field: 'bestPracticeIndicator1Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2',
+                        field: 'bestPracticeIndicator2',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2 Details',
+                        field: 'bestPracticeIndicator2Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3',
+                        field: 'bestPracticeIndicator3',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3 Details',
+                        field: 'bestPracticeIndicator3Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1',
+                        field: 'coachingSupportIndicator1',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1 Details',
+                        field: 'coachingSupportIndicator1Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2',
+                        field: 'coachingSupportIndicator2',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2 Details',
+                        field: 'coachingSupportIndicator2Details',
+                      },
+                      {
+                        title: 'Agreed Statement 1',
+                        field: 'agreedStatement1',
+                      },
+                      {
+                        title: 'Agreed Statement 2',
+                        field: 'agreedStatement2',
+                      },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 2,
+                      pageSizeOptions: [2, 4, 6],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={allLibraryObservation}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={2}>
+                <CAccordionHeader>
+                  <strong>Library Observation Kutubdia</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={kutubdiaLibraryObservation.length + ' Library Observation '}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: 'Year', field: 'year', sorting: 'true' },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
-                { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
 
-                { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      // { title: 'LPO', field: 'lpo', type: 'string' },
+                      // {
+                      //   title: 'LF',
+                      //   field: 'lf',
+                      //   type: 'string',
+                      // },
+                      { title: 'Library Status', field: 'libraryStatus' },
+                      {
+                        title: 'Last followup indicator 1',
+                        field: 'lastFollowupIndicator1',
+                      },
+                      {
+                        title: 'Last followup indicator 2',
+                        field: 'lastFollowupIndicator2',
+                      },
+                      {
+                        title: 'Ind 1: All teacher trained',
+                        field: 'ind1IsTrainedAllTeacher',
+                      },
+                      {
+                        title: 'Ind 1.1: Trained SRM Teacher Incharge',
+                        field: 'ind11IsTrainedSRMTeacherIncharge',
+                      },
+                      {
+                        title: 'Ind 1.2: Trained Headteacher',
+                        field: 'ind12IsTrainedHeadTeacher',
+                      },
+                      {
+                        title: 'Ind 2: Classroom Suitable SRM',
+                        field: 'ind2ClassroomSuitableSRM',
+                      },
 
-                { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      {
+                        title: 'Ind 2.1: Classroom Door Window Lock',
+                        field: 'ind21ClassroomDoorWindowLock',
+                      },
+                      {
+                        title: 'Ind 2.2: Classroom Safe Clean',
+                        field: 'ind22ClassroomSafeClean',
+                      },
+                      {
+                        title: 'Ind 3: Bookself Useable',
+                        field: 'ind3BookselfUseable',
+                      },
+                      {
+                        title: 'Ind 3.1: Bookself Accessible',
+                        field: 'ind31BookselfAccessible',
+                      },
+                      {
+                        title: 'Ind 3.2: Bookself Environment Protected',
+                        field: 'ind32BookselfEnvironmentProtected',
+                      },
+                      {
+                        title: 'Ind 3.3: Bookself Table Condition',
+                        field: 'ind33BookselfTableCondition',
+                      },
+                      {
+                        title: 'Ind: 4 BookRegister Updated',
+                        field: 'ind4BookRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 5: Bookself Organized',
+                        field: 'ind5BookselfOrganized',
+                      },
+                      {
+                        title: 'Ind 5.1: Bookself Book Organized Open',
+                        field: 'ind51BookselfBookOrganizedOpen',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.3: Bookself Book Accessible',
+                        field: 'ind53BookselfBookAccessible',
+                      },
+                      {
+                        title: 'Ind 6: PrintRich Displayed',
+                        field: 'ind6PrintRichDisplayed',
+                      },
+                      {
+                        title: 'Ind 7: BookCheckout Functional',
+                        field: 'ind7BookCheckoutFunctional',
+                      },
+                      {
+                        title: 'Ind 7.1: BookCheckout Procedure Displayed',
+                        field: 'ind71BookCheckoutProcedureDisplayed',
+                      },
+                      {
+                        title: 'Ind 7.2: BookCheckout Register Usable',
+                        field: 'ind72BookCheckoutRegisterUsable',
+                      },
+                      {
+                        title: 'Ind 7.3: BookCheckout Register Updated',
+                        field: 'ind73BookCheckoutRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 7.4: BookCheckout PendingBooklist',
+                        field: 'ind74BookCheckoutPendingBooklist',
+                      },
+                      {
+                        title: 'Ind 8: SRM Class Routine',
+                        field: 'ind8SRMClassRoutine',
+                      },
+                      {
+                        title: 'Ind 8.1: SRM Class Weekly',
+                        field: 'ind81SRMClassWeekly',
+                      },
+                      {
+                        title: 'Ind 8.2: Daily BookCheckout Opportunity',
+                        field: 'ind82DailyBookCheckoutOpportunity',
+                      },
+                      {
+                        title: 'Ind 10: Parents Meeting',
+                        field: 'ind10ParentsMeeting',
+                      },
+                      {
+                        title: 'Ind 11: Read Festival',
+                        field: 'ind11ReadFestival',
+                      },
+                      {
+                        title: 'Ind 12: Sustainability Plan',
+                        field: 'ind12SustainabilityPlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.2: Responsibility Plan',
+                        field: 'ind122ResponsibilityPlan',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1',
+                        field: 'bestPracticeIndicator1',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1 Details',
+                        field: 'bestPracticeIndicator1Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2',
+                        field: 'bestPracticeIndicator2',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2 Details',
+                        field: 'bestPracticeIndicator2Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3',
+                        field: 'bestPracticeIndicator3',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3 Details',
+                        field: 'bestPracticeIndicator3Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1',
+                        field: 'coachingSupportIndicator1',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1 Details',
+                        field: 'coachingSupportIndicator1Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2',
+                        field: 'coachingSupportIndicator2',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2 Details',
+                        field: 'coachingSupportIndicator2Details',
+                      },
+                      {
+                        title: 'Agreed Statement 1',
+                        field: 'agreedStatement1',
+                      },
+                      {
+                        title: 'Agreed Statement 2',
+                        field: 'agreedStatement2',
+                      },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 2,
+                      pageSizeOptions: [2, 4, 6],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={kutubdiaLibraryObservation}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={3}>
+                <CAccordionHeader>
+                  <strong>Library Observation Ukhiya</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={ukhiyaLibraryObservation.length + ' Library Observation '}
+                    columns={[
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Date',
+                        field: 'date',
+                        type: 'date',
+                        sorting: 'true',
+                      },
+                      { title: 'Month', field: 'month', sorting: 'true' },
+                      { title: 'Year', field: 'year', sorting: 'true' },
+                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
 
-                { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Visitor', field: 'visitor' },
 
-                { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      // { title: 'LPO', field: 'lpo', type: 'string' },
+                      // {
+                      //   title: 'LF',
+                      //   field: 'lf',
+                      //   type: 'string',
+                      // },
+                      { title: 'Library Status', field: 'libraryStatus' },
+                      {
+                        title: 'Last followup indicator 1',
+                        field: 'lastFollowupIndicator1',
+                      },
+                      {
+                        title: 'Last followup indicator 2',
+                        field: 'lastFollowupIndicator2',
+                      },
+                      {
+                        title: 'Ind 1: All teacher trained',
+                        field: 'ind1IsTrainedAllTeacher',
+                      },
+                      {
+                        title: 'Ind 1.1: Trained SRM Teacher Incharge',
+                        field: 'ind11IsTrainedSRMTeacherIncharge',
+                      },
+                      {
+                        title: 'Ind 1.2: Trained Headteacher',
+                        field: 'ind12IsTrainedHeadTeacher',
+                      },
+                      {
+                        title: 'Ind 2: Classroom Suitable SRM',
+                        field: 'ind2ClassroomSuitableSRM',
+                      },
 
-                { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
-
-                { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
-
-                { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
-
-                { title: 'PP Girl', field: 'priPrimaryGirl' },
-                { title: 'PP Boy', field: 'priPrimaryBoy' },
-                { title: 'PP Total', field: 'priPrimaryTotal' },
-
-                { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
-
-                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
-              ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
-              options={{
-                exportButton: true,
-                exportAllData: true,
-                grouping: true,
-                sorting: true,
-                pageSize: 5,
-                pageSizeOptions: [5, 10, 20],
-                maxBodyHeight: '600px',
-                headerStyle: {
-                  position: 'sticky',
-                  top: 0,
-                  backgroundColor: '#bcceeb',
-                  fontWeight: 'bold',
-                  width: 15,
-                  textAlign: 'left',
-                  color: '#884fc9',
-                },
-                rowStyle: {
-                  fontSize: 14,
-                  backgroundColor: '#ede9df',
-                },
-              }}
-              data={allBCOData}
-            />
+                      {
+                        title: 'Ind 2.1: Classroom Door Window Lock',
+                        field: 'ind21ClassroomDoorWindowLock',
+                      },
+                      {
+                        title: 'Ind 2.2: Classroom Safe Clean',
+                        field: 'ind22ClassroomSafeClean',
+                      },
+                      {
+                        title: 'Ind 3: Bookself Useable',
+                        field: 'ind3BookselfUseable',
+                      },
+                      {
+                        title: 'Ind 3.1: Bookself Accessible',
+                        field: 'ind31BookselfAccessible',
+                      },
+                      {
+                        title: 'Ind 3.2: Bookself Environment Protected',
+                        field: 'ind32BookselfEnvironmentProtected',
+                      },
+                      {
+                        title: 'Ind 3.3: Bookself Table Condition',
+                        field: 'ind33BookselfTableCondition',
+                      },
+                      {
+                        title: 'Ind: 4 BookRegister Updated',
+                        field: 'ind4BookRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 5: Bookself Organized',
+                        field: 'ind5BookselfOrganized',
+                      },
+                      {
+                        title: 'Ind 5.1: Bookself Book Organized Open',
+                        field: 'ind51BookselfBookOrganizedOpen',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        field: 'ind52BookselfBookLevelViewable',
+                      },
+                      {
+                        title: 'Ind 5.3: Bookself Book Accessible',
+                        field: 'ind53BookselfBookAccessible',
+                      },
+                      {
+                        title: 'Ind 6: PrintRich Displayed',
+                        field: 'ind6PrintRichDisplayed',
+                      },
+                      {
+                        title: 'Ind 7: BookCheckout Functional',
+                        field: 'ind7BookCheckoutFunctional',
+                      },
+                      {
+                        title: 'Ind 7.1: BookCheckout Procedure Displayed',
+                        field: 'ind71BookCheckoutProcedureDisplayed',
+                      },
+                      {
+                        title: 'Ind 7.2: BookCheckout Register Usable',
+                        field: 'ind72BookCheckoutRegisterUsable',
+                      },
+                      {
+                        title: 'Ind 7.3: BookCheckout Register Updated',
+                        field: 'ind73BookCheckoutRegisterUpdated',
+                      },
+                      {
+                        title: 'Ind 7.4: BookCheckout PendingBooklist',
+                        field: 'ind74BookCheckoutPendingBooklist',
+                      },
+                      {
+                        title: 'Ind 8: SRM Class Routine',
+                        field: 'ind8SRMClassRoutine',
+                      },
+                      {
+                        title: 'Ind 8.1: SRM Class Weekly',
+                        field: 'ind81SRMClassWeekly',
+                      },
+                      {
+                        title: 'Ind 8.2: Daily BookCheckout Opportunity',
+                        field: 'ind82DailyBookCheckoutOpportunity',
+                      },
+                      {
+                        title: 'Ind 10: Parents Meeting',
+                        field: 'ind10ParentsMeeting',
+                      },
+                      {
+                        title: 'Ind 11: Read Festival',
+                        field: 'ind11ReadFestival',
+                      },
+                      {
+                        title: 'Ind 12: Sustainability Plan',
+                        field: 'ind12SustainabilityPlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.1: Collective Plan',
+                        field: 'ind121CollectivePlan',
+                      },
+                      {
+                        title: 'Ind 12.2: Responsibility Plan',
+                        field: 'ind122ResponsibilityPlan',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1',
+                        field: 'bestPracticeIndicator1',
+                      },
+                      {
+                        title: 'Best Practice Indicator 1 Details',
+                        field: 'bestPracticeIndicator1Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2',
+                        field: 'bestPracticeIndicator2',
+                      },
+                      {
+                        title: 'Best Practice Indicator 2 Details',
+                        field: 'bestPracticeIndicator2Details',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3',
+                        field: 'bestPracticeIndicator3',
+                      },
+                      {
+                        title: 'Best Practice Indicator 3 Details',
+                        field: 'bestPracticeIndicator3Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1',
+                        field: 'coachingSupportIndicator1',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 1 Details',
+                        field: 'coachingSupportIndicator1Details',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2',
+                        field: 'coachingSupportIndicator2',
+                      },
+                      {
+                        title: 'Coaching Support Indicator 2 Details',
+                        field: 'coachingSupportIndicator2Details',
+                      },
+                      {
+                        title: 'Agreed Statement 1',
+                        field: 'agreedStatement1',
+                      },
+                      {
+                        title: 'Agreed Statement 2',
+                        field: 'agreedStatement2',
+                      },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 2,
+                      pageSizeOptions: [2, 4, 6],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={ukhiyaLibraryObservation}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+            </CAccordion>
           </CCardBody>
         </CCard>
       </CCol>
