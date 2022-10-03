@@ -271,6 +271,10 @@ const LibraryDataCombined = () => {
                         field: 'ind82DailyBookCheckoutOpportunity',
                       },
                       {
+                        title: 'Ind 9: SRM Register Updated',
+                        field: 'ind9SRMRegisterUpdated',
+                      },
+                      {
                         title: 'Ind 10: Parents Meeting',
                         field: 'ind10ParentsMeeting',
                       },
