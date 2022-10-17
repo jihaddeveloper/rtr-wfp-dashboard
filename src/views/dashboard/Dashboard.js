@@ -332,7 +332,7 @@ const Dashboard = () => {
           <strong>
             <br></br>
             <div className="fs-5 fw-semibold">
-              <p align="center">General Information</p>
+              <p>General Information</p>
             </div>
           </strong>
         </CCardHeader>
@@ -477,7 +477,7 @@ const Dashboard = () => {
               <strong>
                 <br></br>
                 <div className="fs-5 fw-semibold">
-                  <p align="center">Performance</p>
+                  <p>Performance</p>
                 </div>
               </strong>
             </CCardHeader>
@@ -557,7 +557,7 @@ const Dashboard = () => {
             <CCardHeader>
               <br></br>
               <div className="fs-5 fw-semibold">
-                <p align="center">Traning</p>
+                <p>Traning</p>
               </div>
             </CCardHeader>
 
