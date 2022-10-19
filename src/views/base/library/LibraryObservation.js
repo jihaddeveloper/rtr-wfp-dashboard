@@ -40,11 +40,14 @@ import Remove from '@material-ui/icons/Remove'
 import SaveAlt from '@material-ui/icons/SaveAlt'
 import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
+
 //Icon
+
+import { Chart } from 'react-google-charts'
 
 const LibraryObservation = () => {
   // data state to store the BCO API data. Its initial value is an empty array
-  const [data, setData] = useState([])
+  //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allBCOData, setAllBCOData] = useState([])
@@ -2442,6 +2445,22 @@ const LibraryObservation = () => {
   }
   // Results overtime
 
+  // Chart
+  const data = [
+    ['Year', 'Sales', 'Expenses', 'Profit'],
+    ['2014', 1000, 400, 200],
+    ['2015', 1170, 460, 250],
+    ['2016', 660, 1120, 300],
+    ['2017', 1030, 540, 350],
+  ]
+
+  const options = {
+    chart: {
+      title: 'Company Performance',
+      subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+    },
+  }
+  // Chart
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -2539,6 +2558,7 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
+                  <strong>Rating System Results - All Libraries</strong>
                   <CChart
                     type="bar"
                     data={{
@@ -2546,12 +2566,50 @@ const LibraryObservation = () => {
                       datasets: [
                         {
                           label: 'Rating System Results - All Libraries',
-                          backgroundColor: '#f87979',
+                          backgroundColor: ['#ff3333', '#e6d067', '#78c498'],
                           data: [16.06, 33.68, 50.36],
                         },
                       ],
                     }}
-                    labels="months"
+                    labels="ratings"
+                    width="200px"
+                    height="200px"
+                    options={{ maintainAspectRatio: false }}
+                  />
+                </CAccordionBody>
+                <CAccordionBody>
+                  <strong>Rating System Results by Phase</strong>
+                  <CChart
+                    type="line"
+                    data={{
+                      labels: ['Phase I', 'Phase II', 'Phase III'],
+                      datasets: [
+                        {
+                          label: 'Developing',
+                          backgroundColor: '#ff3333',
+                          borderColor: '#ff3333',
+                          pointBackgroundColor: '#ff3333',
+                          pointBorderColor: '#fff',
+                          data: [0, 0, 16.06],
+                        },
+                        {
+                          label: 'Functioning',
+                          backgroundColor: '#e6d067',
+                          borderColor: '#e6d067',
+                          pointBackgroundColor: '#e6d067',
+                          pointBorderColor: '#fff',
+                          data: [0, 0, 33.68],
+                        },
+                        {
+                          label: 'Highly Functioning',
+                          backgroundColor: '#78c498',
+                          borderColor: '#78c498',
+                          pointBackgroundColor: '#78c498',
+                          pointBorderColor: '#fff',
+                          data: [0, 0, 50.36],
+                        },
+                      ],
+                    }}
                   />
                 </CAccordionBody>
                 <CAccordionBody>
@@ -2603,40 +2661,46 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
+                  <strong>Rating System Results by Province</strong>
                   <CChart
-                    type="line"
+                    type="bar"
                     data={{
-                      labels: ['Phase I', 'Phase II', 'Phase III'],
+                      labels: [
+                        'Developing in Ukhiya',
+                        'Developing in Kutubdia',
+                        'Functioning in Ukhiya',
+                        'Functioning in Kutubdia',
+                        'Highly Functioning in Ukhiya',
+                        'Highly Functioning in Kutubdia',
+                      ],
                       datasets: [
                         {
-                          label: 'Developing',
-                          backgroundColor: '#f87979',
-                          borderColor: 'rgba(220, 220, 220, 1)',
-                          pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 16.06],
-                        },
-                        {
-                          label: 'Functioning',
-                          backgroundColor: '#f87920',
-                          borderColor: 'rgba(151, 187, 205, 1)',
-                          pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 33.68],
-                        },
-                        {
-                          label: 'Highly Functioning',
-                          backgroundColor: '#f87910',
-                          borderColor: 'rgba(220, 220, 220, 1)',
-                          pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 50.36],
+                          label: 'Rating System Results by Province',
+                          backgroundColor: [
+                            '#ff3333',
+                            '#ff3333',
+                            '#e6d067',
+                            '#e6d067',
+                            '#78c498',
+                            '#78c498',
+                          ],
+                          data: [24.36, 5.08, 48.72, 13.56, 26.92, 81.36],
                         },
                       ],
                     }}
+                    labels="ratings"
+                    width="200px"
+                    height="200px"
+                    options={{ maintainAspectRatio: false }}
                   />
                 </CAccordionBody>
+
+                {/* <CAccordionBody>
+                  <strong>Chart</strong>
+                  <Chart chartType="Bar" width="100%" height="100%" data={data} options={options} />
+                </CAccordionBody> */}
               </CAccordionItem>
+
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
                   <strong>Indicator Freq by Phase </strong>
@@ -3073,6 +3137,74 @@ const LibraryObservation = () => {
                       },
                     }}
                     data={reportResultOverTime}
+                  />
+                </CAccordionBody>
+                <CAccordionBody>
+                  <strong>Chaange in Rating(Phase II Libraries) </strong>
+                  <CChart
+                    type="bar"
+                    data={{
+                      labels: [
+                        'Q1 Developing',
+                        'Q3 Developing',
+                        'Q1 Functioning',
+                        'Q3 Functioning',
+                        'Q1 Highly Functioning',
+                        'Q3 Highly Functioning',
+                      ],
+                      datasets: [
+                        {
+                          label: 'Chaange in Rating(Phase II Libraries)',
+                          backgroundColor: [
+                            '#ff3333',
+                            '#ff3333',
+                            '#e6d067',
+                            '#e6d067',
+                            '#78c498',
+                            '#78c498',
+                          ],
+                          data: [0, 16.06, 0, 33.68, 0, 50.36],
+                        },
+                      ],
+                    }}
+                    labels="ratings"
+                    width="200px"
+                    height="200px"
+                    options={{ maintainAspectRatio: false }}
+                  />
+                </CAccordionBody>
+                <CAccordionBody>
+                  <strong>Chaange in Rating(All Libraries) </strong>
+                  <CChart
+                    type="bar"
+                    data={{
+                      labels: [
+                        'Q1 Developing',
+                        'Q3 Developing',
+                        'Q1 Functioning',
+                        'Q3 Functioning',
+                        'Q1 Highly Functioning',
+                        'Q3 Highly Functioning',
+                      ],
+                      datasets: [
+                        {
+                          label: 'Chaange in Rating(All Libraries)',
+                          backgroundColor: [
+                            '#ff3333',
+                            '#ff3333',
+                            '#e6d067',
+                            '#e6d067',
+                            '#78c498',
+                            '#78c498',
+                          ],
+                          data: [0, 16.06, 0, 33.68, 0, 50.36],
+                        },
+                      ],
+                    }}
+                    labels="ratings"
+                    width="200px"
+                    height="200px"
+                    options={{ maintainAspectRatio: false }}
                   />
                 </CAccordionBody>
               </CAccordionItem>

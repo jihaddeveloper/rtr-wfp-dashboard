@@ -636,7 +636,7 @@ const WidgetsDropdown = () => {
         <CLink href="/training/all-training">
           <CWidgetStatsF
             className="mb-3"
-            color="secondary"
+            color="success"
             icon={<CIcon icon={cilColorBorder} height={24} />}
             title={
               <>
