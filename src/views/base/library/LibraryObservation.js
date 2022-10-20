@@ -73,7 +73,7 @@ const LibraryObservation = () => {
   let phase3NumberD = 0
   let phase3PercentD = 0
   let overallNumberD = 0
-  let overallPercentD = 0
+  var overallPercentD = 0
 
   let ratingF = 'Functioning'
   let phase1NumberF = 0
@@ -309,6 +309,15 @@ const LibraryObservation = () => {
   const [reportFreqByProvince, setReportFreqByProvince] = useState([])
   const [reportResultOverTime, setReportResultOverTime] = useState([])
 
+  // Chart Data
+  const [rsrAllLibrariesChartData, setrsrAllLibrariesChartData] = useState({})
+  const [rsrByPhaseChartData, setrsrByPhaseChartData] = useState({})
+  const [rsrByProvinceChartData, setrsrByProvinceChartData] = useState({})
+  const [changeRatingPIIChartData, setchangeRatingPIIChartData] = useState({})
+  const [changeRatingAllChartData, setchangeRatingAllChartData] = useState({})
+
+  // Chart Data
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
@@ -322,6 +331,13 @@ const LibraryObservation = () => {
       pushIndicatorFreqByPhase()
       pushIndicatorFreqByProvince()
       pushResultOverTime()
+
+      // Chart
+      pushRSRAllLibrariesChartData()
+      pushRSRByPhaseChartData()
+      pushRSRByProvinceChartData()
+      pushChangeRatingPIIChartData()
+      pushChangeRatingAllChartData()
     }
     call()
   }, [])
@@ -2446,20 +2462,147 @@ const LibraryObservation = () => {
   // Results overtime
 
   // Chart
-  const data = [
-    ['Year', 'Sales', 'Expenses', 'Profit'],
-    ['2014', 1000, 400, 200],
-    ['2015', 1170, 460, 250],
-    ['2016', 660, 1120, 300],
-    ['2017', 1030, 540, 350],
-  ]
+  // const data = [
+  //   ['Year', 'Sales', 'Expenses', 'Profit'],
+  //   ['2014', 1000, 400, 200],
+  //   ['2015', 1170, 460, 250],
+  //   ['2016', 660, 1120, 300],
+  //   ['2017', 1030, 540, 350],
+  // ]
 
-  const options = {
-    chart: {
-      title: 'Company Performance',
-      subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-    },
+  // const options = {
+  //   chart: {
+  //     title: 'Company Performance',
+  //     subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+  //   },
+  // }
+
+  // Rating System Results - All Libraries
+  const pushRSRAllLibrariesChartData = () => {
+    setrsrAllLibrariesChartData({
+      labels: ['Developing', 'Functioning', 'Highly Functioning'],
+      datasets: [
+        {
+          label: 'Rating System Results - All Libraries',
+          backgroundColor: ['#ff3333', '#e6d067', '#78c498'],
+          data: [overallPercentD, overallPercentF, overallPercentHF],
+        },
+      ],
+    })
   }
+
+  // Rating System Results - All Libraries
+
+  // Rating System Results by Phase
+  const pushRSRByPhaseChartData = () => {
+    setrsrByPhaseChartData({
+      labels: [
+        'Phase I Developing',
+        'Phase I Functioning',
+        'Phase I Highly Functioning',
+        'Phase II Developing',
+        'Phase II Functioning',
+        'Phase II Highly Functioning',
+        'Phase III Developing',
+        'Phase III Functioning',
+        'Phase III Highly Functioning',
+      ],
+      datasets: [
+        {
+          label: 'Rating System Results by Phase',
+          backgroundColor: [
+            '#ff3333',
+            '#e6d067',
+            '#78c498',
+            '#ff3333',
+            '#e6d067',
+            '#78c498',
+            '#ff3333',
+            '#e6d067',
+            '#78c498',
+          ],
+          data: [0, 0, 0, 0, 0, 0, phase3PercentD, phase3PercentF, phase3PercentHF],
+        },
+      ],
+    })
+  }
+
+  //Rating System Results by Phase
+
+  // Rating System Results by Province
+  const pushRSRByProvinceChartData = () => {
+    setrsrByProvinceChartData({
+      labels: [
+        'Developing in Ukhiya',
+        'Functioning in Ukhiya',
+        'Highly Functioning in Ukhiya',
+        'Developing in Kutubdia',
+        'Functioning in Kutubdia',
+        'Highly Functioning in Kutubdia',
+      ],
+      datasets: [
+        {
+          label: 'Rating System Results by Province',
+          backgroundColor: ['#ff3333', '#e6d067', '#78c498', '#ff3333', '#e6d067', '#78c498'],
+          data: [
+            ukhiyaPercentD,
+            ukhiyaPercentF,
+            ukhiyaPercentHF,
+            kutubdiaPercentD,
+            kutubdiaPercentF,
+            kutubdiaPercentHF,
+          ],
+        },
+      ],
+    })
+  }
+  // Rating System Results by Province
+
+  // Change in Rating(Phase II Libraries)
+  const pushChangeRatingPIIChartData = () => {
+    setchangeRatingPIIChartData({
+      labels: [
+        'Q1 Developing',
+        'Q3 Developing',
+        'Q1 Functioning',
+        'Q3 Functioning',
+        'Q1 Highly Functioning',
+        'Q3 Highly Functioning',
+      ],
+      datasets: [
+        {
+          label: 'Change in Rating(Phase II Libraries)',
+          backgroundColor: ['#ff3333', '#ff3333', '#e6d067', '#e6d067', '#78c498', '#78c498'],
+          data: [0, phase3Q3PercD, 0, phase3Q3PercF, 0, phase3Q3PercHF],
+        },
+      ],
+    })
+  }
+
+  // Change in Rating(Phase II Libraries)
+
+  // Change in Rating(All Libraries)
+  const pushChangeRatingAllChartData = () => {
+    setchangeRatingAllChartData({
+      labels: [
+        'Q1 Developing',
+        'Q3 Developing',
+        'Q1 Functioning',
+        'Q3 Functioning',
+        'Q1 Highly Functioning',
+        'Q3 Highly Functioning',
+      ],
+      datasets: [
+        {
+          label: 'Change in Rating(All Libraries)',
+          backgroundColor: ['#ff3333', '#ff3333', '#e6d067', '#e6d067', '#78c498', '#78c498'],
+          data: [0, overallQ3PercD, 0, overallQ3PercF, 0, overallQ3PercHF],
+        },
+      ],
+    })
+  }
+
+  // Change in Rating(All Libraries)
   // Chart
   if (isLoading) {
     return (
@@ -2561,16 +2704,7 @@ const LibraryObservation = () => {
                   <strong>Rating System Results - All Libraries</strong>
                   <CChart
                     type="bar"
-                    data={{
-                      labels: ['Developing', 'Functioning', 'Highly Functioning'],
-                      datasets: [
-                        {
-                          label: 'Rating System Results - All Libraries',
-                          backgroundColor: ['#ff3333', '#e6d067', '#78c498'],
-                          data: [16.06, 33.68, 50.36],
-                        },
-                      ],
-                    }}
+                    data={rsrAllLibrariesChartData}
                     labels="ratings"
                     width="200px"
                     height="200px"
@@ -2579,38 +2713,7 @@ const LibraryObservation = () => {
                 </CAccordionBody>
                 <CAccordionBody>
                   <strong>Rating System Results by Phase</strong>
-                  <CChart
-                    type="line"
-                    data={{
-                      labels: ['Phase I', 'Phase II', 'Phase III'],
-                      datasets: [
-                        {
-                          label: 'Developing',
-                          backgroundColor: '#ff3333',
-                          borderColor: '#ff3333',
-                          pointBackgroundColor: '#ff3333',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 16.06],
-                        },
-                        {
-                          label: 'Functioning',
-                          backgroundColor: '#e6d067',
-                          borderColor: '#e6d067',
-                          pointBackgroundColor: '#e6d067',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 33.68],
-                        },
-                        {
-                          label: 'Highly Functioning',
-                          backgroundColor: '#78c498',
-                          borderColor: '#78c498',
-                          pointBackgroundColor: '#78c498',
-                          pointBorderColor: '#fff',
-                          data: [0, 0, 50.36],
-                        },
-                      ],
-                    }}
-                  />
+                  <CChart type="bar" data={rsrByPhaseChartData} />
                 </CAccordionBody>
                 <CAccordionBody>
                   <MaterialTable
@@ -2664,30 +2767,7 @@ const LibraryObservation = () => {
                   <strong>Rating System Results by Province</strong>
                   <CChart
                     type="bar"
-                    data={{
-                      labels: [
-                        'Developing in Ukhiya',
-                        'Developing in Kutubdia',
-                        'Functioning in Ukhiya',
-                        'Functioning in Kutubdia',
-                        'Highly Functioning in Ukhiya',
-                        'Highly Functioning in Kutubdia',
-                      ],
-                      datasets: [
-                        {
-                          label: 'Rating System Results by Province',
-                          backgroundColor: [
-                            '#ff3333',
-                            '#ff3333',
-                            '#e6d067',
-                            '#e6d067',
-                            '#78c498',
-                            '#78c498',
-                          ],
-                          data: [24.36, 5.08, 48.72, 13.56, 26.92, 81.36],
-                        },
-                      ],
-                    }}
+                    data={rsrByProvinceChartData}
                     labels="ratings"
                     width="200px"
                     height="200px"
@@ -3140,33 +3220,10 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
-                  <strong>Chaange in Rating(Phase II Libraries) </strong>
+                  <strong>Change in Rating(Phase II Libraries) </strong>
                   <CChart
                     type="bar"
-                    data={{
-                      labels: [
-                        'Q1 Developing',
-                        'Q3 Developing',
-                        'Q1 Functioning',
-                        'Q3 Functioning',
-                        'Q1 Highly Functioning',
-                        'Q3 Highly Functioning',
-                      ],
-                      datasets: [
-                        {
-                          label: 'Chaange in Rating(Phase II Libraries)',
-                          backgroundColor: [
-                            '#ff3333',
-                            '#ff3333',
-                            '#e6d067',
-                            '#e6d067',
-                            '#78c498',
-                            '#78c498',
-                          ],
-                          data: [0, 16.06, 0, 33.68, 0, 50.36],
-                        },
-                      ],
-                    }}
+                    data={changeRatingPIIChartData}
                     labels="ratings"
                     width="200px"
                     height="200px"
@@ -3174,33 +3231,10 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
-                  <strong>Chaange in Rating(All Libraries) </strong>
+                  <strong>Change in Rating(All Libraries) </strong>
                   <CChart
                     type="bar"
-                    data={{
-                      labels: [
-                        'Q1 Developing',
-                        'Q3 Developing',
-                        'Q1 Functioning',
-                        'Q3 Functioning',
-                        'Q1 Highly Functioning',
-                        'Q3 Highly Functioning',
-                      ],
-                      datasets: [
-                        {
-                          label: 'Chaange in Rating(All Libraries)',
-                          backgroundColor: [
-                            '#ff3333',
-                            '#ff3333',
-                            '#e6d067',
-                            '#e6d067',
-                            '#78c498',
-                            '#78c498',
-                          ],
-                          data: [0, 16.06, 0, 33.68, 0, 50.36],
-                        },
-                      ],
-                    }}
+                    data={changeRatingAllChartData}
                     labels="ratings"
                     width="200px"
                     height="200px"
