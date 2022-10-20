@@ -1253,6 +1253,7 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
+
       ind2OverallPro = (
         (parseFloat(
           (
@@ -1260,7 +1261,7 @@ const LibraryObservation = () => {
               return (
                 item.year === '2022' &&
                 item.ind2ClassroomSuitableSRM === 'Yes' &&
-                item.upazilla === 'Ukhiya'
+                item.upazilla === 'Kutubdia'
               )
             }).length *
               100) /
