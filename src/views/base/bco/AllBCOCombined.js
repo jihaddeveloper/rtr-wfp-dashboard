@@ -262,7 +262,7 @@ const AllBCOCombined = () => {
             return acc + value
           }) /
         response.data
-          .filter((item) => item.upazilla === 'Ukhiya')
+          .filter((item) => item.upazilla === 'Ukhiya' && item.month === 'June')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -406,7 +406,7 @@ const AllBCOCombined = () => {
             return acc + value
           }) /
         response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Kutubdia')
+          .filter((item) => item.upazilla === 'Kutubdia' && item.month === 'June')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -520,101 +520,31 @@ const AllBCOCombined = () => {
         (parseFloat(uNoBCOPerStudentCRF) + parseFloat(kNoBCOPerStudentCRF)) /
         2
       ).toFixed(2)
-      //   (
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     }) /
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     })
-      // ).toFixed(2)
+
       cfoNoStudentBCOCRF = kNoStudentBCOCRF + uNoStudentBCOCRF
       cfoPercentStudentBCOCRF = (
         (parseFloat(uPercentStudentBCOCRF) + parseFloat(kPercentStudentBCOCRF)) /
         2
       ).toFixed(2)
-      //   (
-      //   (response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     }) *
-      //     100) /
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     })
-      // ).toFixed(2)
 
       cfoNoStudentBCICRF = kNoStudentBCICRF + uNoStudentBCICRF
       cfoPercentStudentBCICRF = (
         (parseFloat(uPercentStudentBCICRF) + parseFloat(kPercentStudentBCICRF)) /
         2
       ).toFixed(2)
-      //   (
-      //   (response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     }) *
-      //     100) /
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     })
-      // ).toFixed(2)
+
       cfoNoGirlBCOCRF = kNoGirlBCOCRF + uNoGirlBCOCRF
       cfoPercentGirlBCOCRF = (
         (parseFloat(uPercentGirlBCOCRF) + parseFloat(kPercentGirlBCOCRF)) /
         2
       ).toFixed(2)
-      //   (
-      //   (response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     }) *
-      //     100) /
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     })
-      // ).toFixed(2)
+
       cfoNoBoyBCOCRF = kNoBoyBCOCRF + uNoBoyBCOCRF
       cfoPercentBoyBCOCRF = (
         (parseFloat(uPercentBoyBCOCRF) + parseFloat(kPercentBoyBCOCRF)) /
         2
       ).toFixed(2)
-      //   (
-      //   (response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     }) *
-      //     100) /
-      //   response.data
-      //     .filter((item) => item.schoolTotalNoStudentBC !== 0)
-      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
-      //     .reduce(function (acc, value) {
-      //       return acc + value
-      //     })
-      // ).toFixed(2)
+
       cfoNoSchoolBCOCRF = kNoSchoolBCOCRF + uNoSchoolBCOCRF
       cfoNoSchoolZeroBCOCRF = kNoSchoolZeroBCOCRF + uNoSchoolZeroBCOCRF
 
@@ -675,7 +605,7 @@ const AllBCOCombined = () => {
             return acc + value
           }) /
         response.data
-          .filter((item) => item.upazilla === 'Ukhiya')
+          .filter((item) => item.upazilla === 'Ukhiya' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -819,7 +749,7 @@ const AllBCOCombined = () => {
             return acc + value
           }) /
         response.data
-          .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Kutubdia')
+          .filter((item) => item.upazilla === 'Kutubdia' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
             return acc + value
@@ -1062,17 +992,9 @@ const AllBCOCombined = () => {
       {
         sl: 4,
         area: 'Average Books Read by Per Child',
-        kutubdia: ((parseFloat(kNoBCOPerStudent) + parseFloat(kNoBCOPerStudentCRF)) / 2).toFixed(2),
-        ukhiya: ((parseFloat(uNoBCOPerStudent) + parseFloat(uNoBCOPerStudentCRF)) / 2).toFixed(2),
-        cfo: (
-          (parseFloat(
-            ((parseFloat(kNoBCOPerStudent) + parseFloat(kNoBCOPerStudentCRF)) / 2).toFixed(2),
-          ) +
-            parseFloat(
-              ((parseFloat(uNoBCOPerStudent) + parseFloat(uNoBCOPerStudentCRF)) / 2).toFixed(2),
-            )) /
-          2
-        ).toFixed(2),
+        kutubdia: ((kTotalBookCheckout + kTotalBookCheckoutCRF) / kTotalStudent).toFixed(2),
+        ukhiya: ((uTotalBookCheckout + uTotalBookCheckoutCRF) / uTotalStudent).toFixed(2),
+        cfo: ((cfoTotalBookCheckout + cfoTotalBookCheckoutCRF) / cfoTotalStudent).toFixed(2),
       },
       {
         sl: 5,
