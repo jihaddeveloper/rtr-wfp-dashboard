@@ -755,52 +755,47 @@ const LibraryObservation = () => {
             )
           }).length,
         )
-      ukhiyaPercentT =
+      ukhiyaPercentT = (
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Developing' &&
-                item.upazilla === 'Ukhiya'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Developing' &&
+              item.upazilla === 'Ukhiya'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Ukhiya'
-            }).length
-          ).toFixed(2),
+            }).length,
         ) +
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Functioning' &&
-                item.upazilla === 'Ukhiya'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Functioning' &&
+              item.upazilla === 'Ukhiya'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Ukhiya'
-            }).length
-          ).toFixed(2),
+            }).length,
         ) +
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Highly Functioning' &&
-                item.upazilla === 'Ukhiya'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Highly Functioning' &&
+              item.upazilla === 'Ukhiya'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Ukhiya'
-            }).length
-          ).toFixed(2),
+            }).length,
         )
+      ).toFixed(2)
       kutubdiaNumberT =
         parseInt(
           response.data.filter((item) => {
@@ -829,52 +824,47 @@ const LibraryObservation = () => {
             )
           }).length,
         )
-      kutubdiaPercentT =
+      kutubdiaPercentT = (
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Developing' &&
-                item.upazilla === 'Kutubdia'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Developing' &&
+              item.upazilla === 'Kutubdia'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Kutubdia'
-            }).length
-          ).toFixed(2),
+            }).length,
         ) +
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Functioning' &&
-                item.upazilla === 'Kutubdia'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Functioning' &&
+              item.upazilla === 'Kutubdia'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Kutubdia'
-            }).length
-          ).toFixed(2),
+            }).length,
         ) +
         parseFloat(
-          (
-            (response.data.filter((item) => {
-              return (
-                item.year === '2022' &&
-                item.libraryStatus === 'Highly Functioning' &&
-                item.upazilla === 'Kutubdia'
-              )
-            }).length *
-              100) /
+          (response.data.filter((item) => {
+            return (
+              item.year === '2022' &&
+              item.libraryStatus === 'Highly Functioning' &&
+              item.upazilla === 'Kutubdia'
+            )
+          }).length *
+            100) /
             response.data.filter((item) => {
               return item.year === '2022' && item.upazilla === 'Kutubdia'
-            }).length
-          ).toFixed(2),
+            }).length,
         )
+      ).toFixed(2)
 
       // By Province
       // Ovserall result

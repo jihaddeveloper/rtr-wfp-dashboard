@@ -16,7 +16,12 @@ import {
   CButton,
   CCollapse,
 } from '@coreui/react'
+
+import { CChart, CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsCallout, DocsExample } from 'src/components'
+
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
 
 import MaterialTable from 'material-table'
 //Icon
@@ -44,10 +49,31 @@ const BanglaClassData = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
+  const [allBanglaClass, setAllBanglaClass] = useState([])
+
+  // Get previous month
+  const current = new Date()
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+  current.setMonth(current.getMonth() - 1)
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+      await getAllBanglaClass(console.log('get bangla class called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+
   // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
+  const getAllBanglaClass = async () => {
+    setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/bangla-class', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -55,21 +81,22 @@ const BanglaClassData = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllBCOData(response.data)
+      setAllBanglaClass(response.data)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
   }
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
-
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
-
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
   return (
     <CRow>
       {/* <CCol xs={12}>
@@ -97,74 +124,175 @@ const BanglaClassData = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Bangla Class Data</strong>
+            <strong>ALL Bangla Class Observation</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
-            <strong>
-              <code>This is under construction</code>
-            </strong>
-            {/* <MaterialTable
-              title={allBCOData.length + ' Bangla Class Data(Demo)'}
+            <MaterialTable
+              title={allBanglaClass.length + ' Bangla Class Observation'}
               columns={[
-                { title: 'School', field: 'school' },
                 {
                   title: 'Date',
                   field: 'date',
                   type: 'date',
                   sorting: 'true',
                 },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                { title: 'School', field: 'school' },
+                {
+                  title: 'Class Teacher',
+                  field: 'classTeacher',
+                },
+                {
+                  title: 'Gender',
+                  field: 'teacherGender',
+                },
+                {
+                  title: 'Trainined',
+                  field: 'isTrained',
+                },
+                { title: 'Teacher Rating', field: 'teacherStatus', sorting: 'true' },
+                { title: 'Month', field: 'month', sorting: 'true' },
+                { title: 'Year', field: 'year', sorting: 'true' },
 
                 { title: 'District', field: 'district' },
                 { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Visitor', field: 'visitor' },
-                {
-                  title: 'Head Teacher',
-                  field: 'headTeacher',
-                },
-                { title: 'LPO', field: 'lpo', type: 'string' },
+                { title: 'Field Office', field: 'fieldOffice', sorting: 'true' },
+                { title: 'Project', field: 'project', sorting: 'true' },
+                { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                { title: 'LPO', field: 'lpoName', type: 'string' },
                 {
                   title: 'LF',
-                  field: 'lf',
+                  field: 'lfName',
                   type: 'string',
                 },
+                { title: 'Visitor', field: 'visitor' },
+                { title: 'Visitor Designation', field: 'visitorDesignation', sorting: 'true' },
 
-                { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                {
+                  title: 'Grade',
+                  field: 'grade',
+                },
+                {
+                  title: 'Section',
+                  field: 'section',
+                },
+                {
+                  title: 'Class Start Time',
+                  field: 'classStartTime',
+                },
+                {
+                  title: 'Class End Time',
+                  field: 'classEndTime',
+                },
+                {
+                  title: 'Content',
+                  field: 'contentName',
+                },
+                {
+                  title: 'Period Day',
+                  field: 'periodDay',
+                },
 
-                { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                { title: 'Last Followup Topic 1', field: 'lastFollowupTopic1' },
+                { title: 'Last Followup Topic 2', field: 'lastFollowupTopic2' },
+                { title: 'Last Followup Topic 3', field: 'lastFollowupTopic3' },
 
-                { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                { title: 'Ind1 Phonemic Awareness Status', field: 'ind1PhonemicAwarenessStatus' },
+                { title: 'Ind1 Phonemic Awareness Notes', field: 'ind1PhonemicAwarenessNotes' },
 
-                { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                {
+                  title: 'Ind2 Letter Identification Status',
+                  field: 'ind2LetterIdentificationStatus',
+                },
+                {
+                  title: 'Ind2 Letter Identification Notes',
+                  field: 'ind2LetterIdentificationNotes',
+                },
 
-                { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                {
+                  title: 'Ind3 Vocabulary Identification Status',
+                  field: 'ind3VocabularyIdentificationStatus',
+                },
+                {
+                  title: 'Ind3 Vocabulary Identification Notes',
+                  field: 'ind3VocabularyIdentificationNotes',
+                },
 
-                { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                {
+                  title: 'Ind4 Fluency Identification Status',
+                  field: 'ind4FluencyIdentificationStatus',
+                },
+                {
+                  title: 'Ind4 Fluency Identification  Notes',
+                  field: 'ind4FluencyIdentificationNotes',
+                },
 
-                { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                { title: 'Ind5 Comprehension Status', field: 'ind5ComprehensionStatus' },
+                { title: 'Ind5 Comprehension Notes', field: 'ind5ComprehensionNotes' },
 
-                { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                { title: 'Ind6 Writing Activities Status', field: 'ind6WritingActivitiesStatus' },
+                { title: 'Ind6 Writing Activities Notes', field: 'ind6WritingActivitiesNotes' },
 
-                { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                { title: 'Ind7 I Do We Do You Do Status', field: 'ind7IDoWeDoYouDoStatus' },
+                { title: 'Ind7 I Do We Do You Do Notes', field: 'ind7IDoWeDoYouDoNotes' },
 
-                { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                { title: 'Ind8 Group Work Status', field: 'ind8GroupWorkStatus' },
+                { title: 'Ind8 Group Work Notes', field: 'ind8GroupWorkNotes' },
 
-                { title: 'PP Girl', field: 'priPrimaryGirl' },
-                { title: 'PP Boy', field: 'priPrimaryBoy' },
-                { title: 'PP Total', field: 'priPrimaryTotal' },
+                { title: 'Ind9 Time On Task Status', field: 'ind9TimeOnTaskStatus' },
+                { title: 'Ind9 Time On Task Notes', field: 'ind9TimeOnTaskNotes' },
 
-                { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+                { title: 'Ind10 Use Teaching Aid Status', field: 'ind10UseTeachingAidStatus' },
+                { title: 'Ind10 Use Teaching Aid Notes', field: 'ind10UseTeachingAidNotes' },
 
-                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                {
+                  title: 'Ind11 Continuity Of Lessons Status',
+                  field: 'ind11ContinuityOfLessonsStatus',
+                },
+                {
+                  title: 'Ind11 Continuity Of Lessons Notes',
+                  field: 'ind11ContinuityOfLessonsNotes',
+                },
+
+                { title: 'Ind12 Assessment Status', field: 'ind12AssessmentStatus' },
+                { title: 'Ind12 Assessment Notes', field: 'ind12AssessmentNotes' },
+
+                { title: 'Best Practice Ind1', field: 'bestPracticeInd1' },
+                { title: 'Best Practice Ind2', field: 'bestPracticeInd2' },
+                { title: 'Best Practice Ind3', field: 'bestPracticeInd3' },
+
+                { title: 'Coaching Support Ind1', field: 'coachingSupportInd1' },
+                { title: 'Coaching Support Ind2', field: 'coachingSupportInd2' },
+
+                { title: 'Coaching Support Details Ind1', field: 'coachingSupportDetailsInd1' },
+                { title: 'Coaching Support Details Ind2', field: 'coachingSupportDetailsInd2' },
+
+                { title: 'Agreed Statement1', field: 'agreedStatement1' },
+                { title: 'Agreed Statement2', field: 'agreedStatement2' },
+
+                { title: 'Question', field: 'question1' },
+
+                { title: 'Student 1', field: 'student1' },
+                { title: 'Student 2', field: 'student2' },
+                { title: 'Student 3', field: 'student3' },
+                { title: 'Student 4', field: 'student4' },
+                { title: 'Student 5', field: 'student5' },
+
+                { title: 'No Right For 1', field: 'noRightFor1' },
+                { title: 'No Wrong For 1', field: 'noWrongFor1' },
+                { title: 'Total For 1', field: 'totalFor1' },
+                { title: 'No Right For 2', field: 'noRightFor2' },
+                { title: 'No Wrong For 2', field: 'noWrongFor2' },
+                { title: 'Total For 2', field: 'totalFor2' },
+                { title: 'No Right For 3', field: 'noRightFor3' },
+                { title: 'No Wrong For 3', field: 'noWrongFor3' },
+                { title: 'Total For 3', field: 'totalFor3' },
+                { title: 'No Right For 4', field: 'noRightFor4' },
+                { title: 'No Wrong For 4', field: 'noWrongFor4' },
+                { title: 'Total For 4', field: 'totalFor4' },
+                { title: 'No Right For 5', field: 'noRightFor5' },
+                { title: 'No Wrong For 5', field: 'noWrongFor5' },
+                { title: 'Total For 5', field: 'totalFor5' },
               ]}
               // actions={[
               //   {
@@ -200,14 +328,22 @@ const BanglaClassData = () => {
                   width: 15,
                   textAlign: 'left',
                   color: '#884fc9',
+                  borderRight: '1px solid #eee',
+                  borderStyle: 'solid',
                 },
                 rowStyle: {
                   fontSize: 14,
-                  backgroundColor: '#ede9df',
+                  backgroundColor: '#f5f3f2',
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
+                },
+                cellStyle: {
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
                 },
               }}
-              data={allBCOData}
-            /> */}
+              data={allBanglaClass}
+            />
           </CCardBody>
         </CCard>
       </CCol>

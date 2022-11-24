@@ -241,12 +241,12 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Bangla Class Data',
+        name: 'Bangla Class',
         to: '/bangla/bangla-class',
       },
       {
         component: CNavItem,
-        name: 'Bangla Class Report',
+        name: 'SRM Class',
         to: '/base/construction',
       },
     ],
