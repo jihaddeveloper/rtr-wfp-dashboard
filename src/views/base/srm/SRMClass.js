@@ -42,14 +42,14 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const BanglaClassData = () => {
+const SRMClass = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allBCOData, setAllBCOData] = useState([])
 
-  const [allBanglaClass, setAllBanglaClass] = useState([])
+  const [allSRMClass, setAllSRMClass] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -63,17 +63,17 @@ const BanglaClassData = () => {
   useEffect(() => {
     const call = async () => {
       console.log('use effect called')
-      await getAllBanglaClass(console.log('get bangla class called'))
+      await getAllSRMClass(console.log('get SRM class called'))
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
-  // Get All Book-checkout Data for school
-  const getAllBanglaClass = async () => {
+  // Get All SRM Data for school
+  const getAllSRMClass = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/bangla-class', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/srm-class', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -81,13 +81,14 @@ const BanglaClassData = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllBanglaClass(response.data)
+      setAllSRMClass(response.data)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
   }
+
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -105,7 +106,7 @@ const BanglaClassData = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report Bangla Class</strong>
+            <strong>Report SRM Class</strong>
           </CCardHeader>
           <CCardBody>
             <strong>Under Construction</strong>
@@ -125,12 +126,12 @@ const BanglaClassData = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Bangla Class Observation</strong>
+            <strong>ALL SRM Class Observation</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
             <MaterialTable
-              title={allBanglaClass.length + ' Bangla Class Observation'}
+              title={allSRMClass.length + ' SRM Class Observation'}
               columns={[
                 {
                   title: 'Date',
@@ -198,65 +199,65 @@ const BanglaClassData = () => {
                 { title: 'Last Followup Topic 2', field: 'lastFollowupTopic2' },
                 { title: 'Last Followup Topic 3', field: 'lastFollowupTopic3' },
 
-                { title: 'Ind1 Phonemic Awareness Status', field: 'ind1PhonemicAwarenessStatus' },
-                { title: 'Ind1 Phonemic Awareness Notes', field: 'ind1PhonemicAwarenessNotes' },
+                {
+                  title: 'Ind1 Status',
+                  field: 'ind1FriendlyCommunicationStatus',
+                },
+                { title: 'Ind1 Notes', field: 'ind1FriendlyCommunicationNotes' },
 
                 {
-                  title: 'Ind2 Letter Identification Status',
-                  field: 'ind2LetterIdentificationStatus',
+                  title: 'Ind2 Status',
+                  field: 'ind2SRMInspiringStatus',
                 },
                 {
-                  title: 'Ind2 Letter Identification Notes',
-                  field: 'ind2LetterIdentificationNotes',
-                },
-
-                {
-                  title: 'Ind3 Vocabulary Identification Status',
-                  field: 'ind3VocabularyIdentificationStatus',
-                },
-                {
-                  title: 'Ind3 Vocabulary Identification Notes',
-                  field: 'ind3VocabularyIdentificationNotes',
+                  title: 'Ind2 Notes',
+                  field: 'ind2SRMInspiringNotes',
                 },
 
                 {
-                  title: 'Ind4 Fluency Identification Status',
-                  field: 'ind4FluencyIdentificationStatus',
+                  title: 'Ind3 Status',
+                  field: 'ind3SRMInstructionStatus',
                 },
                 {
-                  title: 'Ind4 Fluency Identification  Notes',
-                  field: 'ind4FluencyIdentificationNotes',
+                  title: 'Ind3 Notes',
+                  field: 'ind3SRMInstructionNotes',
                 },
-
-                { title: 'Ind5 Comprehension Status', field: 'ind5ComprehensionStatus' },
-                { title: 'Ind5 Comprehension Notes', field: 'ind5ComprehensionNotes' },
-
-                { title: 'Ind6 Writing Activities Status', field: 'ind6WritingActivitiesStatus' },
-                { title: 'Ind6 Writing Activities Notes', field: 'ind6WritingActivitiesNotes' },
-
-                { title: 'Ind7 I Do We Do You Do Status', field: 'ind7IDoWeDoYouDoStatus' },
-                { title: 'Ind7 I Do We Do You Do Notes', field: 'ind7IDoWeDoYouDoNotes' },
-
-                { title: 'Ind8 Group Work Status', field: 'ind8GroupWorkStatus' },
-                { title: 'Ind8 Group Work Notes', field: 'ind8GroupWorkNotes' },
-
-                { title: 'Ind9 Time On Task Status', field: 'ind9TimeOnTaskStatus' },
-                { title: 'Ind9 Time On Task Notes', field: 'ind9TimeOnTaskNotes' },
-
-                { title: 'Ind10 Use Teaching Aid Status', field: 'ind10UseTeachingAidStatus' },
-                { title: 'Ind10 Use Teaching Aid Notes', field: 'ind10UseTeachingAidNotes' },
 
                 {
-                  title: 'Ind11 Continuity Of Lessons Status',
-                  field: 'ind11ContinuityOfLessonsStatus',
+                  title: 'Ind4 Status',
+                  field: 'ind4BookShowingStatus',
                 },
                 {
-                  title: 'Ind11 Continuity Of Lessons Notes',
-                  field: 'ind11ContinuityOfLessonsNotes',
+                  title: 'Ind4 Notes',
+                  field: 'ind4BookShowingNotes',
                 },
 
-                { title: 'Ind12 Assessment Status', field: 'ind12AssessmentStatus' },
-                { title: 'Ind12 Assessment Notes', field: 'ind12AssessmentNotes' },
+                { title: 'Ind5 Status', field: 'ind5WordTeachingStatus' },
+                { title: 'Ind5 Notes', field: 'ind5WordTeachingNotes' },
+
+                { title: 'Ind6 Status', field: 'ind6StoryReadingStatus' },
+                { title: 'Ind6 Notes', field: 'ind6StoryReadingNotes' },
+
+                { title: 'Ind7 Status', field: 'ind7IDoWeDoYouDoStatus' },
+                { title: 'Ind7 Notes', field: 'ind7StorySuitableNotes' },
+
+                { title: 'Ind8 Status', field: 'ind7StorySuitableStatus' },
+                { title: 'Ind8 Notes', field: 'ind8StoryReadingCombinationNotes' },
+
+                { title: 'Ind9 Status', field: 'ind9AllStudentEngagementStatus' },
+                { title: 'Ind9 Notes', field: 'ind9AllStudentEngagementNotes' },
+
+                { title: 'Ind10 Status', field: 'ind10InclusiveAssessmentStatus' },
+                { title: 'Ind10 Notes', field: 'ind10InclusiveAssessmentNotes' },
+
+                {
+                  title: 'Ind11 Status',
+                  field: 'ind11AskingForBCOStatus',
+                },
+                {
+                  title: 'Ind11 Notes',
+                  field: 'ind11AskingForBCONotes',
+                },
 
                 { title: 'Best Practice Ind1', field: 'bestPracticeInd1' },
                 { title: 'Best Practice Ind2', field: 'bestPracticeInd2' },
@@ -270,30 +271,6 @@ const BanglaClassData = () => {
 
                 { title: 'Agreed Statement1', field: 'agreedStatement1' },
                 { title: 'Agreed Statement2', field: 'agreedStatement2' },
-
-                { title: 'Question', field: 'question1' },
-
-                { title: 'Student 1', field: 'student1' },
-                { title: 'Student 2', field: 'student2' },
-                { title: 'Student 3', field: 'student3' },
-                { title: 'Student 4', field: 'student4' },
-                { title: 'Student 5', field: 'student5' },
-
-                { title: 'No Right For 1', field: 'noRightFor1' },
-                { title: 'No Wrong For 1', field: 'noWrongFor1' },
-                { title: 'Total For 1', field: 'totalFor1' },
-                { title: 'No Right For 2', field: 'noRightFor2' },
-                { title: 'No Wrong For 2', field: 'noWrongFor2' },
-                { title: 'Total For 2', field: 'totalFor2' },
-                { title: 'No Right For 3', field: 'noRightFor3' },
-                { title: 'No Wrong For 3', field: 'noWrongFor3' },
-                { title: 'Total For 3', field: 'totalFor3' },
-                { title: 'No Right For 4', field: 'noRightFor4' },
-                { title: 'No Wrong For 4', field: 'noWrongFor4' },
-                { title: 'Total For 4', field: 'totalFor4' },
-                { title: 'No Right For 5', field: 'noRightFor5' },
-                { title: 'No Wrong For 5', field: 'noWrongFor5' },
-                { title: 'Total For 5', field: 'totalFor5' },
               ]}
               // actions={[
               //   {
@@ -343,7 +320,7 @@ const BanglaClassData = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={allBanglaClass}
+              data={allSRMClass}
             />
           </CCardBody>
         </CCard>
@@ -352,4 +329,4 @@ const BanglaClassData = () => {
   )
 }
 
-export default BanglaClassData
+export default SRMClass

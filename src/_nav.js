@@ -247,7 +247,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'SRM Class',
-        to: '/base/construction',
+        to: '/srm/srm-class',
       },
     ],
   },

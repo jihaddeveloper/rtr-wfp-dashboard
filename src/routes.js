@@ -33,6 +33,9 @@ const AllBookCaptain = React.lazy(() => import('./views/base/library/AllBookCapt
 const BanglaCalssData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
 const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
 
+// SRM
+const SRMCalss = React.lazy(() => import('./views/base/srm/SRMClass'))
+
 // Report
 const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
 const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
@@ -173,6 +176,8 @@ const routes = [
 
   { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaCalssData },
   { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaCalssReport },
+
+  { path: '/srm/srm-class', name: 'SRMClass', element: SRMCalss },
 ]
 
 export default routes
