@@ -147,6 +147,16 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'BCO/I School Quarterly',
+        to: '/bco/bco-school-quarterly',
+      },
+      {
+        component: CNavItem,
+        name: 'BCO/I CRF Quarterly',
+        to: '/bco/bco-crf-quarterly',
+      },
+      {
+        component: CNavItem,
         name: 'Summarize Report School',
         to: '/bco/wfp-summarize',
       },
@@ -208,27 +218,13 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Library Data Combined',
-        to: '/library/library-combined',
-      },
-      {
-        component: CNavItem,
         name: 'Library Observation',
         to: '/library/library-observation',
       },
-      {
-        component: CNavItem,
-        name: 'Library SRM',
-        to: '/library/library-srm',
-      },
+
       {
         component: CNavItem,
         name: 'Observation Report',
-        to: '/base/construction',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Report',
         to: '/base/construction',
       },
     ],
@@ -248,6 +244,16 @@ const _nav = [
         component: CNavItem,
         name: 'SRM Class',
         to: '/srm/srm-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Bangla Report',
+        to: '/library/library-srm',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Report',
+        to: '/base/construction',
       },
     ],
   },
@@ -272,17 +278,12 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Overall School Data',
+        name: 'Overall School',
         to: '/school/overall-school',
       },
       {
         component: CNavItem,
         name: 'Overall School Report',
-        to: '/base/construction',
-      },
-      {
-        component: CNavItem,
-        name: 'Under Construction',
         to: '/base/construction',
       },
     ],

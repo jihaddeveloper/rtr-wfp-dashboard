@@ -37,6 +37,8 @@ const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaCla
 const SRMCalss = React.lazy(() => import('./views/base/srm/SRMClass'))
 
 // Report
+const BCOSchoolQuarterly = React.lazy(() => import('./views/base/bco/BCOSchoolQuarterly'))
+const BCOCRFQuarterly = React.lazy(() => import('./views/base/bco/BCOCRFQuarterly'))
 const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
 const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
 const UkhiyaReport = React.lazy(() => import('./views/base/bco/UkhiyaReport'))
@@ -149,6 +151,9 @@ const routes = [
   { path: '/bco/allbco-combined', name: 'AllBCOCombined', element: AllBCOCombined },
   { path: '/bco/allbco-school', name: 'AllBCOSchool', element: AllBCOSchool },
   { path: '/bco/allbco-crf', name: 'AllBCOCRF', element: AllBCOCRF },
+
+  { path: '/bco/bco-school-quarterly', name: 'BCOSchoolQuarterly', element: BCOSchoolQuarterly },
+  { path: '/bco/bco-crf-quarterly', name: 'BCOCRFQuarterly', element: BCOCRFQuarterly },
 
   { path: '/bco/wfp-summarize', name: 'WFPSummarize', element: WFPSummarizeBCO },
   { path: '/bco/cfo-analysis', name: 'CFOAnalysisBCO', element: CFOAnalysisBCO },

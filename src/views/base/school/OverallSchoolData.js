@@ -18,6 +18,9 @@ import {
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
 import MaterialTable from 'material-table'
 //Icon
 import AddBox from '@material-ui/icons/AddBox'
@@ -44,10 +47,31 @@ const OverallSchoolData = () => {
 
   const [allBCOData, setAllBCOData] = useState([])
 
+  const [allOverallSchool, setAllOverallSchool] = useState([])
+
+  // Get previous month
+  const current = new Date()
+  const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const currentMonth = current.toLocaleString('default', { month: 'long' })
+  current.setMonth(current.getMonth() - 1)
+  const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+  const previousMonth = current.toLocaleString('default', { month: 'long' })
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+
+      await getAllOverallSchool(console.log('get overall school called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+
   // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
+  const getAllOverallSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/overall-school', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -55,21 +79,23 @@ const OverallSchoolData = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllBCOData(response.data)
+      setAllOverallSchool(response.data)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
   }
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    console.log('use effect called')
 
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-  }, [])
-  // Using useEffect to call the API once mounted and set the data
-
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
   return (
     <CRow>
       {/* <CCol xs={12}>
@@ -81,7 +107,8 @@ const OverallSchoolData = () => {
             <strong>Report Overall School</strong>
           </CCardHeader>
           <CCardBody>
-            <CButton color="primary" href="/base/construction">
+            <strong>Under Construction</strong>
+            {/* <CButton color="primary" href="/base/construction">
               Summarize Report
             </CButton>
             <CButton color="secondary" href="/base/construction">
@@ -92,79 +119,272 @@ const OverallSchoolData = () => {
             </CButton>
             <CButton color="warning" href="/base/construction">
               Kutubdia Report
-            </CButton>
+            </CButton> */}
           </CCardBody>
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>ALL Overall School Data</strong>
+            <strong>ALL Overall School </strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
           <CCardBody>
-            <strong>
-              <code>This is under construction</code>
-            </strong>
-            {/* <MaterialTable
-              title={allBCOData.length + ' Overall School Data(Demo)'}
+            <MaterialTable
+              title={allOverallSchool.length + ' Overall School'}
               columns={[
-                { title: 'School', field: 'school' },
                 {
                   title: 'Date',
                   field: 'date',
                   type: 'date',
                   sorting: 'true',
                 },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
-
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Visitor', field: 'visitor' },
+                { title: 'School', field: 'school' },
+                { title: 'School Rating', field: 'schoolStatus', sorting: 'true' },
                 {
                   title: 'Head Teacher',
                   field: 'headTeacher',
                 },
-                { title: 'LPO', field: 'lpo', type: 'string' },
                 {
-                  title: 'LF',
-                  field: 'lf',
-                  type: 'string',
+                  title: 'Gender',
+                  field: 'teacherGender',
                 },
 
-                { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                { title: 'Month', field: 'month', sorting: 'true' },
+                { title: 'Year', field: 'year', sorting: 'true' },
+                { title: 'District', field: 'district' },
+                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                { title: 'Field Office', field: 'fieldOffice', sorting: 'true' },
+                { title: 'Project', field: 'project', sorting: 'true' },
+                { title: '#Visit No', field: 'visitNo', sorting: 'true' },
+                { title: 'LPO', field: 'lpoName', type: 'string' },
+                {
+                  title: 'LF',
+                  field: 'lfName',
+                  type: 'string',
+                },
+                { title: 'Visitor', field: 'visitor' },
+                { title: 'Visitor Designation', field: 'visitorDesignation', sorting: 'true' },
 
-                { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                {
+                  title: 'Note',
+                  field: 'note',
+                },
+                { title: 'Last Followup Topic 1', field: 'lastFollowupTopic1' },
+                { title: 'Last Followup Topic 2', field: 'lastFollowupTopic2' },
+                { title: 'Last Followup Topic 3', field: 'lastFollowupTopic3' },
 
-                { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                { title: 'prePrimaryClassObservation', field: 'prePrimaryClassObservation' },
+                {
+                  title: 'prePrimaryBanglaClassObservation1',
+                  field: 'prePrimaryBanglaClassObservation1',
+                },
+                {
+                  title: 'prePrimaryBanglaClassObservation2',
+                  field: 'prePrimaryBanglaClassObservation2',
+                },
+                {
+                  title: 'prePrimarySRMClassObservation1',
+                  field: 'prePrimarySRMClassObservation1',
+                },
+                {
+                  title: 'prePrimarySRMClassObservation2',
+                  field: 'prePrimarySRMClassObservation2',
+                },
+                { title: 'prePrimaryLibraryObservation', field: 'prePrimaryLibraryObservation' },
 
-                { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                { title: 'oneClassObservation', field: 'oneClassObservation' },
+                { title: 'oneBanglaClassObservation1', field: 'oneBanglaClassObservation1' },
+                { title: 'oneBanglaClassObservation2', field: 'oneBanglaClassObservation2' },
+                { title: 'oneSRMClassObservation1', field: 'oneSRMClassObservation1' },
+                { title: 'oneSRMClassObservation2', field: 'oneSRMClassObservation2' },
+                { title: 'oneLibraryObservation', field: 'oneLibraryObservation' },
 
-                { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                { title: 'twoClassObservation', field: 'twoClassObservation' },
+                { title: 'twoBanglaClassObservation1', field: 'twoBanglaClassObservation1' },
+                { title: 'twoBanglaClassObservation2', field: 'twoBanglaClassObservation2' },
+                { title: 'twoSRMClassObservation1', field: 'twoSRMClassObservation1' },
+                { title: 'twoSRMClassObservation2', field: 'twoSRMClassObservation2' },
+                { title: 'twoLibraryObservation', field: 'twoLibraryObservation' },
 
-                { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                { title: 'threeClassObservation', field: 'threeClassObservation' },
+                { title: 'threeBanglaClassObservation1', field: 'threeBanglaClassObservation1' },
+                { title: 'threeBanglaClassObservation2', field: 'threeBanglaClassObservation2' },
+                { title: 'threeSRMClassObservation1', field: 'threeSRMClassObservation1' },
+                { title: 'threeSRMClassObservation2', field: 'threeSRMClassObservation2' },
+                { title: 'threeLibraryObservation', field: 'threeLibraryObservation' },
 
-                { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                { title: 'fourClassObservation', field: 'fourClassObservation' },
+                { title: 'fourBanglaClassObservation1', field: 'fourBanglaClassObservation1' },
+                { title: 'fourBanglaClassObservation2', field: 'fourBanglaClassObservation2' },
+                { title: 'fourSRMClassObservation1', field: 'fourSRMClassObservation1' },
+                { title: 'fourSRMClassObservation2', field: 'fourSRMClassObservation2' },
+                { title: 'fourLibraryObservation', field: 'fourLibraryObservation' },
 
-                { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                { title: 'fiveClassObservation', field: 'fiveClassObservation' },
+                { title: 'fiveBanglaClassObservation1', field: 'fiveBanglaClassObservation1' },
+                { title: 'fiveBanglaClassObservation2', field: 'fiveBanglaClassObservation2' },
+                { title: 'fiveSRMClassObservation1', field: 'fiveSRMClassObservation1' },
+                { title: 'fiveSRMClassObservation2', field: 'fiveSRMClassObservation2' },
+                { title: 'fiveLibraryObservation', field: 'fiveLibraryObservation' },
 
-                { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                { title: 'classObservationComment', field: 'classObservationComment' },
+                { title: 'banglaClassComment1', field: 'banglaClassComment1' },
+                { title: 'banglaClassComment2', field: 'banglaClassComment2' },
+                { title: 'srmComment1', field: 'srmComment1' },
+                { title: 'srmComment2', field: 'srmComment2' },
+                { title: 'libraryObservationComment', field: 'libraryObservationComment' },
 
-                { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                {
+                  title: 'classObservationTeacherPriority',
+                  field: 'classObservationTeacherPriority',
+                },
+                { title: 'banglaTeacherPriority1', field: 'banglaTeacherPriority1' },
+                { title: 'banglaTeacherPriority2', field: 'banglaTeacherPriority2' },
+                { title: 'srmTeacherPriority1', field: 'srmTeacherPriority1' },
+                { title: 'srmTeacherPriority2', field: 'srmTeacherPriority2' },
+                {
+                  title: 'libraryObservationTeacherPriority',
+                  field: 'libraryObservationTeacherPriority',
+                },
+                { title: 'schoolPriorityArea', field: 'schoolPriorityArea' },
+                { title: 'other', field: 'other' },
 
-                { title: 'PP Girl', field: 'priPrimaryGirl' },
-                { title: 'PP Boy', field: 'priPrimaryBoy' },
-                { title: 'PP Total', field: 'priPrimaryTotal' },
+                { title: 'ind1AllTeacherTrainedStatus', field: 'ind1AllTeacherTrainedStatus' },
+                { title: 'ind1AllTeacherTrainedNotes', field: 'ind1AllTeacherTrainedNotes' },
 
-                { title: 'PP No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                { title: 'PP No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                { title: 'PP No Total BCO', field: 'priPrimaryNoTotalBC' },
+                {
+                  title: 'ind2FollowedRTRTrainingSixtyStatus',
+                  field: 'ind2FollowedRTRTrainingSixtyStatus',
+                },
+                {
+                  title: 'ind2FollowedRTRTrainingSixtyNotes',
+                  field: 'ind2FollowedRTRTrainingSixtyNotes',
+                },
 
-                { title: 'PP No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                { title: 'PP No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                { title: 'PP No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                {
+                  title: 'ind3RTRMaterialStatus',
+                  field: 'ind3RTRMaterialStatus',
+                },
+                {
+                  title: 'ind3RTRMaterialNotes',
+                  field: 'ind3RTRMaterialNotes',
+                },
+
+                {
+                  title: 'ind4InfluenceToBCOFiftyStatus',
+                  field: 'ind4InfluenceToBCOFiftyStatus',
+                },
+                {
+                  title: 'ind4InfluenceToBCOFiftyNotes',
+                  field: 'ind4InfluenceToBCOFiftyNotes',
+                },
+                {
+                  title: 'ind5PrePrimaryBanglaSRMSeventyStatus',
+                  field: 'ind5PrePrimaryBanglaSRMSeventyStatus',
+                },
+                {
+                  title: 'ind5PrePrimaryBanglaSRMSeventyNotes',
+                  field: 'ind5PrePrimaryBanglaSRMSeventyNotes',
+                },
+                {
+                  title: 'ind6BanglaClassResultFortyStatus',
+                  field: 'ind6BanglaClassResultFortyStatus',
+                },
+                {
+                  title: 'ind6BanglaClassResultFortyNotes',
+                  field: 'ind6BanglaClassResultFortyNotes',
+                },
+                { title: 'ind7BanglaSRMStatus', field: 'ind7BanglaSRMStatus' },
+                { title: 'ind7BanglaSRMNotes', field: 'ind7BanglaSRMNotes' },
+                { title: 'ind8SMCMeetingStatus', field: 'ind8SMCMeetingStatus' },
+                { title: 'ind8SMCMeetingNotes', field: 'ind8SMCMeetingNotes' },
+                { title: 'ind9ReadingMaterialStatus', field: 'ind9ReadingMaterialStatus' },
+                { title: 'ind9ReadingMaterialNotes', field: 'ind9ReadingMaterialNotes' },
+                {
+                  title: 'ind10FollowedRtRTrainingEightyStatus',
+                  field: 'ind10FollowedRtRTrainingEightyStatus',
+                },
+                {
+                  title: 'ind10FollowedRtRTrainingEightyNotes',
+                  field: 'ind10FollowedRtRTrainingEightyNotes',
+                },
+                {
+                  title: 'ind11InfluenceToBCOSeventyStatus',
+                  field: 'ind11InfluenceToBCOSeventyStatus',
+                },
+                {
+                  title: 'ind11InfluenceToBCOSeventyNotes',
+                  field: 'ind11InfluenceToBCOSeventyNotes',
+                },
+                {
+                  title: 'ind12PrePrimaryBanglaSRMEightyStatus',
+                  field: 'ind12PrePrimaryBanglaSRMEightyStatus',
+                },
+                {
+                  title: 'ind12PrePrimaryBanglaSRMEightyNotes',
+                  field: 'ind12PrePrimaryBanglaSRMEightyNotes',
+                },
+
+                {
+                  title: 'ind13BanglaClassResultSixtyStatus',
+                  field: 'ind13BanglaClassResultSixtyStatus',
+                },
+                {
+                  title: 'ind13BanglaClassResultSixtyNotes',
+                  field: 'ind13BanglaClassResultSixtyNotes',
+                },
+                {
+                  title: 'ind14MeetingDiscussionStatus',
+                  field: 'ind14MeetingDiscussionStatus',
+                },
+                {
+                  title: 'ind14MeetingDiscussionNotes',
+                  field: 'ind14MeetingDiscussionNotes',
+                },
+                {
+                  title: 'ind15LastMonthObservationStatus',
+                  field: 'ind15LastMonthObservationStatus',
+                },
+                {
+                  title: 'ind15LastMonthObservationNotes',
+                  field: 'ind15LastMonthObservationNotes',
+                },
+                {
+                  title: 'ind16StudentTrackingStatus',
+                  field: 'ind16StudentTrackingStatus',
+                },
+                {
+                  title: 'ind16StudentTrackingNotes',
+                  field: 'ind16StudentTrackingNotes',
+                },
+                {
+                  title: 'ind17GovtOfficialVisitStatus',
+                  field: 'ind17GovtOfficialVisitStatus',
+                },
+                {
+                  title: 'ind17GovtOfficialVisitNotes',
+                  field: 'ind17GovtOfficialVisitNotes',
+                },
+                {
+                  title: 'ind18ParentsSMCParticipationStatus',
+                  field: 'ind18ParentsSMCParticipationStatus',
+                },
+                {
+                  title: 'ind18ParentsSMCParticipationNotes',
+                  field: 'ind18ParentsSMCParticipationNotes',
+                },
+
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
+
+                { title: 'Coaching Support Ind1', field: 'coachingSupportInd1' },
+                { title: 'Coaching Support Ind2', field: 'coachingSupportInd2' },
+
+                { title: 'Coaching Support Details Ind1', field: 'coachingSupportDetailsInd1' },
+                { title: 'Coaching Support Details Ind2', field: 'coachingSupportDetailsInd2' },
+
+                { title: 'Agreed Statement1', field: 'agreedStatement1' },
+                { title: 'Agreed Statement2', field: 'agreedStatement2' },
               ]}
               // actions={[
               //   {
@@ -200,14 +420,22 @@ const OverallSchoolData = () => {
                   width: 15,
                   textAlign: 'left',
                   color: '#884fc9',
+                  borderRight: '1px solid #eee',
+                  borderStyle: 'solid',
                 },
                 rowStyle: {
                   fontSize: 14,
-                  backgroundColor: '#ede9df',
+                  backgroundColor: '#f5f3f2',
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
+                },
+                cellStyle: {
+                  borderRight: '1px solid #fff',
+                  borderStyle: 'solid',
                 },
               }}
-              data={allBCOData}
-            /> */}
+              data={allOverallSchool}
+            />
           </CCardBody>
         </CCard>
       </CCol>
