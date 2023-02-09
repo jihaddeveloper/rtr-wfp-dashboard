@@ -143,453 +143,458 @@ const AllBCOCRF = () => {
                   <MaterialTable
                     title={ukhiyaAllBCOCRF.length + ' BCO Data CRF Ukhiya'}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
 
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation' },
+                      { title: 'visitorOffice', field: 'visitorOffice' },
                       {
-                        title: 'Head Teacher',
+                        title: 'headTeacher',
                         field: 'headTeacher',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'LF',
+                        title: 'lf',
                         field: 'lf',
                         type: 'string',
                       },
+                      { title: 'lfName', field: 'lfName', type: 'string' },
+                      { title: 'note', field: 'note', type: 'string' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
+                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
+                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
+                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
 
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
 
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
 
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
 
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
 
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
 
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
 
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
 
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
 
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
 
-                      { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                      { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                      { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
+                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
+                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
 
-                      { title: 'Pre Primary No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'Pre Primary No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'Pre Primary No Total BCO', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
 
-                      { title: 'Pre Primary No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'Pre Primary No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'Pre Primary No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
 
-                      { title: 'Pre Primary Special Boy', field: 'priPrimarySpBoy' },
-                      { title: 'Pre Primary Special Girl', field: 'priPrimarySpGirl' },
-                      { title: 'Pre Primary Special Total', field: 'priPrimarySpTotal' },
-
-                      { title: 'Pre Primary Special No Boy BCO', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'Pre Primary Special No Girl BCO', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'Pre Primary Special No Total BCO', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
+                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
+                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCO',
+                        title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCO',
+                        title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCO',
+                        title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 1 Boy', field: 'classOneBoy' },
-                      { title: 'Class 1 Girl', field: 'classOneGirl' },
-                      { title: 'Class 1 Total', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy' },
+                      { title: 'classOneGirl', field: 'classOneGirl' },
+                      { title: 'classOneTotal', field: 'classOneTotal' },
 
-                      { title: 'Class 1 No Boy BCO', field: 'classOneNoBoyBC' },
-                      { title: 'Class 1 No Girl BCO', field: 'classOneNoGirlBC' },
-                      { title: 'Class 1 No Total BCO', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
 
-                      { title: 'Class 1 No Book Boy BCO', field: 'classOneNoBookBoyBC' },
-                      { title: 'Class 1 No Book Girl BCO', field: 'classOneNoBookGirlBC' },
-                      { title: 'Class 1 No Book Total BCO', field: 'classOneNoBookTotalBC' },
+                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
+                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
+                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
 
-                      { title: 'Class 1 Special Boy', field: 'classOneSpBoy' },
-                      { title: 'Class 1 Special Girl', field: 'classOneSpGirl' },
-                      { title: 'Class 1 Special Total', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
 
-                      { title: 'Class 1 Special No Boy BCO', field: 'classOneNoSpBoyBC' },
-                      { title: 'Class 1 Special No Girl BCO', field: 'classOneNoSpGirlBC' },
-                      { title: 'Class 1 Special No Total BCO', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
+                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
+                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCO',
+                        title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCO',
+                        title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCO',
+                        title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 2 Boy', field: 'classTwoBoy' },
-                      { title: 'Class 2 Girl', field: 'classTwoGirl' },
-                      { title: 'Class 2 Total', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy' },
+                      { title: 'classTwoGirl', field: 'classTwoGirl' },
+                      { title: 'classTwoTotal', field: 'classTwoTotal' },
 
-                      { title: 'Class 2 No Boy BCO', field: 'classTwoNoBoyBC' },
-                      { title: 'Class 2 No Girl BCO', field: 'classTwoNoGirlBC' },
-                      { title: 'Class 2 No Total BCO', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
 
-                      { title: 'Class 2 No Book Boy BCO', field: 'classTwoNoBookBoyBC' },
-                      { title: 'Class 2 No Book Girl BCO', field: 'classTwoNoBookGirlBC' },
-                      { title: 'Class 2 No Book Total BCO', field: 'classTwoNoBookTotalBC' },
+                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
+                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
+                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
 
-                      { title: 'Class 2 Special Boy', field: 'classTwoSpBoy' },
-                      { title: 'Class 2 Special Girl', field: 'classTwoSpGirl' },
-                      { title: 'Class 2 Special Total', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
 
-                      { title: 'Class 2 Special No Boy BCO', field: 'classTwoNoSpBoyBC' },
-                      { title: 'Class 2 Special No Girl BCO', field: 'classTwoNoSpGirlBC' },
-                      { title: 'Class 2 Special No Total BCO', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
+                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
+                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCO',
+                        title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCO',
+                        title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCO',
+                        title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 3 Boy', field: 'classThreeBoy' },
-                      { title: 'Class 3 Girl', field: 'classThreeGirl' },
-                      { title: 'Class 3 Total', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy' },
+                      { title: 'classThreeGirl', field: 'classThreeGirl' },
+                      { title: 'classThreeTotal', field: 'classThreeTotal' },
 
-                      { title: 'Class 3 No Boy BCO', field: 'classThreeNoBoyBC' },
-                      { title: 'Class 3 No Girl BCO', field: 'classThreeNoGirlBC' },
-                      { title: 'Class 3 No Total BCO', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
+                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
+                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
 
-                      { title: 'Class 3 No Book Boy BCO', field: 'classThreeNoBookBoyBC' },
-                      { title: 'Class 3 No Book Girl BCO', field: 'classThreeNoBookGirlBC' },
-                      { title: 'Class 3 No Book Total BCO', field: 'classThreeNoBookTotalBC' },
+                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
+                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
+                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
 
-                      { title: 'Class 3 Special Boy', field: 'classThreeSpBoy' },
-                      { title: 'Class 3 Special Girl', field: 'classThreeSpGirl' },
-                      { title: 'Class 3 Special Total', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
 
-                      { title: 'Class 3 Special No Boy BCO', field: 'classThreeNoSpBoyBC' },
-                      { title: 'Class 3 Special No Girl BCO', field: 'classThreeNoSpGirlBC' },
-                      { title: 'Class 3 Special No Total BCO', field: 'classThreeNoSpTotalBC' },
+                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
+                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
+                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCO',
+                        title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCO',
+                        title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCO',
+                        title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 4 Boy', field: 'classFourBoy' },
-                      { title: 'Class 4 Girl', field: 'classFourGirl' },
-                      { title: 'Class 4 Total', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy' },
+                      { title: 'classFourGirl', field: 'classFourGirl' },
+                      { title: 'classFourTotal', field: 'classFourTotal' },
 
-                      { title: 'Class 4 No Boy BCO', field: 'classFourNoBoyBC' },
-                      { title: 'Class 4 No Girl BCO', field: 'classFourNoGirlBC' },
-                      { title: 'Class 4 No Total BCO', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
+                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
 
-                      { title: 'Class 4 No Book Boy BCO', field: 'classFourNoBookBoyBC' },
-                      { title: 'Class 4 No Book Girl BCO', field: 'classFourNoBookGirlBC' },
-                      { title: 'Class 4 No Book Total BCO', field: 'classFourNoBookTotalBC' },
+                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
+                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
+                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
 
-                      { title: 'Class 4 Special Boy', field: 'classFourSpBoy' },
-                      { title: 'Class 4 Special Girl', field: 'classFourSpGirl' },
-                      { title: 'Class 4 Special Total', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
 
-                      { title: 'Class 4 Special No Boy BCO', field: 'classFourNoSpBoyBC' },
-                      { title: 'Class 4 Special No Girl BCO', field: 'classFourNoSpGirlBC' },
-                      { title: 'Class 4 Special No Total BCO', field: 'classFourNoSpTotalBC' },
+                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
+                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
+                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCO',
+                        title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCO',
+                        title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCO',
+                        title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 5 Boy', field: 'classFiveBoy' },
-                      { title: 'Class 5 Girl', field: 'classFiveGirl' },
-                      { title: 'Class 5 Total', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy' },
+                      { title: 'classFiveGirl', field: 'classFiveGirl' },
+                      { title: 'classFiveTotal', field: 'classFiveTotal' },
 
-                      { title: 'Class 5 No Boy BCO', field: 'classFiveNoBoyBC' },
-                      { title: 'Class 5 No Girl BCO', field: 'classFiveNoGirlBC' },
-                      { title: 'Class 5 No Total BCO', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
+                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
 
-                      { title: 'Class 5 No Book Boy BCO', field: 'classFiveNoBookBoyBC' },
-                      { title: 'Class 5 No Book Girl BCO', field: 'classFiveNoBookGirlBC' },
-                      { title: 'Class 5 No Book Total BCO', field: 'classFiveNoBookTotalBC' },
+                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
+                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
+                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
 
-                      { title: 'Class 5 Special Boy', field: 'classFiveSpBoy' },
-                      { title: 'Class 5 Special Girl', field: 'classFiveSpGirl' },
-                      { title: 'Class 5 Special Total', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
 
-                      { title: 'Class 5 Special No Boy BCO', field: 'classFiveNoSpBoyBC' },
-                      { title: 'Class 5 Special No Girl BCO', field: 'classFiveNoSpGirlBC' },
-                      { title: 'Class 5 Special No Total BCO', field: 'classFiveNoSpTotalBC' },
+                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
+                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
+                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCO',
+                        title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCO',
+                        title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCO',
+                        title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
                       },
 
-                      { title: 'Pre Primary Boy BCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'Pre Primary Girl BCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'Pre Primary Total BCIn', field: 'priPrimaryNoTotalBCIn' },
+                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
+                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
+                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
 
-                      { title: 'Pre Primary No Book Boy BCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'Pre Primary No Book Girl BCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
+                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
                       {
-                        title: 'Pre Primary No Book Total BCIn',
+                        title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
                       },
 
-                      { title: 'Pre Primary Special No Boy BCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
                       {
-                        title: 'Pre Primary Special No Girl BCIn',
+                        title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Total BCIn',
+                        title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCIn',
+                        title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCIn',
+                        title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCIn',
+                        title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 1 Boy BCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'Class 1 Girl BCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'Class 1 Total BCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
+                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
+                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
 
-                      { title: 'Class 1 No Book Boy BCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'Class 1 No Book Girl BCIn', field: 'classOneNoBookGirlBCIn' },
+                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
+                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
                       {
-                        title: 'Class 1 No Book Total BCIn',
+                        title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 1 Special No Boy BCIn', field: 'classOneNoSpBoyBCIn' },
+                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
                       {
-                        title: 'Class 1 Special No Girl BCIn',
+                        title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Total BCIn',
+                        title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCIn',
+                        title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCIn',
+                        title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCIn',
+                        title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 2 Boy BCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'Class 2 Girl BCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'Class 2 Total BCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
+                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
+                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
 
-                      { title: 'Class 2 No Book Boy BCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'Class 2 No Book Girl BCIn', field: 'classTwoNoBookGirlBCIn' },
+                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
+                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
                       {
-                        title: 'Class 2 No Book Total BCIn',
+                        title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 2 Special No Boy BCIn', field: 'classTwoNoSpBoyBCIn' },
+                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
                       {
-                        title: 'Class 2 Special No Girl BCIn',
+                        title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Total BCIn',
+                        title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCIn',
+                        title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCIn',
+                        title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCIn',
+                        title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 3 Boy BCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'Class 3 Girl BCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'Class 3 Total BCIn', field: 'classThreeNoTotalBCIn' },
+                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
+                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
+                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
 
-                      { title: 'Class 3 No Book Boy BCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'Class 3 No Book Girl BCIn', field: 'classThreeNoBookGirlBCIn' },
+                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
+                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
                       {
-                        title: 'Class 3 No Book Total BCIn',
+                        title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 3 Special No Boy BCIn', field: 'classThreeNoSpBoyBCIn' },
+                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
                       {
-                        title: 'Class 3 Special No Girl BCIn',
+                        title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Total BCIn',
+                        title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCIn',
+                        title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCIn',
+                        title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCIn',
+                        title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 4 Boy BCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'Class 4 Girl BCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'Class 4 Total BCIn', field: 'classFourNoTotalBCIn' },
+                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
+                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
+                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
 
-                      { title: 'Class 4 No Book Boy BCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'Class 4 No Book Girl BCIn', field: 'classFourNoBookGirlBCIn' },
+                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
+                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
                       {
-                        title: 'Class 4 No Book Total BCIn',
+                        title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 4 Special No Boy BCIn', field: 'classFourNoSpBoyBCIn' },
+                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
                       {
-                        title: 'Class 4 Special No Girl BCIn',
+                        title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Total BCIn',
+                        title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCIn',
+                        title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCIn',
+                        title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCIn',
+                        title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 5 Boy BCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'Class 5 Girl BCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'Class 5 Total BCIn', field: 'classFiveNoTotalBCIn' },
+                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
+                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
+                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
 
-                      { title: 'Class 5 No Book Boy BCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'Class 5 No Book Girl BCIn', field: 'classFiveNoBookGirlBCIn' },
+                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
+                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
                       {
-                        title: 'Class 5 No Book Total BCIn',
+                        title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 5 Special No Boy BCIn', field: 'classFiveNoSpBoyBCIn' },
+                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
                       {
-                        title: 'Class 5 Special No Girl BCIn',
+                        title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Total BCIn',
+                        title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCIn',
+                        title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCIn',
+                        title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCIn',
+                        title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
                       },
                     ]}
@@ -653,453 +658,458 @@ const AllBCOCRF = () => {
                   <MaterialTable
                     title={kutubdiaAllBCOCRF.length + ' BCO Data CRF Kutubdia'}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
 
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation' },
+                      { title: 'visitorOffice', field: 'visitorOffice' },
                       {
-                        title: 'Head Teacher',
+                        title: 'headTeacher',
                         field: 'headTeacher',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'LF',
+                        title: 'lf',
                         field: 'lf',
                         type: 'string',
                       },
+                      { title: 'lfName', field: 'lfName', type: 'string' },
+                      { title: 'note', field: 'note', type: 'string' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
+                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
+                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
+                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
 
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
 
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
 
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
 
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
 
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
 
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
 
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
 
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
 
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
 
-                      { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                      { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                      { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
+                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
+                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
 
-                      { title: 'Pre Primary No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'Pre Primary No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'Pre Primary No Total BCO', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
 
-                      { title: 'Pre Primary No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'Pre Primary No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'Pre Primary No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
 
-                      { title: 'Pre Primary Special Boy', field: 'priPrimarySpBoy' },
-                      { title: 'Pre Primary Special Girl', field: 'priPrimarySpGirl' },
-                      { title: 'Pre Primary Special Total', field: 'priPrimarySpTotal' },
-
-                      { title: 'Pre Primary Special No Boy BCO', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'Pre Primary Special No Girl BCO', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'Pre Primary Special No Total BCO', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
+                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
+                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCO',
+                        title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCO',
+                        title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCO',
+                        title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 1 Boy', field: 'classOneBoy' },
-                      { title: 'Class 1 Girl', field: 'classOneGirl' },
-                      { title: 'Class 1 Total', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy' },
+                      { title: 'classOneGirl', field: 'classOneGirl' },
+                      { title: 'classOneTotal', field: 'classOneTotal' },
 
-                      { title: 'Class 1 No Boy BCO', field: 'classOneNoBoyBC' },
-                      { title: 'Class 1 No Girl BCO', field: 'classOneNoGirlBC' },
-                      { title: 'Class 1 No Total BCO', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
 
-                      { title: 'Class 1 No Book Boy BCO', field: 'classOneNoBookBoyBC' },
-                      { title: 'Class 1 No Book Girl BCO', field: 'classOneNoBookGirlBC' },
-                      { title: 'Class 1 No Book Total BCO', field: 'classOneNoBookTotalBC' },
+                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
+                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
+                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
 
-                      { title: 'Class 1 Special Boy', field: 'classOneSpBoy' },
-                      { title: 'Class 1 Special Girl', field: 'classOneSpGirl' },
-                      { title: 'Class 1 Special Total', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
 
-                      { title: 'Class 1 Special No Boy BCO', field: 'classOneNoSpBoyBC' },
-                      { title: 'Class 1 Special No Girl BCO', field: 'classOneNoSpGirlBC' },
-                      { title: 'Class 1 Special No Total BCO', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
+                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
+                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCO',
+                        title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCO',
+                        title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCO',
+                        title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 2 Boy', field: 'classTwoBoy' },
-                      { title: 'Class 2 Girl', field: 'classTwoGirl' },
-                      { title: 'Class 2 Total', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy' },
+                      { title: 'classTwoGirl', field: 'classTwoGirl' },
+                      { title: 'classTwoTotal', field: 'classTwoTotal' },
 
-                      { title: 'Class 2 No Boy BCO', field: 'classTwoNoBoyBC' },
-                      { title: 'Class 2 No Girl BCO', field: 'classTwoNoGirlBC' },
-                      { title: 'Class 2 No Total BCO', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
 
-                      { title: 'Class 2 No Book Boy BCO', field: 'classTwoNoBookBoyBC' },
-                      { title: 'Class 2 No Book Girl BCO', field: 'classTwoNoBookGirlBC' },
-                      { title: 'Class 2 No Book Total BCO', field: 'classTwoNoBookTotalBC' },
+                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
+                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
+                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
 
-                      { title: 'Class 2 Special Boy', field: 'classTwoSpBoy' },
-                      { title: 'Class 2 Special Girl', field: 'classTwoSpGirl' },
-                      { title: 'Class 2 Special Total', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
 
-                      { title: 'Class 2 Special No Boy BCO', field: 'classTwoNoSpBoyBC' },
-                      { title: 'Class 2 Special No Girl BCO', field: 'classTwoNoSpGirlBC' },
-                      { title: 'Class 2 Special No Total BCO', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
+                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
+                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCO',
+                        title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCO',
+                        title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCO',
+                        title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 3 Boy', field: 'classThreeBoy' },
-                      { title: 'Class 3 Girl', field: 'classThreeGirl' },
-                      { title: 'Class 3 Total', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy' },
+                      { title: 'classThreeGirl', field: 'classThreeGirl' },
+                      { title: 'classThreeTotal', field: 'classThreeTotal' },
 
-                      { title: 'Class 3 No Boy BCO', field: 'classThreeNoBoyBC' },
-                      { title: 'Class 3 No Girl BCO', field: 'classThreeNoGirlBC' },
-                      { title: 'Class 3 No Total BCO', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
+                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
+                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
 
-                      { title: 'Class 3 No Book Boy BCO', field: 'classThreeNoBookBoyBC' },
-                      { title: 'Class 3 No Book Girl BCO', field: 'classThreeNoBookGirlBC' },
-                      { title: 'Class 3 No Book Total BCO', field: 'classThreeNoBookTotalBC' },
+                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
+                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
+                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
 
-                      { title: 'Class 3 Special Boy', field: 'classThreeSpBoy' },
-                      { title: 'Class 3 Special Girl', field: 'classThreeSpGirl' },
-                      { title: 'Class 3 Special Total', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
 
-                      { title: 'Class 3 Special No Boy BCO', field: 'classThreeNoSpBoyBC' },
-                      { title: 'Class 3 Special No Girl BCO', field: 'classThreeNoSpGirlBC' },
-                      { title: 'Class 3 Special No Total BCO', field: 'classThreeNoSpTotalBC' },
+                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
+                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
+                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCO',
+                        title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCO',
+                        title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCO',
+                        title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 4 Boy', field: 'classFourBoy' },
-                      { title: 'Class 4 Girl', field: 'classFourGirl' },
-                      { title: 'Class 4 Total', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy' },
+                      { title: 'classFourGirl', field: 'classFourGirl' },
+                      { title: 'classFourTotal', field: 'classFourTotal' },
 
-                      { title: 'Class 4 No Boy BCO', field: 'classFourNoBoyBC' },
-                      { title: 'Class 4 No Girl BCO', field: 'classFourNoGirlBC' },
-                      { title: 'Class 4 No Total BCO', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
+                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
 
-                      { title: 'Class 4 No Book Boy BCO', field: 'classFourNoBookBoyBC' },
-                      { title: 'Class 4 No Book Girl BCO', field: 'classFourNoBookGirlBC' },
-                      { title: 'Class 4 No Book Total BCO', field: 'classFourNoBookTotalBC' },
+                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
+                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
+                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
 
-                      { title: 'Class 4 Special Boy', field: 'classFourSpBoy' },
-                      { title: 'Class 4 Special Girl', field: 'classFourSpGirl' },
-                      { title: 'Class 4 Special Total', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
 
-                      { title: 'Class 4 Special No Boy BCO', field: 'classFourNoSpBoyBC' },
-                      { title: 'Class 4 Special No Girl BCO', field: 'classFourNoSpGirlBC' },
-                      { title: 'Class 4 Special No Total BCO', field: 'classFourNoSpTotalBC' },
+                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
+                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
+                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCO',
+                        title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCO',
+                        title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCO',
+                        title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 5 Boy', field: 'classFiveBoy' },
-                      { title: 'Class 5 Girl', field: 'classFiveGirl' },
-                      { title: 'Class 5 Total', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy' },
+                      { title: 'classFiveGirl', field: 'classFiveGirl' },
+                      { title: 'classFiveTotal', field: 'classFiveTotal' },
 
-                      { title: 'Class 5 No Boy BCO', field: 'classFiveNoBoyBC' },
-                      { title: 'Class 5 No Girl BCO', field: 'classFiveNoGirlBC' },
-                      { title: 'Class 5 No Total BCO', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
+                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
 
-                      { title: 'Class 5 No Book Boy BCO', field: 'classFiveNoBookBoyBC' },
-                      { title: 'Class 5 No Book Girl BCO', field: 'classFiveNoBookGirlBC' },
-                      { title: 'Class 5 No Book Total BCO', field: 'classFiveNoBookTotalBC' },
+                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
+                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
+                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
 
-                      { title: 'Class 5 Special Boy', field: 'classFiveSpBoy' },
-                      { title: 'Class 5 Special Girl', field: 'classFiveSpGirl' },
-                      { title: 'Class 5 Special Total', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
 
-                      { title: 'Class 5 Special No Boy BCO', field: 'classFiveNoSpBoyBC' },
-                      { title: 'Class 5 Special No Girl BCO', field: 'classFiveNoSpGirlBC' },
-                      { title: 'Class 5 Special No Total BCO', field: 'classFiveNoSpTotalBC' },
+                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
+                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
+                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCO',
+                        title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCO',
+                        title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCO',
+                        title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
                       },
 
-                      { title: 'Pre Primary Boy BCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'Pre Primary Girl BCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'Pre Primary Total BCIn', field: 'priPrimaryNoTotalBCIn' },
+                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
+                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
+                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
 
-                      { title: 'Pre Primary No Book Boy BCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'Pre Primary No Book Girl BCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
+                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
                       {
-                        title: 'Pre Primary No Book Total BCIn',
+                        title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
                       },
 
-                      { title: 'Pre Primary Special No Boy BCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
                       {
-                        title: 'Pre Primary Special No Girl BCIn',
+                        title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Total BCIn',
+                        title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCIn',
+                        title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCIn',
+                        title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCIn',
+                        title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 1 Boy BCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'Class 1 Girl BCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'Class 1 Total BCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
+                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
+                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
 
-                      { title: 'Class 1 No Book Boy BCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'Class 1 No Book Girl BCIn', field: 'classOneNoBookGirlBCIn' },
+                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
+                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
                       {
-                        title: 'Class 1 No Book Total BCIn',
+                        title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 1 Special No Boy BCIn', field: 'classOneNoSpBoyBCIn' },
+                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
                       {
-                        title: 'Class 1 Special No Girl BCIn',
+                        title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Total BCIn',
+                        title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCIn',
+                        title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCIn',
+                        title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCIn',
+                        title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 2 Boy BCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'Class 2 Girl BCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'Class 2 Total BCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
+                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
+                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
 
-                      { title: 'Class 2 No Book Boy BCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'Class 2 No Book Girl BCIn', field: 'classTwoNoBookGirlBCIn' },
+                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
+                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
                       {
-                        title: 'Class 2 No Book Total BCIn',
+                        title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 2 Special No Boy BCIn', field: 'classTwoNoSpBoyBCIn' },
+                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
                       {
-                        title: 'Class 2 Special No Girl BCIn',
+                        title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Total BCIn',
+                        title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCIn',
+                        title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCIn',
+                        title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCIn',
+                        title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 3 Boy BCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'Class 3 Girl BCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'Class 3 Total BCIn', field: 'classThreeNoTotalBCIn' },
+                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
+                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
+                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
 
-                      { title: 'Class 3 No Book Boy BCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'Class 3 No Book Girl BCIn', field: 'classThreeNoBookGirlBCIn' },
+                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
+                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
                       {
-                        title: 'Class 3 No Book Total BCIn',
+                        title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 3 Special No Boy BCIn', field: 'classThreeNoSpBoyBCIn' },
+                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
                       {
-                        title: 'Class 3 Special No Girl BCIn',
+                        title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Total BCIn',
+                        title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCIn',
+                        title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCIn',
+                        title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCIn',
+                        title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 4 Boy BCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'Class 4 Girl BCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'Class 4 Total BCIn', field: 'classFourNoTotalBCIn' },
+                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
+                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
+                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
 
-                      { title: 'Class 4 No Book Boy BCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'Class 4 No Book Girl BCIn', field: 'classFourNoBookGirlBCIn' },
+                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
+                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
                       {
-                        title: 'Class 4 No Book Total BCIn',
+                        title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 4 Special No Boy BCIn', field: 'classFourNoSpBoyBCIn' },
+                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
                       {
-                        title: 'Class 4 Special No Girl BCIn',
+                        title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Total BCIn',
+                        title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCIn',
+                        title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCIn',
+                        title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCIn',
+                        title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 5 Boy BCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'Class 5 Girl BCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'Class 5 Total BCIn', field: 'classFiveNoTotalBCIn' },
+                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
+                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
+                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
 
-                      { title: 'Class 5 No Book Boy BCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'Class 5 No Book Girl BCIn', field: 'classFiveNoBookGirlBCIn' },
+                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
+                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
                       {
-                        title: 'Class 5 No Book Total BCIn',
+                        title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 5 Special No Boy BCIn', field: 'classFiveNoSpBoyBCIn' },
+                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
                       {
-                        title: 'Class 5 Special No Girl BCIn',
+                        title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Total BCIn',
+                        title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCIn',
+                        title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCIn',
+                        title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCIn',
+                        title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
                       },
                     ]}
@@ -1163,453 +1173,458 @@ const AllBCOCRF = () => {
                   <MaterialTable
                     title={allBCOData.length + ' BCO Data'}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
 
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation' },
+                      { title: 'visitorOffice', field: 'visitorOffice' },
                       {
-                        title: 'Head Teacher',
+                        title: 'headTeacher',
                         field: 'headTeacher',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'LF',
+                        title: 'lf',
                         field: 'lf',
                         type: 'string',
                       },
+                      { title: 'lfName', field: 'lfName', type: 'string' },
+                      { title: 'note', field: 'note', type: 'string' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
+                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
+                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
+                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
 
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
 
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
 
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
 
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
 
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
 
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
 
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
 
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
 
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
 
-                      { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                      { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                      { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
+                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
+                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
 
-                      { title: 'Pre Primary No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'Pre Primary No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'Pre Primary No Total BCO', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
 
-                      { title: 'Pre Primary No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'Pre Primary No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'Pre Primary No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
 
-                      { title: 'Pre Primary Special Boy', field: 'priPrimarySpBoy' },
-                      { title: 'Pre Primary Special Girl', field: 'priPrimarySpGirl' },
-                      { title: 'Pre Primary Special Total', field: 'priPrimarySpTotal' },
-
-                      { title: 'Pre Primary Special No Boy BCO', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'Pre Primary Special No Girl BCO', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'Pre Primary Special No Total BCO', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
+                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
+                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCO',
+                        title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCO',
+                        title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCO',
+                        title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 1 Boy', field: 'classOneBoy' },
-                      { title: 'Class 1 Girl', field: 'classOneGirl' },
-                      { title: 'Class 1 Total', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy' },
+                      { title: 'classOneGirl', field: 'classOneGirl' },
+                      { title: 'classOneTotal', field: 'classOneTotal' },
 
-                      { title: 'Class 1 No Boy BCO', field: 'classOneNoBoyBC' },
-                      { title: 'Class 1 No Girl BCO', field: 'classOneNoGirlBC' },
-                      { title: 'Class 1 No Total BCO', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
 
-                      { title: 'Class 1 No Book Boy BCO', field: 'classOneNoBookBoyBC' },
-                      { title: 'Class 1 No Book Girl BCO', field: 'classOneNoBookGirlBC' },
-                      { title: 'Class 1 No Book Total BCO', field: 'classOneNoBookTotalBC' },
+                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
+                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
+                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
 
-                      { title: 'Class 1 Special Boy', field: 'classOneSpBoy' },
-                      { title: 'Class 1 Special Girl', field: 'classOneSpGirl' },
-                      { title: 'Class 1 Special Total', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
 
-                      { title: 'Class 1 Special No Boy BCO', field: 'classOneNoSpBoyBC' },
-                      { title: 'Class 1 Special No Girl BCO', field: 'classOneNoSpGirlBC' },
-                      { title: 'Class 1 Special No Total BCO', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
+                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
+                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCO',
+                        title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCO',
+                        title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCO',
+                        title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 2 Boy', field: 'classTwoBoy' },
-                      { title: 'Class 2 Girl', field: 'classTwoGirl' },
-                      { title: 'Class 2 Total', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy' },
+                      { title: 'classTwoGirl', field: 'classTwoGirl' },
+                      { title: 'classTwoTotal', field: 'classTwoTotal' },
 
-                      { title: 'Class 2 No Boy BCO', field: 'classTwoNoBoyBC' },
-                      { title: 'Class 2 No Girl BCO', field: 'classTwoNoGirlBC' },
-                      { title: 'Class 2 No Total BCO', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
 
-                      { title: 'Class 2 No Book Boy BCO', field: 'classTwoNoBookBoyBC' },
-                      { title: 'Class 2 No Book Girl BCO', field: 'classTwoNoBookGirlBC' },
-                      { title: 'Class 2 No Book Total BCO', field: 'classTwoNoBookTotalBC' },
+                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
+                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
+                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
 
-                      { title: 'Class 2 Special Boy', field: 'classTwoSpBoy' },
-                      { title: 'Class 2 Special Girl', field: 'classTwoSpGirl' },
-                      { title: 'Class 2 Special Total', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
 
-                      { title: 'Class 2 Special No Boy BCO', field: 'classTwoNoSpBoyBC' },
-                      { title: 'Class 2 Special No Girl BCO', field: 'classTwoNoSpGirlBC' },
-                      { title: 'Class 2 Special No Total BCO', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
+                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
+                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCO',
+                        title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCO',
+                        title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCO',
+                        title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 3 Boy', field: 'classThreeBoy' },
-                      { title: 'Class 3 Girl', field: 'classThreeGirl' },
-                      { title: 'Class 3 Total', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy' },
+                      { title: 'classThreeGirl', field: 'classThreeGirl' },
+                      { title: 'classThreeTotal', field: 'classThreeTotal' },
 
-                      { title: 'Class 3 No Boy BCO', field: 'classThreeNoBoyBC' },
-                      { title: 'Class 3 No Girl BCO', field: 'classThreeNoGirlBC' },
-                      { title: 'Class 3 No Total BCO', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
+                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
+                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
 
-                      { title: 'Class 3 No Book Boy BCO', field: 'classThreeNoBookBoyBC' },
-                      { title: 'Class 3 No Book Girl BCO', field: 'classThreeNoBookGirlBC' },
-                      { title: 'Class 3 No Book Total BCO', field: 'classThreeNoBookTotalBC' },
+                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
+                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
+                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
 
-                      { title: 'Class 3 Special Boy', field: 'classThreeSpBoy' },
-                      { title: 'Class 3 Special Girl', field: 'classThreeSpGirl' },
-                      { title: 'Class 3 Special Total', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
 
-                      { title: 'Class 3 Special No Boy BCO', field: 'classThreeNoSpBoyBC' },
-                      { title: 'Class 3 Special No Girl BCO', field: 'classThreeNoSpGirlBC' },
-                      { title: 'Class 3 Special No Total BCO', field: 'classThreeNoSpTotalBC' },
+                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
+                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
+                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCO',
+                        title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCO',
+                        title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCO',
+                        title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 4 Boy', field: 'classFourBoy' },
-                      { title: 'Class 4 Girl', field: 'classFourGirl' },
-                      { title: 'Class 4 Total', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy' },
+                      { title: 'classFourGirl', field: 'classFourGirl' },
+                      { title: 'classFourTotal', field: 'classFourTotal' },
 
-                      { title: 'Class 4 No Boy BCO', field: 'classFourNoBoyBC' },
-                      { title: 'Class 4 No Girl BCO', field: 'classFourNoGirlBC' },
-                      { title: 'Class 4 No Total BCO', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
+                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
 
-                      { title: 'Class 4 No Book Boy BCO', field: 'classFourNoBookBoyBC' },
-                      { title: 'Class 4 No Book Girl BCO', field: 'classFourNoBookGirlBC' },
-                      { title: 'Class 4 No Book Total BCO', field: 'classFourNoBookTotalBC' },
+                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
+                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
+                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
 
-                      { title: 'Class 4 Special Boy', field: 'classFourSpBoy' },
-                      { title: 'Class 4 Special Girl', field: 'classFourSpGirl' },
-                      { title: 'Class 4 Special Total', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
 
-                      { title: 'Class 4 Special No Boy BCO', field: 'classFourNoSpBoyBC' },
-                      { title: 'Class 4 Special No Girl BCO', field: 'classFourNoSpGirlBC' },
-                      { title: 'Class 4 Special No Total BCO', field: 'classFourNoSpTotalBC' },
+                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
+                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
+                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCO',
+                        title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCO',
+                        title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCO',
+                        title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 5 Boy', field: 'classFiveBoy' },
-                      { title: 'Class 5 Girl', field: 'classFiveGirl' },
-                      { title: 'Class 5 Total', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy' },
+                      { title: 'classFiveGirl', field: 'classFiveGirl' },
+                      { title: 'classFiveTotal', field: 'classFiveTotal' },
 
-                      { title: 'Class 5 No Boy BCO', field: 'classFiveNoBoyBC' },
-                      { title: 'Class 5 No Girl BCO', field: 'classFiveNoGirlBC' },
-                      { title: 'Class 5 No Total BCO', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
+                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
 
-                      { title: 'Class 5 No Book Boy BCO', field: 'classFiveNoBookBoyBC' },
-                      { title: 'Class 5 No Book Girl BCO', field: 'classFiveNoBookGirlBC' },
-                      { title: 'Class 5 No Book Total BCO', field: 'classFiveNoBookTotalBC' },
+                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
+                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
+                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
 
-                      { title: 'Class 5 Special Boy', field: 'classFiveSpBoy' },
-                      { title: 'Class 5 Special Girl', field: 'classFiveSpGirl' },
-                      { title: 'Class 5 Special Total', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
 
-                      { title: 'Class 5 Special No Boy BCO', field: 'classFiveNoSpBoyBC' },
-                      { title: 'Class 5 Special No Girl BCO', field: 'classFiveNoSpGirlBC' },
-                      { title: 'Class 5 Special No Total BCO', field: 'classFiveNoSpTotalBC' },
+                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
+                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
+                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCO',
+                        title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCO',
+                        title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCO',
+                        title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
                       },
 
-                      { title: 'Pre Primary Boy BCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'Pre Primary Girl BCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'Pre Primary Total BCIn', field: 'priPrimaryNoTotalBCIn' },
+                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
+                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
+                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
 
-                      { title: 'Pre Primary No Book Boy BCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'Pre Primary No Book Girl BCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
+                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
                       {
-                        title: 'Pre Primary No Book Total BCIn',
+                        title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
                       },
 
-                      { title: 'Pre Primary Special No Boy BCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
                       {
-                        title: 'Pre Primary Special No Girl BCIn',
+                        title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Total BCIn',
+                        title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCIn',
+                        title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCIn',
+                        title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCIn',
+                        title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 1 Boy BCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'Class 1 Girl BCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'Class 1 Total BCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
+                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
+                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
 
-                      { title: 'Class 1 No Book Boy BCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'Class 1 No Book Girl BCIn', field: 'classOneNoBookGirlBCIn' },
+                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
+                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
                       {
-                        title: 'Class 1 No Book Total BCIn',
+                        title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 1 Special No Boy BCIn', field: 'classOneNoSpBoyBCIn' },
+                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
                       {
-                        title: 'Class 1 Special No Girl BCIn',
+                        title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Total BCIn',
+                        title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCIn',
+                        title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCIn',
+                        title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCIn',
+                        title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 2 Boy BCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'Class 2 Girl BCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'Class 2 Total BCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
+                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
+                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
 
-                      { title: 'Class 2 No Book Boy BCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'Class 2 No Book Girl BCIn', field: 'classTwoNoBookGirlBCIn' },
+                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
+                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
                       {
-                        title: 'Class 2 No Book Total BCIn',
+                        title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 2 Special No Boy BCIn', field: 'classTwoNoSpBoyBCIn' },
+                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
                       {
-                        title: 'Class 2 Special No Girl BCIn',
+                        title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Total BCIn',
+                        title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCIn',
+                        title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCIn',
+                        title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCIn',
+                        title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 3 Boy BCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'Class 3 Girl BCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'Class 3 Total BCIn', field: 'classThreeNoTotalBCIn' },
+                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
+                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
+                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
 
-                      { title: 'Class 3 No Book Boy BCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'Class 3 No Book Girl BCIn', field: 'classThreeNoBookGirlBCIn' },
+                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
+                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
                       {
-                        title: 'Class 3 No Book Total BCIn',
+                        title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 3 Special No Boy BCIn', field: 'classThreeNoSpBoyBCIn' },
+                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
                       {
-                        title: 'Class 3 Special No Girl BCIn',
+                        title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Total BCIn',
+                        title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCIn',
+                        title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCIn',
+                        title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCIn',
+                        title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 4 Boy BCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'Class 4 Girl BCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'Class 4 Total BCIn', field: 'classFourNoTotalBCIn' },
+                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
+                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
+                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
 
-                      { title: 'Class 4 No Book Boy BCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'Class 4 No Book Girl BCIn', field: 'classFourNoBookGirlBCIn' },
+                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
+                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
                       {
-                        title: 'Class 4 No Book Total BCIn',
+                        title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 4 Special No Boy BCIn', field: 'classFourNoSpBoyBCIn' },
+                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
                       {
-                        title: 'Class 4 Special No Girl BCIn',
+                        title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Total BCIn',
+                        title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCIn',
+                        title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCIn',
+                        title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCIn',
+                        title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 5 Boy BCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'Class 5 Girl BCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'Class 5 Total BCIn', field: 'classFiveNoTotalBCIn' },
+                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
+                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
+                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
 
-                      { title: 'Class 5 No Book Boy BCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'Class 5 No Book Girl BCIn', field: 'classFiveNoBookGirlBCIn' },
+                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
+                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
                       {
-                        title: 'Class 5 No Book Total BCIn',
+                        title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 5 Special No Boy BCIn', field: 'classFiveNoSpBoyBCIn' },
+                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
                       {
-                        title: 'Class 5 Special No Girl BCIn',
+                        title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Total BCIn',
+                        title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCIn',
+                        title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCIn',
+                        title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCIn',
+                        title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
                       },
                     ]}
@@ -1673,453 +1688,458 @@ const AllBCOCRF = () => {
                   <MaterialTable
                     title={ukhiyaAllBCOCRFPMonth.length + ' BCO Data'}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
 
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation' },
+                      { title: 'visitorOffice', field: 'visitorOffice' },
                       {
-                        title: 'Head Teacher',
+                        title: 'headTeacher',
                         field: 'headTeacher',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'LF',
+                        title: 'lf',
                         field: 'lf',
                         type: 'string',
                       },
+                      { title: 'lfName', field: 'lfName', type: 'string' },
+                      { title: 'note', field: 'note', type: 'string' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
+                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
+                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
+                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
 
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
 
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
 
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
 
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
 
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
 
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
 
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
 
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
 
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
 
-                      { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                      { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                      { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
+                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
+                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
 
-                      { title: 'Pre Primary No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'Pre Primary No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'Pre Primary No Total BCO', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
 
-                      { title: 'Pre Primary No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'Pre Primary No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'Pre Primary No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
 
-                      { title: 'Pre Primary Special Boy', field: 'priPrimarySpBoy' },
-                      { title: 'Pre Primary Special Girl', field: 'priPrimarySpGirl' },
-                      { title: 'Pre Primary Special Total', field: 'priPrimarySpTotal' },
-
-                      { title: 'Pre Primary Special No Boy BCO', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'Pre Primary Special No Girl BCO', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'Pre Primary Special No Total BCO', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
+                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
+                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCO',
+                        title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCO',
+                        title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCO',
+                        title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 1 Boy', field: 'classOneBoy' },
-                      { title: 'Class 1 Girl', field: 'classOneGirl' },
-                      { title: 'Class 1 Total', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy' },
+                      { title: 'classOneGirl', field: 'classOneGirl' },
+                      { title: 'classOneTotal', field: 'classOneTotal' },
 
-                      { title: 'Class 1 No Boy BCO', field: 'classOneNoBoyBC' },
-                      { title: 'Class 1 No Girl BCO', field: 'classOneNoGirlBC' },
-                      { title: 'Class 1 No Total BCO', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
 
-                      { title: 'Class 1 No Book Boy BCO', field: 'classOneNoBookBoyBC' },
-                      { title: 'Class 1 No Book Girl BCO', field: 'classOneNoBookGirlBC' },
-                      { title: 'Class 1 No Book Total BCO', field: 'classOneNoBookTotalBC' },
+                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
+                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
+                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
 
-                      { title: 'Class 1 Special Boy', field: 'classOneSpBoy' },
-                      { title: 'Class 1 Special Girl', field: 'classOneSpGirl' },
-                      { title: 'Class 1 Special Total', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
 
-                      { title: 'Class 1 Special No Boy BCO', field: 'classOneNoSpBoyBC' },
-                      { title: 'Class 1 Special No Girl BCO', field: 'classOneNoSpGirlBC' },
-                      { title: 'Class 1 Special No Total BCO', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
+                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
+                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCO',
+                        title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCO',
+                        title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCO',
+                        title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 2 Boy', field: 'classTwoBoy' },
-                      { title: 'Class 2 Girl', field: 'classTwoGirl' },
-                      { title: 'Class 2 Total', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy' },
+                      { title: 'classTwoGirl', field: 'classTwoGirl' },
+                      { title: 'classTwoTotal', field: 'classTwoTotal' },
 
-                      { title: 'Class 2 No Boy BCO', field: 'classTwoNoBoyBC' },
-                      { title: 'Class 2 No Girl BCO', field: 'classTwoNoGirlBC' },
-                      { title: 'Class 2 No Total BCO', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
 
-                      { title: 'Class 2 No Book Boy BCO', field: 'classTwoNoBookBoyBC' },
-                      { title: 'Class 2 No Book Girl BCO', field: 'classTwoNoBookGirlBC' },
-                      { title: 'Class 2 No Book Total BCO', field: 'classTwoNoBookTotalBC' },
+                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
+                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
+                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
 
-                      { title: 'Class 2 Special Boy', field: 'classTwoSpBoy' },
-                      { title: 'Class 2 Special Girl', field: 'classTwoSpGirl' },
-                      { title: 'Class 2 Special Total', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
 
-                      { title: 'Class 2 Special No Boy BCO', field: 'classTwoNoSpBoyBC' },
-                      { title: 'Class 2 Special No Girl BCO', field: 'classTwoNoSpGirlBC' },
-                      { title: 'Class 2 Special No Total BCO', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
+                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
+                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCO',
+                        title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCO',
+                        title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCO',
+                        title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 3 Boy', field: 'classThreeBoy' },
-                      { title: 'Class 3 Girl', field: 'classThreeGirl' },
-                      { title: 'Class 3 Total', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy' },
+                      { title: 'classThreeGirl', field: 'classThreeGirl' },
+                      { title: 'classThreeTotal', field: 'classThreeTotal' },
 
-                      { title: 'Class 3 No Boy BCO', field: 'classThreeNoBoyBC' },
-                      { title: 'Class 3 No Girl BCO', field: 'classThreeNoGirlBC' },
-                      { title: 'Class 3 No Total BCO', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
+                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
+                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
 
-                      { title: 'Class 3 No Book Boy BCO', field: 'classThreeNoBookBoyBC' },
-                      { title: 'Class 3 No Book Girl BCO', field: 'classThreeNoBookGirlBC' },
-                      { title: 'Class 3 No Book Total BCO', field: 'classThreeNoBookTotalBC' },
+                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
+                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
+                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
 
-                      { title: 'Class 3 Special Boy', field: 'classThreeSpBoy' },
-                      { title: 'Class 3 Special Girl', field: 'classThreeSpGirl' },
-                      { title: 'Class 3 Special Total', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
 
-                      { title: 'Class 3 Special No Boy BCO', field: 'classThreeNoSpBoyBC' },
-                      { title: 'Class 3 Special No Girl BCO', field: 'classThreeNoSpGirlBC' },
-                      { title: 'Class 3 Special No Total BCO', field: 'classThreeNoSpTotalBC' },
+                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
+                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
+                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCO',
+                        title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCO',
+                        title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCO',
+                        title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 4 Boy', field: 'classFourBoy' },
-                      { title: 'Class 4 Girl', field: 'classFourGirl' },
-                      { title: 'Class 4 Total', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy' },
+                      { title: 'classFourGirl', field: 'classFourGirl' },
+                      { title: 'classFourTotal', field: 'classFourTotal' },
 
-                      { title: 'Class 4 No Boy BCO', field: 'classFourNoBoyBC' },
-                      { title: 'Class 4 No Girl BCO', field: 'classFourNoGirlBC' },
-                      { title: 'Class 4 No Total BCO', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
+                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
 
-                      { title: 'Class 4 No Book Boy BCO', field: 'classFourNoBookBoyBC' },
-                      { title: 'Class 4 No Book Girl BCO', field: 'classFourNoBookGirlBC' },
-                      { title: 'Class 4 No Book Total BCO', field: 'classFourNoBookTotalBC' },
+                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
+                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
+                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
 
-                      { title: 'Class 4 Special Boy', field: 'classFourSpBoy' },
-                      { title: 'Class 4 Special Girl', field: 'classFourSpGirl' },
-                      { title: 'Class 4 Special Total', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
 
-                      { title: 'Class 4 Special No Boy BCO', field: 'classFourNoSpBoyBC' },
-                      { title: 'Class 4 Special No Girl BCO', field: 'classFourNoSpGirlBC' },
-                      { title: 'Class 4 Special No Total BCO', field: 'classFourNoSpTotalBC' },
+                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
+                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
+                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCO',
+                        title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCO',
+                        title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCO',
+                        title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 5 Boy', field: 'classFiveBoy' },
-                      { title: 'Class 5 Girl', field: 'classFiveGirl' },
-                      { title: 'Class 5 Total', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy' },
+                      { title: 'classFiveGirl', field: 'classFiveGirl' },
+                      { title: 'classFiveTotal', field: 'classFiveTotal' },
 
-                      { title: 'Class 5 No Boy BCO', field: 'classFiveNoBoyBC' },
-                      { title: 'Class 5 No Girl BCO', field: 'classFiveNoGirlBC' },
-                      { title: 'Class 5 No Total BCO', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
+                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
 
-                      { title: 'Class 5 No Book Boy BCO', field: 'classFiveNoBookBoyBC' },
-                      { title: 'Class 5 No Book Girl BCO', field: 'classFiveNoBookGirlBC' },
-                      { title: 'Class 5 No Book Total BCO', field: 'classFiveNoBookTotalBC' },
+                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
+                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
+                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
 
-                      { title: 'Class 5 Special Boy', field: 'classFiveSpBoy' },
-                      { title: 'Class 5 Special Girl', field: 'classFiveSpGirl' },
-                      { title: 'Class 5 Special Total', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
 
-                      { title: 'Class 5 Special No Boy BCO', field: 'classFiveNoSpBoyBC' },
-                      { title: 'Class 5 Special No Girl BCO', field: 'classFiveNoSpGirlBC' },
-                      { title: 'Class 5 Special No Total BCO', field: 'classFiveNoSpTotalBC' },
+                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
+                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
+                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCO',
+                        title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCO',
+                        title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCO',
+                        title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
                       },
 
-                      { title: 'Pre Primary Boy BCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'Pre Primary Girl BCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'Pre Primary Total BCIn', field: 'priPrimaryNoTotalBCIn' },
+                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
+                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
+                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
 
-                      { title: 'Pre Primary No Book Boy BCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'Pre Primary No Book Girl BCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
+                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
                       {
-                        title: 'Pre Primary No Book Total BCIn',
+                        title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
                       },
 
-                      { title: 'Pre Primary Special No Boy BCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
                       {
-                        title: 'Pre Primary Special No Girl BCIn',
+                        title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Total BCIn',
+                        title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCIn',
+                        title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCIn',
+                        title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCIn',
+                        title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 1 Boy BCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'Class 1 Girl BCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'Class 1 Total BCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
+                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
+                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
 
-                      { title: 'Class 1 No Book Boy BCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'Class 1 No Book Girl BCIn', field: 'classOneNoBookGirlBCIn' },
+                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
+                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
                       {
-                        title: 'Class 1 No Book Total BCIn',
+                        title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 1 Special No Boy BCIn', field: 'classOneNoSpBoyBCIn' },
+                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
                       {
-                        title: 'Class 1 Special No Girl BCIn',
+                        title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Total BCIn',
+                        title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCIn',
+                        title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCIn',
+                        title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCIn',
+                        title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 2 Boy BCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'Class 2 Girl BCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'Class 2 Total BCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
+                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
+                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
 
-                      { title: 'Class 2 No Book Boy BCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'Class 2 No Book Girl BCIn', field: 'classTwoNoBookGirlBCIn' },
+                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
+                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
                       {
-                        title: 'Class 2 No Book Total BCIn',
+                        title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 2 Special No Boy BCIn', field: 'classTwoNoSpBoyBCIn' },
+                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
                       {
-                        title: 'Class 2 Special No Girl BCIn',
+                        title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Total BCIn',
+                        title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCIn',
+                        title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCIn',
+                        title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCIn',
+                        title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 3 Boy BCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'Class 3 Girl BCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'Class 3 Total BCIn', field: 'classThreeNoTotalBCIn' },
+                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
+                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
+                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
 
-                      { title: 'Class 3 No Book Boy BCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'Class 3 No Book Girl BCIn', field: 'classThreeNoBookGirlBCIn' },
+                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
+                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
                       {
-                        title: 'Class 3 No Book Total BCIn',
+                        title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 3 Special No Boy BCIn', field: 'classThreeNoSpBoyBCIn' },
+                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
                       {
-                        title: 'Class 3 Special No Girl BCIn',
+                        title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Total BCIn',
+                        title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCIn',
+                        title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCIn',
+                        title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCIn',
+                        title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 4 Boy BCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'Class 4 Girl BCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'Class 4 Total BCIn', field: 'classFourNoTotalBCIn' },
+                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
+                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
+                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
 
-                      { title: 'Class 4 No Book Boy BCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'Class 4 No Book Girl BCIn', field: 'classFourNoBookGirlBCIn' },
+                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
+                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
                       {
-                        title: 'Class 4 No Book Total BCIn',
+                        title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 4 Special No Boy BCIn', field: 'classFourNoSpBoyBCIn' },
+                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
                       {
-                        title: 'Class 4 Special No Girl BCIn',
+                        title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Total BCIn',
+                        title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCIn',
+                        title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCIn',
+                        title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCIn',
+                        title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 5 Boy BCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'Class 5 Girl BCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'Class 5 Total BCIn', field: 'classFiveNoTotalBCIn' },
+                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
+                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
+                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
 
-                      { title: 'Class 5 No Book Boy BCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'Class 5 No Book Girl BCIn', field: 'classFiveNoBookGirlBCIn' },
+                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
+                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
                       {
-                        title: 'Class 5 No Book Total BCIn',
+                        title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 5 Special No Boy BCIn', field: 'classFiveNoSpBoyBCIn' },
+                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
                       {
-                        title: 'Class 5 Special No Girl BCIn',
+                        title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Total BCIn',
+                        title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCIn',
+                        title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCIn',
+                        title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCIn',
+                        title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
                       },
                     ]}
@@ -2183,453 +2203,458 @@ const AllBCOCRF = () => {
                   <MaterialTable
                     title={kutubdiaAllBCOCRFPMonth.length + ' BCO Data'}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
 
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation' },
+                      { title: 'visitorOffice', field: 'visitorOffice' },
                       {
-                        title: 'Head Teacher',
+                        title: 'headTeacher',
                         field: 'headTeacher',
                       },
-                      { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'LF',
+                        title: 'lf',
                         field: 'lf',
                         type: 'string',
                       },
+                      { title: 'lfName', field: 'lfName', type: 'string' },
+                      { title: 'note', field: 'note', type: 'string' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
+                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: '#Total Girl', field: 'schoolTotalNoGirl' },
-                      { title: '#Total Boy', field: 'schoolTotalNoBoy' },
-                      { title: '#Total Student', field: 'schoolTotalNoStudent' },
+                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
+                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
+                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
 
-                      { title: '#No Girl BCO', field: 'schoolTotalNoGirlBC' },
-                      { title: '#No Boy BCO', field: 'schoolTotalNoBoyBC' },
-                      { title: '#No Student BCO', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
 
-                      { title: '#No Book BCO', field: 'schoolTotalNoBookBC' },
+                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
 
-                      { title: '#Student BCI', field: 'schoolTotalNoStudentBCIn' },
+                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
 
-                      { title: '#Book BCI', field: 'schoolTotalNoBookBCIn' },
+                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
 
-                      { title: '#Total Student Sp', field: 'schoolTotalNoSpStudent' },
+                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
 
-                      { title: '#Student BCO Sp', field: 'schoolTotalNoSpStudentBC' },
+                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
 
-                      { title: '#Book BCO Sp', field: 'schoolTotalNoSpBookBC' },
+                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
 
-                      { title: '#Student BCI SP', field: 'schoolTotalNoSpStudentBCIn' },
+                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
 
-                      { title: '#Book BCI Sp', field: 'schoolTotalNoSpBookBCIn' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
 
-                      { title: 'Pre Primary Boy', field: 'priPrimaryBoy' },
-                      { title: 'Pre Primary Girl', field: 'priPrimaryGirl' },
-                      { title: 'Pre Primary Total', field: 'priPrimaryTotal' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
+                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
+                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
 
-                      { title: 'Pre Primary No Boy BCO', field: 'priPrimaryNoBoyBC' },
-                      { title: 'Pre Primary No Girl BCO', field: 'priPrimaryNoGirlBC' },
-                      { title: 'Pre Primary No Total BCO', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
+                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
+                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
 
-                      { title: 'Pre Primary No Book Boy BCO', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'Pre Primary No Book Girl BCO', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'Pre Primary No Book Total BCO', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
 
-                      { title: 'Pre Primary Special Boy', field: 'priPrimarySpBoy' },
-                      { title: 'Pre Primary Special Girl', field: 'priPrimarySpGirl' },
-                      { title: 'Pre Primary Special Total', field: 'priPrimarySpTotal' },
-
-                      { title: 'Pre Primary Special No Boy BCO', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'Pre Primary Special No Girl BCO', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'Pre Primary Special No Total BCO', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
+                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
+                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCO',
+                        title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCO',
+                        title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCO',
+                        title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 1 Boy', field: 'classOneBoy' },
-                      { title: 'Class 1 Girl', field: 'classOneGirl' },
-                      { title: 'Class 1 Total', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy' },
+                      { title: 'classOneGirl', field: 'classOneGirl' },
+                      { title: 'classOneTotal', field: 'classOneTotal' },
 
-                      { title: 'Class 1 No Boy BCO', field: 'classOneNoBoyBC' },
-                      { title: 'Class 1 No Girl BCO', field: 'classOneNoGirlBC' },
-                      { title: 'Class 1 No Total BCO', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
 
-                      { title: 'Class 1 No Book Boy BCO', field: 'classOneNoBookBoyBC' },
-                      { title: 'Class 1 No Book Girl BCO', field: 'classOneNoBookGirlBC' },
-                      { title: 'Class 1 No Book Total BCO', field: 'classOneNoBookTotalBC' },
+                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
+                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
+                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
 
-                      { title: 'Class 1 Special Boy', field: 'classOneSpBoy' },
-                      { title: 'Class 1 Special Girl', field: 'classOneSpGirl' },
-                      { title: 'Class 1 Special Total', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
 
-                      { title: 'Class 1 Special No Boy BCO', field: 'classOneNoSpBoyBC' },
-                      { title: 'Class 1 Special No Girl BCO', field: 'classOneNoSpGirlBC' },
-                      { title: 'Class 1 Special No Total BCO', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
+                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
+                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCO',
+                        title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCO',
+                        title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCO',
+                        title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 2 Boy', field: 'classTwoBoy' },
-                      { title: 'Class 2 Girl', field: 'classTwoGirl' },
-                      { title: 'Class 2 Total', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy' },
+                      { title: 'classTwoGirl', field: 'classTwoGirl' },
+                      { title: 'classTwoTotal', field: 'classTwoTotal' },
 
-                      { title: 'Class 2 No Boy BCO', field: 'classTwoNoBoyBC' },
-                      { title: 'Class 2 No Girl BCO', field: 'classTwoNoGirlBC' },
-                      { title: 'Class 2 No Total BCO', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
 
-                      { title: 'Class 2 No Book Boy BCO', field: 'classTwoNoBookBoyBC' },
-                      { title: 'Class 2 No Book Girl BCO', field: 'classTwoNoBookGirlBC' },
-                      { title: 'Class 2 No Book Total BCO', field: 'classTwoNoBookTotalBC' },
+                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
+                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
+                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
 
-                      { title: 'Class 2 Special Boy', field: 'classTwoSpBoy' },
-                      { title: 'Class 2 Special Girl', field: 'classTwoSpGirl' },
-                      { title: 'Class 2 Special Total', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
 
-                      { title: 'Class 2 Special No Boy BCO', field: 'classTwoNoSpBoyBC' },
-                      { title: 'Class 2 Special No Girl BCO', field: 'classTwoNoSpGirlBC' },
-                      { title: 'Class 2 Special No Total BCO', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
+                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
+                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCO',
+                        title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCO',
+                        title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCO',
+                        title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 3 Boy', field: 'classThreeBoy' },
-                      { title: 'Class 3 Girl', field: 'classThreeGirl' },
-                      { title: 'Class 3 Total', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy' },
+                      { title: 'classThreeGirl', field: 'classThreeGirl' },
+                      { title: 'classThreeTotal', field: 'classThreeTotal' },
 
-                      { title: 'Class 3 No Boy BCO', field: 'classThreeNoBoyBC' },
-                      { title: 'Class 3 No Girl BCO', field: 'classThreeNoGirlBC' },
-                      { title: 'Class 3 No Total BCO', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
+                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
+                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
 
-                      { title: 'Class 3 No Book Boy BCO', field: 'classThreeNoBookBoyBC' },
-                      { title: 'Class 3 No Book Girl BCO', field: 'classThreeNoBookGirlBC' },
-                      { title: 'Class 3 No Book Total BCO', field: 'classThreeNoBookTotalBC' },
+                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
+                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
+                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
 
-                      { title: 'Class 3 Special Boy', field: 'classThreeSpBoy' },
-                      { title: 'Class 3 Special Girl', field: 'classThreeSpGirl' },
-                      { title: 'Class 3 Special Total', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
 
-                      { title: 'Class 3 Special No Boy BCO', field: 'classThreeNoSpBoyBC' },
-                      { title: 'Class 3 Special No Girl BCO', field: 'classThreeNoSpGirlBC' },
-                      { title: 'Class 3 Special No Total BCO', field: 'classThreeNoSpTotalBC' },
+                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
+                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
+                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCO',
+                        title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCO',
+                        title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCO',
+                        title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 4 Boy', field: 'classFourBoy' },
-                      { title: 'Class 4 Girl', field: 'classFourGirl' },
-                      { title: 'Class 4 Total', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy' },
+                      { title: 'classFourGirl', field: 'classFourGirl' },
+                      { title: 'classFourTotal', field: 'classFourTotal' },
 
-                      { title: 'Class 4 No Boy BCO', field: 'classFourNoBoyBC' },
-                      { title: 'Class 4 No Girl BCO', field: 'classFourNoGirlBC' },
-                      { title: 'Class 4 No Total BCO', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
+                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
 
-                      { title: 'Class 4 No Book Boy BCO', field: 'classFourNoBookBoyBC' },
-                      { title: 'Class 4 No Book Girl BCO', field: 'classFourNoBookGirlBC' },
-                      { title: 'Class 4 No Book Total BCO', field: 'classFourNoBookTotalBC' },
+                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
+                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
+                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
 
-                      { title: 'Class 4 Special Boy', field: 'classFourSpBoy' },
-                      { title: 'Class 4 Special Girl', field: 'classFourSpGirl' },
-                      { title: 'Class 4 Special Total', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
 
-                      { title: 'Class 4 Special No Boy BCO', field: 'classFourNoSpBoyBC' },
-                      { title: 'Class 4 Special No Girl BCO', field: 'classFourNoSpGirlBC' },
-                      { title: 'Class 4 Special No Total BCO', field: 'classFourNoSpTotalBC' },
+                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
+                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
+                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCO',
+                        title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCO',
+                        title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCO',
+                        title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
                       },
 
-                      { title: 'Class 5 Boy', field: 'classFiveBoy' },
-                      { title: 'Class 5 Girl', field: 'classFiveGirl' },
-                      { title: 'Class 5 Total', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy' },
+                      { title: 'classFiveGirl', field: 'classFiveGirl' },
+                      { title: 'classFiveTotal', field: 'classFiveTotal' },
 
-                      { title: 'Class 5 No Boy BCO', field: 'classFiveNoBoyBC' },
-                      { title: 'Class 5 No Girl BCO', field: 'classFiveNoGirlBC' },
-                      { title: 'Class 5 No Total BCO', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
+                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
 
-                      { title: 'Class 5 No Book Boy BCO', field: 'classFiveNoBookBoyBC' },
-                      { title: 'Class 5 No Book Girl BCO', field: 'classFiveNoBookGirlBC' },
-                      { title: 'Class 5 No Book Total BCO', field: 'classFiveNoBookTotalBC' },
+                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
+                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
+                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
 
-                      { title: 'Class 5 Special Boy', field: 'classFiveSpBoy' },
-                      { title: 'Class 5 Special Girl', field: 'classFiveSpGirl' },
-                      { title: 'Class 5 Special Total', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
 
-                      { title: 'Class 5 Special No Boy BCO', field: 'classFiveNoSpBoyBC' },
-                      { title: 'Class 5 Special No Girl BCO', field: 'classFiveNoSpGirlBC' },
-                      { title: 'Class 5 Special No Total BCO', field: 'classFiveNoSpTotalBC' },
+                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
+                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
+                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCO',
+                        title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCO',
+                        title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCO',
+                        title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
                       },
 
-                      { title: 'Pre Primary Boy BCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'Pre Primary Girl BCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'Pre Primary Total BCIn', field: 'priPrimaryNoTotalBCIn' },
+                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
+                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
+                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
 
-                      { title: 'Pre Primary No Book Boy BCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'Pre Primary No Book Girl BCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
+                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
                       {
-                        title: 'Pre Primary No Book Total BCIn',
+                        title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
                       },
 
-                      { title: 'Pre Primary Special No Boy BCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
                       {
-                        title: 'Pre Primary Special No Girl BCIn',
+                        title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Total BCIn',
+                        title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Pre Primary Special No Book Boy BCIn',
+                        title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Girl BCIn',
+                        title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Pre Primary Special No Book Total BCIn',
+                        title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 1 Boy BCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'Class 1 Girl BCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'Class 1 Total BCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
+                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
+                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
 
-                      { title: 'Class 1 No Book Boy BCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'Class 1 No Book Girl BCIn', field: 'classOneNoBookGirlBCIn' },
+                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
+                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
                       {
-                        title: 'Class 1 No Book Total BCIn',
+                        title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 1 Special No Boy BCIn', field: 'classOneNoSpBoyBCIn' },
+                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
                       {
-                        title: 'Class 1 Special No Girl BCIn',
+                        title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Total BCIn',
+                        title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 1 Special No Book Boy BCIn',
+                        title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Girl BCIn',
+                        title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 1 Special No Book Total BCIn',
+                        title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 2 Boy BCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'Class 2 Girl BCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'Class 2 Total BCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
+                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
+                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
 
-                      { title: 'Class 2 No Book Boy BCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'Class 2 No Book Girl BCIn', field: 'classTwoNoBookGirlBCIn' },
+                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
+                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
                       {
-                        title: 'Class 2 No Book Total BCIn',
+                        title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 2 Special No Boy BCIn', field: 'classTwoNoSpBoyBCIn' },
+                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
                       {
-                        title: 'Class 2 Special No Girl BCIn',
+                        title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Total BCIn',
+                        title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 2 Special No Book Boy BCIn',
+                        title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Girl BCIn',
+                        title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 2 Special No Book Total BCIn',
+                        title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 3 Boy BCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'Class 3 Girl BCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'Class 3 Total BCIn', field: 'classThreeNoTotalBCIn' },
+                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
+                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
+                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
 
-                      { title: 'Class 3 No Book Boy BCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'Class 3 No Book Girl BCIn', field: 'classThreeNoBookGirlBCIn' },
+                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
+                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
                       {
-                        title: 'Class 3 No Book Total BCIn',
+                        title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 3 Special No Boy BCIn', field: 'classThreeNoSpBoyBCIn' },
+                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
                       {
-                        title: 'Class 3 Special No Girl BCIn',
+                        title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Total BCIn',
+                        title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 3 Special No Book Boy BCIn',
+                        title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Girl BCIn',
+                        title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 3 Special No Book Total BCIn',
+                        title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 4 Boy BCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'Class 4 Girl BCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'Class 4 Total BCIn', field: 'classFourNoTotalBCIn' },
+                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
+                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
+                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
 
-                      { title: 'Class 4 No Book Boy BCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'Class 4 No Book Girl BCIn', field: 'classFourNoBookGirlBCIn' },
+                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
+                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
                       {
-                        title: 'Class 4 No Book Total BCIn',
+                        title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 4 Special No Boy BCIn', field: 'classFourNoSpBoyBCIn' },
+                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
                       {
-                        title: 'Class 4 Special No Girl BCIn',
+                        title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Total BCIn',
+                        title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 4 Special No Book Boy BCIn',
+                        title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Girl BCIn',
+                        title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 4 Special No Book Total BCIn',
+                        title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
                       },
 
-                      { title: 'Class 5 Boy BCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'Class 5 Girl BCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'Class 5 Total BCIn', field: 'classFiveNoTotalBCIn' },
+                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
+                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
+                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
 
-                      { title: 'Class 5 No Book Boy BCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'Class 5 No Book Girl BCIn', field: 'classFiveNoBookGirlBCIn' },
+                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
+                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
                       {
-                        title: 'Class 5 No Book Total BCIn',
+                        title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
                       },
 
-                      { title: 'Class 5 Special No Boy BCIn', field: 'classFiveNoSpBoyBCIn' },
+                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
                       {
-                        title: 'Class 5 Special No Girl BCIn',
+                        title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Total BCIn',
+                        title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
                       },
 
                       {
-                        title: 'Class 5 Special No Book Boy BCIn',
+                        title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Girl BCIn',
+                        title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
                       },
                       {
-                        title: 'Class 5 Special No Book Total BCIn',
+                        title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
                       },
                     ]}
