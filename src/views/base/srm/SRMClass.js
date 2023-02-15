@@ -134,143 +134,184 @@ const SRMClass = () => {
               title={allSRMClass.length + ' SRM Class Observation'}
               columns={[
                 {
-                  title: 'Date',
+                  title: 'date',
                   field: 'date',
                   type: 'date',
                   sorting: 'true',
                 },
-                { title: 'School', field: 'school' },
+                { title: 'school', field: 'school' },
                 {
-                  title: 'Class Teacher',
+                  title: 'classTeacher',
                   field: 'classTeacher',
                 },
                 {
-                  title: 'Gender',
+                  title: 'teacherGender',
                   field: 'teacherGender',
                 },
                 {
-                  title: 'Trainined',
+                  title: 'isTrained',
                   field: 'isTrained',
                 },
-                { title: 'Teacher Rating', field: 'teacherStatus', sorting: 'true' },
-                { title: 'Month', field: 'month', sorting: 'true' },
-                { title: 'Year', field: 'year', sorting: 'true' },
+                { title: 'teacherStatus', field: 'teacherStatus', sorting: 'true' },
+                { title: 'month', field: 'month', sorting: 'true' },
+                { title: 'year', field: 'year', sorting: 'true' },
 
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Field Office', field: 'fieldOffice', sorting: 'true' },
-                { title: 'Project', field: 'project', sorting: 'true' },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
-                { title: 'LPO', field: 'lpoName', type: 'string' },
+                { title: 'district', field: 'district' },
+                { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                { title: 'fieldOffice', field: 'fieldOffice', sorting: 'true' },
+                { title: 'project', field: 'project', sorting: 'true' },
+                { title: 'visitNo', field: 'visitNo', sorting: 'true' },
+                { title: 'lpo', field: 'lpo', type: 'string' },
+                { title: 'lpoName', field: 'lpoName', type: 'string' },
                 {
-                  title: 'LF',
+                  title: 'lf',
+                  field: 'lf',
+                  type: 'string',
+                },
+                {
+                  title: 'lfName',
                   field: 'lfName',
                   type: 'string',
                 },
-                { title: 'Visitor', field: 'visitor' },
-                { title: 'Visitor Designation', field: 'visitorDesignation', sorting: 'true' },
+                { title: 'visitor', field: 'visitor' },
+                { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
 
                 {
-                  title: 'Grade',
+                  title: 'grade',
                   field: 'grade',
                 },
                 {
-                  title: 'Section',
+                  title: 'section',
                   field: 'section',
                 },
                 {
-                  title: 'Class Start Time',
+                  title: 'classStartTime',
                   field: 'classStartTime',
                 },
                 {
-                  title: 'Class End Time',
+                  title: 'classEndTime',
                   field: 'classEndTime',
                 },
                 {
-                  title: 'Content',
-                  field: 'contentName',
+                  title: 'totalAdmittedStudent',
+                  field: 'totalAdmittedStudent',
                 },
                 {
-                  title: 'Period Day',
-                  field: 'periodDay',
+                  title: 'totalAdmittedGirl',
+                  field: 'totalAdmittedGirl',
                 },
 
-                { title: 'Last Followup Topic 1', field: 'lastFollowupTopic1' },
-                { title: 'Last Followup Topic 2', field: 'lastFollowupTopic2' },
-                { title: 'Last Followup Topic 3', field: 'lastFollowupTopic3' },
+                {
+                  title: 'totalAdmittedBoy',
+                  field: 'totalAdmittedBoy',
+                },
 
                 {
-                  title: 'Ind1 Status',
+                  title: 'totalPresentStudent',
+                  field: 'totalPresentStudent',
+                },
+                {
+                  title: 'totalPresentGirl',
+                  field: 'totalPresentGirl',
+                },
+
+                {
+                  title: 'totalPresentBoy',
+                  field: 'totalPresentBoy',
+                },
+                {
+                  title: 'note',
+                  field: 'note',
+                },
+
+                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
+                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
+                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
+
+                {
+                  title: 'ind1FriendlyCommunicationStatus',
                   field: 'ind1FriendlyCommunicationStatus',
                 },
-                { title: 'Ind1 Notes', field: 'ind1FriendlyCommunicationNotes' },
+                {
+                  title: 'ind1FriendlyCommunicationNotes',
+                  field: 'ind1FriendlyCommunicationNotes',
+                },
 
                 {
-                  title: 'Ind2 Status',
+                  title: 'ind2SRMInspiringStatus',
                   field: 'ind2SRMInspiringStatus',
                 },
                 {
-                  title: 'Ind2 Notes',
+                  title: 'ind2SRMInspiringNotes',
                   field: 'ind2SRMInspiringNotes',
                 },
 
                 {
-                  title: 'Ind3 Status',
+                  title: 'ind3SRMInstructionStatus',
                   field: 'ind3SRMInstructionStatus',
                 },
                 {
-                  title: 'Ind3 Notes',
+                  title: 'ind3SRMInstructionNotes',
                   field: 'ind3SRMInstructionNotes',
                 },
 
                 {
-                  title: 'Ind4 Status',
+                  title: 'ind4BookShowingStatus',
                   field: 'ind4BookShowingStatus',
                 },
                 {
-                  title: 'Ind4 Notes',
+                  title: 'ind4BookShowingNotes',
                   field: 'ind4BookShowingNotes',
                 },
 
-                { title: 'Ind5 Status', field: 'ind5WordTeachingStatus' },
-                { title: 'Ind5 Notes', field: 'ind5WordTeachingNotes' },
+                { title: 'ind5WordTeachingStatus', field: 'ind5WordTeachingStatus' },
+                { title: 'ind5WordTeachingNotes', field: 'ind5WordTeachingNotes' },
 
-                { title: 'Ind6 Status', field: 'ind6StoryReadingStatus' },
-                { title: 'Ind6 Notes', field: 'ind6StoryReadingNotes' },
+                { title: 'ind6StoryReadingStatus', field: 'ind6StoryReadingStatus' },
+                { title: 'ind6StoryReadingNotes', field: 'ind6StoryReadingNotes' },
 
-                { title: 'Ind7 Status', field: 'ind7IDoWeDoYouDoStatus' },
-                { title: 'Ind7 Notes', field: 'ind7StorySuitableNotes' },
+                { title: 'ind7IDoWeDoYouDoStatus', field: 'ind7IDoWeDoYouDoStatus' },
+                { title: 'ind7StorySuitableNotes', field: 'ind7StorySuitableNotes' },
 
-                { title: 'Ind8 Status', field: 'ind7StorySuitableStatus' },
-                { title: 'Ind8 Notes', field: 'ind8StoryReadingCombinationNotes' },
-
-                { title: 'Ind9 Status', field: 'ind9AllStudentEngagementStatus' },
-                { title: 'Ind9 Notes', field: 'ind9AllStudentEngagementNotes' },
-
-                { title: 'Ind10 Status', field: 'ind10InclusiveAssessmentStatus' },
-                { title: 'Ind10 Notes', field: 'ind10InclusiveAssessmentNotes' },
+                { title: 'ind7StorySuitableStatus', field: 'ind7StorySuitableStatus' },
+                {
+                  title: 'ind8StoryReadingCombinationNotes',
+                  field: 'ind8StoryReadingCombinationNotes',
+                },
 
                 {
-                  title: 'Ind11 Status',
+                  title: 'ind9AllStudentEngagementStatus',
+                  field: 'ind9AllStudentEngagementStatus',
+                },
+                { title: 'ind9AllStudentEngagementNotes', field: 'ind9AllStudentEngagementNotes' },
+
+                {
+                  title: 'ind10InclusiveAssessmentStatus',
+                  field: 'ind10InclusiveAssessmentStatus',
+                },
+                { title: 'ind10InclusiveAssessmentNotes', field: 'ind10InclusiveAssessmentNotes' },
+
+                {
+                  title: 'ind11AskingForBCOStatus',
                   field: 'ind11AskingForBCOStatus',
                 },
                 {
-                  title: 'Ind11 Notes',
+                  title: 'ind11AskingForBCONotes',
                   field: 'ind11AskingForBCONotes',
                 },
 
-                { title: 'Best Practice Ind1', field: 'bestPracticeInd1' },
-                { title: 'Best Practice Ind2', field: 'bestPracticeInd2' },
-                { title: 'Best Practice Ind3', field: 'bestPracticeInd3' },
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
 
-                { title: 'Coaching Support Ind1', field: 'coachingSupportInd1' },
-                { title: 'Coaching Support Ind2', field: 'coachingSupportInd2' },
+                { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
+                { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
 
-                { title: 'Coaching Support Details Ind1', field: 'coachingSupportDetailsInd1' },
-                { title: 'Coaching Support Details Ind2', field: 'coachingSupportDetailsInd2' },
+                { title: 'coachingSupportDetailsInd1', field: 'coachingSupportDetailsInd1' },
+                { title: 'coachingSupportDetailsInd2', field: 'coachingSupportDetailsInd2' },
 
-                { title: 'Agreed Statement1', field: 'agreedStatement1' },
-                { title: 'Agreed Statement2', field: 'agreedStatement2' },
+                { title: 'agreedStatement1', field: 'agreedStatement1' },
+                { title: 'agreedStatement2', field: 'agreedStatement2' },
               ]}
               // actions={[
               //   {

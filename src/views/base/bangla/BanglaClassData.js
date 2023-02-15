@@ -133,58 +133,65 @@ const BanglaClassData = () => {
               title={allBanglaClass.length + ' Bangla Class Observation'}
               columns={[
                 {
-                  title: 'Date',
+                  title: 'date',
                   field: 'date',
                   type: 'date',
                   sorting: 'true',
                 },
-                { title: 'School', field: 'school' },
+                { title: 'school', field: 'school' },
                 {
-                  title: 'Class Teacher',
+                  title: 'classTeacher',
                   field: 'classTeacher',
                 },
                 {
-                  title: 'Gender',
+                  title: 'teacherGender',
                   field: 'teacherGender',
                 },
                 {
-                  title: 'Trainined',
+                  title: 'isTrained',
                   field: 'isTrained',
                 },
-                { title: 'Teacher Rating', field: 'teacherStatus', sorting: 'true' },
-                { title: 'Month', field: 'month', sorting: 'true' },
-                { title: 'Year', field: 'year', sorting: 'true' },
+                { title: 'teacherStatus', field: 'teacherStatus', sorting: 'true' },
+                { title: 'month', field: 'month', sorting: 'true' },
+                { title: 'year', field: 'year', sorting: 'true' },
 
-                { title: 'District', field: 'district' },
-                { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                { title: 'Field Office', field: 'fieldOffice', sorting: 'true' },
-                { title: 'Project', field: 'project', sorting: 'true' },
-                { title: '#Visit', field: 'visitNo', sorting: 'true' },
-                { title: 'LPO', field: 'lpoName', type: 'string' },
+                { title: 'district', field: 'district' },
+                { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                { title: 'fieldOffice', field: 'fieldOffice', sorting: 'true' },
+                { title: 'project', field: 'project', sorting: 'true' },
+                { title: 'visitNo', field: 'visitNo', sorting: 'true' },
+                { title: 'lpo', field: 'lpo', type: 'string' },
+                { title: 'lpoName', field: 'lpoName', type: 'string' },
                 {
-                  title: 'LF',
+                  title: 'lf',
+                  field: 'lf',
+                  type: 'string',
+                },
+                {
+                  title: 'lfName',
                   field: 'lfName',
                   type: 'string',
                 },
-                { title: 'Visitor', field: 'visitor' },
-                { title: 'Visitor Designation', field: 'visitorDesignation', sorting: 'true' },
+                { title: 'visitor', field: 'visitor' },
+                { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
 
                 {
-                  title: 'Grade',
+                  title: 'grade',
                   field: 'grade',
                 },
                 {
-                  title: 'Section',
+                  title: 'section',
                   field: 'section',
                 },
                 {
-                  title: 'Class Start Time',
+                  title: 'classStartTime',
                   field: 'classStartTime',
                 },
                 {
-                  title: 'Class End Time',
+                  title: 'classEndTime',
                   field: 'classEndTime',
                 },
+
                 {
                   title: 'Content',
                   field: 'contentName',
@@ -193,107 +200,138 @@ const BanglaClassData = () => {
                   title: 'Period Day',
                   field: 'periodDay',
                 },
-
-                { title: 'Last Followup Topic 1', field: 'lastFollowupTopic1' },
-                { title: 'Last Followup Topic 2', field: 'lastFollowupTopic2' },
-                { title: 'Last Followup Topic 3', field: 'lastFollowupTopic3' },
-
-                { title: 'Ind1 Phonemic Awareness Status', field: 'ind1PhonemicAwarenessStatus' },
-                { title: 'Ind1 Phonemic Awareness Notes', field: 'ind1PhonemicAwarenessNotes' },
+                {
+                  title: 'totalAdmittedStudent',
+                  field: 'totalAdmittedStudent',
+                },
+                {
+                  title: 'totalAdmittedGirl',
+                  field: 'totalAdmittedGirl',
+                },
 
                 {
-                  title: 'Ind2 Letter Identification Status',
+                  title: 'totalAdmittedBoy',
+                  field: 'totalAdmittedBoy',
+                },
+
+                {
+                  title: 'totalPresentStudent',
+                  field: 'totalPresentStudent',
+                },
+                {
+                  title: 'totalPresentGirl',
+                  field: 'totalPresentGirl',
+                },
+
+                {
+                  title: 'totalPresentBoy',
+                  field: 'totalPresentBoy',
+                },
+                {
+                  title: 'note',
+                  field: 'note',
+                },
+
+                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
+                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
+                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
+
+                { title: 'ind1PhonemicAwarenessStatus', field: 'ind1PhonemicAwarenessStatus' },
+                { title: 'ind1PhonemicAwarenessNotes', field: 'ind1PhonemicAwarenessNotes' },
+
+                {
+                  title: 'ind2LetterIdentificationStatus',
                   field: 'ind2LetterIdentificationStatus',
                 },
                 {
-                  title: 'Ind2 Letter Identification Notes',
+                  title: 'ind2LetterIdentificationNotes',
                   field: 'ind2LetterIdentificationNotes',
                 },
 
                 {
-                  title: 'Ind3 Vocabulary Identification Status',
+                  title: 'ind3VocabularyIdentificationStatus',
                   field: 'ind3VocabularyIdentificationStatus',
                 },
                 {
-                  title: 'Ind3 Vocabulary Identification Notes',
+                  title: 'ind3VocabularyIdentificationNotes',
                   field: 'ind3VocabularyIdentificationNotes',
                 },
 
                 {
-                  title: 'Ind4 Fluency Identification Status',
+                  title: 'ind4FluencyIdentificationStatus',
                   field: 'ind4FluencyIdentificationStatus',
                 },
                 {
-                  title: 'Ind4 Fluency Identification  Notes',
+                  title: 'ind4FluencyIdentificationNotes',
                   field: 'ind4FluencyIdentificationNotes',
                 },
 
-                { title: 'Ind5 Comprehension Status', field: 'ind5ComprehensionStatus' },
-                { title: 'Ind5 Comprehension Notes', field: 'ind5ComprehensionNotes' },
+                { title: 'ind5ComprehensionStatus', field: 'ind5ComprehensionStatus' },
+                { title: 'ind5ComprehensionNotes', field: 'ind5ComprehensionNotes' },
 
-                { title: 'Ind6 Writing Activities Status', field: 'ind6WritingActivitiesStatus' },
-                { title: 'Ind6 Writing Activities Notes', field: 'ind6WritingActivitiesNotes' },
+                { title: 'ind6WritingActivitiesStatus', field: 'ind6WritingActivitiesStatus' },
+                { title: 'ind6WritingActivitiesNotes', field: 'ind6WritingActivitiesNotes' },
 
-                { title: 'Ind7 I Do We Do You Do Status', field: 'ind7IDoWeDoYouDoStatus' },
-                { title: 'Ind7 I Do We Do You Do Notes', field: 'ind7IDoWeDoYouDoNotes' },
+                { title: 'ind7IDoWeDoYouDoStatus', field: 'ind7IDoWeDoYouDoStatus' },
+                { title: 'ind7IDoWeDoYouDoNotes', field: 'ind7IDoWeDoYouDoNotes' },
 
-                { title: 'Ind8 Group Work Status', field: 'ind8GroupWorkStatus' },
-                { title: 'Ind8 Group Work Notes', field: 'ind8GroupWorkNotes' },
+                { title: 'ind8GroupWorkStatus', field: 'ind8GroupWorkStatus' },
+                { title: 'ind8GroupWorkNotes', field: 'ind8GroupWorkNotes' },
 
-                { title: 'Ind9 Time On Task Status', field: 'ind9TimeOnTaskStatus' },
-                { title: 'Ind9 Time On Task Notes', field: 'ind9TimeOnTaskNotes' },
+                { title: 'ind9TimeOnTaskStatus', field: 'ind9TimeOnTaskStatus' },
+                { title: 'ind9TimeOnTaskNotes', field: 'ind9TimeOnTaskNotes' },
 
-                { title: 'Ind10 Use Teaching Aid Status', field: 'ind10UseTeachingAidStatus' },
-                { title: 'Ind10 Use Teaching Aid Notes', field: 'ind10UseTeachingAidNotes' },
+                { title: 'ind10UseTeachingAidStatus', field: 'ind10UseTeachingAidStatus' },
+                { title: 'ind10UseTeachingAidNotes', field: 'ind10UseTeachingAidNotes' },
 
                 {
-                  title: 'Ind11 Continuity Of Lessons Status',
+                  title: 'ind11ContinuityOfLessonsStatus',
                   field: 'ind11ContinuityOfLessonsStatus',
                 },
                 {
-                  title: 'Ind11 Continuity Of Lessons Notes',
+                  title: 'ind11ContinuityOfLessonsNotes',
                   field: 'ind11ContinuityOfLessonsNotes',
                 },
 
-                { title: 'Ind12 Assessment Status', field: 'ind12AssessmentStatus' },
-                { title: 'Ind12 Assessment Notes', field: 'ind12AssessmentNotes' },
+                { title: 'ind12AssessmentStatus', field: 'ind12AssessmentStatus' },
+                { title: 'ind12AssessmentNotes', field: 'ind12AssessmentNotes' },
 
-                { title: 'Best Practice Ind1', field: 'bestPracticeInd1' },
-                { title: 'Best Practice Ind2', field: 'bestPracticeInd2' },
-                { title: 'Best Practice Ind3', field: 'bestPracticeInd3' },
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
 
-                { title: 'Coaching Support Ind1', field: 'coachingSupportInd1' },
-                { title: 'Coaching Support Ind2', field: 'coachingSupportInd2' },
+                { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
+                { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
 
-                { title: 'Coaching Support Details Ind1', field: 'coachingSupportDetailsInd1' },
-                { title: 'Coaching Support Details Ind2', field: 'coachingSupportDetailsInd2' },
+                { title: 'coachingSupportDetailsInd1', field: 'coachingSupportDetailsInd1' },
+                { title: 'coachingSupportDetailsInd2', field: 'coachingSupportDetailsInd2' },
 
-                { title: 'Agreed Statement1', field: 'agreedStatement1' },
-                { title: 'Agreed Statement2', field: 'agreedStatement2' },
+                { title: 'agreedStatement1', field: 'agreedStatement1' },
+                { title: 'agreedStatement2', field: 'agreedStatement2' },
 
-                { title: 'Question', field: 'question1' },
+                { title: 'question1', field: 'question1' },
 
-                { title: 'Student 1', field: 'student1' },
-                { title: 'Student 2', field: 'student2' },
-                { title: 'Student 3', field: 'student3' },
-                { title: 'Student 4', field: 'student4' },
-                { title: 'Student 5', field: 'student5' },
+                { title: 'student1', field: 'student1' },
+                { title: 'student2', field: 'student2' },
+                { title: 'student3', field: 'student3' },
+                { title: 'student4', field: 'student4' },
+                { title: 'student5', field: 'student5' },
 
-                { title: 'No Right For 1', field: 'noRightFor1' },
-                { title: 'No Wrong For 1', field: 'noWrongFor1' },
-                { title: 'Total For 1', field: 'totalFor1' },
-                { title: 'No Right For 2', field: 'noRightFor2' },
-                { title: 'No Wrong For 2', field: 'noWrongFor2' },
-                { title: 'Total For 2', field: 'totalFor2' },
-                { title: 'No Right For 3', field: 'noRightFor3' },
-                { title: 'No Wrong For 3', field: 'noWrongFor3' },
-                { title: 'Total For 3', field: 'totalFor3' },
-                { title: 'No Right For 4', field: 'noRightFor4' },
-                { title: 'No Wrong For 4', field: 'noWrongFor4' },
-                { title: 'Total For 4', field: 'totalFor4' },
-                { title: 'No Right For 5', field: 'noRightFor5' },
-                { title: 'No Wrong For 5', field: 'noWrongFor5' },
-                { title: 'Total For 5', field: 'totalFor5' },
+                { title: 'noRightFor1', field: 'noRightFor1' },
+                { title: 'noWrongFor1', field: 'noWrongFor1' },
+                { title: 'totalFor1', field: 'totalFor1' },
+                { title: 'noRightFor2', field: 'noRightFor2' },
+                { title: 'noWrongFor2', field: 'noWrongFor2' },
+                { title: 'totalFor2', field: 'totalFor2' },
+                { title: 'noRightFor3', field: 'noRightFor3' },
+                { title: 'noWrongFor3', field: 'noWrongFor3' },
+                { title: 'totalFor3', field: 'totalFor3' },
+                { title: 'noRightFor4', field: 'noRightFor4' },
+                { title: 'noWrongFor4', field: 'noWrongFor4' },
+                { title: 'totalFor4', field: 'totalFor4' },
+                { title: 'noRightFor5', field: 'noRightFor5' },
+                { title: 'noWrongFor5', field: 'noWrongFor5' },
+                { title: 'totalFor5', field: 'totalFor5' },
               ]}
               // actions={[
               //   {
