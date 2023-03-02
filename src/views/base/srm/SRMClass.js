@@ -228,6 +228,7 @@ const SRMClass = () => {
                 { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
                 { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
 
+                { title: 'typeOfReading', field: 'typeOfReading' },
                 {
                   title: 'ind1FriendlyCommunicationStatus',
                   field: 'ind1FriendlyCommunicationStatus',
