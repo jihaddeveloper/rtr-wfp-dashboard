@@ -110,10 +110,12 @@ const AllSchool = () => {
                         field: '',
                       },
                       { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'LPO name', field: 'lpoName', type: 'string' },
                       {
                         title: 'LF',
                         field: 'lf',
                       },
+                      { title: 'LF name', field: 'lfName', type: 'string' },
                       {
                         title: 'Head Teacher',
                         field: 'headTeacher',
@@ -195,10 +197,12 @@ const AllSchool = () => {
                         field: '',
                       },
                       { title: 'LPO', field: 'lpo', type: 'string' },
+                      { title: 'LPO name', field: 'lpoName', type: 'string' },
                       {
                         title: 'LF',
                         field: 'lf',
                       },
+                      { title: 'LF name', field: 'lfName', type: 'string' },
                       {
                         title: 'Head Teacher',
                         field: 'headTeacher',
