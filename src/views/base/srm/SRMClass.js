@@ -271,10 +271,14 @@ const SRMClass = () => {
                 { title: 'ind6StoryReadingStatus', field: 'ind6StoryReadingStatus' },
                 { title: 'ind6StoryReadingNotes', field: 'ind6StoryReadingNotes' },
 
-                { title: 'ind7IDoWeDoYouDoStatus', field: 'ind7IDoWeDoYouDoStatus' },
+                { title: 'ind7StorySuitableStatus', field: 'ind7StorySuitableStatus' },
                 { title: 'ind7StorySuitableNotes', field: 'ind7StorySuitableNotes' },
 
-                { title: 'ind7StorySuitableStatus', field: 'ind7StorySuitableStatus' },
+                {
+                  title: 'ind8StoryReadingCombinationStatus',
+                  field: 'ind8StoryReadingCombinationStatus',
+                },
+
                 {
                   title: 'ind8StoryReadingCombinationNotes',
                   field: 'ind8StoryReadingCombinationNotes',
