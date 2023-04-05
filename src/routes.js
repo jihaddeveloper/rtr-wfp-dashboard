@@ -38,6 +38,7 @@ const SRMCalss = React.lazy(() => import('./views/base/srm/SRMClass'))
 
 // Report
 const BCOSchoolQuarterly = React.lazy(() => import('./views/base/bco/BCOSchoolQuarterly'))
+const BCOSchoolMonthly = React.lazy(() => import('./views/base/bco/BCOSchoolMonthly'))
 const BCOCRFQuarterly = React.lazy(() => import('./views/base/bco/BCOCRFQuarterly'))
 const WFPSummarizeBCO = React.lazy(() => import('./views/base/bco/WFPSummarizeBCO'))
 const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'))
@@ -153,6 +154,7 @@ const routes = [
   { path: '/bco/allbco-crf', name: 'AllBCOCRF', element: AllBCOCRF },
 
   { path: '/bco/bco-school-quarterly', name: 'BCOSchoolQuarterly', element: BCOSchoolQuarterly },
+  { path: '/bco/bco-school-monthly', name: 'BCOSchoolMonthly', element: BCOSchoolMonthly },
   { path: '/bco/bco-crf-quarterly', name: 'BCOCRFQuarterly', element: BCOCRFQuarterly },
 
   { path: '/bco/wfp-summarize', name: 'WFPSummarize', element: WFPSummarizeBCO },

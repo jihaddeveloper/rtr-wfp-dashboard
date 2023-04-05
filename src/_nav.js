@@ -147,7 +147,12 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'BCO/I School Report',
+        name: 'BCO/I School Monthly',
+        to: '/bco/bco-school-monthly',
+      },
+      {
+        component: CNavItem,
+        name: 'BCO/I School Quarterly',
         to: '/bco/bco-school-quarterly',
       },
       {
