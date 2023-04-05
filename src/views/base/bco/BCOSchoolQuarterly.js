@@ -788,7 +788,7 @@ const BCOSchoolQuarterly = () => {
       //console.log('kTotalStudent: ' + kTotalStudent)
 
       kTotalBookCheckout = response.data
-        .filter((item) => item.schoolTotalNoStudentBC !== 0 && item.upazilla === 'Kutubdia')
+        .filter((item) => item.upazilla === 'Kutubdia' && item.year === '2022')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
         .reduce(function (acc, value) {
           return acc + value
