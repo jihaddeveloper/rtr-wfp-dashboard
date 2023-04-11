@@ -45,12 +45,12 @@ const AllBookCaptain = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const [allStudentData, setAllStudentData] = useState([])
+  const [allBookCaptain, setAllBookCaptain] = useState([])
 
-  // Area wise student data
-  const [kutubdiaStudent, setKutubdiaStudent] = useState([])
-  const [ukhiyaStudent, setUkhiyaStudent] = useState([])
-  // Area wise student data
+  // Area wise BookCaptain
+  const [kutubdiaBookCaptain, setKutubdiaBookCaptain] = useState([])
+  const [ukhiyaBookCaptain, setUkhiyaBookCaptain] = useState([])
+  // Area wise BookCaptain
 
   // Report Data
   const [reportData, setReportData] = useState([])
@@ -118,22 +118,20 @@ const AllBookCaptain = () => {
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    setIsLoading(true)
     const call = async () => {
       console.log('use effect called')
-      await getAllStudent()
+      await getAllBookCaptain()
       pushReportData(console.log('pushReportData called'))
     }
     call()
-    setIsLoading(false)
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
   // Get All Student Data
-  const getAllStudent = async () => {
+  const getAllBookCaptain = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/student', {
+      var response = await axios('http://118.179.80.51:8080/api/v1/book-captain', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -141,14 +139,116 @@ const AllBookCaptain = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllStudentData(response.data)
+      setAllBookCaptain(response.data)
 
-      setKutubdiaStudent(response.data.filter((item) => item.upazilla === 'Kutubdia'))
+      setKutubdiaBookCaptain(response.data.filter((item) => item.upazilla === 'Kutubdia'))
 
-      setUkhiyaStudent(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+      setUkhiyaBookCaptain(response.data.filter((item) => item.upazilla === 'Ukhiya'))
+
+      // Data calculation with year and gender
+      // 2020
+      boyUkhiya2020 = response.data.filter(
+        (item) => item.upazilla === 'Ukhiya' && item.year === '2020' && item.gender === 'Boy',
+      ).length
+
+      girlUkhiya2020 = response.data.filter(
+        (item) => item.upazilla === 'Ukhiya' && item.year === '2020' && item.gender === 'Girl',
+      ).length
+
+      totalUkhiya2020 = boyUkhiya2020 + girlUkhiya2020
+
+      boyKutubdia2020 = response.data.filter(
+        (item) => item.upazilla === 'Kutubdia' && item.year === '2020' && item.gender === 'Boy',
+      ).length
+
+      girlKutubdia2020 = response.data.filter(
+        (item) => item.upazilla === 'Kutubdia' && item.year === '2020' && item.gender === 'Girl',
+      ).length
+
+      totalKutubdia2020 = boyKutubdia2020 + girlKutubdia2020
+
+      total2020 = totalUkhiya2020 + totalKutubdia2020
+      // 2020
+
+      // 2022
+      boyUkhiya2022 = response.data.filter(
+        (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.gender === 'Boy',
+      ).length
+
+      girlUkhiya2022 = response.data.filter(
+        (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.gender === 'Girl',
+      ).length
+
+      totalUkhiya2022 = boyUkhiya2022 + girlUkhiya2022
+
+      boyKutubdia2022 = response.data.filter(
+        (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.gender === 'Boy',
+      ).length
+
+      girlKutubdia2022 = response.data.filter(
+        (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.gender === 'Girl',
+      ).length
+
+      totalKutubdia2022 = boyKutubdia2022 + girlKutubdia2022
+
+      total2022 = totalUkhiya2022 + totalKutubdia2022
+      // 2022
+
+      // Total
+      totalBoyUkhiya =
+        boyUkhiya2018 +
+        boyUkhiya2019 +
+        boyUkhiya2020 +
+        boyUkhiya2021 +
+        boyUkhiya2022 +
+        boyUkhiya2023
+
+      totalGirlUkhiya =
+        girlUkhiya2018 +
+        girlUkhiya2019 +
+        girlUkhiya2020 +
+        girlUkhiya2021 +
+        girlUkhiya2022 +
+        girlUkhiya2023
+
+      totalU =
+        totalUkhiya2018 +
+        totalUkhiya2019 +
+        totalUkhiya2020 +
+        totalUkhiya2021 +
+        totalUkhiya2022 +
+        totalUkhiya2023
+
+      totalBoyKutubdia =
+        boyKutubdia2018 +
+        boyKutubdia2019 +
+        boyKutubdia2020 +
+        boyKutubdia2021 +
+        boyKutubdia2022 +
+        boyKutubdia2023
+
+      totalGirlKutubdia =
+        girlKutubdia2018 +
+        girlKutubdia2019 +
+        girlKutubdia2020 +
+        girlKutubdia2021 +
+        girlKutubdia2022 +
+        girlKutubdia2023
+
+      totalK =
+        totalKutubdia2018 +
+        totalKutubdia2019 +
+        totalKutubdia2020 +
+        totalKutubdia2021 +
+        totalKutubdia2022 +
+        totalKutubdia2023
+
+      total = total2018 + total2019 + total2020 + total2021 + total2022 + total2023
+      // Total
+      // Data calculation with year and gender
 
       setIsLoading(false)
-      console.log('Data:' + response)
+      //console.log('Data:' + response)
     } catch (error) {
       console.log(error)
     }
@@ -244,38 +344,16 @@ const AllBookCaptain = () => {
 
   return (
     <CRow>
-      {/* <CCol xs={12}>
-        <DocsCallout name="Accordion" href="components/accordion" />
-      </CCol> */}
       <CCol xs={12}>
-        {/* <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Report</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CButton color="primary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Demo Report
-            </CButton>
-          </CCardBody>
-        </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Book-Captain-{0}</strong>
+            <strong>Book-Captain</strong>
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Total Book-Captain-{0}</strong>
+                  <strong>Total Book-Captain({allBookCaptain.length})</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
@@ -359,7 +437,7 @@ const AllBookCaptain = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Book-Captain in Kutubdia-{0}</strong>
+                  <strong>Book-Captain in Kutubdia({kutubdiaBookCaptain.length})</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>
@@ -369,7 +447,7 @@ const AllBookCaptain = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>Book-Captain in Ukhiya-{0}</strong>
+                  <strong>Book-Captain in Ukhiya({ukhiyaBookCaptain.length})</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <strong>

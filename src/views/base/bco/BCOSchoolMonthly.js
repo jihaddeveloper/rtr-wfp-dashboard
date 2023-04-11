@@ -59,6 +59,14 @@ const BCOSchoolMonthly = () => {
   const [reportDataQ3, setReportDataQ3] = useState([])
   const [reportDataQ4, setReportDataQ4] = useState([])
 
+  const [reportDataJan22, setReportDataJan22] = useState([])
+  const [reportDataTotal22, setReportDataTotal22] = useState([])
+
+  const [reportDataJan23, setReportDataJan23] = useState([])
+  const [reportDataFeb23, setReportDataFeb23] = useState([])
+  const [reportDataMar23, setReportDataMar23] = useState([])
+  const [reportDataTotal23, setReportDataTotal23] = useState([])
+
   const [allBCOData, setAllBCOData] = useState([])
 
   // Report Data Ukhiya
@@ -73,6 +81,120 @@ const BCOSchoolMonthly = () => {
   current.setMonth(current.getMonth() - 1)
   const previousMonth = current.toLocaleString('default', { month: 'long' })
   const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
+  // 2023
+  // Total
+  // Ukhiya Data
+  let uTotalStudentTotal23 = 0
+  let uTotalBookCheckoutTotal23 = 0
+  let uTotalBookCheckinTotal23 = 0
+  let uNoBCOPerStudentTotal23 = 0
+  let uNoStudentBCOTotal23 = 0
+  let uPercentStudentBCOTotal23 = 0
+  let uNoStudentBCITotal23 = 0
+  let uPercentStudentBCITotal23 = 0
+  let uNoGirlBCOTotal23 = 0
+  let uPercentGirlBCOTotal23 = 0
+  let uNoBoyBCOTotal23 = 0
+  let uPercentBoyBCOTotal23 = 0
+  let uNoSchoolBCOTotal23 = 0
+  let uNoSchoolZeroBCOTotal23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentTotal23 = 0
+  let kTotalBookCheckoutTotal23 = 0
+  let kTotalBookCheckinTotal23 = 0
+  let kNoBCOPerStudentTotal23 = 0
+  let kNoStudentBCOTotal23 = 0
+  let kPercentStudentBCOTotal23 = 0
+  let kNoStudentBCITotal23 = 0
+  let kPercentStudentBCITotal23 = 0
+  let kNoGirlBCOTotal23 = 0
+  let kPercentGirlBCOTotal23 = 0
+  let kNoBoyBCOTotal23 = 0
+  let kPercentBoyBCOTotal23 = 0
+  let kNoSchoolBCOTotal23 = 0
+  let kNoSchoolZeroBCOTotal23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentTotal23 = 0
+  let cfoTotalBookCheckoutTotal23 = 0
+  let cfoTotalBookCheckinTotal23 = 0
+  let cfoNoBCOPerStudentTotal23 = 0
+  let cfoNoStudentBCOTotal23 = 0
+  let cfoPercentStudentBCOTotal23 = 0
+  let cfoNoStudentBCITotal23 = 0
+  let cfoPercentStudentBCITotal23 = 0
+  let cfoNoGirlBCOTotal23 = 0
+  let cfoPercentGirlBCOTotal23 = 0
+  let cfoNoBoyBCOTotal23 = 0
+  let cfoPercentBoyBCOTotal23 = 0
+  let cfoNoSchoolBCOTotal23 = 0
+  let cfoNoSchoolZeroBCOTotal23 = 0
+  // CFO Data
+  // Total
+
+  // Jan
+  // Ukhiya Data
+  let uTotalStudentJan23 = 0
+  let uTotalBookCheckoutJan23 = 0
+  let uTotalBookCheckinJan23 = 0
+  let uNoBCOPerStudentJan23 = 0
+  let uNoStudentBCOJan23 = 0
+  let uPercentStudentBCOJan23 = 0
+  let uNoStudentBCIJan23 = 0
+  let uPercentStudentBCIJan23 = 0
+  let uNoGirlBCOJan23 = 0
+  let uPercentGirlBCOJan23 = 0
+  let uNoBoyBCOJan23 = 0
+  let uPercentBoyBCOJan23 = 0
+  let uNoSchoolBCOJan23 = 0
+  let uNoSchoolZeroBCOJan23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentJan23 = 0
+  let kTotalBookCheckoutJan23 = 0
+  let kTotalBookCheckinJan23 = 0
+  let kNoBCOPerStudentJan23 = 0
+  let kNoStudentBCOJan23 = 0
+  let kPercentStudentBCOJan23 = 0
+  let kNoStudentBCIJan23 = 0
+  let kPercentStudentBCIJan23 = 0
+  let kNoGirlBCOJan23 = 0
+  let kPercentGirlBCOJan23 = 0
+  let kNoBoyBCOJan23 = 0
+  let kPercentBoyBCOJan23 = 0
+  let kNoSchoolBCOJan23 = 0
+  let kNoSchoolZeroBCOJan23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentJan23 = 0
+  let cfoTotalBookCheckoutJan23 = 0
+  let cfoTotalBookCheckinJan23 = 0
+  let cfoNoBCOPerStudentJan23 = 0
+  let cfoNoStudentBCOJan23 = 0
+  let cfoPercentStudentBCOJan23 = 0
+  let cfoNoStudentBCIJan23 = 0
+  let cfoPercentStudentBCIJan23 = 0
+  let cfoNoGirlBCOJan23 = 0
+  let cfoPercentGirlBCOJan23 = 0
+  let cfoNoBoyBCOJan23 = 0
+  let cfoPercentBoyBCOJan23 = 0
+  let cfoNoSchoolBCOJan23 = 0
+  let cfoNoSchoolZeroBCOJan23 = 0
+  // CFO Data
+  // Jan
+
+  // Feb
+  // Feb
+
+  // March
+  // March
+  // 2023
 
   // Annual
   // Ukhiya Data
