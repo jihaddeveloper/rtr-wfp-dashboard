@@ -132,37 +132,37 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'BCO/I Combined',
+        name: 'Combined',
         to: '/bco/allbco-combined',
       },
       {
         component: CNavItem,
-        name: 'BCO/I School',
+        name: 'School',
         to: '/bco/allbco-school',
       },
       {
         component: CNavItem,
-        name: 'BCO/I CRF',
+        name: 'CRF',
         to: '/bco/allbco-crf',
       },
       {
         component: CNavItem,
-        name: 'BCO/I School Monthly',
+        name: 'School Monthly',
         to: '/bco/bco-school-monthly',
       },
       {
         component: CNavItem,
-        name: 'BCO/I School Quarterly',
+        name: 'School Quarterly',
         to: '/bco/bco-school-quarterly',
       },
       {
         component: CNavItem,
-        name: 'BCO/I CRF Report',
-        to: '/bco/bco-crf-quarterly',
+        name: 'School Analysis',
+        to: '/bco/analyasis-bco-school',
       },
       {
         component: CNavItem,
-        name: 'Summarize Report School',
+        name: 'Summarize School',
         to: '/bco/wfp-summarize',
       },
       {
@@ -179,6 +179,11 @@ const _nav = [
         component: CNavItem,
         name: 'Kutubdia Report School',
         to: '/bco/kutubdia-report',
+      },
+      {
+        component: CNavItem,
+        name: 'CRF Report',
+        to: '/bco/bco-crf-quarterly',
       },
       {
         component: CNavItem,

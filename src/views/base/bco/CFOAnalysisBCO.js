@@ -66,7 +66,7 @@ const CFOAnalysisBCO = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+      getAllBookCheckoutSchool(console.log('get bookcheckout called'))
       //pushReportData(console.log('pushReportData called'))
     }
     call()
@@ -87,7 +87,9 @@ const CFOAnalysisBCO = () => {
       })
       setAllBCOData(response.data)
 
-      let allData = response.data.filter((item) => item.month === previousMonth)
+      let allData = response.data.filter(
+        (item) => item.month === previousMonth && item.year === '2023',
+      )
 
       // Set some cumulated value
       allData.forEach((item) => {
