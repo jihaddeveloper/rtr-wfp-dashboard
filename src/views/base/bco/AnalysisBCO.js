@@ -16,6 +16,17 @@ import {
   CButton,
   CCollapse,
 } from '@coreui/react'
+
+import {
+  CChart,
+  CChartBar,
+  CChartDoughnut,
+  CChartLine,
+  CChartPie,
+  CChartPolarArea,
+  CChartRadar,
+} from '@coreui/react-chartjs'
+
 import { DocsCallout, DocsExample } from 'src/components'
 
 import CircularProgress from '@mui/material/CircularProgress'
@@ -58,6 +69,9 @@ const AnalysisBCO = () => {
   const [reportData23Feb, setReportData23Feb] = useState([])
   const [reportData23Mar, setReportData23Mar] = useState([])
   const [reportData23Apr, setReportData23Apr] = useState([])
+
+  // Chart Data
+  const [schoolBCOAnalysisChartData, setSchoolBCOAnalysisChartData] = useState({})
 
   const [allBCOData, setAllBCOData] = useState([])
 
@@ -452,6 +466,9 @@ const AnalysisBCO = () => {
     const call = async () => {
       await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
       pushReportData23(console.log('pushReportData23 called'))
+
+      // Chart
+      pushSchoolBCOAnalysisChartData()
     }
     call()
     //getSummerizeData(console.log('getSummerizeData called'))
@@ -1261,14 +1278,14 @@ const AnalysisBCO = () => {
       cfoTotalStudentJan23 = parseInt(kTotalStudentJan23) + parseInt(uTotalStudentJan23)
       cfoTotalBookCheckoutJan23 = kTotalBookCheckoutJan23 + uTotalBookCheckoutJan23
       cfoTotalBookCheckinJan23 = kTotalBookCheckinJan23 + uTotalBookCheckinJan23
-      cfoNoBCOPerStudentJan23 = (
-        (parseFloat(kNoBCOPerStudentJan23) + parseFloat(uNoBCOPerStudentJan23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentJan23 = (cfoTotalBookCheckoutJan23 / cfoTotalStudentJan23).toFixed(2)
+
+      //   parseFloat(
+      //   (parseFloat(kNoBCOPerStudentJan23) + parseFloat(uNoBCOPerStudentJan23)) / 2,
+      // ).toFixed(2)
       cfoNoStudentBCOJan23 = kNoStudentBCOJan23 + uNoStudentBCOJan23
-      cfoPercentStudentBCOJan23 = (
-        (parseFloat(kPercentStudentBCOJan23) + parseFloat(uPercentStudentBCOJan23)) /
-        2
+      cfoPercentStudentBCOJan23 = parseFloat(
+        (parseFloat(kPercentStudentBCOJan23) + parseFloat(uPercentStudentBCOJan23)) / 2,
       ).toFixed(2)
 
       cfoNoStudentBCIJan23 = kNoStudentBCIJan23 + uNoStudentBCIJan23
@@ -1712,10 +1729,12 @@ const AnalysisBCO = () => {
       cfoTotalStudentFeb23 = parseInt(kTotalStudentFeb23) + parseInt(uTotalStudentFeb23)
       cfoTotalBookCheckoutFeb23 = kTotalBookCheckoutFeb23 + uTotalBookCheckoutFeb23
       cfoTotalBookCheckinFeb23 = kTotalBookCheckinFeb23 + uTotalBookCheckinFeb23
-      cfoNoBCOPerStudentFeb23 = (
-        (parseFloat(kNoBCOPerStudentFeb23) + parseFloat(uNoBCOPerStudentFeb23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentFeb23 = (cfoTotalBookCheckoutFeb23 / cfoTotalStudentFeb23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentFeb23) + parseFloat(uNoBCOPerStudentFeb23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOFeb23 = kNoStudentBCOFeb23 + uNoStudentBCOFeb23
       cfoPercentStudentBCOFeb23 = (
         (parseFloat(kPercentStudentBCOFeb23) + parseFloat(uPercentStudentBCOFeb23)) /
@@ -2152,10 +2171,12 @@ const AnalysisBCO = () => {
       cfoTotalStudentMar23 = parseInt(kTotalStudentMar23) + parseInt(uTotalStudentMar23)
       cfoTotalBookCheckoutMar23 = kTotalBookCheckoutMar23 + uTotalBookCheckoutMar23
       cfoTotalBookCheckinMar23 = kTotalBookCheckinMar23 + uTotalBookCheckinMar23
-      cfoNoBCOPerStudentMar23 = (
-        (parseFloat(kNoBCOPerStudentMar23) + parseFloat(uNoBCOPerStudentMar23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentMar23 = (cfoTotalBookCheckoutMar23 / cfoTotalStudentMar23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentMar23) + parseFloat(uNoBCOPerStudentMar23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOMar23 = kNoStudentBCOMar23 + uNoStudentBCOMar23
       cfoPercentStudentBCOMar23 = (
         (parseFloat(kPercentStudentBCOMar23) + parseFloat(uPercentStudentBCOMar23)) /
@@ -2592,10 +2613,12 @@ const AnalysisBCO = () => {
       cfoTotalStudentApr23 = parseInt(kTotalStudentApr23) + parseInt(uTotalStudentApr23)
       cfoTotalBookCheckoutApr23 = kTotalBookCheckoutApr23 + uTotalBookCheckoutApr23
       cfoTotalBookCheckinApr23 = kTotalBookCheckinApr23 + uTotalBookCheckinApr23
-      cfoNoBCOPerStudentApr23 = (
-        (parseFloat(kNoBCOPerStudentApr23) + parseFloat(uNoBCOPerStudentApr23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentApr23 = (cfoTotalBookCheckoutApr23 / cfoTotalStudentApr23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentApr23) + parseFloat(uNoBCOPerStudentApr23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOApr23 = kNoStudentBCOApr23 + uNoStudentBCOApr23
       cfoPercentStudentBCOApr23 = (
         (parseFloat(kPercentStudentBCOApr23) + parseFloat(uPercentStudentBCOApr23)) /
@@ -3186,6 +3209,36 @@ const AnalysisBCO = () => {
     setReportData23(reportObject23)
   }
 
+  // Push School BCO analysis chart data
+  const pushSchoolBCOAnalysisChartData = () => {
+    setSchoolBCOAnalysisChartData({
+      labels: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+      ],
+      datasets: [
+        {
+          label: 'Book checkout per child',
+          backgroundColor: ['#ff3333', '#e6d067', '#78c498', '#ebe134'],
+          data: [
+            cfoNoBCOPerStudentJan23,
+            cfoNoBCOPerStudentFeb23,
+            cfoNoBCOPerStudentMar23,
+            cfoNoBCOPerStudentApr23,
+            cfoNoBCOPerStudentMay23,
+          ],
+        },
+      ],
+    })
+  }
+  // Push School BCO analysis chart data
   //console.log('Ukhiya total student: ' + uTotalStudent)
 
   if (isLoading) {
@@ -3264,7 +3317,14 @@ const AnalysisBCO = () => {
             <strong>Analysis Chart-2023</strong>
           </CCardHeader>
           <CCardBody>
-            <strong>Under construction</strong>
+            <CChart
+              type="bar"
+              data={schoolBCOAnalysisChartData}
+              labels="months"
+              width="400px"
+              height="400px"
+              options={{ maintainAspectRatio: false }}
+            />
           </CCardBody>
         </CCard>
       </CCol>
