@@ -45,6 +45,7 @@ const CFOAnalysisBCO = React.lazy(() => import('./views/base/bco/CFOAnalysisBCO'
 const UkhiyaReport = React.lazy(() => import('./views/base/bco/UkhiyaReport'))
 const KutubdiaReport = React.lazy(() => import('./views/base/bco/KutubdiaReport'))
 const AnalysisBCO = React.lazy(() => import('./views/base/bco/AnalysisBCO'))
+const AnalysisBySchool = React.lazy(() => import('./views/base/bco/AnalysisBySchool'))
 
 const WFPSummaryBCOCRF = React.lazy(() => import('./views/base/bco/WFPSummaryBCOCRF'))
 const CFOAnalysisBCOCRF = React.lazy(() => import('./views/base/bco/CFOAnalysisBCOCRF'))
@@ -163,6 +164,7 @@ const routes = [
   { path: '/bco/kutubdia-report', name: 'KutubdiaReport', element: KutubdiaReport },
   { path: '/bco/ukhiya-report', name: 'UkhiyaReport', element: UkhiyaReport },
   { path: '/bco/analyasis-bco-school', name: 'AnalysisBCO', element: AnalysisBCO },
+  { path: '/bco/analyasis-by-school', name: 'AnalysisBySchool', element: AnalysisBySchool },
 
   { path: '/bco/wfp-summary-crf', name: 'WFPSummaryBCOCRF', element: WFPSummaryBCOCRF },
   { path: '/bco/cfo-analysis-crf', name: 'CFOAnalysisBCOCRF', element: CFOAnalysisBCOCRF },

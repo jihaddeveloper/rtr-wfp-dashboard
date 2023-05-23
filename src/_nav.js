@@ -157,8 +157,13 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'School Analysis',
+        name: 'Total BCO Analysis',
         to: '/bco/analyasis-bco-school',
+      },
+      {
+        component: CNavItem,
+        name: 'Analysis By School',
+        to: '/bco/analyasis-by-school',
       },
       {
         component: CNavItem,

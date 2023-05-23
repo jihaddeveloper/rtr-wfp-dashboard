@@ -71,7 +71,10 @@ const AnalysisBCO = () => {
   const [reportData23Apr, setReportData23Apr] = useState([])
 
   // Chart Data
-  const [schoolBCOAnalysisChartData, setSchoolBCOAnalysisChartData] = useState({})
+  const [schoolBCOPerChildChartData, setSchoolBCOPerChildChartData] = useState({})
+  const [schoolTotalBookCheckOutInChartData, setSchoolTotalBookCheckOutInChartData] = useState({})
+  const [schoolNoStudentBCOChartData, setSchoolNoStudentBCOChartData] = useState({})
+  const [schoolNoStudentBCIChartData, setSchoolNoStudentBCIChartData] = useState({})
 
   const [allBCOData, setAllBCOData] = useState([])
 
@@ -468,7 +471,10 @@ const AnalysisBCO = () => {
       pushReportData23(console.log('pushReportData23 called'))
 
       // Chart
-      pushSchoolBCOAnalysisChartData()
+      pushSchoolBCOPerChildChartData()
+      pushSchoolTotalBookCheckOutInChartData()
+      pushSchoolNoStudentBCOChartData()
+      pushSchoolNoStudentBCIChartData()
     }
     call()
     //getSummerizeData(console.log('getSummerizeData called'))
@@ -3210,8 +3216,8 @@ const AnalysisBCO = () => {
   }
 
   // Push School BCO analysis chart data
-  const pushSchoolBCOAnalysisChartData = () => {
-    setSchoolBCOAnalysisChartData({
+  const pushSchoolBCOPerChildChartData = () => {
+    setSchoolBCOPerChildChartData({
       labels: [
         'January',
         'February',
@@ -3225,7 +3231,7 @@ const AnalysisBCO = () => {
       ],
       datasets: [
         {
-          label: 'Book checkout per child',
+          label: '',
           backgroundColor: ['#ff3333', '#e6d067', '#78c498', '#ebe134'],
           data: [
             cfoNoBCOPerStudentJan23,
@@ -3238,8 +3244,145 @@ const AnalysisBCO = () => {
       ],
     })
   }
+
+  const pushSchoolTotalBookCheckOutInChartData = () => {
+    setSchoolTotalBookCheckOutInChartData({
+      labels: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+      ],
+      datasets: [
+        {
+          label: 'Book Checkout',
+          backgroundColor: '#ff3333',
+          borderColor: '#ff3333',
+          pointBackgroundColor: '#ff3333',
+          pointBorderColor: '#fff',
+          data: [
+            cfoTotalBookCheckoutJan23,
+            cfoTotalBookCheckoutFeb23,
+            cfoTotalBookCheckoutMar23,
+            cfoTotalBookCheckoutApr23,
+            cfoTotalBookCheckoutMay23,
+          ],
+        },
+        {
+          label: 'Book Checkin',
+          backgroundColor: '#03fc6f',
+          borderColor: '#03fc6f',
+          pointBackgroundColor: '#03fc6f',
+          pointBorderColor: '#fff',
+          data: [
+            cfoTotalBookCheckinJan23,
+            cfoTotalBookCheckinFeb23,
+            cfoTotalBookCheckinMar23,
+            cfoTotalBookCheckinApr23,
+            cfoTotalBookCheckinMay23,
+          ],
+        },
+      ],
+    })
+  }
+
+  const pushSchoolNoStudentBCOChartData = () => {
+    setSchoolNoStudentBCOChartData({
+      labels: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+      ],
+      datasets: [
+        {
+          label: 'No of Student Checkout',
+          backgroundColor: '#0380fc',
+          borderColor: '#0380fc',
+          pointBackgroundColor: '#0380fc',
+          pointBorderColor: '#fff',
+          data: [
+            cfoNoStudentBCOJan23,
+            cfoNoStudentBCOFeb23,
+            cfoNoStudentBCOMar23,
+            cfoNoStudentBCOApr23,
+            cfoNoStudentBCOMay23,
+          ],
+        },
+        {
+          label: 'Percent of Student Checkout',
+          backgroundColor: '#fc03ce',
+          borderColor: '#fc03ce',
+          pointBackgroundColor: '#fc03ce',
+          pointBorderColor: '#fff',
+          data: [
+            cfoPercentStudentBCOJan23,
+            cfoPercentStudentBCOFeb23,
+            cfoPercentStudentBCOMar23,
+            cfoPercentStudentBCOApr23,
+            cfoPercentStudentBCOMay23,
+          ],
+        },
+      ],
+    })
+  }
+
+  const pushSchoolNoStudentBCIChartData = () => {
+    setSchoolNoStudentBCIChartData({
+      labels: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+      ],
+      datasets: [
+        {
+          label: 'No of Student Checkin',
+          backgroundColor: '#03fc1c',
+          borderColor: '#03fc1c',
+          pointBackgroundColor: '#03fc1c',
+          pointBorderColor: '#fff',
+          data: [
+            cfoNoStudentBCIJan23,
+            cfoNoStudentBCIFeb23,
+            cfoNoStudentBCIMar23,
+            cfoNoStudentBCIApr23,
+            cfoNoStudentBCIMay23,
+          ],
+        },
+        {
+          label: 'Percent of Student Checkin',
+          backgroundColor: '#a503fc',
+          borderColor: '#a503fc',
+          pointBackgroundColor: '#a503fc',
+          pointBorderColor: '#fff',
+          data: [
+            cfoPercentStudentBCIJan23,
+            cfoPercentStudentBCIFeb23,
+            cfoPercentStudentBCIMar23,
+            cfoPercentStudentBCIApr23,
+            cfoPercentStudentBCIMay23,
+          ],
+        },
+      ],
+    })
+  }
   // Push School BCO analysis chart data
-  //console.log('Ukhiya total student: ' + uTotalStudent)
 
   if (isLoading) {
     return (
@@ -3314,12 +3457,57 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Analysis Chart-2023</strong>
+            <strong>Average Book Read by Per Child-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
-              type="bar"
-              data={schoolBCOAnalysisChartData}
+              type="line"
+              data={schoolBCOPerChildChartData}
+              labels="months"
+              width="400px"
+              height="400px"
+              options={{ maintainAspectRatio: false }}
+            />
+          </CCardBody>
+        </CCard>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>Book Checkout Checkin-2023</strong>
+          </CCardHeader>
+          <CCardBody>
+            <CChart
+              type="line"
+              data={schoolTotalBookCheckOutInChartData}
+              labels="months"
+              width="400px"
+              height="400px"
+              options={{ maintainAspectRatio: false }}
+            />
+          </CCardBody>
+        </CCard>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>Student Checkout-2023</strong>
+          </CCardHeader>
+          <CCardBody>
+            <CChart
+              type="line"
+              data={schoolNoStudentBCOChartData}
+              labels="months"
+              width="400px"
+              height="400px"
+              options={{ maintainAspectRatio: false }}
+            />
+          </CCardBody>
+        </CCard>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>Student Checkin-2023</strong>
+          </CCardHeader>
+          <CCardBody>
+            <CChart
+              type="line"
+              data={schoolNoStudentBCIChartData}
               labels="months"
               width="400px"
               height="400px"
