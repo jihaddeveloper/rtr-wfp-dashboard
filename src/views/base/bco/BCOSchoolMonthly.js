@@ -1270,10 +1270,12 @@ const BCOSchoolMonthly = () => {
       cfoTotalStudentJan23 = parseInt(kTotalStudentJan23) + parseInt(uTotalStudentJan23)
       cfoTotalBookCheckoutJan23 = kTotalBookCheckoutJan23 + uTotalBookCheckoutJan23
       cfoTotalBookCheckinJan23 = kTotalBookCheckinJan23 + uTotalBookCheckinJan23
-      cfoNoBCOPerStudentJan23 = (
-        (parseFloat(kNoBCOPerStudentJan23) + parseFloat(uNoBCOPerStudentJan23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentJan23 = (cfoTotalBookCheckoutJan23 / cfoTotalStudentJan23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentJan23) + parseFloat(uNoBCOPerStudentJan23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOJan23 = kNoStudentBCOJan23 + uNoStudentBCOJan23
       cfoPercentStudentBCOJan23 = (
         (parseFloat(kPercentStudentBCOJan23) + parseFloat(uPercentStudentBCOJan23)) /
@@ -1721,10 +1723,11 @@ const BCOSchoolMonthly = () => {
       cfoTotalStudentFeb23 = parseInt(kTotalStudentFeb23) + parseInt(uTotalStudentFeb23)
       cfoTotalBookCheckoutFeb23 = kTotalBookCheckoutFeb23 + uTotalBookCheckoutFeb23
       cfoTotalBookCheckinFeb23 = kTotalBookCheckinFeb23 + uTotalBookCheckinFeb23
-      cfoNoBCOPerStudentFeb23 = (
-        (parseFloat(kNoBCOPerStudentFeb23) + parseFloat(uNoBCOPerStudentFeb23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentFeb23 = (cfoTotalBookCheckoutFeb23 / cfoTotalStudentFeb23).toFixed(2)
+      //   (
+      //   (parseFloat(kNoBCOPerStudentFeb23) + parseFloat(uNoBCOPerStudentFeb23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOFeb23 = kNoStudentBCOFeb23 + uNoStudentBCOFeb23
       cfoPercentStudentBCOFeb23 = (
         (parseFloat(kPercentStudentBCOFeb23) + parseFloat(uPercentStudentBCOFeb23)) /
@@ -2161,10 +2164,12 @@ const BCOSchoolMonthly = () => {
       cfoTotalStudentMar23 = parseInt(kTotalStudentMar23) + parseInt(uTotalStudentMar23)
       cfoTotalBookCheckoutMar23 = kTotalBookCheckoutMar23 + uTotalBookCheckoutMar23
       cfoTotalBookCheckinMar23 = kTotalBookCheckinMar23 + uTotalBookCheckinMar23
-      cfoNoBCOPerStudentMar23 = (
-        (parseFloat(kNoBCOPerStudentMar23) + parseFloat(uNoBCOPerStudentMar23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentMar23 = (cfoTotalBookCheckoutMar23 / cfoTotalStudentMar23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentMar23) + parseFloat(uNoBCOPerStudentMar23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOMar23 = kNoStudentBCOMar23 + uNoStudentBCOMar23
       cfoPercentStudentBCOMar23 = (
         (parseFloat(kPercentStudentBCOMar23) + parseFloat(uPercentStudentBCOMar23)) /
@@ -2601,10 +2606,12 @@ const BCOSchoolMonthly = () => {
       cfoTotalStudentApr23 = parseInt(kTotalStudentApr23) + parseInt(uTotalStudentApr23)
       cfoTotalBookCheckoutApr23 = kTotalBookCheckoutApr23 + uTotalBookCheckoutApr23
       cfoTotalBookCheckinApr23 = kTotalBookCheckinApr23 + uTotalBookCheckinApr23
-      cfoNoBCOPerStudentApr23 = (
-        (parseFloat(kNoBCOPerStudentApr23) + parseFloat(uNoBCOPerStudentApr23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentApr23 = (cfoTotalBookCheckoutApr23 / cfoTotalStudentApr23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentApr23) + parseFloat(uNoBCOPerStudentApr23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOApr23 = kNoStudentBCOApr23 + uNoStudentBCOApr23
       cfoPercentStudentBCOApr23 = (
         (parseFloat(kPercentStudentBCOApr23) + parseFloat(uPercentStudentBCOApr23)) /

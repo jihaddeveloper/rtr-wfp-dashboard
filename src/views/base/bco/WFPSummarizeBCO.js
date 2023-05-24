@@ -583,10 +583,12 @@ const WFPSummarizeBCO = () => {
       cfoTotalStudent = kTotalStudent + uTotalStudent
       cfoTotalBookCheckout = kTotalBookCheckout + uTotalBookCheckout
       cfoTotalBookCheckin = kTotalBookCheckin + uTotalBookCheckin
-      cfoNoBCOPerStudent = (
-        (parseFloat(uNoBCOPerStudent) + parseFloat(kNoBCOPerStudent)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudent = (cfoTotalBookCheckout / cfoTotalStudent).toFixed(2)
+
+      //   (
+      //   (parseFloat(uNoBCOPerStudent) + parseFloat(kNoBCOPerStudent)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
       cfoPercentStudentBCO = (
         (parseFloat(uPercentStudentBCO) + parseFloat(kPercentStudentBCO)) /
