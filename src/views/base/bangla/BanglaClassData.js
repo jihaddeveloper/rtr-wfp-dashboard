@@ -105,26 +105,6 @@ const BanglaClassData = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report Bangla Class</strong>
-          </CCardHeader>
-          <CCardBody>
-            <strong>Under Construction</strong>
-            {/* <CButton color="primary" href="/base/construction">
-              Summarize Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              CFO Analysis Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Ukhiya Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Kutubdia Report
-            </CButton> */}
-          </CCardBody>
-        </CCard>
-        <CCard className="mb-4">
-          <CCardHeader>
             <strong>ALL Bangla Class Observation</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
@@ -203,135 +183,201 @@ const BanglaClassData = () => {
                 {
                   title: 'totalAdmittedStudent',
                   field: 'totalAdmittedStudent',
+                  filtering: false,
                 },
                 {
                   title: 'totalAdmittedGirl',
                   field: 'totalAdmittedGirl',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalAdmittedBoy',
                   field: 'totalAdmittedBoy',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalPresentStudent',
                   field: 'totalPresentStudent',
+                  filtering: false,
                 },
                 {
                   title: 'totalPresentGirl',
                   field: 'totalPresentGirl',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalPresentBoy',
                   field: 'totalPresentBoy',
+                  filtering: false,
                 },
                 {
                   title: 'note',
                   field: 'note',
                 },
 
-                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
-                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
-                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
+                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1', filtering: false },
+                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2', filtering: false },
+                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3', filtering: false },
 
-                { title: 'ind1PhonemicAwarenessStatus', field: 'ind1PhonemicAwarenessStatus' },
-                { title: 'ind1PhonemicAwarenessNotes', field: 'ind1PhonemicAwarenessNotes' },
+                {
+                  title: 'ind1PhonemicAwarenessStatus',
+                  field: 'ind1PhonemicAwarenessStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind1PhonemicAwarenessNotes',
+                  field: 'ind1PhonemicAwarenessNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind2LetterIdentificationStatus',
                   field: 'ind2LetterIdentificationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind2LetterIdentificationNotes',
                   field: 'ind2LetterIdentificationNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind3VocabularyIdentificationStatus',
                   field: 'ind3VocabularyIdentificationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind3VocabularyIdentificationNotes',
                   field: 'ind3VocabularyIdentificationNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind4FluencyIdentificationStatus',
                   field: 'ind4FluencyIdentificationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind4FluencyIdentificationNotes',
                   field: 'ind4FluencyIdentificationNotes',
+                  filtering: false,
                 },
 
-                { title: 'ind5ComprehensionStatus', field: 'ind5ComprehensionStatus' },
-                { title: 'ind5ComprehensionNotes', field: 'ind5ComprehensionNotes' },
+                {
+                  title: 'ind5ComprehensionStatus',
+                  field: 'ind5ComprehensionStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind5ComprehensionNotes',
+                  field: 'ind5ComprehensionNotes',
+                  filtering: false,
+                },
 
-                { title: 'ind6WritingActivitiesStatus', field: 'ind6WritingActivitiesStatus' },
-                { title: 'ind6WritingActivitiesNotes', field: 'ind6WritingActivitiesNotes' },
+                {
+                  title: 'ind6WritingActivitiesStatus',
+                  field: 'ind6WritingActivitiesStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind6WritingActivitiesNotes',
+                  field: 'ind6WritingActivitiesNotes',
+                  filtering: false,
+                },
 
-                { title: 'ind7IDoWeDoYouDoStatus', field: 'ind7IDoWeDoYouDoStatus' },
-                { title: 'ind7IDoWeDoYouDoNotes', field: 'ind7IDoWeDoYouDoNotes' },
+                {
+                  title: 'ind7IDoWeDoYouDoStatus',
+                  field: 'ind7IDoWeDoYouDoStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind7IDoWeDoYouDoNotes',
+                  field: 'ind7IDoWeDoYouDoNotes',
+                  filtering: false,
+                },
 
-                { title: 'ind8GroupWorkStatus', field: 'ind8GroupWorkStatus' },
-                { title: 'ind8GroupWorkNotes', field: 'ind8GroupWorkNotes' },
+                { title: 'ind8GroupWorkStatus', field: 'ind8GroupWorkStatus', filtering: false },
+                { title: 'ind8GroupWorkNotes', field: 'ind8GroupWorkNotes', filtering: false },
 
-                { title: 'ind9TimeOnTaskStatus', field: 'ind9TimeOnTaskStatus' },
-                { title: 'ind9TimeOnTaskNotes', field: 'ind9TimeOnTaskNotes' },
+                { title: 'ind9TimeOnTaskStatus', field: 'ind9TimeOnTaskStatus', filtering: false },
+                { title: 'ind9TimeOnTaskNotes', field: 'ind9TimeOnTaskNotes', filtering: false },
 
-                { title: 'ind10UseTeachingAidStatus', field: 'ind10UseTeachingAidStatus' },
-                { title: 'ind10UseTeachingAidNotes', field: 'ind10UseTeachingAidNotes' },
+                {
+                  title: 'ind10UseTeachingAidStatus',
+                  field: 'ind10UseTeachingAidStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind10UseTeachingAidNotes',
+                  field: 'ind10UseTeachingAidNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind11ContinuityOfLessonsStatus',
                   field: 'ind11ContinuityOfLessonsStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind11ContinuityOfLessonsNotes',
                   field: 'ind11ContinuityOfLessonsNotes',
+                  filtering: false,
                 },
 
-                { title: 'ind12AssessmentStatus', field: 'ind12AssessmentStatus' },
-                { title: 'ind12AssessmentNotes', field: 'ind12AssessmentNotes' },
+                {
+                  title: 'ind12AssessmentStatus',
+                  field: 'ind12AssessmentStatus',
+                  filtering: false,
+                },
+                { title: 'ind12AssessmentNotes', field: 'ind12AssessmentNotes', filtering: false },
 
-                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
-                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
-                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3', filtering: false },
 
-                { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
-                { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
+                { title: 'coachingSupportInd1', field: 'coachingSupportInd1', filtering: false },
+                { title: 'coachingSupportInd2', field: 'coachingSupportInd2', filtering: false },
 
-                { title: 'coachingSupportDetailsInd1', field: 'coachingSupportDetailsInd1' },
-                { title: 'coachingSupportDetailsInd2', field: 'coachingSupportDetailsInd2' },
+                {
+                  title: 'coachingSupportDetailsInd1',
+                  field: 'coachingSupportDetailsInd1',
+                  filtering: false,
+                },
+                {
+                  title: 'coachingSupportDetailsInd2',
+                  field: 'coachingSupportDetailsInd2',
+                  filtering: false,
+                },
 
-                { title: 'agreedStatement1', field: 'agreedStatement1' },
-                { title: 'agreedStatement2', field: 'agreedStatement2' },
+                { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
+                { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
 
-                { title: 'question1', field: 'question1' },
+                { title: 'question1', field: 'question1', filtering: false },
 
-                { title: 'student1', field: 'student1' },
-                { title: 'student2', field: 'student2' },
-                { title: 'student3', field: 'student3' },
-                { title: 'student4', field: 'student4' },
-                { title: 'student5', field: 'student5' },
+                { title: 'student1', field: 'student1', filtering: false },
+                { title: 'student2', field: 'student2', filtering: false },
+                { title: 'student3', field: 'student3', filtering: false },
+                { title: 'student4', field: 'student4', filtering: false },
+                { title: 'student5', field: 'student5', filtering: false },
 
-                { title: 'noRightFor1', field: 'noRightFor1' },
-                { title: 'noWrongFor1', field: 'noWrongFor1' },
-                { title: 'totalFor1', field: 'totalFor1' },
-                { title: 'noRightFor2', field: 'noRightFor2' },
-                { title: 'noWrongFor2', field: 'noWrongFor2' },
-                { title: 'totalFor2', field: 'totalFor2' },
-                { title: 'noRightFor3', field: 'noRightFor3' },
-                { title: 'noWrongFor3', field: 'noWrongFor3' },
-                { title: 'totalFor3', field: 'totalFor3' },
-                { title: 'noRightFor4', field: 'noRightFor4' },
-                { title: 'noWrongFor4', field: 'noWrongFor4' },
-                { title: 'totalFor4', field: 'totalFor4' },
-                { title: 'noRightFor5', field: 'noRightFor5' },
-                { title: 'noWrongFor5', field: 'noWrongFor5' },
-                { title: 'totalFor5', field: 'totalFor5' },
+                { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
+                { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
+                { title: 'totalFor1', field: 'totalFor1', filtering: false },
+                { title: 'noRightFor2', field: 'noRightFor2', filtering: false },
+                { title: 'noWrongFor2', field: 'noWrongFor2', filtering: false },
+                { title: 'totalFor2', field: 'totalFor2', filtering: false },
+                { title: 'noRightFor3', field: 'noRightFor3', filtering: false },
+                { title: 'noWrongFor3', field: 'noWrongFor3', filtering: false },
+                { title: 'totalFor3', field: 'totalFor3', filtering: false },
+                { title: 'noRightFor4', field: 'noRightFor4', filtering: false },
+                { title: 'noWrongFor4', field: 'noWrongFor4', filtering: false },
+                { title: 'totalFor4', field: 'totalFor4', filtering: false },
+                { title: 'noRightFor5', field: 'noRightFor5', filtering: false },
+                { title: 'noWrongFor5', field: 'noWrongFor5', filtering: false },
+                { title: 'totalFor5', field: 'totalFor5', filtering: false },
               ]}
               // actions={[
               //   {
@@ -354,6 +400,8 @@ const BanglaClassData = () => {
               options={{
                 exportButton: true,
                 exportAllData: true,
+                search: true,
+                filtering: true,
                 grouping: true,
                 sorting: true,
                 pageSize: 5,

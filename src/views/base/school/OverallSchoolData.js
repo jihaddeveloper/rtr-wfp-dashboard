@@ -104,26 +104,6 @@ const OverallSchoolData = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report Overall School</strong>
-          </CCardHeader>
-          <CCardBody>
-            <strong>Under Construction</strong>
-            {/* <CButton color="primary" href="/base/construction">
-              Summarize Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              CFO Analysis Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Ukhiya Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Kutubdia Report
-            </CButton> */}
-          </CCardBody>
-        </CCard>
-        <CCard className="mb-4">
-          <CCardHeader>
             <strong>ALL Overall School </strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
@@ -179,185 +159,285 @@ const OverallSchoolData = () => {
                   field: 'note',
                 },
 
-                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
-                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
-                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
+                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1', filtering: false },
+                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2', filtering: false },
+                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3', filtering: false },
 
-                { title: 'prePrimaryClassObservation', field: 'prePrimaryClassObservation' },
+                {
+                  title: 'prePrimaryClassObservation',
+                  field: 'prePrimaryClassObservation',
+                  filtering: false,
+                },
                 {
                   title: 'prePrimaryClassTeacherPriority',
                   field: 'prePrimaryClassTeacherPriority',
+                  filtering: false,
                 },
                 {
                   title: 'oneBanglaClassObservation',
                   field: 'oneBanglaClassObservation',
+                  filtering: false,
                 },
                 {
                   title: 'oneBanglaClassTeacherPriority',
                   field: 'oneBanglaClassTeacherPriority',
+                  filtering: false,
                 },
                 {
                   title: 'twoBanglaClassObservation',
                   field: 'twoBanglaClassObservation',
+                  filtering: false,
                 },
-                { title: 'twoBanglaClassTeacherPriority', field: 'twoBanglaClassTeacherPriority' },
-                { title: 'classObservationComment', field: 'classObservationComment' },
+                {
+                  title: 'twoBanglaClassTeacherPriority',
+                  field: 'twoBanglaClassTeacherPriority',
+                  filtering: false,
+                },
+                {
+                  title: 'classObservationComment',
+                  field: 'classObservationComment',
+                  filtering: false,
+                },
 
-                { title: 'prePrimarySRMObservation', field: 'prePrimarySRMObservation' },
-                { title: 'prePrimarySRMTeacherPriority', field: 'prePrimarySRMTeacherPriority' },
-                { title: 'oneSRMObservation', field: 'oneSRMObservation' },
-                { title: 'oneSRMTeacherPriority', field: 'oneSRMTeacherPriority' },
-                { title: 'twoSRMObservation', field: 'twoSRMObservation' },
-                { title: 'twoSRMTeacherPriority', field: 'twoSRMTeacherPriority' },
-                { title: 'srmCommentPPOneTwo', field: 'srmCommentPPOneTwo' },
+                {
+                  title: 'prePrimarySRMObservation',
+                  field: 'prePrimarySRMObservation',
+                  filtering: false,
+                },
+                {
+                  title: 'prePrimarySRMTeacherPriority',
+                  field: 'prePrimarySRMTeacherPriority',
+                  filtering: false,
+                },
+                { title: 'oneSRMObservation', field: 'oneSRMObservation', filtering: false },
+                {
+                  title: 'oneSRMTeacherPriority',
+                  field: 'oneSRMTeacherPriority',
+                  filtering: false,
+                },
+                { title: 'twoSRMObservation', field: 'twoSRMObservation', filtering: false },
+                {
+                  title: 'twoSRMTeacherPriority',
+                  field: 'twoSRMTeacherPriority',
+                  filtering: false,
+                },
+                { title: 'srmCommentPPOneTwo', field: 'srmCommentPPOneTwo', filtering: false },
 
-                { title: 'threeSRMObservation', field: 'threeSRMObservation' },
-                { title: 'threeSRMTeacherPriority', field: 'threeSRMTeacherPriority' },
-                { title: 'fourSRMObservation', field: 'fourSRMObservation' },
-                { title: 'fourSRMTeacherPriority', field: 'fourSRMTeacherPriority' },
-                { title: 'fiveSRMObservation', field: 'fiveSRMObservation' },
-                { title: 'fiveSRMTeacherPriority', field: 'fiveSRMTeacherPriority' },
-                { title: 'srmCommentThreeFourFive', field: 'srmCommentThreeFourFive' },
+                { title: 'threeSRMObservation', field: 'threeSRMObservation', filtering: false },
+                {
+                  title: 'threeSRMTeacherPriority',
+                  field: 'threeSRMTeacherPriority',
+                  filtering: false,
+                },
+                { title: 'fourSRMObservation', field: 'fourSRMObservation', filtering: false },
+                {
+                  title: 'fourSRMTeacherPriority',
+                  field: 'fourSRMTeacherPriority',
+                  filtering: false,
+                },
+                { title: 'fiveSRMObservation', field: 'fiveSRMObservation', filtering: false },
+                {
+                  title: 'fiveSRMTeacherPriority',
+                  field: 'fiveSRMTeacherPriority',
+                  filtering: false,
+                },
+                {
+                  title: 'srmCommentThreeFourFive',
+                  field: 'srmCommentThreeFourFive',
+                  filtering: false,
+                },
 
-                { title: 'other', field: 'other' },
+                { title: 'other', field: 'other', filtering: false },
 
-                { title: 'ind1AllTeacherTrainedStatus', field: 'ind1AllTeacherTrainedStatus' },
-                { title: 'ind1AllTeacherTrainedNotes', field: 'ind1AllTeacherTrainedNotes' },
+                {
+                  title: 'ind1AllTeacherTrainedStatus',
+                  field: 'ind1AllTeacherTrainedStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind1AllTeacherTrainedNotes',
+                  field: 'ind1AllTeacherTrainedNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind2FollowedRTRTrainingSixtyStatus',
                   field: 'ind2FollowedRTRTrainingSixtyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind2FollowedRTRTrainingSixtyNotes',
                   field: 'ind2FollowedRTRTrainingSixtyNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind3RTRMaterialStatus',
                   field: 'ind3RTRMaterialStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind3RTRMaterialNotes',
                   field: 'ind3RTRMaterialNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind4InfluenceToBCOFiftyStatus',
                   field: 'ind4InfluenceToBCOFiftyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind4InfluenceToBCOFiftyNotes',
                   field: 'ind4InfluenceToBCOFiftyNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind5PrePrimaryBanglaSRMSeventyStatus',
                   field: 'ind5PrePrimaryBanglaSRMSeventyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind5PrePrimaryBanglaSRMSeventyNotes',
                   field: 'ind5PrePrimaryBanglaSRMSeventyNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind6BanglaClassResultFortyStatus',
                   field: 'ind6BanglaClassResultFortyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind6BanglaClassResultFortyNotes',
                   field: 'ind6BanglaClassResultFortyNotes',
+                  filtering: false,
                 },
-                { title: 'ind7BanglaSRMStatus', field: 'ind7BanglaSRMStatus' },
-                { title: 'ind7BanglaSRMNotes', field: 'ind7BanglaSRMNotes' },
-                { title: 'ind8SMCMeetingStatus', field: 'ind8SMCMeetingStatus' },
-                { title: 'ind8SMCMeetingNotes', field: 'ind8SMCMeetingNotes' },
-                { title: 'ind9ReadingMaterialStatus', field: 'ind9ReadingMaterialStatus' },
-                { title: 'ind9ReadingMaterialNotes', field: 'ind9ReadingMaterialNotes' },
+                { title: 'ind7BanglaSRMStatus', field: 'ind7BanglaSRMStatus', filtering: false },
+                { title: 'ind7BanglaSRMNotes', field: 'ind7BanglaSRMNotes', filtering: false },
+                { title: 'ind8SMCMeetingStatus', field: 'ind8SMCMeetingStatus', filtering: false },
+                { title: 'ind8SMCMeetingNotes', field: 'ind8SMCMeetingNotes', filtering: false },
+                {
+                  title: 'ind9ReadingMaterialStatus',
+                  field: 'ind9ReadingMaterialStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind9ReadingMaterialNotes',
+                  field: 'ind9ReadingMaterialNotes',
+                  filtering: false,
+                },
                 {
                   title: 'ind10FollowedRtRTrainingEightyStatus',
                   field: 'ind10FollowedRtRTrainingEightyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind10FollowedRtRTrainingEightyNotes',
                   field: 'ind10FollowedRtRTrainingEightyNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind11InfluenceToBCOSeventyStatus',
                   field: 'ind11InfluenceToBCOSeventyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind11InfluenceToBCOSeventyNotes',
                   field: 'ind11InfluenceToBCOSeventyNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind12PrePrimaryBanglaSRMEightyStatus',
                   field: 'ind12PrePrimaryBanglaSRMEightyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind12PrePrimaryBanglaSRMEightyNotes',
                   field: 'ind12PrePrimaryBanglaSRMEightyNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind13BanglaClassResultSixtyStatus',
                   field: 'ind13BanglaClassResultSixtyStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind13BanglaClassResultSixtyNotes',
                   field: 'ind13BanglaClassResultSixtyNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind14MeetingDiscussionStatus',
                   field: 'ind14MeetingDiscussionStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind14MeetingDiscussionNotes',
                   field: 'ind14MeetingDiscussionNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind15LastMonthObservationStatus',
                   field: 'ind15LastMonthObservationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind15LastMonthObservationNotes',
                   field: 'ind15LastMonthObservationNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind16StudentTrackingStatus',
                   field: 'ind16StudentTrackingStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind16StudentTrackingNotes',
                   field: 'ind16StudentTrackingNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind17GovtOfficialVisitStatus',
                   field: 'ind17GovtOfficialVisitStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind17GovtOfficialVisitNotes',
                   field: 'ind17GovtOfficialVisitNotes',
+                  filtering: false,
                 },
                 {
                   title: 'ind18ParentsSMCParticipationStatus',
                   field: 'ind18ParentsSMCParticipationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind18ParentsSMCParticipationNotes',
                   field: 'ind18ParentsSMCParticipationNotes',
+                  filtering: false,
                 },
 
-                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
-                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
-                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3', filtering: false },
 
-                { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
-                { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
+                { title: 'coachingSupportInd1', field: 'coachingSupportInd1', filtering: false },
+                { title: 'coachingSupportInd2', field: 'coachingSupportInd2', filtering: false },
 
-                { title: 'coachingSupportDetailsInd1', field: 'coachingSupportDetailsInd1' },
-                { title: 'coachingSupportDetailsInd2', field: 'coachingSupportDetailsInd2' },
+                {
+                  title: 'coachingSupportDetailsInd1',
+                  field: 'coachingSupportDetailsInd1',
+                  filtering: false,
+                },
+                {
+                  title: 'coachingSupportDetailsInd2',
+                  field: 'coachingSupportDetailsInd2',
+                  filtering: false,
+                },
 
-                { title: 'agreedStatement1', field: 'agreedStatement1' },
-                { title: 'agreedStatement2', field: 'agreedStatement2' },
+                { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
+                { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               // actions={[
               //   {
@@ -382,6 +462,8 @@ const OverallSchoolData = () => {
                 exportAllData: true,
                 grouping: true,
                 sorting: true,
+                filtering: true,
+                search: true,
                 pageSize: 5,
                 pageSizeOptions: [5, 10, 20],
                 maxBodyHeight: '600px',

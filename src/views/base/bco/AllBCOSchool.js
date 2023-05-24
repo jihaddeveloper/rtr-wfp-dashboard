@@ -1209,430 +1209,830 @@ const AllBCOSchool = () => {
                       },
                       { title: 'lfName', field: 'lfName', type: 'string' },
                       { title: 'note', field: 'note', type: 'string' },
-                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
-                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },
-                      { title: 'schoolTotalNoStudent', field: 'schoolTotalNoStudent' },
 
-                      { title: 'schoolTotalNoGirlBC', field: 'schoolTotalNoGirlBC' },
-                      { title: 'schoolTotalNoBoyBC', field: 'schoolTotalNoBoyBC' },
-                      { title: 'schoolTotalNoStudentBC', field: 'schoolTotalNoStudentBC' },
+                      { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl', filtering: false },
+                      { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy', filtering: false },
+                      {
+                        title: 'schoolTotalNoStudent',
+                        field: 'schoolTotalNoStudent',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoBookBC', field: 'schoolTotalNoBookBC' },
+                      {
+                        title: 'schoolTotalNoGirlBC',
+                        field: 'schoolTotalNoGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'schoolTotalNoBoyBC',
+                        field: 'schoolTotalNoBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'schoolTotalNoStudentBC',
+                        field: 'schoolTotalNoStudentBC',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoStudentBCIn', field: 'schoolTotalNoStudentBCIn' },
+                      {
+                        title: 'schoolTotalNoBookBC',
+                        field: 'schoolTotalNoBookBC',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoBookBCIn', field: 'schoolTotalNoBookBCIn' },
+                      {
+                        title: 'schoolTotalNoStudentBCIn',
+                        field: 'schoolTotalNoStudentBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoSpStudent', field: 'schoolTotalNoSpStudent' },
+                      {
+                        title: 'schoolTotalNoBookBCIn',
+                        field: 'schoolTotalNoBookBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoSpStudentBC', field: 'schoolTotalNoSpStudentBC' },
+                      {
+                        title: 'schoolTotalNoSpStudent',
+                        field: 'schoolTotalNoSpStudent',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoSpBookBC', field: 'schoolTotalNoSpBookBC' },
+                      {
+                        title: 'schoolTotalNoSpStudentBC',
+                        field: 'schoolTotalNoSpStudentBC',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoSpStudentBCIn', field: 'schoolTotalNoSpStudentBCIn' },
+                      {
+                        title: 'schoolTotalNoSpBookBC',
+                        field: 'schoolTotalNoSpBookBC',
+                        filtering: false,
+                      },
 
-                      { title: 'schoolTotalNoSpBookBCIn', field: 'schoolTotalNoSpBookBCIn' },
+                      {
+                        title: 'schoolTotalNoSpStudentBCIn',
+                        field: 'schoolTotalNoSpStudentBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy' },
-                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl' },
-                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal' },
+                      {
+                        title: 'schoolTotalNoSpBookBCIn',
+                        field: 'schoolTotalNoSpBookBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC' },
-                      { title: 'priPrimaryNoGirlBC', field: 'priPrimaryNoGirlBC' },
-                      { title: 'priPrimaryNoTotalBC', field: 'priPrimaryNoTotalBC' },
+                      { title: 'priPrimaryBoy', field: 'priPrimaryBoy', filtering: false },
+                      { title: 'priPrimaryGirl', field: 'priPrimaryGirl', filtering: false },
+                      { title: 'priPrimaryTotal', field: 'priPrimaryTotal', filtering: false },
 
-                      { title: 'priPrimaryNoBookBoyBC', field: 'priPrimaryNoBookBoyBC' },
-                      { title: 'priPrimaryNoBookGirlBC', field: 'priPrimaryNoBookGirlBC' },
-                      { title: 'priPrimaryNoBookTotalBC', field: 'priPrimaryNoBookTotalBC' },
+                      { title: 'priPrimaryNoBoyBC', field: 'priPrimaryNoBoyBC', filtering: false },
+                      {
+                        title: 'priPrimaryNoGirlBC',
+                        field: 'priPrimaryNoGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoTotalBC',
+                        field: 'priPrimaryNoTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy' },
-                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl' },
-                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal' },
+                      {
+                        title: 'priPrimaryNoBookBoyBC',
+                        field: 'priPrimaryNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoBookGirlBC',
+                        field: 'priPrimaryNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoBookTotalBC',
+                        field: 'priPrimaryNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'priPrimaryNoSpBoyBC', field: 'priPrimaryNoSpBoyBC' },
-                      { title: 'priPrimaryNoSpGirlBC', field: 'priPrimaryNoSpGirlBC' },
-                      { title: 'priPrimaryNoSpTotalBC', field: 'priPrimaryNoSpTotalBC' },
+                      { title: 'priPrimarySpBoy', field: 'priPrimarySpBoy', filtering: false },
+                      { title: 'priPrimarySpGirl', field: 'priPrimarySpGirl', filtering: false },
+                      { title: 'priPrimarySpTotal', field: 'priPrimarySpTotal', filtering: false },
+
+                      {
+                        title: 'priPrimaryNoSpBoyBC',
+                        field: 'priPrimaryNoSpBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoSpGirlBC',
+                        field: 'priPrimaryNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoSpTotalBC',
+                        field: 'priPrimaryNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'priPrimaryNoBookSpBoyBC',
                         field: 'priPrimaryNoBookSpBoyBC',
+                        filtering: false,
                       },
                       {
                         title: 'priPrimaryNoBookSpGirlBC',
                         field: 'priPrimaryNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'priPrimaryNoBookSpTotalBC',
                         field: 'priPrimaryNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'classOneBoy', field: 'classOneBoy' },
-                      { title: 'classOneGirl', field: 'classOneGirl' },
-                      { title: 'classOneTotal', field: 'classOneTotal' },
+                      { title: 'classOneBoy', field: 'classOneBoy', filtering: false },
+                      { title: 'classOneGirl', field: 'classOneGirl', filtering: false },
+                      { title: 'classOneTotal', field: 'classOneTotal', filtering: false },
 
-                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC' },
-                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC' },
-                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC' },
+                      { title: 'classOneNoBoyBC', field: 'classOneNoBoyBC', filtering: false },
+                      { title: 'classOneNoGirlBC', field: 'classOneNoGirlBC', filtering: false },
+                      { title: 'classOneNoTotalBC', field: 'classOneNoTotalBC', filtering: false },
 
-                      { title: 'classOneNoBookBoyBC', field: 'classOneNoBookBoyBC' },
-                      { title: 'classOneNoBookGirlBC', field: 'classOneNoBookGirlBC' },
-                      { title: 'classOneNoBookTotalBC', field: 'classOneNoBookTotalBC' },
+                      {
+                        title: 'classOneNoBookBoyBC',
+                        field: 'classOneNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classOneNoBookGirlBC',
+                        field: 'classOneNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classOneNoBookTotalBC',
+                        field: 'classOneNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classOneSpBoy', field: 'classOneSpBoy' },
-                      { title: 'classOneSpGirl', field: 'classOneSpGirl' },
-                      { title: 'classOneSpTotal', field: 'classOneSpTotal' },
+                      { title: 'classOneSpBoy', field: 'classOneSpBoy', filtering: false },
+                      { title: 'classOneSpGirl', field: 'classOneSpGirl', filtering: false },
+                      { title: 'classOneSpTotal', field: 'classOneSpTotal', filtering: false },
 
-                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC' },
-                      { title: 'classOneNoSpGirlBC', field: 'classOneNoSpGirlBC' },
-                      { title: 'classOneNoSpTotalBC', field: 'classOneNoSpTotalBC' },
+                      { title: 'classOneNoSpBoyBC', field: 'classOneNoSpBoyBC', filtering: false },
+                      {
+                        title: 'classOneNoSpGirlBC',
+                        field: 'classOneNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classOneNoSpTotalBC',
+                        field: 'classOneNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'classOneNoBookSpBoyBC',
                         field: 'classOneNoBookSpBoyBC',
+                        filtering: false,
                       },
                       {
                         title: 'classOneNoBookSpGirlBC',
                         field: 'classOneNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'classOneNoBookSpTotalBC',
                         field: 'classOneNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'classTwoBoy', field: 'classTwoBoy' },
-                      { title: 'classTwoGirl', field: 'classTwoGirl' },
-                      { title: 'classTwoTotal', field: 'classTwoTotal' },
+                      { title: 'classTwoBoy', field: 'classTwoBoy', filtering: false },
+                      { title: 'classTwoGirl', field: 'classTwoGirl', filtering: false },
+                      { title: 'classTwoTotal', field: 'classTwoTotal', filtering: false },
 
-                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC' },
-                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC' },
-                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC' },
+                      { title: 'classTwoNoBoyBC', field: 'classTwoNoBoyBC', filtering: false },
+                      { title: 'classTwoNoGirlBC', field: 'classTwoNoGirlBC', filtering: false },
+                      { title: 'classTwoNoTotalBC', field: 'classTwoNoTotalBC', filtering: false },
 
-                      { title: 'classTwoNoBookBoyBC', field: 'classTwoNoBookBoyBC' },
-                      { title: 'classTwoNoBookGirlBC', field: 'classTwoNoBookGirlBC' },
-                      { title: 'classTwoNoBookTotalBC', field: 'classTwoNoBookTotalBC' },
+                      {
+                        title: 'classTwoNoBookBoyBC',
+                        field: 'classTwoNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classTwoNoBookGirlBC',
+                        field: 'classTwoNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classTwoNoBookTotalBC',
+                        field: 'classTwoNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy' },
-                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl' },
-                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal' },
+                      { title: 'classTwoSpBoy', field: 'classTwoSpBoy', filtering: false },
+                      { title: 'classTwoSpGirl', field: 'classTwoSpGirl', filtering: false },
+                      { title: 'classTwoSpTotal', field: 'classTwoSpTotal', filtering: false },
 
-                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC' },
-                      { title: 'classTwoNoSpGirlBC', field: 'classTwoNoSpGirlBC' },
-                      { title: 'classTwoNoSpTotalBC', field: 'classTwoNoSpTotalBC' },
+                      { title: 'classTwoNoSpBoyBC', field: 'classTwoNoSpBoyBC', filtering: false },
+                      {
+                        title: 'classTwoNoSpGirlBC',
+                        field: 'classTwoNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classTwoNoSpTotalBC',
+                        field: 'classTwoNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'classTwoNoBookSpBoyBC',
                         field: 'classTwoNoBookSpBoyBC',
+                        filtering: false,
                       },
                       {
                         title: 'classTwoNoBookSpGirlBC',
                         field: 'classTwoNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'classTwoNoBookSpTotalBC',
                         field: 'classTwoNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'classThreeBoy', field: 'classThreeBoy' },
-                      { title: 'classThreeGirl', field: 'classThreeGirl' },
-                      { title: 'classThreeTotal', field: 'classThreeTotal' },
+                      { title: 'classThreeBoy', field: 'classThreeBoy', filtering: false },
+                      { title: 'classThreeGirl', field: 'classThreeGirl', filtering: false },
+                      { title: 'classThreeTotal', field: 'classThreeTotal', filtering: false },
 
-                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC' },
-                      { title: 'classThreeNoGirlBC', field: 'classThreeNoGirlBC' },
-                      { title: 'classThreeNoTotalBC', field: 'classThreeNoTotalBC' },
+                      { title: 'classThreeNoBoyBC', field: 'classThreeNoBoyBC', filtering: false },
+                      {
+                        title: 'classThreeNoGirlBC',
+                        field: 'classThreeNoGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoTotalBC',
+                        field: 'classThreeNoTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classThreeNoBookBoyBC', field: 'classThreeNoBookBoyBC' },
-                      { title: 'classThreeNoBookGirlBC', field: 'classThreeNoBookGirlBC' },
-                      { title: 'classThreeNoBookTotalBC', field: 'classThreeNoBookTotalBC' },
+                      {
+                        title: 'classThreeNoBookBoyBC',
+                        field: 'classThreeNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoBookGirlBC',
+                        field: 'classThreeNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoBookTotalBC',
+                        field: 'classThreeNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy' },
-                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl' },
-                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal' },
+                      { title: 'classThreeSpBoy', field: 'classThreeSpBoy', filtering: false },
+                      { title: 'classThreeSpGirl', field: 'classThreeSpGirl', filtering: false },
+                      { title: 'classThreeSpTotal', field: 'classThreeSpTotal', filtering: false },
 
-                      { title: 'classThreeNoSpBoyBC', field: 'classThreeNoSpBoyBC' },
-                      { title: 'classThreeNoSpGirlBC', field: 'classThreeNoSpGirlBC' },
-                      { title: 'classThreeNoSpTotalBC', field: 'classThreeNoSpTotalBC' },
+                      {
+                        title: 'classThreeNoSpBoyBC',
+                        field: 'classThreeNoSpBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoSpGirlBC',
+                        field: 'classThreeNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoSpTotalBC',
+                        field: 'classThreeNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'classThreeNoBookSpBoyBC',
                         field: 'classThreeNoBookSpBoyBC',
+
+                        filtering: false,
                       },
                       {
                         title: 'classThreeNoBookSpGirlBC',
                         field: 'classThreeNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'classThreeNoBookSpTotalBC',
                         field: 'classThreeNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'classFourBoy', field: 'classFourBoy' },
-                      { title: 'classFourGirl', field: 'classFourGirl' },
-                      { title: 'classFourTotal', field: 'classFourTotal' },
+                      { title: 'classFourBoy', field: 'classFourBoy', filtering: false },
+                      { title: 'classFourGirl', field: 'classFourGirl', filtering: false },
+                      { title: 'classFourTotal', field: 'classFourTotal', filtering: false },
 
-                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC' },
-                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC' },
-                      { title: 'classFourNoTotalBC', field: 'classFourNoTotalBC' },
+                      { title: 'classFourNoBoyBC', field: 'classFourNoBoyBC', filtering: false },
+                      { title: 'classFourNoGirlBC', field: 'classFourNoGirlBC', filtering: false },
+                      {
+                        title: 'classFourNoTotalBC',
+                        field: 'classFourNoTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classFourNoBookBoyBC', field: 'classFourNoBookBoyBC' },
-                      { title: 'classFourNoBookGirlBC', field: 'classFourNoBookGirlBC' },
-                      { title: 'classFourNoBookTotalBC', field: 'classFourNoBookTotalBC' },
+                      {
+                        title: 'classFourNoBookBoyBC',
+                        field: 'classFourNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoBookGirlBC',
+                        field: 'classFourNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoBookTotalBC',
+                        field: 'classFourNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classFourSpBoy', field: 'classFourSpBoy' },
-                      { title: 'classFourSpGirl', field: 'classFourSpGirl' },
-                      { title: 'classFourSpTotal', field: 'classFourSpTotal' },
+                      { title: 'classFourSpBoy', field: 'classFourSpBoy', filtering: false },
+                      { title: 'classFourSpGirl', field: 'classFourSpGirl', filtering: false },
+                      { title: 'classFourSpTotal', field: 'classFourSpTotal', filtering: false },
 
-                      { title: 'classFourNoSpBoyBC', field: 'classFourNoSpBoyBC' },
-                      { title: 'classFourNoSpGirlBC', field: 'classFourNoSpGirlBC' },
-                      { title: 'classFourNoSpTotalBC', field: 'classFourNoSpTotalBC' },
+                      {
+                        title: 'classFourNoSpBoyBC',
+                        field: 'classFourNoSpBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoSpGirlBC',
+                        field: 'classFourNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoSpTotalBC',
+                        field: 'classFourNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'classFourNoBookSpBoyBC',
                         field: 'classFourNoBookSpBoyBC',
+                        filtering: false,
                       },
                       {
                         title: 'classFourNoBookSpGirlBC',
                         field: 'classFourNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'classFourNoBookSpTotalBC',
                         field: 'classFourNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'classFiveBoy', field: 'classFiveBoy' },
-                      { title: 'classFiveGirl', field: 'classFiveGirl' },
-                      { title: 'classFiveTotal', field: 'classFiveTotal' },
+                      { title: 'classFiveBoy', field: 'classFiveBoy', filtering: false },
+                      { title: 'classFiveGirl', field: 'classFiveGirl', filtering: false },
+                      { title: 'classFiveTotal', field: 'classFiveTotal', filtering: false },
 
-                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC' },
-                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC' },
-                      { title: 'classFiveNoTotalBC', field: 'classFiveNoTotalBC' },
+                      { title: 'classFiveNoBoyBC', field: 'classFiveNoBoyBC', filtering: false },
+                      { title: 'classFiveNoGirlBC', field: 'classFiveNoGirlBC', filtering: false },
+                      {
+                        title: 'classFiveNoTotalBC',
+                        field: 'classFiveNoTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
-                      { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
-                      { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
+                      {
+                        title: 'classFiveNoBookBoyBC',
+                        field: 'classFiveNoBookBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoBookGirlBC',
+                        field: 'classFiveNoBookGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoBookTotalBC',
+                        field: 'classFiveNoBookTotalBC',
+                        filtering: false,
+                      },
 
-                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy' },
-                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl' },
-                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal' },
+                      { title: 'classFiveSpBoy', field: 'classFiveSpBoy', filtering: false },
+                      { title: 'classFiveSpGirl', field: 'classFiveSpGirl', filtering: false },
+                      { title: 'classFiveSpTotal', field: 'classFiveSpTotal', filtering: false },
 
-                      { title: 'classFiveNoSpBoyBC', field: 'classFiveNoSpBoyBC' },
-                      { title: 'classFiveNoSpGirlBC', field: 'classFiveNoSpGirlBC' },
-                      { title: 'classFiveNoSpTotalBC', field: 'classFiveNoSpTotalBC' },
+                      {
+                        title: 'classFiveNoSpBoyBC',
+                        field: 'classFiveNoSpBoyBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoSpGirlBC',
+                        field: 'classFiveNoSpGirlBC',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoSpTotalBC',
+                        field: 'classFiveNoSpTotalBC',
+                        filtering: false,
+                      },
 
                       {
                         title: 'classFiveNoBookSpBoyBC',
                         field: 'classFiveNoBookSpBoyBC',
+                        filtering: false,
                       },
                       {
                         title: 'classFiveNoBookSpGirlBC',
                         field: 'classFiveNoBookSpGirlBC',
+                        filtering: false,
                       },
                       {
                         title: 'classFiveNoBookSpTotalBC',
                         field: 'classFiveNoBookSpTotalBC',
+                        filtering: false,
                       },
 
-                      { title: 'priPrimaryNoBoyBCIn', field: 'priPrimaryNoBoyBCIn' },
-                      { title: 'priPrimaryNoGirlBCIn', field: 'priPrimaryNoGirlBCIn' },
-                      { title: 'priPrimaryNoTotalBCIn', field: 'priPrimaryNoTotalBCIn' },
+                      {
+                        title: 'priPrimaryNoBoyBCIn',
+                        field: 'priPrimaryNoBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoGirlBCIn',
+                        field: 'priPrimaryNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoTotalBCIn',
+                        field: 'priPrimaryNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'priPrimaryNoBookBoyBCIn', field: 'priPrimaryNoBookBoyBCIn' },
-                      { title: 'priPrimaryNoBookGirlBCIn', field: 'priPrimaryNoBookGirlBCIn' },
+                      {
+                        title: 'priPrimaryNoBookBoyBCIn',
+                        field: 'priPrimaryNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'priPrimaryNoBookGirlBCIn',
+                        field: 'priPrimaryNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'priPrimaryNoBookTotalBCIn',
                         field: 'priPrimaryNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'priPrimaryNoSpBoyBCIn', field: 'priPrimaryNoSpBoyBCIn' },
+                      {
+                        title: 'priPrimaryNoSpBoyBCIn',
+                        field: 'priPrimaryNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'priPrimaryNoSpGirlBCIn',
                         field: 'priPrimaryNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'priPrimaryNoSpTotalBCIn',
                         field: 'priPrimaryNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'priPrimaryNoBookSpBoyBCIn',
                         field: 'priPrimaryNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'priPrimaryNoBookSpGirlBCIn',
                         field: 'priPrimaryNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'priPrimaryNoBookSpTotalBCIn',
                         field: 'priPrimaryNoBookSpTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn' },
-                      { title: 'classOneNoGirlBCIn', field: 'classOneNoGirlBCIn' },
-                      { title: 'classOneNoTotalBCIn', field: 'classOneNoTotalBCIn' },
+                      { title: 'classOneNoBoyBCIn', field: 'classOneNoBoyBCIn', filtering: false },
+                      {
+                        title: 'classOneNoGirlBCIn',
+                        field: 'classOneNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classOneNoTotalBCIn',
+                        field: 'classOneNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'classOneNoBookBoyBCIn', field: 'classOneNoBookBoyBCIn' },
-                      { title: 'classOneNoBookGirlBCIn', field: 'classOneNoBookGirlBCIn' },
+                      {
+                        title: 'classOneNoBookBoyBCIn',
+                        field: 'classOneNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classOneNoBookGirlBCIn',
+                        field: 'classOneNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classOneNoBookTotalBCIn',
                         field: 'classOneNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classOneNoSpBoyBCIn', field: 'classOneNoSpBoyBCIn' },
+                      {
+                        title: 'classOneNoSpBoyBCIn',
+                        field: 'classOneNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classOneNoSpGirlBCIn',
                         field: 'classOneNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classOneNoSpTotalBCIn',
                         field: 'classOneNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'classOneNoBookSpBoyBCIn',
                         field: 'classOneNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classOneNoBookSpGirlBCIn',
                         field: 'classOneNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classOneNoBookSpTotalBCIn',
                         field: 'classOneNoBookSpTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn' },
-                      { title: 'classTwoNoGirlBCIn', field: 'classTwoNoGirlBCIn' },
-                      { title: 'classTwoNoTotalBCIn', field: 'classTwoNoTotalBCIn' },
+                      { title: 'classTwoNoBoyBCIn', field: 'classTwoNoBoyBCIn', filtering: false },
+                      {
+                        title: 'classTwoNoGirlBCIn',
+                        field: 'classTwoNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classTwoNoTotalBCIn',
+                        field: 'classTwoNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'classTwoNoBookBoyBCIn', field: 'classTwoNoBookBoyBCIn' },
-                      { title: 'classTwoNoBookGirlBCIn', field: 'classTwoNoBookGirlBCIn' },
+                      {
+                        title: 'classTwoNoBookBoyBCIn',
+                        field: 'classTwoNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classTwoNoBookGirlBCIn',
+                        field: 'classTwoNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classTwoNoBookTotalBCIn',
                         field: 'classTwoNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classTwoNoSpBoyBCIn', field: 'classTwoNoSpBoyBCIn' },
+                      {
+                        title: 'classTwoNoSpBoyBCIn',
+                        field: 'classTwoNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classTwoNoSpGirlBCIn',
                         field: 'classTwoNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classTwoNoSpTotalBCIn',
                         field: 'classTwoNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'classTwoNoBookSpBoyBCIn',
                         field: 'classTwoNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classTwoNoBookSpGirlBCIn',
                         field: 'classTwoNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classTwoNoBookSpTotalBCIn',
                         field: 'classTwoNoBookSpTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classThreeNoBoyBCIn', field: 'classThreeNoBoyBCIn' },
-                      { title: 'classThreeNoGirlBCIn', field: 'classThreeNoGirlBCIn' },
-                      { title: 'classThreeNoTotalBCIn', field: 'classThreeNoTotalBCIn' },
+                      {
+                        title: 'classThreeNoBoyBCIn',
+                        field: 'classThreeNoBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoGirlBCIn',
+                        field: 'classThreeNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoTotalBCIn',
+                        field: 'classThreeNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'classThreeNoBookBoyBCIn', field: 'classThreeNoBookBoyBCIn' },
-                      { title: 'classThreeNoBookGirlBCIn', field: 'classThreeNoBookGirlBCIn' },
+                      {
+                        title: 'classThreeNoBookBoyBCIn',
+                        field: 'classThreeNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classThreeNoBookGirlBCIn',
+                        field: 'classThreeNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classThreeNoBookTotalBCIn',
                         field: 'classThreeNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classThreeNoSpBoyBCIn', field: 'classThreeNoSpBoyBCIn' },
+                      {
+                        title: 'classThreeNoSpBoyBCIn',
+                        field: 'classThreeNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classThreeNoSpGirlBCIn',
                         field: 'classThreeNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classThreeNoSpTotalBCIn',
                         field: 'classThreeNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'classThreeNoBookSpBoyBCIn',
                         field: 'classThreeNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classThreeNoBookSpGirlBCIn',
                         field: 'classThreeNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classThreeNoBookSpTotalBCIn',
                         field: 'classThreeNoBookSpTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classFourNoBoyBCIn', field: 'classFourNoBoyBCIn' },
-                      { title: 'classFourNoGirlBCIn', field: 'classFourNoGirlBCIn' },
-                      { title: 'classFourNoTotalBCIn', field: 'classFourNoTotalBCIn' },
+                      {
+                        title: 'classFourNoBoyBCIn',
+                        field: 'classFourNoBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoGirlBCIn',
+                        field: 'classFourNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoTotalBCIn',
+                        field: 'classFourNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'classFourNoBookBoyBCIn', field: 'classFourNoBookBoyBCIn' },
-                      { title: 'classFourNoBookGirlBCIn', field: 'classFourNoBookGirlBCIn' },
+                      {
+                        title: 'classFourNoBookBoyBCIn',
+                        field: 'classFourNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFourNoBookGirlBCIn',
+                        field: 'classFourNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classFourNoBookTotalBCIn',
                         field: 'classFourNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classFourNoSpBoyBCIn', field: 'classFourNoSpBoyBCIn' },
+                      {
+                        title: 'classFourNoSpBoyBCIn',
+                        field: 'classFourNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classFourNoSpGirlBCIn',
                         field: 'classFourNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFourNoSpTotalBCIn',
                         field: 'classFourNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'classFourNoBookSpBoyBCIn',
                         field: 'classFourNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFourNoBookSpGirlBCIn',
                         field: 'classFourNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFourNoBookSpTotalBCIn',
                         field: 'classFourNoBookSpTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classFiveNoBoyBCIn', field: 'classFiveNoBoyBCIn' },
-                      { title: 'classFiveNoGirlBCIn', field: 'classFiveNoGirlBCIn' },
-                      { title: 'classFiveNoTotalBCIn', field: 'classFiveNoTotalBCIn' },
+                      {
+                        title: 'classFiveNoBoyBCIn',
+                        field: 'classFiveNoBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoGirlBCIn',
+                        field: 'classFiveNoGirlBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoTotalBCIn',
+                        field: 'classFiveNoTotalBCIn',
+                        filtering: false,
+                      },
 
-                      { title: 'classFiveNoBookBoyBCIn', field: 'classFiveNoBookBoyBCIn' },
-                      { title: 'classFiveNoBookGirlBCIn', field: 'classFiveNoBookGirlBCIn' },
+                      {
+                        title: 'classFiveNoBookBoyBCIn',
+                        field: 'classFiveNoBookBoyBCIn',
+                        filtering: false,
+                      },
+                      {
+                        title: 'classFiveNoBookGirlBCIn',
+                        field: 'classFiveNoBookGirlBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classFiveNoBookTotalBCIn',
                         field: 'classFiveNoBookTotalBCIn',
+                        filtering: false,
                       },
 
-                      { title: 'classFiveNoSpBoyBCIn', field: 'classFiveNoSpBoyBCIn' },
+                      {
+                        title: 'classFiveNoSpBoyBCIn',
+                        field: 'classFiveNoSpBoyBCIn',
+                        filtering: false,
+                      },
                       {
                         title: 'classFiveNoSpGirlBCIn',
                         field: 'classFiveNoSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFiveNoSpTotalBCIn',
                         field: 'classFiveNoSpTotalBCIn',
+                        filtering: false,
                       },
 
                       {
                         title: 'classFiveNoBookSpBoyBCIn',
                         field: 'classFiveNoBookSpBoyBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFiveNoBookSpGirlBCIn',
                         field: 'classFiveNoBookSpGirlBCIn',
+                        filtering: false,
                       },
                       {
                         title: 'classFiveNoBookSpTotalBCIn',
                         field: 'classFiveNoBookSpTotalBCIn',
+                        filtering: false,
                       },
                     ]}
                     // actions={[
@@ -1656,6 +2056,8 @@ const AllBCOSchool = () => {
                     options={{
                       exportButton: true,
                       exportAllData: true,
+                      filtering: true,
+                      search: true,
                       grouping: true,
                       sorting: true,
                       pageSize: 5,

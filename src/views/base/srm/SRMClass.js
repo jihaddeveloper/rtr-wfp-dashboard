@@ -106,26 +106,6 @@ const SRMClass = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Report SRM Class</strong>
-          </CCardHeader>
-          <CCardBody>
-            <strong>Under Construction</strong>
-            {/* <CButton color="primary" href="/base/construction">
-              Summarize Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              CFO Analysis Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Ukhiya Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Kutubdia Report
-            </CButton> */}
-          </CCardBody>
-        </CCard>
-        <CCard className="mb-4">
-          <CCardHeader>
             <strong>ALL SRM Class Observation</strong>
             {/* <strong>{allBCOData.length}</strong> */}
           </CCardHeader>
@@ -179,144 +159,208 @@ const SRMClass = () => {
                 {
                   title: 'grade',
                   field: 'grade',
+                  filtering: false,
                 },
                 {
                   title: 'section',
                   field: 'section',
+                  filtering: false,
                 },
                 {
                   title: 'classStartTime',
                   field: 'classStartTime',
+                  filtering: false,
                 },
                 {
                   title: 'classEndTime',
                   field: 'classEndTime',
+                  filtering: false,
                 },
                 {
                   title: 'totalAdmittedStudent',
                   field: 'totalAdmittedStudent',
+                  filtering: false,
                 },
                 {
                   title: 'totalAdmittedGirl',
                   field: 'totalAdmittedGirl',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalAdmittedBoy',
                   field: 'totalAdmittedBoy',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalPresentStudent',
                   field: 'totalPresentStudent',
+                  filtering: false,
                 },
                 {
                   title: 'totalPresentGirl',
                   field: 'totalPresentGirl',
+                  filtering: false,
                 },
 
                 {
                   title: 'totalPresentBoy',
                   field: 'totalPresentBoy',
+                  filtering: false,
                 },
                 {
                   title: 'note',
                   field: 'note',
                 },
 
-                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
-                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
-                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
+                { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1', filtering: false },
+                { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2', filtering: false },
+                { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3', filtering: false },
 
-                { title: 'typeOfReading', field: 'typeOfReading' },
+                { title: 'typeOfReading', field: 'typeOfReading', filtering: false },
                 {
                   title: 'ind1FriendlyCommunicationStatus',
                   field: 'ind1FriendlyCommunicationStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind1FriendlyCommunicationNotes',
                   field: 'ind1FriendlyCommunicationNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind2SRMInspiringStatus',
                   field: 'ind2SRMInspiringStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind2SRMInspiringNotes',
                   field: 'ind2SRMInspiringNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind3SRMInstructionStatus',
                   field: 'ind3SRMInstructionStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind3SRMInstructionNotes',
                   field: 'ind3SRMInstructionNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind4BookShowingStatus',
                   field: 'ind4BookShowingStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind4BookShowingNotes',
                   field: 'ind4BookShowingNotes',
+                  filtering: false,
                 },
 
-                { title: 'ind5WordTeachingStatus', field: 'ind5WordTeachingStatus' },
-                { title: 'ind5WordTeachingNotes', field: 'ind5WordTeachingNotes' },
+                {
+                  title: 'ind5WordTeachingStatus',
+                  field: 'ind5WordTeachingStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind5WordTeachingNotes',
+                  field: 'ind5WordTeachingNotes',
+                  filtering: false,
+                },
 
-                { title: 'ind6StoryReadingStatus', field: 'ind6StoryReadingStatus' },
-                { title: 'ind6StoryReadingNotes', field: 'ind6StoryReadingNotes' },
+                {
+                  title: 'ind6StoryReadingStatus',
+                  field: 'ind6StoryReadingStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind6StoryReadingNotes',
+                  field: 'ind6StoryReadingNotes',
+                  filtering: false,
+                },
 
-                { title: 'ind7StorySuitableStatus', field: 'ind7StorySuitableStatus' },
-                { title: 'ind7StorySuitableNotes', field: 'ind7StorySuitableNotes' },
+                {
+                  title: 'ind7StorySuitableStatus',
+                  field: 'ind7StorySuitableStatus',
+                  filtering: false,
+                },
+                {
+                  title: 'ind7StorySuitableNotes',
+                  field: 'ind7StorySuitableNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind8StoryReadingCombinationStatus',
                   field: 'ind8StoryReadingCombinationStatus',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind8StoryReadingCombinationNotes',
                   field: 'ind8StoryReadingCombinationNotes',
+                  filtering: false,
                 },
 
                 {
                   title: 'ind9AllStudentEngagementStatus',
                   field: 'ind9AllStudentEngagementStatus',
+                  filtering: false,
                 },
-                { title: 'ind9AllStudentEngagementNotes', field: 'ind9AllStudentEngagementNotes' },
+                {
+                  title: 'ind9AllStudentEngagementNotes',
+                  field: 'ind9AllStudentEngagementNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind10InclusiveAssessmentStatus',
                   field: 'ind10InclusiveAssessmentStatus',
+                  filtering: false,
                 },
-                { title: 'ind10InclusiveAssessmentNotes', field: 'ind10InclusiveAssessmentNotes' },
+                {
+                  title: 'ind10InclusiveAssessmentNotes',
+                  field: 'ind10InclusiveAssessmentNotes',
+                  filtering: false,
+                },
 
                 {
                   title: 'ind11AskingForBCOStatus',
                   field: 'ind11AskingForBCOStatus',
+                  filtering: false,
                 },
                 {
                   title: 'ind11AskingForBCONotes',
                   field: 'ind11AskingForBCONotes',
+                  filtering: false,
                 },
 
-                { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
-                { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
-                { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
+                { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
+                { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
+                { title: 'bestPracticeInd3', field: 'bestPracticeInd3', filtering: false },
 
-                { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
-                { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
+                { title: 'coachingSupportInd1', field: 'coachingSupportInd1', filtering: false },
+                { title: 'coachingSupportInd2', field: 'coachingSupportInd2', filtering: false },
 
-                { title: 'coachingSupportDetailsInd1', field: 'coachingSupportDetailsInd1' },
-                { title: 'coachingSupportDetailsInd2', field: 'coachingSupportDetailsInd2' },
+                {
+                  title: 'coachingSupportDetailsInd1',
+                  field: 'coachingSupportDetailsInd1',
+                  filtering: false,
+                },
+                {
+                  title: 'coachingSupportDetailsInd2',
+                  field: 'coachingSupportDetailsInd2',
+                  filtering: false,
+                },
 
-                { title: 'agreedStatement1', field: 'agreedStatement1' },
-                { title: 'agreedStatement2', field: 'agreedStatement2' },
+                { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
+                { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               // actions={[
               //   {
@@ -339,6 +383,8 @@ const SRMClass = () => {
               options={{
                 exportButton: true,
                 exportAllData: true,
+                filtering: true,
+                search: true,
                 grouping: true,
                 sorting: true,
                 pageSize: 5,
