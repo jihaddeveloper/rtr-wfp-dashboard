@@ -73,8 +73,8 @@ const AnalysisBCO = () => {
   // Chart Data
   const [schoolBCOPerChildChartData, setSchoolBCOPerChildChartData] = useState({})
   const [schoolTotalBookCheckOutInChartData, setSchoolTotalBookCheckOutInChartData] = useState({})
-  const [schoolNoStudentBCOChartData, setSchoolNoStudentBCOChartData] = useState({})
-  const [schoolNoStudentBCIChartData, setSchoolNoStudentBCIChartData] = useState({})
+  const [schoolNoStudentBCOInChartData, setSchoolNoStudentBCOInChartData] = useState({})
+  const [schoolPercentStudentBCOInChartData, setSchoolPercentStudentBCOInChartData] = useState({})
 
   const [allBCOData, setAllBCOData] = useState([])
 
@@ -473,8 +473,8 @@ const AnalysisBCO = () => {
       // Chart
       pushSchoolBCOPerChildChartData()
       pushSchoolTotalBookCheckOutInChartData()
-      pushSchoolNoStudentBCOChartData()
-      pushSchoolNoStudentBCIChartData()
+      pushSchoolNoStudentBCOInChartData()
+      pushSchoolPercentStudentBCOInChartData()
     }
     call()
     //getSummerizeData(console.log('getSummerizeData called'))
@@ -3291,8 +3291,8 @@ const AnalysisBCO = () => {
     })
   }
 
-  const pushSchoolNoStudentBCOChartData = () => {
-    setSchoolNoStudentBCOChartData({
+  const pushSchoolNoStudentBCOInChartData = () => {
+    setSchoolNoStudentBCOInChartData({
       labels: [
         'January',
         'February',
@@ -3320,25 +3320,25 @@ const AnalysisBCO = () => {
           ],
         },
         {
-          label: 'Percent of Student Checkout',
+          label: 'No of Student Checkin',
           backgroundColor: '#fc03ce',
           borderColor: '#fc03ce',
           pointBackgroundColor: '#fc03ce',
           pointBorderColor: '#fff',
           data: [
-            cfoPercentStudentBCOJan23,
-            cfoPercentStudentBCOFeb23,
-            cfoPercentStudentBCOMar23,
-            cfoPercentStudentBCOApr23,
-            cfoPercentStudentBCOMay23,
+            cfoNoStudentBCIJan23,
+            cfoNoStudentBCIFeb23,
+            cfoNoStudentBCIMar23,
+            cfoNoStudentBCIApr23,
+            cfoNoStudentBCIMay23,
           ],
         },
       ],
     })
   }
 
-  const pushSchoolNoStudentBCIChartData = () => {
-    setSchoolNoStudentBCIChartData({
+  const pushSchoolPercentStudentBCOInChartData = () => {
+    setSchoolPercentStudentBCOInChartData({
       labels: [
         'January',
         'February',
@@ -3352,17 +3352,17 @@ const AnalysisBCO = () => {
       ],
       datasets: [
         {
-          label: 'No of Student Checkin',
+          label: 'Percent of Student Checkout',
           backgroundColor: '#03fc1c',
           borderColor: '#03fc1c',
           pointBackgroundColor: '#03fc1c',
           pointBorderColor: '#fff',
           data: [
-            cfoNoStudentBCIJan23,
-            cfoNoStudentBCIFeb23,
-            cfoNoStudentBCIMar23,
-            cfoNoStudentBCIApr23,
-            cfoNoStudentBCIMay23,
+            cfoPercentStudentBCOJan23,
+            cfoPercentStudentBCOFeb23,
+            cfoPercentStudentBCOMar23,
+            cfoPercentStudentBCOApr23,
+            cfoPercentStudentBCOMay23,
           ],
         },
         {
@@ -3487,12 +3487,12 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Student Checkout-2023</strong>
+            <strong>Student Number Checkout Checkin-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
               type="line"
-              data={schoolNoStudentBCOChartData}
+              data={schoolNoStudentBCOInChartData}
               labels="months"
               width="400px"
               height="400px"
@@ -3502,12 +3502,12 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Student Checkin-2023</strong>
+            <strong>Student Percent Checkout Checkin-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
               type="line"
-              data={schoolNoStudentBCIChartData}
+              data={schoolPercentStudentBCOInChartData}
               labels="months"
               width="400px"
               height="400px"

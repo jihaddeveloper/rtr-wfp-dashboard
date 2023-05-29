@@ -64,6 +64,14 @@ const BCOSchoolMonthly = () => {
   const [reportData23Feb, setReportData23Feb] = useState([])
   const [reportData23Mar, setReportData23Mar] = useState([])
   const [reportData23Apr, setReportData23Apr] = useState([])
+  const [reportData23May, setReportData23May] = useState([])
+  const [reportData23Jun, setReportData23Jun] = useState([])
+  const [reportData23Jul, setReportData23Jul] = useState([])
+  const [reportData23Aug, setReportData23Aug] = useState([])
+  const [reportData23Sep, setReportData23Sep] = useState([])
+  const [reportData23Oct, setReportData23Oct] = useState([])
+  const [reportData23Nov, setReportData23Nov] = useState([])
+  const [reportData23Dec, setReportData23Dec] = useState([])
 
   const [allBCOData, setAllBCOData] = useState([])
 
@@ -398,6 +406,7 @@ const BCOSchoolMonthly = () => {
   let cfoNoSchoolZeroBCOMay23 = 0
   // CFO Data
   // May
+
   // 2023
 
   // Annual
@@ -461,6 +470,7 @@ const BCOSchoolMonthly = () => {
       pushReportData23Feb(console.log('pushReportData23Feb called'))
       pushReportData23Mar(console.log('pushReportData23Mar called'))
       pushReportData23Apr(console.log('pushReportData23Apr called'))
+      pushReportData23May(console.log('pushReportData23May called'))
     }
     call()
     //getSummerizeData(console.log('getSummerizeData called'))
@@ -3040,10 +3050,12 @@ const BCOSchoolMonthly = () => {
       cfoTotalStudentMay23 = parseInt(kTotalStudentMay23) + parseInt(uTotalStudentMay23)
       cfoTotalBookCheckoutMay23 = kTotalBookCheckoutMay23 + uTotalBookCheckoutMay23
       cfoTotalBookCheckinMay23 = kTotalBookCheckinMay23 + uTotalBookCheckinMay23
-      cfoNoBCOPerStudentMay23 = (
-        (parseFloat(kNoBCOPerStudentMay23) + parseFloat(uNoBCOPerStudentMay23)) /
-        2
-      ).toFixed(2)
+      cfoNoBCOPerStudentMay23 = (cfoTotalBookCheckoutMay23 / cfoTotalStudentMay23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kNoBCOPerStudentMay23) + parseFloat(uNoBCOPerStudentMay23)) /
+      //   2
+      // ).toFixed(2)
       cfoNoStudentBCOMay23 = kNoStudentBCOMay23 + uNoStudentBCOMay23
       cfoPercentStudentBCOMay23 = (
         (parseFloat(kPercentStudentBCOMay23) + parseFloat(uPercentStudentBCOMay23)) /
@@ -3503,6 +3515,110 @@ const BCOSchoolMonthly = () => {
     setReportData23Apr(reportObject23Apr)
   }
 
+  const pushReportData23May = () => {
+    const reportObject23May = [
+      {
+        sl: 1,
+        area: 'Total Students( 1 - 5)',
+        kutubdia: kTotalStudentMay23,
+        ukhiya: uTotalStudentMay23,
+        cfo: cfoTotalStudentMay23,
+      },
+      {
+        sl: 2,
+        area: 'Total Book Check Out',
+        kutubdia: kTotalBookCheckoutMay23,
+        ukhiya: uTotalBookCheckoutMay23,
+        cfo: cfoTotalBookCheckoutMay23,
+      },
+      {
+        sl: 3,
+        area: 'Total Book Check In',
+        kutubdia: kTotalBookCheckinMay23,
+        ukhiya: uTotalBookCheckinMay23,
+        cfo: cfoTotalBookCheckinMay23,
+      },
+      {
+        sl: 4,
+        area: 'Average Books Read by Per Child',
+        kutubdia: kNoBCOPerStudentMay23,
+        ukhiya: uNoBCOPerStudentMay23,
+        cfo: cfoNoBCOPerStudentMay23,
+      },
+      {
+        sl: 5,
+        area: '# of Students checked out books',
+        kutubdia: kNoStudentBCOMay23,
+        ukhiya: uNoStudentBCOMay23,
+        cfo: cfoNoStudentBCOMay23,
+      },
+      {
+        sl: 6,
+        area: '% of Students checked out books',
+        kutubdia: kPercentStudentBCOMay23,
+        ukhiya: uPercentStudentBCOMay23,
+        cfo: cfoPercentStudentBCOMay23,
+      },
+      {
+        sl: 7,
+        area: '# of Students checked in books',
+        kutubdia: kNoStudentBCIMay23,
+        ukhiya: uNoStudentBCIMay23,
+        cfo: cfoNoStudentBCIMay23,
+      },
+      {
+        sl: 8,
+        area: '% of Students checked in books',
+        kutubdia: kPercentStudentBCIMay23,
+        ukhiya: uPercentStudentBCIMay23,
+        cfo: cfoPercentStudentBCIMay23,
+      },
+      {
+        sl: 9,
+        area: 'Number of Girls checkout book',
+        kutubdia: kNoGirlBCOMay23,
+        ukhiya: uNoGirlBCOMay23,
+        cfo: cfoNoGirlBCOMay23,
+      },
+      {
+        sl: 10,
+        area: '% of Girls checked out books',
+        kutubdia: kPercentGirlBCOMay23,
+        ukhiya: uPercentGirlBCOMay23,
+        cfo: cfoPercentGirlBCOMay23,
+      },
+      {
+        sl: 11,
+        area: 'Number of Boys checkout book',
+        kutubdia: kNoBoyBCOMay23,
+        ukhiya: uNoBoyBCOMay23,
+        cfo: cfoNoBoyBCOMay23,
+      },
+      {
+        sl: 12,
+        area: '% of Boys checked out books',
+        kutubdia: kPercentBoyBCOMay23,
+        ukhiya: uPercentBoyBCOMay23,
+        cfo: cfoPercentBoyBCOMay23,
+      },
+      {
+        sl: 13,
+        area: 'Number of School BCO',
+        kutubdia: kNoSchoolBCOMay23,
+        ukhiya: uNoSchoolBCOMay23,
+        cfo: cfoNoSchoolBCOMay23,
+      },
+      {
+        sl: 14,
+        area: 'Number of Zero BCO School ',
+        kutubdia: kNoSchoolZeroBCOMay23,
+        ukhiya: uNoSchoolZeroBCOMay23,
+        cfo: cfoNoSchoolZeroBCOMay23,
+      },
+    ]
+    console.log('reportObject', reportObject23May)
+    setReportData23May(reportObject23May)
+  }
   //console.log('Ukhiya total student: ' + uTotalStudent)
 
   if (isLoading) {
@@ -3775,7 +3891,7 @@ const BCOSchoolMonthly = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    //data={reportData}
+                    data={reportData23May}
                   />
                 </CAccordionBody>
               </CAccordionItem>

@@ -167,6 +167,12 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Outcome Indicator',
+        to: '/bco/outcome-indicator',
+      },
+
+      {
+        component: CNavItem,
         name: 'Summarize School',
         to: '/bco/wfp-summarize',
       },

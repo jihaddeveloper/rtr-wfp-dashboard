@@ -23,6 +23,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
 
 import MaterialTable from 'material-table'
+import OutcomeIndicator from './OutcomeIndicator'
 
 const AllBCOCombined = () => {
   const options = [
@@ -50,6 +51,10 @@ const AllBCOCombined = () => {
   // ALL BCO School
   const [allBCOData, setAllBCOData] = useState([])
   // ALL BCO School
+
+  // OutcomeIndicator
+  let [currentData, setCurrentData] = useState([])
+  // OutcomeIndicator
 
   const [allBCODataSchoolByMonth, setAllBCODataSchoolByMonth] = useState([])
 
@@ -958,6 +963,34 @@ const AllBCOCombined = () => {
       cfoNoSchoolZeroBCO = kNoSchoolZeroBCO + uNoSchoolZeroBCO
       // CFO
       // Cumulative Summary All BCO/I Data(School+CRF)
+
+      // OutcomeIndicator
+      let allData = response.data
+
+      // let allData = response.data.filter(
+      //   (item) => item.month === previousMonth && item.year === '2023',
+      // )
+
+      // Set some cumulated value
+      allData.forEach((item) => {
+        item.avarageBCO = (item.schoolTotalNoBookBC / item.schoolTotalNoStudent).toFixed(2)
+        item.percentStudentBCO = (
+          (item.schoolTotalNoStudentBC * 100) /
+          item.schoolTotalNoStudent
+        ).toFixed(2)
+        item.percentStudentBCI = (
+          (item.schoolTotalNoStudentBCIn * 100) /
+          item.schoolTotalNoStudent
+        ).toFixed(2)
+        item.percentGirlsBCO = ((item.schoolTotalNoGirlBC * 100) / item.schoolTotalNoGirl).toFixed(
+          2,
+        )
+        item.percentBoysBCO = ((item.schoolTotalNoBoyBC * 100) / item.schoolTotalNoBoy).toFixed(2)
+      })
+
+      setCurrentData(allData)
+      // OutcomeIndicator
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -4613,6 +4646,106 @@ const AllBCOCombined = () => {
                       },
                     }}
                     data={kutubdiaAllBCOCRF}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={10}>
+                <CAccordionHeader>
+                  <strong>Outcome Indicator</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title=""
+                    columns={[
+                      //{ title: 'Sl', field: 'id' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla' },
+                      { title: 'Year', field: 'year' },
+                      { title: 'Month', field: 'month' },
+                      { title: 'School', field: 'school' },
+                      {
+                        title: 'Total Student',
+                        field: 'schoolTotalNoStudent',
+                        filtering: false,
+                        // cellStyle: {
+                        //   backgroundColor: '#e0d0ca',
+                        //   color: '#000',
+                        // },
+                        // headerStyle: {
+                        //   backgroundColor: '#bcceeb',
+                        // },
+                      },
+                      { title: 'Total BCO', field: 'schoolTotalNoBookBC', filtering: false },
+                      // { title: 'Total BCI', field: 'schoolTotalNoBookBCIn', filtering: false },
+                      { title: 'Avarage BCO per Child', field: 'avarageBCO', filtering: false },
+                      // {
+                      //   title: '# of Students checked out Books',
+                      //   field: 'schoolTotalNoStudentBC',
+                      //   filtering: false,
+                      // },
+                      {
+                        title: '% of Students checked out Books',
+                        field: 'percentStudentBCO',
+                        filtering: false,
+                      },
+                      // {
+                      //   title: '# of Students checked in Books',
+                      //   field: 'schoolTotalNoStudentBCIn',
+                      //   filtering: false,
+                      // },
+                      // {
+                      //   title: '% of Students checked in Books',
+                      //   field: 'percentStudentBCI',
+                      //   filtering: false,
+                      // },
+
+                      { title: 'Respective LF', field: 'lfName' },
+                      { title: 'Respective LPO', field: 'lpoName' },
+                      { title: 'Visitor', field: 'visitor' },
+                    ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      search: true,
+                      paging: true,
+                      filtering: true,
+                      pageSize: 10,
+                      pageSizeOptions: [10, 20, 30],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    footerData={[{ school: '', schoolTotalNoStudent: 1000 }]}
+                    renderSummaryRow={({ column, data }) =>
+                      column.field === 'schoolTotalNoStudent'
+                        ? {
+                            value: data.reduce((agg, row) => agg + row.schoolTotalNoStudent, 0),
+                            style: { background: 'red' },
+                          }
+                        : undefined
+                    }
+                    data={currentData}
                   />
                 </CAccordionBody>
               </CAccordionItem>
