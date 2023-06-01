@@ -147,12 +147,12 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'School Monthly',
+        name: 'School Summry Monthly',
         to: '/bco/bco-school-monthly',
       },
       {
         component: CNavItem,
-        name: 'School Quarterly',
+        name: 'School Summry Quarterly',
         to: '/bco/bco-school-quarterly',
       },
       {

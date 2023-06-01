@@ -3480,6 +3480,7 @@ const LibraryObservation = () => {
                     options={{
                       exportButton: true,
                       exportAllData: true,
+                      filtering: true,
                       grouping: true,
                       sorting: true,
                       pageSize: 2,

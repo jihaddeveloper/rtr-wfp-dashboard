@@ -1544,7 +1544,7 @@ const AllBCOCombined = () => {
                   <strong>BCO/I School Data by Month</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <CCardHeader>
+                  {/* <CCardHeader>
                     <CFormSelect aria-label="Default select example" onChange={handleChange}>
                       {options.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -1552,11 +1552,9 @@ const AllBCOCombined = () => {
                         </option>
                       ))}
                     </CFormSelect>
-                  </CCardHeader>
+                  </CCardHeader> */}
                   <MaterialTable
-                    title={
-                      allBCODataSchoolByMonth.length + ' BCO Data for School of ' + selectedMonth
-                    }
+                    title={' BCO Data for School '}
                     columns={[
                       { title: 'school', field: 'school' },
                       {
@@ -2036,6 +2034,7 @@ const AllBCOCombined = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
+                      filtering: true,
                       pageSize: 5,
                       pageSizeOptions: [5, 10, 20],
                       maxBodyHeight: '600px',
@@ -2061,7 +2060,7 @@ const AllBCOCombined = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={allBCODataSchoolByMonth}
+                    data={allBCOData}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -2070,7 +2069,7 @@ const AllBCOCombined = () => {
                   <strong>BCO/I CRF Data by Month</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
-                  <CCardHeader>
+                  {/* <CCardHeader>
                     <CFormSelect aria-label="Default select example" onChange={handleChange}>
                       {options.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -2078,9 +2077,9 @@ const AllBCOCombined = () => {
                         </option>
                       ))}
                     </CFormSelect>
-                  </CCardHeader>
+                  </CCardHeader> */}
                   <MaterialTable
-                    title={allBCODataCRFByMonth.length + ' BCO Data for School of ' + selectedMonth}
+                    title={' BCO Data for CRF '}
                     columns={[
                       { title: 'school', field: 'school' },
                       {
@@ -2560,6 +2559,7 @@ const AllBCOCombined = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
+                      filtering: true,
                       pageSize: 5,
                       pageSizeOptions: [5, 10, 20],
                       maxBodyHeight: '600px',
@@ -2585,7 +2585,7 @@ const AllBCOCombined = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={allBCODataCRFByMonth}
+                    data={allBCODataCRF}
                   />
                 </CAccordionBody>
               </CAccordionItem>
