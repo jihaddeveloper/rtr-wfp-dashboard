@@ -263,13 +263,13 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'SRM Class',
-        to: '/srm/srm-class',
+        name: 'Bangla Report',
+        to: '/bangla/bangla-class-report',
       },
       {
         component: CNavItem,
-        name: 'Bangla Report',
-        to: '/library/library-srm',
+        name: 'SRM Class',
+        to: '/srm/srm-class',
       },
       {
         component: CNavItem,

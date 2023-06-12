@@ -2771,7 +2771,6 @@ const LibraryObservation = () => {
                   <Chart chartType="Bar" width="100%" height="100%" data={data} options={options} />
                 </CAccordionBody> */}
               </CAccordionItem>
-
               <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
                   <strong>Indicator Freq by Phase </strong>
