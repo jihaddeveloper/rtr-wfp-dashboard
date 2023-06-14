@@ -17,7 +17,15 @@ import {
   CCollapse,
 } from '@coreui/react'
 
-import { CChart, CChartBar, CChartLine } from '@coreui/react-chartjs'
+import {
+  CChart,
+  CChartBar,
+  CChartDoughnut,
+  CChartLine,
+  CChartPie,
+  CChartPolarArea,
+  CChartRadar,
+} from '@coreui/react-chartjs'
 import { DocsCallout, DocsExample } from 'src/components'
 
 import CircularProgress from '@mui/material/CircularProgress'
@@ -123,6 +131,28 @@ const BanglaClassReport = () => {
   var nov23T = 0
   var dec23T = 0
   // By Month
+
+  // By Upazilla
+  let rT23P1U = 0
+  let rT23P1K = 0
+
+  let rT23P2U = 0
+  let rT23P2K = 0
+
+  let rT23P3U = 0
+  let rT23P3K = 0
+  // By Upazilla
+
+  // By Grade
+  let rT23P1G1 = 0
+  let rT23P1G2 = 0
+
+  let rT23P2G1 = 0
+  let rT23P2G2 = 0
+
+  let rT23P3G1 = 0
+  let rT23P3G2 = 0
+  // By Grade
 
   // By Phase
   let ratingD = 'Developing'
@@ -364,6 +394,9 @@ const BanglaClassReport = () => {
 
   // Report data
   const [reportOvserallByMonth, setReportOvserallByMonth] = useState([])
+  const [reportOvserallByUpazilla, setReportOvserallByUpazilla] = useState([])
+  const [reportOvserallByGrade, setReportOvserallByGrade] = useState([])
+
   const [reportOvserallByPhase, setReportOvserallByPhase] = useState([])
   const [reportOvserallByProvince, setReportOvserallByProvince] = useState([])
   const [reportFreqByPhase, setReportFreqByPhase] = useState([])
@@ -389,6 +422,8 @@ const BanglaClassReport = () => {
       await getAllLibraryObservation(console.log('Get All Library observation called'))
 
       pushOverallResultByMonth()
+      pushOverallResultByUpazilla()
+      pushOverallResultByGrade()
 
       pushOverallResultByPhase()
       pushOverallResultByProvince()
@@ -423,6 +458,7 @@ const BanglaClassReport = () => {
 
       // Overerall result
       // By Month
+      // Priority 1
       jan23P1 = parseInt(
         response.data.filter((item) => {
           return (
@@ -430,7 +466,417 @@ const BanglaClassReport = () => {
           )
         }).length,
       )
+
+      feb23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'February' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      mar23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'March' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      apr23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'April' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      may23P1 = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.month === 'May' && item.teacherStatus === 'Priority 1'
+        }).length,
+      )
+
+      jun23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'June' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      jul23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'July' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      aug23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'August' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      sep23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.month === 'September' &&
+            item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      oct23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'October' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      nov23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'November' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      dec23P1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'December' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+      // Priority 1
+
+      // Priority 2
+      jan23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'January' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      feb23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'February' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      mar23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'March' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      apr23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'April' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      may23P2 = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.month === 'May' && item.teacherStatus === 'Priority 2'
+        }).length,
+      )
+
+      jun23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'June' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      jul23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'July' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      aug23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'August' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      sep23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.month === 'September' &&
+            item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      oct23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'October' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      nov23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'November' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      dec23P2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'December' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+      // Priority 2
+
+      // Priority 3
+      jan23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'January' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      feb23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'February' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      mar23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'March' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      apr23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'April' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      may23P3 = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.month === 'May' && item.teacherStatus === 'Priority 3'
+        }).length,
+      )
+
+      jun23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'June' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      jul23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'July' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      aug23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'August' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      sep23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.month === 'September' &&
+            item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      oct23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'October' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      nov23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'November' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      dec23P3 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.month === 'December' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+      // Priority 3
       // By Month
+
+      // By Upazilla
+      // Priority 1
+      rT23P1U = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Ukhiya' &&
+            item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      rT23P1K = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Kutubdia' &&
+            item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+      // Priority 1
+
+      // Priority 2
+      rT23P2U = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Ukhiya' &&
+            item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      rT23P2K = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Kutubdia' &&
+            item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+      // Priority 2
+
+      // Priority 3
+      rT23P3U = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Ukhiya' &&
+            item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      rT23P3K = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' &&
+            item.upazilla === 'Kutubdia' &&
+            item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+      // Priority 3
+      // By Upazilla
+
+      // By Grade
+      // Priority 1
+      rT23P1G1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 1' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+
+      rT23P1G2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 2' && item.teacherStatus === 'Priority 1'
+          )
+        }).length,
+      )
+      // Priority 1
+
+      // Priority 2
+      rT23P2G1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 1' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+
+      rT23P2G2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 2' && item.teacherStatus === 'Priority 2'
+          )
+        }).length,
+      )
+      // Priority 2
+
+      // Priority 3
+      rT23P3G1 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 1' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+
+      rT23P3G2 = parseInt(
+        response.data.filter((item) => {
+          return (
+            item.year === '2023' && item.grade === 'Grade 2' && item.teacherStatus === 'Priority 3'
+          )
+        }).length,
+      )
+      // Priority 3
+      // By Grade
+
       // Overerall result
       setIsLoading(false)
       console.log('Data:' + response)
@@ -2201,6 +2647,19 @@ const BanglaClassReport = () => {
         oct: oct23P1,
         nov: nov23P1,
         dec: dec23P1,
+        tot:
+          jan23P1 +
+          feb23P1 +
+          mar23P1 +
+          apr23P1 +
+          may23P1 +
+          jun23P1 +
+          jul23P1 +
+          aug23P1 +
+          sep23P1 +
+          oct23P1 +
+          nov23P1 +
+          dec23P1,
       },
       {
         rating: rating23P2,
@@ -2216,6 +2675,19 @@ const BanglaClassReport = () => {
         oct: oct23P2,
         nov: nov23P2,
         dec: dec23P2,
+        tot:
+          jan23P2 +
+          feb23P2 +
+          mar23P2 +
+          apr23P2 +
+          may23P2 +
+          jun23P2 +
+          jul23P2 +
+          aug23P2 +
+          sep23P2 +
+          oct23P2 +
+          nov23P2 +
+          dec23P2,
       },
       {
         rating: rating23P3,
@@ -2231,27 +2703,144 @@ const BanglaClassReport = () => {
         oct: oct23P3,
         nov: nov23P3,
         dec: dec23P3,
+        tot:
+          jan23P3 +
+          feb23P3 +
+          mar23P3 +
+          apr23P3 +
+          may23P3 +
+          jun23P3 +
+          jul23P3 +
+          aug23P3 +
+          sep23P3 +
+          oct23P3 +
+          nov23P3 +
+          dec23P3,
       },
       {
         rating: rating23T,
-        jan: jan23T,
-        feb: feb23T,
-        mar: mar23T,
-        apr: apr23T,
-        may: may23T,
-        jun: jun23T,
-        jul: jul23T,
-        aug: aug23T,
-        sep: sep23T,
-        oct: oct23T,
-        nov: nov23T,
-        dec: dec23T,
+        jan: jan23P1 + jan23P2 + jan23P3,
+        feb: feb23P1 + feb23P2 + feb23P3,
+        mar: mar23P1 + mar23P2 + mar23P3,
+        apr: apr23P1 + apr23P2 + apr23P3,
+        may: may23P1 + may23P2 + may23P3,
+        jun: jun23P1 + jun23P2 + jun23P3,
+        jul: jul23P1 + jul23P2 + jul23P3,
+        aug: aug23P1 + aug23P2 + aug23P3,
+        sep: sep23P1 + sep23P2 + sep23P3,
+        oct: oct23P1 + oct23P2 + oct23P3,
+        nov: nov23P1 + nov23P2 + nov23P3,
+        dec: dec23P1 + dec23P2 + dec23P3,
+        tot:
+          jan23P1 +
+          feb23P1 +
+          mar23P1 +
+          apr23P1 +
+          may23P1 +
+          jun23P1 +
+          jul23P1 +
+          aug23P1 +
+          sep23P1 +
+          oct23P1 +
+          nov23P1 +
+          dec23P1 +
+          jan23P2 +
+          feb23P2 +
+          mar23P2 +
+          apr23P2 +
+          may23P2 +
+          jun23P2 +
+          jul23P2 +
+          aug23P2 +
+          sep23P2 +
+          oct23P2 +
+          nov23P2 +
+          dec23P2 +
+          jan23P3 +
+          feb23P3 +
+          mar23P3 +
+          apr23P3 +
+          may23P3 +
+          jun23P3 +
+          jul23P3 +
+          aug23P3 +
+          sep23P3 +
+          oct23P3 +
+          nov23P3 +
+          dec23P3,
       },
     ]
     console.log('reportObjectOverallResultByMonth :', reportObjectOverallResultByMonth)
     setReportOvserallByMonth(reportObjectOverallResultByMonth)
   }
   // By Month
+
+  // By Upazilla
+  const pushOverallResultByUpazilla = () => {
+    const reportObjectOverallResultByUpazilla = [
+      {
+        rating: rating23P1,
+        ukhiya: rT23P1U,
+        kutubdia: rT23P1K,
+        cfo: rT23P1U + rT23P1K,
+      },
+      {
+        rating: rating23P2,
+        ukhiya: rT23P2U,
+        kutubdia: rT23P2K,
+        cfo: rT23P2U + rT23P2K,
+      },
+      {
+        rating: rating23P3,
+        ukhiya: rT23P3U,
+        kutubdia: rT23P3K,
+        cfo: rT23P3U + rT23P3K,
+      },
+      {
+        rating: rating23T,
+        ukhiya: rT23P1U + rT23P2U + rT23P3U,
+        kutubdia: rT23P1K + rT23P2K + rT23P3K,
+        cfo: rT23P1U + rT23P1K + rT23P2U + rT23P2K + rT23P3U + rT23P3K,
+      },
+    ]
+    console.log('reportObjectOverallResultByUpazilla :', reportObjectOverallResultByUpazilla)
+    setReportOvserallByUpazilla(reportObjectOverallResultByUpazilla)
+  }
+  // By Upazilla
+
+  // By Grade
+  const pushOverallResultByGrade = () => {
+    const reportObjectOverallResultByGrade = [
+      {
+        rating: rating23P1,
+        grade1: rT23P1G1,
+        grade2: rT23P1G2,
+        cfo: rT23P1G1 + rT23P1G2,
+      },
+      {
+        rating: rating23P2,
+        grade1: rT23P2G1,
+        grade2: rT23P2G2,
+        cfo: rT23P2G1 + rT23P2G2,
+      },
+      {
+        rating: rating23P3,
+        grade1: rT23P3G1,
+        grade2: rT23P3G2,
+        cfo: rT23P3G1 + rT23P3G2,
+      },
+      {
+        rating: rating23T,
+        grade1: rT23P1G1 + rT23P2G1 + rT23P3G1,
+        grade2: rT23P1G2 + rT23P2G2 + rT23P3G2,
+        cfo: rT23P1G1 + rT23P2G1 + rT23P3G1 + rT23P1G2 + rT23P2G2 + rT23P3G2,
+      },
+    ]
+    console.log('reportObjectOverallResultByGrade :', reportObjectOverallResultByGrade)
+    setReportOvserallByGrade(reportObjectOverallResultByGrade)
+  }
+  // By Grade
+
   // By Phase
   const pushOverallResultByPhase = () => {
     console.log('allLibraryObservation: ', allLibraryObservation.length)
@@ -2768,11 +3357,11 @@ const BanglaClassReport = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Overall Results 2023</strong>
+                  <strong>Teacher Priority by Month 2023</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={'Overall results by month'}
+                    title={'Teacher Status'}
                     columns={[
                       { title: 'Rating', field: 'rating' },
                       { title: 'January', field: 'jan' },
@@ -2787,6 +3376,7 @@ const BanglaClassReport = () => {
                       { title: 'October', field: 'oct' },
                       { title: 'November', field: 'nov' },
                       { title: 'December', field: 'dec' },
+                      { title: 'Total', field: 'tot' },
                     ]}
                     options={{
                       exportButton: true,
@@ -2898,18 +3488,19 @@ const BanglaClassReport = () => {
                   />
                 </CAccordionBody> */}
               </CAccordionItem>
-              {/* <CAccordionItem itemKey={2}>
+              <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
-                  <strong>Indicator Freq by Phase </strong>
+                  <strong>Teacher Priority by Upazilla</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={'Frequency at which indicators were present by phase'}
+                    title={'Teacher Priority by Upazilla'}
                     // title={JSON.stringify(reportData)}
                     columns={[
-                      { title: 'Indicator', field: 'indicator' },
-                      { title: 'Phase III(2022) ( n = 137)', field: 'phase2' },
-                      { title: 'Overall ( n = 137)', field: 'overall' },
+                      { title: 'Rating', field: 'rating' },
+                      { title: 'Ukhiya', field: 'ukhiya' },
+                      { title: 'Kutubdia', field: 'kutubdia' },
+                      { title: 'CFO', field: 'cfo' },
                     ]}
                     options={{
                       exportButton: true,
@@ -2943,11 +3534,61 @@ const BanglaClassReport = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={reportFreqByPhase}
+                    data={reportOvserallByUpazilla}
                   />
                 </CAccordionBody>
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
+                <CAccordionHeader>
+                  <strong>Teacher Priority by Grade</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={'Teacher Priority by Grade'}
+                    // title={JSON.stringify(reportData)}
+                    columns={[
+                      { title: 'Rating', field: 'rating' },
+                      { title: 'Grade 1', field: 'grade1' },
+                      { title: 'Grade 2', field: 'grade2' },
+                      { title: 'CFO', field: 'cfo' },
+                    ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: false,
+                      sorting: false,
+                      search: false,
+                      paging: false,
+                      pageSize: 12,
+                      pageSizeOptions: [12, 24, 36],
+                      maxBodyHeight: '550px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #eee',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={reportOvserallByGrade}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              {/* <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Indicator Freq by Province</strong>
                 </CAccordionHeader>
