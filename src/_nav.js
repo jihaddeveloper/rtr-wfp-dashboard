@@ -276,6 +276,16 @@ const _nav = [
         name: 'SRM Report',
         to: '/base/construction',
       },
+      {
+        component: CNavItem,
+        name: 'Preprimary Class',
+        to: '/base/construction',
+      },
+      {
+        component: CNavItem,
+        name: 'Preprimary Report',
+        to: '/base/construction',
+      },
     ],
   },
   // {

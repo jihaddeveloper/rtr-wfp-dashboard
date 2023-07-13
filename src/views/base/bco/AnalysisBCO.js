@@ -409,6 +409,378 @@ const AnalysisBCO = () => {
   let cfoNoSchoolZeroBCOMay23 = 0
   // CFO Data
   // May
+
+  // June
+  // Ukhiya Data
+  let uTotalStudentJun23 = 0
+  let uTotalBookCheckoutJun23 = 0
+  let uTotalBookCheckinJun23 = 0
+  let uNoBCOPerStudentJun23 = 0
+  let uNoStudentBCOJun23 = 0
+  let uPercentStudentBCOJun23 = 0
+  let uNoStudentBCIJun23 = 0
+  let uPercentStudentBCIJun23 = 0
+  let uNoGirlBCOJun23 = 0
+  let uPercentGirlBCOJun23 = 0
+  let uNoBoyBCOJun23 = 0
+  let uPercentBoyBCOJun23 = 0
+  let uNoSchoolBCOJun23 = 0
+  let uNoSchoolZeroBCOJun23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentJun23 = 0
+  let kTotalBookCheckoutJun23 = 0
+  let kTotalBookCheckinJun23 = 0
+  let kNoBCOPerStudentJun23 = 0
+  let kNoStudentBCOJun23 = 0
+  let kPercentStudentBCOJun23 = 0
+  let kNoStudentBCIJun23 = 0
+  let kPercentStudentBCIJun23 = 0
+  let kNoGirlBCOJun23 = 0
+  let kPercentGirlBCOJun23 = 0
+  let kNoBoyBCOJun23 = 0
+  let kPercentBoyBCOJun23 = 0
+  let kNoSchoolBCOJun23 = 0
+  let kNoSchoolZeroBCOJun23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentJun23 = 0
+  let cfoTotalBookCheckoutJun23 = 0
+  let cfoTotalBookCheckinJun23 = 0
+  let cfoNoBCOPerStudentJun23 = 0
+  let cfoNoStudentBCOJun23 = 0
+  let cfoPercentStudentBCOJun23 = 0
+  let cfoNoStudentBCIJun23 = 0
+  let cfoPercentStudentBCIJun23 = 0
+  let cfoNoGirlBCOJun23 = 0
+  let cfoPercentGirlBCOJun23 = 0
+  let cfoNoBoyBCOJun23 = 0
+  let cfoPercentBoyBCOJun23 = 0
+  let cfoNoSchoolBCOJun23 = 0
+  let cfoNoSchoolZeroBCOJun23 = 0
+  // CFO Data
+  // June
+
+  // July
+  // Ukhiya Data
+  let uTotalStudentJul23 = 0
+  let uTotalBookCheckoutJul23 = 0
+  let uTotalBookCheckinJul23 = 0
+  let uNoBCOPerStudentJul23 = 0
+  let uNoStudentBCOJul23 = 0
+  let uPercentStudentBCOJul23 = 0
+  let uNoStudentBCIJul23 = 0
+  let uPercentStudentBCIJul23 = 0
+  let uNoGirlBCOJul23 = 0
+  let uPercentGirlBCOJul23 = 0
+  let uNoBoyBCOJul23 = 0
+  let uPercentBoyBCOJul23 = 0
+  let uNoSchoolBCOJul23 = 0
+  let uNoSchoolZeroBCOJul23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentJul23 = 0
+  let kTotalBookCheckoutJul23 = 0
+  let kTotalBookCheckinJul23 = 0
+  let kNoBCOPerStudentJul23 = 0
+  let kNoStudentBCOJul23 = 0
+  let kPercentStudentBCOJul23 = 0
+  let kNoStudentBCIJul23 = 0
+  let kPercentStudentBCIJul23 = 0
+  let kNoGirlBCOJul23 = 0
+  let kPercentGirlBCOJul23 = 0
+  let kNoBoyBCOJul23 = 0
+  let kPercentBoyBCOJul23 = 0
+  let kNoSchoolBCOJul23 = 0
+  let kNoSchoolZeroBCOJul23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentJul23 = 0
+  let cfoTotalBookCheckoutJul23 = 0
+  let cfoTotalBookCheckinJul23 = 0
+  let cfoNoBCOPerStudentJul23 = 0
+  let cfoNoStudentBCOJul23 = 0
+  let cfoPercentStudentBCOJul23 = 0
+  let cfoNoStudentBCIJul23 = 0
+  let cfoPercentStudentBCIJul23 = 0
+  let cfoNoGirlBCOJul23 = 0
+  let cfoPercentGirlBCOJul23 = 0
+  let cfoNoBoyBCOJul23 = 0
+  let cfoPercentBoyBCOJul23 = 0
+  let cfoNoSchoolBCOJul23 = 0
+  let cfoNoSchoolZeroBCOJul23 = 0
+  // CFO Data
+  // July
+
+  // August
+  // Ukhiya Data
+  let uTotalStudentAug23 = 0
+  let uTotalBookCheckoutAug23 = 0
+  let uTotalBookCheckinAug23 = 0
+  let uNoBCOPerStudentAug23 = 0
+  let uNoStudentBCOAug23 = 0
+  let uPercentStudentBCOAug23 = 0
+  let uNoStudentBCIAug23 = 0
+  let uPercentStudentBCIAug23 = 0
+  let uNoGirlBCOAug23 = 0
+  let uPercentGirlBCOAug23 = 0
+  let uNoBoyBCOAug23 = 0
+  let uPercentBoyBCOAug23 = 0
+  let uNoSchoolBCOAug23 = 0
+  let uNoSchoolZeroBCOAug23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentAug23 = 0
+  let kTotalBookCheckoutAug23 = 0
+  let kTotalBookCheckinAug23 = 0
+  let kNoBCOPerStudentAug23 = 0
+  let kNoStudentBCOAug23 = 0
+  let kPercentStudentBCOAug23 = 0
+  let kNoStudentBCIAug23 = 0
+  let kPercentStudentBCIAug23 = 0
+  let kNoGirlBCOAug23 = 0
+  let kPercentGirlBCOAug23 = 0
+  let kNoBoyBCOAug23 = 0
+  let kPercentBoyBCOAug23 = 0
+  let kNoSchoolBCOAug23 = 0
+  let kNoSchoolZeroBCOAug23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentAug23 = 0
+  let cfoTotalBookCheckoutAug23 = 0
+  let cfoTotalBookCheckinAug23 = 0
+  let cfoNoBCOPerStudentAug23 = 0
+  let cfoNoStudentBCOAug23 = 0
+  let cfoPercentStudentBCOAug23 = 0
+  let cfoNoStudentBCIAug23 = 0
+  let cfoPercentStudentBCIAug23 = 0
+  let cfoNoGirlBCOAug23 = 0
+  let cfoPercentGirlBCOAug23 = 0
+  let cfoNoBoyBCOAug23 = 0
+  let cfoPercentBoyBCOAug23 = 0
+  let cfoNoSchoolBCOAug23 = 0
+  let cfoNoSchoolZeroBCOAug23 = 0
+  // CFO Data
+  // August
+
+  // September
+  // Ukhiya Data
+  let uTotalStudentSep23 = 0
+  let uTotalBookCheckoutSep23 = 0
+  let uTotalBookCheckinSep23 = 0
+  let uNoBCOPerStudentSep23 = 0
+  let uNoStudentBCOSep23 = 0
+  let uPercentStudentBCOSep23 = 0
+  let uNoStudentBCISep23 = 0
+  let uPercentStudentBCISep23 = 0
+  let uNoGirlBCOSep23 = 0
+  let uPercentGirlBCOSep23 = 0
+  let uNoBoyBCOSep23 = 0
+  let uPercentBoyBCOSep23 = 0
+  let uNoSchoolBCOSep23 = 0
+  let uNoSchoolZeroBCOSep23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentSep23 = 0
+  let kTotalBookCheckoutSep23 = 0
+  let kTotalBookCheckinSep23 = 0
+  let kNoBCOPerStudentSep23 = 0
+  let kNoStudentBCOSep23 = 0
+  let kPercentStudentBCOSep23 = 0
+  let kNoStudentBCISep23 = 0
+  let kPercentStudentBCISep23 = 0
+  let kNoGirlBCOSep23 = 0
+  let kPercentGirlBCOSep23 = 0
+  let kNoBoyBCOSep23 = 0
+  let kPercentBoyBCOSep23 = 0
+  let kNoSchoolBCOSep23 = 0
+  let kNoSchoolZeroBCOSep23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentSep23 = 0
+  let cfoTotalBookCheckoutSep23 = 0
+  let cfoTotalBookCheckinSep23 = 0
+  let cfoNoBCOPerStudentSep23 = 0
+  let cfoNoStudentBCOSep23 = 0
+  let cfoPercentStudentBCOSep23 = 0
+  let cfoNoStudentBCISep23 = 0
+  let cfoPercentStudentBCISep23 = 0
+  let cfoNoGirlBCOSep23 = 0
+  let cfoPercentGirlBCOSep23 = 0
+  let cfoNoBoyBCOSep23 = 0
+  let cfoPercentBoyBCOSep23 = 0
+  let cfoNoSchoolBCOSep23 = 0
+  let cfoNoSchoolZeroBCOSep23 = 0
+  // CFO Data
+  // September
+
+  // October
+  // Ukhiya Data
+  let uTotalStudentOct23 = 0
+  let uTotalBookCheckoutOct23 = 0
+  let uTotalBookCheckinOct23 = 0
+  let uNoBCOPerStudentOct23 = 0
+  let uNoStudentBCOOct23 = 0
+  let uPercentStudentBCOOct23 = 0
+  let uNoStudentBCIOct23 = 0
+  let uPercentStudentBCIOct23 = 0
+  let uNoGirlBCOOct23 = 0
+  let uPercentGirlBCOOct23 = 0
+  let uNoBoyBCOOct23 = 0
+  let uPercentBoyBCOOct23 = 0
+  let uNoSchoolBCOOct23 = 0
+  let uNoSchoolZeroBCOOct23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentOct23 = 0
+  let kTotalBookCheckoutOct23 = 0
+  let kTotalBookCheckinOct23 = 0
+  let kNoBCOPerStudentOct23 = 0
+  let kNoStudentBCOOct23 = 0
+  let kPercentStudentBCOOct23 = 0
+  let kNoStudentBCIOct23 = 0
+  let kPercentStudentBCIOct23 = 0
+  let kNoGirlBCOOct23 = 0
+  let kPercentGirlBCOOct23 = 0
+  let kNoBoyBCOOct23 = 0
+  let kPercentBoyBCOOct23 = 0
+  let kNoSchoolBCOOct23 = 0
+  let kNoSchoolZeroBCOOct23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentOct23 = 0
+  let cfoTotalBookCheckoutOct23 = 0
+  let cfoTotalBookCheckinOct23 = 0
+  let cfoNoBCOPerStudentOct23 = 0
+  let cfoNoStudentBCOOct23 = 0
+  let cfoPercentStudentBCOOct23 = 0
+  let cfoNoStudentBCIOct23 = 0
+  let cfoPercentStudentBCIOct23 = 0
+  let cfoNoGirlBCOOct23 = 0
+  let cfoPercentGirlBCOOct23 = 0
+  let cfoNoBoyBCOOct23 = 0
+  let cfoPercentBoyBCOOct23 = 0
+  let cfoNoSchoolBCOOct23 = 0
+  let cfoNoSchoolZeroBCOOct23 = 0
+  // CFO Data
+  // October
+
+  // November
+  // Ukhiya Data
+  let uTotalStudentNov23 = 0
+  let uTotalBookCheckoutNov23 = 0
+  let uTotalBookCheckinNov23 = 0
+  let uNoBCOPerStudentNov23 = 0
+  let uNoStudentBCONov23 = 0
+  let uPercentStudentBCONov23 = 0
+  let uNoStudentBCINov23 = 0
+  let uPercentStudentBCINov23 = 0
+  let uNoGirlBCONov23 = 0
+  let uPercentGirlBCONov23 = 0
+  let uNoBoyBCONov23 = 0
+  let uPercentBoyBCONov23 = 0
+  let uNoSchoolBCONov23 = 0
+  let uNoSchoolZeroBCONov23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentNov23 = 0
+  let kTotalBookCheckoutNov23 = 0
+  let kTotalBookCheckinNov23 = 0
+  let kNoBCOPerStudentNov23 = 0
+  let kNoStudentBCONov23 = 0
+  let kPercentStudentBCONov23 = 0
+  let kNoStudentBCINov23 = 0
+  let kPercentStudentBCINov23 = 0
+  let kNoGirlBCONov23 = 0
+  let kPercentGirlBCONov23 = 0
+  let kNoBoyBCONov23 = 0
+  let kPercentBoyBCONov23 = 0
+  let kNoSchoolBCONov23 = 0
+  let kNoSchoolZeroBCONov23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentNov23 = 0
+  let cfoTotalBookCheckoutNov23 = 0
+  let cfoTotalBookCheckinNov23 = 0
+  let cfoNoBCOPerStudentNov23 = 0
+  let cfoNoStudentBCONov23 = 0
+  let cfoPercentStudentBCONov23 = 0
+  let cfoNoStudentBCINov23 = 0
+  let cfoPercentStudentBCINov23 = 0
+  let cfoNoGirlBCONov23 = 0
+  let cfoPercentGirlBCONov23 = 0
+  let cfoNoBoyBCONov23 = 0
+  let cfoPercentBoyBCONov23 = 0
+  let cfoNoSchoolBCONov23 = 0
+  let cfoNoSchoolZeroBCONov23 = 0
+  // CFO Data
+  // November
+
+  // December
+  // Ukhiya Data
+  let uTotalStudentDec23 = 0
+  let uTotalBookCheckoutDec23 = 0
+  let uTotalBookCheckinDec23 = 0
+  let uNoBCOPerStudentDec23 = 0
+  let uNoStudentBCODec23 = 0
+  let uPercentStudentBCODec23 = 0
+  let uNoStudentBCIDec23 = 0
+  let uPercentStudentBCIDec23 = 0
+  let uNoGirlBCODec23 = 0
+  let uPercentGirlBCODec23 = 0
+  let uNoBoyBCODec23 = 0
+  let uPercentBoyBCODec23 = 0
+  let uNoSchoolBCODec23 = 0
+  let uNoSchoolZeroBCODec23 = 0
+  // Ukhiya Data
+
+  // Kutudbia Data
+  let kTotalStudentDec23 = 0
+  let kTotalBookCheckoutDec23 = 0
+  let kTotalBookCheckinDec23 = 0
+  let kNoBCOPerStudentDec23 = 0
+  let kNoStudentBCODec23 = 0
+  let kPercentStudentBCODec23 = 0
+  let kNoStudentBCIDec23 = 0
+  let kPercentStudentBCIDec23 = 0
+  let kNoGirlBCODec23 = 0
+  let kPercentGirlBCODec23 = 0
+  let kNoBoyBCODec23 = 0
+  let kPercentBoyBCODec23 = 0
+  let kNoSchoolBCODec23 = 0
+  let kNoSchoolZeroBCODec23 = 0
+  // Kutudbia Data
+
+  // CFO Data
+  let cfoTotalStudentDec23 = 0
+  let cfoTotalBookCheckoutDec23 = 0
+  let cfoTotalBookCheckinDec23 = 0
+  let cfoNoBCOPerStudentDec23 = 0
+  let cfoNoStudentBCODec23 = 0
+  let cfoPercentStudentBCODec23 = 0
+  let cfoNoStudentBCIDec23 = 0
+  let cfoPercentStudentBCIDec23 = 0
+  let cfoNoGirlBCODec23 = 0
+  let cfoPercentGirlBCODec23 = 0
+  let cfoNoBoyBCODec23 = 0
+  let cfoPercentBoyBCODec23 = 0
+  let cfoNoSchoolBCODec23 = 0
+  let cfoNoSchoolZeroBCODec23 = 0
+  // CFO Data
+  // December
+
   // 2023
 
   // Annual
@@ -3106,10 +3478,13 @@ const AnalysisBCO = () => {
         march: cfoTotalStudentMar23,
         april: cfoTotalStudentApr23,
         may: cfoTotalStudentMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoTotalStudentJun23,
+        july: cfoTotalStudentJul23,
+        august: cfoTotalStudentAug23,
+        september: cfoTotalStudentSep23,
+        october: cfoTotalStudentOct23,
+        november: cfoTotalStudentNov23,
+        december: cfoTotalStudentDec23,
         remark: '',
       },
       {
@@ -3120,10 +3495,13 @@ const AnalysisBCO = () => {
         march: cfoTotalBookCheckoutMar23,
         april: cfoTotalBookCheckoutApr23,
         may: cfoTotalBookCheckoutMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoTotalBookCheckoutJun23,
+        july: cfoTotalBookCheckoutJul23,
+        august: cfoTotalBookCheckoutAug23,
+        september: cfoTotalBookCheckoutSep23,
+        october: cfoTotalBookCheckoutOct23,
+        november: cfoTotalBookCheckoutNov23,
+        december: cfoTotalBookCheckoutDec23,
         remark: '',
       },
       {
@@ -3134,24 +3512,30 @@ const AnalysisBCO = () => {
         march: cfoTotalBookCheckinMar23,
         april: cfoTotalBookCheckinApr23,
         may: cfoTotalBookCheckinMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoTotalBookCheckinJun23,
+        july: cfoTotalBookCheckinJul23,
+        august: cfoTotalBookCheckinAug23,
+        september: cfoTotalBookCheckinSep23,
+        october: cfoTotalBookCheckinOct23,
+        november: cfoTotalBookCheckinNov23,
+        december: cfoTotalBookCheckinDec23,
         remark: '',
       },
       {
         sl: 4,
-        area: 'Average Books Read by Per Child',
+        area: 'Average Book Checkout Per Child',
         january: cfoNoBCOPerStudentJan23,
         february: cfoNoBCOPerStudentFeb23,
         march: cfoNoBCOPerStudentMar23,
         april: cfoNoBCOPerStudentApr23,
         may: cfoNoBCOPerStudentMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoNoBCOPerStudentJun23,
+        july: cfoNoBCOPerStudentJul23,
+        august: cfoNoBCOPerStudentAug23,
+        september: cfoNoBCOPerStudentSep23,
+        october: cfoNoBCOPerStudentOct23,
+        november: cfoNoBCOPerStudentNov23,
+        december: cfoNoBCOPerStudentDec23,
         remark: '',
       },
       {
@@ -3162,10 +3546,13 @@ const AnalysisBCO = () => {
         march: cfoNoStudentBCOMar23,
         april: cfoNoStudentBCOApr23,
         may: cfoNoStudentBCOMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoNoStudentBCOJun23,
+        july: cfoNoStudentBCOJul23,
+        august: cfoNoStudentBCOAug23,
+        september: cfoNoStudentBCOSep23,
+        october: cfoNoStudentBCOOct23,
+        november: cfoNoStudentBCONov23,
+        december: cfoNoStudentBCODec23,
         remark: '',
       },
       {
@@ -3176,10 +3563,13 @@ const AnalysisBCO = () => {
         march: cfoPercentStudentBCOMar23,
         april: cfoPercentStudentBCOApr23,
         may: cfoPercentStudentBCOMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoPercentStudentBCOJun23,
+        july: cfoPercentStudentBCOJul23,
+        august: cfoPercentStudentBCOAug23,
+        september: cfoPercentStudentBCOSep23,
+        october: cfoPercentStudentBCOOct23,
+        november: cfoPercentStudentBCONov23,
+        december: cfoPercentStudentBCODec23,
         remark: '',
       },
       {
@@ -3190,10 +3580,13 @@ const AnalysisBCO = () => {
         march: cfoNoStudentBCIMar23,
         april: cfoNoStudentBCIApr23,
         may: cfoNoStudentBCIMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoNoStudentBCIJun23,
+        july: cfoNoStudentBCIJul23,
+        august: cfoNoStudentBCIAug23,
+        september: cfoNoStudentBCISep23,
+        october: cfoNoStudentBCIOct23,
+        november: cfoNoStudentBCINov23,
+        december: cfoNoStudentBCIDec23,
         remark: '',
       },
       {
@@ -3204,10 +3597,13 @@ const AnalysisBCO = () => {
         march: cfoPercentStudentBCIMar23,
         april: cfoPercentStudentBCIApr23,
         may: cfoPercentStudentBCIMay23,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
+        june: cfoPercentStudentBCIJun23,
+        july: cfoPercentStudentBCIJul23,
+        august: cfoPercentStudentBCIAug23,
+        september: cfoPercentStudentBCISep23,
+        october: cfoPercentStudentBCIOct23,
+        november: cfoPercentStudentBCINov23,
+        december: cfoPercentStudentBCIDec23,
         remark: '',
       },
     ]
@@ -3228,17 +3624,42 @@ const AnalysisBCO = () => {
         'July',
         'August',
         'September',
+        'October',
+        'November',
+        'December',
       ],
       datasets: [
         {
-          label: '',
-          backgroundColor: ['#ff3333', '#e6d067', '#78c498', '#ebe134'],
+          label: 'Book checkout per child',
+          borderColor: '#264a2f',
+          backgroundColor: [
+            '#ff3333',
+            '#f59b42',
+            '#d1f542',
+            '#5df542',
+            '#42f5d4',
+            '#427bf5',
+            '#7b42f5',
+            '#f54266',
+            '#d4bcc1',
+            '#c9bcd4',
+            '#4e6769',
+            '#ccb889',
+            '',
+          ],
           data: [
             cfoNoBCOPerStudentJan23,
             cfoNoBCOPerStudentFeb23,
             cfoNoBCOPerStudentMar23,
             cfoNoBCOPerStudentApr23,
             cfoNoBCOPerStudentMay23,
+            cfoNoBCOPerStudentJun23,
+            cfoNoBCOPerStudentJul23,
+            cfoNoBCOPerStudentAug23,
+            cfoNoBCOPerStudentSep23,
+            cfoNoBCOPerStudentOct23,
+            cfoNoBCOPerStudentNov23,
+            cfoNoBCOPerStudentDec23,
           ],
         },
       ],
@@ -3257,6 +3678,9 @@ const AnalysisBCO = () => {
         'July',
         'August',
         'September',
+        'October',
+        'November',
+        'December',
       ],
       datasets: [
         {
@@ -3271,6 +3695,13 @@ const AnalysisBCO = () => {
             cfoTotalBookCheckoutMar23,
             cfoTotalBookCheckoutApr23,
             cfoTotalBookCheckoutMay23,
+            cfoTotalBookCheckoutJun23,
+            cfoTotalBookCheckoutJul23,
+            cfoTotalBookCheckoutAug23,
+            cfoTotalBookCheckoutSep23,
+            cfoTotalBookCheckoutOct23,
+            cfoTotalBookCheckoutNov23,
+            cfoTotalBookCheckoutDec23,
           ],
         },
         {
@@ -3285,6 +3716,13 @@ const AnalysisBCO = () => {
             cfoTotalBookCheckinMar23,
             cfoTotalBookCheckinApr23,
             cfoTotalBookCheckinMay23,
+            cfoTotalBookCheckinJun23,
+            cfoTotalBookCheckinJul23,
+            cfoTotalBookCheckinAug23,
+            cfoTotalBookCheckinSep23,
+            cfoTotalBookCheckinOct23,
+            cfoTotalBookCheckinNov23,
+            cfoTotalBookCheckinDec23,
           ],
         },
       ],
@@ -3303,6 +3741,9 @@ const AnalysisBCO = () => {
         'July',
         'August',
         'September',
+        'October',
+        'November',
+        'December',
       ],
       datasets: [
         {
@@ -3317,6 +3758,13 @@ const AnalysisBCO = () => {
             cfoNoStudentBCOMar23,
             cfoNoStudentBCOApr23,
             cfoNoStudentBCOMay23,
+            cfoNoStudentBCOJun23,
+            cfoNoStudentBCOJul23,
+            cfoNoStudentBCOAug23,
+            cfoNoStudentBCOSep23,
+            cfoNoStudentBCOOct23,
+            cfoNoStudentBCONov23,
+            cfoNoStudentBCODec23,
           ],
         },
         {
@@ -3331,6 +3779,13 @@ const AnalysisBCO = () => {
             cfoNoStudentBCIMar23,
             cfoNoStudentBCIApr23,
             cfoNoStudentBCIMay23,
+            cfoNoStudentBCIJun23,
+            cfoNoStudentBCIJul23,
+            cfoNoStudentBCIAug23,
+            cfoNoStudentBCISep23,
+            cfoNoStudentBCIOct23,
+            cfoNoStudentBCINov23,
+            cfoNoStudentBCIDec23,
           ],
         },
       ],
@@ -3349,6 +3804,9 @@ const AnalysisBCO = () => {
         'July',
         'August',
         'September',
+        'October',
+        'November',
+        'December',
       ],
       datasets: [
         {
@@ -3363,6 +3821,13 @@ const AnalysisBCO = () => {
             cfoPercentStudentBCOMar23,
             cfoPercentStudentBCOApr23,
             cfoPercentStudentBCOMay23,
+            cfoPercentStudentBCOJun23,
+            cfoPercentStudentBCOJul23,
+            cfoPercentStudentBCOAug23,
+            cfoPercentStudentBCOSep23,
+            cfoPercentStudentBCOOct23,
+            cfoPercentStudentBCONov23,
+            cfoPercentStudentBCODec23,
           ],
         },
         {
@@ -3377,6 +3842,13 @@ const AnalysisBCO = () => {
             cfoPercentStudentBCIMar23,
             cfoPercentStudentBCIApr23,
             cfoPercentStudentBCIMay23,
+            cfoPercentStudentBCIJun23,
+            cfoPercentStudentBCIJul23,
+            cfoPercentStudentBCIAug23,
+            cfoPercentStudentBCISep23,
+            cfoPercentStudentBCIOct23,
+            cfoPercentStudentBCINov23,
+            cfoPercentStudentBCIDec23,
           ],
         },
       ],
@@ -3417,6 +3889,9 @@ const AnalysisBCO = () => {
                 { title: 'July', field: 'july' },
                 { title: 'August', field: 'august' },
                 { title: 'September', field: 'september' },
+                { title: 'October', field: 'october' },
+                { title: 'November', field: 'november' },
+                { title: 'December', field: 'december' },
                 { title: 'Remarks', field: 'remark' },
               ]}
               options={{
@@ -3457,7 +3932,7 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Average Book Read by Per Child-2023</strong>
+            <strong>Average Book Checkout Per Child-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
@@ -3472,7 +3947,7 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Book Checkout Checkin-2023</strong>
+            <strong>Number of Book Checkout Checkin-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
@@ -3487,7 +3962,7 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Student Number Checkout Checkin-2023</strong>
+            <strong>Number of Student Checkout Checkin-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
@@ -3502,7 +3977,7 @@ const AnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Student Percent Checkout Checkin-2023</strong>
+            <strong>Percent of Student Checkout Checkin-2023</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
