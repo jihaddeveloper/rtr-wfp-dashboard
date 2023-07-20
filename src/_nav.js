@@ -279,7 +279,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Preprimary Class',
-        to: '/base/construction',
+        to: '/preprimary/preprimary-class',
       },
       {
         component: CNavItem,

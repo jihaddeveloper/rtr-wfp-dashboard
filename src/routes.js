@@ -13,28 +13,41 @@ const AllSchool = React.lazy(() => import('./views/base/school/AllSchool'))
 const AllTeacher = React.lazy(() => import('./views/base/teacher/AllTeacher'))
 const AllEmployee = React.lazy(() => import('./views/base/employee/AllEmployee'))
 const AllTraining = React.lazy(() => import('./views/base/training/AllTraining'))
+// Base
 
 // Overall School
 const OverallSchoolData = React.lazy(() => import('./views/base/school/OverallSchoolData'))
 const OverallSchoolReport = React.lazy(() => import('./views/base/school/OverallSchoolReport'))
+// Overall School
 
 // BCO/I
 const AllBCOSchool = React.lazy(() => import('./views/base/bco/AllBCOSchool'))
 const AllBCOCRF = React.lazy(() => import('./views/base/bco/AllBCOCRF'))
 const AllBCOCombined = React.lazy(() => import('./views/base/bco/AllBCOCombined'))
+// BCO/I
 
 // Library
 const LibraryDataCombined = React.lazy(() => import('./views/base/library/LibraryDataCombined'))
 const LibraryObservation = React.lazy(() => import('./views/base/library/LibraryObservation'))
 const LibrarySRM = React.lazy(() => import('./views/base/library/LibrarySRM'))
 const AllBookCaptain = React.lazy(() => import('./views/base/library/AllBookCaptain'))
+// Library
 
 // Bangla
 const BanglaCalssData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
 const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
+// Bangla
 
 // SRM
 const SRMCalss = React.lazy(() => import('./views/base/srm/SRMClass'))
+// SRM
+
+// Preprimary
+const PreprimaryClassData = React.lazy(() => import('./views/base/preprimary/PreprimaryClassData'))
+const PreprimaryClassReport = React.lazy(() =>
+  import('./views/base/preprimary/PreprimaryClassReport'),
+)
+// Preprimary
 
 // Report
 const BCOSchoolQuarterly = React.lazy(() => import('./views/base/bco/BCOSchoolQuarterly'))
@@ -189,6 +202,17 @@ const routes = [
 
   { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaCalssData },
   { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaCalssReport },
+
+  {
+    path: '/preprimary/preprimary-class',
+    name: 'PreprimaryClassData',
+    element: PreprimaryClassData,
+  },
+  {
+    path: '/preprimary/preprimary-class-report',
+    name: 'PreprimaryClassReport',
+    element: PreprimaryClassReport,
+  },
 
   { path: '/srm/srm-class', name: 'SRMClass', element: SRMCalss },
 ]
