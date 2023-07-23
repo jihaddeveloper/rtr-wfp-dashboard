@@ -134,6 +134,7 @@ const PreprimaryClassData = () => {
                   field: 'isTrained',
                 },
                 { title: 'teacherStatus', field: 'teacherStatus', sorting: 'true' },
+
                 { title: 'month', field: 'month', sorting: 'true' },
                 { title: 'year', field: 'year', sorting: 'true' },
 
@@ -175,28 +176,28 @@ const PreprimaryClassData = () => {
                 },
 
                 {
-                  title: 'Content',
-                  field: 'contentName',
+                  title: 'Content 1',
+                  field: 'contentName1',
+                },
+                {
+                  title: 'Content 2',
+                  field: 'contentName2',
+                },
+                {
+                  title: 'Content 3',
+                  field: 'contentName3',
+                },
+                {
+                  title: 'Period Month',
+                  field: 'periodMonth',
+                },
+                {
+                  title: 'Period Week',
+                  field: 'periodWeek',
                 },
                 {
                   title: 'Period Day',
                   field: 'periodDay',
-                },
-                {
-                  title: 'totalAdmittedStudent',
-                  field: 'totalAdmittedStudent',
-                  filtering: false,
-                },
-                {
-                  title: 'totalAdmittedGirl',
-                  field: 'totalAdmittedGirl',
-                  filtering: false,
-                },
-
-                {
-                  title: 'totalAdmittedBoy',
-                  field: 'totalAdmittedBoy',
-                  filtering: false,
                 },
 
                 {
@@ -215,6 +216,12 @@ const PreprimaryClassData = () => {
                   field: 'totalPresentBoy',
                   filtering: false,
                 },
+
+                {
+                  title: 'totalPresentSpecial',
+                  field: 'totalPresentSpecial',
+                  filtering: false,
+                },
                 {
                   title: 'note',
                   field: 'note',
@@ -225,116 +232,103 @@ const PreprimaryClassData = () => {
                 { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3', filtering: false },
 
                 {
-                  title: 'ind1PhonemicAwarenessStatus',
-                  field: 'ind1PhonemicAwarenessStatus',
+                  title: 'ind11UsingBigbookStatus',
+                  field: 'ind11UsingBigbookStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind1PhonemicAwarenessNotes',
-                  field: 'ind1PhonemicAwarenessNotes',
+                  title: 'ind11UsingBigbookNotes',
+                  field: 'ind11UsingBigbookNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind2LetterIdentificationStatus',
-                  field: 'ind2LetterIdentificationStatus',
+                  title: 'ind12PictureDiscussionStatus',
+                  field: 'ind12PictureDiscussionStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind2LetterIdentificationNotes',
-                  field: 'ind2LetterIdentificationNotes',
+                  title: 'ind12PictureDiscussionNotes',
+                  field: 'ind12PictureDiscussionNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind3VocabularyIdentificationStatus',
-                  field: 'ind3VocabularyIdentificationStatus',
+                  title: 'ind13FollowedInstructionStatus',
+                  field: 'ind13FollowedInstructionStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind3VocabularyIdentificationNotes',
-                  field: 'ind3VocabularyIdentificationNotes',
+                  title: 'ind13FollowedInstructionNotes',
+                  field: 'ind13FollowedInstructionNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind4FluencyIdentificationStatus',
-                  field: 'ind4FluencyIdentificationStatus',
+                  title: 'ind21UsingTalkingChartStatus',
+                  field: 'ind21UsingTalkingChartStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind4FluencyIdentificationNotes',
-                  field: 'ind4FluencyIdentificationNotes',
+                  title: 'ind21UsingTalkingChartNotes',
+                  field: 'ind21UsingTalkingChartNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind5ComprehensionStatus',
-                  field: 'ind5ComprehensionStatus',
+                  title: 'ind22UsingPictureElementStatus',
+                  field: 'ind22UsingPictureElementStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind5ComprehensionNotes',
-                  field: 'ind5ComprehensionNotes',
+                  title: 'ind22UsingPictureElementNotes',
+                  field: 'ind22UsingPictureElementNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind6WritingActivitiesStatus',
-                  field: 'ind6WritingActivitiesStatus',
+                  title: 'ind23FollowedInstructionStepStatus',
+                  field: 'ind23FollowedInstructionStepStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind6WritingActivitiesNotes',
-                  field: 'ind6WritingActivitiesNotes',
+                  title: 'ind23FollowedInstructionStepNotes',
+                  field: 'ind23FollowedInstructionStepNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind7IDoWeDoYouDoStatus',
-                  field: 'ind7IDoWeDoYouDoStatus',
+                  title: 'ind31LanguageGameStatus',
+                  field: 'ind31LanguageGameStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind7IDoWeDoYouDoNotes',
-                  field: 'ind7IDoWeDoYouDoNotes',
-                  filtering: false,
-                },
-
-                { title: 'ind8GroupWorkStatus', field: 'ind8GroupWorkStatus', filtering: false },
-                { title: 'ind8GroupWorkNotes', field: 'ind8GroupWorkNotes', filtering: false },
-
-                { title: 'ind9TimeOnTaskStatus', field: 'ind9TimeOnTaskStatus', filtering: false },
-                { title: 'ind9TimeOnTaskNotes', field: 'ind9TimeOnTaskNotes', filtering: false },
-
-                {
-                  title: 'ind10UseTeachingAidStatus',
-                  field: 'ind10UseTeachingAidStatus',
-                  filtering: false,
-                },
-                {
-                  title: 'ind10UseTeachingAidNotes',
-                  field: 'ind10UseTeachingAidNotes',
+                  title: 'ind31LanguageGameNotes',
+                  field: 'ind31LanguageGameNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind11ContinuityOfLessonsStatus',
-                  field: 'ind11ContinuityOfLessonsStatus',
+                  title: 'ind32LanguageGameIWeYouStatus',
+                  field: 'ind32LanguageGameIWeYouStatus',
                   filtering: false,
                 },
                 {
-                  title: 'ind11ContinuityOfLessonsNotes',
-                  field: 'ind11ContinuityOfLessonsNotes',
+                  title: 'ind32LanguageGameIWeYouNotes',
+                  field: 'ind32LanguageGameIWeYouNotes',
                   filtering: false,
                 },
 
                 {
-                  title: 'ind12AssessmentStatus',
-                  field: 'ind12AssessmentStatus',
+                  title: 'ind33LanguageGameExtraStatus',
+                  field: 'ind33LanguageGameExtraStatus',
                   filtering: false,
                 },
-                { title: 'ind12AssessmentNotes', field: 'ind12AssessmentNotes', filtering: false },
+                {
+                  title: 'ind33LanguageGameExtraNotes',
+                  field: 'ind33LanguageGameExtraNotes',
+                  filtering: false,
+                },
 
                 { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
                 { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
@@ -356,30 +350,6 @@ const PreprimaryClassData = () => {
 
                 { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
-
-                { title: 'question1', field: 'question1', filtering: false },
-
-                { title: 'student1', field: 'student1', filtering: false },
-                { title: 'student2', field: 'student2', filtering: false },
-                { title: 'student3', field: 'student3', filtering: false },
-                { title: 'student4', field: 'student4', filtering: false },
-                { title: 'student5', field: 'student5', filtering: false },
-
-                { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
-                { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
-                { title: 'totalFor1', field: 'totalFor1', filtering: false },
-                { title: 'noRightFor2', field: 'noRightFor2', filtering: false },
-                { title: 'noWrongFor2', field: 'noWrongFor2', filtering: false },
-                { title: 'totalFor2', field: 'totalFor2', filtering: false },
-                { title: 'noRightFor3', field: 'noRightFor3', filtering: false },
-                { title: 'noWrongFor3', field: 'noWrongFor3', filtering: false },
-                { title: 'totalFor3', field: 'totalFor3', filtering: false },
-                { title: 'noRightFor4', field: 'noRightFor4', filtering: false },
-                { title: 'noWrongFor4', field: 'noWrongFor4', filtering: false },
-                { title: 'totalFor4', field: 'totalFor4', filtering: false },
-                { title: 'noRightFor5', field: 'noRightFor5', filtering: false },
-                { title: 'noWrongFor5', field: 'noWrongFor5', filtering: false },
-                { title: 'totalFor5', field: 'totalFor5', filtering: false },
               ]}
               // actions={[
               //   {
