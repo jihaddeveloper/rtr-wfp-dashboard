@@ -72,6 +72,8 @@ const LibraryObservation = () => {
   let phase2PercentD = 0
   let phase3NumberD = 0
   let phase3PercentD = 0
+  let phase4NumberD = 0
+  let phase4PercentD = 0
   let overallNumberD = 0
   var overallPercentD = 0
 
@@ -82,6 +84,8 @@ const LibraryObservation = () => {
   let phase2PercentF = 0
   let phase3NumberF = 0
   let phase3PercentF = 0
+  let phase4NumberF = 0
+  let phase4PercentF = 0
   let overallNumberF = 0
   let overallPercentF = 0
 
@@ -92,6 +96,8 @@ const LibraryObservation = () => {
   let phase2PercentHF = 0
   let phase3NumberHF = 0
   let phase3PercentHF = 0
+  let phase4NumberHF = 0
+  let phase4PercentHF = 0
   let overallNumberHF = 0
   let overallPercentHF = 0
 
@@ -102,6 +108,8 @@ const LibraryObservation = () => {
   let phase2PercentT = 0
   let phase3NumberT = 0
   let phase3PercentT = 0
+  let phase4NumberT = 0
+  let phase4PercentT = 0
   let overallNumberT = 0
   let overallPercentT = 0
   // By Phase
@@ -136,44 +144,55 @@ const LibraryObservation = () => {
   // Indicator Freq by Phase
 
   let ind1Phase2 = 0
+  let ind1Phase4 = 0
   let ind1Overall = 0
 
   let ind2Phase2 = 0
+  let ind2Phase4 = 0
   let ind2Overall = 0
 
   let ind3Phase2 = 0
+  let ind3Phase4 = 0
   let ind3Overall = 0
 
   let ind4Phase2 = 0
+  let ind4Phase4 = 0
   let ind4Overall = 0
 
   let ind5Phase2 = 0
+  let ind5Phase4 = 0
   let ind5Overall = 0
 
   let ind6Phase2 = 0
+  let ind6Phase4 = 0
   let ind6Overall = 0
 
   let ind7Phase2 = 0
+  let ind7Phase4 = 0
   let ind7Overall = 0
 
   let ind8Phase2 = 0
+  let ind8Phase4 = 0
   let ind8Overall = 0
 
   let ind9Phase2 = 0
+  let ind9Phase4 = 0
   let ind9Overall = 0
 
   let ind10Phase2 = 0
+  let ind10Phase4 = 0
   let ind10Overall = 0
 
   let ind11Phase2 = 0
+  let ind11Phase4 = 0
   let ind11Overall = 0
 
   let ind12Phase2 = 0
+  let ind12Phase4 = 0
   let ind12Overall = 0
   // Indicator Freq by Phase
 
   // Indicator Freq by Province
-
   let ind1UkhiyaPro = 0
   let ind1KutubdiaPro = 0
   let ind1OverallPro = 0
@@ -236,6 +255,8 @@ const LibraryObservation = () => {
   let phase3Q1PercD = 0
   let phase3Q3NumD = 0
   let phase3Q3PercD = 0
+  let phase4Q1NumD = 0
+  let phase4Q1PercD = 0
   let overallQ1NumD = 0
   let overallQ1PercD = 0
   let overallQ3NumD = 0
@@ -253,6 +274,8 @@ const LibraryObservation = () => {
   let phase3Q1PercF = 0
   let phase3Q3NumF = 0
   let phase3Q3PercF = 0
+  let phase4Q1NumF = 0
+  let phase4Q1PercF = 0
   let overallQ1NumF = 0
   let overallQ1PercF = 0
   let overallQ3NumF = 0
@@ -270,6 +293,8 @@ const LibraryObservation = () => {
   let phase3Q1PercHF = 0
   let phase3Q3NumHF = 0
   let phase3Q3PercHF = 0
+  let phase4Q1NumHF = 0
+  let phase4Q1PercHF = 0
   let overallQ1NumHF = 0
   let overallQ1PercHF = 0
   let overallQ3NumHF = 0
@@ -287,6 +312,8 @@ const LibraryObservation = () => {
   let phase3Q1PercT = 0
   let phase3Q3NumT = 0
   let phase3Q3PercT = 0
+  let phase4Q1NumT = 0
+  let phase4Q1PercT = 0
   let overallQ1NumT = 0
   let overallQ1PercT = 0
   let overallQ3NumT = 0
@@ -323,7 +350,6 @@ const LibraryObservation = () => {
     const call = async () => {
       console.log('use effect called')
 
-      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
       await getAllLibraryObservation(console.log('Get All Library observation called'))
 
       pushOverallResultByPhase()
@@ -342,25 +368,6 @@ const LibraryObservation = () => {
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   // Get All Library observation
   const getAllLibraryObservation = async () => {
@@ -393,29 +400,30 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Developing'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
-      overallNumberD =
-        0 +
-        0 +
-        parseInt(
+      phase4NumberD = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.libraryStatus === 'Developing'
+        }).length,
+      )
+      phase4PercentD = parseFloat(
+        (
+          (response.data.filter((item) => {
+            return item.year === '2023' && item.libraryStatus === 'Developing'
+          }).length *
+            100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
-          }).length,
-        )
-      overallPercentD =
-        0 +
-        0 +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Developing'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
+            return item.year === '2023'
+          }).length
+        ).toFixed(2),
+      )
+
+      overallNumberD = 0 + 0 + phase3NumberD + phase4NumberD
+      overallPercentD = ((0 + 0 + phase3PercentD + phase4PercentD) / 2).toFixed(2)
 
       phase3NumberF = parseInt(
         response.data.filter((item) => {
@@ -428,29 +436,32 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
-      overallNumberF =
-        0 +
-        0 +
-        parseInt(
+
+      phase4NumberF = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.libraryStatus === 'Functioning'
+        }).length,
+      )
+      phase4PercentF = parseFloat(
+        (
+          (response.data.filter((item) => {
+            return item.year === '2023' && item.libraryStatus === 'Functioning'
+          }).length *
+            100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
-          }).length,
-        )
-      overallPercentF =
-        0 +
-        0 +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
+            return item.year === '2023'
+          }).length
+        ).toFixed(2),
+      )
+
+      overallNumberF = 0 + 0 + phase3NumberF + phase4NumberF
+      overallPercentF = ((0 + 0 + phase3PercentF + phase4PercentF) / 2).toFixed(2)
+
       phase3NumberHF = parseInt(
         response.data.filter((item) => {
           return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
@@ -463,127 +474,53 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
 
-      overallNumberHF =
-        0 +
-        0 +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-          }).length,
-        )
+      phase4NumberHF = parseInt(
+        response.data.filter((item) => {
+          return item.year === '2023' && item.libraryStatus === 'Highly Functioning'
+        }).length,
+      )
 
-      overallPercentHF =
-        0 +
-        0 +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
+      phase4PercentHF = parseFloat(
+        (
+          (response.data.filter((item) => {
+            return item.year === '2023' && item.libraryStatus === 'Highly Functioning'
+          }).length *
+            100) /
+          response.data.filter((item) => {
+            return item.year === '2023'
+          }).length
+        ).toFixed(2),
+      )
 
-      phase3NumberT =
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-          }).length,
-        )
-      phase3PercentT =
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Developing'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
-      overallNumberT =
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-          }).length,
-        )
+      overallNumberHF = 0 + 0 + phase3NumberHF + phase4NumberHF
+      overallPercentHF = ((0 + 0 + phase3PercentHF + phase4PercentHF) / 2).toFixed(2)
+
+      phase3NumberT = phase3NumberD + phase3NumberF + phase3NumberHF
+
+      phase3PercentT = phase3PercentD + phase3PercentF + phase3PercentHF
+
+      phase4NumberT = phase4NumberD + phase4NumberF + phase4NumberHF
+
+      phase4PercentT = phase4PercentD + phase4PercentF + phase4PercentHF
+
+      overallNumberT = overallNumberD + overallNumberF + overallNumberHF
+
       overallPercentT =
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Developing'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
+        parseFloat(overallPercentD) + parseFloat(overallPercentF) + parseFloat(overallPercentHF)
+
       // By Phase
 
       // By Province
       ukhiyaNumberD = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Developing' &&
             item.upazilla === 'Ukhiya'
           )
@@ -593,21 +530,21 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
       kutubdiaNumberD = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Developing' &&
             item.upazilla === 'Kutubdia'
           )
@@ -617,21 +554,21 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
       ukhiyaNumberF = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Functioning' &&
             item.upazilla === 'Ukhiya'
           )
@@ -641,14 +578,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -656,7 +593,7 @@ const LibraryObservation = () => {
       kutubdiaNumberF = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Functioning' &&
             item.upazilla === 'Kutubdia'
           )
@@ -666,14 +603,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -681,7 +618,7 @@ const LibraryObservation = () => {
       ukhiyaNumberHF = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Highly Functioning' &&
             item.upazilla === 'Ukhiya'
           )
@@ -691,21 +628,21 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
       kutubdiaNumberHF = parseInt(
         response.data.filter((item) => {
           return (
-            item.year === '2022' &&
+            item.year === '2023' &&
             item.libraryStatus === 'Highly Functioning' &&
             item.upazilla === 'Kutubdia'
           )
@@ -715,14 +652,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -731,7 +668,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Ukhiya'
             )
@@ -740,7 +677,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Ukhiya'
             )
@@ -749,7 +686,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Ukhiya'
             )
@@ -759,40 +696,40 @@ const LibraryObservation = () => {
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length,
         ) +
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length,
         ) +
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length,
         )
       ).toFixed(2)
@@ -800,7 +737,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Kutubdia'
             )
@@ -809,7 +746,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Kutubdia'
             )
@@ -818,7 +755,7 @@ const LibraryObservation = () => {
         parseInt(
           response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Kutubdia'
             )
@@ -828,40 +765,40 @@ const LibraryObservation = () => {
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Developing' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Kutubdia'
+              return item.year === '2023' && item.upazilla === 'Kutubdia'
             }).length,
         ) +
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Functioning' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Kutubdia'
+              return item.year === '2023' && item.upazilla === 'Kutubdia'
             }).length,
         ) +
         parseFloat(
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.libraryStatus === 'Highly Functioning' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Kutubdia'
+              return item.year === '2023' && item.upazilla === 'Kutubdia'
             }).length,
         )
       ).toFixed(2)
@@ -881,17 +818,20 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind1Overall = parseFloat(
+
+      ind1Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind1IsTrainedAllTeacher === 'Yes'
+            return item.year === '2023' && item.ind1IsTrainedAllTeacher === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+
+      ind1Overall = ((ind1Phase2 + ind1Phase4) / 2).toFixed(2)
 
       ind2Phase2 = parseFloat(
         (
@@ -904,17 +844,20 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind2Overall = parseFloat(
+
+      ind2Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind2ClassroomSuitableSRM === 'Yes'
+            return item.year === '2023' && item.ind2ClassroomSuitableSRM === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+
+      ind2Overall = ((ind2Phase2 + ind2Phase4) / 2).toFixed(2)
 
       ind3Phase2 = parseFloat(
         (
@@ -927,17 +870,20 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind3Overall = parseFloat(
+
+      ind3Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind3BookselfUseable === 'Yes'
+            return item.year === '2023' && item.ind3BookselfUseable === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+
+      ind3Overall = ((ind3Phase2 + ind3Phase4) / 2).toFixed(2)
 
       ind4Phase2 = parseFloat(
         (
@@ -950,17 +896,20 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind4Overall = parseFloat(
+
+      ind4Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind4BookRegisterUpdated === 'Yes'
+            return item.year === '2023' && item.ind4BookRegisterUpdated === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+
+      ind4Overall = ((ind4Phase2 + ind4Phase4) / 2).toFixed(2)
 
       ind5Phase2 = parseFloat(
         (
@@ -973,17 +922,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind5Overall = parseFloat(
+      ind5Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind5BookselfOrganized === 'Yes'
+            return item.year === '2023' && item.ind5BookselfOrganized === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind5Overall = ((ind5Phase2 + ind5Phase4) / 2).toFixed(2)
 
       ind6Phase2 = parseFloat(
         (
@@ -996,17 +946,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind6Overall = parseFloat(
+      ind6Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind6PrintRichDisplayed === 'Yes'
+            return item.year === '2023' && item.ind6PrintRichDisplayed === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind6Overall = ((ind6Phase2 + ind6Phase4) / 2).toFixed(2)
 
       ind7Phase2 = parseFloat(
         (
@@ -1019,17 +970,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind7Overall = parseFloat(
+      ind7Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind7BookCheckoutFunctional === 'Yes'
+            return item.year === '2023' && item.ind7BookCheckoutFunctional === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind7Overall = ((ind7Phase2 + ind7Phase4) / 2).toFixed(2)
 
       ind8Phase2 = parseFloat(
         (
@@ -1042,17 +994,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind8Overall = parseFloat(
+      ind8Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind8SRMClassRoutine === 'Yes'
+            return item.year === '2023' && item.ind8SRMClassRoutine === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind8Overall = ((ind8Phase2 + ind8Phase4) / 2).toFixed(2)
 
       ind9Phase2 = parseFloat(
         (
@@ -1065,17 +1018,19 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind9Overall = parseFloat(
+
+      ind9Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind9SRMRegisterUpdated === 'Yes'
+            return item.year === '2023' && item.ind9SRMRegisterUpdated === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind9Overall = ((ind9Phase2 + ind9Phase4) / 2).toFixed(2)
 
       ind10Phase2 = parseFloat(
         (
@@ -1088,17 +1043,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind10Overall = parseFloat(
+      ind10Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind10ParentsMeeting === 'Yes'
+            return item.year === '2023' && item.ind10ParentsMeeting === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind10Overall = ((ind10Phase2 + ind10Phase4) / 2).toFixed(2)
 
       ind11Phase2 = parseFloat(
         (
@@ -1111,17 +1067,18 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind11Overall = parseFloat(
+      ind11Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind11ReadFestival === 'Yes'
+            return item.year === '2023' && item.ind11ReadFestival === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind11Overall = ((ind11Phase2 + ind11Phase4) / 2).toFixed(2)
 
       ind12Phase2 = parseFloat(
         (
@@ -1134,17 +1091,19 @@ const LibraryObservation = () => {
           }).length
         ).toFixed(2),
       )
-      ind12Overall = parseFloat(
+      ind12Phase4 = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.ind12SustainabilityPlan === 'Yes'
+            return item.year === '2023' && item.ind12SustainabilityPlan === 'Yes'
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022'
+            return item.year === '2023'
           }).length
         ).toFixed(2),
       )
+      ind12Overall = ((ind12Phase2 + ind12Phase4) / 2).toFixed(2)
+
       // Indicator Freq by Phase
 
       // Indicator Freq by Province
@@ -1152,14 +1111,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind1IsTrainedAllTeacher === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1167,14 +1126,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind1IsTrainedAllTeacher === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1183,14 +1142,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind1IsTrainedAllTeacher === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1198,14 +1157,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind1IsTrainedAllTeacher === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1216,14 +1175,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind2ClassroomSuitableSRM === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1232,14 +1191,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind2ClassroomSuitableSRM === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1249,14 +1208,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind2ClassroomSuitableSRM === 'Yes' &&
                 item.upazilla === 'Kutubdia'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1264,14 +1223,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind2ClassroomSuitableSRM === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1282,14 +1241,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind3BookselfUseable === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1297,14 +1256,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind3BookselfUseable === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1313,14 +1272,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind3BookselfUseable === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1328,14 +1287,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind3BookselfUseable === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1346,14 +1305,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind4BookRegisterUpdated === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1361,14 +1320,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind4BookRegisterUpdated === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1377,14 +1336,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind4BookRegisterUpdated === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1392,14 +1351,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind4BookRegisterUpdated === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1410,14 +1369,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind5BookselfOrganized === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1425,14 +1384,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind5BookselfOrganized === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1441,14 +1400,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind5BookselfOrganized === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1456,14 +1415,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind5BookselfOrganized === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1474,14 +1433,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind6PrintRichDisplayed === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1489,14 +1448,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind6PrintRichDisplayed === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1505,14 +1464,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind6PrintRichDisplayed === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1520,14 +1479,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind6PrintRichDisplayed === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1538,14 +1497,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind7BookCheckoutFunctional === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1553,14 +1512,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind7BookCheckoutFunctional === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1569,14 +1528,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind7BookCheckoutFunctional === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1584,14 +1543,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind7BookCheckoutFunctional === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1602,14 +1561,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind8SRMClassRoutine === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1617,14 +1576,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind8SRMClassRoutine === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1633,14 +1592,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind8SRMClassRoutine === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1648,14 +1607,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind8SRMClassRoutine === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1666,14 +1625,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind9SRMRegisterUpdated === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1681,14 +1640,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind9SRMRegisterUpdated === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1697,14 +1656,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind9SRMRegisterUpdated === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1712,14 +1671,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind9SRMRegisterUpdated === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1730,14 +1689,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind10ParentsMeeting === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1745,14 +1704,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind10ParentsMeeting === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1761,14 +1720,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind10ParentsMeeting === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1776,14 +1735,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind10ParentsMeeting === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1794,12 +1753,12 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' && item.ind11ReadFestival === 'Yes' && item.upazilla === 'Ukhiya'
+              item.year === '2023' && item.ind11ReadFestival === 'Yes' && item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1807,14 +1766,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind11ReadFestival === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1823,14 +1782,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind11ReadFestival === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1838,14 +1797,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind11ReadFestival === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1856,14 +1815,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind12SustainabilityPlan === 'Yes' &&
               item.upazilla === 'Ukhiya'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Ukhiya'
+            return item.year === '2023' && item.upazilla === 'Ukhiya'
           }).length
         ).toFixed(2),
       )
@@ -1871,14 +1830,14 @@ const LibraryObservation = () => {
         (
           (response.data.filter((item) => {
             return (
-              item.year === '2022' &&
+              item.year === '2023' &&
               item.ind12SustainabilityPlan === 'Yes' &&
               item.upazilla === 'Kutubdia'
             )
           }).length *
             100) /
           response.data.filter((item) => {
-            return item.year === '2022' && item.upazilla === 'Kutubdia'
+            return item.year === '2023' && item.upazilla === 'Kutubdia'
           }).length
         ).toFixed(2),
       )
@@ -1887,14 +1846,14 @@ const LibraryObservation = () => {
           (
             (response.data.filter((item) => {
               return (
-                item.year === '2022' &&
+                item.year === '2023' &&
                 item.ind12SustainabilityPlan === 'Yes' &&
                 item.upazilla === 'Ukhiya'
               )
             }).length *
               100) /
             response.data.filter((item) => {
-              return item.year === '2022' && item.upazilla === 'Ukhiya'
+              return item.year === '2023' && item.upazilla === 'Ukhiya'
             }).length
           ).toFixed(2),
         ) +
@@ -1902,14 +1861,14 @@ const LibraryObservation = () => {
             (
               (response.data.filter((item) => {
                 return (
-                  item.year === '2022' &&
+                  item.year === '2023' &&
                   item.ind12SustainabilityPlan === 'Yes' &&
                   item.upazilla === 'Kutubdia'
                 )
               }).length *
                 100) /
               response.data.filter((item) => {
-                return item.year === '2022' && item.upazilla === 'Kutubdia'
+                return item.year === '2023' && item.upazilla === 'Kutubdia'
               }).length
             ).toFixed(2),
           )) /
@@ -1930,24 +1889,34 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Developing'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
 
-      overallQ3NumD = parseInt(
+      overallQ3NumD = phase3Q3NumD
+      overallQ3PercD = phase3Q3PercD
+
+      phase4Q1NumD = parseInt(
         response.data.filter((item) => {
-          return item.year === '2022' && item.libraryStatus === 'Developing'
+          return item.year === '2023' && item.libraryStatus === 'Developing'
         }).length,
       )
-      overallQ3PercD = parseFloat(
+      phase4Q1PercD = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
+            return item.year === '2023' && item.libraryStatus === 'Developing'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2023'
+          }).length
         ).toFixed(2),
       )
+
+      overallQ1NumD = phase4Q1NumD
+      overallQ1PercD = phase4Q1PercD
 
       phase3Q3NumF = parseInt(
         response.data.filter((item) => {
@@ -1960,23 +1929,32 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
-      overallQ3NumF = parseInt(
+      overallQ3NumF = phase3Q3NumF
+      overallQ3PercF = phase3Q3PercF
+
+      phase4Q1NumF = parseInt(
         response.data.filter((item) => {
-          return item.year === '2022' && item.libraryStatus === 'Functioning'
+          return item.year === '2023' && item.libraryStatus === 'Functioning'
         }).length,
       )
-      overallQ3PercF = parseFloat(
+      phase4Q1PercF = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
+            return item.year === '2023' && item.libraryStatus === 'Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2023'
+          }).length
         ).toFixed(2),
       )
+      overallQ1NumF = phase4Q1NumF
+      overallQ1PercF = phase4Q1PercF
 
       phase3Q3NumHF = parseInt(
         response.data.filter((item) => {
@@ -1989,113 +1967,44 @@ const LibraryObservation = () => {
             return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2022'
+          }).length
         ).toFixed(2),
       )
-      overallQ3NumHF = parseInt(
+      overallQ3NumHF = phase3Q3NumHF
+      overallQ3PercHF = phase3Q3PercHF
+
+      phase4Q1NumHF = parseInt(
         response.data.filter((item) => {
-          return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
+          return item.year === '2023' && item.libraryStatus === 'Highly Functioning'
         }).length,
       )
-      overallQ3PercHF = parseFloat(
+      phase4Q1PercHF = parseFloat(
         (
           (response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
+            return item.year === '2023' && item.libraryStatus === 'Highly Functioning'
           }).length *
             100) /
-          response.data.length
+          response.data.filter((item) => {
+            return item.year === '2023'
+          }).length
         ).toFixed(2),
       )
+      overallQ1NumHF = phase4Q1NumHF
+      overallQ1PercHF = phase4Q1PercHF
 
-      phase3Q3NumT =
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-          }).length,
-        )
+      phase3Q3NumT = phase3Q3NumD + phase3Q3NumF + phase3Q3NumHF
+      phase3Q3PercT = phase3Q3PercD + phase3Q3PercF + phase3Q3PercHF
 
-      phase3Q3PercT =
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Developing'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
-      overallQ3NumT =
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Developing'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Functioning'
-          }).length,
-        ) +
-        parseInt(
-          response.data.filter((item) => {
-            return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-          }).length,
-        )
-      overallQ3PercT =
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Developing'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        ) +
-        parseFloat(
-          (
-            (response.data.filter((item) => {
-              return item.year === '2022' && item.libraryStatus === 'Highly Functioning'
-            }).length *
-              100) /
-            response.data.length
-          ).toFixed(2),
-        )
+      overallQ3NumT = phase3Q3NumD + phase3Q3NumF + phase3Q3NumHF
+      overallQ3PercT = phase3Q3PercD + phase3Q3PercF + phase3Q3PercHF
+
+      phase4Q1NumT = phase4Q1NumD + phase4Q1NumF + phase4Q1NumHF
+      phase4Q1PercT = phase4Q1PercD + phase4Q1PercF + phase4Q1PercHF
+      overallQ1NumT = phase4Q1NumD + phase4Q1NumF + phase4Q1NumHF
+      overallQ1PercT = phase4Q1PercD + phase4Q1PercF + phase4Q1PercHF
+
       // Results overtime
 
       setIsLoading(false)
@@ -2119,6 +2028,8 @@ const LibraryObservation = () => {
         phase2Percent: phase2PercentD,
         phase3Number: phase3NumberD,
         phase3Percent: phase3PercentD,
+        phase4Number: phase4NumberD,
+        phase4Percent: phase4PercentD,
         overallNumber: overallNumberD,
         overallPercent: overallPercentD,
       },
@@ -2130,6 +2041,8 @@ const LibraryObservation = () => {
         phase2Percent: phase2PercentF,
         phase3Number: phase3NumberF,
         phase3Percent: phase3PercentF,
+        phase4Number: phase4NumberF,
+        phase4Percent: phase4PercentF,
         overallNumber: overallNumberF,
         overallPercent: overallPercentF,
       },
@@ -2141,6 +2054,8 @@ const LibraryObservation = () => {
         phase2Percent: phase2PercentHF,
         phase3Number: phase3NumberHF,
         phase3Percent: phase3PercentHF,
+        phase4Number: phase4NumberHF,
+        phase4Percent: phase4PercentHF,
         overallNumber: overallNumberHF,
         overallPercent: overallPercentHF,
       },
@@ -2152,6 +2067,8 @@ const LibraryObservation = () => {
         phase2Percent: phase2PercentT,
         phase3Number: phase3NumberT,
         phase3Percent: phase3PercentT,
+        phase4Number: phase4NumberT,
+        phase4Percent: phase4PercentT,
         overallNumber: overallNumberT,
         overallPercent: overallPercentT,
       },
@@ -2206,67 +2123,79 @@ const LibraryObservation = () => {
         indicator:
           '১। বিদ্যালয়ের সংশ্লিষ্ট শিক্ষক পাঠাগার ব্যবস্থাপনা বিষয়ে প্রশিক্ষণে অংশগ্রহণ করেছেন',
         phase2: ind1Phase2,
+        phase4: ind1Phase4,
         overall: ind1Overall,
       },
       {
         indicator: '২। পাঠাগার কার্যক্রম পরিচালনার জন্য শ্রেণিকক্ষগুলো উপযোগী',
         phase2: ind2Phase2,
+        phase4: ind2Phase4,
         overall: ind2Overall,
       },
       {
         indicator:
           '৩। পাঠাগারগুলোর বুক শেলফ ও টেবিলগুলো ঠিকমতো স্থাপন করা হয়েছে এবং ভালো অবস্থায় আছে',
         phase2: ind3Phase2,
+        phase4: ind3Phase4,
         overall: ind3Overall,
       },
       {
         indicator: '৪। বুক রেজিস্টার আছে এবং নতুন বই পাওয়ার সাথে সাথে নিয়মিত হালনাগাদ করা হয়',
         phase2: ind4Phase2,
+        phase4: ind4Phase4,
         overall: ind4Overall,
       },
       {
         indicator: '৫। বুক শেলফে নির্দেশনা অনুযায়ী বই সাজানো হয়েছে',
         phase2: ind5Phase2,
+        phase4: ind5Phase4,
         overall: ind5Overall,
       },
       {
         indicator:
           '৬। ছাপাসমৃদ্ধ উপকরণ যেমন চার্ট, পোস্টার অথবা শিক্ষার্থীদের সৃজনশীল কাজ (আঁকা এবং লেখা) প্রদর্শিত আছে',
         phase2: ind6Phase2,
+        phase4: ind6Phase4,
         overall: ind6Overall,
       },
       {
         indicator: '৭। কার্যকরী বই চেক-আউট ব্যবস্থা বিদ্যমান আছে',
         phase2: ind7Phase2,
+        phase4: ind7Phase4,
         overall: ind7Overall,
       },
       {
         indicator: '৮। নির্দিষ্ট পড়ার ঘণ্টা বিদ্যমান রয়েছে',
         phase2: ind8Phase2,
+        phase4: ind8Phase4,
         overall: ind8Overall,
       },
       {
         indicator:
           '৯। পড়াভিত্তিক কার্যক্রমের তথ্য লিপিবদ্ধ করার জন্য একটি রেজিস্টার রয়েছে এবং শিক্ষকগন প্রতি সপ্তাহে পড়ার ঘণ্টায় কী কী কার্যক্রম করেছেন তা লিপিবদ্ধ করেন',
         phase2: ind9Phase2,
+        phase4: ind9Phase4,
         overall: ind9Overall,
       },
       {
         indicator:
           '১০। গত ছয় মাসে কমপক্ষে একটি অভিভাবক সভা হয়েছে যেখানে শিক্ষার্থীদের পঠন অথবা পাঠাগার বিষয়ে আলোচনা হয়েছে',
         phase2: ind10Phase2,
+        phase4: ind10Phase4,
         overall: ind10Overall,
       },
       {
         indicator:
           '১১। বিদ্যালয়ে বিগত বছরে অভিভাবক ও স্থানীয় জনগণের অংশগ্রহণে অন্তত একটি পড়া বিষয়ক অনুষ্ঠান হয়েছে',
         phase2: ind11Phase2,
+        phase4: ind11Phase4,
         overall: ind11Overall,
       },
       {
         indicator:
           '১২। পাঠাগার কর্মসূচি দীর্ঘমেয়াদে পরিচালনার জন্য ব্যবস্থাপনা কমিটি পরিকল্পনা গ্রহণ করেছে',
         phase2: ind12Phase2,
+        phase4: ind12Phase4,
         overall: ind12Overall,
       },
     ]
@@ -2384,6 +2313,8 @@ const LibraryObservation = () => {
         phase3Q1Percent: phase3Q1PercD,
         phase3Q3Number: phase3Q3NumD,
         phase3Q3Percent: phase3Q3PercD,
+        phase4Q1Number: phase4Q1NumD,
+        phase4Q1Percent: phase4Q1PercD,
         overallQ1Number: overallQ1NumD,
         overallQ1Percent: overallQ1PercD,
         overallQ3Number: overallQ3NumD,
@@ -2403,6 +2334,8 @@ const LibraryObservation = () => {
         phase3Q1Percent: phase3Q1PercF,
         phase3Q3Number: phase3Q3NumF,
         phase3Q3Percent: phase3Q3PercF,
+        phase4Q1Number: phase4Q1NumF,
+        phase4Q1Percent: phase4Q1PercF,
         overallQ1Number: overallQ1NumF,
         overallQ1Percent: overallQ1PercF,
         overallQ3Number: overallQ3NumF,
@@ -2422,6 +2355,8 @@ const LibraryObservation = () => {
         phase3Q1Percent: phase3Q1PercHF,
         phase3Q3Number: phase3Q3NumHF,
         phase3Q3Percent: phase3Q3PercHF,
+        phase4Q1Number: phase4Q1NumHF,
+        phase4Q1Percent: phase4Q1PercHF,
         overallQ1Number: overallQ1NumHF,
         overallQ1Percent: overallQ1PercHF,
         overallQ3Number: overallQ3NumHF,
@@ -2441,6 +2376,8 @@ const LibraryObservation = () => {
         phase3Q1Percent: phase3Q1PercT,
         phase3Q3Number: phase3Q3NumT,
         phase3Q3Percent: phase3Q3PercT,
+        phase4Q1Number: phase4Q1NumT,
+        phase4Q1Percent: phase4Q1PercT,
         overallQ1Number: overallQ1NumT,
         overallQ1Percent: overallQ1PercT,
         overallQ3Number: overallQ3NumT,
@@ -2451,22 +2388,6 @@ const LibraryObservation = () => {
     setReportResultOverTime(reportResultOverTime)
   }
   // Results overtime
-
-  // Chart
-  // const data = [
-  //   ['Year', 'Sales', 'Expenses', 'Profit'],
-  //   ['2014', 1000, 400, 200],
-  //   ['2015', 1170, 460, 250],
-  //   ['2016', 660, 1120, 300],
-  //   ['2017', 1030, 540, 350],
-  // ]
-
-  // const options = {
-  //   chart: {
-  //     title: 'Company Performance',
-  //     subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-  //   },
-  // }
 
   // Rating System Results - All Libraries
   const pushRSRAllLibrariesChartData = () => {
@@ -2481,7 +2402,6 @@ const LibraryObservation = () => {
       ],
     })
   }
-
   // Rating System Results - All Libraries
 
   // Rating System Results by Phase
@@ -2497,6 +2417,9 @@ const LibraryObservation = () => {
         'Phase III Developing',
         'Phase III Functioning',
         'Phase III Highly Functioning',
+        'Phase IV Developing',
+        'Phase IV Functioning',
+        'Phase IV Highly Functioning',
       ],
       datasets: [
         {
@@ -2512,12 +2435,24 @@ const LibraryObservation = () => {
             '#e6d067',
             '#78c498',
           ],
-          data: [0, 0, 0, 0, 0, 0, phase3PercentD, phase3PercentF, phase3PercentHF],
+          data: [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            phase3PercentD,
+            phase3PercentF,
+            phase3PercentHF,
+            phase4PercentD,
+            phase4PercentF,
+            phase4PercentHF,
+          ],
         },
       ],
     })
   }
-
   //Rating System Results by Phase
 
   // Rating System Results by Province
@@ -2571,7 +2506,6 @@ const LibraryObservation = () => {
   }
 
   // Change in Rating(Phase II Libraries)
-
   // Change in Rating(All Libraries)
   const pushChangeRatingAllChartData = () => {
     setchangeRatingAllChartData({
@@ -2653,6 +2587,8 @@ const LibraryObservation = () => {
                       { title: 'Phase II(2021) Libraries %', field: 'phase2Percent' },
                       { title: 'Phase III(2022) Number', field: 'phase3Number' },
                       { title: 'Phase III(2022) Libraries %', field: 'phase3Percent' },
+                      { title: 'Phase IV(2023) Number', field: 'phase4Number' },
+                      { title: 'Phase IV(2023) Libraries %', field: 'phase4Percent' },
                       { title: 'Overall Number', field: 'overallNumber' },
                       { title: 'Overall Libraries %', field: 'overallPercent' },
                     ]}
@@ -2692,7 +2628,7 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
-                  <strong>Rating System Results - All Libraries</strong>
+                  <strong>Rating System Results - All Libraries (Percent)</strong>
                   <CChart
                     type="bar"
                     data={rsrAllLibrariesChartData}
@@ -2703,12 +2639,12 @@ const LibraryObservation = () => {
                   />
                 </CAccordionBody>
                 <CAccordionBody>
-                  <strong>Rating System Results by Phase</strong>
+                  <strong>Rating System Results by Phase (Percent)</strong>
                   <CChart type="bar" data={rsrByPhaseChartData} />
                 </CAccordionBody>
                 <CAccordionBody>
                   <MaterialTable
-                    title={'Overall results by province'}
+                    title={'Overall results by province(Phase IV)'}
                     // title={JSON.stringify(reportData)}
                     columns={[
                       { title: 'Rating', field: 'rating' },
@@ -2782,6 +2718,7 @@ const LibraryObservation = () => {
                     columns={[
                       { title: 'Indicator', field: 'indicator' },
                       { title: 'Phase III(2022) ( n = 137)', field: 'phase2' },
+                      { title: 'Phase IV(2023) ( n = 137)', field: 'phase4' },
                       { title: 'Overall ( n = 137)', field: 'overall' },
                     ]}
                     options={{
@@ -2826,7 +2763,7 @@ const LibraryObservation = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={'Frequency at which indicators were present by province'}
+                    title={'Frequency at which indicators were present by province(Phase IV)'}
                     // title={JSON.stringify(reportData)}
                     columns={[
                       { title: 'Indicator', field: 'indicator' },
@@ -3119,6 +3056,7 @@ const LibraryObservation = () => {
                       exportAllData: true,
                       grouping: true,
                       sorting: true,
+                      filtering: true,
                       pageSize: 5,
                       pageSizeOptions: [5, 10, 15],
                       maxBodyHeight: '550px',
@@ -3169,6 +3107,8 @@ const LibraryObservation = () => {
                       { title: 'Phase III(2022) Q1 %', field: 'phase3Q1Percent' },
                       { title: 'Phase III(2022) Q3 n', field: 'phase3Q3Number' },
                       { title: 'Phase III(2022) Q3 %', field: 'phase3Q3Percent' },
+                      { title: 'Phase IV(2023) Q1 n', field: 'phase4Q1Number' },
+                      { title: 'Phase IV(2023) Q1 %', field: 'phase4Q1Percent' },
                       { title: 'Overall Q1 n', field: 'overallQ1Number' },
                       { title: 'Overall Q1 %', field: 'overallQ1Percent' },
                       { title: 'Overall Q3 n', field: 'overallQ3Number' },
@@ -3747,6 +3687,7 @@ const LibraryObservation = () => {
                     options={{
                       exportButton: true,
                       exportAllData: true,
+                      filtering: true,
                       grouping: true,
                       sorting: true,
                       pageSize: 2,
@@ -4014,6 +3955,7 @@ const LibraryObservation = () => {
                     options={{
                       exportButton: true,
                       exportAllData: true,
+                      filtering: true,
                       grouping: true,
                       sorting: true,
                       pageSize: 2,
