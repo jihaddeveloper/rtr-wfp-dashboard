@@ -511,8 +511,11 @@ const LibraryObservation = () => {
 
       overallNumberT = overallNumberD + overallNumberF + overallNumberHF
 
-      overallPercentT =
-        parseFloat(overallPercentD) + parseFloat(overallPercentF) + parseFloat(overallPercentHF)
+      overallPercentT = (
+        parseFloat(overallPercentD) +
+        parseFloat(overallPercentF) +
+        parseFloat(overallPercentHF)
+      ).toFixed(2)
 
       // By Phase
 
