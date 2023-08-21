@@ -47,8 +47,6 @@ const BanglaClassData = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
-
   const [allBanglaClass, setAllBanglaClass] = useState([])
 
   // Get previous month
@@ -58,6 +56,11 @@ const BanglaClassData = () => {
   current.setMonth(current.getMonth() - 1)
   const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
   const previousMonth = current.toLocaleString('default', { month: 'long' })
+
+  // For error handling row update
+  const [iserror, setIserror] = useState(false)
+  const [errorMessages, setErrorMessages] = useState([])
+  // For error handling row update
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
@@ -88,6 +91,59 @@ const BanglaClassData = () => {
       console.log(error)
     }
   }
+  // Get All Book-checkout Data for school
+
+  // Row update function
+  const handleRowUpdateAllBanglaClass = (newData, oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .patch('http://118.179.80.51:8080/api/v1/bangla-class/' + newData.id, newData, {
+          method: 'PATCH',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataUpdate = [...allBanglaClass]
+          const index = oldData.tableData.id
+          dataUpdate[index] = newData
+          setAllBanglaClass([...dataUpdate])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Update failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row update function
+
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -379,24 +435,12 @@ const BanglaClassData = () => {
                 { title: 'noWrongFor5', field: 'noWrongFor5', filtering: false },
                 { title: 'totalFor5', field: 'totalFor5', filtering: false },
               ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
+              editable={{
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateAllBanglaClass(newData, oldData, resolve)
+                  }),
+              }}
               options={{
                 exportButton: true,
                 exportAllData: true,

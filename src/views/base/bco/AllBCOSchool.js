@@ -49,9 +49,10 @@ const AllBCOSchool = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  //for error handling
+  // For error handling row update
   const [iserror, setIserror] = useState(false)
   const [errorMessages, setErrorMessages] = useState([])
+  // For error handling row update
 
   // ALL BCO School
   const [allBCOData, setAllBCOData] = useState([])
@@ -144,6 +145,7 @@ const AllBCOSchool = () => {
     }
   }
 
+  // Row update function
   const handleRowUpdateAllBCO = (newData, oldData, resolve) => {
     //validation
 
@@ -160,8 +162,8 @@ const AllBCOSchool = () => {
 
     if (errorList.length < 1) {
       axios
-        .put('http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id, newData, {
-          method: 'PUT',
+        .patch('http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id, newData, {
+          method: 'PATCH',
           mode: 'no-cors',
           headers: {
             Accept: 'application/json',
@@ -169,15 +171,17 @@ const AllBCOSchool = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...kutubdiaAllBCOSchoolPMonth]
+          const dataUpdate = [...allBCOData]
           const index = oldData.tableData.id
           dataUpdate[index] = newData
-          setKutubdiaAllBCOSchoolPMonth([...dataUpdate])
+          setAllBCOData([...dataUpdate])
           resolve()
           setIserror(false)
           setErrorMessages([])
-          console.log('newData.id: ' + newData.id)
-          console.log('url: ' + "http://118.179.80.51:8080/api/v1/book-checkouts/'" + newData.id)
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
@@ -190,6 +194,7 @@ const AllBCOSchool = () => {
       resolve()
     }
   }
+  // Row update function
 
   if (isLoading) {
     return (
@@ -1077,12 +1082,12 @@ const AllBCOSchool = () => {
                         filtering: false,
                       },
                     ]}
-                    // editable={{
-                    //   onRowUpdate: (newData, oldData) =>
-                    //     new Promise((resolve) => {
-                    //       handleRowUpdateAllBCO(newData, oldData, resolve)
-                    //     }),
-                    // }}
+                    editable={{
+                      onRowUpdate: (newData, oldData) =>
+                        new Promise((resolve) => {
+                          handleRowUpdateAllBCO(newData, oldData, resolve)
+                        }),
+                    }}
                     options={{
                       exportButton: true,
                       exportAllData: true,
@@ -1090,6 +1095,7 @@ const AllBCOSchool = () => {
                       search: true,
                       grouping: true,
                       sorting: true,
+                      detailPanelType: 'single',
                       pageSize: 5,
                       pageSizeOptions: [5, 10, 20],
                       maxBodyHeight: '600px',
