@@ -45,8 +45,6 @@ const OverallSchoolData = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
-
   const [allOverallSchool, setAllOverallSchool] = useState([])
 
   // Get previous month
@@ -56,6 +54,11 @@ const OverallSchoolData = () => {
   current.setMonth(current.getMonth() - 1)
   const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
   const previousMonth = current.toLocaleString('default', { month: 'long' })
+
+  // For error handling row update
+  const [iserror, setIserror] = useState(false)
+  const [errorMessages, setErrorMessages] = useState([])
+  // For error handling row update
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
@@ -87,6 +90,56 @@ const OverallSchoolData = () => {
     }
   }
 
+  // Row update function
+  const handleRowUpdateAllOverallSchool = (newData, oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .patch('http://118.179.80.51:8080/api/v1/overall-school/' + newData.id, newData, {
+          method: 'PATCH',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataUpdate = [...allOverallSchool]
+          const index = oldData.tableData.id
+          dataUpdate[index] = newData
+          setAllOverallSchool([...dataUpdate])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Update failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row update function
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -127,7 +180,7 @@ const OverallSchoolData = () => {
                   title: 'teacherGender',
                   field: 'teacherGender',
                 },
-                { title: 'schoolStatus', field: 'schoolStatus', sorting: 'true' },
+
                 { title: 'month', field: 'month', sorting: 'true' },
                 { title: 'year', field: 'year', sorting: 'true' },
                 { title: 'district', field: 'district' },
@@ -439,24 +492,12 @@ const OverallSchoolData = () => {
                 { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
+              editable={{
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateAllOverallSchool(newData, oldData, resolve)
+                  }),
+              }}
               options={{
                 exportButton: true,
                 exportAllData: true,
