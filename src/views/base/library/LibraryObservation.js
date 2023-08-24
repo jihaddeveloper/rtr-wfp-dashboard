@@ -2637,29 +2637,15 @@ const LibraryObservation = () => {
                   <MaterialTable
                     title={allLibraryObservation.length + ' Library Observation '}
                     columns={[
-                      { title: 'School', field: 'school' },
+                      { title: 'school', field: 'school' },
                       {
-                        title: 'Date',
+                        title: 'date',
                         field: 'date',
                         type: 'date',
                         sorting: 'true',
                       },
-                      { title: 'Month', field: 'month', sorting: 'true' },
-                      { title: 'Year', field: 'year', sorting: 'true' },
-                      { title: '#Visit', field: 'visitNo', sorting: 'true' },
-
-                      { title: 'District', field: 'district' },
-                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'Visitor', field: 'visitor' },
-
-                      // { title: 'LPO', field: 'lpo', type: 'string' },
-                      // {
-                      //   title: 'LF',
-                      //   field: 'lf',
-                      //   type: 'string',
-                      // },
                       {
-                        title: 'Library Status',
+                        title: 'libraryStatus',
                         field: 'libraryStatus',
                         cellStyle: {
                           backgroundColor: '#e0d0ca',
@@ -2669,189 +2655,208 @@ const LibraryObservation = () => {
                           backgroundColor: '#bcceeb',
                         },
                       },
+
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+
+                      { title: 'project', field: 'project', sorting: 'true' },
+                      { title: 'office', field: 'office', sorting: 'true' },
+                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
+                      { title: 'lpo', field: 'lpo', type: 'string' },
+                      { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
-                        title: 'Last followup indicator 1',
+                        title: 'lf',
+                        field: 'lf',
+                        type: 'string',
+                      },
+                      {
+                        title: 'lfName',
+                        field: 'lfName',
+                        type: 'string',
+                      },
+                      { title: 'visitor', field: 'visitor' },
+                      { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
+                      { title: 'visitorOffice', field: 'visitorOffice', sorting: 'true' },
+
+                      {
+                        title: 'lastFollowupIndicator1',
                         field: 'lastFollowupIndicator1',
                       },
                       {
-                        title: 'Last followup indicator 2',
+                        title: 'lastFollowupIndicator2',
                         field: 'lastFollowupIndicator2',
                       },
                       {
-                        title: 'Ind 1: All teacher trained',
+                        title: 'ind1IsTrainedAllTeacher',
                         field: 'ind1IsTrainedAllTeacher',
                       },
                       {
-                        title: 'Ind 1.1: Trained SRM Teacher Incharge',
+                        title: 'ind11IsTrainedSRMTeacherIncharge',
                         field: 'ind11IsTrainedSRMTeacherIncharge',
                       },
                       {
-                        title: 'Ind 1.2: Trained Headteacher',
+                        title: 'ind12IsTrainedHeadTeacher',
                         field: 'ind12IsTrainedHeadTeacher',
                       },
                       {
-                        title: 'Ind 2: Classroom Suitable SRM',
+                        title: 'ind2ClassroomSuitableSRM',
                         field: 'ind2ClassroomSuitableSRM',
                       },
 
                       {
-                        title: 'Ind 2.1: Classroom Door Window Lock',
+                        title: 'ind21ClassroomDoorWindowLock',
                         field: 'ind21ClassroomDoorWindowLock',
                       },
                       {
-                        title: 'Ind 2.2: Classroom Safe Clean',
+                        title: 'ind22ClassroomSafeClean',
                         field: 'ind22ClassroomSafeClean',
                       },
                       {
-                        title: 'Ind 3: Bookself Useable',
+                        title: 'ind3BookselfUseable',
                         field: 'ind3BookselfUseable',
                       },
                       {
-                        title: 'Ind 3.1: Bookself Accessible',
+                        title: 'ind31BookselfAccessible',
                         field: 'ind31BookselfAccessible',
                       },
                       {
-                        title: 'Ind 3.2: Bookself Environment Protected',
+                        title: 'ind32BookselfEnvironmentProtected',
                         field: 'ind32BookselfEnvironmentProtected',
                       },
                       {
-                        title: 'Ind 3.3: Bookself Table Condition',
+                        title: 'ind33BookselfTableCondition',
                         field: 'ind33BookselfTableCondition',
                       },
                       {
-                        title: 'Ind: 4 BookRegister Updated',
+                        title: 'ind4BookRegisterUpdated',
                         field: 'ind4BookRegisterUpdated',
                       },
                       {
-                        title: 'Ind 5: Bookself Organized',
+                        title: 'ind5BookselfOrganized',
                         field: 'ind5BookselfOrganized',
                       },
                       {
-                        title: 'Ind 5.1: Bookself Book Organized Open',
+                        title: 'ind51BookselfBookOrganizedOpen',
                         field: 'ind51BookselfBookOrganizedOpen',
                       },
+
                       {
-                        title: 'Ind 5.2: Bookself BookLevel Viewable',
+                        title: 'ind52BookselfBookLevelViewable',
                         field: 'ind52BookselfBookLevelViewable',
                       },
                       {
-                        title: 'Ind 5.2: Bookself BookLevel Viewable',
-                        field: 'ind52BookselfBookLevelViewable',
-                      },
-                      {
-                        title: 'Ind 5.3: Bookself Book Accessible',
+                        title: 'ind53BookselfBookAccessible',
                         field: 'ind53BookselfBookAccessible',
                       },
                       {
-                        title: 'Ind 6: PrintRich Displayed',
+                        title: 'ind6PrintRichDisplayed',
                         field: 'ind6PrintRichDisplayed',
                       },
                       {
-                        title: 'Ind 7: BookCheckout Functional',
+                        title: 'ind7BookCheckoutFunctional',
                         field: 'ind7BookCheckoutFunctional',
                       },
                       {
-                        title: 'Ind 7.1: BookCheckout Procedure Displayed',
+                        title: 'ind71BookCheckoutProcedureDisplayed',
                         field: 'ind71BookCheckoutProcedureDisplayed',
                       },
                       {
-                        title: 'Ind 7.2: BookCheckout Register Usable',
+                        title: 'ind72BookCheckoutRegisterUsable',
                         field: 'ind72BookCheckoutRegisterUsable',
                       },
                       {
-                        title: 'Ind 7.3: BookCheckout Register Updated',
+                        title: 'ind73BookCheckoutRegisterUpdated',
                         field: 'ind73BookCheckoutRegisterUpdated',
                       },
                       {
-                        title: 'Ind 7.4: BookCheckout PendingBooklist',
+                        title: 'ind74BookCheckoutPendingBooklist',
                         field: 'ind74BookCheckoutPendingBooklist',
                       },
                       {
-                        title: 'Ind 8: SRM Class Routine',
+                        title: 'ind8SRMClassRoutine',
                         field: 'ind8SRMClassRoutine',
                       },
                       {
-                        title: 'Ind 8.1: SRM Class Weekly',
+                        title: 'ind81SRMClassWeekly',
                         field: 'ind81SRMClassWeekly',
                       },
                       {
-                        title: 'Ind 8.2: Daily BookCheckout Opportunity',
+                        title: 'ind82DailyBookCheckoutOpportunity',
                         field: 'ind82DailyBookCheckoutOpportunity',
                       },
                       {
-                        title: 'Ind 9: SRM Register Updated',
+                        title: 'ind9SRMRegisterUpdated',
                         field: 'ind9SRMRegisterUpdated',
                       },
                       {
-                        title: 'Ind 10: Parents Meeting',
+                        title: 'ind10ParentsMeeting',
                         field: 'ind10ParentsMeeting',
                       },
                       {
-                        title: 'Ind 11: Read Festival',
+                        title: 'ind11ReadFestival',
                         field: 'ind11ReadFestival',
                       },
                       {
-                        title: 'Ind 12: Sustainability Plan',
+                        title: 'ind12SustainabilityPlan',
                         field: 'ind12SustainabilityPlan',
                       },
+
                       {
-                        title: 'Ind 12.1: Collective Plan',
+                        title: 'ind121CollectivePlan',
                         field: 'ind121CollectivePlan',
                       },
                       {
-                        title: 'Ind 12.1: Collective Plan',
-                        field: 'ind121CollectivePlan',
-                      },
-                      {
-                        title: 'Ind 12.2: Responsibility Plan',
+                        title: 'ind122ResponsibilityPlan',
                         field: 'ind122ResponsibilityPlan',
                       },
                       {
-                        title: 'Best Practice Indicator 1',
+                        title: 'bestPracticeIndicator1',
                         field: 'bestPracticeIndicator1',
                       },
                       {
-                        title: 'Best Practice Indicator 1 Details',
+                        title: 'bestPracticeIndicator1Details',
                         field: 'bestPracticeIndicator1Details',
                       },
                       {
-                        title: 'Best Practice Indicator 2',
+                        title: 'bestPracticeIndicator2',
                         field: 'bestPracticeIndicator2',
                       },
                       {
-                        title: 'Best Practice Indicator 2 Details',
+                        title: 'bestPracticeIndicator2Details',
                         field: 'bestPracticeIndicator2Details',
                       },
                       {
-                        title: 'Best Practice Indicator 3',
+                        title: 'bestPracticeIndicator3',
                         field: 'bestPracticeIndicator3',
                       },
                       {
-                        title: 'Best Practice Indicator 3 Details',
+                        title: 'bestPracticeIndicator3Details',
                         field: 'bestPracticeIndicator3Details',
                       },
                       {
-                        title: 'Coaching Support Indicator 1',
+                        title: 'coachingSupportIndicator1',
                         field: 'coachingSupportIndicator1',
                       },
                       {
-                        title: 'Coaching Support Indicator 1 Details',
+                        title: 'coachingSupportIndicator1Details',
                         field: 'coachingSupportIndicator1Details',
                       },
                       {
-                        title: 'Coaching Support Indicator 2',
+                        title: 'coachingSupportIndicator2',
                         field: 'coachingSupportIndicator2',
                       },
                       {
-                        title: 'Coaching Support Indicator 2 Details',
+                        title: 'coachingSupportIndicator2Details',
                         field: 'coachingSupportIndicator2Details',
                       },
                       {
-                        title: 'Agreed Statement 1',
+                        title: 'agreedStatement1',
                         field: 'agreedStatement1',
                       },
                       {
-                        title: 'Agreed Statement 2',
+                        title: 'agreedStatement2',
                         field: 'agreedStatement2',
                       },
                     ]}

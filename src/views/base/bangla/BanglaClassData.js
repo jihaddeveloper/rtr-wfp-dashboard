@@ -190,7 +190,6 @@ const BanglaClassData = () => {
                 { title: 'teacherStatus', field: 'teacherStatus', sorting: 'true' },
                 { title: 'month', field: 'month', sorting: 'true' },
                 { title: 'year', field: 'year', sorting: 'true' },
-
                 { title: 'district', field: 'district' },
                 { title: 'upazilla', field: 'upazilla', sorting: 'true' },
                 { title: 'fieldOffice', field: 'fieldOffice', sorting: 'true' },
@@ -210,6 +209,7 @@ const BanglaClassData = () => {
                 },
                 { title: 'visitor', field: 'visitor' },
                 { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
+                { title: 'visitorOffice', field: 'visitorOffice', sorting: 'true' },
 
                 {
                   title: 'grade',

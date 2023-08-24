@@ -206,7 +206,7 @@ const OverallSchoolData = () => {
                   field: 'visitorDesignation',
                   sorting: 'true',
                 },
-
+                { title: 'visitorOffice', field: 'visitorOffice', sorting: 'true' },
                 {
                   title: 'note',
                   field: 'note',

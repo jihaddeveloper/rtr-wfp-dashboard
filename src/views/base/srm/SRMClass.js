@@ -209,7 +209,7 @@ const SRMClass = () => {
                 },
                 { title: 'visitor', field: 'visitor' },
                 { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
-
+                { title: 'visitorOffice', field: 'visitorOffice', sorting: 'true' },
                 {
                   title: 'grade',
                   field: 'grade',
