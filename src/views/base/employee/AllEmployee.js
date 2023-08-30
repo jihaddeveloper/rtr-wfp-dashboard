@@ -45,53 +45,21 @@ const AllEmployee = () => {
   const [allBCOData, setAllBCOData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
+
+  // For error handling row update
+  const [iserror, setIserror] = useState(false)
+  const [errorMessages, setErrorMessages] = useState([])
+  // For error handling row update
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-    console.log('use effect called')
-    getAllTeacher(console.log('get all teacheAllTeacherr called'))
-    getAllBookCheckoutSchool(console.log('get bookcheckout called'))
-    getAllEmployee(console.log('get all employee called'))
+    const call = async () => {
+      console.log('use effect called')
+      getAllEmployee(console.log('get all employee called'))
+    }
+    call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // Get All Teacher
-  const getAllTeacher = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllTeacherData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Teacher
 
   // Get All Employee Data
   const getAllEmployee = async () => {
@@ -113,31 +81,161 @@ const AllEmployee = () => {
   }
   // Get All Employee Data
 
+  // Row update function
+  const handleRowUpdateEmployee = (newData, oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .patch('http://118.179.80.51:8080/api/v1/employees/' + newData.id, newData, {
+          method: 'PATCH',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataUpdate = [...allEmployeeData]
+          const index = oldData.tableData.id
+          dataUpdate[index] = newData
+          setAllEmployeeData([...dataUpdate])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Update failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row update function
+
+  // Row add function
+  const handleRowAddEmployee = (newData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .post('http://118.179.80.51:8080/api/v1/employees/', newData, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataToAdd = [...allEmployeeData]
+          dataToAdd.push(newData)
+          setAllEmployeeData([...dataToAdd])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Add School failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row add function
+
+  // Row delete function
+  const handleRowDeleteEmployee = (oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .delete('http://118.179.80.51:8080/api/v1/employees/' + oldData.id, {
+          method: 'DELETE',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataDelete = [...allEmployeeData]
+          const index = oldData.tableData.id
+          dataDelete.splice(index, 1)
+          setAllEmployeeData([...dataDelete])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Delete failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row delete function
+
   return (
     <CRow>
-      {/* <CCol xs={12}>
-        <DocsCallout name="Accordion" href="components/accordion" />
-      </CCol> */}
       <CCol xs={12}>
-        {/* <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Report</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CButton color="primary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="secondary" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="success" href="/base/construction">
-              Demo Report
-            </CButton>
-            <CButton color="warning" href="/base/construction">
-              Demo Report
-            </CButton>
-          </CCardBody>
-        </CCard> */}
         <CCard className="mb-4">
           <CCardHeader>
             <strong>ALL Employee Data</strong>
@@ -146,43 +244,49 @@ const AllEmployee = () => {
             <MaterialTable
               title={allEmployeeData.length + ' Employee'}
               columns={[
-                { title: 'EMP ID', field: 'employeeRegId', type: 'string' },
-                { title: 'Name', field: 'name', type: 'string' },
-                { title: 'Gender', field: 'gender', sorting: 'true' },
-                { title: 'Office', field: 'office', sorting: 'true' },
+                { title: 'name', field: 'name', type: 'string' },
+                { title: 'employeeRegId', field: 'employeeRegId', type: 'string' },
+                { title: 'bnName', field: 'bnName', type: 'string' },
+                { title: 'gender', field: 'gender', sorting: 'true' },
+                { title: 'office', field: 'office', sorting: 'true' },
                 {
-                  title: 'Designation',
+                  title: 'designation',
                   field: 'designation',
                   sorting: 'true',
                 },
 
-                { title: 'Supervisor', field: 'supervisor' },
+                { title: 'supervisor', field: 'supervisor' },
+                { title: 'project', field: 'project', type: 'string' },
+
+                { title: 'email', field: 'email' },
+                { title: 'phone1', field: 'phone1' },
+                { title: 'phone2', field: 'phone2' },
+                { title: 'addressCurrent', field: 'addressCurrent' },
+                { title: 'addressPermanent', field: 'addressPermanent' },
               ]}
-              // actions={[
-              //   {
-              //     icon: DeleteOutline,
-              //     tooltip: 'Delete BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: ViewColumn,
-              //     tooltip: 'View BCO',
-              //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
-              //   },
-              //   {
-              //     icon: AddBox,
-              //     tooltip: 'Add BCO',
-              //     isFreeAction: true,
-              //     onClick: (event) => alert('You want to add a new row'),
-              //   },
-              // ]}
+              editable={{
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateEmployee(newData, oldData, resolve)
+                  }),
+                onRowAdd: (newData) =>
+                  new Promise((resolve) => {
+                    handleRowAddEmployee(newData, resolve)
+                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteEmployee(oldData, resolve)
+                //   }),
+              }}
               options={{
                 exportButton: true,
                 exportAllData: true,
+                search: true,
+                filtering: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
+                pageSize: 5,
+                pageSizeOptions: [5, 20, 30],
                 maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',

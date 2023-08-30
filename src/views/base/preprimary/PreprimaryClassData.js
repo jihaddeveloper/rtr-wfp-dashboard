@@ -412,6 +412,14 @@ const PreprimaryClassData = () => {
                   new Promise((resolve) => {
                     handleRowUpdateAllPPClass(newData, oldData, resolve)
                   }),
+                // onRowAdd: (newData) =>
+                //   new Promise((resolve) => {
+                //     handleRowAdd(newData, resolve)
+                //   }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDelete(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
