@@ -572,6 +572,8 @@ const BCOSchoolQuarterly = () => {
       pushReportData23(console.log('pushReportData23 called'))
       pushReportData23Q1(console.log('pushReportData23Q1 called'))
       pushReportData23Q2(console.log('pushReportData23Q2 called'))
+      pushReportData23Q3(console.log('pushReportData23Q3 called'))
+      pushReportData23Q4(console.log('pushReportData23Q4 called'))
     }
     call()
     //getSummerizeData(console.log('getSummerizeData called'))
@@ -606,9 +608,7 @@ const BCOSchoolQuarterly = () => {
       // Annual
       // Ukhiya
       uTotalStudent = response.data
-        .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.month === 'April',
-        )
+        .filter((item) => item.upazilla === 'Ukhiya' && item.year === '2022')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -776,9 +776,7 @@ const BCOSchoolQuarterly = () => {
 
       //Kutubdia
       kTotalStudent = response.data
-        .filter(
-          (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.month === 'April',
-        )
+        .filter((item) => item.upazilla === 'Kutubdia' && item.year === '2022')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -929,13 +927,18 @@ const BCOSchoolQuarterly = () => {
       cfoTotalStudent = parseInt(kTotalStudent) + parseInt(uTotalStudent)
       cfoTotalBookCheckout = kTotalBookCheckout + uTotalBookCheckout
       cfoTotalBookCheckin = kTotalBookCheckin + uTotalBookCheckin
-      cfoNoBCOPerStudent = (cfoTotalBookCheckout / cfoTotalStudent).toFixed(2)
-
-      cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
-      cfoPercentStudentBCO = (
-        (parseFloat(kPercentStudentBCO) + parseFloat(uPercentStudentBCO)) /
+      cfoNoBCOPerStudent = (
+        (parseFloat(kNoBCOPerStudent) + parseFloat(uNoBCOPerStudent)) /
         2
       ).toFixed(2)
+
+      cfoNoStudentBCO = kNoStudentBCO + uNoStudentBCO
+      cfoPercentStudentBCO = ((cfoNoStudentBCO * 100) / cfoTotalStudent).toFixed(2)
+
+      //   (
+      //   (parseFloat(kPercentStudentBCO) + parseFloat(uPercentStudentBCO)) /
+      //   2
+      // ).toFixed(2)
 
       cfoNoStudentBCI = kNoStudentBCI + uNoStudentBCI
       cfoPercentStudentBCI = (
@@ -961,7 +964,10 @@ const BCOSchoolQuarterly = () => {
       // Ukhiya
       uTotalStudentQ2 = response.data
         .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2022' &&
+            (item.month === 'April' || item.month === 'May' || item.month === 'June'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -1195,7 +1201,10 @@ const BCOSchoolQuarterly = () => {
       //Kutubdia
       kTotalStudentQ2 = response.data
         .filter(
-          (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2022' &&
+            (item.month === 'April' || item.month === 'May' || item.month === 'June'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -1428,10 +1437,12 @@ const BCOSchoolQuarterly = () => {
       cfoTotalBookCheckinQ2 = kTotalBookCheckinQ2 + uTotalBookCheckinQ2
       cfoNoBCOPerStudentQ2 = (cfoTotalBookCheckoutQ2 / cfoTotalStudentQ2).toFixed(2)
       cfoNoStudentBCOQ2 = kNoStudentBCOQ2 + uNoStudentBCOQ2
-      cfoPercentStudentBCOQ2 = (
-        (parseFloat(kPercentStudentBCOQ2) + parseFloat(uPercentStudentBCOQ2)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCOQ2 = ((cfoNoStudentBCOQ2 * 100) / cfoTotalStudentQ2).toFixed(2)
+
+      //   (
+      //   (parseFloat(kPercentStudentBCOQ2) + parseFloat(uPercentStudentBCOQ2)) /
+      //   2
+      // ).toFixed(2)
 
       cfoNoStudentBCIQ2 = kNoStudentBCIQ2 + uNoStudentBCIQ2
       cfoPercentStudentBCIQ2 = (
@@ -1460,7 +1471,10 @@ const BCOSchoolQuarterly = () => {
       // Ukhiya
       uTotalStudentQ3 = response.data
         .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2022' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -1696,7 +1710,10 @@ const BCOSchoolQuarterly = () => {
       //Kutubdia
       kTotalStudentQ3 = response.data
         .filter(
-          (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2022' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -1929,10 +1946,7 @@ const BCOSchoolQuarterly = () => {
       cfoTotalBookCheckinQ3 = kTotalBookCheckinQ3 + uTotalBookCheckinQ3
       cfoNoBCOPerStudentQ3 = (cfoTotalBookCheckoutQ3 / cfoTotalStudentQ3).toFixed(2)
       cfoNoStudentBCOQ3 = kNoStudentBCOQ3 + uNoStudentBCOQ3
-      cfoPercentStudentBCOQ3 = (
-        (parseFloat(kPercentStudentBCOQ3) + parseFloat(uPercentStudentBCOQ3)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCOQ3 = ((cfoNoStudentBCOQ3 * 100) / cfoTotalStudentQ3).toFixed(2)
 
       cfoNoStudentBCIQ3 = kNoStudentBCIQ3 + uNoStudentBCIQ3
       cfoPercentStudentBCIQ3 = (
@@ -1961,7 +1975,10 @@ const BCOSchoolQuarterly = () => {
       // Ukhiya
       uTotalStudentQ4 = response.data
         .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2022' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -2194,7 +2211,10 @@ const BCOSchoolQuarterly = () => {
       //Kutubdia
       kTotalStudentQ4 = response.data
         .filter(
-          (item) => item.upazilla === 'Kutubdia' && item.year === '2022' && item.month === 'April',
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2022' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -2426,10 +2446,7 @@ const BCOSchoolQuarterly = () => {
       cfoTotalBookCheckinQ4 = kTotalBookCheckinQ4 + uTotalBookCheckinQ4
       cfoNoBCOPerStudentQ4 = (cfoTotalBookCheckoutQ4 / cfoTotalStudentQ4).toFixed(2)
       cfoNoStudentBCOQ4 = kNoStudentBCOQ4 + uNoStudentBCOQ4
-      cfoPercentStudentBCOQ4 = (
-        (parseFloat(kPercentStudentBCOQ4) + parseFloat(uPercentStudentBCOQ4)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCOQ4 = ((cfoNoStudentBCOQ4 * 100) / cfoTotalStudentQ4).toFixed(2)
 
       cfoNoStudentBCIQ4 = kNoStudentBCIQ4 + uNoStudentBCIQ4
       cfoPercentStudentBCIQ4 = (
@@ -2459,9 +2476,7 @@ const BCOSchoolQuarterly = () => {
       // Annual
       // Ukhiya
       uTotalStudent23 = response.data
-        .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2023' && item.month === 'January',
-        )
+        .filter((item) => item.upazilla === 'Ukhiya' && item.year === '2023')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -2630,10 +2645,7 @@ const BCOSchoolQuarterly = () => {
 
       //Kutubdia
       kTotalStudent23 = response.data
-        .filter(
-          (item) =>
-            item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'January',
-        )
+        .filter((item) => item.upazilla === 'Kutubdia' && item.year === '2023')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
@@ -2764,10 +2776,12 @@ const BCOSchoolQuarterly = () => {
       cfoNoBCOPerStudent23 = (cfoTotalBookCheckout23 / cfoTotalStudent23).toFixed(2)
 
       cfoNoStudentBCO23 = kNoStudentBCO23 + uNoStudentBCO23
-      cfoPercentStudentBCO23 = (
-        (parseFloat(kPercentStudentBCO23) + parseFloat(uPercentStudentBCO23)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCO23 = ((cfoNoStudentBCO23 * 100) / cfoTotalStudent23).toFixed(2)
+
+      //   (
+      //   (parseFloat(kPercentStudentBCO23) + parseFloat(uPercentStudentBCO23)) /
+      //   2
+      // ).toFixed(2)
 
       cfoNoStudentBCI23 = kNoStudentBCI23 + uNoStudentBCI23
       cfoPercentStudentBCI23 = (
@@ -2797,7 +2811,10 @@ const BCOSchoolQuarterly = () => {
       // Ukhiya
       uTotalStudent23Q1 = response.data
         .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2023' && item.month === 'January',
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'January' || item.month === 'February' || item.month === 'March'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -3008,7 +3025,9 @@ const BCOSchoolQuarterly = () => {
       kTotalStudent23Q1 = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'January',
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'January' || item.month === 'February' || item.month === 'March'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -3217,7 +3236,7 @@ const BCOSchoolQuarterly = () => {
       cfoNoBCOPerStudent23Q1 = (cfoTotalBookCheckout23Q1 / cfoTotalStudent23Q1).toFixed(2)
 
       cfoNoStudentBCO23Q1 = kNoStudentBCO23Q1 + uNoStudentBCO23Q1
-      cfoPercentStudentBCO23Q1 = (cfoTotalBookCheckout23Q1 / cfoTotalStudent23Q1).toFixed(2)
+      cfoPercentStudentBCO23Q1 = ((cfoNoStudentBCO23Q1 * 100) / cfoTotalStudent23Q1).toFixed(2)
 
       cfoNoStudentBCI23Q1 = kNoStudentBCI23Q1 + uNoStudentBCI23Q1
       cfoPercentStudentBCI23Q1 = (
@@ -3246,7 +3265,10 @@ const BCOSchoolQuarterly = () => {
       // Ukhiya
       uTotalStudent23Q2 = response.data
         .filter(
-          (item) => item.upazilla === 'Ukhiya' && item.year === '2023' && item.month === 'January',
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'April' || item.month === 'May' || item.month === 'June'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -3457,7 +3479,9 @@ const BCOSchoolQuarterly = () => {
       kTotalStudent23Q2 = response.data
         .filter(
           (item) =>
-            item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'January',
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'April' || item.month === 'May' || item.month === 'June'),
         )
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
@@ -3666,7 +3690,7 @@ const BCOSchoolQuarterly = () => {
       cfoNoBCOPerStudent23Q2 = (cfoTotalBookCheckout23Q2 / cfoTotalStudent23Q2).toFixed(2)
 
       cfoNoStudentBCO23Q2 = kNoStudentBCO23Q2 + uNoStudentBCO23Q2
-      cfoPercentStudentBCO23Q2 = (cfoTotalBookCheckout23Q2 / cfoTotalStudent23Q2).toFixed(2)
+      cfoPercentStudentBCO23Q2 = ((cfoNoStudentBCO23Q2 * 100) / cfoTotalStudent23Q2).toFixed(2)
 
       cfoNoStudentBCI23Q2 = kNoStudentBCI23Q2 + uNoStudentBCI23Q2
       cfoPercentStudentBCI23Q2 = (
@@ -3692,9 +3716,911 @@ const BCOSchoolQuarterly = () => {
       // Quarter 2
 
       // Quarter 3
+      // Ukhiya
+      uTotalStudent23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uTotalBookCheckout23Q3 = response.data
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 &&
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uTotalBookCheckin23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uNoBCOPerStudent23Q3 = (uTotalBookCheckout23Q3 / uTotalStudent23Q3).toFixed(2)
+
+      uNoStudentBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentStudentBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoStudentBCI23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentStudentBCI23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoGirlBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentGirlBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoBoyBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentBoyBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoSchoolBCO23Q3 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 &&
+          item.upazilla === 'Ukhiya' &&
+          item.year === '2023' &&
+          (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+      ).length
+
+      uNoSchoolZeroBCO23Q3 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC === 0 &&
+          item.upazilla === 'Ukhiya' &&
+          item.year === '2023' &&
+          (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+      ).length
+      // Ukhiya
+
+      //Kutubdia
+      kTotalStudent23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kTotalBookCheckout23Q3 = response.data
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 &&
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kTotalBookCheckin23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kNoBCOPerStudent23Q3 = (kTotalBookCheckout23Q3 / kTotalStudent23Q3).toFixed(2)
+
+      kNoStudentBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentStudentBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoStudentBCI23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentStudentBCI23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoGirlBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentGirlBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoBoyBCO23Q3 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentBoyBCO23Q3 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoSchoolBCO23Q3 = response.data.filter(
+        (item) =>
+          item.upazilla === 'Kutubdia' &&
+          item.year === '2023' &&
+          (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+      ).length
+
+      kNoSchoolZeroBCO23Q3 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC === 0 &&
+          item.upazilla === 'Kutubdia' &&
+          item.year === '2023' &&
+          (item.month === 'July' || item.month === 'August' || item.month === 'September'),
+      ).length
+      //Kutubdia
+
+      // CFO
+      cfoTotalStudent23Q3 = parseInt(kTotalStudent23Q3) + parseInt(uTotalStudent23Q3)
+      cfoTotalBookCheckout23Q3 = kTotalBookCheckout23Q3 + uTotalBookCheckout23Q3
+      cfoTotalBookCheckin23Q3 = kTotalBookCheckin23Q3 + uTotalBookCheckin23Q3
+      cfoNoBCOPerStudent23Q3 = (cfoTotalBookCheckout23Q3 / cfoTotalStudent23Q3).toFixed(2)
+
+      cfoNoStudentBCO23Q3 = kNoStudentBCO23Q3 + uNoStudentBCO23Q3
+      cfoPercentStudentBCO23Q3 = ((cfoNoStudentBCO23Q3 * 100) / cfoTotalStudent23Q3).toFixed(2)
+
+      cfoNoStudentBCI23Q3 = kNoStudentBCI23Q3 + uNoStudentBCI23Q3
+      cfoPercentStudentBCI23Q3 = (
+        (parseFloat(kPercentStudentBCI23Q3) + parseFloat(uPercentStudentBCI23Q3)) /
+        2
+      ).toFixed(2)
+
+      cfoNoGirlBCO23Q3 = kNoGirlBCO23Q3 + uNoGirlBCO23Q3
+      cfoPercentGirlBCO23Q3 = (
+        (parseFloat(kPercentGirlBCO23Q3) + parseFloat(uPercentGirlBCO23Q3)) /
+        2
+      ).toFixed(2)
+
+      cfoNoBoyBCO23Q3 = kNoBoyBCO23Q3 + uNoBoyBCO23Q3
+      cfoPercentBoyBCO23Q3 = (
+        (parseFloat(kPercentBoyBCO23Q3) + parseFloat(uPercentBoyBCO23Q3)) /
+        2
+      ).toFixed(2)
+
+      cfoNoSchoolBCO23Q3 = kNoSchoolBCO23Q3 + uNoSchoolBCO23Q3
+      cfoNoSchoolZeroBCO23Q3 = kNoSchoolZeroBCO23Q3 + uNoSchoolZeroBCO23Q3
+      // CFO
       // Quarter 3
 
       // Quarter 4
+      // Ukhiya
+      uTotalStudent23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uTotalBookCheckout23Q4 = response.data
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 &&
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uTotalBookCheckin23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uNoBCOPerStudent23Q4 = (uTotalBookCheckout23Q4 / uTotalStudent23Q4).toFixed(2)
+
+      uNoStudentBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentStudentBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoStudentBCI23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentStudentBCI23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoGirlBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentGirlBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoBoyBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Ukhiya' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      uPercentBoyBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Ukhiya' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      uNoSchoolBCO23Q4 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 &&
+          item.upazilla === 'Ukhiya' &&
+          item.year === '2023' &&
+          (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+      ).length
+
+      uNoSchoolZeroBCO23Q4 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC === 0 &&
+          item.upazilla === 'Ukhiya' &&
+          item.year === '2023' &&
+          (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+      ).length
+      // Ukhiya
+
+      //Kutubdia
+      kTotalStudent23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kTotalBookCheckout23Q4 = response.data
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 &&
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kTotalBookCheckin23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kNoBCOPerStudent23Q4 = (kTotalBookCheckout23Q4 / kTotalStudent23Q4).toFixed(2)
+
+      kNoStudentBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentStudentBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoStudentBCI23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentStudentBCI23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoGirlBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentGirlBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoBoyBCO23Q4 = response.data
+        .filter(
+          (item) =>
+            item.upazilla === 'Kutubdia' &&
+            item.year === '2023' &&
+            (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      kPercentBoyBCO23Q4 = (
+        (response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        response.data
+          .filter(
+            (item) =>
+              item.upazilla === 'Kutubdia' &&
+              item.year === '2023' &&
+              (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      kNoSchoolBCO23Q4 = response.data.filter(
+        (item) =>
+          item.upazilla === 'Kutubdia' &&
+          item.year === '2023' &&
+          (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+      ).length
+
+      kNoSchoolZeroBCO23Q4 = response.data.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC === 0 &&
+          item.upazilla === 'Kutubdia' &&
+          item.year === '2023' &&
+          (item.month === 'October' || item.month === 'November' || item.month === 'December'),
+      ).length
+      //Kutubdia
+
+      // CFO
+      cfoTotalStudent23Q4 = parseInt(kTotalStudent23Q4) + parseInt(uTotalStudent23Q4)
+      cfoTotalBookCheckout23Q4 = kTotalBookCheckout23Q4 + uTotalBookCheckout23Q4
+      cfoTotalBookCheckin23Q4 = kTotalBookCheckin23Q4 + uTotalBookCheckin23Q4
+      cfoNoBCOPerStudent23Q4 = (cfoTotalBookCheckout23Q4 / cfoTotalStudent23Q4).toFixed(2)
+
+      cfoNoStudentBCO23Q4 = kNoStudentBCO23Q4 + uNoStudentBCO23Q4
+      cfoPercentStudentBCO23Q4 = ((cfoNoStudentBCO23Q4 * 100) / cfoTotalStudent23Q4).toFixed(2)
+
+      cfoNoStudentBCI23Q4 = kNoStudentBCI23Q4 + uNoStudentBCI23Q4
+      cfoPercentStudentBCI23Q4 = (
+        (parseFloat(kPercentStudentBCI23Q4) + parseFloat(uPercentStudentBCI23Q4)) /
+        2
+      ).toFixed(2)
+
+      cfoNoGirlBCO23Q4 = kNoGirlBCO23Q4 + uNoGirlBCO23Q4
+      cfoPercentGirlBCO23Q4 = (
+        (parseFloat(kPercentGirlBCO23Q4) + parseFloat(uPercentGirlBCO23Q4)) /
+        2
+      ).toFixed(2)
+
+      cfoNoBoyBCO23Q4 = kNoBoyBCO23Q4 + uNoBoyBCO23Q4
+      cfoPercentBoyBCO23Q4 = (
+        (parseFloat(kPercentBoyBCO23Q4) + parseFloat(uPercentBoyBCO23Q4)) /
+        2
+      ).toFixed(2)
+
+      cfoNoSchoolBCO23Q4 = kNoSchoolBCO23Q4 + uNoSchoolBCO23Q4
+      cfoNoSchoolZeroBCO23Q4 = kNoSchoolZeroBCO23Q4 + uNoSchoolZeroBCO23Q4
+      // CFO
       // Quarter 4
       // 2023
 
@@ -4440,6 +5366,216 @@ const BCOSchoolQuarterly = () => {
     setReportData23Q2(reportObject23Q2)
   }
 
+  const pushReportData23Q3 = () => {
+    const reportObject23Q3 = [
+      {
+        sl: 1,
+        area: 'Total Students( 1 - 5)',
+        kutubdia: kTotalStudent23Q3,
+        ukhiya: uTotalStudent23Q3,
+        cfo: cfoTotalStudent23Q3,
+      },
+      {
+        sl: 2,
+        area: 'Total Book Check Out',
+        kutubdia: kTotalBookCheckout23Q3,
+        ukhiya: uTotalBookCheckout23Q3,
+        cfo: cfoTotalBookCheckout23Q3,
+      },
+      {
+        sl: 3,
+        area: 'Total Book Check In',
+        kutubdia: kTotalBookCheckin23Q3,
+        ukhiya: uTotalBookCheckin23Q3,
+        cfo: cfoTotalBookCheckin23Q3,
+      },
+      {
+        sl: 4,
+        area: 'Average Book Checkout Per Child',
+        kutubdia: kNoBCOPerStudent23Q3,
+        ukhiya: uNoBCOPerStudent23Q3,
+        cfo: cfoNoBCOPerStudent23Q3,
+      },
+      {
+        sl: 5,
+        area: '# of Students checked out books',
+        kutubdia: kNoStudentBCO23Q3,
+        ukhiya: uNoStudentBCO23Q3,
+        cfo: cfoNoStudentBCO23Q3,
+      },
+      {
+        sl: 6,
+        area: '% of Students checked out books',
+        kutubdia: kPercentStudentBCO23Q3,
+        ukhiya: uPercentStudentBCO23Q3,
+        cfo: cfoPercentStudentBCO23Q3,
+      },
+      {
+        sl: 7,
+        area: '# of Students checked in books',
+        kutubdia: kNoStudentBCI23Q3,
+        ukhiya: uNoStudentBCI23Q3,
+        cfo: cfoNoStudentBCI23Q3,
+      },
+      {
+        sl: 8,
+        area: '% of Students checked in books',
+        kutubdia: kPercentStudentBCI23Q3,
+        ukhiya: uPercentStudentBCI23Q3,
+        cfo: cfoPercentStudentBCI23Q3,
+      },
+      {
+        sl: 9,
+        area: 'Number of Girls checkout book',
+        kutubdia: kNoGirlBCO23Q3,
+        ukhiya: uNoGirlBCO23Q3,
+        cfo: cfoNoGirlBCO23Q3,
+      },
+      {
+        sl: 10,
+        area: '% of Girls checked out books',
+        kutubdia: kPercentGirlBCO23Q3,
+        ukhiya: uPercentGirlBCO23Q3,
+        cfo: cfoPercentGirlBCO23Q3,
+      },
+      {
+        sl: 11,
+        area: 'Number of Boys checkout book',
+        kutubdia: kNoBoyBCO23Q3,
+        ukhiya: uNoBoyBCO23Q3,
+        cfo: cfoNoBoyBCO23Q3,
+      },
+      {
+        sl: 12,
+        area: '% of Boys checked out books',
+        kutubdia: kPercentBoyBCO23Q3,
+        ukhiya: uPercentBoyBCO23Q3,
+        cfo: cfoPercentBoyBCO23Q3,
+      },
+      {
+        sl: 13,
+        area: 'Number of School BCO',
+        kutubdia: kNoSchoolBCO23Q3,
+        ukhiya: uNoSchoolBCO23Q3,
+        cfo: cfoNoSchoolBCO23Q3,
+      },
+      {
+        sl: 14,
+        area: 'Number of Zero BCO School ',
+        kutubdia: kNoSchoolZeroBCO23Q3,
+        ukhiya: uNoSchoolZeroBCO23Q3,
+        cfo: cfoNoSchoolZeroBCO23Q3,
+      },
+    ]
+    console.log('reportObject23Q3', reportObject23Q3)
+    setReportData23Q3(reportObject23Q3)
+  }
+
+  const pushReportData23Q4 = () => {
+    const reportObject23Q4 = [
+      {
+        sl: 1,
+        area: 'Total Students( 1 - 5)',
+        kutubdia: kTotalStudent23Q4,
+        ukhiya: uTotalStudent23Q4,
+        cfo: cfoTotalStudent23Q4,
+      },
+      {
+        sl: 2,
+        area: 'Total Book Check Out',
+        kutubdia: kTotalBookCheckout23Q4,
+        ukhiya: uTotalBookCheckout23Q4,
+        cfo: cfoTotalBookCheckout23Q4,
+      },
+      {
+        sl: 3,
+        area: 'Total Book Check In',
+        kutubdia: kTotalBookCheckin23Q4,
+        ukhiya: uTotalBookCheckin23Q4,
+        cfo: cfoTotalBookCheckin23Q4,
+      },
+      {
+        sl: 4,
+        area: 'Average Book Checkout Per Child',
+        kutubdia: kNoBCOPerStudent23Q4,
+        ukhiya: uNoBCOPerStudent23Q4,
+        cfo: cfoNoBCOPerStudent23Q4,
+      },
+      {
+        sl: 5,
+        area: '# of Students checked out books',
+        kutubdia: kNoStudentBCO23Q4,
+        ukhiya: uNoStudentBCO23Q4,
+        cfo: cfoNoStudentBCO23Q4,
+      },
+      {
+        sl: 6,
+        area: '% of Students checked out books',
+        kutubdia: kPercentStudentBCO23Q4,
+        ukhiya: uPercentStudentBCO23Q4,
+        cfo: cfoPercentStudentBCO23Q4,
+      },
+      {
+        sl: 7,
+        area: '# of Students checked in books',
+        kutubdia: kNoStudentBCI23Q4,
+        ukhiya: uNoStudentBCI23Q4,
+        cfo: cfoNoStudentBCI23Q4,
+      },
+      {
+        sl: 8,
+        area: '% of Students checked in books',
+        kutubdia: kPercentStudentBCI23Q4,
+        ukhiya: uPercentStudentBCI23Q4,
+        cfo: cfoPercentStudentBCI23Q4,
+      },
+      {
+        sl: 9,
+        area: 'Number of Girls checkout book',
+        kutubdia: kNoGirlBCO23Q4,
+        ukhiya: uNoGirlBCO23Q4,
+        cfo: cfoNoGirlBCO23Q4,
+      },
+      {
+        sl: 10,
+        area: '% of Girls checked out books',
+        kutubdia: kPercentGirlBCO23Q4,
+        ukhiya: uPercentGirlBCO23Q4,
+        cfo: cfoPercentGirlBCO23Q4,
+      },
+      {
+        sl: 11,
+        area: 'Number of Boys checkout book',
+        kutubdia: kNoBoyBCO23Q4,
+        ukhiya: uNoBoyBCO23Q4,
+        cfo: cfoNoBoyBCO23Q4,
+      },
+      {
+        sl: 12,
+        area: '% of Boys checked out books',
+        kutubdia: kPercentBoyBCO23Q4,
+        ukhiya: uPercentBoyBCO23Q4,
+        cfo: cfoPercentBoyBCO23Q4,
+      },
+      {
+        sl: 13,
+        area: 'Number of School BCO',
+        kutubdia: kNoSchoolBCO23Q4,
+        ukhiya: uNoSchoolBCO23Q4,
+        cfo: cfoNoSchoolBCO23Q4,
+      },
+      {
+        sl: 14,
+        area: 'Number of Zero BCO School ',
+        kutubdia: kNoSchoolZeroBCO23Q4,
+        ukhiya: uNoSchoolZeroBCO23Q4,
+        cfo: cfoNoSchoolZeroBCO23Q4,
+      },
+    ]
+    console.log('reportObject23Q4', reportObject23Q4)
+    setReportData23Q4(reportObject23Q4)
+  }
+
   //console.log('Ukhiya total student: ' + uTotalStudent)
 
   if (isLoading) {
@@ -4875,7 +6011,7 @@ const BCOSchoolQuarterly = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    //data={}
+                    data={reportData23Q3}
                   />
                 </CAccordionBody>
               </CAccordionItem>
@@ -4926,7 +6062,7 @@ const BCOSchoolQuarterly = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    //data={}
+                    data={reportData23Q4}
                   />
                 </CAccordionBody>
               </CAccordionItem>
