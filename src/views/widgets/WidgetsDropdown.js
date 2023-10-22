@@ -70,15 +70,13 @@ const WidgetsDropdown = () => {
   // Using useEffect to call the API once mounted and set the data
 
   // Filter Teacher data
-  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
-  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
-  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
-  const srmPrimaryTrained = allTeacherData.filter(
-    (item) => item.instruction_srm_preprimary === 'Yes',
-  )
-  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instructionG1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instructionG2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter((item) => item.instructionPreprimary === 'Yes')
+  const libraryTrained = allTeacherData.filter((item) => item.libraryManagementSRM === 'Yes')
   const goodGovornanceTrained = allTeacherData.filter(
-    (item) => item.good_governance_headteacher === 'Yes',
+    (item) => item.goodGovernanceHeadteacher === 'Yes',
   )
   const schoolPerformanceTrained = allTeacherData.filter(
     (item) => item.school_performance_headteacher === 'Yes',

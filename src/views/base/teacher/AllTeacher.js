@@ -159,24 +159,24 @@ const AllTeacher = () => {
 
       // Ukhiya
       g1UTeacherMale = response.data.filter((item) => {
-        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instruction_g1 === 'Yes'
+        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instructionG1 === 'Yes'
       }).length
 
       g1UTeacherFemale = response.data.filter((item) => {
         return (
-          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instruction_g1 === 'Yes'
+          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instructionG1 === 'Yes'
         )
       }).length
 
       g1UTeacherTotal = g1UTeacherMale + g1UTeacherFemale
 
       g2UTeacherMale = response.data.filter((item) => {
-        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instruction_g2 === 'Yes'
+        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instructionG2 === 'Yes'
       }).length
 
       g2UTeacherFemale = response.data.filter((item) => {
         return (
-          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instruction_g2 === 'Yes'
+          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instructionG2 === 'Yes'
         )
       }).length
 
@@ -186,8 +186,8 @@ const AllTeacher = () => {
         return (
           item.gender === 'Male' &&
           item.upazilla === 'Ukhiya' &&
-          item.instruction_g2 === 'No' &&
-          item.instruction_g1 === 'No'
+          item.instructionG2 === 'No' &&
+          item.instructionG1 === 'No'
         )
       }).length
 
@@ -195,8 +195,8 @@ const AllTeacher = () => {
         return (
           item.gender === 'Female' &&
           item.upazilla === 'Ukhiya' &&
-          item.instruction_g2 === 'No' &&
-          item.instruction_g1 === 'No'
+          item.instructionG2 === 'No' &&
+          item.instructionG1 === 'No'
         )
       }).length
 
@@ -206,13 +206,13 @@ const AllTeacher = () => {
       // Kutubdia
       g1KTeacherMale = response.data.filter((item) => {
         return (
-          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instruction_g1 === 'Yes'
+          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instructionG1 === 'Yes'
         )
       }).length
 
       g1KTeacherFemale = response.data.filter((item) => {
         return (
-          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instruction_g1 === 'Yes'
+          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instructionG1 === 'Yes'
         )
       }).length
 
@@ -220,13 +220,13 @@ const AllTeacher = () => {
 
       g2KTeacherMale = response.data.filter((item) => {
         return (
-          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instruction_g2 === 'Yes'
+          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instructionG2 === 'Yes'
         )
       }).length
 
       g2KTeacherFemale = response.data.filter((item) => {
         return (
-          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instruction_g2 === 'Yes'
+          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instructionG2 === 'Yes'
         )
       }).length
 
@@ -236,8 +236,8 @@ const AllTeacher = () => {
         return (
           item.gender === 'Male' &&
           item.upazilla === 'Kutubdia' &&
-          item.instruction_g2 === 'No' &&
-          item.instruction_g1 === 'No'
+          item.instructionG2 === 'No' &&
+          item.instructionG1 === 'No'
         )
       }).length
 
@@ -245,8 +245,8 @@ const AllTeacher = () => {
         return (
           item.gender === 'Female' &&
           item.upazilla === 'Kutubdia' &&
-          item.instruction_g2 === 'No' &&
-          item.instruction_g1 === 'No'
+          item.instructionG2 === 'No' &&
+          item.instructionG1 === 'No'
         )
       }).length
 

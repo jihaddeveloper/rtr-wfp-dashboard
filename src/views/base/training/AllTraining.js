@@ -107,18 +107,16 @@ const AllTraining = () => {
   // Using useEffect to call the API once mounted and set the data
 
   // Filter Teacher data
-  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
-  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
-  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
-  const srmPrimaryTrained = allTeacherData.filter(
-    (item) => item.instruction_srm_preprimary === 'Yes',
-  )
-  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instructionG1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instructionG2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter((item) => item.instructionPreprimary === 'Yes')
+  const libraryTrained = allTeacherData.filter((item) => item.libraryManagementSRM === 'Yes')
   const goodGovornanceTrained = allTeacherData.filter(
-    (item) => item.good_governance_headteacher === 'Yes',
+    (item) => item.goodGovernanceHeadteacher === 'Yes',
   )
   const schoolPerformanceTrained = allTeacherData.filter(
-    (item) => item.school_performance_headteacher === 'Yes',
+    (item) => item.schoolPerformanceHeadteacher === 'Yes',
   )
   // Filter Teacher data
 
@@ -749,6 +747,78 @@ const AllTraining = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
+                  <strong>Preprimary Training-{srmPrimaryTrained.length}</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={srmPrimaryTrained.length + ' Teacher'}
+                    columns={[
+                      { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'District', field: 'district' },
+                      { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'Gender', field: 'gender', sorting: 'true' },
+                      {
+                        title: 'Designation',
+                        field: 'designation',
+                      },
+                      // { title: 'Grade', field: 'grade' },
+                      { title: 'Training', field: 'teacherTraining' },
+                    ]}
+                    // actions={[
+                    //   {
+                    //     icon: DeleteOutline,
+                    //     tooltip: 'Delete BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: ViewColumn,
+                    //     tooltip: 'View BCO',
+                    //     onClick: (event, rowData) => alert('You want to delete ' + rowData.id),
+                    //   },
+                    //   {
+                    //     icon: AddBox,
+                    //     tooltip: 'Add BCO',
+                    //     isFreeAction: true,
+                    //     onClick: (event) => alert('You want to add a new row'),
+                    //   },
+                    // ]}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={headTeacherTrained}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={6}>
+                <CAccordionHeader>
                   <strong>School Performance-{schoolPerformanceTrained.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
@@ -819,7 +889,7 @@ const AllTraining = () => {
                   />
                 </CAccordionBody>
               </CAccordionItem>
-              <CAccordionItem itemKey={6}>
+              <CAccordionItem itemKey={7}>
                 <CAccordionHeader>
                   <strong>Governence Training-{goodGovornanceTrained.length}</strong>
                 </CAccordionHeader>

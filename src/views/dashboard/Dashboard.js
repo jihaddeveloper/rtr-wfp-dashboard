@@ -81,18 +81,16 @@ const Dashboard = () => {
   // Using useEffect to call the API once mounted and set the data
 
   // Filter Teacher data
-  const headTeacherTrained = allTeacherData.filter((item) => item.headteacher_training === 'Yes')
-  const instructG1Trained = allTeacherData.filter((item) => item.instruction_g1 === 'Yes')
-  const instructG2Trained = allTeacherData.filter((item) => item.instruction_g2 === 'Yes')
-  const srmPrimaryTrained = allTeacherData.filter(
-    (item) => item.instruction_srm_preprimary === 'Yes',
-  )
-  const libraryTrained = allTeacherData.filter((item) => item.library_management_training === 'Yes')
+  const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
+  const instructG1Trained = allTeacherData.filter((item) => item.instructionG1 === 'Yes')
+  const instructG2Trained = allTeacherData.filter((item) => item.instructionG2 === 'Yes')
+  const srmPrimaryTrained = allTeacherData.filter((item) => item.instructionPreprimary === 'Yes')
+  const libraryTrained = allTeacherData.filter((item) => item.libraryManagementSRM === 'Yes')
   const goodGovornanceTrained = allTeacherData.filter(
-    (item) => item.good_governance_headteacher === 'Yes',
+    (item) => item.goodGovernanceHeadteacher === 'Yes',
   )
   const schoolPerformanceTrained = allTeacherData.filter(
-    (item) => item.school_performance_headteacher === 'Yes',
+    (item) => item.schoolPerformanceHeadteacher === 'Yes',
   )
 
   // Filter Teacher data
@@ -567,16 +565,6 @@ const Dashboard = () => {
                   <CRow>
                     <CCol sm={4}>
                       <CLink href="/training/all-training">
-                        <div className="border-start border-start-4 border-start-info py-1 px-3">
-                          <div className="Button">Headteacher Traning</div>
-                          <div className="" style={{ color: 'red' }}>
-                            #Trained Teacher: {headTeacherTrained.length}
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol>
-                    <CCol sm={4}>
-                      <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                           <div className="Button">Bangla G1 Traning</div>
                           <div className="" style={{ color: 'red' }}>
@@ -591,6 +579,16 @@ const Dashboard = () => {
                           <div className="Button">Bangla G2 Traning</div>
                           <div className="" style={{ color: 'red' }}>
                             #Trained Teacher: {instructG2Trained.length}
+                          </div>
+                        </div>
+                      </CLink>
+                    </CCol>
+                    <CCol sm={4}>
+                      <CLink href="/training/all-training">
+                        <div className="border-start border-start-4 border-start-info py-1 px-3">
+                          <div className="Button">Preprimary Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {headTeacherTrained.length}
                           </div>
                         </div>
                       </CLink>
@@ -612,15 +610,25 @@ const Dashboard = () => {
                     </CCol>
                     <CCol sm={4}>
                       <CLink href="/training/all-training">
-                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                          <div className="Button">Governence Traning</div>
+                        <div className="border-start border-start-4 border-start-info py-1 px-3">
+                          <div className="Button">Headteacher Traning</div>
                           <div className="" style={{ color: 'red' }}>
-                            #Trained Teacher: {goodGovornanceTrained.length}
+                            #Trained Teacher: {headTeacherTrained.length}
                           </div>
                         </div>
                       </CLink>
                     </CCol>
                     <CCol sm={4}>
+                      <CLink href="/training/all-training">
+                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                          <div className="Button">Governence Traning</div>
+                          <div className="" style={{ color: 'red' }}>
+                            #Trained Teacher: {srmPrimaryTrained.length}
+                          </div>
+                        </div>
+                      </CLink>
+                    </CCol>
+                    {/* <CCol sm={4}>
                       <CLink href="/training/all-training">
                         <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                           <div className="Button">School Performance</div>
@@ -629,7 +637,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                       </CLink>
-                    </CCol>
+                    </CCol> */}
                   </CRow>
                 </CCol>
               </CRow>
