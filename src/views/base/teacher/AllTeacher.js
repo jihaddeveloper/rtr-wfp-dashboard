@@ -579,6 +579,97 @@ const AllTeacher = () => {
                   />
                 </CAccordionBody>
               </CAccordionItem>
+              <CAccordionItem itemKey={4}>
+                <CAccordionHeader>
+                  <strong>All Teacher-{allTeacherData.length}</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <MaterialTable
+                    title={allTeacherData.length + ' Teacher Data'}
+                    columns={[
+                      { title: 'name', field: 'name', type: 'string', sorting: 'true' },
+                      { title: 'bnName', field: 'bnName' },
+                      { title: 'school', field: 'school', sorting: 'true' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'gender', field: 'gender', sorting: 'true' },
+                      {
+                        title: 'designation',
+                        field: 'designation',
+                      },
+                      { title: 'phone1', field: 'phone1' },
+                      { title: 'phone2', field: 'phone2' },
+                      { title: 'project', field: 'project' },
+                      { title: 'currentAddress', field: 'currentAddress' },
+                      { title: 'permanentAddress', field: 'permanentAddress' },
+                      { title: 'grade', field: 'grade' },
+                      { title: 'section', field: 'section' },
+                      { title: 'teacherTraining', field: 'teacherTraining' },
+                      { title: 'instructionPreprimary', field: 'instructionPreprimary' },
+                      { title: 'instructionG1', field: 'instructionG1' },
+                      { title: 'instructionG2', field: 'instructionG2' },
+                      { title: 'libraryManagementSRM', field: 'libraryManagementSRM' },
+                      { title: 'headteacherTraining', field: 'headteacherTraining' },
+                      { title: 'goodGovernanceHeadteacher', field: 'goodGovernanceHeadteacher' },
+                      {
+                        title: 'schoolPerformanceHeadteacher',
+                        field: 'schoolPerformanceHeadteacher',
+                      },
+                      { title: 'trainingYear', field: 'trainingYear' },
+                      { title: 'activity', field: 'activity' },
+                      // { title: 'isActive', field: 'isActive' },
+                      // { title: 'isDeleted', field: 'isDeleted' },
+                    ]}
+                    // editable={{
+                    //   onRowUpdate: (newData, oldData) =>
+                    //     new Promise((resolve) => {
+                    //       handleRowUpdateAllSchool(newData, oldData, resolve)
+                    //     }),
+                    //   onRowAdd: (newData) =>
+                    //     new Promise((resolve) => {
+                    //       handleRowAddSchool(newData, resolve)
+                    //     }),
+                    //   // onRowDelete: (oldData) =>
+                    //   //   new Promise((resolve) => {
+                    //   //     handleRowDeleteSchool(oldData, resolve)
+                    //   //   }),
+                    // }}
+                    options={{
+                      exportButton: true,
+                      exportAllData: true,
+                      search: true,
+                      filtering: true,
+                      grouping: true,
+                      sorting: true,
+                      pageSize: 5,
+                      pageSizeOptions: [5, 10, 20],
+                      maxBodyHeight: '600px',
+                      headerStyle: {
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#bcceeb',
+                        fontWeight: 'bold',
+                        width: 15,
+                        textAlign: 'left',
+                        color: '#884fc9',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      rowStyle: {
+                        fontSize: 14,
+                        backgroundColor: '#f5f3f2',
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                      cellStyle: {
+                        borderRight: '1px solid #fff',
+                        borderStyle: 'solid',
+                      },
+                    }}
+                    data={allTeacherData}
+                  />
+                </CAccordionBody>
+              </CAccordionItem>
             </CAccordion>
           </CCardBody>
         </CCard>
