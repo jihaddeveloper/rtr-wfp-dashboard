@@ -142,6 +142,106 @@ const SRMClass = () => {
     }
   }
   // Row update function
+  // Row add function
+  const handleRowAddSRMClass = (newData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .post('http://118.179.80.51:8080/api/v1/srm-class/', newData, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataToAdd = [...allSRMClass]
+          dataToAdd.push(newData)
+          setAllSRMClass([...dataToAdd])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Add SRM failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row add function
+
+  // Row delete function
+  const handleRowDeleteSRMClass = (oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .delete('http://118.179.80.51:8080/api/v1/srm-class/' + oldData.id, {
+          method: 'DELETE',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataDelete = [...allSRMClass]
+          const index = oldData.tableData.id
+          dataDelete.splice(index, 1)
+          setAllSRMClass([...dataDelete])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Delete failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row delete function
 
   if (isLoading) {
     return (
@@ -417,6 +517,14 @@ const SRMClass = () => {
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               editable={{
+                onRowAdd: (newData) =>
+                  new Promise((resolve) => {
+                    handleRowAddSRMClass(newData, resolve)
+                  }),
+                onRowDelete: (oldData) =>
+                  new Promise((resolve) => {
+                    handleRowDeleteSRMClass(oldData, resolve)
+                  }),
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve) => {
                     handleRowUpdateAllSRMClass(newData, oldData, resolve)

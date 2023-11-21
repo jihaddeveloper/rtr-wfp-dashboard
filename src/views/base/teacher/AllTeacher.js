@@ -108,6 +108,11 @@ const AllTeacher = () => {
   let grandTotal = 0
   // Combined
 
+  // For error handling row update
+  const [iserror, setIserror] = useState(false)
+  const [errorMessages, setErrorMessages] = useState([])
+  // For error handling row update
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
@@ -325,6 +330,158 @@ const AllTeacher = () => {
     console.log('reportObject', reportObject)
     setReportData(reportObject)
   }
+
+  // Row update function
+  const handleRowUpdateTeacher = (newData, oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .patch('http://118.179.80.51:8080/api/v1/teachers/' + newData.id, newData, {
+          method: 'PATCH',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataUpdate = [...allTeacherData]
+          const index = oldData.tableData.id
+          dataUpdate[index] = newData
+          setAllTeacherData([...dataUpdate])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Update failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row update function
+
+  // Row add function
+  const handleRowAddTeacher = (newData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .post('http://118.179.80.51:8080/api/v1/teachers/', newData, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataToAdd = [...allTeacherData]
+          dataToAdd.push(newData)
+          setAllTeacherData([...dataToAdd])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Add Teacher failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row add function
+
+  // Row delete function
+  const handleRowDeleteTeacher = (oldData, resolve) => {
+    //validation
+
+    let errorList = []
+    // if (newData.first_name === '') {
+    //   errorList.push('Please enter first name')
+    // }
+    // if (newData.last_name === '') {
+    //   errorList.push('Please enter last name')
+    // }
+    // if (newData.email === '' || validateEmail(newData.email) === false) {
+    //   errorList.push('Please enter a valid email')
+    // }
+
+    if (errorList.length < 1) {
+      axios
+        .delete('http://118.179.80.51:8080/api/v1/teachers/' + oldData.id, {
+          method: 'DELETE',
+          mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => {
+          const dataDelete = [...allTeacherData]
+          const index = oldData.tableData.id
+          dataDelete.splice(index, 1)
+          setAllTeacherData([...dataDelete])
+          resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+        })
+        .catch((error) => {
+          setErrorMessages(['Delete failed! Server error'])
+          setIserror(true)
+          resolve()
+        })
+    } else {
+      setErrorMessages(errorList)
+      setIserror(true)
+      resolve()
+    }
+  }
+  // Row delete function
 
   if (isLoading) {
     return (
@@ -620,20 +777,20 @@ const AllTeacher = () => {
                       // { title: 'isActive', field: 'isActive' },
                       // { title: 'isDeleted', field: 'isDeleted' },
                     ]}
-                    // editable={{
-                    //   onRowUpdate: (newData, oldData) =>
-                    //     new Promise((resolve) => {
-                    //       handleRowUpdateAllSchool(newData, oldData, resolve)
-                    //     }),
-                    //   onRowAdd: (newData) =>
-                    //     new Promise((resolve) => {
-                    //       handleRowAddSchool(newData, resolve)
-                    //     }),
-                    //   // onRowDelete: (oldData) =>
-                    //   //   new Promise((resolve) => {
-                    //   //     handleRowDeleteSchool(oldData, resolve)
-                    //   //   }),
-                    // }}
+                    editable={{
+                      onRowUpdate: (newData, oldData) =>
+                        new Promise((resolve) => {
+                          handleRowUpdateTeacher(newData, oldData, resolve)
+                        }),
+                      onRowAdd: (newData) =>
+                        new Promise((resolve) => {
+                          handleRowAddTeacher(newData, resolve)
+                        }),
+                      onRowDelete: (oldData) =>
+                        new Promise((resolve) => {
+                          handleRowDeleteTeacher(oldData, resolve)
+                        }),
+                    }}
                     options={{
                       exportButton: true,
                       exportAllData: true,
