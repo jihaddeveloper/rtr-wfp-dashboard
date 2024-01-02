@@ -6335,7 +6335,7 @@ const BCOSchoolMonthly = () => {
 
       uNoSchoolBCODecember23 = response.data.filter(
         (item) =>
-          item.schoolTotalNoStudentBC !== 0 &&
+          item.schoolTotalNoStudentBC != 0 &&
           item.upazilla === 'Ukhiya' &&
           item.year === '2023' &&
           item.month === 'December',
@@ -6366,10 +6366,7 @@ const BCOSchoolMonthly = () => {
       kTotalBookCheckoutDecember23 = response.data
         .filter(
           (item) =>
-            item.schoolTotalNoStudentBC !== 0 &&
-            item.upazilla === 'Kutubdia' &&
-            item.year === '2023' &&
-            item.month === 'December',
+            item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'December',
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
         .reduce(function (acc, value) {
@@ -6390,10 +6387,7 @@ const BCOSchoolMonthly = () => {
         response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              item.year === '2023' &&
-              item.month === 'December',
+              item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'December',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
@@ -6402,10 +6396,7 @@ const BCOSchoolMonthly = () => {
         response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              item.year === '2023' &&
-              item.month === 'December',
+              item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'December',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6542,7 +6533,11 @@ const BCOSchoolMonthly = () => {
       ).toFixed(2)
 
       kNoSchoolBCODecember23 = response.data.filter(
-        (item) => item.upazilla === 'Kutubdia' && item.year === '2023' && item.month === 'December',
+        (item) =>
+          item.schoolTotalNoStudentBC != 0 &&
+          item.upazilla === 'Kutubdia' &&
+          item.year === '2023' &&
+          item.month === 'December',
       ).length
 
       kNoSchoolZeroBCODecember23 = response.data.filter(

@@ -390,10 +390,7 @@ const WFPSummarizeBCO = () => {
       kTotalBookCheckout = response.data
         .filter(
           (item) =>
-            item.schoolTotalNoStudentBC !== 0 &&
-            item.upazilla === 'Kutubdia' &&
-            item.month === previousMonth &&
-            item.year === '2023',
+            item.upazilla === 'Kutubdia' && item.month === previousMonth && item.year === '2023',
         )
         .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
         .reduce(function (acc, value) {
@@ -414,10 +411,7 @@ const WFPSummarizeBCO = () => {
         response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              item.month === previousMonth &&
-              item.year === '2023',
+              item.upazilla === 'Kutubdia' && item.month === previousMonth && item.year === '2023',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
           .reduce(function (acc, value) {
@@ -426,10 +420,7 @@ const WFPSummarizeBCO = () => {
         response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Kutubdia' &&
-              item.month === previousMonth &&
-              item.year === '2023',
+              item.upazilla === 'Kutubdia' && item.month === previousMonth && item.year === '2023',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -567,7 +558,10 @@ const WFPSummarizeBCO = () => {
 
       kNoSchoolBCO = response.data.filter(
         (item) =>
-          item.upazilla === 'Kutubdia' && item.month === previousMonth && item.year === '2023',
+          item.schoolTotalNoStudentBC != 0 &&
+          item.upazilla === 'Kutubdia' &&
+          item.month === previousMonth &&
+          item.year === '2023',
       ).length
 
       kNoSchoolZeroBCO = response.data.filter(
