@@ -6244,10 +6244,7 @@ const BCOSchoolMonthly = () => {
         (response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              item.year === '2023' &&
-              item.month === 'December',
+              item.upazilla === 'Ukhiya' && item.year === '2023' && item.month === 'December',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
           .reduce(function (acc, value) {
@@ -6570,9 +6567,12 @@ const BCOSchoolMonthly = () => {
 
       cfoNoStudentBCIDecember23 = kNoStudentBCIDecember23 + uNoStudentBCIDecember23
       cfoPercentStudentBCIDecember23 = (
-        (parseFloat(kPercentStudentBCIDecember23) + parseFloat(uPercentStudentBCIDecember23)) /
-        2
+        (cfoNoStudentBCIDecember23 * 100) /
+        cfoTotalStudentDecember23
       ).toFixed(2)
+      //   (
+      //   (parseFloat(kPercentStudentBCIDecember23) + parseFloat(uPercentStudentBCIDecember23)) / 2,
+      // ).toFixed(2)
 
       cfoNoGirlBCODecember23 = kNoGirlBCODecember23 + uNoGirlBCODecember23
       cfoPercentGirlBCODecember23 = (

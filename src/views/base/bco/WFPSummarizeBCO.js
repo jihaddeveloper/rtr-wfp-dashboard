@@ -264,10 +264,7 @@ const WFPSummarizeBCO = () => {
         (response.data
           .filter(
             (item) =>
-              item.schoolTotalNoStudentBC !== 0 &&
-              item.upazilla === 'Ukhiya' &&
-              item.month === previousMonth &&
-              item.year === '2023',
+              item.upazilla === 'Ukhiya' && item.month === previousMonth && item.year === '2023',
           )
           .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
           .reduce(function (acc, value) {
@@ -590,10 +587,12 @@ const WFPSummarizeBCO = () => {
       ).toFixed(2)
 
       cfoNoStudentBCI = kNoStudentBCI + uNoStudentBCI
-      cfoPercentStudentBCI = (
-        (parseFloat(uPercentStudentBCI) + parseFloat(kPercentStudentBCI)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCI = ((cfoNoStudentBCI * 100) / cfoTotalStudent).toFixed(2)
+
+      //   (
+      //   (parseFloat(uPercentStudentBCI) + parseFloat(kPercentStudentBCI)) /
+      //   2
+      // ).toFixed(2)
       cfoNoGirlBCO = kNoGirlBCO + uNoGirlBCO
       cfoPercentGirlBCO = ((parseFloat(uPercentGirlBCO) + parseFloat(kPercentGirlBCO)) / 2).toFixed(
         2,
