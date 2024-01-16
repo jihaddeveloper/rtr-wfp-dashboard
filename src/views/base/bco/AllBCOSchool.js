@@ -70,10 +70,13 @@ const AllBCOSchool = () => {
   const current = new Date()
   const currentMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
   const currentMonth = current.toLocaleString('default', { month: 'long' })
+  const currentYear = new Date().getFullYear()
+  const previousYear = currentYear - 1
 
   current.setMonth(current.getMonth() - 1)
   const previousMonth = current.toLocaleString('default', { month: 'long' })
   const previousMonthYear = current.toLocaleString('default', { month: 'long', year: 'numeric' })
+
   // Current date and month
 
   // For error handling row update
@@ -113,14 +116,16 @@ const AllBCOSchool = () => {
       setKutubdiaAllBCOSchoolCMonth(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Kutubdia' && item.month === currentMonth && item.year === '2023',
+            item.upazilla === 'Kutubdia' &&
+            item.month === currentMonth &&
+            item.year === currentYear,
         ),
       )
 
       setUkhiyaAllBCOSchoolCMonth(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && item.month === currentMonth && item.year === '2023',
+            item.upazilla === 'Ukhiya' && item.month === currentMonth && item.year === currentYear,
         ),
       )
 
