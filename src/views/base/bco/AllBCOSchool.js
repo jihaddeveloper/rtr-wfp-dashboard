@@ -118,14 +118,16 @@ const AllBCOSchool = () => {
           (item) =>
             item.upazilla === 'Kutubdia' &&
             item.month === currentMonth &&
-            item.year === currentYear,
+            item.year === currentYear.toString(),
         ),
       )
 
       setUkhiyaAllBCOSchoolCMonth(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && item.month === currentMonth && item.year === currentYear,
+            item.upazilla === 'Ukhiya' &&
+            item.month === currentMonth &&
+            item.year === currentYear.toString(),
         ),
       )
 
