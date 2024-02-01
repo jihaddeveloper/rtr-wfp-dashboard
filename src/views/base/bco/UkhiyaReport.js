@@ -88,7 +88,7 @@ const UkhiyaReport = () => {
 
   // Generate current month repoort for Ukhiye
   const ukhiyaReportData = allBCOData.filter(
-    (item) => item.upazilla == 'Ukhiya' && item.month === previousMonth && item.year === '2023',
+    (item) => item.upazilla == 'Ukhiya' && item.month === previousMonth && item.year === '2024',
   )
 
   if (isLoading) {

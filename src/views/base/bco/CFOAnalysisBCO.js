@@ -88,7 +88,7 @@ const CFOAnalysisBCO = () => {
       setAllBCOData(response.data)
 
       let allData = response.data.filter(
-        (item) => item.month === previousMonth && item.year === '2023',
+        (item) => item.month === previousMonth && item.year === '2024',
       )
 
       // Set some cumulated value

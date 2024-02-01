@@ -89,7 +89,7 @@ const KutubdiaReport = () => {
   // Generate current month repoort for Kutubdia
 
   const kutubdiaReportData = allBCOData.filter(
-    (item) => item.upazilla == 'Kutubdia' && item.month === previousMonth && item.year === '2023',
+    (item) => item.upazilla == 'Kutubdia' && item.month === previousMonth && item.year === '2024',
   )
 
   if (isLoading) {

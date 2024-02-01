@@ -134,14 +134,18 @@ const AllBCOSchool = () => {
       setKutubdiaAllBCOSchoolPMonth(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Kutubdia' && item.month === previousMonth && item.year === '2023',
+            item.upazilla === 'Kutubdia' &&
+            item.month === previousMonth &&
+            item.year === currentYear.toString(),
         ),
       )
 
       setUkhiyaAllBCOSchoolPMonth(
         response.data.filter(
           (item) =>
-            item.upazilla === 'Ukhiya' && item.month === previousMonth && item.year === '2023',
+            item.upazilla === 'Ukhiya' &&
+            item.month === previousMonth &&
+            item.year === currentYear.toString(),
         ),
       )
 
