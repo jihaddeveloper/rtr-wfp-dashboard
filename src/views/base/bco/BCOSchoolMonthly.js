@@ -7963,21 +7963,11 @@ const BCOSchoolMonthly = () => {
       cfoTotalBookCheckinFeb24 = kTotalBookCheckinFeb24 + uTotalBookCheckinFeb24
       cfoNoBCOPerStudentFeb24 = (cfoTotalBookCheckoutFeb24 / cfoTotalStudentFeb24).toFixed(2)
 
-      //   (
-      //   (parseFloat(kNoBCOPerStudentFeb24) + parseFloat(uNoBCOPerStudentFeb24)) /
-      //   2
-      // ).toFixed(2)
       cfoNoStudentBCOFeb24 = kNoStudentBCOFeb24 + uNoStudentBCOFeb24
-      cfoPercentStudentBCOFeb24 = (
-        (parseFloat(kPercentStudentBCOFeb24) + parseFloat(uPercentStudentBCOFeb24)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCOFeb24 = ((cfoNoStudentBCOFeb24 * 100) / cfoTotalStudentFeb24).toFixed(2)
 
       cfoNoStudentBCIFeb24 = kNoStudentBCIFeb24 + uNoStudentBCIFeb24
-      cfoPercentStudentBCIFeb24 = (
-        (parseFloat(kPercentStudentBCIFeb24) + parseFloat(uPercentStudentBCIFeb24)) /
-        2
-      ).toFixed(2)
+      cfoPercentStudentBCIFeb24 = ((cfoNoStudentBCIFeb24 * 100) / cfoTotalStudentFeb24).toFixed(2)
 
       cfoNoGirlBCOFeb24 = kNoGirlBCOFeb24 + uNoGirlBCOFeb24
       cfoPercentGirlBCOFeb24 = (
