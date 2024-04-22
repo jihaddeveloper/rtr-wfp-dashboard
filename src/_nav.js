@@ -39,7 +39,7 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Main Infomation',
+    name: 'Base Infomation',
   },
 
   {
@@ -50,7 +50,17 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All School',
+        name: 'All School Coxsbazar',
+        to: '/school/allschool',
+      },
+      {
+        component: CNavItem,
+        name: 'All School Moulvibazar',
+        to: '/school/allschool',
+      },
+      {
+        component: CNavItem,
+        name: 'All School Narail',
         to: '/school/allschool',
       },
     ],
@@ -63,7 +73,17 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Teacher',
+        name: 'All Teacher Coxsbazar',
+        to: '/teacher/all-teacher',
+      },
+      {
+        component: CNavItem,
+        name: 'All Teacher Moulvibazar',
+        to: '/teacher/all-teacher',
+      },
+      {
+        component: CNavItem,
+        name: 'All Teacher Narail',
         to: '/teacher/all-teacher',
       },
     ],
@@ -122,7 +142,7 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Collected Data',
+    name: 'Collected Data WFP-Coxsbazar',
   },
   {
     component: CNavGroup,
@@ -315,6 +335,90 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Overall School Report',
+        to: '/base/construction',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Collected Data Moulvibazar',
+  },
+  {
+    component: CNavGroup,
+    name: 'Teacher Performance',
+    to: '*',
+    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Bangla Class',
+        to: '/bangla/bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Bangla Report',
+        to: '/bangla/bangla-class-report',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Class',
+        to: '/srm/srm-class',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Report',
+        to: '/base/construction',
+      },
+      {
+        component: CNavItem,
+        name: 'Preprimary Class',
+        to: '/preprimary/preprimary-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Preprimary Report',
+        to: '/base/construction',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Collected Data Narail',
+  },
+  {
+    component: CNavGroup,
+    name: 'Teacher Performance',
+    to: '*',
+    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Bangla Class',
+        to: '/bangla/bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Bangla Report',
+        to: '/bangla/bangla-class-report',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Class',
+        to: '/srm/srm-class',
+      },
+      {
+        component: CNavItem,
+        name: 'SRM Report',
+        to: '/base/construction',
+      },
+      {
+        component: CNavItem,
+        name: 'Preprimary Class',
+        to: '/preprimary/preprimary-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Preprimary Report',
         to: '/base/construction',
       },
     ],
