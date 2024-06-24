@@ -339,90 +339,90 @@ const _nav = [
       },
     ],
   },
-  {
-    component: CNavTitle,
-    name: 'Collected Data Moulvibazar',
-  },
-  {
-    component: CNavGroup,
-    name: 'Teacher Performance',
-    to: '*',
-    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Bangla Class',
-        to: '/bangla/bangla-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Bangla Report',
-        to: '/bangla/bangla-class-report',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Class',
-        to: '/srm/srm-class',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Report',
-        to: '/base/construction',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Class',
-        to: '/preprimary/preprimary-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Report',
-        to: '/base/construction',
-      },
-    ],
-  },
-  {
-    component: CNavTitle,
-    name: 'Collected Data Narail',
-  },
-  {
-    component: CNavGroup,
-    name: 'Teacher Performance',
-    to: '*',
-    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Bangla Class',
-        to: '/bangla/bangla-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Bangla Report',
-        to: '/bangla/bangla-class-report',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Class',
-        to: '/srm/srm-class',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Report',
-        to: '/base/construction',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Class',
-        to: '/preprimary/preprimary-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Report',
-        to: '/base/construction',
-      },
-    ],
-  },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Collected Data Moulvibazar',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Teacher Performance',
+  //   to: '*',
+  //   icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'Bangla Class',
+  //       to: '/bangla/bangla-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Bangla Report',
+  //       to: '/bangla/bangla-class-report',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'SRM Class',
+  //       to: '/srm/srm-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'SRM Report',
+  //       to: '/base/construction',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Preprimary Class',
+  //       to: '/preprimary/preprimary-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Preprimary Report',
+  //       to: '/base/construction',
+  //     },
+  //   ],
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Collected Data Narail',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Teacher Performance',
+  //   to: '*',
+  //   icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'Bangla Class',
+  //       to: '/bangla/bangla-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Bangla Report',
+  //       to: '/bangla/bangla-class-report',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'SRM Class',
+  //       to: '/srm/srm-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'SRM Report',
+  //       to: '/base/construction',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Preprimary Class',
+  //       to: '/preprimary/preprimary-class',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Preprimary Report',
+  //       to: '/base/construction',
+  //     },
+  //   ],
+  // },
   {
     component: CNavTitle,
     name: 'Theme',

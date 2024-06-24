@@ -509,18 +509,18 @@ const PreprimaryClassData = () => {
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               editable={{
-                onRowUpdate: (newData, oldData) =>
-                  new Promise((resolve) => {
-                    handleRowUpdateAllPPClass(newData, oldData, resolve)
-                  }),
+                // onRowUpdate: (newData, oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowUpdateAllPPClass(newData, oldData, resolve)
+                //   }),
                 onRowAdd: (newData) =>
                   new Promise((resolve) => {
                     handleRowAddPPClass(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeletePPClass(oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeletePPClass(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,

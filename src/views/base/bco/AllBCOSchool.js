@@ -1199,14 +1199,14 @@ const AllBCOSchool = () => {
                         new Promise((resolve) => {
                           handleRowAddBCO(newData, resolve)
                         }),
-                      onRowUpdate: (newData, oldData) =>
-                        new Promise((resolve) => {
-                          handleRowUpdateAllBCO(newData, oldData, resolve)
-                        }),
-                      onRowDelete: (oldData) =>
-                        new Promise((resolve) => {
-                          handleRowDeleteBCO(oldData, resolve)
-                        }),
+                      // onRowUpdate: (newData, oldData) =>
+                      //   new Promise((resolve) => {
+                      //     handleRowUpdateAllBCO(newData, oldData, resolve)
+                      //   }),
+                      // onRowDelete: (oldData) =>
+                      //   new Promise((resolve) => {
+                      //     handleRowDeleteBCO(oldData, resolve)
+                      //   }),
                     }}
                     options={{
                       exportButton: true,

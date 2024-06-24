@@ -2962,18 +2962,18 @@ const LibraryObservation = () => {
                       },
                     ]}
                     editable={{
-                      onRowUpdate: (newData, oldData) =>
-                        new Promise((resolve) => {
-                          handleRowUpdateAllLibraryObservation(newData, oldData, resolve)
-                        }),
+                      // onRowUpdate: (newData, oldData) =>
+                      //   new Promise((resolve) => {
+                      //     handleRowUpdateAllLibraryObservation(newData, oldData, resolve)
+                      //   }),
                       onRowAdd: (newData) =>
                         new Promise((resolve) => {
                           handleRowAddLibraryObservation(newData, resolve)
                         }),
-                      onRowDelete: (oldData) =>
-                        new Promise((resolve) => {
-                          handleRowDeleteLibraryObservation(oldData, resolve)
-                        }),
+                      // onRowDelete: (oldData) =>
+                      //   new Promise((resolve) => {
+                      //     handleRowDeleteLibraryObservation(oldData, resolve)
+                      //   }),
                     }}
                     options={{
                       exportButton: true,

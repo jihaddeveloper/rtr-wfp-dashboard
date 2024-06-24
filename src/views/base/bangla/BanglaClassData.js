@@ -540,14 +540,14 @@ const BanglaClassData = () => {
                   new Promise((resolve) => {
                     handleRowAddBanglaClass(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteBanglaClass(oldData, resolve)
-                  }),
-                onRowUpdate: (newData, oldData) =>
-                  new Promise((resolve) => {
-                    handleRowUpdateAllBanglaClass(newData, oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteBanglaClass(oldData, resolve)
+                //   }),
+                // onRowUpdate: (newData, oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowUpdateAllBanglaClass(newData, oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,

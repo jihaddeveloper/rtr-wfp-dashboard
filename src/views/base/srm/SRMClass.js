@@ -521,14 +521,14 @@ const SRMClass = () => {
                   new Promise((resolve) => {
                     handleRowAddSRMClass(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteSRMClass(oldData, resolve)
-                  }),
-                onRowUpdate: (newData, oldData) =>
-                  new Promise((resolve) => {
-                    handleRowUpdateAllSRMClass(newData, oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteSRMClass(oldData, resolve)
+                //   }),
+                // onRowUpdate: (newData, oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowUpdateAllSRMClass(newData, oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
