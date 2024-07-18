@@ -594,10 +594,10 @@ const OverallSchoolData = () => {
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               editable={{
-                // onRowUpdate: (newData, oldData) =>
-                //   new Promise((resolve) => {
-                //     handleRowUpdateAllOverallSchool(newData, oldData, resolve)
-                //   }),
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateAllOverallSchool(newData, oldData, resolve)
+                  }),
                 onRowAdd: (newData) =>
                   new Promise((resolve) => {
                     handleRowAddOverallSchool(newData, resolve)

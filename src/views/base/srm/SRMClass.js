@@ -525,10 +525,10 @@ const SRMClass = () => {
                 //   new Promise((resolve) => {
                 //     handleRowDeleteSRMClass(oldData, resolve)
                 //   }),
-                // onRowUpdate: (newData, oldData) =>
-                //   new Promise((resolve) => {
-                //     handleRowUpdateAllSRMClass(newData, oldData, resolve)
-                //   }),
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateAllSRMClass(newData, oldData, resolve)
+                  }),
               }}
               options={{
                 exportButton: true,

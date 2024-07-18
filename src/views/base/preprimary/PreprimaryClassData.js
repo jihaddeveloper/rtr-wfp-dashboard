@@ -509,10 +509,10 @@ const PreprimaryClassData = () => {
                 { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
               ]}
               editable={{
-                // onRowUpdate: (newData, oldData) =>
-                //   new Promise((resolve) => {
-                //     handleRowUpdateAllPPClass(newData, oldData, resolve)
-                //   }),
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                    handleRowUpdateAllPPClass(newData, oldData, resolve)
+                  }),
                 onRowAdd: (newData) =>
                   new Promise((resolve) => {
                     handleRowAddPPClass(newData, resolve)
