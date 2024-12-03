@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -17,6 +18,40 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [allEmployeeData, setAllEmployeeData] = useState([])
+
+  // Using useEffect to call the API once mounted and set the data
+  useEffect(() => {
+    const call = async () => {
+      console.log('use effect called')
+      await getAllEmployee(console.log('get all employee called'))
+    }
+    call()
+  }, [])
+  // Using useEffect to call the API once mounted and set the data
+
+  // Get All Employee Data
+  const getAllEmployee = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/di-employee', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllEmployeeData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + allEmployeeData.length)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Employee Data
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>

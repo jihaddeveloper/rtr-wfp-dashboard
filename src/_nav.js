@@ -30,7 +30,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Dashboard',
-    to: '/dashboard',
+    to: '/dashboard2',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     // badge: {
     //   color: 'info',
@@ -39,7 +39,31 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Base Infomation',
+    name: 'General Infomation',
+  },
+
+  {
+    component: CNavGroup,
+    name: 'District',
+    to: '#',
+    icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Moulvibazar',
+        to: '/di/base/district',
+      },
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/di/base/district',
+      },
+      {
+        component: CNavItem,
+        name: 'Coxsbazar',
+        to: '/di/base/district',
+      },
+    ],
   },
 
   {
@@ -50,19 +74,19 @@ const _nav = [
     items: [
       {
         component: CNavItem,
+        name: 'All School Moulvibazar',
+        to: '/school/allschool',
+      },
+      {
+        component: CNavItem,
+        name: 'All School Narail',
+        to: '/school/allschool',
+      },
+      {
+        component: CNavItem,
         name: 'All School Coxsbazar',
         to: '/school/allschool',
       },
-      // {
-      //   component: CNavItem,
-      //   name: 'All School Moulvibazar',
-      //   to: '/school/allschool',
-      // },
-      // {
-      //   component: CNavItem,
-      //   name: 'All School Narail',
-      //   to: '/school/allschool',
-      // },
     ],
   },
   {
@@ -73,19 +97,20 @@ const _nav = [
     items: [
       {
         component: CNavItem,
+        name: 'All Teacher Moulvibazar',
+        to: '/teacher/all-teacher',
+      },
+      {
+        component: CNavItem,
+        name: 'All Teacher Narail',
+        to: '/teacher/all-teacher',
+      },
+
+      {
+        component: CNavItem,
         name: 'All Teacher Coxsbazar',
         to: '/teacher/all-teacher',
       },
-      // {
-      //   component: CNavItem,
-      //   name: 'All Teacher Moulvibazar',
-      //   to: '/teacher/all-teacher',
-      // },
-      // {
-      //   component: CNavItem,
-      //   name: 'All Teacher Narail',
-      //   to: '/teacher/all-teacher',
-      // },
     ],
   },
   {
@@ -142,13 +167,13 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Collected Data WFP-Coxsbazar',
+    name: 'Collected Information',
   },
   {
     component: CNavGroup,
     name: 'BCO/I Data',
     to: '#',
-    icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -160,82 +185,82 @@ const _nav = [
         name: 'School',
         to: '/bco/allbco-school',
       },
-      {
-        component: CNavItem,
-        name: 'CRF',
-        to: '/bco/allbco-crf',
-      },
-      {
-        component: CNavItem,
-        name: 'School Summry Monthly',
-        to: '/bco/bco-school-monthly',
-      },
-      {
-        component: CNavItem,
-        name: 'School Summry Quarterly',
-        to: '/bco/bco-school-quarterly',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'CRF',
+      //   to: '/bco/allbco-crf',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'School Summry Monthly',
+      //   to: '/bco/bco-school-monthly',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'School Summry Quarterly',
+      //   to: '/bco/bco-school-quarterly',
+      // },
       {
         component: CNavItem,
         name: 'Total BCO Analysis',
         to: '/bco/analyasis-bco-school',
       },
-      {
-        component: CNavItem,
-        name: 'Analysis By School',
-        to: '/bco/analyasis-by-school',
-      },
-      {
-        component: CNavItem,
-        name: 'Outcome Indicator',
-        to: '/bco/outcome-indicator',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Analysis By School',
+      //   to: '/bco/analyasis-by-school',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Outcome Indicator',
+      //   to: '/bco/outcome-indicator',
+      // },
 
-      {
-        component: CNavItem,
-        name: 'Summarize School',
-        to: '/bco/wfp-summarize',
-      },
-      {
-        component: CNavItem,
-        name: 'CFO Analysis School',
-        to: '/bco/cfo-analysis',
-      },
-      {
-        component: CNavItem,
-        name: 'Ukhiya Report School',
-        to: '/bco/ukhiya-report',
-      },
-      {
-        component: CNavItem,
-        name: 'Kutubdia Report School',
-        to: '/bco/kutubdia-report',
-      },
-      {
-        component: CNavItem,
-        name: 'CRF Report',
-        to: '/bco/bco-crf-quarterly',
-      },
-      {
-        component: CNavItem,
-        name: 'Summary Report CRF',
-        to: '/bco/wfp-summary-crf',
-      },
-      {
-        component: CNavItem,
-        name: 'CFO Analysis CRF',
-        to: '/bco/cfo-analysis-crf',
-      },
-      {
-        component: CNavItem,
-        name: 'Ukhiya Report CRF',
-        to: '/bco/ukhiya-report-crf',
-      },
-      {
-        component: CNavItem,
-        name: 'Kutubdia Report CRF',
-        to: '/bco/kutubdia-crf',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Summarize School',
+      //   to: '/bco/wfp-summarize',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'CFO Analysis School',
+      //   to: '/bco/cfo-analysis',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Ukhiya Report School',
+      //   to: '/bco/ukhiya-report',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Kutubdia Report School',
+      //   to: '/bco/kutubdia-report',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'CRF Report',
+      //   to: '/bco/bco-crf-quarterly',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Summary Report CRF',
+      //   to: '/bco/wfp-summary-crf',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'CFO Analysis CRF',
+      //   to: '/bco/cfo-analysis-crf',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Ukhiya Report CRF',
+      //   to: '/bco/ukhiya-report-crf',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Kutubdia Report CRF',
+      //   to: '/bco/kutubdia-crf',
+      // },
     ],
   },
   // {
@@ -259,8 +284,8 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Library Observation',
-        to: '/library/library-observation',
+        name: 'DI Library Observation',
+        to: '/library/di-library-observation',
       },
 
       {
@@ -278,34 +303,34 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Bangla Class',
-        to: '/bangla/bangla-class',
+        name: 'DI Bangla Class',
+        to: '/bangla/di-bangla-class',
       },
       {
         component: CNavItem,
         name: 'Bangla Report',
         to: '/bangla/bangla-class-report',
       },
-      {
-        component: CNavItem,
-        name: 'SRM Class',
-        to: '/srm/srm-class',
-      },
-      {
-        component: CNavItem,
-        name: 'SRM Report',
-        to: '/base/construction',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Class',
-        to: '/preprimary/preprimary-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Preprimary Report',
-        to: '/base/construction',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'SRM Class',
+      //   to: '/srm/srm-class',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'SRM Report',
+      //   to: '/base/construction',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Preprimary Class',
+      //   to: '/preprimary/preprimary-class',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Preprimary Report',
+      //   to: '/base/construction',
+      // },
     ],
   },
   // {

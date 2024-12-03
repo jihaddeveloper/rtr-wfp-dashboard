@@ -1,10 +1,16 @@
+import { element } from 'prop-types'
 import React from 'react'
+import DIBanglaClassDataDetail from './views/base/bangla/DIBanglaClassDataDetail'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const Dashboard2 = React.lazy(() => import('./views/dashboard/Dashboard2'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 const UnderConstruction = React.lazy(() => import('./views/base/accordion/UnderConstruction'))
+
+const Login = React.lazy(() => import('./views/pages/login/Login'))
+const Register = React.lazy(() => import('./views/pages/register/Register'))
 
 // Base
 const AllStudent = React.lazy(() => import('./views/base/student/AllStudent'))
@@ -31,11 +37,14 @@ const LibraryDataCombined = React.lazy(() => import('./views/base/library/Librar
 const LibraryObservation = React.lazy(() => import('./views/base/library/LibraryObservation'))
 const LibrarySRM = React.lazy(() => import('./views/base/library/LibrarySRM'))
 const AllBookCaptain = React.lazy(() => import('./views/base/library/AllBookCaptain'))
+
+const DILibraryObservation = React.lazy(() => import('./views/base/library/DILibraryObservation'))
 // Library
 
 // Bangla
-const BanglaCalssData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
-const BanglaCalssReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
+const BanglaClassData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
+const DIBanglaClassData = React.lazy(() => import('./views/base/bangla/DIBanglaClassDataDetail'))
+const BanglaClassReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
 // Bangla
 
 // SRM
@@ -111,9 +120,14 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
+const District = React.lazy(() => import('./views/base/district/District'))
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
+  { path: '/login', name: 'Login', element: Login },
+  { path: '/register', name: 'Register', element: Register },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/dashboard2', name: 'Dashboard', element: Dashboard2 },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
@@ -196,12 +210,20 @@ const routes = [
   { path: '/library/library-observation', name: 'LibraryObservation', element: LibraryObservation },
   { path: '/library/library-srm', name: 'LibrarySRM', element: LibrarySRM },
 
+  {
+    path: '/library/di-library-observation',
+    name: 'DILibraryObservation',
+    element: DILibraryObservation,
+  },
+
   { path: '/library/all-bookcaptain', name: 'AllBookCaptain', element: AllBookCaptain },
 
   { path: '/base/construction', name: 'UnderConstruction', element: UnderConstruction },
 
-  { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaCalssData },
-  { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaCalssReport },
+  { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaClassData },
+  { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaClassReport },
+
+  { path: '/bangla/di-bangla-class', name: 'DIBanglaClassData', element: DIBanglaClassDataDetail },
 
   {
     path: '/preprimary/preprimary-class',
@@ -215,6 +237,8 @@ const routes = [
   },
 
   { path: '/srm/srm-class', name: 'SRMClass', element: SRMCalss },
+
+  { path: '/di/base/district', name: 'District', element: District },
 ]
 
 export default routes

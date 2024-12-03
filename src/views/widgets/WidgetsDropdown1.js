@@ -43,7 +43,12 @@ import {
   cilWc,
 } from '@coreui/icons'
 
-const WidgetsDropdown = () => {
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+
+import MaterialTable from 'material-table'
+
+const WidgetsDropdown1 = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [allBCOdata, setAllBCOdata] = useState([])
   const [allSchoolData, setAllSchoolData] = useState([])
@@ -94,7 +99,7 @@ const WidgetsDropdown = () => {
   // Get All School Data
   const getAllSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/schools', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/di-school', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -134,7 +139,7 @@ const WidgetsDropdown = () => {
   // Get All Teacher
   const getAllTeacher = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/di-teacher', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -234,8 +239,33 @@ const WidgetsDropdown = () => {
   }
   // Get All Student Data
 
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="secondary" />
+        <CircularProgress color="success" />
+        <CircularProgress color="inherit" />
+      </Box>
+    )
+  }
+
   return (
     <CRow>
+      <CCol sm={4} lg={4}>
+        <CLink href="/di/base/district">
+          <CWidgetStatsF
+            className="mb-3"
+            color="success"
+            icon={<CIcon icon={cilRoom} height={24} />}
+            title={
+              <>
+                Total : 9 <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="No of District(s) Coverd"
+          />
+        </CLink>
+      </CCol>
       <CCol sm={4} lg={4}>
         <CLink href="/school/allschool">
           <CWidgetStatsF
@@ -244,10 +274,10 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilInstitution} height={24} />}
             title={
               <>
-                {allSchoolData.length} <span className="fs-6 fw-normal"></span>
+                Total : {allSchoolData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
-            value="School"
+            value="No of School(s) Supported"
           />
         </CLink>
       </CCol>
@@ -259,10 +289,10 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilUser} height={24} />}
             title={
               <>
-                {allTeacherData.length} <span className="fs-6 fw-normal"></span>
+                Total : {allTeacherData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
-            value="Teacher"
+            value="No of Teacher(s) Supported"
           />
         </CLink>
       </CCol>
@@ -274,11 +304,10 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilSchool} height={24} />}
             title={
               <>
-                41903 {/*  {allStudentData.length} */}
-                <span className="fs-6 fw-normal"></span>
+                Total : 419030<span className="fs-6 fw-normal"></span>
               </>
             }
-            value="Student"
+            value="No of Student(s) Supported"
           />
         </CLink>
       </CCol>
@@ -290,10 +319,10 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilColumns} height={24} />}
             title={
               <>
-                {allLibraryData.length} <span className="fs-6 fw-normal"></span>
+                Total : {allLibraryData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
-            value="Classroom Corner Library"
+            value="No of Classroom Corner Library(s) Established"
           />
         </CLink>
       </CCol>
@@ -305,30 +334,99 @@ const WidgetsDropdown = () => {
             icon={<CIcon icon={cilWc} height={24} />}
             title={
               <>
-                {allBookCaptainData.length} <span className="fs-6 fw-normal"></span>
+                Total : {allBookCaptainData.length} <span className="fs-6 fw-normal"></span>
               </>
             }
-            value="Book Captain"
+            value="No of Book Captain(s) Oriented"
           />
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/training/all-training">
+        <CLink href="/training">
           <CWidgetStatsF
             className="mb-3"
             color="success"
             icon={<CIcon icon={cilColorBorder} height={24} />}
             title={
               <>
-                {allTrainedTeacher} <span className="fs-6 fw-normal"></span>
+                Total : 12234689 <span className="fs-6 fw-normal"></span>
               </>
             }
-            value="Training"
+            value="No of Book(s) Distributed"
           />
         </CLink>
       </CCol>
+      <CCol sm={4} lg={4}>
+        <CLink href="/training/">
+          <CWidgetStatsF
+            className="mb-3"
+            color="primary"
+            icon={<CIcon icon={cilUser} height={24} />}
+            title={
+              <>
+                Total : 2067 <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="No of Govt. Official(s) Trained"
+          />
+        </CLink>
+      </CCol>
+
+      <CCol sm={4} lg={4}>
+        <CLink href="/training">
+          <CWidgetStatsF
+            className="mb-3"
+            color="info"
+            icon={<CIcon icon={cilUser} height={24} />}
+            title={
+              <>
+                Total : 1053 <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="No of Master Trainer(s) Trained"
+          />
+        </CLink>
+      </CCol>
+      <CCol sm={4} lg={4}>
+        <CLink href="/training">
+          <CWidgetStatsF
+            className="mb-3"
+            color="success"
+            icon={<CIcon icon={cilColorBorder} height={24} />}
+            title={
+              <>
+                <strong>DI Program : </strong>389<span className="fs-6 fw-normal"></span>
+                <br></br>
+                <strong>Custom Project : </strong>129<span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="No of Book(s) Developed"
+          />
+        </CLink>
+      </CCol>
+      <CCol sm={4} lg={4}>
+        <CLink href="/training">
+          <CWidgetStatsF
+            className="mb-3"
+            color="success"
+            icon={<CIcon icon={cilRoom} height={24} />}
+            title={
+              <>
+                <strong></strong>WFP USDA, UNICEF HOST, UNICEF REFUGEE
+                <span className="fs-6 fw-normal"></span>
+                <br></br>
+                <strong>ESHO SHIKHI, WORLD BANK</strong>
+                <span className="fs-6 fw-normal"></span>
+              </>
+            }
+            value="Name of Custom Project(s)"
+          />
+        </CLink>
+      </CCol>
+
+      <CCol sm={4} lg={4}></CCol>
     </CRow>
   )
 }
 
-export default WidgetsDropdown
+export default WidgetsDropdown1

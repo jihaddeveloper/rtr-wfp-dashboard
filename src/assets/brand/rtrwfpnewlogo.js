@@ -1,4 +1,4 @@
-export const rtrlogo = [
+export const rtrwfpnewlogo = [
   '608 134',
   `
 <title>rtr logo</title>
