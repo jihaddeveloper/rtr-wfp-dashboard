@@ -24,12 +24,16 @@ const AllTraining = React.lazy(() => import('./views/base/training/AllTraining')
 // Overall School
 const OverallSchoolData = React.lazy(() => import('./views/base/school/OverallSchoolData'))
 const OverallSchoolReport = React.lazy(() => import('./views/base/school/OverallSchoolReport'))
+
+const SchoolMonitoringData = React.lazy(() => import('./views/base/school/DISchoolMonitoringData'))
 // Overall School
 
 // BCO/I
 const AllBCOSchool = React.lazy(() => import('./views/base/bco/AllBCOSchool'))
 const AllBCOCRF = React.lazy(() => import('./views/base/bco/AllBCOCRF'))
 const AllBCOCombined = React.lazy(() => import('./views/base/bco/AllBCOCombined'))
+
+const AnalysisBCODI = React.lazy(() => import('./views/base/bco/AnalysisBCODI'))
 // BCO/I
 
 // Library
@@ -179,6 +183,14 @@ const routes = [
     element: OverallSchoolReport,
   },
 
+  {
+    path: '/school/school-monitoring',
+    name: 'SchoolMonitoringData',
+    element: SchoolMonitoringData,
+  },
+
+  { path: '/bco/di-bco-analysis', name: 'AnalysisBCODI', element: AnalysisBCODI },
+
   { path: '/bco/allbco-combined', name: 'AllBCOCombined', element: AllBCOCombined },
   { path: '/bco/allbco-school', name: 'AllBCOSchool', element: AllBCOSchool },
   { path: '/bco/allbco-crf', name: 'AllBCOCRF', element: AllBCOCRF },
@@ -223,7 +235,7 @@ const routes = [
   { path: '/bangla/bangla-class', name: 'BanglaClassData', element: BanglaClassData },
   { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaClassReport },
 
-  { path: '/bangla/di-bangla-class', name: 'DIBanglaClassData', element: DIBanglaClassDataDetail },
+  { path: '/bangla/di-bangla-class', name: 'DIBanglaClassData', element: DIBanglaClassData },
 
   {
     path: '/preprimary/preprimary-class',

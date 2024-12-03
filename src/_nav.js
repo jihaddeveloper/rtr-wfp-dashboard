@@ -175,16 +175,16 @@ const _nav = [
     to: '#',
     icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
     items: [
-      {
-        component: CNavItem,
-        name: 'Combined',
-        to: '/bco/allbco-combined',
-      },
-      {
-        component: CNavItem,
-        name: 'School',
-        to: '/bco/allbco-school',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Combined',
+      //   to: '/bco/allbco-combined',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'School',
+      //   to: '/bco/allbco-school',
+      // },
       // {
       //   component: CNavItem,
       //   name: 'CRF',
@@ -203,7 +203,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Total BCO Analysis',
-        to: '/bco/analyasis-bco-school',
+        to: '/bco/di-bco-analysis',
       },
       // {
       //   component: CNavItem,
@@ -354,12 +354,12 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Overall School',
-        to: '/school/overall-school',
+        name: 'School Montoring',
+        to: '/school/school-monitoring',
       },
       {
         component: CNavItem,
-        name: 'Overall School Report',
+        name: 'School Montoring Report',
         to: '/base/construction',
       },
     ],

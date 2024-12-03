@@ -656,7 +656,7 @@ const WidgetsDropdown3 = () => {
 
       <CRow>
         <CCol sm={4} lg={4}>
-          <CLink href="/student/all-student">
+          <CLink href="/bco/di-bco-analysis">
             <CCard className="mb-4">
               <CCardHeader>
                 <strong>BCO Status</strong> <small>(September-24)</small>
@@ -699,7 +699,7 @@ const WidgetsDropdown3 = () => {
         </CCol>
 
         <CCol sm={4} lg={4}>
-          <CLink href="/library/all-library">
+          <CLink href="/school/school-monitoring">
             <CCard className="mb-4">
               <CCardHeader>
                 <strong>School Rating</strong> <small>(September-24)</small>
