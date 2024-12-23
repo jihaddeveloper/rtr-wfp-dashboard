@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
+import { CImage, CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
@@ -15,6 +15,9 @@ import rtrwfp from '../assets/images/rtrwfp.png'
 import usdawfprtrwhite from '../assets/images/usdawfprtrwhite.png'
 
 import { usdawfprtrlogo } from 'src/assets/brand/usdawfprtrlogo'
+
+import { rtr } from 'src/assets/brand/rtr'
+import { rtr24 } from 'src/assets/brand/rtr24'
 
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
@@ -37,14 +40,8 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon
-          className="sidebar-brand-full"
-          icon={usdawfprtrlogo}
-          height={35}
-          width={200}
-          alt="Logo"
-        />
-        {/* <CIcon className="sidebar-brand-full" icon={rtrlogo} height={35} /> */}
+        <CIcon className="sidebar-brand-full" icon={rtr24} height={60} width={300} alt="Logo" />
+        {/* <CIcon className="sidebar-brand-full" icon={rtrnew} height={35} /> */}
         {/* <CIcon className="sidebar-brand-narrow" icon={rtrlogosm} height={35} /> */}
       </CSidebarBrand>
       <CSidebarNav>

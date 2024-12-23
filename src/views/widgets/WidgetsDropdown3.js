@@ -452,7 +452,7 @@ const WidgetsDropdown3 = () => {
       </CHeader> */}
       <CRow>
         <CCol sm={4} lg={4}>
-          <CLink href="/school/allschool">
+          <CLink href="/bangla/di-bangla-class">
             <CCard className="mb-4">
               <CCardHeader>
                 <strong>G1 Teacher Priority</strong> <small>({previousMonthYear})</small>
@@ -519,7 +519,7 @@ const WidgetsDropdown3 = () => {
           </CLink>
         </CCol>
         <CCol sm={4} lg={4}>
-          <CLink href="/teacher/all-teacher">
+          <CLink href="/bangla/di-bangla-class">
             <CCard className="mb-4">
               <CCardHeader>
                 <strong>G2 Teacher Priority</strong> <small>({previousMonthYear})</small>
@@ -586,7 +586,7 @@ const WidgetsDropdown3 = () => {
           </CLink>
         </CCol>
         <CCol sm={4} lg={4}>
-          <CLink href="/teacher/all-teacher">
+          <CLink href="/library/di-library-observation">
             <CCard className="mb-4">
               <CCardHeader>
                 <strong>Library Rating</strong> <small>({previousMonthYear})</small>

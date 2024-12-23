@@ -30,7 +30,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Dashboard',
-    to: '/dashboard2',
+    to: '/dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     // badge: {
     //   color: 'info',
@@ -50,19 +50,24 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Moulvibazar',
+        name: 'All District',
         to: '/di/base/district',
       },
-      {
-        component: CNavItem,
-        name: 'Narail',
-        to: '/di/base/district',
-      },
-      {
-        component: CNavItem,
-        name: 'Coxsbazar',
-        to: '/di/base/district',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Moulvibazar',
+      //   to: '/di/base/district',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Narail',
+      //   to: '/di/base/district',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Coxsbazar',
+      //   to: '/di/base/district',
+      // },
     ],
   },
 
@@ -299,7 +304,7 @@ const _nav = [
     component: CNavGroup,
     name: 'Teacher Performance',
     to: '*',
-    icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -361,6 +366,24 @@ const _nav = [
         component: CNavItem,
         name: 'School Montoring Report',
         to: '/base/construction',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Custom Project Information',
+  },
+
+  {
+    component: CNavGroup,
+    name: 'All Information',
+    to: '#',
+    icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'WFP Project Coxsbazar',
+        to: '/dashboard-wfp',
       },
     ],
   },

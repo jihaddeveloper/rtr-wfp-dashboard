@@ -23,7 +23,7 @@ import { logo } from 'src/assets/brand/logo'
 
 import { rtrnew } from 'src/assets/brand/rtrnew'
 
-import { sygnet } from 'src/assets/brand/sygnet'
+import { rtrlogosm } from 'src/assets/brand/rtrlogosm'
 
 const AppHeader = () => {
   const dispatch = useDispatch()

@@ -1,9 +1,10 @@
 import { element } from 'prop-types'
 import React from 'react'
+
 import DIBanglaClassDataDetail from './views/base/bangla/DIBanglaClassDataDetail'
 
+const DashboardWFP = React.lazy(() => import('./views/dashboard/DashboardWFP'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
-const Dashboard2 = React.lazy(() => import('./views/dashboard/Dashboard2'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -131,7 +132,7 @@ const routes = [
   { path: '/login', name: 'Login', element: Login },
   { path: '/register', name: 'Register', element: Register },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/dashboard2', name: 'Dashboard', element: Dashboard2 },
+  { path: '/dashboard-wfp', name: 'DashboardWFP', element: DashboardWFP },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },

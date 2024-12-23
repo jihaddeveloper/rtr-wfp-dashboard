@@ -126,6 +126,106 @@ const DIBanglaClassDataDetail = () => {
     return item.fieldOffice.includes('NrFO') && item.grade.includes('G2')
   })
 
+  // Bangla Observation Data by filter
+  const allG1TeacherCurrentMonth = allBanglaClass.filter((item) => {
+    return item.month === currentMonth && item.year === '2024' && item.grade === 'G1'
+  }).length
+
+  const allG1TeacherP1PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherCurrentMonth = allBanglaClass.filter((item) => {
+    return item.month === currentMonth && item.year === '2024' && item.grade === 'G2'
+  }).length
+
+  const allG2TeacherP1PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3PreviousMonth = allBanglaClass
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // Bangla Observation Data by filter
+
   // Bangla data by filter
 
   // Get All Book-checkout Data for school
@@ -462,13 +562,6 @@ const DIBanglaClassDataDetail = () => {
                         field: 'isTrained',
                       },
                       { title: 'teacherStatus', field: 'teacherStatus', sorting: 'true' },
-                      { title: 'month', field: 'month', sorting: 'true' },
-                      { title: 'year', field: 'year', sorting: 'true' },
-                      { title: 'district', field: 'district' },
-                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
-                      { title: 'fieldOffice', field: 'fieldOffice', sorting: 'true' },
-                      { title: 'project', field: 'project', sorting: 'true' },
-                      { title: 'visitNo', field: 'visitNo', sorting: 'true' },
                       { title: 'lpo', field: 'lpo', type: 'string' },
                       { title: 'lpoName', field: 'lpoName', type: 'string' },
                       {
@@ -482,7 +575,13 @@ const DIBanglaClassDataDetail = () => {
                         type: 'string',
                       },
                       { title: 'visitor', field: 'visitor' },
-                      { title: 'visitorDesignation', field: 'visitorDesignation', sorting: 'true' },
+                      { title: 'year', field: 'year', sorting: 'true' },
+                      { title: 'month', field: 'month', sorting: 'true' },
+                      { title: 'district', field: 'district' },
+                      { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                      { title: 'fieldOffice', field: 'fieldOffice', sorting: 'true' },
+                      { title: 'project', field: 'project', sorting: 'true' },
+
                       { title: 'visitorOffice', field: 'visitorOffice', sorting: 'true' },
 
                       {
@@ -503,11 +602,11 @@ const DIBanglaClassDataDetail = () => {
                       },
 
                       {
-                        title: 'Content',
+                        title: 'contentName',
                         field: 'contentName',
                       },
                       {
-                        title: 'Period Day',
+                        title: 'periodDay',
                         field: 'periodDay',
                       },
                       {
@@ -2802,6 +2901,194 @@ const DIBanglaClassDataDetail = () => {
                   <strong>DI Bangla Observation MFO Monthly</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G1 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG1TeacherP1PreviousMonth +
+                                allG1TeacherP2PreviousMonth +
+                                allG1TeacherP3PreviousMonth}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G2 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG1TeacherP1PreviousMonth +
+                                allG1TeacherP2PreviousMonth +
+                                allG1TeacherP3PreviousMonth}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
                   <MaterialTable
                     title={AllDIBanglaDataCurrentMonthMFO.length + ' Data for ' + currentMonth}
                     columns={[
@@ -3906,6 +4193,194 @@ const DIBanglaClassDataDetail = () => {
                 <CAccordionHeader>
                   <strong>DI Bangla Observation NrFO Monthly</strong>
                 </CAccordionHeader>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G1 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG1TeacherP1PreviousMonth +
+                                allG1TeacherP2PreviousMonth +
+                                allG1TeacherP3PreviousMonth}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G2 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG1TeacherP1PreviousMonth +
+                                allG1TeacherP2PreviousMonth +
+                                allG1TeacherP3PreviousMonth}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
                 <CAccordionBody>
                   <MaterialTable
                     title={AllDIBanglaDataCurrentMonthNrFO.length + ' Data for ' + currentMonth}

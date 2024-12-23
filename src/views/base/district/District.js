@@ -2789,13 +2789,14 @@ const District = () => {
 
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -2841,10 +2842,12 @@ const District = () => {
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -2879,13 +2882,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -2931,10 +2935,12 @@ const District = () => {
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -2969,13 +2975,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3021,10 +3028,12 @@ const District = () => {
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3059,13 +3068,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3100,21 +3110,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3129,12 +3135,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3149,13 +3149,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3190,21 +3191,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3219,12 +3216,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3239,13 +3230,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3280,21 +3272,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3309,12 +3297,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3329,13 +3311,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3370,21 +3353,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3399,12 +3378,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3419,13 +3392,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3460,21 +3434,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3489,12 +3459,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3509,13 +3473,14 @@ const District = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CRow>
-                    <strong>Total Upazila(s) Coverd ##### </strong>
                     <CCol sm={6}>
                       <strong>Inforamtion of Literacy Program(LP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3550,21 +3515,17 @@ const District = () => {
                             <CTableHeaderCell scope="row">No of Book-Captain(s)</CTableHeaderCell>
                             <CTableDataCell>#####</CTableDataCell>
                           </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
-                            <CTableDataCell>#####</CTableDataCell>
-                          </CTableRow>
                         </CTableBody>
                       </CTable>
                     </CCol>
                     <CCol sm={6}>
                       <strong>Inforamtion of Girls Education Program(GEP)</strong>
+                      <br />
+                      <strong>Total Upazila(s) Coverd ##### </strong>
                       <CTable>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Label</CTableHeaderCell>
                             <CTableHeaderCell scope="col">Number</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
@@ -3579,12 +3540,6 @@ const District = () => {
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Girl(s)</CTableHeaderCell>
-                            <CTableDataCell>####</CTableDataCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">
-                              No of School(s) Constructed
-                            </CTableHeaderCell>
                             <CTableDataCell>####</CTableDataCell>
                           </CTableRow>
                         </CTableBody>

@@ -53,8 +53,10 @@ import avatar5 from 'src/assets/images/avatars/5.jpg'
 import avatar6 from 'src/assets/images/avatars/6.jpg'
 
 import WidgetsBrand from '../widgets/WidgetsBrand'
-import WidgetsDropdown from '../widgets/WidgetsDropdown'
-import WidgetsDropdown2 from '../widgets/WidgetsDropdown2'
+import WidgetDropdown1 from '../widgets/WidgetsDropdown1'
+import WidgetDropdown2 from '../widgets/WidgetsDropdown2'
+import WidgetDropdown3 from '../widgets/WidgetsDropdown3'
+import WidgetDropdown from '../widgets/WidgetsDropdown'
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -330,25 +332,53 @@ const Dashboard = () => {
           <strong>
             <br></br>
             <div className="fs-5 fw-semibold">
-              <p>General Information</p>
+              <p>General Information(Cumulative) of All Programs</p>
             </div>
           </strong>
         </CCardHeader>
         <CCardBody>
-          <WidgetsDropdown />
+          <WidgetDropdown1 />
         </CCardBody>
       </CCard>
 
       <CCard className="mb-4">
+        <CCardHeader>
+          <strong>
+            <br></br>
+            <div className="fs-5 fw-semibold">
+              <p>Observation Status of Literacy Programs</p>
+            </div>
+          </strong>
+        </CCardHeader>
+        <CCardBody>
+          <WidgetDropdown2 />
+        </CCardBody>
+      </CCard>
+
+      <CCard className="mb-4">
+        <CCardHeader>
+          <strong>
+            <br></br>
+            <div className="fs-5 fw-semibold">
+              <p>Performance Status of Literacy Programs</p>
+            </div>
+          </strong>
+        </CCardHeader>
+        <CCardBody>
+          <WidgetDropdown3 />
+        </CCardBody>
+      </CCard>
+
+      {/* <CCard className="mb-4">
         <CCardBody>
           <CRow>
-            {/* <CCol sm={5}>
+            <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
                 Demo Basic Information
               </h4>
               <div className="small text-medium-emphasis">January - July 2022</div>
-            </CCol> */}
-            {/* <CCol sm={7} className="d-none d-md-block">
+            </CCol>
+            <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
                 <CIcon icon={cilCloudDownload} />
               </CButton>
@@ -364,9 +394,9 @@ const Dashboard = () => {
                   </CButton>
                 ))}
               </CButtonGroup>
-            </CCol> */}
+            </CCol>
           </CRow>
-          {/* <CChartLine
+          <CChartLine
             style={{ height: '300px', marginTop: '40px' }}
             data={{
               labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -449,9 +479,9 @@ const Dashboard = () => {
                 },
               },
             }}
-          /> */}
+          />
         </CCardBody>
-        {/* <CCardFooter>
+        <CCardFooter>
           <CRow xs={{ cols: 1 }} md={{ cols: 5 }} className="text-center">
             {progressExample.map((item, index) => (
               <CCol className="mb-sm-2 mb-0" key={index}>
@@ -463,12 +493,12 @@ const Dashboard = () => {
               </CCol>
             ))}
           </CRow>
-        </CCardFooter> */}
-      </CCard>
+        </CCardFooter>
+      </CCard> */}
 
       {/* <WidgetsBrand withCharts /> */}
 
-      <CRow>
+      {/* <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -490,9 +520,9 @@ const Dashboard = () => {
                             <div className="Button">School Performance(Overall)</div>
                           </CButton>
 
-                          {/* <div className="text-medium-emphasis small">
+                          <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div> */}
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -503,9 +533,9 @@ const Dashboard = () => {
                             <div className="Button">Teacher Performance(Bangla)</div>
                           </CButton>
 
-                          {/* <div className="text-medium-emphasis small">
+                          <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div> */}
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -516,9 +546,9 @@ const Dashboard = () => {
                             <div className="Button">Library Performance(Observ & SRM)</div>
                           </CButton>
 
-                          {/* <div className="text-medium-emphasis small">
+                          <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div> */}
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -529,9 +559,9 @@ const Dashboard = () => {
                             <div className="Button">Book Check O/I (School & CRF)</div>
                           </CButton>
 
-                          {/* <div className="text-medium-emphasis small">
+                          <div className="text-medium-emphasis small">
                             Total Visited in {currentMonth}: 0
-                          </div> */}
+                          </div>
                         </div>
                       </CLink>
                     </CCol>
@@ -541,7 +571,7 @@ const Dashboard = () => {
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
 
       <CCard className="mb-4">
         <CCardBody>
@@ -549,7 +579,7 @@ const Dashboard = () => {
         </CCardBody>
       </CCard>
 
-      <CRow>
+      {/* <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -628,28 +658,19 @@ const Dashboard = () => {
                         </div>
                       </CLink>
                     </CCol>
-                    {/* <CCol sm={4}>
-                      <CLink href="/training/all-training">
-                        <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                          <div className="Button">School Performance</div>
-                          <div className="" style={{ color: 'red' }}>
-                            #Trained Teacher: {schoolPerformanceTrained.length}
-                          </div>
-                        </div>
-                      </CLink>
-                    </CCol> */}
                   </CRow>
                 </CCol>
               </CRow>
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
+
       {/* <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
-              Student {' & '} Visit
+              <strong>Student {' & '} Visit</strong>
               <br />
               <strong>Total Student: 11833</strong>
             </CCardHeader>
@@ -682,6 +703,7 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow> */}
+
       <CCard className="mb-4">
         <CCardBody>
           <CRow></CRow>
@@ -692,7 +714,7 @@ const Dashboard = () => {
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
-              Status
+              <strong>Status</strong>
               <br />
               <strong>Total School: {allSchoolData.length}</strong>
               <br />
