@@ -259,7 +259,9 @@ const WidgetsDropdown1 = () => {
             icon={<CIcon icon={cilRoom} height={24} />}
             title={
               <>
-                Total : 9 <span className="fs-6 fw-normal"></span>
+                LP Covered District(s) : 9 <span className="fs-6 fw-normal"></span>
+                <br></br>
+                GEP Covered District(s) : 9 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of District(s) Coverd"
@@ -267,14 +269,16 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/school/allschool">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="primary"
             icon={<CIcon icon={cilInstitution} height={24} />}
             title={
               <>
-                Total : {allSchoolData.length} <span className="fs-6 fw-normal"></span>
+                LP School(s) : 2217 <span className="fs-6 fw-normal"></span>
+                <br></br>
+                GEP School(s) : 118 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of School(s) Supported"
@@ -282,14 +286,16 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/teacher/all-teacher">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="info"
             icon={<CIcon icon={cilUser} height={24} />}
             title={
               <>
-                Total : {allTeacherData.length} <span className="fs-6 fw-normal"></span>
+                LP Teacher(s) : 13929 <span className="fs-6 fw-normal"></span>
+                <br></br>
+                LP Teacher(s) : 124 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Teacher(s) Supported"
@@ -297,14 +303,16 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/student/all-student">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="warning"
             icon={<CIcon icon={cilSchool} height={24} />}
             title={
               <>
-                Total : 419030<span className="fs-6 fw-normal"></span>
+                LP Student(s) : 870105<span className="fs-6 fw-normal"></span>
+                <br></br>
+                GEP Student(s) : 11549<span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Student(s) Supported"
@@ -312,14 +320,14 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/library/all-library">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="danger"
             icon={<CIcon icon={cilColumns} height={24} />}
             title={
               <>
-                Total : {allLibraryData.length} <span className="fs-6 fw-normal"></span>
+                LP Library(s) : 12077 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Classroom Corner Library(s) Established"
@@ -327,14 +335,15 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/library/all-bookcaptain">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="dark"
             icon={<CIcon icon={cilWc} height={24} />}
             title={
               <>
-                Total : {allBookCaptainData.length} <span className="fs-6 fw-normal"></span>
+                Oriented Book Captain(s) : 31858
+                <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Book Captain(s) Oriented"
@@ -342,29 +351,31 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/training">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="success"
             icon={<CIcon icon={cilColorBorder} height={24} />}
             title={
               <>
-                Total : 12234689 <span className="fs-6 fw-normal"></span>
+                No of Book(s) Developed : ####<span className="fs-6 fw-normal"></span>
+                <br></br>
+                No of Book(s) Distributed : 3087609<span className="fs-6 fw-normal"></span>
               </>
             }
-            value="No of Book(s) Distributed"
+            value="QRM Information"
           />
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/training/">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="primary"
             icon={<CIcon icon={cilUser} height={24} />}
             title={
               <>
-                Total : 2067 <span className="fs-6 fw-normal"></span>
+                Trained Govt. Official(s) : 188 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Govt. Official(s) Trained"
@@ -373,14 +384,14 @@ const WidgetsDropdown1 = () => {
       </CCol>
 
       <CCol sm={4} lg={4}>
-        <CLink href="/training">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="info"
             icon={<CIcon icon={cilUser} height={24} />}
             title={
               <>
-                Total : 1053 <span className="fs-6 fw-normal"></span>
+                Trained Master Trainer(s) : 138 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Master Trainer(s) Trained"
@@ -388,7 +399,7 @@ const WidgetsDropdown1 = () => {
         </CLink>
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/training">
+        {/* <CLink href="/training">
           <CWidgetStatsF
             className="mb-3"
             color="success"
@@ -402,10 +413,10 @@ const WidgetsDropdown1 = () => {
             }
             value="No of Book(s) Developed"
           />
-        </CLink>
+        </CLink> */}
       </CCol>
       <CCol sm={4} lg={4}>
-        <CLink href="/training">
+        <CLink href="/di/base/district">
           <CWidgetStatsF
             className="mb-3"
             color="success"

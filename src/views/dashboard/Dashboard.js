@@ -332,7 +332,7 @@ const Dashboard = () => {
           <strong>
             <br></br>
             <div className="fs-5 fw-semibold">
-              <p>General Information(Cumulative) of All Programs</p>
+              <p>General Information(Cumulative) of LP & GEP Programs</p>
             </div>
           </strong>
         </CCardHeader>

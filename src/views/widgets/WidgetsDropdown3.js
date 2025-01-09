@@ -451,17 +451,13 @@ const WidgetsDropdown3 = () => {
         <strong>Performance</strong>
       </CHeader> */}
       <CRow>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
           <CLink href="/bangla/di-bangla-class">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-4">
               <CCardHeader>
                 <strong>G1 Teacher Priority</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -492,11 +488,12 @@ const WidgetsDropdown3 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>G1 Teacher Status Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>G1 Teacher Status Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
@@ -508,8 +505,8 @@ const WidgetsDropdown3 = () => {
                           allG1TeacherP2PreviousMonth,
                           allG1TeacherP3PreviousMonth,
                         ],
-                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                        backgroundColor: ['#db5e2c', '#FFCE56', '#46db2c'],
+                        hoverBackgroundColor: ['#db5e2c', '#FFCE56', '#46db2c'],
                       },
                     ],
                   }}
@@ -518,17 +515,13 @@ const WidgetsDropdown3 = () => {
             </CCard>
           </CLink>
         </CCol>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
           <CLink href="/bangla/di-bangla-class">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-4">
               <CCardHeader>
                 <strong>G2 Teacher Priority</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -559,11 +552,12 @@ const WidgetsDropdown3 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>G2 Teacher Status Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>G2 Teacher Status Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
@@ -575,8 +569,8 @@ const WidgetsDropdown3 = () => {
                           allG2TeacherP2PreviousMonth,
                           allG2TeacherP3PreviousMonth,
                         ],
-                        backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
-                        hoverBackgroundColor: [, '#36A2EB', '#FFCE56', '#FF6384'],
+                        backgroundColor: ['#db5e2c', '#FFCE56', '#46db2c'],
+                        hoverBackgroundColor: [, '#db5e2c', '#FFCE56', '#46db2c'],
                       },
                     ],
                   }}
@@ -585,17 +579,13 @@ const WidgetsDropdown3 = () => {
             </CCard>
           </CLink>
         </CCol>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
           <CLink href="/library/di-library-observation">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-4">
               <CCardHeader>
                 <strong>Library Rating</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -626,11 +616,12 @@ const WidgetsDropdown3 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>Library Rating Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>Library Rating Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
@@ -642,8 +633,35 @@ const WidgetsDropdown3 = () => {
                           allLibraryObsFunPreviousMonth,
                           allLibraryObsHighFunPreviousMonth,
                         ],
-                        backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
-                        hoverBackgroundColor: [, '#36A2EB', '#FFCE56', '#FF6384'],
+                        backgroundColor: ['#db5e2c', '#FFCE56', '#46db2c'],
+                        hoverBackgroundColor: [, '#db5e2c', '#FFCE56', '#46db2c'],
+                      },
+                    ],
+                  }}
+                />
+              </CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CLink href="/library/di-library-observation">
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>School Rating Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
+              <CCardBody>
+                <CChartPie
+                  data={{
+                    labels: ['Priority 1', 'Priority 2', 'Priority 3'],
+                    datasets: [
+                      {
+                        data: [
+                          allLibraryObsDevPreviousMonth,
+                          allLibraryObsFunPreviousMonth,
+                          allLibraryObsHighFunPreviousMonth,
+                        ],
+                        backgroundColor: ['#db5e2c', '#FFCE56', '#46db2c'],
+                        hoverBackgroundColor: [, '#db5e2c', '#FFCE56', '#46db2c'],
                       },
                     ],
                   }}

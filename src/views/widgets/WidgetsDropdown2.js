@@ -68,6 +68,8 @@ import Box from '@mui/material/Box'
 import MaterialTable from 'material-table'
 
 const WidgetsDropdown2 = () => {
+  const random = () => Math.round(Math.random() * 100)
+
   const [isLoading, setIsLoading] = useState(false)
   const [allBCOdata, setAllBCOdata] = useState([])
   const [allSchoolData, setAllSchoolData] = useState([])
@@ -491,17 +493,384 @@ const WidgetsDropdown2 = () => {
         <strong>Performance</strong>
       </CHeader> */}
       <CRow>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>G1 Teacher Trending Status 2024</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CChartLine
+                data={{
+                  labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ],
+                  datasets: [
+                    {
+                      label: 'Priority 1',
+                      backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      borderColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 2',
+                      backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      borderColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 3',
+                      backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      borderColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                  ],
+                }}
+              />
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>G2 Teacher Trending Status 2024</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CChartLine
+                data={{
+                  labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ],
+                  datasets: [
+                    {
+                      label: 'Priority 1',
+                      backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      borderColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 2',
+                      backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      borderColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 3',
+                      backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      borderColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                  ],
+                }}
+              />
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>Library Trending Status 2024</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CChartLine
+                data={{
+                  labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ],
+                  datasets: [
+                    {
+                      label: 'Developing',
+                      backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      borderColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Functioning',
+                      backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      borderColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Highly Functioning',
+                      backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      borderColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                  ],
+                }}
+              />
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>School Trending Status 2024</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CChartLine
+                data={{
+                  labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ],
+                  datasets: [
+                    {
+                      label: 'Priority 1',
+                      backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      borderColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 2',
+                      backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      borderColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                    {
+                      label: 'Priority 3',
+                      backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      borderColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                      pointBorderColor: '#fff',
+                      data: [
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                        random(),
+                      ],
+                    },
+                  ],
+                }}
+              />
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+      <CRow></CRow>
+      <CRow>
+        <CCol sm={3} lg={3}>
           <CLink href="/bangla/di-bangla-class">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-3">
               <CCardHeader>
                 <strong>G1 Teacher Visited</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -524,11 +893,12 @@ const WidgetsDropdown2 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>G1 Teacher Visited Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>G1 Teacher Visit Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
@@ -541,8 +911,8 @@ const WidgetsDropdown2 = () => {
                             allG1TeacherP3PreviousMonth,
                           allTeacherG1,
                         ],
-                        backgroundColor: ['#FF6384', '#36A2EB'],
-                        hoverBackgroundColor: ['#FF6384', '#36A2EB'],
+                        backgroundColor: ['#46db2c', '#db5e2c'],
+                        hoverBackgroundColor: ['#46db2c', '#db5e2c'],
                       },
                     ],
                   }}
@@ -554,17 +924,13 @@ const WidgetsDropdown2 = () => {
             </CCard>
           </CLink>
         </CCol>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
           <CLink href="/bangla/di-bangla-class">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-3">
               <CCardHeader>
                 <strong>G2 Teacher Visited</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -587,11 +953,12 @@ const WidgetsDropdown2 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>G2 Teacher Visited Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>G2 Teacher Visit Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
@@ -604,8 +971,8 @@ const WidgetsDropdown2 = () => {
                             allG2TeacherP3PreviousMonth,
                           allTeacherG2,
                         ],
-                        backgroundColor: ['#f56342', '#42f590'],
-                        hoverBackgroundColor: ['#f56342', '#42f590'],
+                        backgroundColor: ['#46db2c', '#db5e2c'],
+                        hoverBackgroundColor: ['#46db2c', '#db5e2c'],
                       },
                     ],
                   }}
@@ -617,17 +984,13 @@ const WidgetsDropdown2 = () => {
             </CCard>
           </CLink>
         </CCol>
-        <CCol sm={4} lg={4}>
+        <CCol sm={3} lg={3}>
           <CLink href="/library/di-library-observation">
-            <CCard className="mb-4">
+            {/* <CCard className="mb-3">
               <CCardHeader>
                 <strong>Library Observed</strong> <small>({previousMonthYear})</small>
               </CCardHeader>
               <CCardBody>
-                {/* <p className="text-medium-emphasis small">
-                  Use contextual classes to color tables, table rows or individual cells.
-                </p> */}
-                {/* <DocsExample href="components/table#variants"> */}
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -646,20 +1009,81 @@ const WidgetsDropdown2 = () => {
                     </CTableRow>
                   </CTableBody>
                 </CTable>
-                {/* </DocsExample> */}
               </CCardBody>
-            </CCard>
-            <CCard className="mb-4">
-              <CCardHeader>Library Observed Chart</CCardHeader>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>Library Observaton Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
               <CCardBody>
                 <CChartPie
                   data={{
                     labels: ['Rated', 'Total'],
                     datasets: [
                       {
-                        data: [allLibraryObsDataPreviousMonth, 900],
-                        backgroundColor: ['#f55442', '#42e6f5'],
-                        hoverBackgroundColor: ['#f55442', '#42e6f5'],
+                        data: [allLibraryObsDataPreviousMonth, allSchoolData.length],
+                        backgroundColor: ['#46db2c', '#db5e2c'],
+                        hoverBackgroundColor: ['#46db2c', '#db5e2c'],
+                      },
+                    ],
+                  }}
+                  width="200px"
+                  height="200px"
+                  options={{ maintainAspectRatio: true }}
+                />
+              </CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CLink href="/bangla/di-bangla-class">
+            {/* <CCard className="mb-3">
+              <CCardHeader>
+                <strong>G2 Teacher Visited</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
+              <CCardBody>
+                <CTable>
+                  <CTableHead>
+                    <CTableRow>
+                      <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Number</CTableHeaderCell>
+                    </CTableRow>
+                  </CTableHead>
+                  <CTableBody>
+                    <CTableRow color="success">
+                      <CTableHeaderCell scope="row">Total G2 Teacher</CTableHeaderCell>
+                      <CTableDataCell>{allTeacherG2}</CTableDataCell>
+                    </CTableRow>
+                    <CTableRow color="primary">
+                      <CTableHeaderCell scope="row">No of Visited G2 Teacher</CTableHeaderCell>
+                      <CTableDataCell>
+                        {allG2TeacherP1PreviousMonth +
+                          allG2TeacherP2PreviousMonth +
+                          allG2TeacherP3PreviousMonth}
+                      </CTableDataCell>
+                    </CTableRow>
+                  </CTableBody>
+                </CTable>
+              </CCardBody>
+            </CCard> */}
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>School Visit by LPO Chart</strong> <small>({previousMonthYear})</small>
+              </CCardHeader>
+              <CCardBody>
+                <CChartPie
+                  data={{
+                    labels: ['Visited', 'Total'],
+                    datasets: [
+                      {
+                        data: [
+                          allG2TeacherP1PreviousMonth +
+                            allG2TeacherP2PreviousMonth +
+                            allG2TeacherP3PreviousMonth,
+                          allTeacherG2,
+                        ],
+                        backgroundColor: ['#46db2c', '#db5e2c'],
+                        hoverBackgroundColor: ['#46db2c', '#db5e2c'],
                       },
                     ],
                   }}
