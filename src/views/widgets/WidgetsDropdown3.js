@@ -78,6 +78,7 @@ const WidgetsDropdown3 = () => {
   const [allLibraryData, setAllLibraryData] = useState([])
   const [allLibraryObsData, setAllLibraryObsData] = useState([])
   const [allBanglaObsData, setAllBanglaObsData] = useState([])
+  const [allSchoolMonitoringData, setAllSchoolMonitoringData] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -101,6 +102,7 @@ const WidgetsDropdown3 = () => {
       await getAllStudent()
       await getAllLibraryObs()
       await getAllBanglaObs()
+      await getAllSchoolMonitoring()
     }
     call()
   }, [])
@@ -426,7 +428,7 @@ const WidgetsDropdown3 = () => {
     }
   }
 
-  // Get All LibraryObs Data
+  // Get All BanglaObs Data
   const getAllBanglaObs = async () => {
     try {
       const response = await axios('http://118.179.80.51:8080/api/v1/di-bangla-class', {
@@ -438,6 +440,25 @@ const WidgetsDropdown3 = () => {
         },
       })
       setAllBanglaObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // Get All SchoolMonitoring Data
+  const getAllSchoolMonitoring = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1//school-monitoring', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolMonitoringData(response.data)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -677,7 +698,7 @@ const WidgetsDropdown3 = () => {
           <CLink href="/bco/di-bco-analysis">
             <CCard className="mb-4">
               <CCardHeader>
-                <strong>BCO Status</strong> <small>(September-24)</small>
+                <strong>BCO Status</strong> <small>(December-24)</small>
               </CCardHeader>
               <CCardBody>
                 {/* <p className="text-medium-emphasis small">
@@ -720,7 +741,7 @@ const WidgetsDropdown3 = () => {
           <CLink href="/school/school-monitoring">
             <CCard className="mb-4">
               <CCardHeader>
-                <strong>School Rating</strong> <small>(September-24)</small>
+                <strong>School Rating</strong> <small>(December-24)</small>
               </CCardHeader>
               <CCardBody>
                 {/* <p className="text-medium-emphasis small">

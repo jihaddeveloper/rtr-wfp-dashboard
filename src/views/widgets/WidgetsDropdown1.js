@@ -295,7 +295,7 @@ const WidgetsDropdown1 = () => {
               <>
                 LP Teacher(s) : 13929 <span className="fs-6 fw-normal"></span>
                 <br></br>
-                LP Teacher(s) : 124 <span className="fs-6 fw-normal"></span>
+                GEP Teacher(s) : 124 <span className="fs-6 fw-normal"></span>
               </>
             }
             value="No of Teacher(s) Supported"

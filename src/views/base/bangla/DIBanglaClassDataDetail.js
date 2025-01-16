@@ -43,7 +43,7 @@ const DIBanglaClassDataDetail = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBanglaClass, setAllBanglaClass] = useState([])
+  const [allBanglaObsData, setAllBanglaObsData] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -69,48 +69,48 @@ const DIBanglaClassDataDetail = () => {
   // Using useEffect to call the API once mounted and set the data
 
   // Bangla data by filter
-  const AllDIBanglaG1Data = allBanglaClass.filter((item) => {
+  const AllDIBanglaG1Data = allBanglaObsData.filter((item) => {
     return item.grade.includes('G1')
   })
-  const AllDIBanglaG2Data = allBanglaClass.filter((item) => {
+  const AllDIBanglaG2Data = allBanglaObsData.filter((item) => {
     return item.grade.includes('G2')
   })
 
-  const AllDIBanglaDataMFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataMFO = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('MFO')
   })
 
-  const AllDIBanglaDataCurrentMonthMFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataCurrentMonthMFO = allBanglaObsData.filter((item) => {
     return (
       item.fieldOffice.includes('MFO') && item.month.includes(currentMonth) && item.year === '2024'
     )
   })
 
-  const AllDIBanglaDataPreviousMonthMFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataPreviousMonthMFO = allBanglaObsData.filter((item) => {
     return (
       item.fieldOffice.includes('MFO') && item.month.includes(previousMonth) && item.year === '2024'
     )
   })
 
-  const AllDIBanglaDataMFOG1 = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataMFOG1 = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('MFO') && item.grade.includes('G1')
   })
 
-  const AllDIBanglaDataMFOG2 = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataMFOG2 = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('MFO') && item.grade.includes('G2')
   })
 
-  const AllDIBanglaDataNrFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataNrFO = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('NrFO')
   })
 
-  const AllDIBanglaDataCurrentMonthNrFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataCurrentMonthNrFO = allBanglaObsData.filter((item) => {
     return (
       item.fieldOffice.includes('NrFO') && item.month.includes(currentMonth) && item.year === '2024'
     )
   })
 
-  const AllDIBanglaDataPreviousMonthNrFO = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataPreviousMonthNrFO = allBanglaObsData.filter((item) => {
     return (
       item.fieldOffice.includes('NrFO') &&
       item.month.includes(previousMonth) &&
@@ -118,20 +118,20 @@ const DIBanglaClassDataDetail = () => {
     )
   })
 
-  const AllDIBanglaDataNrFOG1 = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataNrFOG1 = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('NrFO') && item.grade.includes('G1')
   })
 
-  const AllDIBanglaDataNrFOG2 = allBanglaClass.filter((item) => {
+  const AllDIBanglaDataNrFOG2 = allBanglaObsData.filter((item) => {
     return item.fieldOffice.includes('NrFO') && item.grade.includes('G2')
   })
 
   // Bangla Observation Data by filter
-  const allG1TeacherCurrentMonth = allBanglaClass.filter((item) => {
+  const allG1TeacherCurrentMonth = allBanglaObsData.filter((item) => {
     return item.month === currentMonth && item.year === '2024' && item.grade === 'G1'
   }).length
 
-  const allG1TeacherP1PreviousMonth = allBanglaClass
+  const allG1TeacherP1PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -146,7 +146,7 @@ const DIBanglaClassDataDetail = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
 
-  const allG1TeacherP2PreviousMonth = allBanglaClass
+  const allG1TeacherP2PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -161,7 +161,7 @@ const DIBanglaClassDataDetail = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
 
-  const allG1TeacherP3PreviousMonth = allBanglaClass
+  const allG1TeacherP3PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -176,11 +176,11 @@ const DIBanglaClassDataDetail = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
 
-  const allG2TeacherCurrentMonth = allBanglaClass.filter((item) => {
+  const allG2TeacherCurrentMonth = allBanglaObsData.filter((item) => {
     return item.month === currentMonth && item.year === '2024' && item.grade === 'G2'
   }).length
 
-  const allG2TeacherP1PreviousMonth = allBanglaClass
+  const allG2TeacherP1PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -195,7 +195,7 @@ const DIBanglaClassDataDetail = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
 
-  const allG2TeacherP2PreviousMonth = allBanglaClass
+  const allG2TeacherP2PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -210,7 +210,7 @@ const DIBanglaClassDataDetail = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
 
-  const allG2TeacherP3PreviousMonth = allBanglaClass
+  const allG2TeacherP3PreviousMonth = allBanglaObsData
     .filter((item) => {
       return (
         item.month === previousMonth &&
@@ -224,6 +224,1105 @@ const DIBanglaClassDataDetail = () => {
       (value, index, self) =>
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
+
+  // Trending
+  // G1
+  // P1
+  const allG1TeacherP1January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP1December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P1
+
+  // P2
+  const allG1TeacherP2January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP2December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P2
+
+  // P3
+  const allG1TeacherP3January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG1TeacherP3December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G1' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P3
+  // G1
+
+  // G2
+  // P1
+  const allG2TeacherP1January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP1December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P1
+
+  // P2
+  const allG2TeacherP2January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP2December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P2
+
+  // P3
+  const allG2TeacherP3January = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'January' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3February = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3March = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3April = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3May = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3June = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3July = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3August = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3September = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3October = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3November = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG2TeacherP3December = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2024' &&
+        item.grade === 'G2' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // P3
+  // G2
+  // Trending
+
   // Bangla Observation Data by filter
 
   // Bangla data by filter
@@ -240,7 +1339,7 @@ const DIBanglaClassDataDetail = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllBanglaClass(response.data)
+      setAllBanglaObsData(response.data)
       setIsLoading(false)
       console.log('Data:' + response.data)
     } catch (error) {
@@ -275,10 +1374,10 @@ const DIBanglaClassDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...allBanglaClass]
+          const dataUpdate = [...allBanglaObsData]
           const index = oldData.tableData.id
           dataUpdate[index] = newData
-          setAllBanglaClass([...dataUpdate])
+          setAllBanglaObsData([...dataUpdate])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -325,9 +1424,9 @@ const DIBanglaClassDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataToAdd = [...allBanglaClass]
+          const dataToAdd = [...allBanglaObsData]
           dataToAdd.push(newData)
-          setAllBanglaClass([...dataToAdd])
+          setAllBanglaObsData([...dataToAdd])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -375,10 +1474,10 @@ const DIBanglaClassDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataDelete = [...allBanglaClass]
+          const dataDelete = [...allBanglaObsData]
           const index = oldData.tableData.id
           dataDelete.splice(index, 1)
-          setAllBanglaClass([...dataDelete])
+          setAllBanglaObsData([...dataDelete])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -423,6 +1522,496 @@ const DIBanglaClassDataDetail = () => {
           <CCardBody>
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
+                <CAccordionHeader>
+                  <strong>Monthly Teacher Performance</strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G1 Teacher Priority Chart</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody style={{ width: '850px', height: '400px' }}>
+                      <CChartLine
+                        data={{
+                          labels: [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'July',
+                            'August',
+                            'September',
+                            'October',
+                            'November',
+                            'December',
+                          ],
+                          datasets: [
+                            {
+                              label: 'Priority 1',
+                              backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                              borderColor: 'rgba(238, 6, 6, 0.2)',
+                              pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG1TeacherP1January,
+                                allG1TeacherP1February,
+                                allG1TeacherP1March,
+                                allG1TeacherP1April,
+                                allG1TeacherP1May,
+                                allG1TeacherP1June,
+                                allG1TeacherP1July,
+                                allG1TeacherP1August,
+                                allG1TeacherP1September,
+                                allG1TeacherP1October,
+                                allG1TeacherP1November,
+                                allG1TeacherP1December,
+                              ],
+                            },
+                            {
+                              label: 'Priority 2',
+                              backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                              borderColor: 'rgba(243, 220, 9, 0.2)',
+                              pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG1TeacherP2January,
+                                allG1TeacherP2February,
+                                allG1TeacherP2March,
+                                allG1TeacherP2April,
+                                allG1TeacherP2May,
+                                allG1TeacherP2June,
+                                allG1TeacherP2July,
+                                allG1TeacherP2August,
+                                allG1TeacherP2September,
+                                allG1TeacherP2October,
+                                allG1TeacherP2November,
+                                allG1TeacherP2December,
+                              ],
+                            },
+                            {
+                              label: 'Priority 3',
+                              backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                              borderColor: 'rgba(8, 78, 8, 0.2)',
+                              pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG1TeacherP3January,
+                                allG1TeacherP3February,
+                                allG1TeacherP3March,
+                                allG1TeacherP3April,
+                                allG1TeacherP3May,
+                                allG1TeacherP3June,
+                                allG1TeacherP3July,
+                                allG1TeacherP3August,
+                                allG1TeacherP3September,
+                                allG1TeacherP3October,
+                                allG1TeacherP3November,
+                                allG1TeacherP3December,
+                              ],
+                            },
+                          ],
+                        }}
+                        options={{ maintainAspectRatio: false }}
+                      />
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G1 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP1January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP1October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP2January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP2February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP2September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP2October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP2November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP2December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG1TeacherP3January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP3February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP3September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG1TeacherP3October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP3November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP3December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG1TeacherP1January +
+                                allG1TeacherP2January +
+                                allG1TeacherP3January}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1February +
+                                allG1TeacherP2February +
+                                allG1TeacherP3February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1March + allG1TeacherP2March + allG1TeacherP3March}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1April + allG1TeacherP2April + allG1TeacherP3April}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1May + allG1TeacherP2May + allG1TeacherP3May}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1June + allG1TeacherP2June + allG1TeacherP3June}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1July + allG1TeacherP2July + allG1TeacherP3July}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1August + allG1TeacherP2August + allG1TeacherP3August}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1September +
+                                allG1TeacherP2September +
+                                allG1TeacherP3September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1October +
+                                allG1TeacherP2October +
+                                allG1TeacherP3October}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1November +
+                                allG1TeacherP2November +
+                                allG1TeacherP3November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG1TeacherP1December +
+                                allG1TeacherP2December +
+                                allG1TeacherP3December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G2 Teacher Priority Chart</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody style={{ width: '850px', height: '400px' }}>
+                      <CChartLine
+                        data={{
+                          labels: [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'July',
+                            'August',
+                            'September',
+                            'October',
+                            'November',
+                            'December',
+                          ],
+                          datasets: [
+                            {
+                              label: 'Priority 1',
+                              backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                              borderColor: 'rgba(238, 6, 6, 0.2)',
+                              pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG2TeacherP1January,
+                                allG2TeacherP1February,
+                                allG2TeacherP1March,
+                                allG2TeacherP1April,
+                                allG2TeacherP1May,
+                                allG2TeacherP1June,
+                                allG2TeacherP1July,
+                                allG2TeacherP1August,
+                                allG2TeacherP1September,
+                                allG2TeacherP1October,
+                                allG2TeacherP1November,
+                                allG2TeacherP1December,
+                              ],
+                            },
+                            {
+                              label: 'Priority 2',
+                              backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                              borderColor: 'rgba(243, 220, 9, 0.2)',
+                              pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG2TeacherP2January,
+                                allG2TeacherP2February,
+                                allG2TeacherP2March,
+                                allG2TeacherP2April,
+                                allG2TeacherP2May,
+                                allG2TeacherP2June,
+                                allG2TeacherP2July,
+                                allG2TeacherP2August,
+                                allG2TeacherP2September,
+                                allG2TeacherP2October,
+                                allG2TeacherP2November,
+                                allG2TeacherP2December,
+                              ],
+                            },
+                            {
+                              label: 'Priority 3',
+                              backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                              borderColor: 'rgba(8, 78, 8, 0.2)',
+                              pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                              pointBorderColor: '#fff',
+                              data: [
+                                allG2TeacherP3January,
+                                allG2TeacherP3February,
+                                allG2TeacherP3March,
+                                allG2TeacherP3April,
+                                allG2TeacherP3May,
+                                allG2TeacherP3June,
+                                allG2TeacherP3July,
+                                allG2TeacherP3August,
+                                allG2TeacherP3September,
+                                allG2TeacherP3October,
+                                allG2TeacherP3November,
+                                allG2TeacherP3December,
+                              ],
+                            },
+                          ],
+                        }}
+                      />
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>G2 Teacher Priority</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                            <CTableDataCell>{allG2TeacherP1January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP1October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                            <CTableDataCell>{allG2TeacherP2January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP2February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP2September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP2October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP2November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP2December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                            <CTableDataCell>{allG2TeacherP3January}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP3February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3March}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3April}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3May}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3June}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3July}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3August}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP3September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allG2TeacherP3October}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP3November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP3December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allG2TeacherP1January +
+                                allG2TeacherP2January +
+                                allG2TeacherP3January}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1February +
+                                allG2TeacherP2February +
+                                allG2TeacherP3February}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1March + allG2TeacherP2March + allG2TeacherP3March}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1April + allG2TeacherP2April + allG2TeacherP3April}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1May + allG2TeacherP2May + allG2TeacherP3May}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1June + allG2TeacherP2June + allG2TeacherP3June}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1July + allG2TeacherP2July + allG2TeacherP3July}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1August + allG2TeacherP2August + allG2TeacherP3August}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1September +
+                                allG2TeacherP2September +
+                                allG2TeacherP3September}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1October +
+                                allG2TeacherP2October +
+                                allG2TeacherP3October}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1November +
+                                allG2TeacherP2November +
+                                allG2TeacherP3November}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allG2TeacherP1December +
+                                allG2TeacherP2December +
+                                allG2TeacherP3December}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+              </CAccordionItem>
+              <CAccordionItem itemKey={2}>
                 <CAccordionHeader>
                   <strong>DI Bangla Observation Data</strong>
                 </CAccordionHeader>
@@ -540,7 +2129,7 @@ const DIBanglaClassDataDetail = () => {
                 </CAccordionBody>
                 <CAccordionBody>
                   <MaterialTable
-                    title={allBanglaClass.length + ' Data'}
+                    title={allBanglaObsData.length + ' Data'}
                     columns={[
                       {
                         title: 'date',
@@ -906,203 +2495,11 @@ const DIBanglaClassDataDetail = () => {
                         borderStyle: 'solid',
                       },
                     }}
-                    data={allBanglaClass}
+                    data={allBanglaObsData}
                   />
                 </CAccordionBody>
               </CAccordionItem>
-              <CAccordionItem itemKey={2}>
-                <CAccordionHeader>
-                  <strong>Monthly Teacher Performance Overall</strong>
-                </CAccordionHeader>
-                <CAccordionBody>
-                  <CCard className="mb-4">
-                    <CCardHeader>
-                      <strong>G1 Teacher Priority</strong> <small>(2024)</small>
-                    </CCardHeader>
-                    <CCardBody>
-                      <CTable>
-                        <CTableHead>
-                          <CTableRow>
-                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableHead>
-                        <CTableBody>
-                          <CTableRow color="danger">
-                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="success">
-                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
-                            <CTableDataCell>
-                              {allG1TeacherP1PreviousMonth +
-                                allG1TeacherP2PreviousMonth +
-                                allG1TeacherP3PreviousMonth}
-                            </CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableBody>
-                      </CTable>
-                    </CCardBody>
-                  </CCard>
-                </CAccordionBody>
-                <CAccordionBody>
-                  <CCard className="mb-4">
-                    <CCardHeader>
-                      <strong>G2 Teacher Priority</strong> <small>(2024)</small>
-                    </CCardHeader>
-                    <CCardBody>
-                      <CTable>
-                        <CTableHead>
-                          <CTableRow>
-                            <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableHead>
-                        <CTableBody>
-                          <CTableRow color="danger">
-                            <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP1PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="primary">
-                            <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP2PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="secondary">
-                            <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
-                            <CTableDataCell>{allG1TeacherP3PreviousMonth}</CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                          <CTableRow color="success">
-                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
-                            <CTableDataCell>
-                              {allG1TeacherP1PreviousMonth +
-                                allG1TeacherP2PreviousMonth +
-                                allG1TeacherP3PreviousMonth}
-                            </CTableDataCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableBody>
-                      </CTable>
-                    </CCardBody>
-                  </CCard>
-                </CAccordionBody>
-              </CAccordionItem>
+
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Moulvibazar-MFO</strong>
@@ -2142,7 +3539,7 @@ const DIBanglaClassDataDetail = () => {
                 </CAccordionBody>
               </CAccordionItem>
 
-              <CAccordionItem itemKey={5}>
+              {/* <CAccordionItem itemKey={5}>
                 <CAccordionHeader>
                   <strong>DI Bangla Observation G1</strong>
                 </CAccordionHeader>
@@ -5403,7 +6800,7 @@ const DIBanglaClassDataDetail = () => {
                     data={AllDIBanglaDataPreviousMonthNrFO}
                   />
                 </CAccordionBody>
-              </CAccordionItem>
+              </CAccordionItem> */}
             </CAccordion>
           </CCardBody>
         </CCard>

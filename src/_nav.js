@@ -79,17 +79,17 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All School Moulvibazar',
+        name: 'LP School Moulvibazar',
         to: '/school/allschool',
       },
       {
         component: CNavItem,
-        name: 'All School Narail',
+        name: 'LP School Narail',
         to: '/school/allschool',
       },
       {
         component: CNavItem,
-        name: 'All School Coxsbazar',
+        name: 'LP School Coxsbazar',
         to: '/school/allschool',
       },
     ],
@@ -102,18 +102,18 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Teacher Moulvibazar',
+        name: 'LP Teacher Moulvibazar',
         to: '/teacher/all-teacher',
       },
       {
         component: CNavItem,
-        name: 'All Teacher Narail',
+        name: 'LP Teacher Narail',
         to: '/teacher/all-teacher',
       },
 
       {
         component: CNavItem,
-        name: 'All Teacher Coxsbazar',
+        name: 'LP Teacher Coxsbazar',
         to: '/teacher/all-teacher',
       },
     ],
@@ -126,7 +126,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Student',
+        name: 'Coxsbazar',
         to: '/student/all-student',
       },
     ],
@@ -139,7 +139,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Library',
+        name: 'Coxsbazar',
         to: '/library/all-library',
       },
     ],
@@ -152,7 +152,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Book-Captain',
+        name: 'Coxsbazar',
         to: '/library/all-bookcaptain',
       },
     ],
@@ -165,14 +165,62 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'All Employee',
+        name: 'Coxsbazar',
         to: '/employee/all-employee',
       },
     ],
   },
   {
     component: CNavTitle,
-    name: 'Collected Information',
+    name: 'Observation & Performance',
+  },
+  {
+    component: CNavGroup,
+    name: 'Teacher Performance',
+    to: '*',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Moulvibazar',
+        to: '/bangla/di-bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/bangla/di-bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'All Bangla Observation',
+        to: '/bangla/di-bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Report Coxsbazar',
+        to: '/bangla/bangla-class-report',
+      },
+      // {
+      //   component: CNavItem,
+      //   name: 'SRM Class',
+      //   to: '/srm/srm-class',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'SRM Report',
+      //   to: '/base/construction',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Preprimary Class',
+      //   to: '/preprimary/preprimary-class',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Preprimary Report',
+      //   to: '/base/construction',
+      // },
+    ],
   },
   {
     component: CNavGroup,
@@ -180,6 +228,21 @@ const _nav = [
     to: '#',
     icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
     items: [
+      {
+        component: CNavItem,
+        name: 'Moulvibazar',
+        to: '/bco/di-bco-analysis',
+      },
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/bco/di-bco-analysis',
+      },
+      {
+        component: CNavItem,
+        name: 'BCO Analysis',
+        to: '/bco/di-bco-analysis',
+      },
       // {
       //   component: CNavItem,
       //   name: 'Combined',
@@ -205,11 +268,7 @@ const _nav = [
       //   name: 'School Summry Quarterly',
       //   to: '/bco/bco-school-quarterly',
       // },
-      {
-        component: CNavItem,
-        name: 'Total BCO Analysis',
-        to: '/bco/di-bco-analysis',
-      },
+
       // {
       //   component: CNavItem,
       //   name: 'Analysis By School',
@@ -289,10 +348,19 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'DI Library Observation',
+        name: 'Moulvibazar',
         to: '/library/di-library-observation',
       },
-
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/library/di-library-observation',
+      },
+      {
+        component: CNavItem,
+        name: 'All Library Observation',
+        to: '/library/di-library-observation',
+      },
       {
         component: CNavItem,
         name: 'Observation Report',
@@ -300,44 +368,7 @@ const _nav = [
       },
     ],
   },
-  {
-    component: CNavGroup,
-    name: 'Teacher Performance',
-    to: '*',
-    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'DI Bangla Class',
-        to: '/bangla/di-bangla-class',
-      },
-      {
-        component: CNavItem,
-        name: 'Bangla Report',
-        to: '/bangla/bangla-class-report',
-      },
-      // {
-      //   component: CNavItem,
-      //   name: 'SRM Class',
-      //   to: '/srm/srm-class',
-      // },
-      // {
-      //   component: CNavItem,
-      //   name: 'SRM Report',
-      //   to: '/base/construction',
-      // },
-      // {
-      //   component: CNavItem,
-      //   name: 'Preprimary Class',
-      //   to: '/preprimary/preprimary-class',
-      // },
-      // {
-      //   component: CNavItem,
-      //   name: 'Preprimary Report',
-      //   to: '/base/construction',
-      // },
-    ],
-  },
+
   // {
   //   component: CNavGroup,
   //   name: 'SRM Class',
@@ -359,7 +390,17 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'School Montoring',
+        name: 'Moulvibazar',
+        to: '/school/school-monitoring',
+      },
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/school/school-monitoring',
+      },
+      {
+        component: CNavItem,
+        name: 'All School Montoring',
         to: '/school/school-monitoring',
       },
       {
