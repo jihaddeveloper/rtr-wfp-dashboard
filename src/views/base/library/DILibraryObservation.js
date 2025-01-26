@@ -420,6 +420,254 @@ const DILibraryObservation = () => {
       item.libraryStatus === 'Highly Functioning'
     )
   }).length
+
+  // MFO
+  const allLibraryObsDevMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Developing'
+    )
+  }).length
+
+  const allLibraryObsFunMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // MFO
+
+  // NrFO
+  const allLibraryObsDevNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Developing'
+    )
+  }).length
+
+  const allLibraryObsFunNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // NrFO
+
+  // Trending
+  // Developing
+  const allLibraryObsDevJanuary = allDILibraryObservation.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevFebruary = allDILibraryObservation.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevMarch = allDILibraryObservation.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevApril = allDILibraryObservation.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevMay = allDILibraryObservation.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevJune = allDILibraryObservation.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevJuly = allDILibraryObservation.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevAugust = allDILibraryObservation.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevSeptember = allDILibraryObservation.filter((item) => {
+    return item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevOctober = allDILibraryObservation.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevNovember = allDILibraryObservation.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevDecember = allDILibraryObservation.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+  // Developing
+
+  // Functioning
+  const allLibraryObsFunJanuary = allDILibraryObservation.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunFebruary = allDILibraryObservation.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunMarch = allDILibraryObservation.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunApril = allDILibraryObservation.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunMay = allDILibraryObservation.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunJune = allDILibraryObservation.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunJuly = allDILibraryObservation.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunAugust = allDILibraryObservation.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunSeptember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Functioning'
+    )
+  }).length
+
+  const allLibraryObsFunOctober = allDILibraryObservation.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunNovember = allDILibraryObservation.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunDecember = allDILibraryObservation.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+  // Functioning
+
+  // Highly Functioning
+  const allLibraryObsHighFunJanuary = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunFebruary = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunMarch = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunApril = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunMay = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunJune = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunJuly = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunAugust = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunSeptember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunOctober = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunNovember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunDecember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // Highly Functioning
+  // Trending
   // Library Observation Data by filter
 
   // Get All Library observation
@@ -2784,6 +3032,289 @@ const DILibraryObservation = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
+                  <strong>Monthly Trending Library Observation </strong>
+                </CAccordionHeader>
+                <CAccordionBody>
+                  <CRow>
+                    <CCard className="mb-4">
+                      <CCardHeader>
+                        <strong>Library Status Chart</strong> <small>(2024)</small>
+                      </CCardHeader>
+                      <CCardBody style={{ width: '850px', height: '400px' }}>
+                        <CChartLine
+                          data={{
+                            labels: [
+                              'January',
+                              'February',
+                              'March',
+                              'April',
+                              'May',
+                              'June',
+                              'July',
+                              'August',
+                              'September',
+                              'October',
+                              'November',
+                              'December',
+                            ],
+                            datasets: [
+                              {
+                                label: 'Developing',
+                                backgroundColor: 'rgba(238, 6, 6, 0.2)',
+                                borderColor: 'rgba(238, 6, 6, 0.2)',
+                                pointBackgroundColor: 'rgba(238, 6, 6, 0.2)',
+                                pointBorderColor: '#fff',
+                                data: [
+                                  allLibraryObsDevJanuary,
+                                  allLibraryObsDevFebruary,
+                                  allLibraryObsDevMarch,
+                                  allLibraryObsDevApril,
+                                  allLibraryObsDevMay,
+                                  allLibraryObsDevJune,
+                                  allLibraryObsDevJuly,
+                                  allLibraryObsDevAugust,
+                                  allLibraryObsDevSeptember,
+                                  allLibraryObsDevOctober,
+                                  allLibraryObsDevNovember,
+                                  allLibraryObsDevDecember,
+                                ],
+                              },
+                              {
+                                label: 'Functioning',
+                                backgroundColor: 'rgba(243, 220, 9, 0.2)',
+                                borderColor: 'rgba(243, 220, 9, 0.2)',
+                                pointBackgroundColor: 'rgba(243, 220, 9, 0.2)',
+                                pointBorderColor: '#fff',
+                                data: [
+                                  allLibraryObsFunJanuary,
+                                  allLibraryObsFunFebruary,
+                                  allLibraryObsFunMarch,
+                                  allLibraryObsFunApril,
+                                  allLibraryObsFunMay,
+                                  allLibraryObsFunJune,
+                                  allLibraryObsFunJuly,
+                                  allLibraryObsFunAugust,
+                                  allLibraryObsFunSeptember,
+                                  allLibraryObsFunOctober,
+                                  allLibraryObsFunNovember,
+                                  allLibraryObsFunDecember,
+                                ],
+                              },
+                              {
+                                label: 'Highly Functioning',
+                                backgroundColor: 'rgba(8, 78, 8, 0.2)',
+                                borderColor: 'rgba(8, 78, 8, 0.2)',
+                                pointBackgroundColor: 'rgba(8, 78, 8, 0.2)',
+                                pointBorderColor: '#fff',
+                                data: [
+                                  allLibraryObsHighFunJanuary,
+                                  allLibraryObsHighFunFebruary,
+                                  allLibraryObsHighFunMarch,
+                                  allLibraryObsHighFunApril,
+                                  allLibraryObsHighFunMay,
+                                  allLibraryObsHighFunJune,
+                                  allLibraryObsHighFunJuly,
+                                  allLibraryObsHighFunAugust,
+                                  allLibraryObsHighFunSeptember,
+                                  allLibraryObsHighFunOctober,
+                                  allLibraryObsHighFunNovember,
+                                  allLibraryObsHighFunDecember,
+                                ],
+                              },
+                            ],
+                          }}
+                          options={{ maintainAspectRatio: false }}
+                        />
+                      </CCardBody>
+                    </CCard>
+                  </CRow>
+                </CAccordionBody>
+                <CAccordionBody>
+                  <CCard className="mb-4">
+                    <CCardHeader>
+                      <strong>Trending Library Status</strong> <small>(2024)</small>
+                    </CCardHeader>
+                    <CCardBody>
+                      <CTable>
+                        <CTableHead>
+                          <CTableRow>
+                            <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                          </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                          <CTableRow color="danger">
+                            <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
+                            <CTableDataCell>{allLibraryObsDevJanuary}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevFebruary}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsDevMarch}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsDevApril}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsDevMay}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsDevJune}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsDevJuly}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevAugust}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevSeptember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevOctober}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevNovember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevDecember}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="primary">
+                            <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
+                            <CTableDataCell>{allLibraryObsFunJanuary}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunFebruary}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsFunMarch}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsFunApril}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsFunMay}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsFunJune}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">{allLibraryObsFunJuly}</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunAugust}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunSeptember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunOctober}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunNovember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsFunDecember}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="secondary">
+                            <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
+                            <CTableDataCell>{allLibraryObsHighFunJanuary}</CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunFebruary}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunMarch}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunApril}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunMay}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunJune}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunJuly}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunAugust}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunSeptember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunOctober}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunNovember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsHighFunDecember}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                          <CTableRow color="success">
+                            <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                            <CTableDataCell>
+                              {allLibraryObsDevJanuary +
+                                allLibraryObsFunJanuary +
+                                allLibraryObsHighFunJanuary}
+                            </CTableDataCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevFebruary +
+                                allLibraryObsFunFebruary +
+                                allLibraryObsHighFunFebruary}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevMarch +
+                                allLibraryObsFunMarch +
+                                allLibraryObsHighFunMarch}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevApril +
+                                allLibraryObsFunApril +
+                                allLibraryObsHighFunApril}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevMay + allLibraryObsFunMay + allLibraryObsHighFunMay}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevJune +
+                                allLibraryObsFunJune +
+                                allLibraryObsHighFunJune}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevJuly +
+                                allLibraryObsFunJuly +
+                                allLibraryObsHighFunJuly}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevAugust +
+                                allLibraryObsFunAugust +
+                                allLibraryObsHighFunAugust}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevSeptember +
+                                allLibraryObsFunSeptember +
+                                allLibraryObsHighFunSeptember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevOctober +
+                                allLibraryObsFunOctober +
+                                allLibraryObsHighFunOctober}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevNovember +
+                                allLibraryObsFunNovember +
+                                allLibraryObsHighFunNovember}
+                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">
+                              {allLibraryObsDevDecember +
+                                allLibraryObsFunDecember +
+                                allLibraryObsHighFunDecember}
+                            </CTableHeaderCell>
+                          </CTableRow>
+                        </CTableBody>
+                      </CTable>
+                    </CCardBody>
+                  </CCard>
+                </CAccordionBody>
+              </CAccordionItem>
+
+              <CAccordionItem itemKey={2}>
+                <CAccordionHeader>
                   <strong>All Library Observation </strong>
                 </CAccordionHeader>
                 <CAccordionBody>
@@ -2800,11 +3331,15 @@ const DILibraryObservation = () => {
                         <CTableBody>
                           <CTableRow color="success">
                             <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
-                            <CTableDataCell>900</CTableDataCell>
+                            <CTableDataCell>363</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Rated Libarary</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsDataPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>
+                              {allLibraryObsDevPreviousMonth +
+                                allLibraryObsFunPreviousMonth +
+                                allLibraryObsHighFunPreviousMonth}
+                            </CTableDataCell>
                           </CTableRow>
                         </CTableBody>
                       </CTable>
@@ -3128,7 +3663,7 @@ const DILibraryObservation = () => {
                   </CRow>
                 </CAccordionBody>
               </CAccordionItem>
-              <CAccordionItem itemKey={2}>
+              <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Library Observation MFO</strong>
                 </CAccordionHeader>
@@ -3146,11 +3681,15 @@ const DILibraryObservation = () => {
                         <CTableBody>
                           <CTableRow color="success">
                             <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
-                            <CTableDataCell>500</CTableDataCell>
+                            <CTableDataCell>200</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Rated Libarary</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsDataPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>
+                              {allLibraryObsDevMFOPreviousMonth +
+                                allLibraryObsFunMFOPreviousMonth +
+                                allLibraryObsHighFunMFOPreviousMonth}
+                            </CTableDataCell>
                           </CTableRow>
                         </CTableBody>
                       </CTable>
@@ -3167,22 +3706,22 @@ const DILibraryObservation = () => {
                         <CTableBody>
                           <CTableRow color="danger">
                             <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsDevPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsDevMFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsFunPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsFunMFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="secondary">
                             <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsHighFunPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsHighFunMFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="success">
                             <CTableHeaderCell scope="row">Total</CTableHeaderCell>
                             <CTableDataCell>
-                              {allLibraryObsDevPreviousMonth +
-                                allLibraryObsFunPreviousMonth +
-                                allLibraryObsHighFunPreviousMonth}
+                              {allLibraryObsDevMFOPreviousMonth +
+                                allLibraryObsFunMFOPreviousMonth +
+                                allLibraryObsHighFunMFOPreviousMonth}
                             </CTableDataCell>
                           </CTableRow>
                         </CTableBody>
@@ -3477,7 +4016,7 @@ const DILibraryObservation = () => {
                   </CRow>
                 </CAccordionBody>
               </CAccordionItem>
-              <CAccordionItem itemKey={3}>
+              <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
                   <strong>Library Observation NrFO</strong>
                 </CAccordionHeader>
@@ -3495,11 +4034,15 @@ const DILibraryObservation = () => {
                         <CTableBody>
                           <CTableRow color="success">
                             <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
-                            <CTableDataCell>400</CTableDataCell>
+                            <CTableDataCell>163</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">No of Rated Libarary</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsDataPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>
+                              {allLibraryObsDevNrFOPreviousMonth +
+                                allLibraryObsFunNrFOPreviousMonth +
+                                allLibraryObsHighFunMFOPreviousMonth}
+                            </CTableDataCell>
                           </CTableRow>
                         </CTableBody>
                       </CTable>
@@ -3516,22 +4059,22 @@ const DILibraryObservation = () => {
                         <CTableBody>
                           <CTableRow color="danger">
                             <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsDevPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsDevNrFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="primary">
                             <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsFunPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsFunNrFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="secondary">
                             <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
-                            <CTableDataCell>{allLibraryObsHighFunPreviousMonth}</CTableDataCell>
+                            <CTableDataCell>{allLibraryObsHighFunMFOPreviousMonth}</CTableDataCell>
                           </CTableRow>
                           <CTableRow color="success">
                             <CTableHeaderCell scope="row">Total</CTableHeaderCell>
                             <CTableDataCell>
-                              {allLibraryObsDevPreviousMonth +
-                                allLibraryObsFunPreviousMonth +
-                                allLibraryObsHighFunPreviousMonth}
+                              {allLibraryObsDevNrFOPreviousMonth +
+                                allLibraryObsFunNrFOPreviousMonth +
+                                allLibraryObsHighFunMFOPreviousMonth}
                             </CTableDataCell>
                           </CTableRow>
                         </CTableBody>

@@ -1523,7 +1523,7 @@ const DIBanglaClassDataDetail = () => {
             <CAccordion alwaysOpen>
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
-                  <strong>Monthly Teacher Performance</strong>
+                  <strong>Monthly Trending Teacher Performance</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <CCard className="mb-4">
