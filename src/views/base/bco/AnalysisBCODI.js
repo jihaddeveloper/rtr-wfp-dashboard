@@ -2,19 +2,26 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { MDBDataTableV5 } from 'mdbreact'
 import {
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
   CRow,
-  CAccordion,
-  CAccordionBody,
-  CAccordionHeader,
-  CAccordionItem,
+  CCol,
+  CDropdown,
+  CDropdownMenu,
+  CDropdownItem,
+  CDropdownToggle,
+  CWidgetStatsA,
+  CLink,
+  CWidgetStatsF,
+  CHeader,
+  CCard,
+  CCardHeader,
+  CCardBody,
   CTable,
-  CBadge,
-  CButton,
-  CCollapse,
+  CTableBody,
+  CTableCaption,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
 } from '@coreui/react'
 
 import {
@@ -6183,10 +6190,52 @@ const AnalysisBCODI = () => {
 
   return (
     <CRow>
+      <CRow>
+        <CCol sm={3} lg={3}>
+          <CLink href="/bco/di-mfo">
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>MFO Analysis</strong>
+              </CCardHeader>
+              <CCardBody></CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CLink href="/bco/di-nrfo">
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>NrFO Analysis</strong>
+              </CCardHeader>
+              <CCardBody></CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CLink href="*">
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>JFO Analysis</strong>
+              </CCardHeader>
+              <CCardBody></CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+        <CCol sm={3} lg={3}>
+          <CLink href="*">
+            <CCard className="mb-3">
+              <CCardHeader>
+                <strong>HFO Analysis</strong>
+              </CCardHeader>
+              <CCardBody></CCardBody>
+            </CCard>
+          </CLink>
+        </CCol>
+      </CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>BCO Analysis-2024</strong>
+            <strong>BCO Analysis-2024 All FO</strong>
           </CCardHeader>
           <CCardBody>
             <MaterialTable

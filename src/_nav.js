@@ -182,18 +182,18 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Moulvibazar',
+        name: 'All Bangla Observation',
         to: '/bangla/di-bangla-class',
+      },
+      {
+        component: CNavItem,
+        name: 'Moulvibazar',
+        to: '/bangla/di-bangla-mfo',
       },
       {
         component: CNavItem,
         name: 'Narail',
-        to: '/bangla/di-bangla-class',
-      },
-      {
-        component: CNavItem,
-        name: 'All Bangla Observation',
-        to: '/bangla/di-bangla-class',
+        to: '/bangla/di-bangla-nrfo',
       },
       {
         component: CNavItem,
@@ -231,12 +231,12 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Moulvibazar',
-        to: '/bco/di-bco-analysis',
+        to: '/bco/di-mfo',
       },
       {
         component: CNavItem,
         name: 'Narail',
-        to: '/bco/di-bco-analysis',
+        to: '/bco/di-nrfo',
       },
       {
         component: CNavItem,

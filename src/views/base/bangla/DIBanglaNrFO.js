@@ -38,7 +38,7 @@ import MaterialTable from 'material-table'
 //Icon
 //Icon
 
-const DIBanglaClassDataDetail = () => {
+const DIBanglaNrFO = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -1513,49 +1513,6 @@ const DIBanglaClassDataDetail = () => {
       {/* <CCol xs={12}>
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
-
-      <CRow>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bangla/di-bangla-mfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>MFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bangla/di-bangla-nrfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>NrFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>JFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>HFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-      </CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
@@ -1564,7 +1521,7 @@ const DIBanglaClassDataDetail = () => {
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
-              <CAccordionItem itemKey={1}>
+              {/* <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
                   <strong>Monthly Trending Teacher Performance</strong>
                 </CAccordionHeader>
@@ -2542,7 +2499,6 @@ const DIBanglaClassDataDetail = () => {
                   />
                 </CAccordionBody>
               </CAccordionItem>
-
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Moulvibazar-MFO</strong>
@@ -3152,7 +3108,7 @@ const DIBanglaClassDataDetail = () => {
                     data={AllDIBanglaDataMFO}
                   />
                 </CAccordionBody>
-              </CAccordionItem>
+              </CAccordionItem> */}
               <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
                   <strong>Narail-NrFO</strong>
@@ -6852,4 +6808,4 @@ const DIBanglaClassDataDetail = () => {
   )
 }
 
-export default DIBanglaClassDataDetail
+export default DIBanglaNrFO

@@ -48,8 +48,10 @@ const DILibraryObservation = React.lazy(() => import('./views/base/library/DILib
 
 // Bangla
 const BanglaClassData = React.lazy(() => import('./views/base/bangla/BanglaClassData'))
-const DIBanglaClassData = React.lazy(() => import('./views/base/bangla/DIBanglaClassDataDetail'))
 const BanglaClassReport = React.lazy(() => import('./views/base/bangla/BanglaClassReport'))
+const DIBanglaClassData = React.lazy(() => import('./views/base/bangla/DIBanglaClassDataDetail'))
+const DIBanglaMFO = React.lazy(() => import('./views/base/bangla/DIBanglaMFO'))
+const DIBanglaNrFO = React.lazy(() => import('./views/base/bangla/DIBanglaNrFO'))
 // Bangla
 
 // SRM
@@ -64,6 +66,11 @@ const PreprimaryClassReport = React.lazy(() =>
 // Preprimary
 
 // Report
+
+// BCO
+const BCOMFO = React.lazy(() => import('./views/base/bco/BCOMFO'))
+const BCONrFO = React.lazy(() => import('./views/base/bco/BCONrFO'))
+
 const BCOSchoolQuarterly = React.lazy(() => import('./views/base/bco/BCOSchoolQuarterly'))
 const BCOSchoolMonthly = React.lazy(() => import('./views/base/bco/BCOSchoolMonthly'))
 const BCOCRFQuarterly = React.lazy(() => import('./views/base/bco/BCOCRFQuarterly'))
@@ -79,7 +86,9 @@ const WFPSummaryBCOCRF = React.lazy(() => import('./views/base/bco/WFPSummaryBCO
 const CFOAnalysisBCOCRF = React.lazy(() => import('./views/base/bco/CFOAnalysisBCOCRF'))
 const UkhiyaReportCRF = React.lazy(() => import('./views/base/bco/UkhiyaReportCRF'))
 const KutubdiaReportCRF = React.lazy(() => import('./views/base/bco/KutubdiaReportCRF'))
+// BCO
 
+// Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/base/cards/Cards'))
@@ -94,6 +103,7 @@ const Progress = React.lazy(() => import('./views/base/progress/Progress'))
 const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
+// Base
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -190,6 +200,8 @@ const routes = [
     element: SchoolMonitoringData,
   },
 
+  { path: '/bco/di-mfo', name: 'BCOMFO', element: BCOMFO },
+  { path: '/bco/di-nrfo', name: 'BCONrFO', element: BCONrFO },
   { path: '/bco/di-bco-analysis', name: 'AnalysisBCODI', element: AnalysisBCODI },
 
   { path: '/bco/allbco-combined', name: 'AllBCOCombined', element: AllBCOCombined },
@@ -237,6 +249,8 @@ const routes = [
   { path: '/bangla/bangla-class-report', name: 'BanglaClassReport', element: BanglaClassReport },
 
   { path: '/bangla/di-bangla-class', name: 'DIBanglaClassData', element: DIBanglaClassData },
+  { path: '/bangla/di-bangla-mfo', name: 'DIBanglaMFO', element: DIBanglaMFO },
+  { path: '/bangla/di-bangla-nrfo', name: 'DIBanglaNrFO', element: DIBanglaNrFO },
 
   {
     path: '/preprimary/preprimary-class',
