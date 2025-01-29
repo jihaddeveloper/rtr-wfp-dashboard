@@ -1513,49 +1513,50 @@ const DIBanglaClassDataDetail = () => {
       {/* <CCol xs={12}>
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
-
-      <CRow>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bangla/di-bangla-mfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>MFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bangla/di-bangla-nrfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>NrFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>JFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>HFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-      </CRow>
+      <CCol xs={12}>
+        <CRow>
+          <CCol sm={3} lg={3}>
+            <CLink href="/bangla/di-bangla-mfo">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>MFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="/bangla/di-bangla-nrfo">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>NrFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="*">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>JFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="*">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>HFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+        </CRow>
+      </CCol>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
@@ -2543,7 +2544,7 @@ const DIBanglaClassDataDetail = () => {
                 </CAccordionBody>
               </CAccordionItem>
 
-              <CAccordionItem itemKey={3}>
+              {/* <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Moulvibazar-MFO</strong>
                 </CAccordionHeader>
@@ -3580,7 +3581,7 @@ const DIBanglaClassDataDetail = () => {
                     data={AllDIBanglaDataNrFO}
                   />
                 </CAccordionBody>
-              </CAccordionItem>
+              </CAccordionItem> */}
 
               {/* <CAccordionItem itemKey={5}>
                 <CAccordionHeader>

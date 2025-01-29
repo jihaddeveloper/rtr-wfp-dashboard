@@ -2,30 +2,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { MDBDataTableV5 } from 'mdbreact'
 import {
-  CRow,
-  CCol,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownToggle,
-  CWidgetStatsA,
-  CLink,
-  CWidgetStatsF,
-  CHeader,
   CCard,
-  CCardHeader,
   CCardBody,
-  CTable,
-  CTableBody,
-  CTableCaption,
-  CTableDataCell,
-  CTableHead,
-  CTableHeaderCell,
-  CTableRow,
+  CCardHeader,
+  CCol,
+  CRow,
   CAccordion,
   CAccordionBody,
   CAccordionHeader,
   CAccordionItem,
+  CTable,
+  CBadge,
+  CButton,
+  CCollapse,
 } from '@coreui/react'
 import { DocsCallout, DocsExample } from 'src/components'
 
@@ -51,7 +40,7 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const DISchoolMonitoringData = () => {
+const DISchoolMonitoringMFO = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -120,6 +109,10 @@ const DISchoolMonitoringData = () => {
       console.log(error)
     }
   }
+
+  const AllDIBanglaDataMFO = allDIOverallSchool.filter((item) => {
+    return item.fieldOffice.includes('MFO')
+  })
 
   // Row update function
   const handleRowUpdateAllOverallSchool = (newData, oldData, resolve) => {
@@ -286,51 +279,6 @@ const DISchoolMonitoringData = () => {
       {/* <CCol xs={12}>
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
-
-      <CCol xs={12}>
-        <CRow>
-          <CCol sm={3} lg={3}>
-            <CLink href="/school/school-monitoring-mfo">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>MFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="/school/school-monitoring-nrfo">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>NrFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="*">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>JFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="*">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>HFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-        </CRow>
-      </CCol>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
@@ -339,7 +287,7 @@ const DISchoolMonitoringData = () => {
           </CCardHeader>
           <CCardBody>
             <MaterialTable
-              title={allDIOverallSchool.length + ' Data'}
+              title={AllDIBanglaDataMFO.length + ' Data'}
               columns={[
                 {
                   title: 'date',
@@ -707,7 +655,7 @@ const DISchoolMonitoringData = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={allDIOverallSchool}
+              data={AllDIBanglaDataMFO}
             />
           </CCardBody>
         </CCard>
@@ -716,4 +664,4 @@ const DISchoolMonitoringData = () => {
   )
 }
 
-export default DISchoolMonitoringData
+export default DISchoolMonitoringMFO

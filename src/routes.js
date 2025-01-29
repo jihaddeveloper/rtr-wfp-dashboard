@@ -25,9 +25,15 @@ const AllTraining = React.lazy(() => import('./views/base/training/AllTraining')
 // Overall School
 const OverallSchoolData = React.lazy(() => import('./views/base/school/OverallSchoolData'))
 const OverallSchoolReport = React.lazy(() => import('./views/base/school/OverallSchoolReport'))
-
-const SchoolMonitoringData = React.lazy(() => import('./views/base/school/DISchoolMonitoringData'))
 // Overall School
+
+// School Monitoring
+const SchoolMonitoringData = React.lazy(() => import('./views/base/school/DISchoolMonitoringData'))
+const SchoolMonitoringMFO = React.lazy(() => import('./views/base/school/DISchoolMonitoringMFO'))
+const SchoolMonitoringNrFO = React.lazy(() =>
+  import('./views/base/school/DISchoolMonitoringDataNrFO'),
+)
+// School Monitoring
 
 // BCO/I
 const AllBCOSchool = React.lazy(() => import('./views/base/bco/AllBCOSchool'))
@@ -44,6 +50,12 @@ const LibrarySRM = React.lazy(() => import('./views/base/library/LibrarySRM'))
 const AllBookCaptain = React.lazy(() => import('./views/base/library/AllBookCaptain'))
 
 const DILibraryObservation = React.lazy(() => import('./views/base/library/DILibraryObservation'))
+const DILibraryObservationMFO = React.lazy(() =>
+  import('./views/base/library/DILibraryObservationMFO'),
+)
+const DILibraryObservationNrFO = React.lazy(() =>
+  import('./views/base/library/DILibraryObservationNrFO'),
+)
 // Library
 
 // Bangla
@@ -199,6 +211,16 @@ const routes = [
     name: 'SchoolMonitoringData',
     element: SchoolMonitoringData,
   },
+  {
+    path: '/school/school-monitoring-mfo',
+    name: 'SchoolMonitoringMFO',
+    element: SchoolMonitoringMFO,
+  },
+  {
+    path: '/school/school-monitoring-nrfo',
+    name: 'SchoolMonitoringNrFO',
+    element: SchoolMonitoringNrFO,
+  },
 
   { path: '/bco/di-mfo', name: 'BCOMFO', element: BCOMFO },
   { path: '/bco/di-nrfo', name: 'BCONrFO', element: BCONrFO },
@@ -239,6 +261,18 @@ const routes = [
     path: '/library/di-library-observation',
     name: 'DILibraryObservation',
     element: DILibraryObservation,
+  },
+
+  {
+    path: '/library/di-library-observation-mfo',
+    name: 'DILibraryObservationMFO',
+    element: DILibraryObservationMFO,
+  },
+
+  {
+    path: '/library/di-library-observation-nrfo',
+    name: 'DILibraryObservationNrFO',
+    element: DILibraryObservationNrFO,
   },
 
   { path: '/library/all-bookcaptain', name: 'AllBookCaptain', element: AllBookCaptain },

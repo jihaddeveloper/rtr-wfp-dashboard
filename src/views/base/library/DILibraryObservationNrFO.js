@@ -56,7 +56,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 
 import { Chart } from 'react-google-charts'
 
-const DILibraryObservation = () => {
+const DILibraryObservationMFO = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -3023,50 +3023,6 @@ const DILibraryObservation = () => {
         <DocsCallout name="Accordion" href="components/accordion" />
       </CCol> */}
       <CCol xs={12}>
-        <CRow>
-          <CCol sm={3} lg={3}>
-            <CLink href="/library/di-library-observation-mfo">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>MFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="/library/di-library-observation-nrfo">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>NrFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="*">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>JFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-          <CCol sm={3} lg={3}>
-            <CLink href="*">
-              <CCard className="mb-3">
-                <CCardHeader>
-                  <strong>HFO Analysis</strong>
-                </CCardHeader>
-                <CCardBody></CCardBody>
-              </CCard>
-            </CLink>
-          </CCol>
-        </CRow>
-      </CCol>
-      <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>Library Observation</strong>
@@ -3074,7 +3030,7 @@ const DILibraryObservation = () => {
           </CCardHeader>
           <CCardBody>
             <CAccordion alwaysOpen>
-              <CAccordionItem itemKey={1}>
+              {/* <CAccordionItem itemKey={1}>
                 <CAccordionHeader>
                   <strong>Monthly Trending Library Observation </strong>
                 </CAccordionHeader>
@@ -3706,8 +3662,8 @@ const DILibraryObservation = () => {
                     />
                   </CRow>
                 </CAccordionBody>
-              </CAccordionItem>
-              {/* <CAccordionItem itemKey={3}>
+              </CAccordionItem> */}
+              <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
                   <strong>Library Observation MFO</strong>
                 </CAccordionHeader>
@@ -4060,7 +4016,7 @@ const DILibraryObservation = () => {
                   </CRow>
                 </CAccordionBody>
               </CAccordionItem>
-              <CAccordionItem itemKey={4}>
+              {/* <CAccordionItem itemKey={4}>
                 <CAccordionHeader>
                   <strong>Library Observation NrFO</strong>
                 </CAccordionHeader>
@@ -4856,4 +4812,4 @@ const DILibraryObservation = () => {
   )
 }
 
-export default DILibraryObservation
+export default DILibraryObservationMFO

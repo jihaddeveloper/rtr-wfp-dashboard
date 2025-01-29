@@ -348,23 +348,18 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Moulvibazar',
-        to: '/library/di-library-observation',
-      },
-      {
-        component: CNavItem,
-        name: 'Narail',
-        to: '/library/di-library-observation',
-      },
-      {
-        component: CNavItem,
         name: 'All Library Observation',
         to: '/library/di-library-observation',
       },
       {
         component: CNavItem,
-        name: 'Observation Report',
-        to: '/base/construction',
+        name: 'Moulvibazar',
+        to: '/library/di-library-observation-mfo',
+      },
+      {
+        component: CNavItem,
+        name: 'Narail',
+        to: '/library/di-library-observation-nrfo',
       },
     ],
   },

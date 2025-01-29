@@ -6190,48 +6190,50 @@ const AnalysisBCODI = () => {
 
   return (
     <CRow>
-      <CRow>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bco/di-mfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>MFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="/bco/di-nrfo">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>NrFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>JFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-        <CCol sm={3} lg={3}>
-          <CLink href="*">
-            <CCard className="mb-3">
-              <CCardHeader>
-                <strong>HFO Analysis</strong>
-              </CCardHeader>
-              <CCardBody></CCardBody>
-            </CCard>
-          </CLink>
-        </CCol>
-      </CRow>
+      <CCol xs={12}>
+        <CRow>
+          <CCol sm={3} lg={3}>
+            <CLink href="/bco/di-mfo">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>MFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="/bco/di-nrfo">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>NrFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="*">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>JFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+          <CCol sm={3} lg={3}>
+            <CLink href="*">
+              <CCard className="mb-3">
+                <CCardHeader>
+                  <strong>HFO Analysis</strong>
+                </CCardHeader>
+                <CCardBody></CCardBody>
+              </CCard>
+            </CLink>
+          </CCol>
+        </CRow>
+      </CCol>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
