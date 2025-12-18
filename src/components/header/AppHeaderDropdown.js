@@ -2,6 +2,7 @@ import React from 'react'
 import {
   CAvatar,
   CBadge,
+  CButton,
   CDropdown,
   CDropdownDivider,
   CDropdownHeader,
@@ -23,9 +24,19 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 
+import { useNavigate } from 'react-router-dom' // Import useHistory hook
+
 import RTR11 from './../../assets/images/rtrnew.png'
 
 const AppHeaderDropdown = () => {
+  const history = useNavigate()
+
+  const handleLogout = () => {
+    // Perform logout actions here (e.g., clear session, remove authentication token)
+    // After logout, redirect to the login page
+    history('/login')
+  }
+
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
@@ -90,8 +101,10 @@ const AppHeaderDropdown = () => {
           Lock Account
         </CDropdownItem> */}
         <CDropdownItem href="#">
-          <CIcon icon={cilAccountLogout} className="me-2" />
-          Logout
+          <CButton onClick={handleLogout}>
+            <CIcon icon={cilAccountLogout} className="me-2" />
+            Logout
+          </CButton>
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>

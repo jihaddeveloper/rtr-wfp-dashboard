@@ -25,6 +25,7 @@ import {
   cilWc,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import { colors } from '@mui/material'
 
 const _nav = [
   {
@@ -45,6 +46,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'District',
+
     to: '#',
     icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
     items: [
@@ -79,19 +81,24 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'LP School Moulvibazar',
-        to: '/school/allschool',
+        name: 'PREVAIL School Narail',
+        to: '/school/p-school',
       },
-      {
-        component: CNavItem,
-        name: 'LP School Narail',
-        to: '/school/allschool',
-      },
-      {
-        component: CNavItem,
-        name: 'LP School Coxsbazar',
-        to: '/school/allschool',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP School Moulvibazar',
+      //   to: '/school/allschool',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP School Narail',
+      //   to: '/school/allschool',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP School Coxsbazar',
+      //   to: '/school/allschool',
+      // },
     ],
   },
   {
@@ -102,20 +109,25 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'LP Teacher Moulvibazar',
+        name: 'PREVAIL Teacher Narail',
         to: '/teacher/all-teacher',
       },
-      {
-        component: CNavItem,
-        name: 'LP Teacher Narail',
-        to: '/teacher/all-teacher',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP Teacher Moulvibazar',
+      //   to: '/teacher/all-teacher',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP Teacher Narail',
+      //   to: '/teacher/all-teacher',
+      // },
 
-      {
-        component: CNavItem,
-        name: 'LP Teacher Coxsbazar',
-        to: '/teacher/all-teacher',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'LP Teacher Coxsbazar',
+      //   to: '/teacher/all-teacher',
+      // },
     ],
   },
   {
@@ -126,9 +138,14 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Coxsbazar',
+        name: 'PREVAIL-Narail',
         to: '/student/all-student',
       },
+      // {
+      //   component: CNavItem,
+      //   name: 'Coxsbazar',
+      //   to: '/student/all-student',
+      // },
     ],
   },
   {
@@ -173,6 +190,19 @@ const _nav = [
   {
     component: CNavTitle,
     name: 'Observation & Performance',
+  },
+  {
+    component: CNavGroup,
+    name: 'PREVAIL Milstones',
+    to: '*',
+    icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Milestone-2025',
+        to: '/prevail/p-milestone-25',
+      },
+    ],
   },
   {
     component: CNavGroup,
@@ -405,6 +435,7 @@ const _nav = [
       },
     ],
   },
+
   {
     component: CNavTitle,
     name: 'Custom Project Information',

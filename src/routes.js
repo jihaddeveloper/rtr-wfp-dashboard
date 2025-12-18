@@ -5,6 +5,7 @@ import DIBanglaClassDataDetail from './views/base/bangla/DIBanglaClassDataDetail
 
 const DashboardWFP = React.lazy(() => import('./views/dashboard/DashboardWFP'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const DashboardPrevail = React.lazy(() => import('./views/dashboard/DashboardPrevail'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -65,6 +66,14 @@ const DIBanglaClassData = React.lazy(() => import('./views/base/bangla/DIBanglaC
 const DIBanglaMFO = React.lazy(() => import('./views/base/bangla/DIBanglaMFO'))
 const DIBanglaNrFO = React.lazy(() => import('./views/base/bangla/DIBanglaNrFO'))
 // Bangla
+
+// PREVAIL
+const PBanglaDataDetail = React.lazy(() => import('./views/base/bangla/PBanglaClassDataDetail'))
+const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL'))
+const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
+const PLFObservationDetail = React.lazy(() => import('./views/base/lf/PLFObservationDetail'))
+const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
+// PREVAIL
 
 // SRM
 const SRMCalss = React.lazy(() => import('./views/base/srm/SRMClass'))
@@ -154,6 +163,7 @@ const routes = [
   { path: '/login', name: 'Login', element: Login },
   { path: '/register', name: 'Register', element: Register },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/dashboard-prevail', name: 'DashboardPrevail', element: DashboardPrevail },
   { path: '/dashboard-wfp', name: 'DashboardWFP', element: DashboardWFP },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
@@ -286,6 +296,21 @@ const routes = [
   { path: '/bangla/di-bangla-mfo', name: 'DIBanglaMFO', element: DIBanglaMFO },
   { path: '/bangla/di-bangla-nrfo', name: 'DIBanglaNrFO', element: DIBanglaNrFO },
 
+  // PREVAIL
+  { path: '/bangla/p-bangla-detail', name: 'PBanglaDataDetail', element: PBanglaDataDetail },
+  { path: '/prevail/p-school-detail', name: 'PSchoolDetail', element: PSchoolDetail },
+  { path: '/prevail/p-teacher-detail', name: 'PTeacherDetail', element: PTeacherDetail },
+  {
+    path: '/prevail/p-lf-observation-detail',
+    name: 'PLFObservationDetail',
+    element: PLFObservationDetail,
+  },
+  {
+    path: '/prevail/p-milestone-25',
+    name: 'PMilestone25',
+    element: PMilestone25,
+  },
+  // PREVAIL
   {
     path: '/preprimary/preprimary-class',
     name: 'PreprimaryClassData',

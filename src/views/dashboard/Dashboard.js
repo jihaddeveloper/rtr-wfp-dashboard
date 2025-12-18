@@ -58,6 +58,8 @@ import WidgetDropdown2 from '../widgets/WidgetsDropdown2'
 import WidgetDropdown3 from '../widgets/WidgetsDropdown3'
 import WidgetDropdown from '../widgets/WidgetsDropdown'
 
+import FieldOfficeHome from '../widgets/FieldOfficeHome'
+
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [allBCOdata, setAllBCOdata] = useState([])
@@ -346,7 +348,21 @@ const Dashboard = () => {
           <strong>
             <br></br>
             <div className="fs-5 fw-semibold">
-              <p>Observation Status of Literacy Programs</p>
+              <p>Field Office Info</p>
+            </div>
+          </strong>
+        </CCardHeader>
+        <CCardBody>
+          <FieldOfficeHome />
+        </CCardBody>
+      </CCard>
+
+      <CCard className="mb-4">
+        <CCardHeader>
+          <strong>
+            <br></br>
+            <div className="fs-5 fw-semibold">
+              <p>Observation Status of Literacy Programs Narail-DI & Moulovibazar</p>
             </div>
           </strong>
         </CCardHeader>

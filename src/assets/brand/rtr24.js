@@ -7,11 +7,11 @@ export const rtr24 = [
   <defs>
     <style>
       .cls-1 {
-        fill: #0078a5;
+        fill: #08607eff;
       }
 
       .cls-2 {
-        fill: #faad1a;
+        fill: #cdd5daff;
       }
 
       .cls-3 {

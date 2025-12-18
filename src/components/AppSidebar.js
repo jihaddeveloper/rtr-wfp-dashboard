@@ -24,6 +24,15 @@ import 'simplebar/dist/simplebar.min.css'
 
 // sidebar nav config
 import navigation from '../_nav'
+import { rtr25 } from 'src/assets/brand/rtr25'
+
+const customVars = {
+  '--cui-sidebar-bg': '#333333', // Your desired background color
+  '--cui-sidebar-color': '#131212ff', // Your desired text color
+  '--cui-sidebar-nav-title-color': '#fff',
+  '--cui-sidebar-toggler-color': '#fff',
+  '--cui-sidebar-nav-link-hover-color': '#fff',
+}
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -32,6 +41,9 @@ const AppSidebar = () => {
 
   return (
     <CSidebar
+      className="border-end"
+      style={customVars}
+      colorScheme="dark"
       position="fixed"
       unfoldable={unfoldable}
       visible={sidebarShow}
@@ -40,7 +52,7 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" icon={rtr24} height={60} width={300} alt="Logo" />
+        <CIcon className="sidebar-brand-full" icon={rtr25} height={60} width={300} alt="Logo" />
         {/* <CIcon className="sidebar-brand-full" icon={rtrnew} height={35} /> */}
         {/* <CIcon className="sidebar-brand-narrow" icon={rtrlogosm} height={35} /> */}
       </CSidebarBrand>
