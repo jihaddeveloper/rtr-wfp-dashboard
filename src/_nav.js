@@ -188,15 +188,63 @@ const _nav = [
     ],
   },
   {
+    component: CNavGroup,
+    name: 'PREVAIL INFO',
+    to: '#',
+    icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'School',
+        to: '/prevail/p-school',
+      },
+      {
+        component: CNavItem,
+        name: 'Teacher',
+        to: '/prevail/p-teacher',
+      },
+      {
+        component: CNavItem,
+        name: 'Employee',
+        to: '/prevail/p-employee',
+      },
+    ],
+  },
+  {
     component: CNavTitle,
     name: 'Observation & Performance',
   },
   {
     component: CNavGroup,
-    name: 'PREVAIL Milstones',
+    name: 'PREVAIL Observation',
     to: '*',
     icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
     items: [
+      {
+        component: CNavItem,
+        name: 'Prevail Bangla',
+        to: '/bangla/p-bangla-detail',
+      },
+      {
+        component: CNavItem,
+        name: 'Prevail Preprimary',
+        to: '/prevail/p-preprimary',
+      },
+      {
+        component: CNavItem,
+        name: 'Prevail Library',
+        to: '/prevail/p-library-observation',
+      },
+      {
+        component: CNavItem,
+        name: 'Prevail LF',
+        to: '/prevail/p-lf-observation-detail',
+      },
+      {
+        component: CNavItem,
+        name: 'Prevail BCO',
+        to: '/prevail/p-bco',
+      },
       {
         component: CNavItem,
         name: 'Milestone-2025',
@@ -230,6 +278,7 @@ const _nav = [
         name: 'Report Coxsbazar',
         to: '/bangla/bangla-class-report',
       },
+
       // {
       //   component: CNavItem,
       //   name: 'SRM Class',
@@ -258,6 +307,11 @@ const _nav = [
     to: '#',
     icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
     items: [
+      {
+        component: CNavItem,
+        name: 'PREVAIL Library',
+        to: '/bco/di-mfo',
+      },
       {
         component: CNavItem,
         name: 'Moulvibazar',

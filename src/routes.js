@@ -73,6 +73,12 @@ const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL
 const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
 const PLFObservationDetail = React.lazy(() => import('./views/base/lf/PLFObservationDetail'))
 const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
+const PPrePrimary = React.lazy(() => import('./views/base/preprimary/PPreprimaryDataDetail'))
+const PLibraryObservation = React.lazy(() => import('./views/base/prevail/PLibraryObservation'))
+const PAnalysisBCO = React.lazy(() => import('./views/base/prevail/PAnalysisBCO'))
+const PrevailEmployee = React.lazy(() => import('./views/base/prevail/PrevailEmployee'))
+const PrevailSchool = React.lazy(() => import('./views/base/prevail/PrevailSchool'))
+const PrevailTeacher = React.lazy(() => import('./views/base/prevail/PrevailTeacher'))
 // PREVAIL
 
 // SRM
@@ -306,10 +312,42 @@ const routes = [
     element: PLFObservationDetail,
   },
   {
+    path: '/prevail/p-library-observation',
+    name: 'PLibraryObservation',
+    element: PLibraryObservation,
+  },
+  {
     path: '/prevail/p-milestone-25',
     name: 'PMilestone25',
     element: PMilestone25,
   },
+  {
+    path: '/prevail/p-preprimary',
+    name: 'PPrePrimary',
+    element: PPrePrimary,
+  },
+  {
+    path: '/prevail/p-bco',
+    name: 'PAnalysisBCO',
+    element: PAnalysisBCO,
+  },
+
+  {
+    path: '/prevail/p-employee',
+    name: 'PrevailEmployee',
+    element: PrevailEmployee,
+  },
+  {
+    path: '/prevail/p-school',
+    name: 'PrevailSchool',
+    element: PrevailSchool,
+  },
+  {
+    path: '/prevail/p-teacher',
+    name: 'PrevailTeacher',
+    element: PrevailTeacher,
+  },
+
   // PREVAIL
   {
     path: '/preprimary/preprimary-class',

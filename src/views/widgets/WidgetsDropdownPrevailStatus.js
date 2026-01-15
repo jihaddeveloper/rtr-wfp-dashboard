@@ -1075,7 +1075,7 @@ const WidgetsDropdownPrevailStatus = () => {
                   <small>({previousMonthYear}) Percent</small>
                 </CCardHeader>
                 <CCardBody>
-                  <CLink href="/library/di-library-observation">
+                  <CLink href="/prevail/p-library-observation">
                     <CChartDoughnut
                       data={{
                         datasets: [

@@ -1843,7 +1843,7 @@ const PBanglaClassDataDetail = () => {
         <CCol xs={12}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>Bangla Class Observation 2025</strong>
+              <strong>PREVAIL Bangla Class Observation 2025</strong>
               {/* <strong>{allBCOData.length}</strong> */}
             </CCardHeader>
             <CCardBody>
@@ -2087,39 +2087,51 @@ const PBanglaClassDataDetail = () => {
                             ],
                           }}
                           options={{
-                            responsive: true,
+                            exportButton: true,
+                            exportAllData: true,
+                            search: true,
+                            filtering: true,
+                            grouping: true,
+                            sorting: true,
+                            pageSize: 3,
+                            pageSizeOptions: [3, 10, 20],
+                            maxBodyHeight: '700px',
+                            headerStyle: {
+                              position: 'sticky',
+                              top: 0,
+                              backgroundColor: '#7e93b4ff',
+                              fontWeight: 'bold',
+                              width: '5px',
+                              height: '5px',
+                              textAlign: 'center',
+                              color: '#0d0d0eff',
+                              borderRight: '1px solid #0e0d0dff',
+                              borderLeft: '1px solid #0e0d0dff',
+                              borderStyle: 'solid',
+                            },
+                            rowStyle: {
+                              fontSize: 14,
+                              backgroundColor: '#E5DED4',
+                              borderRight: '1px solid #131111ff',
+                              borderLeft: '1px solid #0e0d0dff',
+                              borderStyle: 'solid',
+                              width: '5px',
+                              height: '5px',
+                              padding: '0 5px',
+                            },
+                            cellStyle: {
+                              borderRight: '1px solid #0c0b0bff',
+                              borderLeft: '1px solid #0e0d0dff',
+                              borderBottom: '1px solid #0c0b0bff',
+                              borderStyle: 'solid',
+                              height: '5px',
+                              minHeight: '5px',
+                              maxHeight: '5px',
+                              padding: '0 5px',
+                            },
                             maintainAspectRatio: false,
-                            plugins: {
-                              legend: {
-                                display: true,
-                                position: 'bottom',
-                              },
-                              title: {
-                                display: true,
-                                text: '',
-                              },
-                            },
-                            scales: {
-                              y: {
-                                beginAtZero: true,
-                                ticks: {
-                                  color: '#333', // Custom tick color
-                                },
-                                grid: {
-                                  display: true, // Hide y-axis grid lines
-                                },
-                              },
-                              x: {
-                                grid: {
-                                  display: true, // Hide x-axis grid lines
-                                },
-                                ticks: {
-                                  color: '#333',
-                                },
-                              },
-                            },
                           }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                          //style={{ height: '300px', width: '1300px' }}
                         />
                       </CCardBody>
                     </CCard>
@@ -3055,7 +3067,7 @@ const PBanglaClassDataDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '1000px' }}>
+          <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL Bangla Observation Data</strong>
               <small>Total School-{allBanglaObsData.length}</small>
@@ -3063,7 +3075,7 @@ const PBanglaClassDataDetail = () => {
             <CCardBody>
               <CCardTitle></CCardTitle>
               <MaterialTable
-                title={'For filtering drag and drop the headers bellow'}
+                title="For filtering drag and drop the headers bellow"
                 columns={[
                   {
                     title: 'Date',
@@ -3410,7 +3422,7 @@ const PBanglaClassDataDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '300px', width: '1300px' }}
+                style={{ height: '700px', width: '1300px' }}
                 data={allBanglaObsData}
               />
             </CCardBody>

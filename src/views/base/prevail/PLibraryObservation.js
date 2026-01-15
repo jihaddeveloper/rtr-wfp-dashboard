@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 09/09/2025
-//  Modify Date: 04/11/2025
-//  Description: PLFObservation  file
+//  Create Date: 14/01/2026
+//  Modify Date: 14/01/2026
+//  Description: PLibraryObservation  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -18,6 +18,7 @@ import {
   CWidgetStatsF,
   CHeader,
   CCard,
+  CCardTitle,
   CCardHeader,
   CCardBody,
   CTable,
@@ -31,7 +32,6 @@ import {
   CAccordionBody,
   CAccordionHeader,
   CAccordionItem,
-  CCardTitle,
 } from '@coreui/react'
 
 import { CChart, CChartBar, CChartLine } from '@coreui/react-chartjs'
@@ -62,16 +62,18 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 
 import { Chart } from 'react-google-charts'
 
-const PLFObservationDetail = () => {
+const PLibraryObservation = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allLFObservationData, setAllLFObservationData] = useState([])
+  const [allBCOData, setAllBCOData] = useState([])
 
   const [allLibraryObservation, setAllLibraryObservation] = useState([])
 
   const [allDILibraryObservation, setAllDILibraryObservation] = useState([])
+
+  const [allPLibraryObservation, setAllPLibraryObservation] = useState([])
 
   // Area wise library data
   const [kutubdiaLibraryObservation, setKutubdiaLibraryObservation] = useState([])
@@ -373,7 +375,8 @@ const PLFObservationDetail = () => {
     const call = async () => {
       console.log('use effect called')
 
-      await getAllLFObservation()
+      await getAllPLibraryObservation(console.log('Get PREVAIL Library observation called'))
+
       await getAllLibraryObservation(console.log('Get All Library observation called'))
       await getAllDILibraryObservation(console.log('Get All DI Library observation called'))
 
@@ -394,223 +397,288 @@ const PLFObservationDetail = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
-  // LF Observation Data by filter
-  const allLFObsDataCurrent = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025'
+  // Library obsv data by filter
+  const allDILibraryObsvDataMFO = allDILibraryObservation.filter((item) => {
+    return item.office.includes('MFO')
+  })
+  const allDILibraryObsvDataNrFO = allDILibraryObservation.filter((item) => {
+    return item.office.includes('NrFO')
+  })
+  // Library obsv data by filter
+
+  // Library Observation Data by filter
+  const allLibraryObsDataPreviousMonth = allDILibraryObservation.filter((item) => {
+    return item.month === previousMonth && item.year === '2024' && item.libraryStatus
   }).length
 
-  const allLFObsDataPreviousMonth = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025'
+  const allLibraryObsDevPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Developing'
+    )
   }).length
 
-  // Current Month
-  const allLFObsCurrentMonth = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025'
+  const allLibraryObsFunPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Functioning'
+    )
   }).length
 
-  const allLFObsCurrentMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsHighFunPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObsCurrentMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+  // MFO
+  const allLibraryObsDevMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Developing'
+    )
   }).length
 
-  const allLFObsCurrentMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
-  }).length
-  // Current Month
-
-  // Previous Month
-  const allLFObsPreviousMonth = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025'
-  }).length
-
-  const allLFObsPreviousMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsFunMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Functioning'
+    )
   }).length
 
-  const allLFObsPreviousMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsHighFunMFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'MFO' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // MFO
+
+  // NrFO
+  const allLibraryObsDevNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Developing'
+    )
   }).length
 
-  const allLFObsPreviousMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsFunNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Functioning'
+    )
   }).length
-  // Previous Month
+
+  const allLibraryObsHighFunNrFOPreviousMonth = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.office === 'NrFO' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // NrFO
 
   // Trending
-  // Priority 1
-  const allLFObservationDataP1January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  // Developing
+  const allLibraryObsDevJanuary = allDILibraryObservation.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevFebruary = allDILibraryObservation.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevMarch = allDILibraryObservation.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevApril = allDILibraryObservation.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevMay = allDILibraryObservation.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevJune = allDILibraryObservation.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevJuly = allDILibraryObservation.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevAugust = allDILibraryObservation.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevSeptember = allDILibraryObservation.filter((item) => {
+    return item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevOctober = allDILibraryObservation.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevNovember = allDILibraryObservation.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
 
-  const allLFObservationDataP1December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 1'
+  const allLibraryObsDevDecember = allDILibraryObservation.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Developing'
   }).length
-  // Priority 1
+  // Developing
 
-  // Priority 2
-  const allLFObservationDataP2January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 2'
-  }).length
-
-  const allLFObservationDataP2February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  // Functioning
+  const allLibraryObsFunJanuary = allDILibraryObservation.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunFebruary = allDILibraryObservation.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunMarch = allDILibraryObservation.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunApril = allDILibraryObservation.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunMay = allDILibraryObservation.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunJune = allDILibraryObservation.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunJuly = allDILibraryObservation.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunAugust = allDILibraryObservation.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunSeptember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Functioning'
+    )
   }).length
 
-  const allLFObservationDataP2November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 2'
+  const allLibraryObsFunOctober = allDILibraryObservation.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP2December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 2'
-  }).length
-  // Priority 2
-
-  // Priority 3
-  const allLFObservationDataP3January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsFunNovember = allDILibraryObservation.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Functioning'
   }).length
 
-  const allLFObservationDataP3February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsFunDecember = allDILibraryObservation.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+  // Functioning
+
+  // Highly Functioning
+  const allLibraryObsHighFunJanuary = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunFebruary = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunMarch = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunApril = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunMay = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunJune = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunJuly = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunAugust = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunSeptember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunOctober = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
 
-  const allLFObservationDataP3December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 3'
+  const allLibraryObsHighFunNovember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
   }).length
-  // Priority 3
+
+  const allLibraryObsHighFunDecember = allDILibraryObservation.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // Highly Functioning
   // Trending
-  // LF Observation Data by filter
-
-  // Get All LFObservation Data
-  const getAllLFObservation = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-lf-observation', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllLFObservationData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All LFObservation Data
+  // Library Observation Data by filter
 
   // Get All Library observation
   const getAllLibraryObservation = async () => {
@@ -2262,6 +2330,26 @@ const PLFObservationDetail = () => {
   // Get All Library observation
 
   // Get All Library observation
+  const getAllPLibraryObservation = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-library-observation', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllPLibraryObservation(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getAllDILibraryObservation = async () => {
     setIsLoading(true)
     try {
@@ -2284,7 +2372,7 @@ const PLFObservationDetail = () => {
   // Get All Library observation
 
   // Row update function
-  const handleRowUpdateAllLFObservation = (newData, oldData, resolve) => {
+  const handleRowUpdatePLibraryObservation = (newData, oldData, resolve) => {
     //validation
 
     let errorList = []
@@ -2300,7 +2388,7 @@ const PLFObservationDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch('http://118.179.80.51:8080/api/v1/p-lf-observation/' + newData.id, newData, {
+        .patch('http://118.179.80.51:8080/api/v1/p-library-observation/' + newData.id, newData, {
           method: 'PATCH',
           mode: 'no-cors',
           headers: {
@@ -2309,10 +2397,10 @@ const PLFObservationDetail = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...allLFObservationData]
+          const dataUpdate = [...allPLibraryObservation]
           const index = oldData.tableData.id
           dataUpdate[index] = newData
-          setAllLFObservationData([...dataUpdate])
+          setAllPLibraryObservation([...dataUpdate])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -2335,7 +2423,7 @@ const PLFObservationDetail = () => {
   // Row update function
 
   // Row add function
-  const handleRowAddLFObservation = (newData, resolve) => {
+  const handleRowAddPLibraryObservation = (newData, resolve) => {
     //validation
 
     let errorList = []
@@ -2351,7 +2439,7 @@ const PLFObservationDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-lf-observation/', newData, {
+        .post('http://118.179.80.51:8080/api/v1/p-library-observations/', newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -2360,9 +2448,9 @@ const PLFObservationDetail = () => {
           },
         })
         .then((res) => {
-          const dataToAdd = [...allLFObservationData]
+          const dataToAdd = [...allPLibraryObservation]
           dataToAdd.push(newData)
-          setAllLFObservationData([...dataToAdd])
+          setAllPLibraryObservation([...dataToAdd])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -2385,7 +2473,7 @@ const PLFObservationDetail = () => {
   // Row add function
 
   // Row delete function
-  const handleRowDeleteLFObservation = (oldData, resolve) => {
+  const handleRowDeletePLibraryObservation = (oldData, resolve) => {
     //validation
 
     let errorList = []
@@ -2401,7 +2489,7 @@ const PLFObservationDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/p-lf-observation/' + oldData.id, {
+        .delete('http://118.179.80.51:8080/api/v1/library-observations/' + oldData.id, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {
@@ -2410,10 +2498,10 @@ const PLFObservationDetail = () => {
           },
         })
         .then((res) => {
-          const dataDelete = [...allLFObservationData]
+          const dataDelete = [...allPLibraryObservation]
           const index = oldData.tableData.id
           dataDelete.splice(index, 1)
-          setAllLFObservationData([...dataDelete])
+          setAllPLibraryObservation([...dataDelete])
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -2965,19 +3053,18 @@ const PLFObservationDetail = () => {
         <CCol xs={12}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>PREVAIL LF Observation</strong>
-              {/* <strong>{allBCOData.length}</strong> */}
+              <strong>PREVAIL Library Observation</strong>
             </CCardHeader>
             <CCardBody>
               <CAccordion alwaysOpen>
                 <CAccordionItem itemKey={1}>
                   <CAccordionHeader>
-                    <strong>LF Observation Status</strong>
+                    <strong>All Library Observation </strong>
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
                       <CCol sm={6}>
-                        <strong>All LF Observation Priority {previousMonthYear}</strong>
+                        <strong>All Library Observation Rating {previousMonthYear}</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -2987,18 +3074,22 @@ const PLFObservationDetail = () => {
                           </CTableHead>
                           <CTableBody>
                             <CTableRow color="success">
-                              <CTableHeaderCell scope="row">Total LF</CTableHeaderCell>
-                              <CTableDataCell>22</CTableDataCell>
+                              <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
+                              <CTableDataCell>363</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">No of LF Observed</CTableHeaderCell>
-                              <CTableDataCell>{allLFObsPreviousMonth}</CTableDataCell>
+                              <CTableHeaderCell scope="row">No of Rated Libarary</CTableHeaderCell>
+                              <CTableDataCell>
+                                {allLibraryObsDevPreviousMonth +
+                                  allLibraryObsFunPreviousMonth +
+                                  allLibraryObsHighFunPreviousMonth}
+                              </CTableDataCell>
                             </CTableRow>
                           </CTableBody>
                         </CTable>
                       </CCol>
                       <CCol sm={6}>
-                        <strong>All LF Observation Status {previousMonthYear}</strong>
+                        <strong>All Library Observation Status {previousMonthYear}</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -3008,20 +3099,24 @@ const PLFObservationDetail = () => {
                           </CTableHead>
                           <CTableBody>
                             <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
-                              <CTableDataCell>2</CTableDataCell>
+                              <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsDevPreviousMonth}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
-                              <CTableDataCell>1</CTableDataCell>
+                              <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsFunPreviousMonth}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="secondary">
-                              <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
-                              <CTableDataCell>1</CTableDataCell>
+                              <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsHighFunPreviousMonth}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total</CTableHeaderCell>
-                              <CTableDataCell>4</CTableDataCell>
+                              <CTableDataCell>
+                                {allLibraryObsDevPreviousMonth +
+                                  allLibraryObsFunPreviousMonth +
+                                  allLibraryObsHighFunPreviousMonth}
+                              </CTableDataCell>
                             </CTableRow>
                           </CTableBody>
                         </CTable>
@@ -3034,13 +3129,13 @@ const PLFObservationDetail = () => {
                 </CAccordionItem>
                 <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
-                    <strong>Monthly Trending LF Observation </strong>
+                    <strong>Monthly Trending Library Observation </strong>
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
                       <CCard className="mb-4">
                         <CCardHeader>
-                          <strong>Library Trending Chart</strong> <small>(2025)</small>
+                          <strong>Library Status Chart</strong> <small>(2024)</small>
                         </CCardHeader>
                         <CCardBody style={{ width: '850px', height: '400px' }}>
                           <CChartLine
@@ -3061,66 +3156,66 @@ const PLFObservationDetail = () => {
                               ],
                               datasets: [
                                 {
-                                  label: 'Priority 1',
-                                  backgroundColor: '#79d6bcff',
-                                  borderColor: '#79d6bcff',
-                                  pointBackgroundColor: '#79d6bcff',
-                                  pointBorderColor: '#79d6bcff',
+                                  label: 'Developing',
+                                  backgroundColor: '#617c83ff',
+                                  borderColor: '#617c83ff',
+                                  pointBackgroundColor: '#617c83ff',
+                                  pointBorderColor: '#fff',
                                   data: [
-                                    allLFObservationDataP1January,
-                                    allLFObservationDataP1February,
-                                    allLFObservationDataP1March,
-                                    allLFObservationDataP1April,
-                                    allLFObservationDataP1May,
-                                    allLFObservationDataP1June,
-                                    allLFObservationDataP1July,
-                                    allLFObservationDataP1August,
-                                    allLFObservationDataP1September,
-                                    allLFObservationDataP1October,
-                                    allLFObservationDataP1November,
-                                    allLFObservationDataP1December,
+                                    allLibraryObsDevJanuary,
+                                    allLibraryObsDevFebruary,
+                                    allLibraryObsDevMarch,
+                                    allLibraryObsDevApril,
+                                    allLibraryObsDevMay,
+                                    allLibraryObsDevJune,
+                                    allLibraryObsDevJuly,
+                                    allLibraryObsDevAugust,
+                                    allLibraryObsDevSeptember,
+                                    allLibraryObsDevOctober,
+                                    allLibraryObsDevNovember,
+                                    allLibraryObsDevDecember,
                                   ],
                                 },
                                 {
-                                  label: 'Priority 2',
-                                  backgroundColor: '#3baa8bff',
-                                  borderColor: '#3baa8bff',
-                                  pointBackgroundColor: '#3baa8bff',
-                                  pointBorderColor: '#3baa8bff',
+                                  label: 'Functioning',
+                                  backgroundColor: '#457785ff',
+                                  borderColor: '#457785ff',
+                                  pointBackgroundColor: '#457785ff',
+                                  pointBorderColor: '#fff',
                                   data: [
-                                    allLFObservationDataP2January,
-                                    allLFObservationDataP2February,
-                                    allLFObservationDataP2March,
-                                    allLFObservationDataP2April,
-                                    allLFObservationDataP2May,
-                                    allLFObservationDataP2June,
-                                    allLFObservationDataP2July,
-                                    allLFObservationDataP2August,
-                                    allLFObservationDataP2September,
-                                    allLFObservationDataP2October,
-                                    allLFObservationDataP2November,
-                                    allLFObservationDataP2December,
+                                    allLibraryObsFunJanuary,
+                                    allLibraryObsFunFebruary,
+                                    allLibraryObsFunMarch,
+                                    allLibraryObsFunApril,
+                                    allLibraryObsFunMay,
+                                    allLibraryObsFunJune,
+                                    allLibraryObsFunJuly,
+                                    allLibraryObsFunAugust,
+                                    allLibraryObsFunSeptember,
+                                    allLibraryObsFunOctober,
+                                    allLibraryObsFunNovember,
+                                    allLibraryObsFunDecember,
                                   ],
                                 },
                                 {
-                                  label: 'Priority 3',
-                                  backgroundColor: '#006B4D',
-                                  borderColor: '#006B4D',
-                                  pointBackgroundColor: '#006B4D',
-                                  pointBorderColor: '#006B4D',
+                                  label: 'Highly Functioning',
+                                  backgroundColor: '#00546B',
+                                  borderColor: '#00546B',
+                                  pointBackgroundColor: '#00546B',
+                                  pointBorderColor: '#fff',
                                   data: [
-                                    allLFObservationDataP3January,
-                                    allLFObservationDataP3February,
-                                    allLFObservationDataP3March,
-                                    allLFObservationDataP3April,
-                                    allLFObservationDataP3May,
-                                    allLFObservationDataP3June,
-                                    allLFObservationDataP3July,
-                                    allLFObservationDataP3August,
-                                    allLFObservationDataP3September,
-                                    allLFObservationDataP3October,
-                                    allLFObservationDataP3November,
-                                    allLFObservationDataP3December,
+                                    allLibraryObsHighFunJanuary,
+                                    allLibraryObsHighFunFebruary,
+                                    allLibraryObsHighFunMarch,
+                                    allLibraryObsHighFunApril,
+                                    allLibraryObsHighFunMay,
+                                    allLibraryObsHighFunJune,
+                                    allLibraryObsHighFunJuly,
+                                    allLibraryObsHighFunAugust,
+                                    allLibraryObsHighFunSeptember,
+                                    allLibraryObsHighFunOctober,
+                                    allLibraryObsHighFunNovember,
+                                    allLibraryObsHighFunDecember,
                                   ],
                                 },
                               ],
@@ -3137,22 +3232,6 @@ const PLFObservationDetail = () => {
                                   display: true,
                                   text: '',
                                 },
-                                datalabels: {
-                                  display: true, // This enables the display of labels for all data points
-                                  color: 'black', // Set the color of the labels
-                                  anchor: 'end', // Position the labels (e.g., 'start', 'center', 'end')
-                                  align: 'top', // Alignment relative to the anchor
-                                  formatter: (value, context) => {
-                                    return value // Display the actual value
-                                  },
-                                },
-                              },
-                              tooltips: {
-                                enabled: true,
-                                visible: true,
-                              },
-                              hover: {
-                                mode: null, // Disable hover interactions if needed
                               },
                               scales: {
                                 y: {
@@ -3174,7 +3253,7 @@ const PLFObservationDetail = () => {
                                 },
                               },
                             }}
-                            style={{ height: '400px', width: '1250px' }} // Inline style for height width
+                            style={{ height: '300px', width: '1250px' }} // Inline style for height width
                           />
                         </CCardBody>
                       </CCard>
@@ -3183,7 +3262,7 @@ const PLFObservationDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>Trending LF Status</strong> <small>(2025)</small>
+                        <strong>Trending Library Status</strong> <small>(2024)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CTable>
@@ -3206,177 +3285,173 @@ const PLFObservationDetail = () => {
                           </CTableHead>
                           <CTableBody>
                             <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
-                              <CTableDataCell>{allLFObservationDataP1January}</CTableDataCell>
+                              <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsDevJanuary}</CTableDataCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1February}
+                                {allLibraryObsDevFebruary}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1March}
+                                {allLibraryObsDevMarch}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1April}
+                                {allLibraryObsDevApril}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allLibraryObsDevMay}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allLibraryObsDevJune}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1May}
+                                {allLibraryObsDevJuly}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1June}
+                                {allLibraryObsDevAugust}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1July}
+                                {allLibraryObsDevSeptember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1August}
+                                {allLibraryObsDevOctober}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1September}
+                                {allLibraryObsDevNovember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1October}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1November}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1December}
+                                {allLibraryObsDevDecember}
                               </CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
-                              <CTableDataCell>{allLFObservationDataP2January}</CTableDataCell>
+                              <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsFunJanuary}</CTableDataCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2February}
+                                {allLibraryObsFunFebruary}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2March}
+                                {allLibraryObsFunMarch}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2April}
+                                {allLibraryObsFunApril}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allLibraryObsFunMay}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allLibraryObsFunJune}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2May}
+                                {allLibraryObsFunJuly}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2June}
+                                {allLibraryObsFunAugust}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2July}
+                                {allLibraryObsFunSeptember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2August}
+                                {allLibraryObsFunOctober}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2September}
+                                {allLibraryObsFunNovember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2October}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2November}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLFObservationDataP2December}
+                                {allLibraryObsFunDecember}
                               </CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="secondary">
-                              <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
-                              <CTableDataCell>{allLFObservationDataP3January}</CTableDataCell>
+                              <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
+                              <CTableDataCell>{allLibraryObsHighFunJanuary}</CTableDataCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3February}
+                                {allLibraryObsHighFunFebruary}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3March}
+                                {allLibraryObsHighFunMarch}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3April}
+                                {allLibraryObsHighFunApril}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3May}
+                                {allLibraryObsHighFunMay}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3June}
+                                {allLibraryObsHighFunJune}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3July}
+                                {allLibraryObsHighFunJuly}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3August}
+                                {allLibraryObsHighFunAugust}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3September}
+                                {allLibraryObsHighFunSeptember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3October}
+                                {allLibraryObsHighFunOctober}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3November}
+                                {allLibraryObsHighFunNovember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP3December}
+                                {allLibraryObsHighFunDecember}
                               </CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total</CTableHeaderCell>
                               <CTableDataCell>
-                                {allLFObservationDataP1January +
-                                  allLFObservationDataP2January +
-                                  allLFObservationDataP3January}
+                                {allLibraryObsDevJanuary +
+                                  allLibraryObsFunJanuary +
+                                  allLibraryObsHighFunJanuary}
                               </CTableDataCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1February +
-                                  allLFObservationDataP2February +
-                                  allLFObservationDataP3February}
+                                {allLibraryObsDevFebruary +
+                                  allLibraryObsFunFebruary +
+                                  allLibraryObsHighFunFebruary}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1March +
-                                  allLFObservationDataP2March +
-                                  allLFObservationDataP3March}
+                                {allLibraryObsDevMarch +
+                                  allLibraryObsFunMarch +
+                                  allLibraryObsHighFunMarch}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1April +
-                                  allLFObservationDataP2April +
-                                  allLFObservationDataP3April}
+                                {allLibraryObsDevApril +
+                                  allLibraryObsFunApril +
+                                  allLibraryObsHighFunApril}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1May +
-                                  allLFObservationDataP2May +
-                                  allLFObservationDataP3May}
+                                {allLibraryObsDevMay +
+                                  allLibraryObsFunMay +
+                                  allLibraryObsHighFunMay}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1June +
-                                  allLFObservationDataP2June +
-                                  allLFObservationDataP3June}
+                                {allLibraryObsDevJune +
+                                  allLibraryObsFunJune +
+                                  allLibraryObsHighFunJune}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1July +
-                                  allLFObservationDataP2July +
-                                  allLFObservationDataP3July}
+                                {allLibraryObsDevJuly +
+                                  allLibraryObsFunJuly +
+                                  allLibraryObsHighFunJuly}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1August +
-                                  allLFObservationDataP2August +
-                                  allLFObservationDataP3August}
+                                {allLibraryObsDevAugust +
+                                  allLibraryObsFunAugust +
+                                  allLibraryObsHighFunAugust}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1September +
-                                  allLFObservationDataP2September +
-                                  allLFObservationDataP3September}
+                                {allLibraryObsDevSeptember +
+                                  allLibraryObsFunSeptember +
+                                  allLibraryObsHighFunSeptember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1October +
-                                  allLFObservationDataP2October +
-                                  allLFObservationDataP3October}
+                                {allLibraryObsDevOctober +
+                                  allLibraryObsFunOctober +
+                                  allLibraryObsHighFunOctober}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1November +
-                                  allLFObservationDataP2November +
-                                  allLFObservationDataP3November}
+                                {allLibraryObsDevNovember +
+                                  allLibraryObsFunNovember +
+                                  allLibraryObsHighFunNovember}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {allLFObservationDataP1December +
-                                  allLFObservationDataP2December +
-                                  allLFObservationDataP3December}
+                                {allLibraryObsDevDecember +
+                                  allLibraryObsFunDecember +
+                                  allLibraryObsHighFunDecember}
                               </CTableHeaderCell>
                             </CTableRow>
                           </CTableBody>
@@ -3394,14 +3469,15 @@ const PLFObservationDetail = () => {
         <CCol xs={12}>
           <CCard style={{ width: '1310px', height: '700px' }}>
             <CCardHeader>
-              <strong>All PREVAIL LF Observation Data </strong>
-              <small>Total LF Observation -{allLFObservationData.length}</small>
+              <strong>All PREVAIL Libarary Observation Data </strong>
+              <small>Total Libarary Observation -{allDILibraryObservation.length}</small>
             </CCardHeader>
             <CCardBody>
               <CCardTitle></CCardTitle>
               <MaterialTable
-                title=""
+                title={allPLibraryObservation.length + ' Library Observation '}
                 columns={[
+                  { title: 'school', field: 'school' },
                   {
                     title: 'date',
                     field: 'date',
@@ -3409,37 +3485,42 @@ const PLFObservationDetail = () => {
                     sorting: 'true',
                   },
                   {
-                    title: 'lfName',
-                    field: 'lfName',
-                    type: 'string',
+                    title: 'libraryStatus',
+                    field: 'libraryStatus',
+                    cellStyle: {
+                      backgroundColor: '#e0d0ca',
+                      color: '#000',
+                    },
+                    headerStyle: {
+                      backgroundColor: '#bcceeb',
+                    },
                   },
-                  {
-                    title: 'lf',
-                    field: 'lf',
-                    type: 'string',
-                  },
-                  { title: 'school', field: 'school' },
 
-                  {
-                    title: 'LF Status',
-                    field: 'lfStatus',
-                  },
-                  { title: 'lpoName', field: 'lpoName', type: 'string' },
-                  { title: 'lpo', field: 'lpo', type: 'string' },
                   { title: 'month', field: 'month', sorting: 'true' },
                   { title: 'year', field: 'year', sorting: 'true' },
-
-                  { title: 'grade', field: 'grade' },
-                  { title: 'section', field: 'section' },
-
                   { title: 'district', field: 'district' },
                   { title: 'upazilla', field: 'upazilla', sorting: 'true' },
 
                   { title: 'project', field: 'project', sorting: 'true' },
                   { title: 'office', field: 'office', sorting: 'true' },
 
+                  { title: 'lpo', field: 'lpo', type: 'string' },
                   { title: 'lpoName', field: 'lpoName', type: 'string' },
-
+                  {
+                    title: 'lf',
+                    field: 'lf',
+                    type: 'string',
+                  },
+                  {
+                    title: 'lfName',
+                    field: 'lfName',
+                    type: 'string',
+                  },
+                  { title: 'visitor', field: 'visitor' },
+                  {
+                    title: 'visitorDesignation',
+                    field: 'visitorDesignation',
+                  },
                   {
                     title: 'lastFollowupIndicator1',
                     field: 'lastFollowupIndicator1',
@@ -3449,237 +3530,264 @@ const PLFObservationDetail = () => {
                     field: 'lastFollowupIndicator2',
                   },
                   {
-                    title: 'ind11IsCarriedAllMaterialStatus',
-                    field: 'ind11IsCarriedAllMaterialStatus',
+                    title: 'lastFollowupIndicator3',
+                    field: 'lastFollowupIndicator3',
                   },
                   {
-                    title: 'ind11IsCarriedAllMaterialNote',
-                    field: 'ind11IsCarriedAllMaterialNote',
+                    title: 'ind1IsTrainedOneTeacher',
+                    field: 'ind1IsTrainedOneTeacher',
                   },
                   {
-                    title: 'ind12IsCheckedInRightTimeStatus',
-                    field: 'ind12IsCheckedInRightTimeStatus',
+                    title: 'ind11IsPointTeacherIncharge',
+                    field: 'ind11IsPointTeacherIncharge',
                   },
                   {
-                    title: 'ind12IsCheckedInRightTimeNote',
-                    field: 'ind12IsCheckedInRightTimeNote',
-                  },
-
-                  {
-                    title: 'ind13IsObservedBanglaLibraryStatus',
-                    field: 'ind13IsObservedBanglaLibraryStatus',
+                    title: 'ind12IsTrainedLibraryManagementReadingHour',
+                    field: 'ind12IsTrainedLibraryManagementReadingHour',
                   },
                   {
-                    title: 'ind13IsObservedBanglaLibraryNote',
-                    field: 'ind13IsObservedBanglaLibraryNote',
-                  },
-                  {
-                    title: 'ind14FeedbackSessionWithTeacherStatus',
-                    field: 'ind14FeedbackSessionWithTeacherStatus',
-                  },
-                  {
-                    title: 'ind14FeedbackSessionWithTeacherNote',
-                    field: 'ind14FeedbackSessionWithTeacherNote',
-                  },
-                  {
-                    title: 'ind15MeetingWithHeadTeacherStatus',
-                    field: 'ind15MeetingWithHeadTeacherStatus',
-                  },
-                  {
-                    title: 'ind15MeetingWithHeadTeacherNote',
-                    field: 'ind15MeetingWithHeadTeacherNote',
-                  },
-                  {
-                    title: 'ind16FilledAllFormProperlyStatus',
-                    field: 'ind16FilledAllFormProperlyStatus',
-                  },
-                  {
-                    title: 'ind16FilledAllFormProperlyNote',
-                    field: 'ind16FilledAllFormProperlyNote',
-                  },
-                  {
-                    title: 'ind17ObservedClassSilentlyStatus',
-                    field: 'ind17ObservedClassSilentlyStatus',
+                    title: 'ind2HeadTeacherTrainedLibraryManagementReadingHour',
+                    field: 'ind2HeadTeacherTrainedLibraryManagementReadingHour',
                   },
 
                   {
-                    title: 'ind17ObservedClassSilentlyNote',
-                    field: 'ind17ObservedClassSilentlyNote',
+                    title: 'ind3ClassroomSuitableLibraryActivity',
+                    field: 'ind3ClassroomSuitableLibraryActivity',
                   },
                   {
-                    title: 'ind21LFTeacherMaintainGoodRelationshipStatus',
-                    field: 'ind21LFTeacherMaintainGoodRelationshipStatus',
+                    title: 'ind31ClassroomDoorWindowOkay',
+                    field: 'ind31ClassroomDoorWindowOkay',
                   },
                   {
-                    title: 'ind21LFTeacherMaintainGoodRelationshipNote',
-                    field: 'ind21LFTeacherMaintainGoodRelationshipNote',
+                    title: 'ind32ClassroomDoorWindowLock',
+                    field: 'ind32ClassroomDoorWindowLock',
                   },
                   {
-                    title: 'ind22LFDiscussGoodPracticeIndicatorStatus',
-                    field: 'ind22LFDiscussGoodPracticeIndicatorStatus',
+                    title: 'ind33ClassroomSafeFromRainWater',
+                    field: 'ind33ClassroomSafeFromRainWater',
                   },
                   {
-                    title: 'ind22LFDiscussGoodPracticeIndicatorNote',
-                    field: 'ind22LFDiscussGoodPracticeIndicatorNote',
+                    title: 'ind34ClassroomSafeClean',
+                    field: 'ind34ClassroomSafeClean',
                   },
                   {
-                    title: 'ind23LFDiscussCoachingSupportIndicatorStatus',
-                    field: 'ind23LFDiscussCoachingSupportIndicatorStatus',
+                    title: 'ind4LibraryFurnitureOkay',
+                    field: 'ind4LibraryFurnitureOkay',
                   },
                   {
-                    title: 'ind23LFDiscussCoachingSupportIndicatorNote',
-                    field: 'ind23LFDiscussCoachingSupportIndicatorNote',
+                    title: 'ind41BookshelfUsable',
+                    field: 'ind41BookshelfUsable',
                   },
                   {
-                    title: 'ind24LFDiscussLastFollowupIndicatorStatus',
-                    field: 'ind24LFDiscussLastFollowupIndicatorStatus',
+                    title: 'ind42BookshelfProtectedSunRain',
+                    field: 'ind42BookshelfProtectedSunRain',
                   },
                   {
-                    title: 'ind24LFDiscussLastFollowupIndicatorNote',
-                    field: 'ind24LFDiscussLastFollowupIndicatorNote',
-                  },
-                  {
-                    title: 'ind25LFInstructIdealLessonStatus',
-                    field: 'ind25LFInstructIdealLessonStatus',
-                  },
-                  {
-                    title: 'ind25LFInstructIdealLessonNote',
-                    field: 'ind25LFInstructIdealLessonNote',
-                  },
-                  {
-                    title: 'ind26LFObserveStudentOrGroupStatus',
-                    field: 'ind26LFObserveStudentOrGroupStatus',
-                  },
-                  {
-                    title: 'ind26LFObserveStudentOrGroupNote',
-                    field: 'ind26LFObserveStudentOrGroupNote',
-                  },
-                  {
-                    title: 'ind27LFVerifyWorkbookStatus',
-                    field: 'ind27LFVerifyWorkbookStatus',
-                  },
-                  {
-                    title: 'ind27LFVerifyWorkbookNote',
-                    field: 'ind27LFVerifyWorkbookNote',
+                    title: 'ind43BookshelfPortableSafeForStudent',
+                    field: 'ind43BookshelfPortableSafeForStudent',
                   },
 
                   {
-                    title: 'ind28LFTrack3StudentStatus',
-                    field: 'ind28LFTrack3StudentStatus',
+                    title: 'ind44BookshelfReadingSpace',
+                    field: 'ind44BookshelfReadingSpace',
                   },
                   {
-                    title: 'ind28LFTrack3StudentNote',
-                    field: 'ind28LFTrack3StudentNote',
+                    title: 'ind45BookshelfFurnitureGoodCondition',
+                    field: 'ind45BookshelfFurnitureGoodCondition',
                   },
                   {
-                    title: 'ind29LFTeacherAgreedNextPlanStatus',
-                    field: 'ind29LFTeacherAgreedNextPlanStatus',
+                    title: 'ind5BookRegisterUpdated',
+                    field: 'ind5BookRegisterUpdated',
                   },
                   {
-                    title: 'ind29LFTeacherAgreedNextPlanNote',
-                    field: 'ind29LFTeacherAgreedNextPlanNote',
+                    title: 'ind6BookshelfOrganized',
+                    field: 'ind6BookshelfOrganized',
                   },
                   {
-                    title: 'ind31LFIdentifyGoodImprovablePointStatus',
-                    field: 'ind31LFIdentifyGoodImprovablePointStatus',
+                    title: 'ind61BookshelfBookOrganizedByGrade',
+                    field: 'ind61BookshelfBookOrganizedByGrade',
                   },
                   {
-                    title: 'ind31LFIdentifyGoodImprovablePointNote',
-                    field: 'ind31LFIdentifyGoodImprovablePointNote',
+                    title: 'ind62BookshelfRtRBookLabelViewable',
+                    field: 'ind62BookshelfRtRBookLabelViewable',
                   },
                   {
-                    title: 'ind32LFInstructDevelopmentPlanStatus',
-                    field: 'ind32LFInstructDevelopmentPlanStatus',
+                    title: 'ind63BookshelfNonRtRBookLabelViewable',
+                    field: 'ind63BookshelfNonRtRBookLabelViewable',
                   },
                   {
-                    title: 'ind32LFInstructDevelopmentPlanNote',
-                    field: 'ind32LFInstructDevelopmentPlanNote',
+                    title: 'ind64BookOrganizedByLabel',
+                    field: 'ind64BookOrganizedByLabel',
                   },
                   {
-                    title: 'ind33LFDiscussAboutDevelopmentPlanStatus',
-                    field: 'ind33LFDiscussAboutDevelopmentPlanStatus',
+                    title: 'ind65BookAccessible',
+                    field: 'ind65BookAccessible',
                   },
                   {
-                    title: 'ind33LFDiscussAboutDevelopmentPlanNote',
-                    field: 'ind33LFDiscussAboutDevelopmentPlanNote',
+                    title: 'ind66BookCoverViewable',
+                    field: 'ind66BookCoverViewable',
                   },
                   {
-                    title: 'ind34LFAllowToChangeTeachingPatternStatus',
-                    field: 'ind34LFAllowToChangeTeachingPatternStatus',
+                    title: 'ind7PrintRichItemDisplayed',
+                    field: 'ind7PrintRichItemDisplayed',
                   },
                   {
-                    title: 'ind34LFAllowToChangeTeachingPatternNote',
-                    field: 'ind34LFAllowToChangeTeachingPatternNote',
+                    title: 'ind71ChartPosterDisplayed',
+                    field: 'ind71ChartPosterDisplayed',
                   },
                   {
-                    title: 'ind35LFAllowTeacherForDiscussionStatus',
-                    field: 'ind35LFAllowTeacherForDiscussionStatus',
+                    title: 'ind72ChartPosterCompatible',
+                    field: 'ind72ChartPosterCompatible',
                   },
                   {
-                    title: 'ind35LFAllowTeacherForDiscussionNote',
-                    field: 'ind35LFAllowTeacherForDiscussionNote',
+                    title: 'ind8BookCheckoutFunctional',
+                    field: 'ind8BookCheckoutFunctional',
+                  },
+                  {
+                    title: 'ind81BookCheckoutProcedureDisplayed',
+                    field: 'ind81BookCheckoutProcedureDisplayed',
+                  },
+                  {
+                    title: 'ind82BookCheckoutRegisterUsable',
+                    field: 'ind82BookCheckoutRegisterUsable',
+                  },
+                  {
+                    title: 'ind83BookCheckoutRegisterUpdated',
+                    field: 'ind83BookCheckoutRegisterUpdated',
+                  },
+                  {
+                    title: 'ind84BookCheckoutPendingBookList',
+                    field: 'ind84BookCheckoutPendingBookList',
+                  },
+                  {
+                    title: 'ind85BookCheckoutDataCollection',
+                    field: 'ind85BookCheckoutDataCollection',
+                  },
+                  {
+                    title: 'ind86BookCheckoutByLeast5Student',
+                    field: 'ind86BookCheckoutByLeast5Student',
+                  },
+                  {
+                    title: 'ind9ReadingHourActivityFunctional',
+                    field: 'ind9ReadingHourActivityFunctional',
+                  },
+                  {
+                    title: 'ind91ReadingHourActivityWeekly',
+                    field: 'ind91ReadingHourActivityWeekly',
+                  },
+                  {
+                    title: 'ind92ReadingHourActivityRoutineHanged',
+                    field: 'ind92ReadingHourActivityRoutineHanged',
+                  },
+                  {
+                    title: 'ind93BookCheckoutOpportunity',
+                    field: 'ind93BookCheckoutOpportunity',
+                  },
+                  {
+                    title: 'ind94BookCheckoutNoticeHanged',
+                    field: 'ind94BookCheckoutNoticeHanged',
+                  },
+                  {
+                    title: 'ind10TeacherPerformReadingHourActivity',
+                    field: 'ind10TeacherPerformReadingHourActivity',
+                  },
+                  {
+                    title: 'ind101ReadingHourRegisterUpdated',
+                    field: 'ind101ReadingHourRegisterUpdated',
+                  },
+                  {
+                    title: 'ind102ReadingActivityListedRegister',
+                    field: 'ind102ReadingActivityListedRegister',
+                  },
+                  {
+                    title: 'ind11TrainedLibraryObservationReadingHour',
+                    field: 'ind11TrainedLibraryObservationReadingHour',
+                  },
+                  {
+                    title: 'ind12SchoolCommitteeDecisionAboutLibrary',
+                    field: 'ind12SchoolCommitteeDecisionAboutLibrary',
+                  },
+                  {
+                    title: 'ind121SchoolHasCommitteeAboutLibrary',
+                    field: 'ind121SchoolHasCommitteeAboutLibrary',
+                  },
+                  {
+                    title: 'ind122SchoolCommitteeMeetingAboutLibrary',
+                    field: 'ind122SchoolCommitteeMeetingAboutLibrary',
+                  },
+                  {
+                    title: 'ind13ParentMeetingAboutLibrary',
+                    field: 'ind13ParentMeetingAboutLibrary',
+                  },
+                  {
+                    title: 'ind14ReadPlayFestival',
+                    field: 'ind14ReadPlayFestival',
+                  },
+                  {
+                    title: 'ind141SchoolArrangeReadFestival',
+                    field: 'ind141SchoolArrangeReadFestival',
+                  },
+                  {
+                    title: 'ind142ParentPublicEngageReadFestival',
+                    field: 'ind142ParentPublicEngageReadFestival',
+                  },
+                  {
+                    title: 'ind15SustainabilityPlanByCommittee',
+                    field: 'ind15SustainabilityPlanByCommittee',
+                  },
+                  {
+                    title: 'ind151ParentPublicHeadTeacherCombinedPlan',
+                    field: 'ind151ParentPublicHeadTeacherCombinedPlan',
+                  },
+                  {
+                    title: 'ind152ParentPublicResponsibility',
+                    field: 'ind152ParentPublicResponsibility',
                   },
                   {
                     title: 'bestPracticeIndicator1',
                     field: 'bestPracticeIndicator1',
                   },
                   {
-                    title: 'bestPracticeIndicator1Details',
-                    field: 'bestPracticeIndicator1Details',
-                  },
-                  {
                     title: 'bestPracticeIndicator2',
                     field: 'bestPracticeIndicator2',
-                  },
-                  {
-                    title: 'bestPracticeIndicator2Details',
-                    field: 'bestPracticeIndicator2Details',
                   },
                   {
                     title: 'bestPracticeIndicator3',
                     field: 'bestPracticeIndicator3',
                   },
                   {
-                    title: 'bestPracticeIndicator3Details',
-                    field: 'bestPracticeIndicator3Details',
-                  },
-                  {
                     title: 'coachingSupportIndicator1',
                     field: 'coachingSupportIndicator1',
-                  },
-                  {
-                    title: 'coachingSupportIndicator1Details',
-                    field: 'coachingSupportIndicator1Details',
                   },
                   {
                     title: 'coachingSupportIndicator2',
                     field: 'coachingSupportIndicator2',
                   },
                   {
-                    title: 'coachingSupportIndicator2Details',
-                    field: 'coachingSupportIndicator2Details',
+                    title: 'coachingSupportIndicator3',
+                    field: 'coachingSupportIndicator3',
                   },
                   {
-                    title: 'agreedStatement1',
-                    field: 'agreedStatement1',
+                    title: 'agreedSuggestion',
+                    field: 'agreedSuggestion',
                   },
                   {
-                    title: 'agreedStatement2',
-                    field: 'agreedStatement2',
+                    title: 'agreedStatement',
+                    field: 'agreedStatement',
                   },
                 ]}
                 editable={{
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
-                      handleRowUpdateAllLFObservation(newData, oldData, resolve)
+                      handleRowUpdatePLibraryObservation(newData, oldData, resolve)
                     }),
                   onRowAdd: (newData) =>
                     new Promise((resolve) => {
-                      handleRowAddLFObservation(newData, resolve)
+                      handleRowAddPLibraryObservation(newData, resolve)
                     }),
                   onRowDelete: (oldData) =>
                     new Promise((resolve) => {
-                      handleRowDeleteLFObservation(oldData, resolve)
+                      handleRowDeletePLibraryObservation(oldData, resolve)
                     }),
                 }}
                 options={{
@@ -3727,8 +3835,7 @@ const PLFObservationDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '300px', width: '1300px' }}
-                data={allLFObservationData}
+                data={allPLibraryObservation}
               />
             </CCardBody>
           </CCard>
@@ -3738,4 +3845,4 @@ const PLFObservationDetail = () => {
   )
 }
 
-export default PLFObservationDetail
+export default PLibraryObservation
