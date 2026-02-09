@@ -2439,7 +2439,7 @@ const PLibraryObservation = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-library-observations/', newData, {
+        .post('http://118.179.80.51:8080/api/v1/p-library-observation/', newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -2489,7 +2489,7 @@ const PLibraryObservation = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/library-observations/' + oldData.id, {
+        .delete('http://118.179.80.51:8080/api/v1/p-library-observation/' + oldData.id, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {

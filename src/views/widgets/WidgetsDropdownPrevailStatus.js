@@ -105,10 +105,10 @@ const WidgetsDropdownPrevailStatus = () => {
       await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
       await getAllSchool(console.log('get all school called'))
       await getAllTeacher(console.log('get all teacher called'))
-      await getAllEmployee(console.log('get all employee called'))
-      await getAllBookCaptain(console.log('get all BookCaptain called'))
-      await getAllLibrary()
-      await getAllStudent()
+      // await getAllEmployee(console.log('get all employee called'))
+      // await getAllBookCaptain(console.log('get all BookCaptain called'))
+      // await getAllLibrary()
+      // await getAllStudent()
       await getAllLibraryObs()
       await getAllBanglaObs()
       await getAllSchoolMonitoring()
@@ -119,40 +119,40 @@ const WidgetsDropdownPrevailStatus = () => {
   // Using useEffect to call the API once mounted and set the data
 
   // Filter Teacher data
-  const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
-  const instructG1Trained = allTeacherData.filter((item) => item.instructionG1 === 'Yes')
-  const instructG2Trained = allTeacherData.filter((item) => item.instructionG2 === 'Yes')
-  const srmPrimaryTrained = allTeacherData.filter((item) => item.instructionPreprimary === 'Yes')
-  const libraryTrained = allTeacherData.filter((item) => item.libraryManagementSRM === 'Yes')
-  const goodGovornanceTrained = allTeacherData.filter(
-    (item) => item.goodGovernanceHeadteacher === 'Yes',
-  )
-  const schoolPerformanceTrained = allTeacherData.filter(
-    (item) => item.school_performance_headteacher === 'Yes',
-  )
+  // const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
+  // const instructG1Trained = allTeacherData.filter((item) => item.instructionG1 === 'Yes')
+  // const instructG2Trained = allTeacherData.filter((item) => item.instructionG2 === 'Yes')
+  // const srmPrimaryTrained = allTeacherData.filter((item) => item.instructionPreprimary === 'Yes')
+  // const libraryTrained = allTeacherData.filter((item) => item.libraryManagementSRM === 'Yes')
+  // const goodGovornanceTrained = allTeacherData.filter(
+  //   (item) => item.goodGovernanceHeadteacher === 'Yes',
+  // )
+  // const schoolPerformanceTrained = allTeacherData.filter(
+  //   (item) => item.school_performance_headteacher === 'Yes',
+  // )
 
-  const allTrainedTeacher =
-    instructG1Trained.length +
-    instructG2Trained.length +
-    headTeacherTrained.length +
-    libraryTrained.length +
-    goodGovornanceTrained.length +
-    schoolPerformanceTrained.length
+  // const allTrainedTeacher =
+  //   instructG1Trained.length +
+  //   instructG2Trained.length +
+  //   headTeacherTrained.length +
+  //   libraryTrained.length +
+  //   goodGovornanceTrained.length +
+  //   schoolPerformanceTrained.length
 
   //Filter Teacher data
 
   // Teacher number by filter
   const allTeacherG1 = allTeacherData.filter((item) => {
-    return item.grade.includes('G1')
+    return item.gradeG1 === 1
   }).length
   const allTeacherG2 = allTeacherData.filter((item) => {
-    return item.grade.includes('G2')
+    return item.gradeG2 === 1
   }).length
   // Teacher number by filter
 
   // Library Observation Data by filter
   const allLibraryObsDataPreviousMonth = allLibraryObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2024'
+    return item.month === currentMonth && item.year === '2026'
   }).length
 
   const allLibraryObsDevPreviousMonth = allLibraryObsData.filter((item) => {
@@ -182,14 +182,14 @@ const WidgetsDropdownPrevailStatus = () => {
   // Number
   // Current Month
   const allG1TeacherCurrentMonth = allBanglaObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.grade === 'G1'
+    return item.month === currentMonth && item.year === '2026' && item.grade === 'G1'
   }).length
 
   // Priority 0
   const allG1TeacherP0CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -205,7 +205,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP1CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -221,7 +221,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP2CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -237,7 +237,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP3CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -252,14 +252,14 @@ const WidgetsDropdownPrevailStatus = () => {
 
   // Previous Month
   const allG1TeacherPreviousMonth = allBanglaObsData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.grade === 'G1'
+    return item.month === previousMonth && item.year === '2026' && item.grade === 'G1'
   }).length
 
   // Priority 0
   const allG1TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -275,7 +275,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -291,7 +291,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -307,7 +307,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG1TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -386,14 +386,14 @@ const WidgetsDropdownPrevailStatus = () => {
   // Number
   // Current Month
   const allG2TeacherCurrentMonth = allBanglaObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.grade === 'G2'
+    return item.month === currentMonth && item.year === '2026' && item.grade === 'G2'
   }).length
 
   // Priority 0
   const allG2TeacherP0CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -409,7 +409,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP1CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -425,7 +425,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP2CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -441,7 +441,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP3CurrentMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === currentMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -457,7 +457,7 @@ const WidgetsDropdownPrevailStatus = () => {
 
   // Previous Month
   const allG2TeacherPreviousMonth = allBanglaObsData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.grade === 'G2'
+    return item.month === previousMonth && item.year === '2026' && item.grade === 'G2'
   }).length
   // .filter(
   //   (value, index, self) =>
@@ -468,7 +468,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -484,7 +484,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -500,7 +500,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -516,7 +516,7 @@ const WidgetsDropdownPrevailStatus = () => {
   const allG2TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -599,37 +599,37 @@ const WidgetsDropdownPrevailStatus = () => {
   // Number
   // Current Month
   const allLFObsCurrentMonth = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025'
+    return item.month === currentMonth && item.year === '2026'
   }).length
 
   const allLFObsCurrentMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsCurrentMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsCurrentMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Current Month
 
   // Previous Month
   const allLFObsPreviousMonth = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025'
+    return item.month === previousMonth && item.year === '2026'
   }).length
 
   const allLFObsPreviousMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsPreviousMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsPreviousMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Previous Month
   // Number

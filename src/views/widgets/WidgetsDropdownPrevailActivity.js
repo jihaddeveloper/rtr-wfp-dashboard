@@ -103,10 +103,10 @@ const WidgetsDropdownPrevailActivity = () => {
       await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
       await getAllSchool(console.log('get all school called'))
       await getAllTeacher(console.log('get all teacher called'))
-      await getAllEmployee(console.log('get all employee called'))
-      await getAllBookCaptain(console.log('get all BookCaptain called'))
-      await getAllLibrary()
-      await getAllStudent()
+      // await getAllEmployee(console.log('get all employee called'))
+      // await getAllBookCaptain(console.log('get all BookCaptain called'))
+      // await getAllLibrary()
+      // await getAllStudent()
       await getAllLibraryObs()
       await getAllBanglaObs()
       await getAllLFObservation()
@@ -130,10 +130,10 @@ const WidgetsDropdownPrevailActivity = () => {
 
   // Teacher number by filter
   const allTeacherG1 = allTeacherData.filter((item) => {
-    return item.grade.includes('G1')
+    return item.gradeG1 === 1
   }).length
   const allTeacherG2 = allTeacherData.filter((item) => {
-    return item.grade.includes('G2')
+    return item.gradeG2 === 2
   }).length
   // Teacher number by filter
 
