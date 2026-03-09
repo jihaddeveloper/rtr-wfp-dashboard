@@ -151,29 +151,49 @@ const WidgetsDropdownPrevailStatus = () => {
   // Teacher number by filter
 
   // Library Observation Data by filter
+  // Number
   const allLibraryObsDataPreviousMonth = allLibraryObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2026'
+    return item.month === previousMonth && item.year === '2026'
   }).length
 
   const allLibraryObsDevPreviousMonth = allLibraryObsData.filter((item) => {
     return (
-      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Developing'
+      item.month === previousMonth && item.year === '2026' && item.libraryStatus === 'Developing'
     )
   }).length
 
   const allLibraryObsFunPreviousMonth = allLibraryObsData.filter((item) => {
     return (
-      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Functioning'
+      item.month === previousMonth && item.year === '2026' && item.libraryStatus === 'Functioning'
     )
   }).length
 
   const allLibraryObsHighFunPreviousMonth = allLibraryObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2024' &&
+      item.year === '2026' &&
       item.libraryStatus === 'Highly Functioning'
     )
   }).length
+  // Number
+
+  // Percent
+  const allLibraryObsDevPreviousMonthPercent = calculatePercentage(
+    allLibraryObsDevPreviousMonth,
+    allLibraryObsDataPreviousMonth,
+  )
+
+  const allLibraryObsFunPreviousMonthPercent = calculatePercentage(
+    allLibraryObsFunPreviousMonth,
+    allLibraryObsDataPreviousMonth,
+  )
+
+  const allLibraryObsHighFunPreviousMonthPercent = calculatePercentage(
+    allLibraryObsHighFunPreviousMonth,
+    allLibraryObsDataPreviousMonth,
+  )
+  // Percent
+
   // Library Observation Data by filter
 
   // Bangla Observation Data by filter
@@ -826,7 +846,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All LibraryObs Data
   const getAllLibraryObs = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-library-observation', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-library-observation', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -921,7 +941,7 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <strong>G1 Teacher Status</strong> <small>({previousMonthYear}) Percent</small>
+                  <strong>G1 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/bangla/p-bangla-detail">
@@ -973,7 +993,7 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <strong>G2 Teacher Status</strong> <small>({previousMonthYear}) Percent</small>
+                  <strong>G2 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/bangla/p-bangla-detail">
@@ -1025,7 +1045,7 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <strong>LF Priority Status</strong> <small>({previousMonthYear}) Percent</small>
+                  <strong>LF Priority Status(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/prevail/p-lf-observation-detail">
@@ -1071,18 +1091,21 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <strong>Library Rating Status</strong>{' '}
-                  <small>({previousMonthYear}) Percent</small>
+                  <strong>Library Rating Status(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/prevail/p-library-observation">
-                    <CChartDoughnut
+                    <CChartPie
                       data={{
                         datasets: [
                           {
                             backgroundColor: ['#617c83ff', '#457785ff', '#00546B'],
                             hoverBackgroundColor: ['#cae09aff', '#8eac4fff', '#658f0aff'],
-                            data: [0, 0, 0],
+                            data: [
+                              allLibraryObsDevPreviousMonthPercent,
+                              allLibraryObsFunPreviousMonthPercent,
+                              allLibraryObsHighFunPreviousMonthPercent,
+                            ],
                           },
                         ],
                         labels: ['Developing', 'Functioning', 'Highly Functioning'],
@@ -1107,7 +1130,7 @@ const WidgetsDropdownPrevailStatus = () => {
                   </CLink>
                 </CCardBody>
                 <CCardHeader>
-                  <small>Total Library Observation {0}</small>
+                  <small>Total Library Observation {allLibraryObsDataPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
