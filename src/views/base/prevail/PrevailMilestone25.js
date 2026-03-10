@@ -166,7 +166,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'September' && item.lfStatus && item.year === '2025'
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone1October = (
     ((allLFObservationData.filter((item) => {
@@ -179,7 +179,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'October' && item.lfStatus && item.year === '2025'
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone1November = (
     ((allLFObservationData.filter((item) => {
@@ -192,7 +192,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'November' && item.lfStatus && item.year === '2025'
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone1December = (
     ((allLFObservationData.filter((item) => {
@@ -205,7 +205,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'December' && item.lfStatus && item.year === '2025'
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
   // Milestone1 monthly
 
   // Milestone2 monthly
@@ -222,7 +222,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'September' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone2October = (
     (allBanglaObsData.filter((item) => {
@@ -237,7 +237,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'October' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone2November = (
     (allBanglaObsData.filter((item) => {
@@ -252,7 +252,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'November' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone2December = (
     (allBanglaObsData.filter((item) => {
@@ -267,7 +267,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'December' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
   // Milestone2 monthly
 
   // Milestone3 monthly
@@ -284,7 +284,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'September' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone3October = (
     (allBanglaObsData.filter((item) => {
@@ -299,7 +299,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'October' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone3November = (
     (allBanglaObsData.filter((item) => {
@@ -314,7 +314,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'November' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone3December = (
     (allBanglaObsData.filter((item) => {
@@ -329,7 +329,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'December' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
   // Milestone3 monthly
 
   // Milestone4 monthly
@@ -346,7 +346,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'September' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone4October = (
     (allBanglaObsData.filter((item) => {
@@ -361,7 +361,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'October' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone4November = (
     (allBanglaObsData.filter((item) => {
@@ -376,7 +376,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'November' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone4December = (
     (allBanglaObsData.filter((item) => {
@@ -391,7 +391,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'December' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
   // Milestone4 monthly
 
   // Milestone5 monthly
@@ -405,7 +405,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'September' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone5October = (
     (allBanglaObsData.filter((item) => {
@@ -415,7 +415,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'October' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone5November = (
     (allBanglaObsData.filter((item) => {
@@ -425,7 +425,7 @@ const PrevailMilestone25 = () => {
         return item.month === 'November' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
 
   const milestone5December = (
     (allBanglaObsData.filter((item) => {
@@ -435,8 +435,465 @@ const PrevailMilestone25 = () => {
         return item.month === 'December' && item.year === '2025' && item.teacherStatus
       }).length) *
     100
-  ).toFixed(2)
+  ).toFixed(0)
   // Milestone5 monthly
+
+  // Custom report All indicator
+  // October
+  const ind1aOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1bOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1cOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1dOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind14ImplementedAllTaskInTimeStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1eOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind15InstructedToUseWorkbookStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1fOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind16IndependentReadingOpportunityStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2aOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind21CorrectlyPronouncedStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2bOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind22TaughtCorrectlyAllowPracticeStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2cOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind23DemonstratesFluentReadingStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2dOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind24AllowReadIndividuallyPairGroupsStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2eOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind25FollowsInstructionsInWritingStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3aOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind31AskedHelpfulQuestionsStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3bOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind32TaughtVocabularyNewSentenceStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3cOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind33CheckWritingSpellingPunctuationStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3dOctober = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2025' &&
+        item.ind34CheckedWeDoYouDoStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+  // October
+
+  // November
+  const ind1aNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1bNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1cNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1dNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind14ImplementedAllTaskInTimeStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1eNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind15InstructedToUseWorkbookStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind1fNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind16IndependentReadingOpportunityStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2aNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind21CorrectlyPronouncedStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2bNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind22TaughtCorrectlyAllowPracticeStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2cNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind23DemonstratesFluentReadingStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2dNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind24AllowReadIndividuallyPairGroupsStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind2eNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind25FollowsInstructionsInWritingStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3aNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind31AskedHelpfulQuestionsStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3bNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind32TaughtVocabularyNewSentenceStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3cNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind33CheckWritingSpellingPunctuationStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const ind3dNovember = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'November' &&
+        item.year === '2025' &&
+        item.ind34CheckedWeDoYouDoStatus === 'Yes' &&
+        item.teacherStatus
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'November' && item.year === '2025' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+  // November
+  // Custom report All indicator
+
   // Bangla Observation Data by filter
   // All Percent Value
 
@@ -636,153 +1093,6 @@ const PrevailMilestone25 = () => {
                   <CAccordionHeader>
                     <strong>Milestone 2025</strong>
                   </CAccordionHeader>
-                  {/* <CAccordionBody>
-                    <CCard className="mb-4">
-                      <CCardHeader>
-                        <strong>G1 Teacher Priority Chart</strong> <small>(2025)</small>
-                      </CCardHeader>
-                      <CCardBody>
-                        <CChartLine
-                          data={{
-                            labels: [
-                              'January',
-                              'February',
-                              'March',
-                              'April',
-                              'May',
-                              'June',
-                              'July',
-                              'August',
-                              'September',
-                              'October',
-                              'November',
-                              'December',
-                            ],
-                            datasets: [
-                              {
-                                label: 'Priority 0',
-                                backgroundColor: '#addcecff',
-                                borderColor: '#addcecff',
-                                pointBackgroundColor: '#addcecff',
-                                pointBorderColor: '#addcecff',
-                                data: [
-                                  allG1TeacherP0January,
-                                  allG1TeacherP0February,
-                                  allG1TeacherP0March,
-                                  allG1TeacherP0April,
-                                  allG1TeacherP0May,
-                                  allG1TeacherP0June,
-                                  allG1TeacherP0July,
-                                  allG1TeacherP0August,
-                                  allG1TeacherP0September,
-                                  allG1TeacherP0October,
-                                  allG1TeacherP0November,
-                                  allG1TeacherP0December,
-                                ],
-                              },
-                              {
-                                label: 'Priority 1',
-                                backgroundColor: '#8ddaf3ff',
-                                borderColor: '#8ddaf3ff',
-                                pointBackgroundColor: '#8ddaf3ff',
-                                pointBorderColor: '#8ddaf3ff',
-                                data: [
-                                  allG1TeacherP1January,
-                                  allG1TeacherP1February,
-                                  allG1TeacherP1March,
-                                  allG1TeacherP1April,
-                                  allG1TeacherP1May,
-                                  allG1TeacherP1June,
-                                  allG1TeacherP1July,
-                                  allG1TeacherP1August,
-                                  allG1TeacherP1September,
-                                  allG1TeacherP1October,
-                                  allG1TeacherP1November,
-                                  allG1TeacherP1December,
-                                ],
-                              },
-                              {
-                                label: 'Priority 2',
-                                backgroundColor: '#35a8ceff',
-                                borderColor: '#35a8ceff',
-                                pointBackgroundColor: '#35a8ceff',
-                                pointBorderColor: '#35a8ceff',
-                                data: [
-                                  allG1TeacherP2January,
-                                  allG1TeacherP2February,
-                                  allG1TeacherP2March,
-                                  allG1TeacherP2April,
-                                  allG1TeacherP2May,
-                                  allG1TeacherP2June,
-                                  allG1TeacherP2July,
-                                  allG1TeacherP2August,
-                                  allG1TeacherP2September,
-                                  allG1TeacherP2October,
-                                  allG1TeacherP2November,
-                                  allG1TeacherP2December,
-                                ],
-                              },
-                              {
-                                label: 'Priority 3',
-                                backgroundColor: '#007AA4',
-                                borderColor: '#007AA4',
-                                pointBackgroundColor: '#007AA4',
-                                pointBorderColor: '#007AA4',
-                                data: [
-                                  allG1TeacherP3January,
-                                  allG1TeacherP3February,
-                                  allG1TeacherP3March,
-                                  allG1TeacherP3April,
-                                  allG1TeacherP3May,
-                                  allG1TeacherP3June,
-                                  allG1TeacherP3July,
-                                  allG1TeacherP3August,
-                                  allG1TeacherP3September,
-                                  allG1TeacherP3October,
-                                  allG1TeacherP3November,
-                                  allG1TeacherP3December,
-                                ],
-                              },
-                            ],
-                          }}
-                          options={{
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                              legend: {
-                                display: true,
-                                position: 'bottom',
-                              },
-                              title: {
-                                display: true,
-                                text: '',
-                              },
-                            },
-                            scales: {
-                              y: {
-                                beginAtZero: true,
-                                ticks: {
-                                  color: '#333', // Custom tick color
-                                },
-                                grid: {
-                                  display: true, // Hide y-axis grid lines
-                                },
-                              },
-                              x: {
-                                grid: {
-                                  display: true, // Hide x-axis grid lines
-                                },
-                                ticks: {
-                                  color: '#333',
-                                },
-                              },
-                            },
-                          }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
-                        />
-                      </CCardBody>
-                    </CCard>
-                  </CAccordionBody> */}
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
@@ -822,18 +1132,14 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationSeptember}
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
                                 {totalClassObservationOctober}
                               </CTableHeaderCell>
                               <CTableHeaderCell scope="col">
                                 {totalClassObservationNovember}
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationDecember}
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="danger">
                               <CTableHeaderCell scope="row">
@@ -849,12 +1155,10 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone1September}%
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone1October}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone1November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1December}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
@@ -870,12 +1174,10 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone2September}%
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone2October}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone2November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2December}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="danger">
                               <CTableHeaderCell scope="row">
@@ -892,12 +1194,10 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone3September}%
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone3October}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone3November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3December}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="secondary">
                               <CTableHeaderCell scope="row">
@@ -913,12 +1213,10 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone4September}%
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone4October}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone4November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4December}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">
@@ -935,12 +1233,10 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone5September}%
-                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone5October}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">{milestone5November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5December}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                           </CTableBody>
                         </CTable>
@@ -948,7 +1244,351 @@ const PrevailMilestone25 = () => {
                     </CCard>
                   </CAccordionBody>
                 </CAccordionItem>
+
                 <CAccordionItem itemKey={2}>
+                  <CAccordionHeader>
+                    <strong>Custom Report 2025(All Indicator Perfromance)</strong>
+                  </CAccordionHeader>
+                  <CAccordionBody>
+                    <CCard className="mb-4">
+                      <CCardHeader>
+                        <strong></strong> <small></small>
+                      </CCardHeader>
+                      <CCardBody>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Leading Indicator</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">Target</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="warning">
+                              <CTableHeaderCell scope="row">
+                                Number of classrooms observed
+                              </CTableHeaderCell>
+                              <CTableDataCell>?#</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {totalClassObservationOctober}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {totalClassObservationNovember}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">
+                                1a. The teacher conducted the class activities following the
+                                guidelines for use of the workbook and observed as necessary.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1aOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1aNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">
+                                1b. Teachers follow the I do-we do-you do method in the classroom.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1bOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1bNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">
+                                1c. The past observation form of students workbook work, books,
+                                notebooks and LF showed that the teacher followed the lesson
+                                consistently after the last visit.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1cOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1cNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">
+                                1d. The teacher has consistently implemented all the tasks of the
+                                lesson within the stipulated time.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1dOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1dNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">
+                                1e. Teachers guide students to work in the workbook.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1eOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1eNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">
+                                1f. The teacher gave students the opportunity to read independently
+                                during the class.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1fOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind1fNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">
+                                2a. The teacher has correctly pronounced the sounds of all the
+                                letters and words used in the phonics activity.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2aOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2aNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">
+                                2b. The teacher taught correct letter/hybrid reading or
+                                letter/hyphen and syllable reading and gave the students an
+                                opportunity to practice.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2bOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2bNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">
+                                2c. The teacher demonstrates fluent reading (reading with correct
+                                pace, correct pronunciation and expression) to the students.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2cOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2cNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">
+                                2d. The teacher gave students the opportunity to read several times
+                                individually or in pairs or groups.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2dOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2dNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">
+                                2e. The teacher has done the work of writing
+                                letters/hyphens/words/sentences as per instructions.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2eOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind2eNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">
+                                3a. For correct answers, the teacher asked students helpful
+                                questions or taught them strategies for finding answers.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3aOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3aNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">
+                                3b. The teacher taught the vocabulary words with meaning and gave
+                                students opportunities to form new sentences using the words.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3bOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3bNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">
+                                3c. The teacher checked the student writing to ensure correct
+                                spelling and punctuation.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3cOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3cNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">
+                                3d. During the we do-you do task, the teacher checks whether the
+                                students have participated properly.
+                              </CTableHeaderCell>
+                              <CTableDataCell>?%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3dOctober}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{ind3dNovember}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCardBody>
+                    </CCard>
+                  </CAccordionBody>
+                </CAccordionItem>
+                {/* <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
                     <strong>Custom Report 2025</strong>
                   </CAccordionHeader>
@@ -1028,171 +1668,7 @@ const PrevailMilestone25 = () => {
                       </CCardBody>
                     </CCard>
                   </CAccordionBody>
-                  {/* <CAccordionBody>
-                    <CCard className="mb-4">
-                      <CCardHeader>
-                        <strong></strong> <small></small>
-                      </CCardHeader>
-                      <CCardBody>
-                        <CTable>
-                          <CTableHead>
-                            <CTableRow>
-                              <CTableHeaderCell scope="col">Leading Indicator</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">Target</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                            </CTableRow>
-                          </CTableHead>
-                          <CTableBody>
-                            <CTableRow color="warning">
-                              <CTableHeaderCell scope="row">
-                                Number of classrooms observed
-                              </CTableHeaderCell>
-                              <CTableDataCell>?</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationSeptember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationOctober}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationNovember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationDecember}
-                              </CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">
-                                % of the Literacy Facilitators at Basic and above levels of coaching
-                                skills at the end of year 1
-                              </CTableHeaderCell>
-                              <CTableDataCell>75%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone1September}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1December}%</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">
-                                % of Bangla teachers following the teacher’s guide in Bangla
-                                language classes
-                              </CTableHeaderCell>
-                              <CTableDataCell>70%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone2September}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2December}%</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">
-                                % Bangla teachers have adopted key instructional practices (I do-We
-                                do-You do, engaging students in individual and group work,
-                                assessments)
-                              </CTableHeaderCell>
-                              <CTableDataCell>60%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone3September}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3December}%</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="secondary">
-                              <CTableHeaderCell scope="row">
-                                % Bangla teachers following use of workbooks during the Bangla
-                                language classes
-                              </CTableHeaderCell>
-                              <CTableDataCell>80%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone4September}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4December}%</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">
-                                % of Bangla teachers achieved ‘Mastered Instructional Routine’ level
-                                or above as observed by the Literacy Facilitators during the Bangla
-                                class observation
-                              </CTableHeaderCell>
-                              <CTableDataCell>40%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone5September}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5December}%</CTableHeaderCell>
-                            </CTableRow>
-                          </CTableBody>
-                        </CTable>
-                      </CCardBody>
-                    </CCard>
-                  </CAccordionBody> */}
-                </CAccordionItem>
+                </CAccordionItem> */}
               </CAccordion>
             </CCardBody>
           </CCard>
