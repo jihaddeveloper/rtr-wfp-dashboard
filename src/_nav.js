@@ -227,6 +227,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Prevail LF',
+        to: '/prevail/p-lf-observation-detail',
+      },
+      {
+        component: CNavItem,
         name: 'Prevail Preprimary',
         to: '/prevail/p-preprimary',
       },
@@ -237,18 +242,24 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Prevail LF',
-        to: '/prevail/p-lf-observation-detail',
-      },
-      {
-        component: CNavItem,
         name: 'Prevail BCO',
         to: '/prevail/p-bco',
       },
       {
         component: CNavItem,
+        name: 'Prevail SRM',
+        to: '/prevail/p-srm',
+      },
+
+      {
+        component: CNavItem,
         name: 'Milestone-2025',
         to: '/prevail/p-milestone-25',
+      },
+      {
+        component: CNavItem,
+        name: 'Milestone-2026',
+        to: '/prevail/p-milestone-26',
       },
     ],
   },

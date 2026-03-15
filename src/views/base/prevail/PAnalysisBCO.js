@@ -6236,24 +6236,26 @@ const PAnalysisBCO = () => {
             <MaterialTable
               title={allBCOPData.length + ' BCO Data'}
               columns={[
-                { title: 'school', field: 'school' },
                 {
                   title: 'date',
                   field: 'date',
                   type: 'date',
                   sorting: 'true',
                 },
+                { title: 'school', field: 'school' },
+                {
+                  title: 'pointTeacher',
+                  field: 'pointTeacher',
+                },
                 { title: 'month', field: 'month', sorting: 'true' },
                 { title: 'year', field: 'year', sorting: 'true' },
 
                 { title: 'district', field: 'district' },
                 { title: 'upazilla', field: 'upazilla', sorting: 'true' },
+                { title: 'note', field: 'note', type: 'string' },
                 { title: 'visitor', field: 'visitor' },
                 { title: 'visitorDesignation', field: 'visitorDesignation' },
-                {
-                  title: 'pointTeacher',
-                  field: 'pointTeacher',
-                },
+
                 { title: 'lpo', field: 'lpo', type: 'string' },
                 { title: 'lpoName', field: 'lpoName', type: 'string' },
                 {
@@ -6266,8 +6268,6 @@ const PAnalysisBCO = () => {
                 { title: 'rtrSchoolId', field: 'rtrSchoolId' },
                 { title: 'yearOfSupport', field: 'yearOfSupport' },
                 { title: 'yearOfEstablished', field: 'yearOfEstablished' },
-
-                { title: 'note', field: 'note', type: 'string' },
 
                 { title: 'schoolTotalNoGirl', field: 'schoolTotalNoGirl' },
                 { title: 'schoolTotalNoBoy', field: 'schoolTotalNoBoy' },

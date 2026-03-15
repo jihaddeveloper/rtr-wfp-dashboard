@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 24/11/2025
+//  Create Date: 12/03/2026
 //  Modify Date: 12/03/2026
-//  Description: P Milestone  file
+//  Description: P Milestone 26  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -52,7 +52,7 @@ import { saveAs } from 'file-saver'
 //Icon
 //Icon
 
-const PrevailMilestone25 = () => {
+const PrevailMilestone26 = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -129,6 +129,27 @@ const PrevailMilestone25 = () => {
   }
   // Get All Teacher
 
+  // Get All Book-checkout Data for school
+  const getAllBanglaClass = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllBanglaObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Book-checkout Data for school
+
   // Teacher filter data
   const g1Teacher = allTeacherData.filter((item) => {
     return item.instructionG1 === '1'
@@ -158,6 +179,104 @@ const PrevailMilestone25 = () => {
     return item.month === 'December' && item.year === '2025' && item.teacherStatus
   }).length
   // Total number monthly
+
+  // PREVAIL Milestone 26
+  const milestone1February26 = allBanglaObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const feb26SchoolObs = allBanglaObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus
+  })
+
+  const feb26SchoolObsUniqSchool = feb26SchoolObs.map((item) => item.school)
+
+  const milestone2February26 = ((new Set(feb26SchoolObsUniqSchool).size / 495) * 100).toFixed(0)
+
+  const milestone3February26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'February' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.school),
+    ).size /
+      495) *
+    100
+  ).toFixed(0)
+
+  const milestone4February26 = 0
+
+  const milestone5February26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'February' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6February26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'February' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7February26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'February' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'February' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8February26 = (
+    ((allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+      )
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'February' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // PREVAIL Milestone 26
 
   // All Percent Value
   // Milestone1 monthly
@@ -903,27 +1022,6 @@ const PrevailMilestone25 = () => {
   // Bangla Observation Data by filter
   // All Percent Value
 
-  // Get All Book-checkout Data for school
-  const getAllBanglaClass = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBanglaObsData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Book-checkout Data for school
-
   // File save as XLSX
   // const exportToExcel = (data, fileName) => {
   //   const worksheet = XLSX.utils.json_to_sheet(data)
@@ -1125,7 +1223,7 @@ const PrevailMilestone25 = () => {
               <CAccordion alwaysOpen>
                 <CAccordionItem itemKey={1}>
                   <CAccordionHeader>
-                    <strong>Milestone 2025</strong>
+                    <strong>Milestone 2026</strong>
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CCard className="mb-4">
@@ -1159,6 +1257,9 @@ const PrevailMilestone25 = () => {
                               </CTableHeaderCell>
                               <CTableDataCell>?</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {milestone1February26}
+                              </CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1166,13 +1267,46 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="warning">
+                              <CTableHeaderCell scope="row">
+                                % of schools visited atleast once
+                              </CTableHeaderCell>
+                              <CTableDataCell>?</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {totalClassObservationOctober}
+                                {milestone2February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {totalClassObservationNovember}
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="warning">
+                              <CTableHeaderCell scope="row">
+                                Number of working days
                               </CTableHeaderCell>
+                              <CTableDataCell>?</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="danger">
@@ -1180,26 +1314,11 @@ const PrevailMilestone25 = () => {
                                 % of the Literacy Facilitators at Basic and above levels of coaching
                                 skills at the end of year 1
                               </CTableHeaderCell>
-                              <CTableDataCell>75%</CTableDataCell>
+                              <CTableDataCell>80%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1November}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">
-                                % of Bangla teachers following the teacher’s guide in Bangla
-                                language classes
+                              <CTableHeaderCell scope="col">
+                                {milestone4February26}
                               </CTableHeaderCell>
-                              <CTableDataCell>70%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1209,8 +1328,6 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2November}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="danger">
@@ -1219,7 +1336,11 @@ const PrevailMilestone25 = () => {
                                 do-You do, engaging students in individual and group work,
                                 assessments)
                               </CTableHeaderCell>
-                              <CTableDataCell>60%</CTableDataCell>
+                              <CTableDataCell>70%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {milestone5February26}%
+                              </CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1229,16 +1350,18 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone3November}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
-                            <CTableRow color="secondary">
+                            <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
-                                % Bangla teachers following use of workbooks during the Bangla
-                                language classes
+                                % of teachers able to complete all planned activities in sequence
+                                and on time (1d).
                               </CTableHeaderCell>
-                              <CTableDataCell>80%</CTableDataCell>
+                              <CTableDataCell>50%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {milestone6February26}%
+                              </CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1248,8 +1371,27 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4November}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">
+                                % of observed Bangla teachers that are following use of workbooks
+                                during the Bangla language classes
+                              </CTableHeaderCell>
+                              <CTableDataCell>90%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {milestone7February26}%
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                             <CTableRow color="success">
@@ -1258,7 +1400,11 @@ const PrevailMilestone25 = () => {
                                 or above as observed by the Literacy Facilitators during the Bangla
                                 class observation
                               </CTableHeaderCell>
-                              <CTableDataCell>40%</CTableDataCell>
+                              <CTableDataCell>60%</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {milestone8February26}%
+                              </CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1268,8 +1414,6 @@ const PrevailMilestone25 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5October}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5November}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
                           </CTableBody>
@@ -1279,9 +1423,9 @@ const PrevailMilestone25 = () => {
                   </CAccordionBody>
                 </CAccordionItem>
 
-                <CAccordionItem itemKey={2}>
+                {/* <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
-                    <strong>Custom Report 2025(All Indicator Perfromance)</strong>
+                    <strong>Custom Report 2026(All Indicator Perfromance)</strong>
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CCard className="mb-4">
@@ -1289,7 +1433,6 @@ const PrevailMilestone25 = () => {
                         <strong></strong> <small></small>
                       </CCardHeader>
                       <CCardBody>
-                        <CButton onClick={exportToExcel}>Export to Excel</CButton>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -1619,10 +1762,11 @@ const PrevailMilestone25 = () => {
                             </CTableRow>
                           </CTableBody>
                         </CTable>
+                        <CButton onClick={exportToExcel}>Export to Excel</CButton>
                       </CCardBody>
                     </CCard>
                   </CAccordionBody>
-                </CAccordionItem>
+                </CAccordionItem> */}
                 {/* <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
                     <strong>Custom Report 2025</strong>
@@ -2069,4 +2213,4 @@ const PrevailMilestone25 = () => {
   )
 }
 
-export default PrevailMilestone25
+export default PrevailMilestone26

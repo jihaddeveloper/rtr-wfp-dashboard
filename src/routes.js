@@ -72,13 +72,16 @@ const PBanglaDataDetail = React.lazy(() => import('./views/base/bangla/PBanglaCl
 const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL'))
 const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
 const PLFObservationDetail = React.lazy(() => import('./views/base/lf/PLFObservationDetail'))
-const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
+
 const PPrePrimary = React.lazy(() => import('./views/base/preprimary/PPreprimaryDataDetail'))
 const PLibraryObservation = React.lazy(() => import('./views/base/prevail/PLibraryObservation'))
 const PAnalysisBCO = React.lazy(() => import('./views/base/prevail/PAnalysisBCO'))
 const PrevailEmployee = React.lazy(() => import('./views/base/prevail/PrevailEmployee'))
 const PrevailSchool = React.lazy(() => import('./views/base/prevail/PrevailSchool'))
 const PrevailTeacher = React.lazy(() => import('./views/base/prevail/PrevailTeacher'))
+const PSRMCalss = React.lazy(() => import('./views/base/srm/PSRMDataDetail'))
+const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
+const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26'))
 // PREVAIL
 
 // SRM
@@ -322,6 +325,12 @@ const routes = [
     element: PMilestone25,
   },
   {
+    path: '/prevail/p-milestone-26',
+    name: 'PMilestone26',
+    element: PMilestone26,
+  },
+
+  {
     path: '/prevail/p-preprimary',
     name: 'PPrePrimary',
     element: PPrePrimary,
@@ -348,7 +357,13 @@ const routes = [
     element: PrevailTeacher,
   },
 
+  {
+    path: '/prevail/p-srm',
+    name: 'PSRMClassData',
+    element: PSRMCalss,
+  },
   // PREVAIL
+
   {
     path: '/preprimary/preprimary-class',
     name: 'PreprimaryClassData',
