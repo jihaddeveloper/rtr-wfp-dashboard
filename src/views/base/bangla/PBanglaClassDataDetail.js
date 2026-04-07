@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 02/11/2025
+//  Modify Date: 07/04/2026
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -108,151 +108,146 @@ const PBanglaClassDataDetail = () => {
   const g2Teacher = allTeacherData.filter((item) => {
     return item.instructionG2 === '1'
   }).length
+
+  const g3Teacher = allTeacherData.filter((item) => {
+    return item.gradeG3 === '1'
+  }).length
   // Teacher filter data
 
   // Bangla Observation Data by filter
   // Trending
   // G1
   // P0
-  const allG1TeacherP0January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP0September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP0September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG1TeacherP0October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -266,7 +261,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP0November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -280,7 +275,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP0December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -293,145 +288,136 @@ const PBanglaClassDataDetail = () => {
   // P0
 
   // P1
-  const allG1TeacherP1January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP1September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP1September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG1TeacherP1October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -445,7 +431,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP1November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -459,7 +445,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP1December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -472,145 +458,136 @@ const PBanglaClassDataDetail = () => {
   // P1
 
   // P2
-  const allG1TeacherP2January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP2September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP2September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG1TeacherP2October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -624,7 +601,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP2November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -638,7 +615,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP2December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -651,145 +628,136 @@ const PBanglaClassDataDetail = () => {
   // P2
 
   // P3
-  const allG1TeacherP3January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG1TeacherP3September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G1' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherP3September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG1TeacherP3October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -803,7 +771,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP3November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -817,7 +785,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP3December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -832,145 +800,136 @@ const PBanglaClassDataDetail = () => {
 
   // G2
   // P0
-  const allG2TeacherP0January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP0September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 0'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP0September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG2TeacherP0October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -984,7 +943,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP0November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -998,7 +957,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP0December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1011,145 +970,136 @@ const PBanglaClassDataDetail = () => {
   // P0
 
   // P1
-  const allG2TeacherP1January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP1September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 1'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP1September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG2TeacherP1October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1163,7 +1113,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP1November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1177,7 +1127,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP1December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1190,145 +1140,136 @@ const PBanglaClassDataDetail = () => {
   // P1
 
   // P2
-  const allG2TeacherP2January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP2September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 2'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP2September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG2TeacherP2October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1342,7 +1283,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP2November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1356,7 +1297,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP2December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1369,145 +1310,136 @@ const PBanglaClassDataDetail = () => {
   // P2
 
   // P3
-  const allG2TeacherP3January = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'January' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3February = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'February' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3March = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'March' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3April = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'April' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3May = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'May' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3June = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'June' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3July = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'July' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3August = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'August' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
-  const allG2TeacherP3September = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.grade === 'G2' &&
-        item.teacherStatus === 'Priority 3'
-        // && item.fieldOffice === 'NrFO'
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherP3September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG2TeacherP3October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1521,7 +1453,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP3November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1535,7 +1467,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP3December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1547,6 +1479,688 @@ const PBanglaClassDataDetail = () => {
   // ).length
   // P3
   // G2
+
+  // G3
+  // P0
+  const allG3TeacherP0January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0October = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0November = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP0December = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // P0
+
+  // P1
+  const allG3TeacherP1January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1October = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1November = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1December = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // P1
+
+  // P2
+  const allG3TeacherP2January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2October = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2November = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP2December = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // P2
+
+  // P3
+  const allG3TeacherP3January = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3February = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3March = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'March' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3April = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'April' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3May = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'May' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3June = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'June' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3July = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'July' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3August = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'August' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3September = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3October = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3November = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP3December = allBanglaObsData.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // P3
+  // G3
   // Trending
 
   // PreviousMonth
@@ -1554,7 +2168,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherPreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus
     )
@@ -1563,7 +2177,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1573,7 +2187,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1583,7 +2197,7 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1593,20 +2207,19 @@ const PBanglaClassDataDetail = () => {
   const allG1TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
     )
   }).length
-
   // G1
 
   // G2
   const allG2TeacherPreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus
     )
@@ -1615,7 +2228,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1625,7 +2238,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1635,7 +2248,7 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1645,14 +2258,64 @@ const PBanglaClassDataDetail = () => {
   const allG2TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
     )
   }).length
-
   // G2
+
+  // G3
+  const allG3TeacherPreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus
+    )
+  }).length
+
+  const allG3TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+
+  const allG3TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+
+  const allG3TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+
+  const allG3TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // G3
   // PreviousMonth
   // Bangla Observation Data by filter
 
@@ -1843,7 +2506,7 @@ const PBanglaClassDataDetail = () => {
         <CCol xs={12}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>PREVAIL Bangla Class Observation 2025</strong>
+              <strong>PREVAIL Bangla Class Observation 2026</strong>
               {/* <strong>{allBCOData.length}</strong> */}
             </CCardHeader>
             <CCardBody>
@@ -1855,7 +2518,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CRow>
                       <CCol sm={6}>
-                        <strong>G1 Teacher Visited {previousMonthYear}</strong>
+                        <strong>G1 Teacher Visited Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -1878,7 +2541,7 @@ const PBanglaClassDataDetail = () => {
                         </CTable>
                       </CCol>
                       <CCol sm={6}>
-                        <strong>G1 Teacher Priority {previousMonthYear}</strong>
+                        <strong>G1 Teacher Priority Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -1915,7 +2578,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CRow>
                       <CCol sm={6}>
-                        <strong>G2 Teacher Visited {previousMonthYear}</strong>
+                        <strong>G2 Teacher Visited Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -1938,7 +2601,7 @@ const PBanglaClassDataDetail = () => {
                         </CTable>
                       </CCol>
                       <CCol sm={6}>
-                        <strong>G2 Teacher Priority {previousMonthYear}</strong>
+                        <strong>G2 Teacher Priority Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
                             <CTableRow>
@@ -1972,6 +2635,66 @@ const PBanglaClassDataDetail = () => {
                       </CCol>
                     </CRow>
                   </CAccordionBody>
+                  <CAccordionBody>
+                    <CRow>
+                      <CCol sm={6}>
+                        <strong>G3 Teacher Visited Number ({previousMonthYear})</strong>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">Number</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">Total G3 Teacher</CTableHeaderCell>
+                              <CTableDataCell>{g3Teacher}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">
+                                No of Visited G3 Teracher
+                              </CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherPreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCol>
+                      <CCol sm={6}>
+                        <strong>G3 Teacher Priority Number ({previousMonthYear})</strong>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">Number</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="warning">
+                              <CTableHeaderCell scope="row">Priority 0</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP0PreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP1PreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP2PreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP3PreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherPreviousMonth}</CTableDataCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCol>
+                    </CRow>
+                  </CAccordionBody>
                 </CAccordionItem>
                 <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
@@ -1980,7 +2703,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>G1 Teacher Priority Chart</strong> <small>(2025)</small>
+                        <strong>G1 Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CChartLine
@@ -2131,7 +2854,7 @@ const PBanglaClassDataDetail = () => {
                             },
                             maintainAspectRatio: false,
                           }}
-                          //style={{ height: '300px', width: '1300px' }}
+                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
                         />
                       </CCardBody>
                     </CCard>
@@ -2139,7 +2862,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>G1 Teacher Priority</strong> <small>(2025)</small>
+                        <strong>G1 Teacher Priority Number</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CTable>
@@ -2352,7 +3075,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>G2 Teacher Priority Chart</strong> <small>(2025)</small>
+                        <strong>G2 Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CChartLine
@@ -2499,7 +3222,7 @@ const PBanglaClassDataDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>G2 Teacher Priority</strong> <small>(2025)</small>
+                        <strong>G2 Teacher Priority Number</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CTable>
@@ -2709,357 +3432,367 @@ const PBanglaClassDataDetail = () => {
                       </CCardBody>
                     </CCard>
                   </CAccordionBody>
-                </CAccordionItem>
-                {/* <CAccordionItem itemKey={3}>
-                  <CAccordionHeader>
-                    <strong>All PREVAIL Bangla Observation Data</strong>
-                  </CAccordionHeader>
                   <CAccordionBody>
-                    <MaterialTable
-                      title={allBanglaObsData.length + ' Data'}
-                      columns={[
-                        {
-                          title: 'Date',
-                          field: 'date',
-                          type: 'date',
-                          sorting: 'true',
-                        },
-                        { title: 'School', field: 'school' },
-                        {
-                          title: 'Teacher',
-                          field: 'classTeacher',
-                        },
-                        { title: 'Teacher Priority', field: 'teacherStatus', sorting: 'true' },
-                        { title: 'LPO ID', field: 'lpo', type: 'string' },
-                        { title: 'LPO Name', field: 'lpoName', type: 'string' },
-                        {
-                          title: 'LF ID',
-                          field: 'lf',
-                          type: 'string',
-                        },
-                        {
-                          title: 'LF Name',
-                          field: 'lfName',
-                          type: 'string',
-                        },
-                        { title: 'Year', field: 'year', sorting: 'true' },
-                        { title: 'Month', field: 'month', sorting: 'true' },
-                        { title: 'District', field: 'district' },
-                        { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                        { title: 'Office', field: 'fieldOffice', sorting: 'true' },
-                        { title: 'Project', field: 'project', sorting: 'true' },
-
-                        {
-                          title: 'Grade',
-                          field: 'grade',
-                        },
-                        {
-                          title: 'Section',
-                          field: 'section',
-                        },
-                        {
-                          title: 'ClassStartTime',
-                          field: 'classStartTime',
-                        },
-                        {
-                          title: 'ClassEndTime',
-                          field: 'classEndTime',
-                        },
-
-                        {
-                          title: 'ContentName',
-                          field: 'contentName',
-                        },
-                        {
-                          title: 'PeriodDay',
-                          field: 'periodDay',
-                        },
-                        {
-                          title: 'TotalAdmittedStudent',
-                          field: 'totalAdmittedStudent',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'TotalPresentStudent',
-                          field: 'totalPresentStudent',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'Note',
-                          field: 'note',
-                        },
-
-                        {
-                          title: 'lastFollowupTopic1',
-                          field: 'lastFollowupTopic1',
-                          filtering: false,
-                        },
-                        {
-                          title: 'lastFollowupTopic2',
-                          field: 'lastFollowupTopic2',
-                          filtering: false,
-                        },
-                        {
-                          title: 'lastFollowupTopic3',
-                          field: 'lastFollowupTopic3',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind11TeacherFollowedTeacherGuideInClassStatus',
-                          field: 'ind11TeacherFollowedTeacherGuideInClassStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind11TeacherFollowedTeacherGuideInClassNote',
-                          field: 'ind11TeacherFollowedTeacherGuideInClassNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind12FollowedIDoWeDoYouDoStatus',
-                          field: 'ind12FollowedIDoWeDoYouDoStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind12FollowedIDoWeDoYouDoNote',
-                          field: 'ind12FollowedIDoWeDoYouDoNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind13FollowedContinuityOfLessonStatus',
-                          field: 'ind13FollowedContinuityOfLessonStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind13FollowedContinuityOfLessonNote',
-                          field: 'ind13FollowedContinuityOfLessonNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind14ImplementedAllTaskInTimeStatus',
-                          field: 'ind14ImplementedAllTaskInTimeStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind14ImplementedAllTaskInTimeNote',
-                          field: 'ind14ImplementedAllTaskInTimeNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind15InstructedToUseWorkbookStatus',
-                          field: 'ind15InstructedToUseWorkbookStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind15InstructedToUseWorkbookNote',
-                          field: 'ind15InstructedToUseWorkbookNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind16IndependentReadingOpportunityStatus',
-                          field: 'ind16IndependentReadingOpportunityStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind16IndependentReadingOpportunityNote',
-                          field: 'ind16IndependentReadingOpportunityNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind21CorrectlyPronouncedStatus',
-                          field: 'ind21CorrectlyPronouncedStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind21CorrectlyPronouncedNote',
-                          field: 'ind21CorrectlyPronouncedNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind22TaughtCorrectlyAllowPracticeStatus',
-                          field: 'ind22TaughtCorrectlyAllowPracticeStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind22TaughtCorrectlyAllowPracticeNote',
-                          field: 'ind22TaughtCorrectlyAllowPracticeNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind23DemonstratesFluentReadingStatus',
-                          field: 'ind23DemonstratesFluentReadingStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind23DemonstratesFluentReadingNote',
-                          field: 'ind23DemonstratesFluentReadingNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind24AllowReadIndividuallyPairGroupsStatus',
-                          field: 'ind24AllowReadIndividuallyPairGroupsStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind24AllowReadIndividuallyPairGroupsNote',
-                          field: 'ind24AllowReadIndividuallyPairGroupsNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind25FollowsInstructionsInWritingStatus',
-                          field: 'ind25FollowsInstructionsInWritingStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind25FollowsInstructionsInWritingNote',
-                          field: 'ind25FollowsInstructionsInWritingNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind31AskedHelpfulQuestionsStatus',
-                          field: 'ind31AskedHelpfulQuestionsStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind31AskedHelpfulQuestionsNote',
-                          field: 'ind31AskedHelpfulQuestionsNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind32TaughtVocabularyNewSentenceStatus',
-                          field: 'ind32TaughtVocabularyNewSentenceStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind32TaughtVocabularyNewSentenceNote',
-                          field: 'ind32TaughtVocabularyNewSentenceNote',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind33CheckWritingSpellingPunctuationStatus',
-                          field: 'ind33CheckWritingSpellingPunctuationStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind33CheckWritingSpellingPunctuationNote',
-                          field: 'ind33CheckWritingSpellingPunctuationNote',
-                          filtering: false,
-                        },
-
-                        {
-                          title: 'ind34CheckedWeDoYouDoStatus',
-                          field: 'ind34CheckedWeDoYouDoStatus',
-                          filtering: false,
-                        },
-                        {
-                          title: 'ind34CheckedWeDoYouDoNote',
-                          field: 'ind34CheckedWeDoYouDoNote',
-                          filtering: false,
-                        },
-
-                        { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
-                        { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
-
-                        {
-                          title: 'coachingSupportInd1',
-                          field: 'coachingSupportInd1',
-                          filtering: false,
-                        },
-                        {
-                          title: 'coachingSupportInd2',
-                          field: 'coachingSupportInd2',
-                          filtering: false,
-                        },
-
-                        { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
-                        { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
-
-                        { title: 'question1', field: 'question1', filtering: false },
-
-                        { title: 'student1', field: 'student1', filtering: false },
-                        { title: 'student2', field: 'student2', filtering: false },
-                        { title: 'student3', field: 'student3', filtering: false },
-
-                        { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
-                        { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
-                        { title: 'totalFor1', field: 'totalFor1', filtering: false },
-                        { title: 'noRightFor2', field: 'noRightFor2', filtering: false },
-                        { title: 'noWrongFor2', field: 'noWrongFor2', filtering: false },
-                        { title: 'totalFor2', field: 'totalFor2', filtering: false },
-                        { title: 'noRightFor3', field: 'noRightFor3', filtering: false },
-                        { title: 'noWrongFor3', field: 'noWrongFor3', filtering: false },
-                        { title: 'totalFor3', field: 'totalFor3', filtering: false },
-                      ]}
-                      editable={{
-                        onRowAdd: (newData) =>
-                          new Promise((resolve) => {
-                            handleRowAddBanglaClass(newData, resolve)
-                          }),
-                        // onRowDelete: (oldData) =>
-                        //   new Promise((resolve) => {
-                        //     handleRowDeleteBanglaClass(oldData, resolve)
-                        //   }),
-                        onRowUpdate: (newData, oldData) =>
-                          new Promise((resolve) => {
-                            handleRowUpdateAllBanglaClass(newData, oldData, resolve)
-                          }),
-                      }}
-                      options={{
-                        exportButton: true,
-                        exportAllData: true,
-                        search: true,
-                        filtering: true,
-                        grouping: true,
-                        sorting: true,
-                        pageSize: 5,
-                        pageSizeOptions: [5, 10, 20],
-                        // maxBodyHeight: '300px',
-                        headerStyle: {
-                          position: 'sticky',
-                          top: 0,
-                          backgroundColor: '#7e93b4ff',
-                          fontWeight: 'bold',
-                          width: 15,
-                          textAlign: 'center',
-                          color: '#0d0d0eff',
-                          borderRight: '1px solid #0e0d0dff',
-                          borderLeft: '1px solid #0e0d0dff',
-                          borderStyle: 'solid',
-                        },
-                        rowStyle: {
-                          fontSize: 14,
-                          backgroundColor: '#d8a68dff',
-                          borderRight: '1px solid #131111ff',
-                          borderLeft: '1px solid #0e0d0dff',
-                          borderStyle: 'solid',
-                        },
-                        cellStyle: {
-                          borderRight: '1px solid #0c0b0bff',
-                          borderLeft: '1px solid #0e0d0dff',
-                          borderBottom: '1px solid #0c0b0bff',
-                          borderStyle: 'solid',
-                        },
-                        maintainAspectRatio: false,
-                      }}
-                      style={{ height: '300px', width: '1250px' }}
-                      data={allBanglaObsData}
-                    />
+                    <CCard className="mb-4">
+                      <CCardHeader>
+                        <strong>G3 Teacher Priority Chart</strong> <small>(2026)</small>
+                      </CCardHeader>
+                      <CCardBody>
+                        <CChartLine
+                          data={{
+                            labels: [
+                              'January',
+                              'February',
+                              'March',
+                              'April',
+                              'May',
+                              'June',
+                              'July',
+                              'August',
+                              'September',
+                              'October',
+                              'November',
+                              'December',
+                            ],
+                            datasets: [
+                              {
+                                label: 'Priority 0',
+                                backgroundColor: '#cdd3c2ff',
+                                borderColor: '#cdd3c2ff',
+                                pointBackgroundColor: '#cdd3c2ff',
+                                pointBorderColor: '#cdd3c2ff',
+                                data: [
+                                  allG3TeacherP0January,
+                                  allG3TeacherP0February,
+                                  allG3TeacherP0March,
+                                  allG3TeacherP0April,
+                                  allG3TeacherP0May,
+                                  allG3TeacherP0June,
+                                  allG3TeacherP0July,
+                                  allG3TeacherP0August,
+                                  allG3TeacherP0September,
+                                  allG3TeacherP0October,
+                                  allG3TeacherP0November,
+                                  allG3TeacherP0December,
+                                ],
+                              },
+                              {
+                                label: 'Priority 1',
+                                backgroundColor: '#cae09aff',
+                                borderColor: '#cae09aff',
+                                pointBackgroundColor: '#cae09aff',
+                                pointBorderColor: '#cae09aff',
+                                data: [
+                                  allG3TeacherP1January,
+                                  allG3TeacherP1February,
+                                  allG3TeacherP1March,
+                                  allG3TeacherP1April,
+                                  allG3TeacherP1May,
+                                  allG3TeacherP1June,
+                                  allG3TeacherP1July,
+                                  allG3TeacherP1August,
+                                  allG3TeacherP1September,
+                                  allG3TeacherP1October,
+                                  allG3TeacherP1November,
+                                  allG3TeacherP1December,
+                                ],
+                              },
+                              {
+                                label: 'Priority 2',
+                                backgroundColor: '#8eac4fff',
+                                borderColor: '#8eac4fff',
+                                pointBackgroundColor: '#8eac4fff',
+                                pointBorderColor: '#8eac4fff',
+                                data: [
+                                  allG3TeacherP2January,
+                                  allG3TeacherP2February,
+                                  allG3TeacherP2March,
+                                  allG3TeacherP2April,
+                                  allG3TeacherP2May,
+                                  allG3TeacherP2June,
+                                  allG3TeacherP2July,
+                                  allG3TeacherP2August,
+                                  allG3TeacherP2September,
+                                  allG3TeacherP2October,
+                                  allG3TeacherP2November,
+                                  allG3TeacherP2December,
+                                ],
+                              },
+                              {
+                                label: 'Priority 3',
+                                backgroundColor: '#205c4bff',
+                                borderColor: '#205c4bff',
+                                pointBackgroundColor: '#205c4bff',
+                                pointBorderColor: '#205c4bff',
+                                data: [
+                                  allG3TeacherP3January,
+                                  allG3TeacherP3February,
+                                  allG3TeacherP3March,
+                                  allG3TeacherP3April,
+                                  allG3TeacherP3May,
+                                  allG3TeacherP3June,
+                                  allG3TeacherP3July,
+                                  allG3TeacherP3August,
+                                  allG3TeacherP3September,
+                                  allG3TeacherP3October,
+                                  allG3TeacherP3November,
+                                  allG3TeacherP3December,
+                                ],
+                              },
+                            ],
+                          }}
+                          options={{
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                              legend: {
+                                display: true,
+                                position: 'bottom',
+                              },
+                              title: {
+                                display: true,
+                                text: '',
+                              },
+                            },
+                            scales: {
+                              y: {
+                                beginAtZero: true,
+                                ticks: {
+                                  color: '#333', // Custom tick color
+                                },
+                                grid: {
+                                  display: true, // Hide y-axis grid lines
+                                },
+                              },
+                              x: {
+                                grid: {
+                                  display: true, // Hide x-axis grid lines
+                                },
+                                ticks: {
+                                  color: '#333',
+                                },
+                              },
+                            },
+                          }}
+                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                        />
+                      </CCardBody>
+                    </CCard>
                   </CAccordionBody>
-                </CAccordionItem> */}
+                  <CAccordionBody>
+                    <CCard className="mb-4">
+                      <CCardHeader>
+                        <strong>G3 Teacher Priority Number</strong> <small>(2026)</small>
+                      </CCardHeader>
+                      <CCardBody>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">January</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">February</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">March</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">April</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">May</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">June</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">July</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">August</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">September</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">October</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">November</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">December</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="warning">
+                              <CTableHeaderCell scope="row">Priority 0</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP0January}</CTableDataCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0February}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP0March}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP0April}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP0May}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP0June}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP0July}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0August}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0September}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0October}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0November}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0December}
+                              </CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP1January}</CTableDataCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1February}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP1March}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP1April}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP1May}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP1June}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP1July}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1August}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1September}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1October}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1November}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP1December}
+                              </CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP2January}</CTableDataCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2February}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP2March}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP2April}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP2May}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP2June}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP2July}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2August}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2September}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2October}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2November}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP2December}
+                              </CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                              <CTableDataCell>{allG3TeacherP3January}</CTableDataCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3February}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP3March}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP3April}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP3May}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP3June}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{allG3TeacherP3July}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3August}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3September}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3October}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3November}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP3December}
+                              </CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                              <CTableDataCell>
+                                {allG3TeacherP0January +
+                                  allG3TeacherP1January +
+                                  allG3TeacherP2January +
+                                  allG3TeacherP3January}
+                              </CTableDataCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0February +
+                                  allG3TeacherP1February +
+                                  allG3TeacherP2February +
+                                  allG3TeacherP3February}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0March +
+                                  allG3TeacherP1March +
+                                  allG3TeacherP2March +
+                                  allG3TeacherP3March}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0April +
+                                  allG3TeacherP1April +
+                                  allG3TeacherP2April +
+                                  allG3TeacherP3April}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0May +
+                                  allG3TeacherP1May +
+                                  allG3TeacherP2May +
+                                  allG3TeacherP3May}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0June +
+                                  allG3TeacherP1June +
+                                  allG3TeacherP2June +
+                                  allG3TeacherP3June}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0July +
+                                  allG3TeacherP1July +
+                                  allG3TeacherP2July +
+                                  allG3TeacherP3July}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0August +
+                                  allG3TeacherP1August +
+                                  allG3TeacherP2August +
+                                  allG3TeacherP3August}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0September +
+                                  allG3TeacherP1September +
+                                  allG3TeacherP2September +
+                                  allG3TeacherP3September}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0October +
+                                  allG3TeacherP1October +
+                                  allG3TeacherP2October +
+                                  allG3TeacherP3October}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0November +
+                                  allG3TeacherP1November +
+                                  allG3TeacherP2November +
+                                  allG3TeacherP3November}
+                              </CTableHeaderCell>
+                              <CTableHeaderCell scope="col">
+                                {allG3TeacherP0December +
+                                  allG3TeacherP1December +
+                                  allG3TeacherP2December +
+                                  allG3TeacherP3December}
+                              </CTableHeaderCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCardBody>
+                    </CCard>
+                  </CAccordionBody>
+                </CAccordionItem>
               </CAccordion>
             </CCardBody>
           </CCard>
@@ -3070,7 +3803,7 @@ const PBanglaClassDataDetail = () => {
           <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL Bangla Observation Data</strong>
-              <small>Total School-{allBanglaObsData.length}</small>
+              <small>(Total Data -{allBanglaObsData.length})</small>
             </CCardHeader>
             <CCardBody>
               <CCardTitle></CCardTitle>
