@@ -86,7 +86,7 @@ const SchoolPREVAIL = () => {
 
       setNarailSadarSchool(response.data.filter((item) => item.upazilla === 'Narail Sadar'))
 
-      setLohagoraSchool(response.data.filter((item) => item.upazilla === 'Lohagora'))
+      setLohagoraSchool(response.data.filter((item) => item.upazilla === 'Lohagara'))
 
       setKaliaSchool(response.data.filter((item) => item.upazilla === 'Kalia'))
 
@@ -432,7 +432,7 @@ const SchoolPREVAIL = () => {
               </CAccordionItem>
               <CAccordionItem itemKey={3}>
                 <CAccordionHeader>
-                  <strong>School in Lohagora-{lohagoraSchool.length}</strong>
+                  <strong>School in Lohagara-{lohagoraSchool.length}</strong>
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable

@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 02/11/2025
+//  Modify Date: 08/04/2025
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -613,6 +613,218 @@ const WidgetsDropdownPrevailStatus = () => {
   // Previous Month
   // Percent
   // G2
+
+  // G3
+  // Number
+  // Current Month
+  const allG3TeacherCurrentMonth = allBanglaObsData.filter((item) => {
+    return item.month === currentMonth && item.year === '2026' && item.grade === 'G3'
+  }).length
+
+  // Priority 0
+  const allG3TeacherP0CurrentMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === currentMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 0
+
+  // Priority 1
+  const allG3TeacherP1CurrentMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === currentMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 1
+
+  // Priority 2
+  const allG3TeacherP2CurrentMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === currentMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 2
+
+  // Priority 3
+  const allG3TeacherP3CurrentMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === currentMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 3
+  // G3
+  // Current Month
+
+  // Previous Month
+  const allG3TeacherPreviousMonth = allBanglaObsData.filter((item) => {
+    return item.month === previousMonth && item.year === '2026' && item.grade === 'G3'
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  // Priority 0
+  const allG3TeacherP0PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 0'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 0
+
+  // Priority 1
+  const allG3TeacherP1PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 1'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 1
+
+  // Priority 2
+  const allG3TeacherP2PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 2'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+  // Priority 2
+
+  // Priority 3
+  const allG3TeacherP3PreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus === 'Priority 3'
+      // && item.fieldOffice === 'NrFO'
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  // Priority 3
+  // Previous Month
+  // Number
+
+  // Percent
+  // Priority 0
+  const allG3TeacherP0CurrentMonthPercent = calculatePercentage(
+    allG3TeacherP0CurrentMonth,
+    allG3TeacherCurrentMonth,
+  )
+  // Priority 0
+
+  // Priority 1
+  const allG3TeacherP1CurrentMonthPercent = calculatePercentage(
+    allG3TeacherP1CurrentMonth,
+    allG3TeacherCurrentMonth,
+  )
+  // Priority 1
+
+  // Priority 2
+  const allG3TeacherP2CurrentMonthPercent = calculatePercentage(
+    allG3TeacherP2CurrentMonth,
+    allG3TeacherCurrentMonth,
+  )
+  // Priority 2
+
+  // Priority 3
+  const allG3TeacherP3CurrentMonthPercent = calculatePercentage(
+    allG3TeacherP3CurrentMonth,
+    allG3TeacherCurrentMonth,
+  )
+  // Priority 3
+  // G3
+  // Current Month
+
+  // Previous Month
+  // Priority 0
+  const allG3TeacherP0PreviousMonthPercent = calculatePercentage(
+    allG3TeacherP0PreviousMonth,
+    allG3TeacherPreviousMonth,
+  )
+  // Priority 0
+
+  // Priority 1
+  const allG3TeacherP1PreviousMonthPercent = calculatePercentage(
+    allG3TeacherP1PreviousMonth,
+    allG3TeacherPreviousMonth,
+  )
+  // Priority 1
+
+  // Priority 2
+  const allG3TeacherP2PreviousMonthPercent = calculatePercentage(
+    allG3TeacherP2PreviousMonth,
+    allG3TeacherPreviousMonth,
+  )
+  // Priority 2
+
+  // Priority 3
+  const allG3TeacherP3PreviousMonthPercent = calculatePercentage(
+    allG3TeacherP3PreviousMonth,
+    allG3TeacherPreviousMonth,
+  )
+  // Priority 3
+  // Previous Month
+  // Percent
+  // G3
   // Bangla Observation Data by filter
 
   // LF Observation Data by filter
@@ -1045,6 +1257,58 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
+                  <strong>G3 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
+                </CCardHeader>
+                <CCardBody>
+                  <CLink href="/bangla/p-bangla-detail">
+                    <CChartPie
+                      data={{
+                        labels: ['Priority 0', 'Priority 1', 'Priority 2', 'Priority 3'],
+                        datasets: [
+                          {
+                            data: [
+                              allG3TeacherP0PreviousMonthPercent,
+                              allG3TeacherP1PreviousMonthPercent,
+                              allG3TeacherP2PreviousMonthPercent,
+                              allG3TeacherP3PreviousMonthPercent,
+                            ],
+                            backgroundColor: ['#addcecff', '#8ddaf3ff', '#35a8ceff', '#007AA4'],
+                            hoverBackgroundColor: [
+                              '#e3e9d5ff',
+                              '#cae09aff',
+                              '#8eac4fff',
+                              '#658f0aff',
+                            ],
+                          },
+                        ],
+                      }}
+                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: {
+                            display: true,
+                            position: 'bottom',
+                          },
+                          title: {
+                            display: true,
+                            text: '',
+                          },
+                        },
+                      }}
+                      labels=""
+                      style={{ height: '350px' }} // Inline style for height
+                    />
+                  </CLink>
+                </CCardBody>
+                <CCardHeader>
+                  <small>Total G3 Observation {allG3TeacherPreviousMonth}</small>
+                </CCardHeader>
+              </CCard>
+            </CCol>
+            <CCol sm={2} lg={2}>
+              <CCard className="mb-4">
+                <CCardHeader>
                   <strong>LF Priority Status(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
@@ -1134,7 +1398,7 @@ const WidgetsDropdownPrevailStatus = () => {
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={4} lg={4}>
+            <CCol sm={2} lg={2}>
               <CRow>
                 <CWidgetStatsF
                   className="mb-3"

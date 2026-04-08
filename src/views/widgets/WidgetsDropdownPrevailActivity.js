@@ -149,151 +149,151 @@ const WidgetsDropdownPrevailActivity = () => {
   // Trending
   // Priority 1
   const allLFObsDataP1January = allLFObsData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1February = allLFObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1March = allLFObsData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1April = allLFObsData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1May = allLFObsData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1June = allLFObsData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1July = allLFObsData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1August = allLFObsData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1September = allLFObsData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1October = allLFObsData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1November = allLFObsData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsDataP1December = allLFObsData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
   // Priority 1
 
   // Priority 2
   const allLFObsDataP2January = allLFObsData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2February = allLFObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2March = allLFObsData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2April = allLFObsData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2May = allLFObsData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2June = allLFObsData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2July = allLFObsData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2August = allLFObsData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2September = allLFObsData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2October = allLFObsData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2November = allLFObsData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsDataP2December = allLFObsData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
   // Priority 2
 
   // Priority 3
   const allLFObsDataP3January = allLFObsData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3February = allLFObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3March = allLFObsData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3April = allLFObsData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3May = allLFObsData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3June = allLFObsData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3July = allLFObsData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3August = allLFObsData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3September = allLFObsData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3October = allLFObsData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3November = allLFObsData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObsDataP3December = allLFObsData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Priority 3
   // Trending
@@ -528,7 +528,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -543,7 +543,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -558,7 +558,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -573,7 +573,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -588,7 +588,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -603,7 +603,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -618,7 +618,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -633,7 +633,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -648,7 +648,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -662,7 +662,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP0October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -676,7 +676,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP0November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -690,7 +690,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP0December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -707,7 +707,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -722,7 +722,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -737,7 +737,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -752,7 +752,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -767,7 +767,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -782,7 +782,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -797,7 +797,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -812,7 +812,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -827,7 +827,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -841,7 +841,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP1October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -855,7 +855,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP1November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -869,7 +869,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP1December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -886,7 +886,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -901,7 +901,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -916,7 +916,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -931,7 +931,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -946,7 +946,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -961,7 +961,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -976,7 +976,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -991,7 +991,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1006,7 +1006,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1020,7 +1020,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP2October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1034,7 +1034,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP2November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1048,7 +1048,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP2December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1065,7 +1065,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1080,7 +1080,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1095,7 +1095,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1110,7 +1110,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1125,7 +1125,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1140,7 +1140,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1155,7 +1155,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1170,7 +1170,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1185,7 +1185,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1199,7 +1199,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP3October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1213,7 +1213,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP3November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1227,7 +1227,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG1TeacherP3December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G1' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1246,7 +1246,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1261,7 +1261,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1276,7 +1276,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1291,7 +1291,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1306,7 +1306,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1321,7 +1321,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1336,7 +1336,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1351,7 +1351,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1366,7 +1366,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 0'
         // && item.fieldOffice === 'NrFO'
@@ -1380,7 +1380,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP0October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1394,7 +1394,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP0November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1408,7 +1408,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP0December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 0'
       // && item.fieldOffice === 'NrFO'
@@ -1425,7 +1425,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1440,7 +1440,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1455,7 +1455,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1470,7 +1470,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1485,7 +1485,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1500,7 +1500,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1515,7 +1515,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1530,7 +1530,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1545,7 +1545,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1559,7 +1559,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP1October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1573,7 +1573,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP1November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1587,7 +1587,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP1December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -1604,7 +1604,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1619,7 +1619,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1634,7 +1634,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1649,7 +1649,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1664,7 +1664,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1679,7 +1679,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1694,7 +1694,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1709,7 +1709,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1724,7 +1724,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -1738,7 +1738,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP2October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1752,7 +1752,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP2November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1766,7 +1766,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP2December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -1783,7 +1783,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'January' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1798,7 +1798,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'February' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1813,7 +1813,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'March' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1828,7 +1828,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'April' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1843,7 +1843,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'May' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1858,7 +1858,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'June' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1873,7 +1873,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'July' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1888,7 +1888,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'August' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1903,7 +1903,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === 'September' &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -1917,7 +1917,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP3October = allBanglaObsData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1931,7 +1931,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP3November = allBanglaObsData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1945,7 +1945,7 @@ const WidgetsDropdownPrevailActivity = () => {
   const allG2TeacherP3December = allBanglaObsData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'G2' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -1965,7 +1965,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus
       )
@@ -1979,7 +1979,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -1994,7 +1994,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -2009,7 +2009,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G1' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -2026,7 +2026,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus
       )
@@ -2040,7 +2040,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 1'
         // && item.fieldOffice === 'NrFO'
@@ -2055,7 +2055,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 2'
         // && item.fieldOffice === 'NrFO'
@@ -2070,7 +2070,7 @@ const WidgetsDropdownPrevailActivity = () => {
     .filter((item) => {
       return (
         item.month === previousMonth &&
-        item.year === '2025' &&
+        item.year === '2026' &&
         item.grade === 'G2' &&
         item.teacherStatus === 'Priority 3'
         // && item.fieldOffice === 'NrFO'
@@ -2320,7 +2320,7 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>G1 Teacher Status Trending 2025</strong>
+              <strong>G1 Teacher Number Trending (2026)</strong>
             </CCardHeader>
             <CLink href="/bangla/p-bangla-detail">
               <CCardBody>
@@ -2470,7 +2470,7 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>G2 Teacher Status Trending 2025</strong>
+              <strong>G2 Teacher Number Trending (2026)</strong>
             </CCardHeader>
             <CLink href="/bangla/p-bangla-detail">
               <CCardBody>
@@ -2620,7 +2620,7 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>LF Priority Trending 2025</strong>
+              <strong>LF Priority Number Trending (2026)</strong>
             </CCardHeader>
             <CLink href="/prevail/p-lf-observation-detail">
               <CCardBody>

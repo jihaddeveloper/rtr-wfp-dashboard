@@ -4,7 +4,8 @@ import React from 'react'
 import DIBanglaClassDataDetail from './views/base/bangla/DIBanglaClassDataDetail'
 
 const DashboardWFP = React.lazy(() => import('./views/dashboard/DashboardWFP'))
-const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+//const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const Dashboard = React.lazy(() => import('./views/dashboard/DashboardPrevail'))
 const DashboardPrevail = React.lazy(() => import('./views/dashboard/DashboardPrevail'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
