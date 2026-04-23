@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
-//  Modify Date: 11/01/2026
+//  Modify Date: 23/04/2026
 //  Description: PSRMDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -1102,7 +1102,7 @@ const PSRMDataDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '1000px' }}>
+          <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL PSRM Data</strong>
               <small> Total Observation-{allPSRMData.length}</small>
@@ -1422,10 +1422,10 @@ const PSRMDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddPSRMClass(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeletePSRMClass(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeletePSRMClass(oldData, resolve)
+                  //   }),
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
                       handleRowUpdateAllPSRMClass(newData, oldData, resolve)
@@ -1476,8 +1476,8 @@ const PSRMDataDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '300px', width: '1300px' }}
-                data={allPSRMData}
+                style={{ height: '700px', width: '1300px' }}
+                data={allPSRMData.toReversed()}
               />
             </CCardBody>
           </CCard>

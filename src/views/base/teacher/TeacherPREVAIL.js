@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 02/11/2025
+//  Modify Date: 09/04/2026
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -146,7 +146,7 @@ const TeacherPREVAIL = () => {
 
       setNarailSadarTeacher(response.data.filter((item) => item.upazilla === 'Narail Sadar'))
 
-      setLohagoraTeacher(response.data.filter((item) => item.upazilla === 'Lohagora'))
+      setLohagoraTeacher(response.data.filter((item) => item.upazilla === 'Lohagara'))
 
       setKaliaTeacher(response.data.filter((item) => item.upazilla === 'Kalia'))
 

@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 08/04/2026
+//  Modify Date: 23/04/2026
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -405,188 +405,188 @@ const PLFObservationDetail = () => {
 
   // Current Month
   const allLFObsCurrentMonth = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025'
+    return item.month === currentMonth && item.year === '2026'
   }).length
 
   const allLFObsCurrentMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsCurrentMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsCurrentMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === currentMonth && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Current Month
 
   // Previous Month
   const allLFObsPreviousMonth = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025'
+    return item.month === previousMonth && item.year === '2026'
   }).length
 
   const allLFObsPreviousMonthP1 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObsPreviousMonthP2 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObsPreviousMonthP3 = allLFObservationData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === previousMonth && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Previous Month
 
   // Trending
   // Priority 1
   const allLFObservationDataP1January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
 
   const allLFObservationDataP1December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 1'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 1'
   }).length
   // Priority 1
 
   // Priority 2
   const allLFObservationDataP2January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
 
   const allLFObservationDataP2December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 2'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 2'
   }).length
   // Priority 2
 
   // Priority 3
   const allLFObservationDataP3January = allLFObservationData.filter((item) => {
-    return item.month === 'January' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'January' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3February = allLFObservationData.filter((item) => {
-    return item.month === 'February' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3March = allLFObservationData.filter((item) => {
-    return item.month === 'March' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3April = allLFObservationData.filter((item) => {
-    return item.month === 'April' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3May = allLFObservationData.filter((item) => {
-    return item.month === 'May' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3June = allLFObservationData.filter((item) => {
-    return item.month === 'June' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3July = allLFObservationData.filter((item) => {
-    return item.month === 'July' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3August = allLFObservationData.filter((item) => {
-    return item.month === 'August' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3September = allLFObservationData.filter((item) => {
-    return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3October = allLFObservationData.filter((item) => {
-    return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3November = allLFObservationData.filter((item) => {
-    return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'November' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
 
   const allLFObservationDataP3December = allLFObservationData.filter((item) => {
-    return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 3'
+    return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 3'
   }).length
   // Priority 3
   // Trending
@@ -2988,7 +2988,7 @@ const PLFObservationDetail = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total LF</CTableHeaderCell>
-                              <CTableDataCell>22</CTableDataCell>
+                              <CTableDataCell>30</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">No of LF Observed</CTableHeaderCell>
@@ -3009,19 +3009,79 @@ const PLFObservationDetail = () => {
                           <CTableBody>
                             <CTableRow color="danger">
                               <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
-                              <CTableDataCell>2</CTableDataCell>
+                              <CTableDataCell>{allLFObsPreviousMonthP1}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
-                              <CTableDataCell>1</CTableDataCell>
+                              <CTableDataCell>{allLFObsPreviousMonthP2}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="secondary">
                               <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
-                              <CTableDataCell>1</CTableDataCell>
+                              <CTableDataCell>{allLFObsPreviousMonthP3}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total</CTableHeaderCell>
-                              <CTableDataCell>4</CTableDataCell>
+                              <CTableDataCell>
+                                {allLFObsPreviousMonthP1 +
+                                  allLFObsPreviousMonthP2 +
+                                  allLFObsPreviousMonthP3}
+                              </CTableDataCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCol>
+                    </CRow>
+                    <CRow>
+                      <CCol sm={6}>
+                        <strong>All LF Observation Priority {currentMonthYear}</strong>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Level</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">Number</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">Total LF</CTableHeaderCell>
+                              <CTableDataCell>30</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">No of LF Observed</CTableHeaderCell>
+                              <CTableDataCell>{allLFObsCurrentMonth}</CTableDataCell>
+                            </CTableRow>
+                          </CTableBody>
+                        </CTable>
+                      </CCol>
+                      <CCol sm={6}>
+                        <strong>All LF Observation Status {currentMonthYear}</strong>
+                        <CTable>
+                          <CTableHead>
+                            <CTableRow>
+                              <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">Number</CTableHeaderCell>
+                            </CTableRow>
+                          </CTableHead>
+                          <CTableBody>
+                            <CTableRow color="danger">
+                              <CTableHeaderCell scope="row">Priority 1</CTableHeaderCell>
+                              <CTableDataCell>{allLFObsCurrentMonthP1}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="primary">
+                              <CTableHeaderCell scope="row">Priority 2</CTableHeaderCell>
+                              <CTableDataCell>{allLFObsCurrentMonthP2}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">Priority 3</CTableHeaderCell>
+                              <CTableDataCell>{allLFObsCurrentMonthP3}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">Total</CTableHeaderCell>
+                              <CTableDataCell>
+                                {allLFObsCurrentMonthP1 +
+                                  allLFObsCurrentMonthP2 +
+                                  allLFObsCurrentMonthP3}
+                              </CTableDataCell>
                             </CTableRow>
                           </CTableBody>
                         </CTable>
@@ -3040,7 +3100,7 @@ const PLFObservationDetail = () => {
                     <CRow>
                       <CCard className="mb-4">
                         <CCardHeader>
-                          <strong>Library Trending Chart</strong> <small>(2025)</small>
+                          <strong>Library Trending Chart</strong> <small>(2026)</small>
                         </CCardHeader>
                         <CCardBody style={{ width: '850px', height: '400px' }}>
                           <CChartLine
@@ -3392,7 +3452,7 @@ const PLFObservationDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '700px' }}>
+          <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL LF Observation Data </strong>
               <small>Total LF Observation -{allLFObservationData.length}</small>
@@ -3418,6 +3478,7 @@ const PLFObservationDetail = () => {
                     field: 'lf',
                     type: 'string',
                   },
+
                   { title: 'school', field: 'school' },
 
                   {
@@ -3436,9 +3497,17 @@ const PLFObservationDetail = () => {
                   { title: 'upazilla', field: 'upazilla', sorting: 'true' },
 
                   { title: 'project', field: 'project', sorting: 'true' },
+
                   { title: 'office', field: 'office', sorting: 'true' },
 
-                  { title: 'lpoName', field: 'lpoName', type: 'string' },
+                  { title: 'rtrSchoolId', field: 'rtrSchoolId', type: 'string' },
+                  { title: 'yearOfSupport', field: 'yearOfSupport', type: 'string' },
+                  { title: 'schoolEntryTime', field: 'schoolEntryTime', type: 'string' },
+                  { title: 'schoolExitTime', field: 'schoolExitTime', type: 'string' },
+                  { title: 'visitor', field: 'visitor', type: 'string' },
+                  { title: 'visitorDesignation', field: 'visitorDesignation', type: 'string' },
+
+                  { title: 'note', field: 'note', type: 'string' },
 
                   {
                     title: 'lastFollowupIndicator1',
@@ -3635,14 +3704,7 @@ const PLFObservationDetail = () => {
                     title: 'bestPracticeIndicator2Details',
                     field: 'bestPracticeIndicator2Details',
                   },
-                  {
-                    title: 'bestPracticeIndicator3',
-                    field: 'bestPracticeIndicator3',
-                  },
-                  {
-                    title: 'bestPracticeIndicator3Details',
-                    field: 'bestPracticeIndicator3Details',
-                  },
+
                   {
                     title: 'coachingSupportIndicator1',
                     field: 'coachingSupportIndicator1',
@@ -3660,12 +3722,25 @@ const PLFObservationDetail = () => {
                     field: 'coachingSupportIndicator2Details',
                   },
                   {
+                    title: 'coachingSupportLF',
+                    field: 'coachingSupportLF',
+                  },
+                  {
+                    title: 'coachingSupportLPO',
+                    field: 'coachingSupportLPO',
+                  },
+                  {
                     title: 'agreedStatement1',
                     field: 'agreedStatement1',
                   },
                   {
                     title: 'agreedStatement2',
                     field: 'agreedStatement2',
+                  },
+
+                  {
+                    title: 'isChecked',
+                    field: 'isChecked',
                   },
                 ]}
                 editable={{
@@ -3677,10 +3752,10 @@ const PLFObservationDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddLFObservation(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeleteLFObservation(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeleteLFObservation(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,
@@ -3727,8 +3802,8 @@ const PLFObservationDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '300px', width: '1300px' }}
-                data={allLFObservationData}
+                style={{ height: '700px', width: '1300px' }}
+                data={allLFObservationData.toReversed()}
               />
             </CCardBody>
           </CCard>

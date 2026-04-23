@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 08/04/2026
-//  Description: PLFObservation  file
+//  Modify Date: 23/04/2026
+//  Description: PBanglaClassDataDetail  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -3867,15 +3867,24 @@ const PBanglaClassDataDetail = () => {
                     field: 'periodDay',
                   },
                   {
-                    title: 'TotalAdmittedStudent',
+                    title: 'totalAdmittedStudent',
                     field: 'totalAdmittedStudent',
-                    filtering: false,
                   },
-
                   {
-                    title: 'TotalPresentStudent',
+                    title: 'totalPresentStudent',
                     field: 'totalPresentStudent',
-                    filtering: false,
+                  },
+                  {
+                    title: 'rtrSchoolId',
+                    field: 'rtrSchoolId',
+                  },
+                  {
+                    title: 'yearOfSupport',
+                    field: 'yearOfSupport',
+                  },
+                  {
+                    title: 'Note',
+                    field: 'note',
                   },
 
                   {
@@ -3886,225 +3895,194 @@ const PBanglaClassDataDetail = () => {
                   {
                     title: 'lastFollowupTopic1',
                     field: 'lastFollowupTopic1',
-                    filtering: false,
                   },
                   {
                     title: 'lastFollowupTopic2',
                     field: 'lastFollowupTopic2',
-                    filtering: false,
                   },
                   {
                     title: 'lastFollowupTopic3',
                     field: 'lastFollowupTopic3',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind11TeacherFollowedTeacherGuideInClassStatus',
                     field: 'ind11TeacherFollowedTeacherGuideInClassStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind11TeacherFollowedTeacherGuideInClassNote',
                     field: 'ind11TeacherFollowedTeacherGuideInClassNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind12FollowedIDoWeDoYouDoStatus',
                     field: 'ind12FollowedIDoWeDoYouDoStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind12FollowedIDoWeDoYouDoNote',
                     field: 'ind12FollowedIDoWeDoYouDoNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind13FollowedContinuityOfLessonStatus',
                     field: 'ind13FollowedContinuityOfLessonStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind13FollowedContinuityOfLessonNote',
                     field: 'ind13FollowedContinuityOfLessonNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind14ImplementedAllTaskInTimeStatus',
                     field: 'ind14ImplementedAllTaskInTimeStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind14ImplementedAllTaskInTimeNote',
                     field: 'ind14ImplementedAllTaskInTimeNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind15InstructedToUseWorkbookStatus',
                     field: 'ind15InstructedToUseWorkbookStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind15InstructedToUseWorkbookNote',
                     field: 'ind15InstructedToUseWorkbookNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind16IndependentReadingOpportunityStatus',
                     field: 'ind16IndependentReadingOpportunityStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind16IndependentReadingOpportunityNote',
                     field: 'ind16IndependentReadingOpportunityNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind21CorrectlyPronouncedStatus',
                     field: 'ind21CorrectlyPronouncedStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind21CorrectlyPronouncedNote',
                     field: 'ind21CorrectlyPronouncedNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind22TaughtCorrectlyAllowPracticeStatus',
                     field: 'ind22TaughtCorrectlyAllowPracticeStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind22TaughtCorrectlyAllowPracticeNote',
                     field: 'ind22TaughtCorrectlyAllowPracticeNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind23DemonstratesFluentReadingStatus',
                     field: 'ind23DemonstratesFluentReadingStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind23DemonstratesFluentReadingNote',
                     field: 'ind23DemonstratesFluentReadingNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind24AllowReadIndividuallyPairGroupsStatus',
                     field: 'ind24AllowReadIndividuallyPairGroupsStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind24AllowReadIndividuallyPairGroupsNote',
                     field: 'ind24AllowReadIndividuallyPairGroupsNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind25FollowsInstructionsInWritingStatus',
                     field: 'ind25FollowsInstructionsInWritingStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind25FollowsInstructionsInWritingNote',
                     field: 'ind25FollowsInstructionsInWritingNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind31AskedHelpfulQuestionsStatus',
                     field: 'ind31AskedHelpfulQuestionsStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind31AskedHelpfulQuestionsNote',
                     field: 'ind31AskedHelpfulQuestionsNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind32TaughtVocabularyNewSentenceStatus',
                     field: 'ind32TaughtVocabularyNewSentenceStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind32TaughtVocabularyNewSentenceNote',
                     field: 'ind32TaughtVocabularyNewSentenceNote',
-                    filtering: false,
                   },
                   {
                     title: 'ind33CheckWritingSpellingPunctuationStatus',
                     field: 'ind33CheckWritingSpellingPunctuationStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind33CheckWritingSpellingPunctuationNote',
                     field: 'ind33CheckWritingSpellingPunctuationNote',
-                    filtering: false,
                   },
 
                   {
                     title: 'ind34CheckedWeDoYouDoStatus',
                     field: 'ind34CheckedWeDoYouDoStatus',
-                    filtering: false,
                   },
                   {
                     title: 'ind34CheckedWeDoYouDoNote',
                     field: 'ind34CheckedWeDoYouDoNote',
-                    filtering: false,
                   },
 
-                  { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
-                  { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
-
+                  { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
+                  { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
+                  { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
                   {
                     title: 'coachingSupportInd1',
                     field: 'coachingSupportInd1',
-                    filtering: false,
                   },
                   {
                     title: 'coachingSupportInd2',
                     field: 'coachingSupportInd2',
-                    filtering: false,
                   },
+                  { title: 'coachingSupportTeacher', field: 'coachingSupportTeacher' },
+                  { title: 'coachingSupportLF', field: 'coachingSupportLF' },
 
-                  { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
-                  { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
+                  { title: 'agreedStatement1', field: 'agreedStatement1' },
+                  { title: 'agreedStatement2', field: 'agreedStatement2' },
 
-                  { title: 'question1', field: 'question1', filtering: false },
+                  { title: 'question1', field: 'question1' },
 
-                  { title: 'student1', field: 'student1', filtering: false },
-                  { title: 'student2', field: 'student2', filtering: false },
-                  { title: 'student3', field: 'student3', filtering: false },
+                  { title: 'student1', field: 'student1' },
+                  { title: 'student2', field: 'student2' },
+                  { title: 'student3', field: 'student3' },
 
-                  { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
-                  { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
-                  { title: 'totalFor1', field: 'totalFor1', filtering: false },
-                  { title: 'noRightFor2', field: 'noRightFor2', filtering: false },
-                  { title: 'noWrongFor2', field: 'noWrongFor2', filtering: false },
-                  { title: 'totalFor2', field: 'totalFor2', filtering: false },
-                  { title: 'noRightFor3', field: 'noRightFor3', filtering: false },
-                  { title: 'noWrongFor3', field: 'noWrongFor3', filtering: false },
-                  { title: 'totalFor3', field: 'totalFor3', filtering: false },
+                  { title: 'noRightFor1', field: 'noRightFor1' },
+                  { title: 'noWrongFor1', field: 'noWrongFor1' },
+                  { title: 'totalFor1', field: 'totalFor1' },
+                  { title: 'noRightFor2', field: 'noRightFor2' },
+                  { title: 'noWrongFor2', field: 'noWrongFor2' },
+                  { title: 'totalFor2', field: 'totalFor2' },
+                  { title: 'noRightFor3', field: 'noRightFor3' },
+                  { title: 'noWrongFor3', field: 'noWrongFor3' },
+                  { title: 'totalFor3', field: 'totalFor3' },
+
+                  { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
                   onRowAdd: (newData) =>
                     new Promise((resolve) => {
                       handleRowAddBanglaClass(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeleteBanglaClass(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeleteBanglaClass(oldData, resolve)
+                  //   }),
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
                       handleRowUpdateAllBanglaClass(newData, oldData, resolve)
@@ -4156,7 +4134,7 @@ const PBanglaClassDataDetail = () => {
                   maintainAspectRatio: false,
                 }}
                 style={{ height: '700px', width: '1300px' }}
-                data={allBanglaObsData}
+                data={allBanglaObsData.toReversed()}
               />
             </CCardBody>
           </CCard>

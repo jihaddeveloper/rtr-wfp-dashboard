@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
-//  Modify Date: 11/01/2026
+//  Modify Date: 23/04/2026
 //  Description: PPreprimaryDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -1223,7 +1223,7 @@ const PPreprimaryDataDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '1000px' }}>
+          <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL PPrePrimary Observation Data</strong>
               <small> Total Observation-{allPPrePrimaryData.length}</small>
@@ -1459,10 +1459,10 @@ const PPreprimaryDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddPPrePrimaryClass(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeletePPrePrimaryClass(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeletePPrePrimaryClass(oldData, resolve)
+                  //   }),
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
                       handleRowUpdateAllPPrePrimaryClass(newData, oldData, resolve)
@@ -1513,8 +1513,8 @@ const PPreprimaryDataDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '300px', width: '1300px' }}
-                data={allPPrePrimaryData}
+                style={{ height: '700px', width: '1300px' }}
+                data={allPPrePrimaryData.toReversed()}
               />
             </CCardBody>
           </CCard>

@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 14/01/2026
+//  Modify Date: 23/04/2026
 //  Description: PLibraryObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -3467,7 +3467,7 @@ const PLibraryObservation = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '700px' }}>
+          <CCard style={{ width: '1310px', height: '900px' }}>
             <CCardHeader>
               <strong>All PREVAIL Libarary Observation Data </strong>
               <small>Total Libarary Observation -{allDILibraryObservation.length}</small>
@@ -3785,10 +3785,10 @@ const PLibraryObservation = () => {
                     new Promise((resolve) => {
                       handleRowAddPLibraryObservation(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeletePLibraryObservation(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeletePLibraryObservation(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,
@@ -3835,7 +3835,8 @@ const PLibraryObservation = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                data={allPLibraryObservation}
+                style={{ height: '700px', width: '1300px' }}
+                data={allPLibraryObservation.toReversed()}
               />
             </CCardBody>
           </CCard>

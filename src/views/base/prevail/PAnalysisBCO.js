@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 14/01/2026
+//  Modify Date: 23/04/2026
 //  Description: PAnalysisBCO  file
 
 import React, { useState, useEffect } from 'react'
@@ -6228,7 +6228,7 @@ const PAnalysisBCO = () => {
           </CCardBody>
         </CCard>
 
-        <CCard className="mb-4">
+        <CCard style={{ width: '1310px', height: '900px' }}>
           <CCardHeader>
             <strong>PREVAIL BCO Data-2026</strong>
           </CCardHeader>
@@ -6362,10 +6362,10 @@ const PAnalysisBCO = () => {
                   new Promise((resolve) => {
                     handleRowUpdatePBCO(newData, oldData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeletePBCO(oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeletePBCO(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
@@ -6412,8 +6412,8 @@ const PAnalysisBCO = () => {
                 },
                 maintainAspectRatio: false,
               }}
-              //style={{ height: '300px', width: '1300px' }}
-              data={allBCOPData}
+              style={{ height: '700px', width: '1300px' }}
+              data={allBCOPData.toReversed()}
             />
           </CCardBody>
         </CCard>
