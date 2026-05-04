@@ -1453,6 +1453,8 @@ const PPreprimaryDataDetail = () => {
 
                   { title: 'agreedStatement1', field: 'agreedStatement1' },
                   { title: 'agreedStatement2', field: 'agreedStatement2' },
+
+                  { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
                   onRowAdd: (newData) =>

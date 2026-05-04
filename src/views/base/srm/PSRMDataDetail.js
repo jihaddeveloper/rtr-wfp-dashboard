@@ -1416,6 +1416,8 @@ const PSRMDataDetail = () => {
                     title: 'agreedStatementLFPartB',
                     field: 'agreedStatementLFPartB',
                   },
+
+                  { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
                   onRowAdd: (newData) =>

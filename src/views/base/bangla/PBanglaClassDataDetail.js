@@ -3882,10 +3882,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'yearOfSupport',
                     field: 'yearOfSupport',
                   },
-                  {
-                    title: 'Note',
-                    field: 'note',
-                  },
 
                   {
                     title: 'Note',

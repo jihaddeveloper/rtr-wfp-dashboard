@@ -1355,7 +1355,8 @@ const WidgetsDropdownPrevailStatus = () => {
             <CCol sm={2} lg={2}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <strong>Library Rating Status(%)</strong> <small>({previousMonthYear})</small>
+                  <strong>Library Functionality Status(%)</strong>{' '}
+                  <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/prevail/p-library-observation">

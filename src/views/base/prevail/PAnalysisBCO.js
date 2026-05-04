@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 23/04/2026
+//  Modify Date: 03/05/2026
 //  Description: PAnalysisBCO  file
 
 import React, { useState, useEffect } from 'react'
@@ -83,8 +83,11 @@ const PAnalysisBCO = () => {
   const [reportData23Mar, setReportData23Mar] = useState([])
   const [reportData23Apr, setReportData23Apr] = useState([])
 
+  const [reportData26, setReportData26] = useState([])
+
   // Chart Data
   const [schoolBCOPerChildChartData, setSchoolBCOPerChildChartData] = useState({})
+
   const [schoolTotalBookCheckOutInChartData, setSchoolTotalBookCheckOutInChartData] = useState({})
   const [schoolNoStudentBCOInChartData, setSchoolNoStudentBCOInChartData] = useState({})
   const [schoolPercentStudentBCOInChartData, setSchoolPercentStudentBCOInChartData] = useState({})
@@ -1064,6 +1067,214 @@ const PAnalysisBCO = () => {
   // December
   // 2024
   // DI
+
+  // PREVAIL
+  // 2026
+  // January
+  let allTotalStudentJanuary26 = 0
+  let allTotalBookCheckoutJanuary26 = 0
+  let allTotalBookCheckinJanuary26 = 0
+  let allNoBCOPerStudentJanuary26 = 0
+  let allNoStudentBCOJanuary26 = 0
+  let allPercentStudentBCOJanuary26 = 0
+  let allNoStudentBCIJanuary26 = 0
+  let allPercentStudentBCIJanuary26 = 0
+  let allNoGirlBCOJanuary26 = 0
+  let allPercentGirlBCOJanuary26 = 0
+  let allNoBoyBCOJanuary26 = 0
+  let allPercentBoyBCOJanuary26 = 0
+  let allNoSchoolBCOJanuary26 = 0
+  let allNoSchoolZeroBCOJanuary26 = 0
+  // January
+
+  // February
+  let allTotalStudentFebruary26 = 0
+  let allTotalBookCheckoutFebruary26 = 0
+  let allTotalBookCheckinFebruary26 = 0
+  let allNoBCOPerStudentFebruary26 = 0
+  let allNoStudentBCOFebruary26 = 0
+  let allPercentStudentBCOFebruary26 = 0
+  let allNoStudentBCIFebruary26 = 0
+  let allPercentStudentBCIFebruary26 = 0
+  let allNoGirlBCOFebruary26 = 0
+  let allPercentGirlBCOFebruary26 = 0
+  let allNoBoyBCOFebruary26 = 0
+  let allPercentBoyBCOFebruary26 = 0
+  let allNoSchoolBCOFebruary26 = 0
+  let allNoSchoolZeroBCOFebruary26 = 0
+  // February
+
+  // March
+  let allTotalStudentMarch26 = 0
+  let allTotalBookCheckoutMarch26 = 0
+  let allTotalBookCheckinMarch26 = 0
+  let allNoBCOPerStudentMarch26 = 0
+  let allNoStudentBCOMarch26 = 0
+  let allPercentStudentBCOMarch26 = 0
+  let allNoStudentBCIMarch26 = 0
+  let allPercentStudentBCIMarch26 = 0
+  let allNoGirlBCOMarch26 = 0
+  let allPercentGirlBCOMarch26 = 0
+  let allNoBoyBCOMarch26 = 0
+  let allPercentBoyBCOMarch26 = 0
+  let allNoSchoolBCOMarch26 = 0
+  let allNoSchoolZeroBCOMarch26 = 0
+  // March
+
+  // April
+  let allTotalStudentApril26 = 0
+  let allTotalBookCheckoutApril26 = 0
+  let allTotalBookCheckinApril26 = 0
+  let allNoBCOPerStudentApril26 = 0
+  let allNoStudentBCOApril26 = 0
+  let allPercentStudentBCOApril26 = 0
+  let allNoStudentBCIApril26 = 0
+  let allPercentStudentBCIApril26 = 0
+  let allNoGirlBCOApril26 = 0
+  let allPercentGirlBCOApril26 = 0
+  let allNoBoyBCOApril26 = 0
+  let allPercentBoyBCOApril26 = 0
+  let allNoSchoolBCOApril26 = 0
+  let allNoSchoolZeroBCOApril26 = 0
+  // April
+
+  // May
+  let allTotalStudentMay26 = 0
+  let allTotalBookCheckoutMay26 = 0
+  let allTotalBookCheckinMay26 = 0
+  let allNoBCOPerStudentMay26 = 0
+  let allNoStudentBCOMay26 = 0
+  let allPercentStudentBCOMay26 = 0
+  let allNoStudentBCIMay26 = 0
+  let allPercentStudentBCIMay26 = 0
+  let allNoGirlBCOMay26 = 0
+  let allPercentGirlBCOMay26 = 0
+  let allNoBoyBCOMay26 = 0
+  let allPercentBoyBCOMay26 = 0
+  let allNoSchoolBCOMay26 = 0
+  let allNoSchoolZeroBCOMay26 = 0
+  // May
+
+  // June
+  let allTotalStudentJune26 = 0
+  let allTotalBookCheckoutJune26 = 0
+  let allTotalBookCheckinJune26 = 0
+  let allNoBCOPerStudentJune26 = 0
+  let allNoStudentBCOJune26 = 0
+  let allPercentStudentBCOJune26 = 0
+  let allNoStudentBCIJune26 = 0
+  let allPercentStudentBCIJune26 = 0
+  let allNoGirlBCOJune26 = 0
+  let allPercentGirlBCOJune26 = 0
+  let allNoBoyBCOJune26 = 0
+  let allPercentBoyBCOJune26 = 0
+  let allNoSchoolBCOJune26 = 0
+  let allNoSchoolZeroBCOJune26 = 0
+  // June
+
+  // July
+  let allTotalStudentJuly26 = 0
+  let allTotalBookCheckoutJuly26 = 0
+  let allTotalBookCheckinJuly26 = 0
+  let allNoBCOPerStudentJuly26 = 0
+  let allNoStudentBCOJuly26 = 0
+  let allPercentStudentBCOJuly26 = 0
+  let allNoStudentBCIJuly26 = 0
+  let allPercentStudentBCIJuly26 = 0
+  let allNoGirlBCOJuly26 = 0
+  let allPercentGirlBCOJuly26 = 0
+  let allNoBoyBCOJuly26 = 0
+  let allPercentBoyBCOJuly26 = 0
+  let allNoSchoolBCOJuly26 = 0
+  let allNoSchoolZeroBCOJuly26 = 0
+  // July
+
+  // August
+  let allTotalStudentAugust26 = 0
+  let allTotalBookCheckoutAugust26 = 0
+  let allTotalBookCheckinAugust26 = 0
+  let allNoBCOPerStudentAugust26 = 0
+  let allNoStudentBCOAugust26 = 0
+  let allPercentStudentBCOAugust26 = 0
+  let allNoStudentBCIAugust26 = 0
+  let allPercentStudentBCIAugust26 = 0
+  let allNoGirlBCOAugust26 = 0
+  let allPercentGirlBCOAugust26 = 0
+  let allNoBoyBCOAugust26 = 0
+  let allPercentBoyBCOAugust26 = 0
+  let allNoSchoolBCOAugust26 = 0
+  let allNoSchoolZeroBCOAugust26 = 0
+  // August
+
+  // September
+  let allTotalStudentSeptember26 = 0
+  let allTotalBookCheckoutSeptember26 = 0
+  let allTotalBookCheckinSeptember26 = 0
+  let allNoBCOPerStudentSeptember26 = 0
+  let allNoStudentBCOSeptember26 = 0
+  let allPercentStudentBCOSeptember26 = 0
+  let allNoStudentBCISeptember26 = 0
+  let allPercentStudentBCISeptember26 = 0
+  let allNoGirlBCOSeptember26 = 0
+  let allPercentGirlBCOSeptember26 = 0
+  let allNoBoyBCOSeptember26 = 0
+  let allPercentBoyBCOSeptember26 = 0
+  let allNoSchoolBCOSeptember26 = 0
+  let allNoSchoolZeroBCOSeptember26 = 0
+  // September
+
+  // October
+  let allTotalStudentOctober26 = 0
+  let allTotalBookCheckoutOctober26 = 0
+  let allTotalBookCheckinOctober26 = 0
+  let allNoBCOPerStudentOctober26 = 0
+  let allNoStudentBCOOctober26 = 0
+  let allPercentStudentBCOOctober26 = 0
+  let allNoStudentBCIOctober26 = 0
+  let allPercentStudentBCIOctober26 = 0
+  let allNoGirlBCOOctober26 = 0
+  let allPercentGirlBCOOctober26 = 0
+  let allNoBoyBCOOctober26 = 0
+  let allPercentBoyBCOOctober26 = 0
+  let allNoSchoolBCOOctober26 = 0
+  let allNoSchoolZeroBCOOctober26 = 0
+  // October
+
+  // November
+  let allTotalStudentNovember26 = 0
+  let allTotalBookCheckoutNovember26 = 0
+  let allTotalBookCheckinNovember26 = 0
+  let allNoBCOPerStudentNovember26 = 0
+  let allNoStudentBCONovember26 = 0
+  let allPercentStudentBCONovember26 = 0
+  let allNoStudentBCINovember26 = 0
+  let allPercentStudentBCINovember26 = 0
+  let allNoGirlBCONovember26 = 0
+  let allPercentGirlBCONovember26 = 0
+  let allNoBoyBCONovember26 = 0
+  let allPercentBoyBCONovember26 = 0
+  let allNoSchoolBCONovember26 = 0
+  let allNoSchoolZeroBCONovember26 = 0
+  // November
+
+  // December
+  let allTotalStudentDecember26 = 0
+  let allTotalBookCheckoutDecember26 = 0
+  let allTotalBookCheckinDecember26 = 0
+  let allNoBCOPerStudentDecember26 = 0
+  let allNoStudentBCODecember26 = 0
+  let allPercentStudentBCODecember26 = 0
+  let allNoStudentBCIDecember26 = 0
+  let allPercentStudentBCIDecember26 = 0
+  let allNoGirlBCODecember26 = 0
+  let allPercentGirlBCODecember26 = 0
+  let allNoBoyBCODecember26 = 0
+  let allPercentBoyBCODecember26 = 0
+  let allNoSchoolBCODecember26 = 0
+  let allNoSchoolZeroBCODecember26 = 0
+  // December
+  // 2026
+  // PREVAIL
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
@@ -5671,12 +5882,1914 @@ const PAnalysisBCO = () => {
       })
       setAllBCOPData(response.data)
 
+      // Filter Data PBCO
+      // Trending
+      // // January
+      allTotalStudentJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckoutJanuary26 = allBCOPData
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckinJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allNoBCOPerStudentJanuary26 = (
+        allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'January')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCOJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCOJanuary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'January')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCIJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCIJanuary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'January')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoGirlBCOJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentGirlBCOJanuary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'January')
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoBoyBCOJanuary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'January')
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentBoyBCOJanuary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'January')
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoSchoolBCOJanuary26 = allBCOPData.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
+      ).length
+
+      allNoSchoolZeroBCOJanuary26 = allBCOPData.filter(
+        (item) =>
+          item.year === '2026' && item.month === 'January' && item.schoolTotalNoStudentBC === 0,
+      ).length
+      // January
+
+      // February
+      allTotalStudentFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckoutFebruary26 = allBCOPData
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'February',
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckinFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allNoBCOPerStudentFebruary26 = (
+        allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.year === '2026' &&
+              item.month === 'February',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'February')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCOFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCOFebruary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.year === '2026' &&
+              item.month === 'February',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'February')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCIFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCIFebruary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.year === '2026' &&
+              item.month === 'February',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'February')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoGirlBCOFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentGirlBCOFebruary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.year === '2026' &&
+              item.month === 'February',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'February')
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoBoyBCOFebruary26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'February')
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentBoyBCOFebruary26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 &&
+              item.year === '2026' &&
+              item.month === 'February',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'February')
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoSchoolBCOFebruary26 = allBCOPData.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'February',
+      ).length
+
+      allNoSchoolZeroBCOFebruary26 = allBCOPData.filter(
+        (item) =>
+          item.year === '2026' && item.month === 'February' && item.schoolTotalNoStudentBC === 0,
+      ).length
+      // February
+
+      // March
+      allTotalStudentMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckoutMarch26 = allBCOPData
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckinMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allNoBCOPerStudentMarch26 = (
+        allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'March')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCOMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCOMarch26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'March')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCIMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCIMarch26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'March')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoGirlBCOMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentGirlBCOMarch26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'March')
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoBoyBCOMarch26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'March')
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentBoyBCOMarch26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'March')
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoSchoolBCOMarch26 = allBCOPData.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
+      ).length
+
+      allNoSchoolZeroBCOMarch26 = allBCOPData.filter(
+        (item) =>
+          item.year === '2026' && item.month === 'March' && item.schoolTotalNoStudentBC === 0,
+      ).length
+      // March
+
+      // April
+      allTotalStudentApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckoutApril26 = allBCOPData
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckinApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allNoBCOPerStudentApril26 = (
+        allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'April')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCOApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCOApril26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'April')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCIApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCIApril26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'April')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoGirlBCOApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentGirlBCOApril26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'April')
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoBoyBCOApril26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'April')
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentBoyBCOApril26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'April')
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoSchoolBCOApril26 = allBCOPData.filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
+      ).length
+
+      allNoSchoolZeroBCOApril26 = allBCOPData.filter(
+        (item) =>
+          item.year === '2026' && item.month === 'April' && item.schoolTotalNoStudentBC === 0,
+      ).length
+      // April
+
+      // May
+      allTotalStudentMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckoutMay26 = allBCOPData
+        .filter(
+          (item) =>
+            item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+        )
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allTotalBookCheckinMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allNoBCOPerStudentMay26 = (
+        allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'May')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCOMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCOMay26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'May')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoStudentBCIMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentStudentBCIMay26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'May')
+          .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoGirlBCOMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentGirlBCOMay26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'May')
+          .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoBoyBCOMay26 = allBCOPData
+        .filter((item) => item.year === '2026' && item.month === 'May')
+        .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+        .reduce(function (acc, value) {
+          return acc + value
+        })
+
+      allPercentBoyBCOMay26 = (
+        (allBCOPData
+          .filter(
+            (item) =>
+              item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+          )
+          .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+          .reduce(function (acc, value) {
+            return acc + value
+          }) *
+          100) /
+        allBCOPData
+          .filter((item) => item.year === '2026' && item.month === 'May')
+          .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+          .reduce(function (acc, value) {
+            return acc + value
+          })
+      ).toFixed(2)
+
+      allNoSchoolBCOMay26 = allBCOPData.filter(
+        (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
+      ).length
+
+      allNoSchoolZeroBCOMay26 = allBCOPData.filter(
+        (item) => item.year === '2026' && item.month === 'May' && item.schoolTotalNoStudentBC === 0,
+      ).length
+      // May
+
+      // June
+      // allTotalStudentJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutJune26 = allBCOPData
+      //   .filter(
+      //     (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentJune26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'June')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCOJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCOJune26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'June')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCIJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCIJune26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'June')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCOJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCOJune26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'June')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCOJune26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'June')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCOJune26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'June')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCOJune26 = allBCOPData.filter(
+      //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
+      // ).length
+
+      // allNoSchoolZeroBCOJune26 = allBCOPData.filter(
+      //   (item) => item.year === '2026' && item.month === 'June' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // June
+
+      // // July
+      // allTotalStudentJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutJuly26 = allBCOPData
+      //   .filter(
+      //     (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentJuly26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'July')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCOJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCOJuly26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'July')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCIJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCIJuly26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'July')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCOJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCOJuly26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'July')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCOJuly26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'July')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCOJuly26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'July')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCOJuly26 = allBCOPData.filter(
+      //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
+      // ).length
+
+      // allNoSchoolZeroBCOJuly26 = allBCOPData.filter(
+      //   (item) => item.year === '2026' && item.month === 'July' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // July
+
+      // // August
+      // allTotalStudentAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutAugust26 = allBCOPData
+      //   .filter(
+      //     (item) =>
+      //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentAugust26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'August')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCOAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCOAugust26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'August')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCIAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCIAugust26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'August')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCOAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCOAugust26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'August')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCOAugust26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'August')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCOAugust26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'August')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCOAugust26 = allBCOPData.filter(
+      //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
+      // ).length
+
+      // allNoSchoolZeroBCOAugust26 = allBCOPData.filter(
+      //   (item) => item.year === '2026' && item.month === 'August' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // August
+
+      // // September
+      // allTotalStudentSeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutSeptember26 = allBCOPData
+      //   .filter(
+      //     (item) =>
+      //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinSeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentSeptember26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'September')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCOSeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCOSeptember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'September')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCISeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCISeptember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'September')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCOSeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCOSeptember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'September')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCOSeptember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'September')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCOSeptember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'September')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCOSeptember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
+      // ).length
+
+      // allNoSchoolZeroBCOSeptember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.year === '2026' && item.month === 'September' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // September
+
+      // // October
+      // allTotalStudentOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutOctober26 = allBCOPData
+      //   .filter(
+      //     (item) =>
+      //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentOctober26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'October')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCOOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCOOctober26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'October')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCIOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCIOctober26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'October')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCOOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCOOctober26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'October')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCOOctober26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'October')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCOOctober26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'October')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCOOctober26 = allBCOPData.filter(
+      //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
+      // ).length
+
+      // allNoSchoolZeroBCOOctober26 = allBCOPData.filter(
+      //   (item) => item.year === '2026' && item.month === 'October' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // October
+
+      // // November
+      // allTotalStudentNovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutNovember26 = allBCOPData
+      //   .filter(
+      //     (item) =>
+      //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinNovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentNovember26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'November')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCONovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCONovember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'November')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCINovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCINovember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'November')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCONovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCONovember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'November')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCONovember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'November')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCONovember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'November')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCONovember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
+      // ).length
+
+      // allNoSchoolZeroBCONovember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.year === '2026' && item.month === 'November' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // November
+
+      // // December
+      // allTotalStudentDecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckoutDecember26 = allBCOPData
+      //   .filter(
+      //     (item) =>
+      //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //   )
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allTotalBookCheckinDecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allNoBCOPerStudentDecember26 = (
+      //   allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'December')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCODecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCODecember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'December')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoStudentBCIDecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentStudentBCIDecember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'December')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoGirlBCODecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentGirlBCODecember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'December')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoBoyBCODecember26 = allBCOPData
+      //   .filter((item) => item.year === '2026' && item.month === 'December')
+      //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //   .reduce(function (acc, value) {
+      //     return acc + value
+      //   })
+
+      // allPercentBoyBCODecember26 = (
+      //   (allBCOPData
+      //     .filter(
+      //       (item) =>
+      //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      //     )
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     }) *
+      //     100) /
+      //   allBCOPData
+      //     .filter((item) => item.year === '2026' && item.month === 'December')
+      //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      //     .reduce(function (acc, value) {
+      //       return acc + value
+      //     })
+      // ).toFixed(2)
+
+      // allNoSchoolBCODecember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
+      // ).length
+
+      // allNoSchoolZeroBCODecember26 = allBCOPData.filter(
+      //   (item) =>
+      //     item.year === '2026' && item.month === 'December' && item.schoolTotalNoStudentBC === 0,
+      // ).length
+      // // December
+
+      // Trending
+      // Filter Data
+
       setIsLoading(false)
     } catch (error) {
       setIsLoading(false)
       console.log(error)
     }
   }
+
+  // Filter Data PBCO
+  // Trending
 
   const pushReportData23 = () => {
     const reportObject23 = [
@@ -5914,6 +8027,94 @@ const PAnalysisBCO = () => {
     setReportData24(reportObject24)
   }
 
+  const pushReportData26 = () => {
+    const reportObject26 = [
+      {
+        sl: 1,
+        area: 'Total Students( 1 - 5)',
+        january: allTotalStudentJanuary26,
+        february: allTotalStudentFebruary26,
+        march: allTotalStudentMarch26,
+        april: allTotalStudentApril26,
+        may: allTotalStudentMay26,
+        june: allTotalStudentJune26,
+        july: allTotalStudentJuly26,
+        august: allTotalStudentAugust26,
+        september: allTotalStudentSeptember26,
+        october: allTotalStudentOctober26,
+        november: allTotalStudentNovember26,
+        december: allTotalStudentDecember26,
+      },
+      {
+        sl: 2,
+        area: 'Total Book Check Out',
+        january: allTotalBookCheckoutJanuary26,
+        february: allTotalBookCheckoutFebruary26,
+        march: allTotalBookCheckoutMarch26,
+        april: allTotalBookCheckoutApril26,
+        may: allTotalBookCheckoutMay26,
+        june: allTotalBookCheckoutJune26,
+        july: allTotalBookCheckoutJuly26,
+        august: allTotalBookCheckoutAugust26,
+        september: allTotalBookCheckoutSeptember26,
+        october: allTotalBookCheckoutOctober26,
+        november: allTotalBookCheckoutNovember26,
+        december: allTotalBookCheckoutDecember26,
+      },
+
+      {
+        sl: 3,
+        area: 'Average Book Checkout Per Child',
+        january: allNoBCOPerStudentJanuary26,
+        february: allNoBCOPerStudentFebruary26,
+        march: allNoBCOPerStudentMarch26,
+        april: allNoBCOPerStudentApril26,
+        may: allNoBCOPerStudentMay26,
+        june: allNoBCOPerStudentJune26,
+        july: allNoBCOPerStudentJuly26,
+        august: allNoBCOPerStudentAugust26,
+        september: allNoBCOPerStudentSeptember26,
+        october: allNoBCOPerStudentOctober26,
+        november: allNoBCOPerStudentNovember26,
+        december: allNoBCOPerStudentDecember26,
+      },
+      {
+        sl: 4,
+        area: '# of Students checked out books',
+        january: allNoStudentBCOJanuary26,
+        february: allNoStudentBCOFebruary26,
+        march: allNoStudentBCOMarch26,
+        april: allNoStudentBCOApril26,
+        may: allNoStudentBCOMay26,
+        june: allNoStudentBCOJune26,
+        july: allNoStudentBCOJuly26,
+        august: allNoStudentBCOAugust26,
+        september: allNoStudentBCOSeptember26,
+        october: allNoStudentBCOOctober26,
+        november: allNoStudentBCONovember26,
+        december: allNoStudentBCODecember26,
+      },
+      {
+        sl: 5,
+        area: '% of Students checked out books',
+        january: allPercentStudentBCOJanuary26,
+        february: allPercentStudentBCOFebruary26,
+        march: allPercentStudentBCOMarch26,
+        april: allPercentStudentBCOApril26,
+        may: allPercentStudentBCOMay26,
+        june: allPercentStudentBCOJune26,
+        july: allPercentStudentBCOJuly26,
+        august: allPercentStudentBCOAugust26,
+        september: allPercentStudentBCOSeptember26,
+        october: allPercentStudentBCOOctober26,
+        november: allPercentStudentBCONovember26,
+        december: allPercentStudentBCODecember26,
+      },
+    ]
+    console.log('reportObject26', reportObject26)
+    setReportData26(reportObject26)
+  }
+
   // Push School BCO analysis chart data
   const pushSchoolBCOPerChildChartData = () => {
     setSchoolBCOPerChildChartData({
@@ -5939,18 +8140,18 @@ const PAnalysisBCO = () => {
           pointBackgroundColor: '#264a2f',
           pointBorderColor: '#fff',
           data: [
-            allNoBCOPerStudentJanuary24,
-            allNoBCOPerStudentFebruary24,
-            allNoBCOPerStudentMarch24,
-            allNoBCOPerStudentApril24,
-            allNoBCOPerStudentMay24,
-            allNoBCOPerStudentJune24,
-            allNoBCOPerStudentJuly24,
-            allNoBCOPerStudentAugust24,
-            allNoBCOPerStudentSeptember24,
-            allNoBCOPerStudentOctober24,
-            allNoBCOPerStudentNovember24,
-            allNoBCOPerStudentDecember24,
+            allNoBCOPerStudentJanuary26,
+            allNoBCOPerStudentFebruary26,
+            allNoBCOPerStudentMarch26,
+            allNoBCOPerStudentApril26,
+            allNoBCOPerStudentMay26,
+            allNoBCOPerStudentJune26,
+            allNoBCOPerStudentJuly26,
+            allNoBCOPerStudentAugust26,
+            allNoBCOPerStudentSeptember26,
+            allNoBCOPerStudentOctober26,
+            allNoBCOPerStudentNovember26,
+            allNoBCOPerStudentDecember26,
           ],
         },
       ],
@@ -6142,7 +8343,6 @@ const PAnalysisBCO = () => {
                 { title: 'October', field: 'october' },
                 { title: 'November', field: 'november' },
                 { title: 'December', field: 'december' },
-                { title: 'Remarks', field: 'remark' },
               ]}
               options={{
                 exportButton: true,
@@ -6152,7 +8352,7 @@ const PAnalysisBCO = () => {
                 search: false,
                 paging: false,
                 pageSize: 12,
-                pageSizeOptions: [12, 24, 36],
+                pageSizeOptions: [12, 26, 36],
                 maxBodyHeight: '550px',
                 headerStyle: {
                   position: 'sticky',
@@ -6182,7 +8382,7 @@ const PAnalysisBCO = () => {
         </CCard>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Average Book Checkout Per Student-2024</strong>
+            <strong>Average Book Checkout Per Student-2026</strong>
           </CCardHeader>
           <CCardBody>
             <CChart
@@ -6352,6 +8552,8 @@ const PAnalysisBCO = () => {
                 { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
                 { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
                 { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
+
+                { title: 'isChecked', field: 'isChecked' },
               ]}
               editable={{
                 onRowAdd: (newData) =>

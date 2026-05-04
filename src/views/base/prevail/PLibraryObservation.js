@@ -3775,6 +3775,8 @@ const PLibraryObservation = () => {
                     title: 'agreedStatement',
                     field: 'agreedStatement',
                   },
+
+                  { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
                   onRowUpdate: (newData, oldData) =>

@@ -3752,10 +3752,10 @@ const PLFObservationDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddLFObservation(newData, resolve)
                     }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeleteLFObservation(oldData, resolve)
-                  //   }),
+                  onRowDelete: (oldData) =>
+                    new Promise((resolve) => {
+                      handleRowDeleteLFObservation(oldData, resolve)
+                    }),
                 }}
                 options={{
                   exportButton: true,

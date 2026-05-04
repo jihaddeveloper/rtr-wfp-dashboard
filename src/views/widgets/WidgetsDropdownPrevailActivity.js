@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 02/11/2025
+//  Modify Date: 04/05/2026
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -86,6 +86,8 @@ const WidgetsDropdownPrevailActivity = () => {
   const [allLibraryObsData, setAllLibraryObsData] = useState([])
   const [allBanglaObsData, setAllBanglaObsData] = useState([])
   const [allLFObsData, setAllLFObsData] = useState([])
+  const [allPPObsData, setAllPPObsData] = useState([])
+  const [allSRMObsData, setAllSRMObsData] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -110,6 +112,8 @@ const WidgetsDropdownPrevailActivity = () => {
       await getAllLibraryObs()
       await getAllBanglaObs()
       await getAllLFObservation()
+      await getAllPPObservation()
+      await getAllSRMObservation()
     }
     call()
   }, [])
@@ -130,20 +134,33 @@ const WidgetsDropdownPrevailActivity = () => {
 
   // Teacher number by filter
   const allTeacherG1 = allTeacherData.filter((item) => {
-    return item.gradeG1 === 1
+    return item.gradeG1 === '1'
   }).length
+
   const allTeacherG2 = allTeacherData.filter((item) => {
-    return item.gradeG2 === 2
+    return item.gradeG2 === '1'
+  }).length
+
+  const allTeacherG3 = allTeacherData.filter((item) => {
+    return item.gradeG3 === '1'
+  }).length
+
+  const allTeacherPP = allTeacherData.filter((item) => {
+    return item.gradePPrimary === '1'
+  }).length
+
+  const allTeacherLibary = allTeacherData.filter((item) => {
+    return item.libraryManagementSRM === '1'
   }).length
   // Teacher number by filter
 
   // LF Observation Data by filter
   const allLFObsDataCurrent = allLFObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2025'
+    return item.month === currentMonth && item.year === '2026'
   }).length
 
   const allLFObsDataPreviousMonth = allLFObsData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025'
+    return item.month === previousMonth && item.year === '2026'
   }).length
 
   // Trending
@@ -299,230 +316,17 @@ const WidgetsDropdownPrevailActivity = () => {
   // Trending
   // LF Observation Data by filter
 
-  // Library Observation Data by filter
-  const allLibraryObsDataCurrent = allLibraryObsData.filter((item) => {
-    return item.month === currentMonth && item.year === '2024'
-  }).length
-
-  const allLibraryObsDataPreviousMonth = allLibraryObsData.filter((item) => {
-    return item.month === previousMonth && item.year === '2024' && item.libraryStatus
-  }).length
-
-  // Trending
-  // Developing
-  const allLibraryObsDevJanuary = allLibraryObsData.filter((item) => {
-    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevFebruary = allLibraryObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevMarch = allLibraryObsData.filter((item) => {
-    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevApril = allLibraryObsData.filter((item) => {
-    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevMay = allLibraryObsData.filter((item) => {
-    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevJune = allLibraryObsData.filter((item) => {
-    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevJuly = allLibraryObsData.filter((item) => {
-    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevAugust = allLibraryObsData.filter((item) => {
-    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevSeptember = allLibraryObsData.filter((item) => {
-    return item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevOctober = allLibraryObsData.filter((item) => {
-    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevNovember = allLibraryObsData.filter((item) => {
-    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-
-  const allLibraryObsDevDecember = allLibraryObsData.filter((item) => {
-    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Developing'
-  }).length
-  // Developing
-
-  // Functioning
-  const allLibraryObsFunJanuary = allLibraryObsData.filter((item) => {
-    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunFebruary = allLibraryObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunMarch = allLibraryObsData.filter((item) => {
-    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunApril = allLibraryObsData.filter((item) => {
-    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunMay = allLibraryObsData.filter((item) => {
-    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunJune = allLibraryObsData.filter((item) => {
-    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunJuly = allLibraryObsData.filter((item) => {
-    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunAugust = allLibraryObsData.filter((item) => {
-    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunSeptember = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Functioning'
-    )
-  }).length
-
-  const allLibraryObsFunOctober = allLibraryObsData.filter((item) => {
-    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunNovember = allLibraryObsData.filter((item) => {
-    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-
-  const allLibraryObsFunDecember = allLibraryObsData.filter((item) => {
-    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Functioning'
-  }).length
-  // Functioning
-
-  // Highly Functioning
-  const allLibraryObsHighFunJanuary = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'January' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunFebruary = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'February' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunMarch = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunApril = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunMay = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunJune = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunJuly = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunAugust = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunSeptember = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'September' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunOctober = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'October' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunNovember = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'November' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunDecember = allLibraryObsData.filter((item) => {
-    return (
-      item.month === 'December' &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-  // Highly Functioning
-  // Trending
-
-  const allLibraryObsDevPreviousMonth = allLibraryObsData.filter((item) => {
-    return (
-      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Developing'
-    )
-  }).length
-
-  const allLibraryObsFunPreviousMonth = allLibraryObsData.filter((item) => {
-    return (
-      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Functioning'
-    )
-  }).length
-
-  const allLibraryObsHighFunPreviousMonth = allLibraryObsData.filter((item) => {
-    return (
-      item.month === previousMonth &&
-      item.year === '2024' &&
-      item.libraryStatus === 'Highly Functioning'
-    )
-  }).length
-  // Library Observation Data by filter
-
   // Bangla Observation Data by filter
+  const allBanglaObsDataCurrent = allBanglaObsData.filter((item) => {
+    return item.month === currentMonth && item.year === '2026'
+  }).length
+
+  const allBanglaObsDataPreviousMonth = allBanglaObsData.filter((item) => {
+    return item.month === previousMonth && item.year === '2026'
+  }).length
+
   // Trending
   // G1
-
   // P0
   const allG1TeacherP0January = allBanglaObsData
     .filter((item) => {
@@ -2096,7 +1900,7 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All School Data
   const getAllSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-school', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2116,7 +1920,7 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All Employee Data
   const getAllEmployee = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2136,7 +1940,7 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All Teacher
   const getAllTeacher = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-teacher', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2163,7 +1967,7 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-book-checkout', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2179,6 +1983,10 @@ const WidgetsDropdownPrevailActivity = () => {
     }
   }
   // Get All Book-checkout Data for school
+
+  // BCO filter data
+
+  // BCO filter data
 
   // Get All BookCaptain Data
   const getAllBookCaptain = async () => {
@@ -2246,7 +2054,7 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All LibraryObs Data
   const getAllLibraryObs = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-library-observation', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-library-observation', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2261,6 +2069,229 @@ const WidgetsDropdownPrevailActivity = () => {
       console.log(error)
     }
   }
+  // Get All LibraryObs Data
+
+  // Library Observation Data by filter
+  const allLibraryObsDataCurrent = allLibraryObsData.filter((item) => {
+    return item.month === currentMonth && item.year === '2026' && item.libraryStatus
+  }).length
+
+  const allLibraryObsDataPreviousMonth = allLibraryObsData.filter((item) => {
+    return item.month === previousMonth && item.year === '2026' && item.libraryStatus
+  }).length
+
+  const allNotObservedLibararyPreviousMonth = 494 - allLibraryObsDataPreviousMonth
+
+  // Trending
+  // Developing
+  const allLibraryObsDevJanuary = allLibraryObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevFebruary = allLibraryObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevMarch = allLibraryObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevApril = allLibraryObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevMay = allLibraryObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevJune = allLibraryObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevJuly = allLibraryObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevAugust = allLibraryObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevSeptember = allLibraryObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevOctober = allLibraryObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevNovember = allLibraryObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+
+  const allLibraryObsDevDecember = allLibraryObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Developing'
+  }).length
+  // Developing
+
+  // Functioning
+  const allLibraryObsFunJanuary = allLibraryObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunFebruary = allLibraryObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunMarch = allLibraryObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunApril = allLibraryObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunMay = allLibraryObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunJune = allLibraryObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunJuly = allLibraryObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunAugust = allLibraryObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunSeptember = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'September' && item.year === '2024' && item.libraryStatus === 'Functioning'
+    )
+  }).length
+
+  const allLibraryObsFunOctober = allLibraryObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunNovember = allLibraryObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+
+  const allLibraryObsFunDecember = allLibraryObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2024' && item.libraryStatus === 'Functioning'
+  }).length
+  // Functioning
+
+  // Highly Functioning
+  const allLibraryObsHighFunJanuary = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'January' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunFebruary = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'February' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunMarch = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'March' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunApril = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'April' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunMay = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'May' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunJune = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'June' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunJuly = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'July' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunAugust = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'August' && item.year === '2024' && item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunSeptember = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'September' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunOctober = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'October' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunNovember = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'November' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunDecember = allLibraryObsData.filter((item) => {
+    return (
+      item.month === 'December' &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // Highly Functioning
+  // Trending
+
+  const allLibraryObsDevPreviousMonth = allLibraryObsData.filter((item) => {
+    return (
+      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Developing'
+    )
+  }).length
+
+  const allLibraryObsFunPreviousMonth = allLibraryObsData.filter((item) => {
+    return (
+      item.month === previousMonth && item.year === '2024' && item.libraryStatus === 'Functioning'
+    )
+  }).length
+
+  const allLibraryObsHighFunPreviousMonth = allLibraryObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2024' &&
+      item.libraryStatus === 'Highly Functioning'
+    )
+  }).length
+  // Library Observation Data by filter
 
   // Get All BanglaObs Data
   const getAllBanglaObs = async () => {
@@ -2301,6 +2332,370 @@ const WidgetsDropdownPrevailActivity = () => {
   }
   // Get All LF Observation Data
 
+  // Get All PP Observation Data
+  const getAllPPObservation = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-preprimary', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllPPObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All PP Observation Data
+
+  // PP Observation Data by filter
+  const allPPObsDataCurrent = allPPObsData.filter((item) => {
+    return item.month === currentMonth && item.year === '2026'
+  }).length
+
+  const allPPObsDataPreviousMonth = allPPObsData.filter((item) => {
+    return item.month === previousMonth && item.year === '2026'
+  }).length
+
+  // Trending
+  // Priority 1
+  const allPPObsDataP1January = allPPObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1February = allPPObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1March = allPPObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1April = allPPObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1May = allPPObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1June = allPPObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1July = allPPObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1August = allPPObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1September = allPPObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1October = allPPObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1November = allPPObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allPPObsDataP1December = allPPObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+  // Priority 1
+
+  // Priority 2
+  const allPPObsDataP2January = allPPObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2February = allPPObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2March = allPPObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2April = allPPObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2May = allPPObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2June = allPPObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2July = allPPObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2August = allPPObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2September = allPPObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2October = allPPObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2November = allPPObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allPPObsDataP2December = allPPObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+  // Priority 2
+
+  // Priority 3
+  const allPPObsDataP3January = allPPObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3February = allPPObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3March = allPPObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3April = allPPObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3May = allPPObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3June = allPPObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3July = allPPObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3August = allPPObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3September = allPPObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3October = allPPObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3November = allPPObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allPPObsDataP3December = allPPObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+  // Priority 3
+  // Trending
+  // PP Observation Data by filter
+
+  // Get All SRM Observation Data
+  const getAllSRMObservation = async () => {
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-srm-class', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSRMObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // Get All SRM Observation Data
+  // SRM Observation Data by filter
+  const allSRMObsDataCurrent = allSRMObsData.filter((item) => {
+    return item.month === currentMonth && item.year === '2026'
+  }).length
+
+  const allSRMObsDataPreviousMonth = allSRMObsData.filter((item) => {
+    return item.month === previousMonth && item.year === '2026'
+  }).length
+
+  // Trending
+  // Priority 1
+  const allSRMObsDataP1January = allSRMObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1February = allSRMObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1March = allSRMObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1April = allSRMObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1May = allSRMObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1June = allSRMObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1July = allSRMObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1August = allSRMObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1September = allSRMObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1October = allSRMObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1November = allSRMObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+
+  const allSRMObsDataP1December = allSRMObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+  }).length
+  // Priority 1
+
+  // Priority 2
+  const allSRMObsDataP2January = allSRMObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2February = allSRMObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2March = allSRMObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2April = allSRMObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2May = allSRMObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2June = allSRMObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2July = allSRMObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2August = allSRMObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2September = allSRMObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2October = allSRMObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2November = allSRMObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+
+  const allSRMObsDataP2December = allSRMObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+  }).length
+  // Priority 2
+
+  // Priority 3
+  const allSRMObsDataP3January = allSRMObsData.filter((item) => {
+    return item.month === 'January' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3February = allSRMObsData.filter((item) => {
+    return item.month === 'February' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3March = allSRMObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3April = allSRMObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3May = allSRMObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3June = allSRMObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3July = allSRMObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3August = allSRMObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3September = allSRMObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3October = allSRMObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3November = allSRMObsData.filter((item) => {
+    return item.month === 'November' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+
+  const allSRMObsDataP3December = allSRMObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+  }).length
+  // Priority 3
+  // Trending
+  // SRM Observation Data by filter
+
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -2320,7 +2715,7 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>G1 Teacher Number Trending (2026)</strong>
+              <strong>Grade-1 Teacher Priority (2026)</strong>
             </CCardHeader>
             <CLink href="/bangla/p-bangla-detail">
               <CCardBody>
@@ -2470,7 +2865,7 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>G2 Teacher Number Trending (2026)</strong>
+              <strong>Grade-2 Teacher Priority (2026)</strong>
             </CCardHeader>
             <CLink href="/bangla/p-bangla-detail">
               <CCardBody>
@@ -2617,10 +3012,422 @@ const WidgetsDropdownPrevailActivity = () => {
             </CLink>
           </CCard>
         </CCol>
+
         <CCol xs={12} sm={4} lg={4}>
           <CCard className="mb-3">
             <CCardHeader>
-              <strong>LF Priority Number Trending (2026)</strong>
+              <strong>Grade-3 Teacher Priority (2026)</strong>
+            </CCardHeader>
+            <CLink href="/bangla/p-bangla-detail">
+              <CCardBody>
+                <CChartLine
+                  data={{
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                      'August',
+                      'September',
+                      'October',
+                      'November',
+                      'December',
+                    ],
+                    datasets: [
+                      {
+                        label: 'Priority 0',
+                        backgroundColor: '#addcecff',
+                        borderColor: '#addcecff',
+                        pointBackgroundColor: '#addcecff',
+                        pointBorderColor: '#addcecff',
+                        data: [
+                          allG1TeacherP0January,
+                          allG1TeacherP0February,
+                          allG1TeacherP0March,
+                          allG1TeacherP0April,
+                          allG1TeacherP0May,
+                          allG1TeacherP0June,
+                          allG1TeacherP0July,
+                          allG1TeacherP0August,
+                          allG1TeacherP0September,
+                          allG1TeacherP0October,
+                          allG1TeacherP0November,
+                          allG1TeacherP0December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 1',
+                        backgroundColor: '#8ddaf3ff',
+                        borderColor: '#8ddaf3ff',
+                        pointBackgroundColor: '#8ddaf3ff',
+                        pointBorderColor: '#8ddaf3ff',
+                        data: [
+                          allG1TeacherP1January,
+                          allG1TeacherP1February,
+                          allG1TeacherP1March,
+                          allG1TeacherP1April,
+                          allG1TeacherP1May,
+                          allG1TeacherP1June,
+                          allG1TeacherP1July,
+                          allG1TeacherP1August,
+                          allG1TeacherP1September,
+                          allG1TeacherP1October,
+                          allG1TeacherP1November,
+                          allG1TeacherP1December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 2',
+                        backgroundColor: '#35a8ceff',
+                        borderColor: '#35a8ceff',
+                        pointBackgroundColor: '#35a8ceff',
+                        pointBorderColor: '#35a8ceff',
+                        data: [
+                          allG1TeacherP2January,
+                          allG1TeacherP2February,
+                          allG1TeacherP2March,
+                          allG1TeacherP2April,
+                          allG1TeacherP2May,
+                          allG1TeacherP2June,
+                          allG1TeacherP2July,
+                          allG1TeacherP2August,
+                          allG1TeacherP2September,
+                          allG1TeacherP2October,
+                          allG1TeacherP2November,
+                          allG1TeacherP2December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 3',
+                        backgroundColor: '#007AA4',
+                        borderColor: '#007AA4',
+                        pointBackgroundColor: '#007AA4',
+                        pointBorderColor: '#007AA4',
+                        data: [
+                          allG1TeacherP3January,
+                          allG1TeacherP3February,
+                          allG1TeacherP3March,
+                          allG1TeacherP3April,
+                          allG1TeacherP3May,
+                          allG1TeacherP3June,
+                          allG1TeacherP3July,
+                          allG1TeacherP3August,
+                          allG1TeacherP3September,
+                          allG1TeacherP3October,
+                          allG1TeacherP3November,
+                          allG1TeacherP3December,
+                        ],
+                      },
+                    ],
+                  }}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: 'bottom',
+                      },
+                      title: {
+                        display: true,
+                        text: '',
+                      },
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        ticks: {
+                          color: '#333', // Custom tick color
+                        },
+                        grid: {
+                          display: true, // Hide y-axis grid lines
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: true, // Hide x-axis grid lines
+                        },
+                        ticks: {
+                          color: '#333',
+                        },
+                      },
+                    },
+                  }}
+                  labels=""
+                  style={{ height: '250px' }} // Inline style for height
+                />
+              </CCardBody>
+            </CLink>
+          </CCard>
+        </CCol>
+
+        <CCol xs={12} sm={4} lg={4}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>PrePrimary Teacher Priority (2026)</strong>
+            </CCardHeader>
+            <CLink href="/prevail/p-preprimary">
+              <CCardBody>
+                <CChartLine
+                  data={{
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                      'August',
+                      'September',
+                      'October',
+                      'November',
+                      'December',
+                    ],
+                    datasets: [
+                      {
+                        label: 'Priority 1',
+                        backgroundColor: '#79d6bcff',
+                        borderColor: '#79d6bcff',
+                        pointBackgroundColor: '#79d6bcff',
+                        pointBorderColor: '#79d6bcff',
+                        data: [
+                          allPPObsDataP1January,
+                          allPPObsDataP1February,
+                          allPPObsDataP1March,
+                          allPPObsDataP1April,
+                          allPPObsDataP1May,
+                          allPPObsDataP1June,
+                          allPPObsDataP1July,
+                          allPPObsDataP1August,
+                          allPPObsDataP1September,
+                          allPPObsDataP1October,
+                          allPPObsDataP1November,
+                          allPPObsDataP1December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 2',
+                        backgroundColor: '#3baa8bff',
+                        borderColor: '#3baa8bff',
+                        pointBackgroundColor: '#3baa8bff',
+                        pointBorderColor: '#3baa8bff',
+                        data: [
+                          allPPObsDataP2January,
+                          allPPObsDataP2February,
+                          allPPObsDataP2March,
+                          allPPObsDataP2April,
+                          allPPObsDataP2May,
+                          allPPObsDataP2June,
+                          allPPObsDataP2July,
+                          allPPObsDataP2August,
+                          allPPObsDataP2September,
+                          allPPObsDataP2October,
+                          allPPObsDataP2November,
+                          allPPObsDataP2December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 3',
+                        backgroundColor: '#006B4D',
+                        borderColor: '#006B4D',
+                        pointBackgroundColor: '#006B4D',
+                        pointBorderColor: '#006B4D',
+                        data: [
+                          allPPObsDataP3January,
+                          allPPObsDataP3February,
+                          allPPObsDataP3March,
+                          allPPObsDataP3April,
+                          allPPObsDataP3May,
+                          allPPObsDataP3June,
+                          allPPObsDataP3July,
+                          allPPObsDataP3August,
+                          allPPObsDataP3September,
+                          allPPObsDataP3October,
+                          allPPObsDataP3November,
+                          allPPObsDataP3December,
+                        ],
+                      },
+                    ],
+                  }}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: 'bottom',
+                      },
+                      title: {
+                        display: true,
+                        text: '',
+                      },
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        ticks: {
+                          color: '#333', // Custom tick color
+                        },
+                        grid: {
+                          display: true, // Hide y-axis grid lines
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: true, // Hide x-axis grid lines
+                        },
+                        ticks: {
+                          color: '#333',
+                        },
+                      },
+                    },
+                  }}
+                  labels=""
+                  style={{ height: '250px' }} // Inline style for height
+                />
+              </CCardBody>
+            </CLink>
+          </CCard>
+        </CCol>
+
+        <CCol xs={12} sm={4} lg={4}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>SRM Teacher Priority (2026)</strong>
+            </CCardHeader>
+            <CLink href="/prevail/p-srm">
+              <CCardBody>
+                <CChartLine
+                  data={{
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                      'August',
+                      'September',
+                      'October',
+                      'November',
+                      'December',
+                    ],
+                    datasets: [
+                      {
+                        label: 'Priority 1',
+                        backgroundColor: '#79d6bcff',
+                        borderColor: '#79d6bcff',
+                        pointBackgroundColor: '#79d6bcff',
+                        pointBorderColor: '#79d6bcff',
+                        data: [
+                          allSRMObsDataP1January,
+                          allSRMObsDataP1February,
+                          allSRMObsDataP1March,
+                          allSRMObsDataP1April,
+                          allSRMObsDataP1May,
+                          allSRMObsDataP1June,
+                          allSRMObsDataP1July,
+                          allSRMObsDataP1August,
+                          allSRMObsDataP1September,
+                          allSRMObsDataP1October,
+                          allSRMObsDataP1November,
+                          allSRMObsDataP1December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 2',
+                        backgroundColor: '#3baa8bff',
+                        borderColor: '#3baa8bff',
+                        pointBackgroundColor: '#3baa8bff',
+                        pointBorderColor: '#3baa8bff',
+                        data: [
+                          allSRMObsDataP2January,
+                          allSRMObsDataP2February,
+                          allSRMObsDataP2March,
+                          allSRMObsDataP2April,
+                          allSRMObsDataP2May,
+                          allSRMObsDataP2June,
+                          allSRMObsDataP2July,
+                          allSRMObsDataP2August,
+                          allSRMObsDataP2September,
+                          allSRMObsDataP2October,
+                          allSRMObsDataP2November,
+                          allSRMObsDataP2December,
+                        ],
+                      },
+                      {
+                        label: 'Priority 3',
+                        backgroundColor: '#006B4D',
+                        borderColor: '#006B4D',
+                        pointBackgroundColor: '#006B4D',
+                        pointBorderColor: '#006B4D',
+                        data: [
+                          allSRMObsDataP3January,
+                          allSRMObsDataP3February,
+                          allSRMObsDataP3March,
+                          allSRMObsDataP3April,
+                          allSRMObsDataP3May,
+                          allSRMObsDataP3June,
+                          allSRMObsDataP3July,
+                          allSRMObsDataP3August,
+                          allSRMObsDataP3September,
+                          allSRMObsDataP3October,
+                          allSRMObsDataP3November,
+                          allSRMObsDataP3December,
+                        ],
+                      },
+                    ],
+                  }}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: 'bottom',
+                      },
+                      title: {
+                        display: true,
+                        text: '',
+                      },
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        ticks: {
+                          color: '#333', // Custom tick color
+                        },
+                        grid: {
+                          display: true, // Hide y-axis grid lines
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: true, // Hide x-axis grid lines
+                        },
+                        ticks: {
+                          color: '#333',
+                        },
+                      },
+                    },
+                  }}
+                  labels=""
+                  style={{ height: '250px' }} // Inline style for height
+                />
+              </CCardBody>
+            </CLink>
+          </CCard>
+        </CCol>
+
+        <CCol xs={12} sm={4} lg={4}>
+          <CCard className="mb-3">
+            <CCardHeader>
+              <strong>LF Priority (2026)</strong>
             </CCardHeader>
             <CLink href="/prevail/p-lf-observation-detail">
               <CCardBody>
@@ -2755,7 +3562,7 @@ const WidgetsDropdownPrevailActivity = () => {
               <strong># of Teacher Supported</strong> <small>({previousMonthYear})</small>
             </CCardHeader>
             <CCardBody>
-              <CLink href="/bangla/di-bangla-class">
+              <CLink href="prevail/p-teacher">
                 <CChartBar
                   data={{
                     labels: [
@@ -2781,7 +3588,16 @@ const WidgetsDropdownPrevailActivity = () => {
                           '#994263',
                           '#994263',
                         ],
-                        data: [140, 120, 210, 160, 224, 134, 160, 110],
+                        data: [
+                          allTeacherPP,
+                          allPPObsDataPreviousMonth,
+                          allTeacherG1,
+                          160,
+                          allTeacherG2,
+                          134,
+                          allTeacherG3,
+                          110,
+                        ],
                       },
                     ],
                   }}
@@ -2825,7 +3641,7 @@ const WidgetsDropdownPrevailActivity = () => {
               <strong>Library Observaton</strong> <small>({previousMonthYear})</small>
             </CCardHeader>
             <CCardBody>
-              <CLink href="/library/di-library-observation">
+              <CLink href="/prevail/p-library-observation">
                 <CChartBar
                   data={{
                     labels: ['Total Library', 'Observed Library', 'Not observed'],
@@ -2833,7 +3649,11 @@ const WidgetsDropdownPrevailActivity = () => {
                       {
                         label: ['Library'],
                         backgroundColor: ['#00546B', '#4ca6beff', '#8eb4beff'],
-                        data: [365, 200, 165],
+                        data: [
+                          494,
+                          allLibraryObsDataPreviousMonth,
+                          allNotObservedLibararyPreviousMonth,
+                        ],
                       },
                     ],
                   }}
@@ -2891,14 +3711,14 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol sm={6} lg={6}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>BCO Status</strong> <small>({currentMonthYear})</small>
+              <strong>BCO Status</strong> <small>({previousMonthYear})</small>
             </CCardHeader>
             <CCardBody>
               {/* <p className="text-medium-emphasis small">
                         Use contextual classes to color tables, table rows or individual cells.
                       </p> */}
               {/* <DocsExample href="components/table#variants"> */}
-              <CLink href="/bco/di-bco-analysis">
+              <CLink href="prevail/p-bco">
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -2935,14 +3755,14 @@ const WidgetsDropdownPrevailActivity = () => {
         <CCol sm={6} lg={6}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>Teacher Training</strong> <small> Till to ({currentMonthYear})</small>
+              <strong>Teacher Training</strong> <small> Till to ({previousMonthYear})</small>
             </CCardHeader>
             <CCardBody>
               {/* <p className="text-medium-emphasis small">
                         Use contextual classes to color tables, table rows or individual cells.
                       </p> */}
               {/* <DocsExample href="components/table#variants"> */}
-              <CLink href="/library/all-library">
+              <CLink href="/prevail/p-teacher">
                 <CTable>
                   <CTableHead>
                     <CTableRow>
@@ -2953,19 +3773,19 @@ const WidgetsDropdownPrevailActivity = () => {
                   <CTableBody>
                     <CTableRow color="success">
                       <CTableHeaderCell scope="row">Instruction Training G1 </CTableHeaderCell>
-                      <CTableDataCell>1570</CTableDataCell>
+                      <CTableDataCell>{allTeacherG1}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="primary">
                       <CTableHeaderCell scope="row">Instruction Training G2</CTableHeaderCell>
-                      <CTableDataCell>1690</CTableDataCell>
+                      <CTableDataCell>{allTeacherG2}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="secondary">
-                      <CTableHeaderCell scope="row">Library Teacher Training</CTableHeaderCell>
-                      <CTableDataCell>1620</CTableDataCell>
+                      <CTableHeaderCell scope="row">Instruction Training G3</CTableHeaderCell>
+                      <CTableDataCell>{allTeacherG3}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="danger">
-                      <CTableHeaderCell scope="row">Head Teacher Training</CTableHeaderCell>
-                      <CTableDataCell>1108</CTableDataCell>
+                      <CTableHeaderCell scope="row">Library Teacher Training</CTableHeaderCell>
+                      <CTableDataCell>{allTeacherLibary}</CTableDataCell>
                     </CTableRow>
                   </CTableBody>
                 </CTable>
