@@ -3752,10 +3752,10 @@ const PLFObservationDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddLFObservation(newData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeleteLFObservation(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeleteLFObservation(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,
@@ -3764,8 +3764,8 @@ const PLFObservationDetail = () => {
                   filtering: true,
                   grouping: true,
                   sorting: true,
-                  pageSize: 3,
-                  pageSizeOptions: [3, 10, 20],
+                  pageSize: 5,
+                  pageSizeOptions: [10, 20, 30],
                   maxBodyHeight: '700px',
                   headerStyle: {
                     position: 'sticky',

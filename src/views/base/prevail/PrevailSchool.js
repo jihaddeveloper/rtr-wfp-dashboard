@@ -289,10 +289,10 @@ const PrevailSchool = () => {
                   new Promise((resolve) => {
                     handleRowAddSchool(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteSchool(oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteSchool(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
@@ -301,8 +301,8 @@ const PrevailSchool = () => {
                 filtering: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 3,
-                pageSizeOptions: [3, 10, 20],
+                pageSize: 10,
+                pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '700px',
                 headerStyle: {
                   position: 'sticky',

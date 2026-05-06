@@ -278,10 +278,10 @@ const PrevailEmployee = () => {
                   new Promise((resolve) => {
                     handleRowAddEmployee(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteEmployee(oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteEmployee(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
@@ -290,8 +290,8 @@ const PrevailEmployee = () => {
                 filtering: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 3,
-                pageSizeOptions: [3, 10, 20],
+                pageSize: 10,
+                pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '700px',
                 headerStyle: {
                   position: 'sticky',

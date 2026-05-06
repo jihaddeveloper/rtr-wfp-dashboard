@@ -4091,8 +4091,8 @@ const PBanglaClassDataDetail = () => {
                   filtering: true,
                   grouping: true,
                   sorting: true,
-                  pageSize: 3,
-                  pageSizeOptions: [3, 10, 20],
+                  pageSize: 5,
+                  pageSizeOptions: [10, 20, 30],
                   maxBodyHeight: '700px',
                   headerStyle: {
                     position: 'sticky',

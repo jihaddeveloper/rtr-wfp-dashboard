@@ -295,10 +295,10 @@ const PrevailTeacher = () => {
                   new Promise((resolve) => {
                     handleRowAddTeacher(newData, resolve)
                   }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteTeacher(oldData, resolve)
-                  }),
+                // onRowDelete: (oldData) =>
+                //   new Promise((resolve) => {
+                //     handleRowDeleteTeacher(oldData, resolve)
+                //   }),
               }}
               options={{
                 exportButton: true,
@@ -307,8 +307,8 @@ const PrevailTeacher = () => {
                 filtering: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 3,
-                pageSizeOptions: [3, 10, 20],
+                pageSize: 10,
+                pageSizeOptions: [10, 20, 30],
                 maxBodyHeight: '700px',
                 headerStyle: {
                   position: 'sticky',
