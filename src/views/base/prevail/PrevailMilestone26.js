@@ -181,19 +181,20 @@ const PrevailMilestone26 = () => {
   // Total number monthly
 
   // PREVAIL Milestone 26
+  // February
   const milestone1February26 = allBanglaObsData.filter((item) => {
     return item.month === 'February' && item.year === '2026' && item.teacherStatus
   }).length
 
-  const feb26SchoolObs = allBanglaObsData.filter((item) => {
-    return item.month === 'February' && item.year === '2026' && item.teacherStatus
-  })
+  // const feb26SchoolObs = allBanglaObsData
+  //   .filter((item) => {
+  //     return item.month === 'February' && item.year === '2026' && item.teacherStatus
+  //   })
+  //   .map((item) => item.school)
 
-  const feb26SchoolObsUniqSchool = feb26SchoolObs.map((item) => item.school)
+  // const feb26SchoolObsUniqSchool = feb26SchoolObs.map((item) => item.school)
 
-  const milestone2February26 = ((new Set(feb26SchoolObsUniqSchool).size / 495) * 100).toFixed(0)
-
-  const milestone3February26 = (
+  const milestone2February26 = (
     (new Set(
       allBanglaObsData
         .filter((item) => {
@@ -201,11 +202,24 @@ const PrevailMilestone26 = () => {
         })
         .map((item) => item.school),
     ).size /
-      495) *
+      494) *
     100
   ).toFixed(0)
 
-  const milestone4February26 = 0
+  const milestone3February26 = 0
+
+  const milestone4February26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'February' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'February' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
 
   const milestone5February26 = (
     (allBanglaObsData.filter((item) => {
@@ -276,748 +290,299 @@ const PrevailMilestone26 = () => {
       }).length) *
     100
   ).toFixed(0)
+  // February
+
+  // March
+  const milestone1March26 = allBanglaObsData.filter((item) => {
+    return item.month === 'March' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const milestone2March26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'March' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.school),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3March26 = 0
+
+  const milestone4March26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'March' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5March26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6March26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7March26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'March' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8March26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'March' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // March
+
+  // April
+  const milestone1April26 = allBanglaObsData.filter((item) => {
+    return item.month === 'April' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const milestone2April26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'April' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.school),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3April26 = 0
+
+  const milestone4April26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'April' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5April26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6April26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7April26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'April' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8April26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'April' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // April
+
+  // May
+  const milestone1May26 = allBanglaObsData.filter((item) => {
+    return item.month === 'May' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const milestone2May26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'May' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.school),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3May26 = 0
+
+  const milestone4May26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'May' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5May26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6May26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7May26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'May' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8May26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'May' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // May
   // PREVAIL Milestone 26
-
-  // All Percent Value
-  // Milestone1 monthly
-  const milestone1September = (
-    ((allLFObservationData.filter((item) => {
-      return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 1'
-    }).length +
-      allLFObservationData.filter((item) => {
-        return item.month === 'September' && item.year === '2025' && item.lfStatus === 'Priority 2'
-      }).length) /
-      allLFObservationData.filter((item) => {
-        return item.month === 'September' && item.lfStatus && item.year === '2025'
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone1October = (
-    ((allLFObservationData.filter((item) => {
-      return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 1'
-    }).length +
-      allLFObservationData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.lfStatus === 'Priority 2'
-      }).length) /
-      allLFObservationData.filter((item) => {
-        return item.month === 'October' && item.lfStatus && item.year === '2025'
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone1November = (
-    ((allLFObservationData.filter((item) => {
-      return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 1'
-    }).length +
-      allLFObservationData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.lfStatus === 'Priority 2'
-      }).length) /
-      allLFObservationData.filter((item) => {
-        return item.month === 'November' && item.lfStatus && item.year === '2025'
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone1December = (
-    ((allLFObservationData.filter((item) => {
-      return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 1'
-    }).length +
-      allLFObservationData.filter((item) => {
-        return item.month === 'December' && item.year === '2025' && item.lfStatus === 'Priority 2'
-      }).length) /
-      allLFObservationData.filter((item) => {
-        return item.month === 'December' && item.lfStatus && item.year === '2025'
-      }).length) *
-    100
-  ).toFixed(0)
-  // Milestone1 monthly
-
-  // Milestone2 monthly
-  const milestone2September = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'September' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone2October = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone2November = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone2December = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'December' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'December' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // Milestone2 monthly
-
-  // Milestone3 monthly
-  const milestone3September = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'September' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone3October = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone3November = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone3December = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'December' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'December' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // Milestone3 monthly
-
-  // Milestone4 monthly
-  const milestone4September = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'September' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'September' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone4October = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone4November = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone4December = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'December' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'December' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // Milestone4 monthly
-
-  // Milestone5 monthly
-  const milestone5September = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'September' && item.year === '2025' && item.teacherStatus != 'Priority 0'
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'September' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone5October = (
-    (allBanglaObsData.filter((item) => {
-      return item.month === 'October' && item.year === '2025' && item.teacherStatus != 'Priority 0'
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone5November = (
-    (allBanglaObsData.filter((item) => {
-      return item.month === 'November' && item.year === '2025' && item.teacherStatus != 'Priority 0'
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const milestone5December = (
-    (allBanglaObsData.filter((item) => {
-      return item.month === 'December' && item.year === '2025' && item.teacherStatus != 'Priority 0'
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'December' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // Milestone5 monthly
-
-  // Custom report All indicator
-  // October
-  const ind1aOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1bOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1cOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1dOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind14ImplementedAllTaskInTimeStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1eOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind15InstructedToUseWorkbookStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1fOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind16IndependentReadingOpportunityStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2aOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind21CorrectlyPronouncedStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2bOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind22TaughtCorrectlyAllowPracticeStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2cOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind23DemonstratesFluentReadingStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2dOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind24AllowReadIndividuallyPairGroupsStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2eOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind25FollowsInstructionsInWritingStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3aOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind31AskedHelpfulQuestionsStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3bOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind32TaughtVocabularyNewSentenceStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3cOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind33CheckWritingSpellingPunctuationStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3dOctober = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'October' &&
-        item.year === '2025' &&
-        item.ind34CheckedWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'October' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // October
-
-  // November
-  const ind1aNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1bNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1cNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind13FollowedContinuityOfLessonStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1dNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind14ImplementedAllTaskInTimeStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1eNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind15InstructedToUseWorkbookStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind1fNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind16IndependentReadingOpportunityStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2aNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind21CorrectlyPronouncedStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2bNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind22TaughtCorrectlyAllowPracticeStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2cNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind23DemonstratesFluentReadingStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2dNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind24AllowReadIndividuallyPairGroupsStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind2eNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind25FollowsInstructionsInWritingStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3aNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind31AskedHelpfulQuestionsStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3bNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind32TaughtVocabularyNewSentenceStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3cNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind33CheckWritingSpellingPunctuationStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-
-  const ind3dNovember = (
-    (allBanglaObsData.filter((item) => {
-      return (
-        item.month === 'November' &&
-        item.year === '2025' &&
-        item.ind34CheckedWeDoYouDoStatus === 'Yes' &&
-        item.teacherStatus
-      )
-    }).length /
-      allBanglaObsData.filter((item) => {
-        return item.month === 'November' && item.year === '2025' && item.teacherStatus
-      }).length) *
-    100
-  ).toFixed(0)
-  // November
-  // Custom report All indicator
 
   // Bangla Observation Data by filter
   // All Percent Value
@@ -1260,9 +825,9 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="col">
                                 {milestone1February26}
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone1March26}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone1April26}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone1May26}</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1280,9 +845,9 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="col">
                                 {milestone2February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone2March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone2April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone2May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1312,16 +877,16 @@ const PrevailMilestone26 = () => {
                             <CTableRow color="danger">
                               <CTableHeaderCell scope="row">
                                 % of the Literacy Facilitators at Basic and above levels of coaching
-                                skills at the end of year 1
+                                skills at the end of year 1(P1&P2)
                               </CTableHeaderCell>
                               <CTableDataCell>80%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
-                                {milestone4February26}
+                                {milestone4February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone4March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone4April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone4May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1334,16 +899,16 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="row">
                                 % Bangla teachers have adopted key instructional practices (I do-We
                                 do-You do, engaging students in individual and group work,
-                                assessments)
+                                assessments)(1b)
                               </CTableHeaderCell>
                               <CTableDataCell>70%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
                                 {milestone5February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone5March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone5April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone5May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1362,9 +927,9 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="col">
                                 {milestone6February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone6March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone6April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone6May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1376,16 +941,16 @@ const PrevailMilestone26 = () => {
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
                                 % of observed Bangla teachers that are following use of workbooks
-                                during the Bangla language classes
+                                during the Bangla language classes(1c)
                               </CTableHeaderCell>
                               <CTableDataCell>90%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
                                 {milestone7February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone7March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone7April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone7May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
@@ -1398,16 +963,16 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="row">
                                 % of Bangla teachers achieved ‘Mastered Instructional Routine’ level
                                 or above as observed by the Literacy Facilitators during the Bangla
-                                class observation
+                                class observation(P1,P2,P3)
                               </CTableHeaderCell>
                               <CTableDataCell>60%</CTableDataCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">
                                 {milestone8February26}%
                               </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone8March26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone8April26}%</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{milestone8May26}%</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
