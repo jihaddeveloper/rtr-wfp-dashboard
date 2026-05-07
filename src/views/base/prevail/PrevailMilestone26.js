@@ -186,13 +186,15 @@ const PrevailMilestone26 = () => {
     return item.month === 'February' && item.year === '2026' && item.teacherStatus
   }).length
 
-  // const feb26SchoolObs = allBanglaObsData
-  //   .filter((item) => {
-  //     return item.month === 'February' && item.year === '2026' && item.teacherStatus
-  //   })
-  //   .map((item) => item.school)
+  const february26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'February' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.school),
+  ).size
 
-  // const feb26SchoolObsUniqSchool = feb26SchoolObs.map((item) => item.school)
+  // const feb26SchoolObsUniqSchool = february26SchoolObs.map((item) => item.school)
 
   const milestone2February26 = (
     (new Set(
@@ -297,6 +299,14 @@ const PrevailMilestone26 = () => {
     return item.month === 'March' && item.year === '2026' && item.teacherStatus
   }).length
 
+  const march26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'March' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.school),
+  ).size
+
   const milestone2March26 = (
     (new Set(
       allBanglaObsData
@@ -394,6 +404,14 @@ const PrevailMilestone26 = () => {
     return item.month === 'April' && item.year === '2026' && item.teacherStatus
   }).length
 
+  const april26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'April' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.school),
+  ).size
+
   const milestone2April26 = (
     (new Set(
       allBanglaObsData
@@ -490,6 +508,14 @@ const PrevailMilestone26 = () => {
   const milestone1May26 = allBanglaObsData.filter((item) => {
     return item.month === 'May' && item.year === '2026' && item.teacherStatus
   }).length
+
+  const may26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'May' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.school),
+  ).size
 
   const milestone2May26 = (
     (new Set(
@@ -836,7 +862,26 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
-                            <CTableRow color="warning">
+
+                            <CTableRow color="success">
+                              <CTableHeaderCell scope="row">
+                                Number of School observed
+                              </CTableHeaderCell>
+                              <CTableDataCell>?</CTableDataCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{february26SchoolObs}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{march26SchoolObs}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{april26SchoolObs}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">{may26SchoolObs}</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
+                            </CTableRow>
+                            <CTableRow color="success">
                               <CTableHeaderCell scope="row">
                                 % of schools visited atleast once
                               </CTableHeaderCell>
@@ -856,7 +901,7 @@ const PrevailMilestone26 = () => {
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                               <CTableHeaderCell scope="col">0</CTableHeaderCell>
                             </CTableRow>
-                            <CTableRow color="warning">
+                            <CTableRow color="success">
                               <CTableHeaderCell scope="row">
                                 Number of working days
                               </CTableHeaderCell>
