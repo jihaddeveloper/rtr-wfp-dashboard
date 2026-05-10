@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/03/2026
-//  Modify Date: 12/03/2026
+//  Modify Date: 10/05/2026
 //  Description: P Milestone 26  file
 
 import React, { useState, useEffect } from 'react'
@@ -42,7 +42,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
 
 import MaterialTable from 'material-table'
-import { BorderBottom } from '@material-ui/icons'
+import { BorderBottom, BorderTop } from '@material-ui/icons'
 
 // File save as XLSX
 import * as XLSX from 'xlsx'
@@ -61,6 +61,8 @@ const PrevailMilestone26 = () => {
 
   const [allBanglaObsData, setAllBanglaObsData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
+
+  const [milestoneData26, setMilestoneData26] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -82,6 +84,8 @@ const PrevailMilestone26 = () => {
       await getAllBanglaClass(console.log('get bangla class called'))
       await getAllLFObservation(console.log('get LF observation called'))
       await getAllTeacher(console.log('get teacher class called'))
+
+      pushMilestoneData26()
     }
     call()
   }, [])
@@ -191,7 +195,7 @@ const PrevailMilestone26 = () => {
       .filter((item) => {
         return item.month === 'February' && item.year === '2026' && item.teacherStatus
       })
-      .map((item) => item.school),
+      .map((item) => item.rtrSchoolId),
   ).size
 
   // const feb26SchoolObsUniqSchool = february26SchoolObs.map((item) => item.school)
@@ -202,7 +206,7 @@ const PrevailMilestone26 = () => {
         .filter((item) => {
           return item.month === 'February' && item.year === '2026' && item.teacherStatus
         })
-        .map((item) => item.school),
+        .map((item) => item.rtrSchoolId),
     ).size /
       494) *
     100
@@ -304,7 +308,7 @@ const PrevailMilestone26 = () => {
       .filter((item) => {
         return item.month === 'March' && item.year === '2026' && item.teacherStatus
       })
-      .map((item) => item.school),
+      .map((item) => item.rtrSchoolId),
   ).size
 
   const milestone2March26 = (
@@ -313,7 +317,7 @@ const PrevailMilestone26 = () => {
         .filter((item) => {
           return item.month === 'March' && item.year === '2026' && item.teacherStatus
         })
-        .map((item) => item.school),
+        .map((item) => item.rtrSchoolId),
     ).size /
       494) *
     100
@@ -409,7 +413,7 @@ const PrevailMilestone26 = () => {
       .filter((item) => {
         return item.month === 'April' && item.year === '2026' && item.teacherStatus
       })
-      .map((item) => item.school),
+      .map((item) => item.rtrSchoolId),
   ).size
 
   const milestone2April26 = (
@@ -418,7 +422,7 @@ const PrevailMilestone26 = () => {
         .filter((item) => {
           return item.month === 'April' && item.year === '2026' && item.teacherStatus
         })
-        .map((item) => item.school),
+        .map((item) => item.rtrSchoolId),
     ).size /
       494) *
     100
@@ -514,7 +518,7 @@ const PrevailMilestone26 = () => {
       .filter((item) => {
         return item.month === 'May' && item.year === '2026' && item.teacherStatus
       })
-      .map((item) => item.school),
+      .map((item) => item.rtrSchoolId),
   ).size
 
   const milestone2May26 = (
@@ -523,7 +527,7 @@ const PrevailMilestone26 = () => {
         .filter((item) => {
           return item.month === 'May' && item.year === '2026' && item.teacherStatus
         })
-        .map((item) => item.school),
+        .map((item) => item.rtrSchoolId),
     ).size /
       494) *
     100
@@ -608,6 +612,768 @@ const PrevailMilestone26 = () => {
     100
   ).toFixed(0)
   // May
+
+  // June
+  const milestone1June26 = allBanglaObsData.filter((item) => {
+    return item.month === 'June' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const June26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2June26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'June' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3June26 = 0
+
+  const milestone4June26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'June' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5June26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6June26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7June26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'June' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8June26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'June' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // June
+
+  // July
+  const milestone1July26 = allBanglaObsData.filter((item) => {
+    return item.month === 'July' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const July26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2July26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'July' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3July26 = 0
+
+  const milestone4July26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'July' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5July26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6July26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7July26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'July' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8July26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'July' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // July
+
+  // August
+  const milestone1August26 = allBanglaObsData.filter((item) => {
+    return item.month === 'August' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const August26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'August' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2August26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'August' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3August26 = 0
+
+  const milestone4August26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'August' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'August' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5August26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'August' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6August26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'August' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7August26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'August' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'August' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8August26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'August' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'August' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // August
+
+  // September
+  const milestone1September26 = allBanglaObsData.filter((item) => {
+    return item.month === 'September' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const September26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'September' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2September26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'September' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3September26 = 0
+
+  const milestone4September26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'September' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'September' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5September26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'September' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6September26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'September' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7September26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'September' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'September' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8September26 = (
+    ((allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+      )
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'September' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'September' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // September
+
+  // October
+  const milestone1October26 = allBanglaObsData.filter((item) => {
+    return item.month === 'October' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const October26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'October' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2October26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'October' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3October26 = 0
+
+  const milestone4October26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'October' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'October' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5October26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6October26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7October26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'October' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8October26 = (
+    ((allBanglaObsData.filter((item) => {
+      return item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'October' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'October' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // October
+
+  // Novemver
+  const milestone1Novemver26 = allBanglaObsData.filter((item) => {
+    return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const Novemver26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2Novemver26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3Novemver26 = 0
+
+  const milestone4Novemver26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'Novemver' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'Novemver' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'Novemver' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5Novemver26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'Novemver' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6Novemver26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'Novemver' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7Novemver26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'Novemver' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'Novemver' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8Novemver26 = (
+    ((allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'Novemver' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+      )
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'Novemver' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'Novemver' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'Novemver' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // Novemver
+
+  // December
+  const milestone1December26 = allBanglaObsData.filter((item) => {
+    return item.month === 'December' && item.year === '2026' && item.teacherStatus
+  }).length
+
+  const December26SchoolObs = new Set(
+    allBanglaObsData
+      .filter((item) => {
+        return item.month === 'December' && item.year === '2026' && item.teacherStatus
+      })
+      .map((item) => item.rtrSchoolId),
+  ).size
+
+  const milestone2December26 = (
+    (new Set(
+      allBanglaObsData
+        .filter((item) => {
+          return item.month === 'December' && item.year === '2026' && item.teacherStatus
+        })
+        .map((item) => item.rtrSchoolId),
+    ).size /
+      494) *
+    100
+  ).toFixed(0)
+
+  const milestone3December26 = 0
+
+  const milestone4December26 = (
+    ((allLFObservationData.filter((item) => {
+      return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 2'
+    }).length +
+      allLFObservationData.filter((item) => {
+        return item.month === 'December' && item.year === '2026' && item.lfStatus === 'Priority 3'
+      }).length) /
+      allLFObservationData.filter((item) => {
+        return item.month === 'December' && item.lfStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone5December26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
+          item.ind12FollowedIDoWeDoYouDoStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'December' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone6December26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
+          item.ind14ImplementedAllTaskInTimeStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'December' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone7December26 = (
+    (allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'December' &&
+        item.year === '2026' &&
+        item.teacherStatus &&
+        (item.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
+          item.ind13FollowedContinuityOfLessonStatus === 'N/A')
+      )
+    }).length /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'December' && item.year === '2026' && item.teacherStatus
+      }).length) *
+    100
+  ).toFixed(0)
+
+  const milestone8December26 = (
+    ((allBanglaObsData.filter((item) => {
+      return (
+        item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 1'
+      )
+    }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 2'
+        )
+      }).length +
+      allBanglaObsData.filter((item) => {
+        return (
+          item.month === 'December' && item.year === '2026' && item.teacherStatus === 'Priority 3'
+        )
+      }).length) /
+      allBanglaObsData.filter((item) => {
+        return item.month === 'December' && item.teacherStatus && item.year === '2026'
+      }).length) *
+    100
+  ).toFixed(0)
+  // December
+
   // PREVAIL Milestone 26
 
   // Bangla Observation Data by filter
@@ -792,6 +1558,168 @@ const PrevailMilestone26 = () => {
   }
   // Row delete function
 
+  // Milestone data push
+  const pushMilestoneData26 = () => {
+    const milestoneObject26 = [
+      {
+        sl: 1,
+        area: 'Number of classrooms observed',
+        target: '?',
+        january: 0,
+        february: milestone1February26,
+        march: milestone1March26,
+        april: milestone1April26,
+        may: milestone1May26,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 2,
+        area: 'Number of School observed',
+        target: '?',
+        january: 0,
+        february: february26SchoolObs,
+        march: march26SchoolObs,
+        april: april26SchoolObs,
+        may: may26SchoolObs,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 3,
+        area: '% of schools visited atleast once',
+        target: '?',
+        january: 0 + '%',
+        february: milestone2February26 + '%',
+        march: milestone2March26 + '%',
+        april: milestone2April26 + '%',
+        may: milestone2May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 4,
+        area: 'Number of working days',
+        target: '?',
+        january: 0,
+        february: 0,
+        march: 0,
+        april: 0,
+        may: 0,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 5,
+        area: '% of the Literacy Facilitators at Basic and above levels of coaching  skills at the end of year 1(P2&P3)',
+        target: '80%',
+        january: 0 + '%',
+        february: milestone4February26 + '%',
+        march: milestone4March26 + '%',
+        april: milestone4April26 + '%',
+        may: milestone4May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 6,
+        area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
+        target: '70%',
+        january: 0 + '%',
+        february: milestone5February26 + '%',
+        march: milestone5March26 + '%',
+        april: milestone5April26 + '%',
+        may: milestone5May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 7,
+        area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
+        target: '50%',
+        january: 0 + '%',
+        february: milestone6February26 + '%',
+        march: milestone6March26 + '%',
+        april: milestone6April26 + '%',
+        may: milestone6May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 8,
+        area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
+        target: '90%',
+        january: 0 + '%',
+        february: milestone7February26 + '%',
+        march: milestone7March26 + '%',
+        april: milestone7April26 + '%',
+        may: milestone7May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 9,
+        area: '% of Bangla teachers achieved ‘Mastered Instructional Routine’ level or above as observed by the Literacy Facilitators during the Bangla class observation(P1,P2,P3)',
+        target: '60%',
+        january: 0 + '%',
+        february: milestone8February26 + '%',
+        march: milestone8March26 + '%',
+        april: milestone8April26 + '%',
+        may: milestone8May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+    ]
+    console.log('milestoneObject26', milestoneObject26)
+    setMilestoneData26(milestoneObject26)
+  }
+  // Milestone data push
+
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -822,212 +1750,72 @@ const PrevailMilestone26 = () => {
                         <strong></strong> <small></small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
-                          <CTableHead>
-                            <CTableRow>
-                              <CTableHeaderCell scope="col">Leading Indicator</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">Target</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                            </CTableRow>
-                          </CTableHead>
-                          <CTableBody>
-                            <CTableRow color="warning">
-                              <CTableHeaderCell scope="row">
-                                Number of classrooms observed
-                              </CTableHeaderCell>
-                              <CTableDataCell>?</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone1February26}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1March26}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1April26}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone1May26}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">
-                                Number of School observed
-                              </CTableHeaderCell>
-                              <CTableDataCell>?</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{february26SchoolObs}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{march26SchoolObs}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{april26SchoolObs}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{may26SchoolObs}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">
-                                % of schools visited atleast once
-                              </CTableHeaderCell>
-                              <CTableDataCell>?</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone2February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone2May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">
-                                Number of working days
-                              </CTableHeaderCell>
-                              <CTableDataCell>?</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">
-                                % of the Literacy Facilitators at Basic and above levels of coaching
-                                skills at the end of year 1(P1&P2)
-                              </CTableHeaderCell>
-                              <CTableDataCell>80%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone4February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone4May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">
-                                % Bangla teachers have adopted key instructional practices (I do-We
-                                do-You do, engaging students in individual and group work,
-                                assessments)(1b)
-                              </CTableHeaderCell>
-                              <CTableDataCell>70%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone5February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone5May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">
-                                % of teachers able to complete all planned activities in sequence
-                                and on time (1d).
-                              </CTableHeaderCell>
-                              <CTableDataCell>50%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone6February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone6March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone6April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone6May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">
-                                % of observed Bangla teachers that are following use of workbooks
-                                during the Bangla language classes(1c)
-                              </CTableHeaderCell>
-                              <CTableDataCell>90%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone7February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone7March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone7April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone7May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">
-                                % of Bangla teachers achieved ‘Mastered Instructional Routine’ level
-                                or above as observed by the Literacy Facilitators during the Bangla
-                                class observation(P1,P2,P3)
-                              </CTableHeaderCell>
-                              <CTableDataCell>60%</CTableDataCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {milestone8February26}%
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone8March26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone8April26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{milestone8May26}%</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                            </CTableRow>
-                          </CTableBody>
-                        </CTable>
+                        <MaterialTable
+                          title={''}
+                          columns={[
+                            { title: 'Sl', field: 'sl' },
+                            { title: 'Leading Indicator', field: 'area' },
+                            { title: 'Target', field: 'target' },
+                            { title: 'January', field: 'january' },
+                            { title: 'February', field: 'february' },
+                            { title: 'March', field: 'march' },
+                            { title: 'April', field: 'april' },
+                            { title: 'May', field: 'may' },
+                            { title: 'June', field: 'june' },
+                            { title: 'July', field: 'july' },
+                            { title: 'August', field: 'august' },
+                            { title: 'September', field: 'september' },
+                            { title: 'October', field: 'october' },
+                            { title: 'November', field: 'november' },
+                            { title: 'December', field: 'december' },
+                          ]}
+                          options={{
+                            exportButton: true,
+                            exportAllData: true,
+                            grouping: false,
+                            sorting: false,
+                            search: false,
+                            paging: false,
+                            pageSize: 12,
+                            pageSizeOptions: [12, 24, 36],
+                            maxBodyHeight: '1200px',
+                            headerStyle: {
+                              position: 'sticky',
+                              top: 0,
+                              backgroundColor: '#bcceeb',
+                              fontWeight: 'bold',
+                              width: '5px',
+                              height: '5px',
+                              textAlign: 'center',
+                              text: 'bold',
+                              color: '#884fc9',
+                              borderRight: '1px solid #eee',
+                              borderStyle: 'solid',
+                            },
+                            rowStyle: {
+                              fontSize: 16,
+                              backgroundColor: '#f5f3f2',
+                              borderRight: '1px solid #fff',
+                              borderStyle: 'solid',
+                              textAlign: 'center',
+                            },
+                            cellStyle: {
+                              borderRight: '1px solid #0c0b0bff',
+                              borderLeft: '1px solid #0e0d0dff',
+                              borderBottom: '1px solid #0c0b0bff',
+                              BorderTop: '1px solid #0c0b0bff',
+                              borderStyle: 'solid',
+                              height: '5px',
+                              minHeight: '5px',
+                              maxHeight: '5px',
+                              padding: '0 5px',
+                              textAlign: 'center',
+                            },
+                            maintainAspectRatio: false,
+                          }}
+                          style={{ height: '', width: '' }}
+                          data={milestoneData26}
+                        />
                       </CCardBody>
                     </CCard>
                   </CAccordionBody>

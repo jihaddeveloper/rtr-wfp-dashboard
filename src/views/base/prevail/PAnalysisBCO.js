@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 03/05/2026
+//  Modify Date: 10/05/2026
 //  Description: PAnalysisBCO  file
 
 import React, { useState, useEffect } from 'react'
@@ -1286,6 +1286,8 @@ const PAnalysisBCO = () => {
 
       pushReportData23(console.log('pushReportData23 called'))
       pushReportData24(console.log('pushReportData234 called'))
+
+      pushReportData26()
 
       // Chart
       pushSchoolBCOPerChildChartData()
@@ -5885,14 +5887,14 @@ const PAnalysisBCO = () => {
       // Filter Data PBCO
       // Trending
       // // January
-      allTotalStudentJanuary26 = allBCOPData
+      allTotalStudentJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      allTotalBookCheckoutJanuary26 = allBCOPData
+      allTotalBookCheckoutJanuary26 = response.data
         .filter(
           (item) =>
             item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -5902,7 +5904,7 @@ const PAnalysisBCO = () => {
           return acc + value
         })
 
-      allTotalBookCheckinJanuary26 = allBCOPData
+      allTotalBookCheckinJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
@@ -5910,7 +5912,7 @@ const PAnalysisBCO = () => {
         })
 
       allNoBCOPerStudentJanuary26 = (
-        allBCOPData
+        response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -5919,7 +5921,7 @@ const PAnalysisBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           }) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'January')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -5927,7 +5929,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCOJanuary26 = allBCOPData
+      allNoStudentBCOJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
@@ -5935,7 +5937,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCOJanuary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -5945,7 +5947,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'January')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -5953,7 +5955,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCIJanuary26 = allBCOPData
+      allNoStudentBCIJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
         .reduce(function (acc, value) {
@@ -5961,7 +5963,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCIJanuary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -5971,7 +5973,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'January')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -5979,7 +5981,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoGirlBCOJanuary26 = allBCOPData
+      allNoGirlBCOJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
@@ -5987,7 +5989,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentGirlBCOJanuary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -5997,7 +5999,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'January')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
@@ -6005,7 +6007,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoBoyBCOJanuary26 = allBCOPData
+      allNoBoyBCOJanuary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'January')
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
@@ -6013,7 +6015,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentBoyBCOJanuary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
@@ -6023,7 +6025,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'January')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
@@ -6031,26 +6033,26 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoSchoolBCOJanuary26 = allBCOPData.filter(
+      allNoSchoolBCOJanuary26 = response.data.filter(
         (item) =>
           item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'January',
       ).length
 
-      allNoSchoolZeroBCOJanuary26 = allBCOPData.filter(
+      allNoSchoolZeroBCOJanuary26 = response.data.filter(
         (item) =>
           item.year === '2026' && item.month === 'January' && item.schoolTotalNoStudentBC === 0,
       ).length
       // January
 
       // February
-      allTotalStudentFebruary26 = allBCOPData
+      allTotalStudentFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      allTotalBookCheckoutFebruary26 = allBCOPData
+      allTotalBookCheckoutFebruary26 = response.data
         .filter(
           (item) =>
             item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'February',
@@ -6060,7 +6062,7 @@ const PAnalysisBCO = () => {
           return acc + value
         })
 
-      allTotalBookCheckinFebruary26 = allBCOPData
+      allTotalBookCheckinFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
@@ -6068,7 +6070,7 @@ const PAnalysisBCO = () => {
         })
 
       allNoBCOPerStudentFebruary26 = (
-        allBCOPData
+        response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 &&
@@ -6079,7 +6081,7 @@ const PAnalysisBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           }) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'February')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6087,7 +6089,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCOFebruary26 = allBCOPData
+      allNoStudentBCOFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
@@ -6095,7 +6097,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCOFebruary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 &&
@@ -6107,7 +6109,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'February')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6115,7 +6117,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCIFebruary26 = allBCOPData
+      allNoStudentBCIFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
         .reduce(function (acc, value) {
@@ -6123,7 +6125,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCIFebruary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 &&
@@ -6135,7 +6137,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'February')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6143,7 +6145,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoGirlBCOFebruary26 = allBCOPData
+      allNoGirlBCOFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
@@ -6151,7 +6153,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentGirlBCOFebruary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 &&
@@ -6163,7 +6165,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'February')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
@@ -6171,7 +6173,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoBoyBCOFebruary26 = allBCOPData
+      allNoBoyBCOFebruary26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'February')
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
@@ -6179,7 +6181,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentBoyBCOFebruary26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 &&
@@ -6191,7 +6193,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'February')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
@@ -6199,26 +6201,26 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoSchoolBCOFebruary26 = allBCOPData.filter(
+      allNoSchoolBCOFebruary26 = response.data.filter(
         (item) =>
           item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'February',
       ).length
 
-      allNoSchoolZeroBCOFebruary26 = allBCOPData.filter(
+      allNoSchoolZeroBCOFebruary26 = response.data.filter(
         (item) =>
           item.year === '2026' && item.month === 'February' && item.schoolTotalNoStudentBC === 0,
       ).length
       // February
 
       // March
-      allTotalStudentMarch26 = allBCOPData
+      allTotalStudentMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      allTotalBookCheckoutMarch26 = allBCOPData
+      allTotalBookCheckoutMarch26 = response.data
         .filter(
           (item) =>
             item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6228,7 +6230,7 @@ const PAnalysisBCO = () => {
           return acc + value
         })
 
-      allTotalBookCheckinMarch26 = allBCOPData
+      allTotalBookCheckinMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
@@ -6236,7 +6238,7 @@ const PAnalysisBCO = () => {
         })
 
       allNoBCOPerStudentMarch26 = (
-        allBCOPData
+        response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6245,7 +6247,7 @@ const PAnalysisBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           }) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'March')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6253,7 +6255,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCOMarch26 = allBCOPData
+      allNoStudentBCOMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
@@ -6261,7 +6263,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCOMarch26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6271,7 +6273,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'March')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6279,7 +6281,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCIMarch26 = allBCOPData
+      allNoStudentBCIMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
         .reduce(function (acc, value) {
@@ -6287,7 +6289,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCIMarch26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6297,7 +6299,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'March')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6305,7 +6307,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoGirlBCOMarch26 = allBCOPData
+      allNoGirlBCOMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
@@ -6313,7 +6315,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentGirlBCOMarch26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6323,7 +6325,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'March')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
@@ -6331,7 +6333,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoBoyBCOMarch26 = allBCOPData
+      allNoBoyBCOMarch26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'March')
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
@@ -6339,7 +6341,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentBoyBCOMarch26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
@@ -6349,7 +6351,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'March')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
@@ -6357,26 +6359,26 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoSchoolBCOMarch26 = allBCOPData.filter(
+      allNoSchoolBCOMarch26 = response.data.filter(
         (item) =>
           item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'March',
       ).length
 
-      allNoSchoolZeroBCOMarch26 = allBCOPData.filter(
+      allNoSchoolZeroBCOMarch26 = response.data.filter(
         (item) =>
           item.year === '2026' && item.month === 'March' && item.schoolTotalNoStudentBC === 0,
       ).length
       // March
 
       // April
-      allTotalStudentApril26 = allBCOPData
+      allTotalStudentApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      allTotalBookCheckoutApril26 = allBCOPData
+      allTotalBookCheckoutApril26 = response.data
         .filter(
           (item) =>
             item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6386,7 +6388,7 @@ const PAnalysisBCO = () => {
           return acc + value
         })
 
-      allTotalBookCheckinApril26 = allBCOPData
+      allTotalBookCheckinApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
@@ -6394,7 +6396,7 @@ const PAnalysisBCO = () => {
         })
 
       allNoBCOPerStudentApril26 = (
-        allBCOPData
+        response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6403,7 +6405,7 @@ const PAnalysisBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           }) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6411,7 +6413,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCOApril26 = allBCOPData
+      allNoStudentBCOApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
@@ -6419,7 +6421,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCOApril26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6429,7 +6431,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6437,7 +6439,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCIApril26 = allBCOPData
+      allNoStudentBCIApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
         .reduce(function (acc, value) {
@@ -6445,7 +6447,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCIApril26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6455,7 +6457,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6463,7 +6465,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoGirlBCOApril26 = allBCOPData
+      allNoGirlBCOApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
@@ -6471,7 +6473,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentGirlBCOApril26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6481,7 +6483,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
@@ -6489,7 +6491,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoBoyBCOApril26 = allBCOPData
+      allNoBoyBCOApril26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'April')
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
@@ -6497,7 +6499,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentBoyBCOApril26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
@@ -6507,7 +6509,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'April')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
@@ -6515,26 +6517,26 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoSchoolBCOApril26 = allBCOPData.filter(
+      allNoSchoolBCOApril26 = response.data.filter(
         (item) =>
           item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'April',
       ).length
 
-      allNoSchoolZeroBCOApril26 = allBCOPData.filter(
+      allNoSchoolZeroBCOApril26 = response.data.filter(
         (item) =>
           item.year === '2026' && item.month === 'April' && item.schoolTotalNoStudentBC === 0,
       ).length
       // April
 
       // May
-      allTotalStudentMay26 = allBCOPData
+      allTotalStudentMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoStudent)
         .reduce(function (acc, value) {
           return acc + value
         })
 
-      allTotalBookCheckoutMay26 = allBCOPData
+      allTotalBookCheckoutMay26 = response.data
         .filter(
           (item) =>
             item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6544,7 +6546,7 @@ const PAnalysisBCO = () => {
           return acc + value
         })
 
-      allTotalBookCheckinMay26 = allBCOPData
+      allTotalBookCheckinMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
         .reduce(function (acc, value) {
@@ -6552,7 +6554,7 @@ const PAnalysisBCO = () => {
         })
 
       allNoBCOPerStudentMay26 = (
-        allBCOPData
+        response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6561,7 +6563,7 @@ const PAnalysisBCO = () => {
           .reduce(function (acc, value) {
             return acc + value
           }) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'May')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6569,7 +6571,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCOMay26 = allBCOPData
+      allNoStudentBCOMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
         .reduce(function (acc, value) {
@@ -6577,7 +6579,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCOMay26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6587,7 +6589,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'May')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6595,7 +6597,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoStudentBCIMay26 = allBCOPData
+      allNoStudentBCIMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
         .reduce(function (acc, value) {
@@ -6603,7 +6605,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentStudentBCIMay26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6613,7 +6615,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'May')
           .map((ureportdata) => ureportdata.schoolTotalNoStudent)
           .reduce(function (acc, value) {
@@ -6621,7 +6623,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoGirlBCOMay26 = allBCOPData
+      allNoGirlBCOMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
         .reduce(function (acc, value) {
@@ -6629,7 +6631,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentGirlBCOMay26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6639,7 +6641,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'May')
           .map((ureportdata) => ureportdata.schoolTotalNoGirl)
           .reduce(function (acc, value) {
@@ -6647,7 +6649,7 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoBoyBCOMay26 = allBCOPData
+      allNoBoyBCOMay26 = response.data
         .filter((item) => item.year === '2026' && item.month === 'May')
         .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
         .reduce(function (acc, value) {
@@ -6655,7 +6657,7 @@ const PAnalysisBCO = () => {
         })
 
       allPercentBoyBCOMay26 = (
-        (allBCOPData
+        (response.data
           .filter(
             (item) =>
               item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
@@ -6665,7 +6667,7 @@ const PAnalysisBCO = () => {
             return acc + value
           }) *
           100) /
-        allBCOPData
+        response.data
           .filter((item) => item.year === '2026' && item.month === 'May')
           .map((ureportdata) => ureportdata.schoolTotalNoBoy)
           .reduce(function (acc, value) {
@@ -6673,24 +6675,24 @@ const PAnalysisBCO = () => {
           })
       ).toFixed(2)
 
-      allNoSchoolBCOMay26 = allBCOPData.filter(
+      allNoSchoolBCOMay26 = response.data.filter(
         (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'May',
       ).length
 
-      allNoSchoolZeroBCOMay26 = allBCOPData.filter(
+      allNoSchoolZeroBCOMay26 = response.data.filter(
         (item) => item.year === '2026' && item.month === 'May' && item.schoolTotalNoStudentBC === 0,
       ).length
       // May
 
       // June
-      // allTotalStudentJune26 = allBCOPData
+      // allTotalStudentJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutJune26 = allBCOPData
+      // allTotalBookCheckoutJune26 = response.data
       //   .filter(
       //     (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
       //   )
@@ -6699,7 +6701,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinJune26 = allBCOPData
+      // allTotalBookCheckinJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -6707,7 +6709,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentJune26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
@@ -6716,7 +6718,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'June')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6724,7 +6726,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCOJune26 = allBCOPData
+      // allNoStudentBCOJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -6732,7 +6734,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCOJune26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
@@ -6742,7 +6744,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'June')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6750,7 +6752,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCIJune26 = allBCOPData
+      // allNoStudentBCIJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -6758,7 +6760,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCIJune26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
@@ -6768,7 +6770,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'June')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6776,7 +6778,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCOJune26 = allBCOPData
+      // allNoGirlBCOJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -6784,7 +6786,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCOJune26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
@@ -6794,7 +6796,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'June')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -6802,7 +6804,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCOJune26 = allBCOPData
+      // allNoBoyBCOJune26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'June')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -6810,7 +6812,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCOJune26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
@@ -6820,7 +6822,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'June')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -6828,24 +6830,24 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCOJune26 = allBCOPData.filter(
+      // allNoSchoolBCOJune26 = response.data.filter(
       //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'June',
       // ).length
 
-      // allNoSchoolZeroBCOJune26 = allBCOPData.filter(
+      // allNoSchoolZeroBCOJune26 = response.data.filter(
       //   (item) => item.year === '2026' && item.month === 'June' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // June
 
       // // July
-      // allTotalStudentJuly26 = allBCOPData
+      // allTotalStudentJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutJuly26 = allBCOPData
+      // allTotalBookCheckoutJuly26 = response.data
       //   .filter(
       //     (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
       //   )
@@ -6854,7 +6856,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinJuly26 = allBCOPData
+      // allTotalBookCheckinJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -6862,7 +6864,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentJuly26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
@@ -6871,7 +6873,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'July')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6879,7 +6881,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCOJuly26 = allBCOPData
+      // allNoStudentBCOJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -6887,7 +6889,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCOJuly26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
@@ -6897,7 +6899,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'July')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6905,7 +6907,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCIJuly26 = allBCOPData
+      // allNoStudentBCIJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -6913,7 +6915,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCIJuly26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
@@ -6923,7 +6925,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'July')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -6931,7 +6933,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCOJuly26 = allBCOPData
+      // allNoGirlBCOJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -6939,7 +6941,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCOJuly26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
@@ -6949,7 +6951,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'July')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -6957,7 +6959,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCOJuly26 = allBCOPData
+      // allNoBoyBCOJuly26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'July')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -6965,7 +6967,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCOJuly26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
@@ -6975,7 +6977,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'July')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -6983,24 +6985,24 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCOJuly26 = allBCOPData.filter(
+      // allNoSchoolBCOJuly26 = response.data.filter(
       //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'July',
       // ).length
 
-      // allNoSchoolZeroBCOJuly26 = allBCOPData.filter(
+      // allNoSchoolZeroBCOJuly26 = response.data.filter(
       //   (item) => item.year === '2026' && item.month === 'July' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // July
 
       // // August
-      // allTotalStudentAugust26 = allBCOPData
+      // allTotalStudentAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutAugust26 = allBCOPData
+      // allTotalBookCheckoutAugust26 = response.data
       //   .filter(
       //     (item) =>
       //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7010,7 +7012,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinAugust26 = allBCOPData
+      // allTotalBookCheckinAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -7018,7 +7020,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentAugust26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7027,7 +7029,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'August')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7035,7 +7037,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCOAugust26 = allBCOPData
+      // allNoStudentBCOAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -7043,7 +7045,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCOAugust26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7053,7 +7055,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'August')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7061,7 +7063,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCIAugust26 = allBCOPData
+      // allNoStudentBCIAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -7069,7 +7071,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCIAugust26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7079,7 +7081,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'August')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7087,7 +7089,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCOAugust26 = allBCOPData
+      // allNoGirlBCOAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -7095,7 +7097,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCOAugust26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7105,7 +7107,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'August')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -7113,7 +7115,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCOAugust26 = allBCOPData
+      // allNoBoyBCOAugust26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'August')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -7121,7 +7123,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCOAugust26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
@@ -7131,7 +7133,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'August')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -7139,24 +7141,24 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCOAugust26 = allBCOPData.filter(
+      // allNoSchoolBCOAugust26 = response.data.filter(
       //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'August',
       // ).length
 
-      // allNoSchoolZeroBCOAugust26 = allBCOPData.filter(
+      // allNoSchoolZeroBCOAugust26 = response.data.filter(
       //   (item) => item.year === '2026' && item.month === 'August' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // August
 
       // // September
-      // allTotalStudentSeptember26 = allBCOPData
+      // allTotalStudentSeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutSeptember26 = allBCOPData
+      // allTotalBookCheckoutSeptember26 = response.data
       //   .filter(
       //     (item) =>
       //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7166,7 +7168,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinSeptember26 = allBCOPData
+      // allTotalBookCheckinSeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -7174,7 +7176,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentSeptember26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7183,7 +7185,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'September')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7191,7 +7193,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCOSeptember26 = allBCOPData
+      // allNoStudentBCOSeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -7199,7 +7201,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCOSeptember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7209,7 +7211,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'September')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7217,7 +7219,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCISeptember26 = allBCOPData
+      // allNoStudentBCISeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -7225,7 +7227,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCISeptember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7235,7 +7237,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'September')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7243,7 +7245,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCOSeptember26 = allBCOPData
+      // allNoGirlBCOSeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -7251,7 +7253,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCOSeptember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7261,7 +7263,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'September')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -7269,7 +7271,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCOSeptember26 = allBCOPData
+      // allNoBoyBCOSeptember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'September')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -7277,7 +7279,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCOSeptember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
@@ -7287,7 +7289,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'September')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -7295,26 +7297,26 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCOSeptember26 = allBCOPData.filter(
+      // allNoSchoolBCOSeptember26 = response.data.filter(
       //   (item) =>
       //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'September',
       // ).length
 
-      // allNoSchoolZeroBCOSeptember26 = allBCOPData.filter(
+      // allNoSchoolZeroBCOSeptember26 = response.data.filter(
       //   (item) =>
       //     item.year === '2026' && item.month === 'September' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // September
 
       // // October
-      // allTotalStudentOctober26 = allBCOPData
+      // allTotalStudentOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutOctober26 = allBCOPData
+      // allTotalBookCheckoutOctober26 = response.data
       //   .filter(
       //     (item) =>
       //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7324,7 +7326,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinOctober26 = allBCOPData
+      // allTotalBookCheckinOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -7332,7 +7334,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentOctober26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7341,7 +7343,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'October')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7349,7 +7351,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCOOctober26 = allBCOPData
+      // allNoStudentBCOOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -7357,7 +7359,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCOOctober26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7367,7 +7369,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'October')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7375,7 +7377,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCIOctober26 = allBCOPData
+      // allNoStudentBCIOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -7383,7 +7385,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCIOctober26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7393,7 +7395,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'October')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7401,7 +7403,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCOOctober26 = allBCOPData
+      // allNoGirlBCOOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -7409,7 +7411,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCOOctober26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7419,7 +7421,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'October')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -7427,7 +7429,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCOOctober26 = allBCOPData
+      // allNoBoyBCOOctober26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'October')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -7435,7 +7437,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCOOctober26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
@@ -7445,7 +7447,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'October')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -7453,24 +7455,24 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCOOctober26 = allBCOPData.filter(
+      // allNoSchoolBCOOctober26 = response.data.filter(
       //   (item) => item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'October',
       // ).length
 
-      // allNoSchoolZeroBCOOctober26 = allBCOPData.filter(
+      // allNoSchoolZeroBCOOctober26 = response.data.filter(
       //   (item) => item.year === '2026' && item.month === 'October' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // October
 
       // // November
-      // allTotalStudentNovember26 = allBCOPData
+      // allTotalStudentNovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutNovember26 = allBCOPData
+      // allTotalBookCheckoutNovember26 = response.data
       //   .filter(
       //     (item) =>
       //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7480,7 +7482,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinNovember26 = allBCOPData
+      // allTotalBookCheckinNovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -7488,7 +7490,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentNovember26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7497,7 +7499,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'November')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7505,7 +7507,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCONovember26 = allBCOPData
+      // allNoStudentBCONovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -7513,7 +7515,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCONovember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7523,7 +7525,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'November')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7531,7 +7533,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCINovember26 = allBCOPData
+      // allNoStudentBCINovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -7539,7 +7541,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCINovember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7549,7 +7551,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'November')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7557,7 +7559,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCONovember26 = allBCOPData
+      // allNoGirlBCONovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -7565,7 +7567,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCONovember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7575,7 +7577,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'November')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -7583,7 +7585,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCONovember26 = allBCOPData
+      // allNoBoyBCONovember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'November')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -7591,7 +7593,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCONovember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
@@ -7601,7 +7603,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'November')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -7609,26 +7611,26 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCONovember26 = allBCOPData.filter(
+      // allNoSchoolBCONovember26 = response.data.filter(
       //   (item) =>
       //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'November',
       // ).length
 
-      // allNoSchoolZeroBCONovember26 = allBCOPData.filter(
+      // allNoSchoolZeroBCONovember26 = response.data.filter(
       //   (item) =>
       //     item.year === '2026' && item.month === 'November' && item.schoolTotalNoStudentBC === 0,
       // ).length
       // // November
 
       // // December
-      // allTotalStudentDecember26 = allBCOPData
+      // allTotalStudentDecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //   .reduce(function (acc, value) {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckoutDecember26 = allBCOPData
+      // allTotalBookCheckoutDecember26 = response.data
       //   .filter(
       //     (item) =>
       //       item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7638,7 +7640,7 @@ const PAnalysisBCO = () => {
       //     return acc + value
       //   })
 
-      // allTotalBookCheckinDecember26 = allBCOPData
+      // allTotalBookCheckinDecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
       //   .reduce(function (acc, value) {
@@ -7646,7 +7648,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allNoBCOPerStudentDecember26 = (
-      //   allBCOPData
+      //   response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7655,7 +7657,7 @@ const PAnalysisBCO = () => {
       //     .reduce(function (acc, value) {
       //       return acc + value
       //     }) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'December')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7663,7 +7665,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCODecember26 = allBCOPData
+      // allNoStudentBCODecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
       //   .reduce(function (acc, value) {
@@ -7671,7 +7673,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCODecember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7681,7 +7683,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'December')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7689,7 +7691,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoStudentBCIDecember26 = allBCOPData
+      // allNoStudentBCIDecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
       //   .reduce(function (acc, value) {
@@ -7697,7 +7699,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentStudentBCIDecember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7707,7 +7709,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'December')
       //     .map((ureportdata) => ureportdata.schoolTotalNoStudent)
       //     .reduce(function (acc, value) {
@@ -7715,7 +7717,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoGirlBCODecember26 = allBCOPData
+      // allNoGirlBCODecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
       //   .reduce(function (acc, value) {
@@ -7723,7 +7725,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentGirlBCODecember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7733,7 +7735,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'December')
       //     .map((ureportdata) => ureportdata.schoolTotalNoGirl)
       //     .reduce(function (acc, value) {
@@ -7741,7 +7743,7 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoBoyBCODecember26 = allBCOPData
+      // allNoBoyBCODecember26 = response.data
       //   .filter((item) => item.year === '2026' && item.month === 'December')
       //   .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
       //   .reduce(function (acc, value) {
@@ -7749,7 +7751,7 @@ const PAnalysisBCO = () => {
       //   })
 
       // allPercentBoyBCODecember26 = (
-      //   (allBCOPData
+      //   (response.data
       //     .filter(
       //       (item) =>
       //         item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
@@ -7759,7 +7761,7 @@ const PAnalysisBCO = () => {
       //       return acc + value
       //     }) *
       //     100) /
-      //   allBCOPData
+      //   response.data
       //     .filter((item) => item.year === '2026' && item.month === 'December')
       //     .map((ureportdata) => ureportdata.schoolTotalNoBoy)
       //     .reduce(function (acc, value) {
@@ -7767,12 +7769,12 @@ const PAnalysisBCO = () => {
       //     })
       // ).toFixed(2)
 
-      // allNoSchoolBCODecember26 = allBCOPData.filter(
+      // allNoSchoolBCODecember26 = response.data.filter(
       //   (item) =>
       //     item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === 'December',
       // ).length
 
-      // allNoSchoolZeroBCODecember26 = allBCOPData.filter(
+      // allNoSchoolZeroBCODecember26 = response.data.filter(
       //   (item) =>
       //     item.year === '2026' && item.month === 'December' && item.schoolTotalNoStudentBC === 0,
       // ).length
@@ -8376,7 +8378,7 @@ const PAnalysisBCO = () => {
                   borderStyle: 'solid',
                 },
               }}
-              data={reportData24}
+              data={reportData26}
             />
           </CCardBody>
         </CCard>
