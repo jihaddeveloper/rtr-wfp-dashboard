@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/03/2026
-//  Modify Date: 10/05/2026
+//  Modify Date: 11/05/2026
 //  Description: P Milestone 26  file
 
 import React, { useState, useEffect } from 'react'
@@ -52,7 +52,9 @@ import { saveAs } from 'file-saver'
 //Icon
 //Icon
 
-const PrevailMilestone26 = () => {
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const PrevailMilestone26Previous = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -80,12 +82,16 @@ const PrevailMilestone26 = () => {
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
-      console.log('use effect called')
-      await getAllBanglaClass(console.log('get bangla class called'))
-      await getAllLFObservation(console.log('get LF observation called'))
-      await getAllTeacher(console.log('get teacher class called'))
-
-      pushMilestoneData26()
+      await Promise.all([
+        getAllBanglaClass(),
+        getAllLFObservation(),
+        getAllTeacher(),
+        pushMilestoneData26(),
+      ])
+      // console.log('use effect called')
+      // await getAllBanglaClass(console.log('get bangla class called'))
+      // await getAllLFObservation(console.log('get LF observation called'))
+      // await getAllTeacher(console.log('get teacher class called'))
     }
     call()
   }, [])
@@ -93,21 +99,24 @@ const PrevailMilestone26 = () => {
 
   // Get All LFObservation Data
   const getAllLFObservation = async () => {
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-lf-observation', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllLFObservationData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
+    return axios.get('http://118.179.80.51:8080/api/v1/p-lf-observation').then((res) => {
+      setAllLFObservationData(res.data)
+    })
+    // try {
+    //   const response = await axios('http://118.179.80.51:8080/api/v1/p-lf-observation', {
+    //     method: 'GET',
+    //     mode: 'no-cors',
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json',
+    //     },
+    //   })
+    //   setAllLFObservationData(response.data)
+    //   setIsLoading(false)
+    //   console.log('Data:' + response)
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
   // Get All LFObservation Data
 
@@ -135,22 +144,26 @@ const PrevailMilestone26 = () => {
 
   // Get All Book-checkout Data for school
   const getAllBanglaClass = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBanglaObsData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
+    return axios.get('http://118.179.80.51:8080/api/v1/p-bangla-class').then((res) => {
+      setAllBanglaObsData(res.data)
+    })
+
+    // setIsLoading(true)
+    // try {
+    //   const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
+    //     method: 'GET',
+    //     mode: 'no-cors',
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json',
+    //     },
+    //   })
+    //   setAllBanglaObsData(response.data)
+    //   setIsLoading(false)
+    //   console.log('Data:' + response.data)
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
   // Get All Book-checkout Data for school
 
@@ -165,7 +178,6 @@ const PrevailMilestone26 = () => {
   // Teacher filter data
 
   // Bangla Observation Data by filter
-
   // Total number monthly
   const totalClassObservationSeptember = allBanglaObsData.filter((item) => {
     return item.month === 'September' && item.year === '2025' && item.teacherStatus
@@ -1373,11 +1385,171 @@ const PrevailMilestone26 = () => {
     100
   ).toFixed(0)
   // December
-
   // PREVAIL Milestone 26
-
   // Bangla Observation Data by filter
   // All Percent Value
+
+  // Milestone data push
+  const pushMilestoneData26 = () => {
+    const milestoneObject26 = [
+      {
+        sl: 1,
+        area: 'Number of classrooms observed',
+        target: '?',
+        january: 0,
+        february: milestone1February26,
+        march: milestone1March26,
+        april: milestone1April26,
+        may: milestone1May26,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 2,
+        area: 'Number of School observed',
+        target: '?',
+        january: 0,
+        february: february26SchoolObs,
+        march: march26SchoolObs,
+        april: april26SchoolObs,
+        may: may26SchoolObs,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 3,
+        area: '% of schools visited atleast once',
+        target: '?',
+        january: 0 + '%',
+        february: milestone2February26 + '%',
+        march: milestone2March26 + '%',
+        april: milestone2April26 + '%',
+        may: milestone2May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 4,
+        area: 'Number of working days',
+        target: '?',
+        january: 0,
+        february: 0,
+        march: 0,
+        april: 0,
+        may: 0,
+        june: 0,
+        july: 0,
+        august: 0,
+        september: 0,
+        october: 0,
+        november: 0,
+        december: 0,
+      },
+      {
+        sl: 5,
+        area: '% of the Literacy Facilitators at Basic and above levels of coaching  skills at the end of year 1(P2&P3)',
+        target: '80%',
+        january: 0 + '%',
+        february: milestone4February26 + '%',
+        march: milestone4March26 + '%',
+        april: milestone4April26 + '%',
+        may: milestone4May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 6,
+        area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
+        target: '70%',
+        january: 0 + '%',
+        february: milestone5February26 + '%',
+        march: milestone5March26 + '%',
+        april: milestone5April26 + '%',
+        may: milestone5May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 7,
+        area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
+        target: '50%',
+        january: 0 + '%',
+        february: milestone6February26 + '%',
+        march: milestone6March26 + '%',
+        april: milestone6April26 + '%',
+        may: milestone6May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 8,
+        area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
+        target: '90%',
+        january: 0 + '%',
+        february: milestone7February26 + '%',
+        march: milestone7March26 + '%',
+        april: milestone7April26 + '%',
+        may: milestone7May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+      {
+        sl: 9,
+        area: '% of Bangla teachers achieved ‘Mastered Instructional Routine’ level or above as observed by the Literacy Facilitators during the Bangla class observation(P1,P2,P3)',
+        target: '60%',
+        january: 0 + '%',
+        february: milestone8February26 + '%',
+        march: milestone8March26 + '%',
+        april: milestone8April26 + '%',
+        may: milestone8May26 + '%',
+        june: 0 + '%',
+        july: 0 + '%',
+        august: 0 + '%',
+        september: 0 + '%',
+        october: 0 + '%',
+        november: 0 + '%',
+        december: 0 + '%',
+      },
+    ]
+    console.log('milestoneObject26', milestoneObject26)
+    setMilestoneData26(milestoneObject26)
+  }
+  // Milestone data push
 
   // File save as XLSX
   // const exportToExcel = (data, fileName) => {
@@ -1557,168 +1729,6 @@ const PrevailMilestone26 = () => {
     }
   }
   // Row delete function
-
-  // Milestone data push
-  const pushMilestoneData26 = () => {
-    const milestoneObject26 = [
-      {
-        sl: 1,
-        area: 'Number of classrooms observed',
-        target: '?',
-        january: 0,
-        february: milestone1February26,
-        march: milestone1March26,
-        april: milestone1April26,
-        may: milestone1May26,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
-        october: 0,
-        november: 0,
-        december: 0,
-      },
-      {
-        sl: 2,
-        area: 'Number of School observed',
-        target: '?',
-        january: 0,
-        february: february26SchoolObs,
-        march: march26SchoolObs,
-        april: april26SchoolObs,
-        may: may26SchoolObs,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
-        october: 0,
-        november: 0,
-        december: 0,
-      },
-      {
-        sl: 3,
-        area: '% of schools visited atleast once',
-        target: '?',
-        january: 0 + '%',
-        february: milestone2February26 + '%',
-        march: milestone2March26 + '%',
-        april: milestone2April26 + '%',
-        may: milestone2May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-      {
-        sl: 4,
-        area: 'Number of working days',
-        target: '?',
-        january: 0,
-        february: 0,
-        march: 0,
-        april: 0,
-        may: 0,
-        june: 0,
-        july: 0,
-        august: 0,
-        september: 0,
-        october: 0,
-        november: 0,
-        december: 0,
-      },
-      {
-        sl: 5,
-        area: '% of the Literacy Facilitators at Basic and above levels of coaching  skills at the end of year 1(P2&P3)',
-        target: '80%',
-        january: 0 + '%',
-        february: milestone4February26 + '%',
-        march: milestone4March26 + '%',
-        april: milestone4April26 + '%',
-        may: milestone4May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-      {
-        sl: 6,
-        area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
-        target: '70%',
-        january: 0 + '%',
-        february: milestone5February26 + '%',
-        march: milestone5March26 + '%',
-        april: milestone5April26 + '%',
-        may: milestone5May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-      {
-        sl: 7,
-        area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
-        target: '50%',
-        january: 0 + '%',
-        february: milestone6February26 + '%',
-        march: milestone6March26 + '%',
-        april: milestone6April26 + '%',
-        may: milestone6May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-      {
-        sl: 8,
-        area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
-        target: '90%',
-        january: 0 + '%',
-        february: milestone7February26 + '%',
-        march: milestone7March26 + '%',
-        april: milestone7April26 + '%',
-        may: milestone7May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-      {
-        sl: 9,
-        area: '% of Bangla teachers achieved ‘Mastered Instructional Routine’ level or above as observed by the Literacy Facilitators during the Bangla class observation(P1,P2,P3)',
-        target: '60%',
-        january: 0 + '%',
-        february: milestone8February26 + '%',
-        march: milestone8March26 + '%',
-        april: milestone8April26 + '%',
-        may: milestone8May26 + '%',
-        june: 0 + '%',
-        july: 0 + '%',
-        august: 0 + '%',
-        september: 0 + '%',
-        october: 0 + '%',
-        november: 0 + '%',
-        december: 0 + '%',
-      },
-    ]
-    console.log('milestoneObject26', milestoneObject26)
-    setMilestoneData26(milestoneObject26)
-  }
-  // Milestone data push
 
   if (isLoading) {
     return (
@@ -2611,4 +2621,4 @@ const PrevailMilestone26 = () => {
   )
 }
 
-export default PrevailMilestone26
+export default PrevailMilestone26Previous

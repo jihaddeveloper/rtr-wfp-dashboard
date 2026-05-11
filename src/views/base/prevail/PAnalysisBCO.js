@@ -8394,6 +8394,8 @@ const PAnalysisBCO = () => {
               width="400px"
               height="400px"
               options={{
+                exportButton: true,
+                exportAllData: true,
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {

@@ -82,7 +82,8 @@ const PrevailSchool = React.lazy(() => import('./views/base/prevail/PrevailSchoo
 const PrevailTeacher = React.lazy(() => import('./views/base/prevail/PrevailTeacher'))
 const PSRMCalss = React.lazy(() => import('./views/base/srm/PSRMDataDetail'))
 const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
-const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26'))
+// const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26'))
+const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26New'))
 // PREVAIL
 
 // SRM

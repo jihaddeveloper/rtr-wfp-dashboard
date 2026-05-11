@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 23/04/2026
+//  Modify Date: 11/05/2026
 //  Description: PBanglaClassDataDetail  file
 
 import React, { useState, useEffect } from 'react'
