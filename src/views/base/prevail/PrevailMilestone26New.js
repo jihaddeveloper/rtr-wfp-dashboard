@@ -90,75 +90,8 @@ const PrevailMilestone26New = () => {
     pushMilestoneData26()
   }, [])
 
-  // Helper: Reusable calculation logic for any Month/Year
-  const getMilestonesForMonth = (month, year, data) => {
-    const { bangla, lfObs } = data
-
-    const banglaMonthly = bangla.filter(
-      (item) => item.month === month && item.year === year && item.teacherStatus,
-    )
-    const lfMonthly = lfObs.filter((item) => item.month === month && item.year === year)
-
-    if (banglaMonthly.length === 0) return { m1: 0, m2: 0, m4: 0, m5: 0, m6: 0, m7: 0, m8: 0 }
-
-    const uniqueSchools = new Set(banglaMonthly.map((item) => item.rtrSchoolId)).size
-
-    // Calculation Helper to avoid NaN
-    const calcPct = (num, den) => (den > 0 ? ((num / den) * 100).toFixed(0) : 0)
-
-    return {
-      m1: banglaMonthly.length,
-      m2: calcPct(uniqueSchools, 494),
-      m4: calcPct(
-        lfMonthly.filter((i) => i.lfStatus === 'Priority 2' || i.lfStatus === 'Priority 3').length,
-        lfMonthly.filter((i) => i.lfStatus).length,
-      ),
-      m5: calcPct(
-        banglaMonthly.filter(
-          (i) =>
-            i.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
-            i.ind12FollowedIDoWeDoYouDoStatus === 'N/A',
-        ).length,
-        banglaMonthly.length,
-      ),
-      m6: calcPct(
-        banglaMonthly.filter(
-          (i) =>
-            i.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
-            i.ind14ImplementedAllTaskInTimeStatus === 'N/A',
-        ).length,
-        banglaMonthly.length,
-      ),
-      m7: calcPct(
-        banglaMonthly.filter(
-          (i) =>
-            i.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
-            i.ind13FollowedContinuityOfLessonStatus === 'N/A',
-        ).length,
-        banglaMonthly.length,
-      ),
-      m8: calcPct(
-        banglaMonthly.filter((i) =>
-          ['Priority 1', 'Priority 2', 'Priority 3'].includes(i.teacherStatus),
-        ).length,
-        banglaMonthly.length,
-      ),
-    }
-  }
-
-  // Generate the report data only when allData changes
-  const report = useMemo(() => {
-    const months = ['February', 'March', 'April', 'May']
-    const results = {}
-
-    months.forEach((m) => {
-      results[m] = getMilestonesForMonth(m, '2026', allData)
-    })
-
-    return results
-  }, [allData])
-
   // New Code
+  // Helper: Reusable calculation logic for any Month/Year
   const calculateMilestones = (data, month, year) => {
     const { bangla, lfObs } = data
 
@@ -228,6 +161,30 @@ const PrevailMilestone26New = () => {
     }
   }
 
+  // Reporting option
+  // const months = [
+  //   'January',
+  //   'February',
+  //   'March',
+  //   'April',
+  //   'May',
+  //   'June',
+  //   'July',
+  //   'August',
+  //   'September',
+  //   'October',
+  //   'November',
+  //   'December',
+  // ]
+
+  // const report2026 = months.reduce((acc, month) => {
+  //   acc[month] = calculateMilestones(allBanglaObsData, allLFObservationData, month, '2026')
+  //   return acc
+  // }, {})
+  // // Access like this:
+  // // report2026.February.m1
+  // Reporting option
+
   // Montly report 2026
   const january26 = calculateMilestones(allData, 'January', '2026')
   const februay26 = calculateMilestones(allData, 'February', '2026')
@@ -243,8 +200,8 @@ const PrevailMilestone26New = () => {
   const december26 = calculateMilestones(allData, 'December', '2026')
   // Montly report 2026
 
-  console.log(februay26.m1) // Replaces milestone1February26
-  console.log(march26.m5) // Replaces milestone5March26
+  console.log(februay26.m1)
+  console.log(march26.m5)
   // New Code
 
   // Milestone data push
@@ -504,7 +461,161 @@ const PrevailMilestone26New = () => {
                             maintainAspectRatio: false,
                           }}
                           style={{ height: '', width: '' }}
-                          data={milestoneData26}
+                          data={[
+                            {
+                              sl: 1,
+                              area: 'Number of classrooms observed',
+                              target: '?',
+                              january: january26.m1,
+                              february: februay26.m1,
+                              march: march26.m1,
+                              april: april26.m1,
+                              may: may26.m1,
+                              june: june26.m1,
+                              july: july26.m1,
+                              august: august26.m1,
+                              september: september26.m1,
+                              october: october26.m1,
+                              november: november26.m1,
+                              december: december26.m1,
+                            },
+                            {
+                              sl: 2,
+                              area: 'Number of School observed',
+                              target: '?',
+                              january: january26.mSchoolNumber,
+                              february: februay26.mSchoolNumber,
+                              march: march26.mSchoolNumber,
+                              april: april26.mSchoolNumber,
+                              may: may26.mSchoolNumber,
+                              june: june26.mSchoolNumber,
+                              july: july26.mSchoolNumber,
+                              august: august26.mSchoolNumber,
+                              september: september26.mSchoolNumber,
+                              october: october26.mSchoolNumber,
+                              november: november26.mSchoolNumber,
+                              december: december26.mSchoolNumber,
+                            },
+                            {
+                              sl: 3,
+                              area: '% of schools visited atleast once',
+                              target: '?',
+                              january: january26.m2 + '%',
+                              february: februay26.m2 + '%',
+                              march: march26.m2 + '%',
+                              april: april26.m2 + '%',
+                              may: may26.m2 + '%',
+                              june: june26.m2 + '%',
+                              july: july26.m2 + '%',
+                              august: august26.m2 + '%',
+                              september: september26.m2 + '%',
+                              october: october26.m2 + '%',
+                              november: november26.m2 + '%',
+                              december: december26.m2 + '%',
+                            },
+                            {
+                              sl: 4,
+                              area: 'Number of working days',
+                              target: '?',
+                              january: 0,
+                              february: 0,
+                              march: 0,
+                              april: 0,
+                              may: 0,
+                              june: 0,
+                              july: 0,
+                              august: 0,
+                              september: 0,
+                              october: 0,
+                              november: 0,
+                              december: 0,
+                            },
+                            {
+                              sl: 5,
+                              area: '% of the Literacy Facilitators at Basic and above levels of coaching  skills at the end of year 1(P2&P3)',
+                              target: '80%',
+                              january: january26.m4 + '%',
+                              february: februay26.m4 + '%',
+                              march: march26.m4 + '%',
+                              april: april26.m4 + '%',
+                              may: may26.m4 + '%',
+                              june: june26.m4 + '%',
+                              july: july26.m4 + '%',
+                              august: august26.m4 + '%',
+                              september: september26.m4 + '%',
+                              october: october26.m4 + '%',
+                              november: november26.m4 + '%',
+                              december: december26.m4 + '%',
+                            },
+                            {
+                              sl: 6,
+                              area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
+                              target: '70%',
+                              january: january26.m5 + '%',
+                              february: februay26.m5 + '%',
+                              march: march26.m5 + '%',
+                              april: april26.m5 + '%',
+                              may: may26.m5 + '%',
+                              june: june26.m5 + '%',
+                              july: july26.m5 + '%',
+                              august: august26.m5 + '%',
+                              september: september26.m5 + '%',
+                              october: october26.m5 + '%',
+                              november: november26.m5 + '%',
+                              december: december26.m5 + '%',
+                            },
+                            {
+                              sl: 7,
+                              area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
+                              target: '50%',
+                              january: january26.m6 + '%',
+                              february: februay26.m6 + '%',
+                              march: march26.m6 + '%',
+                              april: april26.m6 + '%',
+                              may: may26.m6 + '%',
+                              june: june26.m6 + '%',
+                              july: july26.m6 + '%',
+                              august: august26.m6 + '%',
+                              september: september26.m6 + '%',
+                              october: october26.m6 + '%',
+                              november: november26.m6 + '%',
+                              december: december26.m6 + '%',
+                            },
+                            {
+                              sl: 8,
+                              area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
+                              target: '90%',
+                              january: january26.m7 + '%',
+                              february: februay26.m7 + '%',
+                              march: march26.m7 + '%',
+                              april: april26.m7 + '%',
+                              may: may26.m7 + '%',
+                              june: june26.m7 + '%',
+                              july: july26.m7 + '%',
+                              august: august26.m7 + '%',
+                              september: september26.m7 + '%',
+                              october: october26.m7 + '%',
+                              november: november26.m7 + '%',
+                              december: december26.m7 + '%',
+                            },
+                            {
+                              sl: 9,
+                              area: '% of Bangla teachers achieved ‘Mastered Instructional Routine’ level or above as observed by the Literacy Facilitators during the Bangla class observation(P1,P2,P3)',
+                              target: '60%',
+                              january: january26.m8 + '%',
+                              february: februay26.m8 + '%',
+                              march: march26.m8 + '%',
+                              april: april26.m8 + '%',
+                              may: may26.m8 + '%',
+                              june: june26.m8 + '%',
+                              july: july26.m8 + '%',
+                              august: august26.m8 + '%',
+                              september: september26.m8 + '%',
+                              october: october26.m8 + '%',
+                              november: november26.m8 + '%',
+                              december: december26.m8 + '%',
+                            },
+                          ]}
                         />
                       </CCardBody>
                     </CCard>
@@ -983,7 +1094,7 @@ const PrevailMilestone26New = () => {
                     { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                     { title: 'Office', field: 'fieldOffice', sorting: 'true' },
                     { title: 'Project', field: 'project', sorting: 'true' },
-  
+
                     {
                       title: 'Grade',
                       field: 'grade',
@@ -1000,7 +1111,7 @@ const PrevailMilestone26New = () => {
                       title: 'ClassEndTime',
                       field: 'classEndTime',
                     },
-  
+
                     {
                       title: 'ContentName',
                       field: 'contentName',
@@ -1014,18 +1125,18 @@ const PrevailMilestone26New = () => {
                       field: 'totalAdmittedStudent',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'TotalPresentStudent',
                       field: 'totalPresentStudent',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'Note',
                       field: 'note',
                     },
-  
+
                     {
                       title: 'lastFollowupTopic1',
                       field: 'lastFollowupTopic1',
@@ -1041,7 +1152,7 @@ const PrevailMilestone26New = () => {
                       field: 'lastFollowupTopic3',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind11TeacherFollowedTeacherGuideInClassStatus',
                       field: 'ind11TeacherFollowedTeacherGuideInClassStatus',
@@ -1052,7 +1163,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind11TeacherFollowedTeacherGuideInClassNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind12FollowedIDoWeDoYouDoStatus',
                       field: 'ind12FollowedIDoWeDoYouDoStatus',
@@ -1063,7 +1174,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind12FollowedIDoWeDoYouDoNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind13FollowedContinuityOfLessonStatus',
                       field: 'ind13FollowedContinuityOfLessonStatus',
@@ -1074,7 +1185,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind13FollowedContinuityOfLessonNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind14ImplementedAllTaskInTimeStatus',
                       field: 'ind14ImplementedAllTaskInTimeStatus',
@@ -1085,7 +1196,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind14ImplementedAllTaskInTimeNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind15InstructedToUseWorkbookStatus',
                       field: 'ind15InstructedToUseWorkbookStatus',
@@ -1096,7 +1207,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind15InstructedToUseWorkbookNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind16IndependentReadingOpportunityStatus',
                       field: 'ind16IndependentReadingOpportunityStatus',
@@ -1107,7 +1218,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind16IndependentReadingOpportunityNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind21CorrectlyPronouncedStatus',
                       field: 'ind21CorrectlyPronouncedStatus',
@@ -1118,7 +1229,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind21CorrectlyPronouncedNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind22TaughtCorrectlyAllowPracticeStatus',
                       field: 'ind22TaughtCorrectlyAllowPracticeStatus',
@@ -1129,7 +1240,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind22TaughtCorrectlyAllowPracticeNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind23DemonstratesFluentReadingStatus',
                       field: 'ind23DemonstratesFluentReadingStatus',
@@ -1140,7 +1251,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind23DemonstratesFluentReadingNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind24AllowReadIndividuallyPairGroupsStatus',
                       field: 'ind24AllowReadIndividuallyPairGroupsStatus',
@@ -1151,7 +1262,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind24AllowReadIndividuallyPairGroupsNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind25FollowsInstructionsInWritingStatus',
                       field: 'ind25FollowsInstructionsInWritingStatus',
@@ -1162,7 +1273,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind25FollowsInstructionsInWritingNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind31AskedHelpfulQuestionsStatus',
                       field: 'ind31AskedHelpfulQuestionsStatus',
@@ -1173,7 +1284,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind31AskedHelpfulQuestionsNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind32TaughtVocabularyNewSentenceStatus',
                       field: 'ind32TaughtVocabularyNewSentenceStatus',
@@ -1194,7 +1305,7 @@ const PrevailMilestone26New = () => {
                       field: 'ind33CheckWritingSpellingPunctuationNote',
                       filtering: false,
                     },
-  
+
                     {
                       title: 'ind34CheckedWeDoYouDoStatus',
                       field: 'ind34CheckedWeDoYouDoStatus',
@@ -1205,10 +1316,10 @@ const PrevailMilestone26New = () => {
                       field: 'ind34CheckedWeDoYouDoNote',
                       filtering: false,
                     },
-  
+
                     { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
                     { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
-  
+
                     {
                       title: 'coachingSupportInd1',
                       field: 'coachingSupportInd1',
@@ -1219,16 +1330,16 @@ const PrevailMilestone26New = () => {
                       field: 'coachingSupportInd2',
                       filtering: false,
                     },
-  
+
                     { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
                     { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
-  
+
                     { title: 'question1', field: 'question1', filtering: false },
-  
+
                     { title: 'student1', field: 'student1', filtering: false },
                     { title: 'student2', field: 'student2', filtering: false },
                     { title: 'student3', field: 'student3', filtering: false },
-  
+
                     { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
                     { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
                     { title: 'totalFor1', field: 'totalFor1', filtering: false },
