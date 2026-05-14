@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/03/2026
-//  Modify Date: 11/05/2026
+//  Modify Date: 14/05/2026
 //  Description: P Milestone 26  file
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -104,7 +104,35 @@ const PrevailMilestone26New = () => {
     )
 
     if (monthlyBangla.length === 0)
-      return { m1: 0, mSchoolNumber: 0, m2: 0, m3: 0, m4: 0, m5: 0, m6: 0, m7: 0, m8: 0 }
+      return {
+        m1: 0,
+        mSchoolNumber: 0,
+        m2: 0,
+        m3: 0,
+        m4: 0,
+        m5: 0,
+        m6: 0,
+        m7: 0,
+        m8: 0,
+
+        // All Bangla Indicator
+        ind1a: 0,
+        ind1b: 0,
+        ind1c: 0,
+        ind1d: 0,
+        ind1e: 0,
+        ind1f: 0,
+        ind2a: 0,
+        ind2b: 0,
+        ind2c: 0,
+        ind2d: 0,
+        ind2e: 0,
+        ind3a: 0,
+        ind3b: 0,
+        ind3c: 0,
+        ind3d: 0,
+        // All Bangla Indicator
+      }
 
     // Helper for percentage
     const getPct = (numerator, denominator) =>
@@ -134,30 +162,83 @@ const PrevailMilestone26New = () => {
       m3: 0,
       m4: getPct(lfPriorityCount, monthlyLF.length),
       m5: getPct(
-        monthlyBangla.filter(
-          (i) =>
-            i.ind12FollowedIDoWeDoYouDoStatus === 'Yes' ||
-            i.ind12FollowedIDoWeDoYouDoStatus === 'N/A',
-        ).length,
+        monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes').length,
         monthlyBangla.length,
       ),
       m6: getPct(
-        monthlyBangla.filter(
-          (i) =>
-            i.ind14ImplementedAllTaskInTimeStatus === 'Yes' ||
-            i.ind14ImplementedAllTaskInTimeStatus === 'N/A',
-        ).length,
+        monthlyBangla.filter((i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes').length,
         monthlyBangla.length,
       ),
       m7: getPct(
-        monthlyBangla.filter(
-          (i) =>
-            i.ind13FollowedContinuityOfLessonStatus === 'Yes' ||
-            i.ind13FollowedContinuityOfLessonStatus === 'N/A',
-        ).length,
+        monthlyBangla.filter((i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes').length,
         monthlyBangla.length,
       ),
       m8: getPct(teacherPriorityCount, monthlyBangla.length),
+
+      //All Bangla Indicator
+      ind1a: getPct(
+        monthlyBangla.filter((i) => i.ind11TeacherFollowedTeacherGuideInClassStatus === 'Yes')
+          .length,
+        monthlyBangla.length,
+      ),
+      ind1b: getPct(
+        monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind1c: getPct(
+        monthlyBangla.filter((i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind1d: getPct(
+        monthlyBangla.filter((i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind1e: getPct(
+        monthlyBangla.filter((i) => i.ind15InstructedToUseWorkbookStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind1f: getPct(
+        monthlyBangla.filter((i) => i.ind16IndependentReadingOpportunityStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+
+      ind2a: getPct(
+        monthlyBangla.filter((i) => i.ind21CorrectlyPronouncedStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind2b: getPct(
+        monthlyBangla.filter((i) => i.ind22TaughtCorrectlyAllowPracticeStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind2c: getPct(
+        monthlyBangla.filter((i) => i.ind23DemonstratesFluentReadingStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind2d: getPct(
+        monthlyBangla.filter((i) => i.ind24AllowReadIndividuallyPairGroupsStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind2e: getPct(
+        monthlyBangla.filter((i) => i.ind25FollowsInstructionsInWritingStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind3a: getPct(
+        monthlyBangla.filter((i) => i.ind31AskedHelpfulQuestionsStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind3b: getPct(
+        monthlyBangla.filter((i) => i.ind32TaughtVocabularyNewSentenceStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind3c: getPct(
+        monthlyBangla.filter((i) => i.ind33CheckWritingSpellingPunctuationStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      ind3d: getPct(
+        monthlyBangla.filter((i) => i.ind34CheckedWeDoYouDoStatus === 'Yes').length,
+        monthlyBangla.length,
+      ),
+      //All Bangla Indicator
     }
   }
 
@@ -622,792 +703,365 @@ const PrevailMilestone26New = () => {
                   </CAccordionBody>
                 </CAccordionItem>
 
-                {/* <CAccordionItem itemKey={2}>
-                    <CAccordionHeader>
-                      <strong>Custom Report 2026(All Indicator Perfromance)</strong>
-                    </CAccordionHeader>
-                    <CAccordionBody>
-                      <CCard className="mb-4">
-                        <CCardHeader>
-                          <strong></strong> <small></small>
-                        </CCardHeader>
-                        <CCardBody>
-                          <CTable>
-                            <CTableHead>
-                              <CTableRow>
-                                <CTableHeaderCell scope="col">Leading Indicator</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">Target</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                              </CTableRow>
-                            </CTableHead>
-                            <CTableBody>
-                              <CTableRow color="warning">
-                                <CTableHeaderCell scope="row">
-                                  Number of classrooms observed
-                                </CTableHeaderCell>
-                                <CTableDataCell>?#</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">
-                                  {totalClassObservationOctober}
-                                </CTableHeaderCell>
-                                <CTableHeaderCell scope="col">
-                                  {totalClassObservationNovember}
-                                </CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="danger">
-                                <CTableHeaderCell scope="row">
-                                  1a. The teacher conducted the class activities following the
-                                  guidelines for use of the workbook and observed as necessary.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1aOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1aNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="primary">
-                                <CTableHeaderCell scope="row">
-                                  1b. Teachers follow the I do-we do-you do method in the classroom.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1bOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1bNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="danger">
-                                <CTableHeaderCell scope="row">
-                                  1c. The past observation form of students workbook work, books,
-                                  notebooks and LF showed that the teacher followed the lesson
-                                  consistently after the last visit.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1cOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1cNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="secondary">
-                                <CTableHeaderCell scope="row">
-                                  1d. The teacher has consistently implemented all the tasks of the
-                                  lesson within the stipulated time.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1dOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1dNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="success">
-                                <CTableHeaderCell scope="row">
-                                  1e. Teachers guide students to work in the workbook.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1eOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1eNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="danger">
-                                <CTableHeaderCell scope="row">
-                                  1f. The teacher gave students the opportunity to read independently
-                                  during the class.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1fOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind1fNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="primary">
-                                <CTableHeaderCell scope="row">
-                                  2a. The teacher has correctly pronounced the sounds of all the
-                                  letters and words used in the phonics activity.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2aOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2aNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="secondary">
-                                <CTableHeaderCell scope="row">
-                                  2b. The teacher taught correct letter/hybrid reading or
-                                  letter/hyphen and syllable reading and gave the students an
-                                  opportunity to practice.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2bOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2bNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="success">
-                                <CTableHeaderCell scope="row">
-                                  2c. The teacher demonstrates fluent reading (reading with correct
-                                  pace, correct pronunciation and expression) to the students.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2cOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2cNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="danger">
-                                <CTableHeaderCell scope="row">
-                                  2d. The teacher gave students the opportunity to read several times
-                                  individually or in pairs or groups.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2dOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2dNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="success">
-                                <CTableHeaderCell scope="row">
-                                  2e. The teacher has done the work of writing
-                                  letters/hyphens/words/sentences as per instructions.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2eOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind2eNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="secondary">
-                                <CTableHeaderCell scope="row">
-                                  3a. For correct answers, the teacher asked students helpful
-                                  questions or taught them strategies for finding answers.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3aOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3aNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="success">
-                                <CTableHeaderCell scope="row">
-                                  3b. The teacher taught the vocabulary words with meaning and gave
-                                  students opportunities to form new sentences using the words.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3bOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3bNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="primary">
-                                <CTableHeaderCell scope="row">
-                                  3c. The teacher checked the student writing to ensure correct
-                                  spelling and punctuation.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3cOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3cNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                              <CTableRow color="secondary">
-                                <CTableHeaderCell scope="row">
-                                  3d. During the we do-you do task, the teacher checks whether the
-                                  students have participated properly.
-                                </CTableHeaderCell>
-                                <CTableDataCell>?%</CTableDataCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3dOctober}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">{ind3dNovember}%</CTableHeaderCell>
-                                <CTableHeaderCell scope="col">0</CTableHeaderCell>
-                              </CTableRow>
-                            </CTableBody>
-                          </CTable>
-                          <CButton onClick={exportToExcel}>Export to Excel</CButton>
-                        </CCardBody>
-                      </CCard>
-                    </CAccordionBody>
-                  </CAccordionItem> */}
-                {/* <CAccordionItem itemKey={2}>
-                    <CAccordionHeader>
-                      <strong>Custom Report 2025</strong>
-                    </CAccordionHeader>
-                    <CAccordionBody>
-                      <CCard className="mb-4">
-                        <CCardHeader>
-                          <strong>Teacher Priority vs LF Priority</strong> <small></small>
-                        </CCardHeader>
-                        <CCardBody>
-                          <CChartBar
-                            data={{
-                              labels: [
-                                'T-Priority-0 vs LF-Priority-1',
-                                'T-Priority-0 vs LF-Priority-2',
-                                'T-Priority-0 vs LF-Priority-3',
-                                'T-Priority-1 vs LF-Priority-1',
-                                'T-Priority-1 vs LF-Priority-2',
-                                'T-Priority-1 vs LF-Priority-3',
-                                'T-Priority-2 vs LF-Priority-1',
-                                'T-Priority-2 vs LF-Priority-2',
-                                'T-Priority-2 vs LF-Priority-3',
-                                'T-Priority-3 vs LF-Priority-1',
-                                'T-Priority-3 vs LF-Priority-2',
-                                'T-Priority-3 vs LF-Priority-3',
-                              ],
-                              datasets: [
-                                {
-                                  label: ['Teacher'],
-                                  backgroundColor: [
-                                    '#5F564A',
-                                    '#5F564A',
-                                    '#5F564A',
-                                    '#994263',
-                                    '#994263',
-                                    '#994263',
-                                    '#00546B',
-                                    '#00546B',
-                                    '#00546B',
-                                    '#A3C754',
-                                    '#A3C754',
-                                    '#A3C754',
-                                  ],
-                                  data: [14, 12, 21, 16, 24, 34, 16, 11, 27, 5, 23, 12],
-                                },
-                              ],
-                            }}
-                            labels="Grade wise Support Provided"
-                            style={{ height: '400px', width: '1250px' }} // Inline style for height width
-                            options={{
-                              responsive: true,
-                              maintainAspectRatio: false,
-                              plugins: {
-                                legend: {
-                                  display: false,
-                                  position: 'bottom',
-                                },
-                                title: {
-                                  display: true,
-                                  text: '',
-                                },
-                              },
-                              scales: {
-                                y: {
-                                  beginAtZero: true,
-                                  ticks: {
-                                    color: '#333', // Custom tick color
-                                  },
-                                },
-                                x: {
-                                  ticks: {
-                                    color: '#333',
-                                  },
-                                },
-                              },
-                            }}
-                          />
-                        </CCardBody>
-                      </CCard>
-                    </CAccordionBody>
-                  </CAccordionItem> */}
+                <CAccordionItem itemKey={2}>
+                  <CAccordionHeader>
+                    <strong>Bangla All Indicator Performance 2026</strong>
+                  </CAccordionHeader>
+                  <CAccordionBody>
+                    <CCard className="mb-4">
+                      <CCardHeader>
+                        <strong></strong> <small></small>
+                      </CCardHeader>
+                      <CCardBody>
+                        <MaterialTable
+                          title={''}
+                          columns={[
+                            { title: 'Sl', field: 'sl' },
+                            { title: 'Leading Indicator', field: 'area' },
+                            { title: 'Target', field: 'target' },
+                            { title: 'January', field: 'january' },
+                            { title: 'February', field: 'february' },
+                            { title: 'March', field: 'march' },
+                            { title: 'April', field: 'april' },
+                            { title: 'May', field: 'may' },
+                            { title: 'June', field: 'june' },
+                            { title: 'July', field: 'july' },
+                            { title: 'August', field: 'august' },
+                            { title: 'September', field: 'september' },
+                            { title: 'October', field: 'october' },
+                            { title: 'November', field: 'november' },
+                            { title: 'December', field: 'december' },
+                          ]}
+                          options={{
+                            exportButton: true,
+                            exportAllData: true,
+                            grouping: false,
+                            sorting: false,
+                            search: false,
+                            paging: false,
+                            pageSize: 12,
+                            pageSizeOptions: [12, 24, 36],
+                            maxBodyHeight: '1200px',
+                            headerStyle: {
+                              position: 'sticky',
+                              top: 0,
+                              backgroundColor: '#bcceeb',
+                              fontWeight: 'bold',
+                              width: '5px',
+                              height: '5px',
+                              textAlign: 'center',
+                              text: 'bold',
+                              color: '#884fc9',
+                              borderRight: '1px solid #eee',
+                              borderStyle: 'solid',
+                            },
+                            rowStyle: {
+                              fontSize: 16,
+                              backgroundColor: '#f5f3f2',
+                              borderRight: '1px solid #fff',
+                              borderStyle: 'solid',
+                              textAlign: 'center',
+                            },
+                            cellStyle: {
+                              borderRight: '1px solid #0c0b0bff',
+                              borderLeft: '1px solid #0e0d0dff',
+                              borderBottom: '1px solid #0c0b0bff',
+                              BorderTop: '1px solid #0c0b0bff',
+                              borderStyle: 'solid',
+                              height: '5px',
+                              minHeight: '5px',
+                              maxHeight: '5px',
+                              padding: '0 5px',
+                              textAlign: 'center',
+                            },
+                            maintainAspectRatio: false,
+                          }}
+                          style={{ height: '', width: '' }}
+                          data={[
+                            {
+                              sl: 1,
+                              area: 'Number of Observation',
+                              target: '?',
+                              january: january26.m1,
+                              february: februay26.m1,
+                              march: march26.m1,
+                              april: april26.m1,
+                              may: may26.m1,
+                              june: june26.m1,
+                              july: july26.m1,
+                              august: august26.m1,
+                              september: september26.m1,
+                              october: october26.m1,
+                              november: november26.m1,
+                              december: december26.m1,
+                            },
+                            {
+                              sl: 2,
+                              area: '1a. The teacher conducted the class activities following the  guidelines for use of the workbook and observed as necessary.',
+                              target: '?',
+                              january: january26.ind1a,
+                              february: februay26.ind1a,
+                              march: march26.ind1a,
+                              april: april26.ind1a,
+                              may: may26.ind1a,
+                              june: june26.ind1a,
+                              july: july26.ind1a,
+                              august: august26.ind1a,
+                              september: september26.ind1a,
+                              october: october26.ind1a,
+                              november: november26.ind1a,
+                              december: december26.ind1a,
+                            },
+                            {
+                              sl: 3,
+                              area: '1b. Teachers follow the I do-we do-you do method in the classroom.',
+                              target: '?',
+                              january: january26.ind1b + '%',
+                              february: februay26.ind1b + '%',
+                              march: march26.ind1b + '%',
+                              april: april26.ind1b + '%',
+                              may: may26.ind1b + '%',
+                              june: june26.ind1b + '%',
+                              july: july26.ind1b + '%',
+                              august: august26.ind1b + '%',
+                              september: september26.ind1b + '%',
+                              october: october26.ind1b + '%',
+                              november: november26.ind1b + '%',
+                              december: december26.ind1b + '%',
+                            },
+                            {
+                              sl: 4,
+                              area: '1c. The past observation form of students workbook work, books, notebooks and LF showed that the teacher followed the lesson consistently after the last visit.',
+                              target: '?',
+                              january: january26.ind1c + '%',
+                              february: februay26.ind1c + '%',
+                              march: march26.ind1c + '%',
+                              april: april26.ind1c + '%',
+                              may: may26.ind1c + '%',
+                              june: june26.ind1c + '%',
+                              july: july26.ind1c + '%',
+                              august: august26.ind1c + '%',
+                              september: september26.ind1c + '%',
+                              october: october26.ind1c + '%',
+                              november: november26.ind1c + '%',
+                              december: december26.ind1c + '%',
+                            },
+                            {
+                              sl: 5,
+                              area: '1d. The teacher has consistently implemented all the tasks of the lesson within the stipulated time.',
+                              target: '?%',
+                              january: january26.ind1d + '%',
+                              february: februay26.ind1d + '%',
+                              march: march26.ind1d + '%',
+                              april: april26.ind1d + '%',
+                              may: may26.ind1d + '%',
+                              june: june26.ind1d + '%',
+                              july: july26.ind1d + '%',
+                              august: august26.ind1d + '%',
+                              september: september26.ind1d + '%',
+                              october: october26.ind1d + '%',
+                              november: november26.ind1d + '%',
+                              december: december26.ind1d + '%',
+                            },
+                            {
+                              sl: 6,
+                              area: '1e. Teachers guide students to work in the workbook.',
+                              target: '?%',
+                              january: january26.ind1e + '%',
+                              february: februay26.ind1e + '%',
+                              march: march26.ind1e + '%',
+                              april: april26.ind1e + '%',
+                              may: may26.ind1e + '%',
+                              june: june26.ind1e + '%',
+                              july: july26.ind1e + '%',
+                              august: august26.ind1e + '%',
+                              september: september26.ind1e + '%',
+                              october: october26.ind1e + '%',
+                              november: november26.ind1e + '%',
+                              december: december26.ind1e + '%',
+                            },
+                            {
+                              sl: 7,
+                              area: '1f. The teacher gave students the opportunity to read independently during the class.',
+                              target: '?%',
+                              january: january26.ind1f + '%',
+                              february: februay26.ind1f + '%',
+                              march: march26.ind1f + '%',
+                              april: april26.ind1f + '%',
+                              may: may26.ind1f + '%',
+                              june: june26.ind1f + '%',
+                              july: july26.ind1f + '%',
+                              august: august26.ind1f + '%',
+                              september: september26.ind1f + '%',
+                              october: october26.ind1f + '%',
+                              november: november26.ind1f + '%',
+                              december: december26.ind1f + '%',
+                            },
+                            {
+                              sl: 8,
+                              area: '2a. The teacher has correctly pronounced the sounds of all the letters and words used in the phonics activity.',
+                              target: '?%',
+                              january: january26.ind2a + '%',
+                              february: februay26.ind2a + '%',
+                              march: march26.ind2a + '%',
+                              april: april26.ind2a + '%',
+                              may: may26.ind2a + '%',
+                              june: june26.ind2a + '%',
+                              july: july26.ind2a + '%',
+                              august: august26.ind2a + '%',
+                              september: september26.ind2a + '%',
+                              october: october26.ind2a + '%',
+                              november: november26.ind2a + '%',
+                              december: december26.ind2a + '%',
+                            },
+                            {
+                              sl: 9,
+                              area: '2b. The teacher taught correct letter/hybrid reading or letter/hyphen and syllable reading and gave the students an opportunity to practice.',
+                              target: '?%',
+                              january: january26.ind2b + '%',
+                              february: februay26.ind2b + '%',
+                              march: march26.ind2b + '%',
+                              april: april26.ind2b + '%',
+                              may: may26.ind2b + '%',
+                              june: june26.ind2b + '%',
+                              july: july26.ind2b + '%',
+                              august: august26.ind2b + '%',
+                              september: september26.ind2b + '%',
+                              october: october26.ind2b + '%',
+                              november: november26.ind2b + '%',
+                              december: december26.ind2b + '%',
+                            },
+                            {
+                              sl: 10,
+                              area: '2c. The teacher demonstrates fluent reading (reading with correct pace, correct pronunciation and expression) to the students.',
+                              target: '?%',
+                              january: january26.ind2c + '%',
+                              february: februay26.ind2c + '%',
+                              march: march26.ind2c + '%',
+                              april: april26.ind2c + '%',
+                              may: may26.ind2c + '%',
+                              june: june26.ind2c + '%',
+                              july: july26.ind2c + '%',
+                              august: august26.ind2c + '%',
+                              september: september26.ind2c + '%',
+                              october: october26.ind2c + '%',
+                              november: november26.ind2c + '%',
+                              december: december26.ind2c + '%',
+                            },
+                            {
+                              sl: 11,
+                              area: '2d. The teacher gave students the opportunity to read several times individually or in pairs or groups.',
+                              target: '?%',
+                              january: january26.ind2d + '%',
+                              february: februay26.ind2d + '%',
+                              march: march26.ind2d + '%',
+                              april: april26.ind2d + '%',
+                              may: may26.ind2d + '%',
+                              june: june26.ind2d + '%',
+                              july: july26.ind2d + '%',
+                              august: august26.ind2d + '%',
+                              september: september26.ind2d + '%',
+                              october: october26.ind2d + '%',
+                              november: november26.ind2d + '%',
+                              december: december26.ind2d + '%',
+                            },
+
+                            {
+                              sl: 12,
+                              area: '2e. The teacher has done the work of writing letters/hyphens/words/sentences as per instructions.',
+                              target: '?%',
+                              january: january26.ind2e + '%',
+                              february: februay26.ind2e + '%',
+                              march: march26.ind2e + '%',
+                              april: april26.ind2e + '%',
+                              may: may26.ind2e + '%',
+                              june: june26.ind2e + '%',
+                              july: july26.ind2e + '%',
+                              august: august26.ind2e + '%',
+                              september: september26.ind2e + '%',
+                              october: october26.ind2e + '%',
+                              november: november26.ind2e + '%',
+                              december: december26.ind2e + '%',
+                            },
+                            {
+                              sl: 13,
+                              area: '3a. For correct answers, the teacher asked students helpful questions or taught them strategies for finding answers.',
+                              target: '?%',
+                              january: january26.ind3a + '%',
+                              february: februay26.ind3a + '%',
+                              march: march26.ind3a + '%',
+                              april: april26.ind3a + '%',
+                              may: may26.ind3a + '%',
+                              june: june26.ind3a + '%',
+                              july: july26.ind3a + '%',
+                              august: august26.ind3a + '%',
+                              september: september26.ind3a + '%',
+                              october: october26.ind3a + '%',
+                              november: november26.ind3a + '%',
+                              december: december26.ind3a + '%',
+                            },
+                            {
+                              sl: 14,
+                              area: '3b. The teacher taught the vocabulary words with meaning and gave students opportunities to form new sentences using the words.',
+                              target: '?%',
+                              january: january26.ind3b + '%',
+                              february: februay26.ind3b + '%',
+                              march: march26.ind3b + '%',
+                              april: april26.ind3b + '%',
+                              may: may26.ind3b + '%',
+                              june: june26.ind3b + '%',
+                              july: july26.ind3b + '%',
+                              august: august26.ind3b + '%',
+                              september: september26.ind3b + '%',
+                              october: october26.ind3b + '%',
+                              november: november26.ind3b + '%',
+                              december: december26.ind3b + '%',
+                            },
+                            {
+                              sl: 15,
+                              area: '3c. The teacher checked the student writing to ensure correct spelling and punctuation.',
+                              target: '?%',
+                              january: january26.ind3c + '%',
+                              february: februay26.ind3c + '%',
+                              march: march26.ind3c + '%',
+                              april: april26.ind3c + '%',
+                              may: may26.ind3c + '%',
+                              june: june26.ind3c + '%',
+                              july: july26.ind3c + '%',
+                              august: august26.ind3c + '%',
+                              september: september26.ind3c + '%',
+                              october: october26.ind3c + '%',
+                              november: november26.ind3c + '%',
+                              december: december26.ind3c + '%',
+                            },
+                            {
+                              sl: 16,
+                              area: '3d. During the we do-you do task, the teacher checks whether the students have participated properly.',
+                              target: '?%',
+                              january: january26.ind3d + '%',
+                              february: februay26.ind3d + '%',
+                              march: march26.ind3d + '%',
+                              april: april26.ind3d + '%',
+                              may: may26.ind3d + '%',
+                              june: june26.ind3d + '%',
+                              july: july26.ind3d + '%',
+                              august: august26.ind3d + '%',
+                              september: september26.ind3d + '%',
+                              october: october26.ind3d + '%',
+                              november: november26.ind3d + '%',
+                              december: december26.ind3d + '%',
+                            },
+                          ]}
+                        />
+                      </CCardBody>
+                    </CCard>
+                  </CAccordionBody>
+                </CAccordionItem>
               </CAccordion>
             </CCardBody>
           </CCard>
         </CCol>
       </CRow>
-      {/* <CRow>
-          <CCol xs={12}>
-            <CCard style={{ width: '1310px', height: '1000px' }}>
-              <CCardHeader>
-                <strong>All PREVAIL Bangla Observation Data</strong>
-                <small>Total School-{allBanglaObsData.length}</small>
-              </CCardHeader>
-              <CCardBody>
-                <CCardTitle></CCardTitle>
-                <MaterialTable
-                  title={'For filtering drag and drop the headers bellow'}
-                  columns={[
-                    {
-                      title: 'Date',
-                      field: 'date',
-                      type: 'date',
-                      sorting: 'true',
-                    },
-                    { title: 'School', field: 'school' },
-                    {
-                      title: 'Teacher',
-                      field: 'classTeacher',
-                    },
-                    { title: 'Teacher Priority', field: 'teacherStatus', sorting: 'true' },
-                    { title: 'LPO ID', field: 'lpo', type: 'string' },
-                    { title: 'LPO Name', field: 'lpoName', type: 'string' },
-                    {
-                      title: 'LF ID',
-                      field: 'lf',
-                      type: 'string',
-                    },
-                    {
-                      title: 'LF Name',
-                      field: 'lfName',
-                      type: 'string',
-                    },
-                    { title: 'Year', field: 'year', sorting: 'true' },
-                    { title: 'Month', field: 'month', sorting: 'true' },
-                    { title: 'District', field: 'district' },
-                    { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                    { title: 'Office', field: 'fieldOffice', sorting: 'true' },
-                    { title: 'Project', field: 'project', sorting: 'true' },
-
-                    {
-                      title: 'Grade',
-                      field: 'grade',
-                    },
-                    {
-                      title: 'Section',
-                      field: 'section',
-                    },
-                    {
-                      title: 'ClassStartTime',
-                      field: 'classStartTime',
-                    },
-                    {
-                      title: 'ClassEndTime',
-                      field: 'classEndTime',
-                    },
-
-                    {
-                      title: 'ContentName',
-                      field: 'contentName',
-                    },
-                    {
-                      title: 'PeriodDay',
-                      field: 'periodDay',
-                    },
-                    {
-                      title: 'TotalAdmittedStudent',
-                      field: 'totalAdmittedStudent',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'TotalPresentStudent',
-                      field: 'totalPresentStudent',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'Note',
-                      field: 'note',
-                    },
-
-                    {
-                      title: 'lastFollowupTopic1',
-                      field: 'lastFollowupTopic1',
-                      filtering: false,
-                    },
-                    {
-                      title: 'lastFollowupTopic2',
-                      field: 'lastFollowupTopic2',
-                      filtering: false,
-                    },
-                    {
-                      title: 'lastFollowupTopic3',
-                      field: 'lastFollowupTopic3',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind11TeacherFollowedTeacherGuideInClassStatus',
-                      field: 'ind11TeacherFollowedTeacherGuideInClassStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind11TeacherFollowedTeacherGuideInClassNote',
-                      field: 'ind11TeacherFollowedTeacherGuideInClassNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind12FollowedIDoWeDoYouDoStatus',
-                      field: 'ind12FollowedIDoWeDoYouDoStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind12FollowedIDoWeDoYouDoNote',
-                      field: 'ind12FollowedIDoWeDoYouDoNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind13FollowedContinuityOfLessonStatus',
-                      field: 'ind13FollowedContinuityOfLessonStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind13FollowedContinuityOfLessonNote',
-                      field: 'ind13FollowedContinuityOfLessonNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind14ImplementedAllTaskInTimeStatus',
-                      field: 'ind14ImplementedAllTaskInTimeStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind14ImplementedAllTaskInTimeNote',
-                      field: 'ind14ImplementedAllTaskInTimeNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind15InstructedToUseWorkbookStatus',
-                      field: 'ind15InstructedToUseWorkbookStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind15InstructedToUseWorkbookNote',
-                      field: 'ind15InstructedToUseWorkbookNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind16IndependentReadingOpportunityStatus',
-                      field: 'ind16IndependentReadingOpportunityStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind16IndependentReadingOpportunityNote',
-                      field: 'ind16IndependentReadingOpportunityNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind21CorrectlyPronouncedStatus',
-                      field: 'ind21CorrectlyPronouncedStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind21CorrectlyPronouncedNote',
-                      field: 'ind21CorrectlyPronouncedNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind22TaughtCorrectlyAllowPracticeStatus',
-                      field: 'ind22TaughtCorrectlyAllowPracticeStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind22TaughtCorrectlyAllowPracticeNote',
-                      field: 'ind22TaughtCorrectlyAllowPracticeNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind23DemonstratesFluentReadingStatus',
-                      field: 'ind23DemonstratesFluentReadingStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind23DemonstratesFluentReadingNote',
-                      field: 'ind23DemonstratesFluentReadingNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind24AllowReadIndividuallyPairGroupsStatus',
-                      field: 'ind24AllowReadIndividuallyPairGroupsStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind24AllowReadIndividuallyPairGroupsNote',
-                      field: 'ind24AllowReadIndividuallyPairGroupsNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind25FollowsInstructionsInWritingStatus',
-                      field: 'ind25FollowsInstructionsInWritingStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind25FollowsInstructionsInWritingNote',
-                      field: 'ind25FollowsInstructionsInWritingNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind31AskedHelpfulQuestionsStatus',
-                      field: 'ind31AskedHelpfulQuestionsStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind31AskedHelpfulQuestionsNote',
-                      field: 'ind31AskedHelpfulQuestionsNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind32TaughtVocabularyNewSentenceStatus',
-                      field: 'ind32TaughtVocabularyNewSentenceStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind32TaughtVocabularyNewSentenceNote',
-                      field: 'ind32TaughtVocabularyNewSentenceNote',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind33CheckWritingSpellingPunctuationStatus',
-                      field: 'ind33CheckWritingSpellingPunctuationStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind33CheckWritingSpellingPunctuationNote',
-                      field: 'ind33CheckWritingSpellingPunctuationNote',
-                      filtering: false,
-                    },
-
-                    {
-                      title: 'ind34CheckedWeDoYouDoStatus',
-                      field: 'ind34CheckedWeDoYouDoStatus',
-                      filtering: false,
-                    },
-                    {
-                      title: 'ind34CheckedWeDoYouDoNote',
-                      field: 'ind34CheckedWeDoYouDoNote',
-                      filtering: false,
-                    },
-
-                    { title: 'bestPracticeInd1', field: 'bestPracticeInd1', filtering: false },
-                    { title: 'bestPracticeInd2', field: 'bestPracticeInd2', filtering: false },
-
-                    {
-                      title: 'coachingSupportInd1',
-                      field: 'coachingSupportInd1',
-                      filtering: false,
-                    },
-                    {
-                      title: 'coachingSupportInd2',
-                      field: 'coachingSupportInd2',
-                      filtering: false,
-                    },
-
-                    { title: 'agreedStatement1', field: 'agreedStatement1', filtering: false },
-                    { title: 'agreedStatement2', field: 'agreedStatement2', filtering: false },
-
-                    { title: 'question1', field: 'question1', filtering: false },
-
-                    { title: 'student1', field: 'student1', filtering: false },
-                    { title: 'student2', field: 'student2', filtering: false },
-                    { title: 'student3', field: 'student3', filtering: false },
-
-                    { title: 'noRightFor1', field: 'noRightFor1', filtering: false },
-                    { title: 'noWrongFor1', field: 'noWrongFor1', filtering: false },
-                    { title: 'totalFor1', field: 'totalFor1', filtering: false },
-                    { title: 'noRightFor2', field: 'noRightFor2', filtering: false },
-                    { title: 'noWrongFor2', field: 'noWrongFor2', filtering: false },
-                    { title: 'totalFor2', field: 'totalFor2', filtering: false },
-                    { title: 'noRightFor3', field: 'noRightFor3', filtering: false },
-                    { title: 'noWrongFor3', field: 'noWrongFor3', filtering: false },
-                    { title: 'totalFor3', field: 'totalFor3', filtering: false },
-                  ]}
-                  editable={{
-                    onRowAdd: (newData) =>
-                      new Promise((resolve) => {
-                        handleRowAddBanglaClass(newData, resolve)
-                      }),
-                    // onRowDelete: (oldData) =>
-                    //   new Promise((resolve) => {
-                    //     handleRowDeleteBanglaClass(oldData, resolve)
-                    //   }),
-                    onRowUpdate: (newData, oldData) =>
-                      new Promise((resolve) => {
-                        handleRowUpdateAllBanglaClass(newData, oldData, resolve)
-                      }),
-                  }}
-                  options={{
-                    exportButton: true,
-                    exportAllData: true,
-                    search: true,
-                    filtering: true,
-                    grouping: true,
-                    sorting: true,
-                    pageSize: 3,
-                    pageSizeOptions: [5, 10, 20],
-                    maxBodyHeight: '700px',
-                    headerStyle: {
-                      position: 'sticky',
-                      top: 0,
-                      backgroundColor: '#7e93b4ff',
-                      fontWeight: 'bold',
-                      width: 15,
-                      textAlign: 'center',
-                      color: '#0d0d0eff',
-                      borderRight: '1px solid #0e0d0dff',
-                      borderLeft: '1px solid #0e0d0dff',
-                      borderStyle: 'solid',
-                    },
-                    rowStyle: {
-                      fontSize: 14,
-                      backgroundColor: '#E5DED4',
-                      borderRight: '1px solid #131111ff',
-                      borderLeft: '1px solid #0e0d0dff',
-                      borderStyle: 'solid',
-                    },
-                    cellStyle: {
-                      borderRight: '1px solid #0c0b0bff',
-                      borderLeft: '1px solid #0e0d0dff',
-                      borderBottom: '1px solid #0c0b0bff',
-                      borderStyle: 'solid',
-                    },
-                    maintainAspectRatio: false,
-                  }}
-                  style={{ height: '300px', width: '1300px' }}
-                  data={allBanglaObsData}
-                />
-              </CCardBody>
-            </CCard>
-          </CCol>
-        </CRow> */}
     </CRow>
   )
 
