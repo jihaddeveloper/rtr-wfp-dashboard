@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/03/2026
-//  Modify Date: 14/05/2026
+//  Modify Date: 17/05/2026
 //  Description: P Milestone 26  file
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -799,18 +799,18 @@ const PrevailMilestone26New = () => {
                               sl: 2,
                               area: '1a. The teacher conducted the class activities following the  guidelines for use of the workbook and observed as necessary.',
                               target: '?',
-                              january: january26.ind1a,
-                              february: februay26.ind1a,
-                              march: march26.ind1a,
-                              april: april26.ind1a,
-                              may: may26.ind1a,
-                              june: june26.ind1a,
-                              july: july26.ind1a,
-                              august: august26.ind1a,
-                              september: september26.ind1a,
-                              october: october26.ind1a,
-                              november: november26.ind1a,
-                              december: december26.ind1a,
+                              january: january26.ind1a + '%',
+                              february: februay26.ind1a + '%',
+                              march: march26.ind1a + '%',
+                              april: april26.ind1a + '%',
+                              may: may26.ind1a + '%',
+                              june: june26.ind1a + '%',
+                              july: july26.ind1a + '%',
+                              august: august26.ind1a + '%',
+                              september: september26.ind1a + '%',
+                              october: october26.ind1a + '%',
+                              november: november26.ind1a + '%',
+                              december: december26.ind1a + '%',
                             },
                             {
                               sl: 3,
