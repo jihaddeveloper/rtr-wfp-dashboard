@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 23/04/2026
+//  Modify Date: 20/05/2026
 //  Description: PLFObservation  file
 
 import React, { useState, useEffect } from 'react'
@@ -2976,9 +2976,9 @@ const PLFObservationDetail = () => {
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>All LF Observation Priority {previousMonthYear}</strong>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Level</CTableHeaderCell>
@@ -2997,9 +2997,9 @@ const PLFObservationDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>All LF Observation Status {previousMonthYear}</strong>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
@@ -3032,9 +3032,9 @@ const PLFObservationDetail = () => {
                       </CCol>
                     </CRow>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>All LF Observation Priority {currentMonthYear}</strong>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Level</CTableHeaderCell>
@@ -3053,9 +3053,9 @@ const PLFObservationDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>All LF Observation Status {currentMonthYear}</strong>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
@@ -3102,7 +3102,7 @@ const PLFObservationDetail = () => {
                         <CCardHeader>
                           <strong>Library Trending Chart</strong> <small>(2026)</small>
                         </CCardHeader>
-                        <CCardBody style={{ width: '850px', height: '400px' }}>
+                        <CCardBody style={{ position: 'relative', height: '400px', width: '100%' }}>
                           <CChartLine
                             data={{
                               labels: [
@@ -3234,7 +3234,7 @@ const PLFObservationDetail = () => {
                                 },
                               },
                             }}
-                            style={{ height: '400px', width: '1250px' }} // Inline style for height width
+                            style={{ position: 'relative', height: '300px', width: '100%' }} // Inline style for height width
                           />
                         </CCardBody>
                       </CCard>
@@ -3246,7 +3246,7 @@ const PLFObservationDetail = () => {
                         <strong>Trending LF Status</strong> <small>(2025)</small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Status</CTableHeaderCell>
@@ -3452,12 +3452,14 @@ const PLFObservationDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '900px' }}>
+          <CCard className="w-100 mb-4">
             <CCardHeader>
               <strong>All PREVAIL LF Observation Data </strong>
-              <small>Total LF Observation -{allLFObservationData.length}</small>
+              <small className="text-muted block-xs-only">
+                Total LF Observation -{allLFObservationData.length}
+              </small>
             </CCardHeader>
-            <CCardBody>
+            <CCardBody style={{ width: '100%', overflowX: 'auto' }}>
               <CCardTitle></CCardTitle>
               <MaterialTable
                 title=""
@@ -3765,8 +3767,8 @@ const PLFObservationDetail = () => {
                   grouping: true,
                   sorting: true,
                   pageSize: 5,
-                  pageSizeOptions: [10, 20, 30],
-                  maxBodyHeight: '700px',
+                  pageSizeOptions: [5, 10, 20, 30],
+                  maxBodyHeight: '600px',
                   headerStyle: {
                     position: 'sticky',
                     top: 0,
@@ -3802,7 +3804,7 @@ const PLFObservationDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '700px', width: '1300px' }}
+                style={{ width: '100%' }}
                 data={allLFObservationData.toReversed()}
               />
             </CCardBody>

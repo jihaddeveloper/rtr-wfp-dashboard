@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 10/05/2026
+//  Modify Date: 20/05/2026
 //  Description: PAnalysisBCO  file
 
 import React, { useState, useEffect } from 'react'
@@ -8354,8 +8354,8 @@ const PAnalysisBCO = () => {
                 search: false,
                 paging: false,
                 pageSize: 12,
-                pageSizeOptions: [12, 26, 36],
-                maxBodyHeight: '550px',
+                pageSizeOptions: [12, 24, 36],
+                maxBodyHeight: '500px',
                 headerStyle: {
                   position: 'sticky',
                   top: 0,
@@ -8391,7 +8391,7 @@ const PAnalysisBCO = () => {
               type="line"
               data={schoolBCOPerChildChartData}
               labels="months"
-              width="400px"
+              width="100%"
               height="400px"
               options={{
                 exportButton: true,
@@ -8432,11 +8432,11 @@ const PAnalysisBCO = () => {
           </CCardBody>
         </CCard>
 
-        <CCard style={{ width: '1310px', height: '900px' }}>
+        <CCard className="w-100 mb-4">
           <CCardHeader>
             <strong>PREVAIL BCO Data-2026</strong>
           </CCardHeader>
-          <CCardBody>
+          <CCardBody style={{ overflowX: 'auto', width: '100%' }}>
             <MaterialTable
               title={allBCOPData.length + ' BCO Data'}
               columns={[
@@ -8581,8 +8581,8 @@ const PAnalysisBCO = () => {
                 grouping: true,
                 sorting: true,
                 pageSize: 5,
-                pageSizeOptions: [10, 20, 30],
-                maxBodyHeight: '700px',
+                pageSizeOptions: [5, 10, 20, 30],
+                maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',
                   top: 0,
@@ -8618,7 +8618,7 @@ const PAnalysisBCO = () => {
                 },
                 maintainAspectRatio: false,
               }}
-              style={{ height: '700px', width: '1300px' }}
+              style={{ width: '100%' }}
               data={allBCOPData.toReversed()}
             />
           </CCardBody>

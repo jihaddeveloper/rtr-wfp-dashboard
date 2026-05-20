@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
-//  Modify Date: 23/04/2026
+//  Modify Date: 20/05/2026
 //  Description: PSRMDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -783,7 +783,7 @@ const PSRMDataDetail = () => {
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>SRM Teacher Visited {previousMonthYear}</strong>
                         <CTable>
                           <CTableHead>
@@ -804,7 +804,7 @@ const PSRMDataDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>SRM Teacher Priority {previousMonthYear}</strong>
                         <CTable>
                           <CTableHead>
@@ -845,7 +845,7 @@ const PSRMDataDetail = () => {
                       <CCardHeader>
                         <strong>SRM Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
-                      <CCardBody>
+                      <CCardBody style={{ position: 'relative', height: '400px', width: '100%' }}>
                         <CChartLine
                           data={{
                             labels: [
@@ -961,7 +961,7 @@ const PSRMDataDetail = () => {
                               },
                             },
                           }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                          style={{ position: 'relative', height: '300px', width: '100%' }} // Inline style for height width
                         />
                       </CCardBody>
                     </CCard>
@@ -972,7 +972,7 @@ const PSRMDataDetail = () => {
                         <strong>PrePrimary Teacher Priority</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
@@ -1102,12 +1102,12 @@ const PSRMDataDetail = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '900px' }}>
+          <CCard className="w-100 mb-4">
             <CCardHeader>
               <strong>All PREVAIL PSRM Data</strong>
               <small> Total Observation-{allPSRMData.length}</small>
             </CCardHeader>
-            <CCardBody>
+            <CCardBody style={{ overflowX: 'auto', width: '100%' }}>
               <CCardTitle></CCardTitle>
               <MaterialTable
                 title={'For filtering drag and drop the headers bellow'}
@@ -1424,14 +1424,15 @@ const PSRMDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddPSRMClass(newData, resolve)
                     }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeletePSRMClass(oldData, resolve)
-                  //   }),
+
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
                       handleRowUpdateAllPSRMClass(newData, oldData, resolve)
                     }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeletePSRMClass(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,
@@ -1441,8 +1442,8 @@ const PSRMDataDetail = () => {
                   grouping: true,
                   sorting: true,
                   pageSize: 5,
-                  pageSizeOptions: [10, 20, 30],
-                  maxBodyHeight: '700px',
+                  pageSizeOptions: [5, 10, 20, 30],
+                  maxBodyHeight: '600px',
                   headerStyle: {
                     position: 'sticky',
                     top: 0,
@@ -1478,7 +1479,7 @@ const PSRMDataDetail = () => {
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '700px', width: '1300px' }}
+                style={{ width: '100%' }}
                 data={allPSRMData.toReversed()}
               />
             </CCardBody>

@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 11/05/2026
+//  Modify Date: 20/05/2026
 //  Description: PBanglaClassDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -2509,7 +2509,6 @@ const PBanglaClassDataDetail = () => {
           <CCard className="mb-4">
             <CCardHeader>
               <strong>PREVAIL Bangla Class Observation 2026</strong>
-              {/* <strong>{allBCOData.length}</strong> */}
             </CCardHeader>
             <CCardBody>
               <CAccordion alwaysOpen>
@@ -2519,7 +2518,7 @@ const PBanglaClassDataDetail = () => {
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>G1 Teacher Visited Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2542,7 +2541,7 @@ const PBanglaClassDataDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6}>
                         <strong>G1 Teacher Priority Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2579,7 +2578,7 @@ const PBanglaClassDataDetail = () => {
                   </CAccordionBody>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>G2 Teacher Visited Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2602,7 +2601,7 @@ const PBanglaClassDataDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>G2 Teacher Priority Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2639,7 +2638,7 @@ const PBanglaClassDataDetail = () => {
                   </CAccordionBody>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>G3 Teacher Visited Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2662,7 +2661,7 @@ const PBanglaClassDataDetail = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>G3 Teacher Priority Number ({previousMonthYear})</strong>
                         <CTable>
                           <CTableHead>
@@ -2707,7 +2706,7 @@ const PBanglaClassDataDetail = () => {
                       <CCardHeader>
                         <strong>G1 Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
-                      <CCardBody>
+                      <CCardBody style={{ position: 'relative', height: '400px', width: '100%' }}>
                         <CChartLine
                           data={{
                             labels: [
@@ -2812,51 +2811,39 @@ const PBanglaClassDataDetail = () => {
                             ],
                           }}
                           options={{
-                            exportButton: true,
-                            exportAllData: true,
-                            search: true,
-                            filtering: true,
-                            grouping: true,
-                            sorting: true,
-                            pageSize: 3,
-                            pageSizeOptions: [3, 10, 20],
-                            maxBodyHeight: '700px',
-                            headerStyle: {
-                              position: 'sticky',
-                              top: 0,
-                              backgroundColor: '#7e93b4ff',
-                              fontWeight: 'bold',
-                              width: '5px',
-                              height: '5px',
-                              textAlign: 'center',
-                              color: '#0d0d0eff',
-                              borderRight: '1px solid #0e0d0dff',
-                              borderLeft: '1px solid #0e0d0dff',
-                              borderStyle: 'solid',
-                            },
-                            rowStyle: {
-                              fontSize: 14,
-                              backgroundColor: '#E5DED4',
-                              borderRight: '1px solid #131111ff',
-                              borderLeft: '1px solid #0e0d0dff',
-                              borderStyle: 'solid',
-                              width: '5px',
-                              height: '5px',
-                              padding: '0 5px',
-                            },
-                            cellStyle: {
-                              borderRight: '1px solid #0c0b0bff',
-                              borderLeft: '1px solid #0e0d0dff',
-                              borderBottom: '1px solid #0c0b0bff',
-                              borderStyle: 'solid',
-                              height: '5px',
-                              minHeight: '5px',
-                              maxHeight: '5px',
-                              padding: '0 5px',
-                            },
+                            responsive: true,
                             maintainAspectRatio: false,
+                            plugins: {
+                              legend: {
+                                display: true,
+                                position: 'bottom',
+                              },
+                              title: {
+                                display: true,
+                                text: '',
+                              },
+                            },
+                            scales: {
+                              y: {
+                                beginAtZero: true,
+                                ticks: {
+                                  color: '#333', // Custom tick color
+                                },
+                                grid: {
+                                  display: true, // Hide y-axis grid lines
+                                },
+                              },
+                              x: {
+                                grid: {
+                                  display: true, // Hide x-axis grid lines
+                                },
+                                ticks: {
+                                  color: '#333',
+                                },
+                              },
+                            },
                           }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                          style={{ position: 'relative', height: '300px', width: '100%' }} // Inline style for height width
                         />
                       </CCardBody>
                     </CCard>
@@ -2867,7 +2854,7 @@ const PBanglaClassDataDetail = () => {
                         <strong>G1 Teacher Priority Number</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
@@ -3079,7 +3066,7 @@ const PBanglaClassDataDetail = () => {
                       <CCardHeader>
                         <strong>G2 Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
-                      <CCardBody>
+                      <CCardBody style={{ position: 'relative', height: '400px', width: '100%' }}>
                         <CChartLine
                           data={{
                             labels: [
@@ -3216,7 +3203,7 @@ const PBanglaClassDataDetail = () => {
                               },
                             },
                           }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                          style={{ position: 'relative', height: '300px', width: '100%' }} // Inline style for height width
                         />
                       </CCardBody>
                     </CCard>
@@ -3227,7 +3214,7 @@ const PBanglaClassDataDetail = () => {
                         <strong>G2 Teacher Priority Number</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
@@ -3439,7 +3426,7 @@ const PBanglaClassDataDetail = () => {
                       <CCardHeader>
                         <strong>G3 Teacher Priority Chart</strong> <small>(2026)</small>
                       </CCardHeader>
-                      <CCardBody>
+                      <CCardBody style={{ position: 'relative', height: '400px', width: '100%' }}>
                         <CChartLine
                           data={{
                             labels: [
@@ -3576,7 +3563,7 @@ const PBanglaClassDataDetail = () => {
                               },
                             },
                           }}
-                          style={{ height: '300px', width: '1250px' }} // Inline style for height width
+                          style={{ position: 'relative', height: '300px', width: '100%' }} // Inline style for height width
                         />
                       </CCardBody>
                     </CCard>
@@ -3587,7 +3574,7 @@ const PBanglaClassDataDetail = () => {
                         <strong>G3 Teacher Priority Number</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Priority</CTableHeaderCell>
@@ -3800,109 +3787,47 @@ const PBanglaClassDataDetail = () => {
           </CCard>
         </CCol>
       </CRow>
+
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '900px' }}>
+          <CCard className="w-100 mb-4">
             <CCardHeader>
               <strong>All PREVAIL Bangla Observation Data</strong>
-              <small>(Total Data -{allBanglaObsData.length})</small>
+              <small className="ms-1">(Total Data - {allBanglaObsData.length})</small>
             </CCardHeader>
-            <CCardBody>
+            <CCardBody style={{ overflowX: 'auto', width: '100%' }}>
               <CCardTitle></CCardTitle>
               <MaterialTable
-                title="For filtering drag and drop the headers bellow"
+                title="For filtering drag and drop the headers below"
                 columns={[
-                  {
-                    title: 'Date',
-                    field: 'date',
-                    type: 'date',
-                    sorting: 'true',
-                  },
+                  { title: 'Date', field: 'date', type: 'date', sorting: 'true' },
                   { title: 'School', field: 'school' },
-                  {
-                    title: 'Teacher',
-                    field: 'classTeacher',
-                  },
+                  { title: 'Teacher', field: 'classTeacher' },
                   { title: 'Teacher Priority', field: 'teacherStatus', sorting: 'true' },
                   { title: 'LPO ID', field: 'lpo', type: 'string' },
                   { title: 'LPO Name', field: 'lpoName', type: 'string' },
-                  {
-                    title: 'LF ID',
-                    field: 'lf',
-                    type: 'string',
-                  },
-                  {
-                    title: 'LF Name',
-                    field: 'lfName',
-                    type: 'string',
-                  },
+                  { title: 'LF ID', field: 'lf', type: 'string' },
+                  { title: 'LF Name', field: 'lfName', type: 'string' },
                   { title: 'Year', field: 'year', sorting: 'true' },
                   { title: 'Month', field: 'month', sorting: 'true' },
                   { title: 'District', field: 'district' },
                   { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                   { title: 'Office', field: 'fieldOffice', sorting: 'true' },
                   { title: 'Project', field: 'project', sorting: 'true' },
-
-                  {
-                    title: 'Grade',
-                    field: 'grade',
-                  },
-                  {
-                    title: 'Section',
-                    field: 'section',
-                  },
-                  {
-                    title: 'ClassStartTime',
-                    field: 'classStartTime',
-                  },
-                  {
-                    title: 'ClassEndTime',
-                    field: 'classEndTime',
-                  },
-
-                  {
-                    title: 'ContentName',
-                    field: 'contentName',
-                  },
-                  {
-                    title: 'PeriodDay',
-                    field: 'periodDay',
-                  },
-                  {
-                    title: 'totalAdmittedStudent',
-                    field: 'totalAdmittedStudent',
-                  },
-                  {
-                    title: 'totalPresentStudent',
-                    field: 'totalPresentStudent',
-                  },
-                  {
-                    title: 'rtrSchoolId',
-                    field: 'rtrSchoolId',
-                  },
-                  {
-                    title: 'yearOfSupport',
-                    field: 'yearOfSupport',
-                  },
-
-                  {
-                    title: 'Note',
-                    field: 'note',
-                  },
-
-                  {
-                    title: 'lastFollowupTopic1',
-                    field: 'lastFollowupTopic1',
-                  },
-                  {
-                    title: 'lastFollowupTopic2',
-                    field: 'lastFollowupTopic2',
-                  },
-                  {
-                    title: 'lastFollowupTopic3',
-                    field: 'lastFollowupTopic3',
-                  },
-
+                  { title: 'Grade', field: 'grade' },
+                  { title: 'Section', field: 'section' },
+                  { title: 'ClassStartTime', field: 'classStartTime' },
+                  { title: 'ClassEndTime', field: 'classEndTime' },
+                  { title: 'ContentName', field: 'contentName' },
+                  { title: 'PeriodDay', field: 'periodDay' },
+                  { title: 'totalAdmittedStudent', field: 'totalAdmittedStudent' },
+                  { title: 'totalPresentStudent', field: 'totalPresentStudent' },
+                  { title: 'rtrSchoolId', field: 'rtrSchoolId' },
+                  { title: 'yearOfSupport', field: 'yearOfSupport' },
+                  { title: 'Note', field: 'note' },
+                  { title: 'lastFollowupTopic1', field: 'lastFollowupTopic1' },
+                  { title: 'lastFollowupTopic2', field: 'lastFollowupTopic2' },
+                  { title: 'lastFollowupTopic3', field: 'lastFollowupTopic3' },
                   {
                     title: 'ind11TeacherFollowedTeacherGuideInClassStatus',
                     field: 'ind11TeacherFollowedTeacherGuideInClassStatus',
@@ -3911,7 +3836,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind11TeacherFollowedTeacherGuideInClassNote',
                     field: 'ind11TeacherFollowedTeacherGuideInClassNote',
                   },
-
                   {
                     title: 'ind12FollowedIDoWeDoYouDoStatus',
                     field: 'ind12FollowedIDoWeDoYouDoStatus',
@@ -3920,7 +3844,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind12FollowedIDoWeDoYouDoNote',
                     field: 'ind12FollowedIDoWeDoYouDoNote',
                   },
-
                   {
                     title: 'ind13FollowedContinuityOfLessonStatus',
                     field: 'ind13FollowedContinuityOfLessonStatus',
@@ -3929,7 +3852,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind13FollowedContinuityOfLessonNote',
                     field: 'ind13FollowedContinuityOfLessonNote',
                   },
-
                   {
                     title: 'ind14ImplementedAllTaskInTimeStatus',
                     field: 'ind14ImplementedAllTaskInTimeStatus',
@@ -3938,7 +3860,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind14ImplementedAllTaskInTimeNote',
                     field: 'ind14ImplementedAllTaskInTimeNote',
                   },
-
                   {
                     title: 'ind15InstructedToUseWorkbookStatus',
                     field: 'ind15InstructedToUseWorkbookStatus',
@@ -3947,7 +3868,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind15InstructedToUseWorkbookNote',
                     field: 'ind15InstructedToUseWorkbookNote',
                   },
-
                   {
                     title: 'ind16IndependentReadingOpportunityStatus',
                     field: 'ind16IndependentReadingOpportunityStatus',
@@ -3956,16 +3876,11 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind16IndependentReadingOpportunityNote',
                     field: 'ind16IndependentReadingOpportunityNote',
                   },
-
                   {
                     title: 'ind21CorrectlyPronouncedStatus',
                     field: 'ind21CorrectlyPronouncedStatus',
                   },
-                  {
-                    title: 'ind21CorrectlyPronouncedNote',
-                    field: 'ind21CorrectlyPronouncedNote',
-                  },
-
+                  { title: 'ind21CorrectlyPronouncedNote', field: 'ind21CorrectlyPronouncedNote' },
                   {
                     title: 'ind22TaughtCorrectlyAllowPracticeStatus',
                     field: 'ind22TaughtCorrectlyAllowPracticeStatus',
@@ -3974,7 +3889,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind22TaughtCorrectlyAllowPracticeNote',
                     field: 'ind22TaughtCorrectlyAllowPracticeNote',
                   },
-
                   {
                     title: 'ind23DemonstratesFluentReadingStatus',
                     field: 'ind23DemonstratesFluentReadingStatus',
@@ -3983,7 +3897,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind23DemonstratesFluentReadingNote',
                     field: 'ind23DemonstratesFluentReadingNote',
                   },
-
                   {
                     title: 'ind24AllowReadIndividuallyPairGroupsStatus',
                     field: 'ind24AllowReadIndividuallyPairGroupsStatus',
@@ -3992,7 +3905,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind24AllowReadIndividuallyPairGroupsNote',
                     field: 'ind24AllowReadIndividuallyPairGroupsNote',
                   },
-
                   {
                     title: 'ind25FollowsInstructionsInWritingStatus',
                     field: 'ind25FollowsInstructionsInWritingStatus',
@@ -4001,7 +3913,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind25FollowsInstructionsInWritingNote',
                     field: 'ind25FollowsInstructionsInWritingNote',
                   },
-
                   {
                     title: 'ind31AskedHelpfulQuestionsStatus',
                     field: 'ind31AskedHelpfulQuestionsStatus',
@@ -4010,7 +3921,6 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind31AskedHelpfulQuestionsNote',
                     field: 'ind31AskedHelpfulQuestionsNote',
                   },
-
                   {
                     title: 'ind32TaughtVocabularyNewSentenceStatus',
                     field: 'ind32TaughtVocabularyNewSentenceStatus',
@@ -4027,39 +3937,21 @@ const PBanglaClassDataDetail = () => {
                     title: 'ind33CheckWritingSpellingPunctuationNote',
                     field: 'ind33CheckWritingSpellingPunctuationNote',
                   },
-
-                  {
-                    title: 'ind34CheckedWeDoYouDoStatus',
-                    field: 'ind34CheckedWeDoYouDoStatus',
-                  },
-                  {
-                    title: 'ind34CheckedWeDoYouDoNote',
-                    field: 'ind34CheckedWeDoYouDoNote',
-                  },
-
+                  { title: 'ind34CheckedWeDoYouDoStatus', field: 'ind34CheckedWeDoYouDoStatus' },
+                  { title: 'ind34CheckedWeDoYouDoNote', field: 'ind34CheckedWeDoYouDoNote' },
                   { title: 'bestPracticeInd1', field: 'bestPracticeInd1' },
                   { title: 'bestPracticeInd2', field: 'bestPracticeInd2' },
                   { title: 'bestPracticeInd3', field: 'bestPracticeInd3' },
-                  {
-                    title: 'coachingSupportInd1',
-                    field: 'coachingSupportInd1',
-                  },
-                  {
-                    title: 'coachingSupportInd2',
-                    field: 'coachingSupportInd2',
-                  },
+                  { title: 'coachingSupportInd1', field: 'coachingSupportInd1' },
+                  { title: 'coachingSupportInd2', field: 'coachingSupportInd2' },
                   { title: 'coachingSupportTeacher', field: 'coachingSupportTeacher' },
                   { title: 'coachingSupportLF', field: 'coachingSupportLF' },
-
                   { title: 'agreedStatement1', field: 'agreedStatement1' },
                   { title: 'agreedStatement2', field: 'agreedStatement2' },
-
                   { title: 'question1', field: 'question1' },
-
                   { title: 'student1', field: 'student1' },
                   { title: 'student2', field: 'student2' },
                   { title: 'student3', field: 'student3' },
-
                   { title: 'noRightFor1', field: 'noRightFor1' },
                   { title: 'noWrongFor1', field: 'noWrongFor1' },
                   { title: 'totalFor1', field: 'totalFor1' },
@@ -4069,7 +3961,6 @@ const PBanglaClassDataDetail = () => {
                   { title: 'noRightFor3', field: 'noRightFor3' },
                   { title: 'noWrongFor3', field: 'noWrongFor3' },
                   { title: 'totalFor3', field: 'totalFor3' },
-
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
@@ -4077,14 +3968,14 @@ const PBanglaClassDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowAddBanglaClass(newData, resolve)
                     }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeleteBanglaClass(oldData, resolve)
-                  //   }),
                   onRowUpdate: (newData, oldData) =>
                     new Promise((resolve) => {
                       handleRowUpdateAllBanglaClass(newData, oldData, resolve)
                     }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeleteBanglaClass(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,
@@ -4094,15 +3985,14 @@ const PBanglaClassDataDetail = () => {
                   grouping: true,
                   sorting: true,
                   pageSize: 5,
-                  pageSizeOptions: [10, 20, 30],
-                  maxBodyHeight: '700px',
+                  pageSizeOptions: [5, 10, 20, 30],
+                  maxBodyHeight: '600px', // Restricts vertical height cleanly across different monitors
                   headerStyle: {
                     position: 'sticky',
                     top: 0,
                     backgroundColor: '#7e93b4ff',
                     fontWeight: 'bold',
-                    width: '5px',
-                    height: '5px',
+                    whiteSpace: 'nowrap', // Keeps headers clean while scaling down
                     textAlign: 'center',
                     color: '#0d0d0eff',
                     borderRight: '1px solid #0e0d0dff',
@@ -4115,23 +4005,19 @@ const PBanglaClassDataDetail = () => {
                     borderRight: '1px solid #131111ff',
                     borderLeft: '1px solid #0e0d0dff',
                     borderStyle: 'solid',
-                    width: '5px',
-                    height: '5px',
-                    padding: '0 5px',
                   },
                   cellStyle: {
                     borderRight: '1px solid #0c0b0bff',
                     borderLeft: '1px solid #0e0d0dff',
                     borderBottom: '1px solid #0c0b0bff',
                     borderStyle: 'solid',
-                    height: '5px',
-                    minHeight: '5px',
-                    maxHeight: '5px',
-                    padding: '0 5px',
+                    whiteSpace: 'nowrap', // Prevents long data values from stacked vertical stretching
+                    padding: '8px 12px', // Comfortable padding that scales better than hardcoded small heights
                   },
                   maintainAspectRatio: false,
                 }}
-                style={{ height: '700px', width: '1300px' }}
+                // Replaced fixed pixels with percentage widths to rely on container-driven layout
+                style={{ width: '100%' }}
                 data={allBanglaObsData.toReversed()}
               />
             </CCardBody>

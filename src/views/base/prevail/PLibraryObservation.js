@@ -260,222 +260,6 @@ const PLibraryObservation = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
-  // // Library Observation Data by filter
-  // const allLibraryObsDataPreviousMonth = allPLibraryObservation.filter((item) => {
-  //   return item.month === previousMonth && item.year === '2026' && item.libraryStatus
-  // }).length
-
-  // const allLibraryObsDevPreviousMonth = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === previousMonth && item.year === '2026' && item.libraryStatus === 'Developing'
-  //   )
-  // }).length
-
-  // const allLibraryObsFunPreviousMonth = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === previousMonth && item.year === '2026' && item.libraryStatus === 'Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunPreviousMonth = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === previousMonth &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // // Trending
-  // // Developing
-  // const allLibraryObsDevJanuary = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'January' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevFebruary = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'February' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevMarch = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'March' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevApril = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'April' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevMay = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'May' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevJune = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'June' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevJuly = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'July' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevAugust = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'August' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevSeptember = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'September' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevOctober = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'October' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevNovember = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'November' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-
-  // const allLibraryObsDevDecember = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'December' && item.year === '2026' && item.libraryStatus === 'Developing'
-  // }).length
-  // // Developing
-
-  // // Functioning
-  // const allLibraryObsFunJanuary = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'January' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunFebruary = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'February' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunMarch = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'March' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunApril = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'April' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunMay = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'May' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunJune = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'June' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunJuly = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'July' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunAugust = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'August' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunSeptember = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'September' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsFunOctober = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'October' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunNovember = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'November' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-
-  // const allLibraryObsFunDecember = allPLibraryObservation.filter((item) => {
-  //   return item.month === 'December' && item.year === '2026' && item.libraryStatus === 'Functioning'
-  // }).length
-  // // Functioning
-
-  // // Highly Functioning
-  // const allLibraryObsHighFunJanuary = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'January' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunFebruary = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'February' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunMarch = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'March' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunApril = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'April' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunMay = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'May' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunJune = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'June' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunJuly = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'July' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunAugust = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'August' && item.year === '2026' && item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunSeptember = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'September' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunOctober = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'October' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunNovember = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'November' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-
-  // const allLibraryObsHighFunDecember = allPLibraryObservation.filter((item) => {
-  //   return (
-  //     item.month === 'December' &&
-  //     item.year === '2026' &&
-  //     item.libraryStatus === 'Highly Functioning'
-  //   )
-  // }).length
-  // // Highly Functioning
-  // // Trending
-  // // Library Observation Data by filter
-
   // Get All Library observation
   // const getAllPLibraryObservation = async () => {
   //   setIsLoading(true)
@@ -683,9 +467,12 @@ const PLibraryObservation = () => {
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
-                      <CCol sm={6}>
-                        <strong>All Library Observation Rating {previousMonthYear}</strong>
-                        <CTable>
+                      {/* Changed to xs={12} md={6} so tables stack cleanly on small mobile screens */}
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
+                        <div className="fw-bold mb-2">
+                          All Library Observation Rating {previousMonthYear}
+                        </div>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Level</CTableHeaderCell>
@@ -708,9 +495,10 @@ const PLibraryObservation = () => {
                           </CTableBody>
                         </CTable>
                       </CCol>
-                      <CCol sm={6}>
+
+                      <CCol xs={12} md={6} className="mb-4 mb-md-0">
                         <strong>All Library Observation Status {previousMonthYear}</strong>
-                        <CTable>
+                        <CTable bordered hover responsive striped>
                           <CTableHead>
                             <CTableRow>
                               <CTableHeaderCell scope="col">Rating</CTableHeaderCell>
@@ -745,120 +533,116 @@ const PLibraryObservation = () => {
                       </CCol>
                     </CRow>
                   </CAccordionBody>
-                  <CAccordionBody>
-                    <CRow></CRow>
-                  </CAccordionBody>
+                  {/* Cleaned up an empty duplicate CAccordionBody container that was lingering here */}
                 </CAccordionItem>
+
                 <CAccordionItem itemKey={2}>
                   <CAccordionHeader>
                     <strong>Monthly Trending Library Observation </strong>
                   </CAccordionHeader>
                   <CAccordionBody>
                     <CRow>
-                      <CCard className="mb-4">
-                        <CCardHeader>
-                          <strong>Library Status Chart</strong> <small>(2026)</small>
-                        </CCardHeader>
-                        <CCardBody style={{ width: '850px', height: '400px' }}>
-                          <CChartLine
-                            data={{
-                              labels: MONTHS,
-                              datasets: [
-                                {
-                                  label: 'Developing',
-                                  backgroundColor: '#617c83ff',
-                                  borderColor: '#617c83ff',
-                                  pointBackgroundColor: '#617c83ff',
-                                  pointBorderColor: '#fff',
-                                  data: developingTrend,
-                                },
-                                {
-                                  label: 'Functioning',
-                                  backgroundColor: '#457785ff',
-                                  borderColor: '#457785ff',
-                                  pointBackgroundColor: '#457785ff',
-                                  pointBorderColor: '#fff',
-                                  data: functioningTrend,
-                                },
-                                {
-                                  label: 'Highly Functioning',
-                                  backgroundColor: '#00546B',
-                                  borderColor: '#00546B',
-                                  pointBackgroundColor: '#00546B',
-                                  pointBorderColor: '#fff',
-                                  data: highlyFunctioningTrend,
-                                },
-                              ],
-                            }}
-                            options={{
-                              responsive: true,
-                              maintainAspectRatio: false,
-                              plugins: {
-                                legend: {
-                                  display: true,
-                                  position: 'bottom',
-                                },
-                                title: {
-                                  display: true,
-                                  text: '',
-                                },
-                              },
-                              scales: {
-                                y: {
-                                  beginAtZero: true,
-                                  ticks: {
-                                    color: '#333', // Custom tick color
+                      <CCol xs={12}>
+                        <CCard className="mb-4">
+                          <CCardHeader>
+                            <strong>Library Status Chart</strong> <small>(2026)</small>
+                          </CCardHeader>
+                          {/* Fixed: Stripped out hardcoded pixel widths. Used relative container sizing for fluid canvas scaling. */}
+                          <CCardBody
+                            style={{ position: 'relative', height: '400px', width: '100%' }}
+                          >
+                            <CChartLine
+                              data={{
+                                labels: MONTHS,
+                                datasets: [
+                                  {
+                                    label: 'Developing',
+                                    backgroundColor: '#617c83ff',
+                                    borderColor: '#617c83ff',
+                                    pointBackgroundColor: '#617c83ff',
+                                    pointBorderColor: '#fff',
+                                    data: developingTrend,
                                   },
-                                  grid: {
-                                    display: true, // Hide y-axis grid lines
+                                  {
+                                    label: 'Functioning',
+                                    backgroundColor: '#457785ff',
+                                    borderColor: '#457785ff',
+                                    pointBackgroundColor: '#457785ff',
+                                    pointBorderColor: '#fff',
+                                    data: functioningTrend,
+                                  },
+                                  {
+                                    label: 'Highly Functioning',
+                                    backgroundColor: '#00546B',
+                                    borderColor: '#00546B',
+                                    pointBackgroundColor: '#00546B',
+                                    pointBorderColor: '#fff',
+                                    data: highlyFunctioningTrend,
+                                  },
+                                ],
+                              }}
+                              options={{
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                  legend: {
+                                    display: true,
+                                    position: 'bottom',
+                                  },
+                                  title: {
+                                    display: false,
                                   },
                                 },
-                                x: {
-                                  grid: {
-                                    display: true, // Hide x-axis grid lines
+                                scales: {
+                                  y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                      color: '#333',
+                                    },
+                                    grid: {
+                                      display: true,
+                                    },
                                   },
-                                  ticks: {
-                                    color: '#333',
+                                  x: {
+                                    grid: {
+                                      display: true,
+                                    },
+                                    ticks: {
+                                      color: '#333',
+                                    },
                                   },
                                 },
-                              },
-                            }}
-                            style={{ height: '300px', width: '1250px' }} // Inline style for height width
-                          />
-                        </CCardBody>
-                      </CCard>
+                              }}
+                              style={{ position: 'relative', height: '300px', width: '100%' }}
+                            />
+                          </CCardBody>
+                        </CCard>
+                      </CCol>
                     </CRow>
                   </CAccordionBody>
-                  <CAccordionBody>
-                    <CCard className="mt-4">
-                      <CCardHeader>Monthly Library Observation Trends</CCardHeader>
 
+                  <CAccordionBody>
+                    <CCard className="mt-2">
+                      <CCardHeader>Monthly Library Observation Trends</CCardHeader>
                       <CCardBody>
+                        {/* Added responsive wrapper attributes so the wide matrix scrolls horizontally on mobile viewports */}
                         <CTable bordered hover responsive striped align="middle">
                           <CTableHead color="dark">
                             <CTableRow>
                               <CTableHeaderCell>Month</CTableHeaderCell>
-
                               <CTableHeaderCell>Developing</CTableHeaderCell>
-
                               <CTableHeaderCell>Functioning</CTableHeaderCell>
-
                               <CTableHeaderCell>Highly Functioning</CTableHeaderCell>
-
                               <CTableHeaderCell>Total</CTableHeaderCell>
                             </CTableRow>
                           </CTableHead>
-
                           <CTableBody>
                             {MONTHS.map((month) => {
                               const developing = statistics.trends[month][LIBRARY_STATUS.DEVELOPING]
-
                               const functioning =
                                 statistics.trends[month][LIBRARY_STATUS.FUNCTIONING]
-
                               const highlyFunctioning =
                                 statistics.trends[month][LIBRARY_STATUS.HIGHLY_FUNCTIONING]
-
                               const total = developing + functioning + highlyFunctioning
 
                               return (
@@ -866,13 +650,9 @@ const PLibraryObservation = () => {
                                   <CTableDataCell>
                                     <strong>{month}</strong>
                                   </CTableDataCell>
-
                                   <CTableDataCell>{developing}</CTableDataCell>
-
                                   <CTableDataCell>{functioning}</CTableDataCell>
-
                                   <CTableDataCell>{highlyFunctioning}</CTableDataCell>
-
                                   <CTableDataCell>
                                     <strong>{total}</strong>
                                   </CTableDataCell>
@@ -883,205 +663,6 @@ const PLibraryObservation = () => {
                         </CTable>
                       </CCardBody>
                     </CCard>
-
-                    {/* <CCard className="mb-4">
-                      <CCardHeader>
-                        <strong>Trending Library Status</strong> <small>(2026)</small>
-                      </CCardHeader>
-                      <CCardBody>
-                        <CTable>
-                          <CTableHead>
-                            <CTableRow>
-                              <CTableHeaderCell scope="col">Status</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">January</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">February</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">March</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">April</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">May</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">June</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">July</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">August</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">September</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">October</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">November</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">December</CTableHeaderCell>
-                            </CTableRow>
-                          </CTableHead>
-                          <CTableBody>
-                            <CTableRow color="danger">
-                              <CTableHeaderCell scope="row">Developing</CTableHeaderCell>
-                              <CTableDataCell>{allLibraryObsDevJanuary}</CTableDataCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevFebruary}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevMarch}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevApril}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{allLibraryObsDevMay}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevJune}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevJuly}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevAugust}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevSeptember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevOctober}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevNovember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevDecember}
-                              </CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="primary">
-                              <CTableHeaderCell scope="row">Functioning</CTableHeaderCell>
-                              <CTableDataCell>{allLibraryObsFunJanuary}</CTableDataCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunFebruary}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunMarch}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunApril}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">{allLibraryObsFunMay}</CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunJune}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunJuly}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunAugust}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunSeptember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunOctober}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunNovember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsFunDecember}
-                              </CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="secondary">
-                              <CTableHeaderCell scope="row">Highly Functioning</CTableHeaderCell>
-                              <CTableDataCell>{allLibraryObsHighFunJanuary}</CTableDataCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunFebruary}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunMarch}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunApril}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunMay}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunJune}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunJuly}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunAugust}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunSeptember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunOctober}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunNovember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsHighFunDecember}
-                              </CTableHeaderCell>
-                            </CTableRow>
-                            <CTableRow color="success">
-                              <CTableHeaderCell scope="row">Total</CTableHeaderCell>
-                              <CTableDataCell>
-                                {allLibraryObsDevJanuary +
-                                  allLibraryObsFunJanuary +
-                                  allLibraryObsHighFunJanuary}
-                              </CTableDataCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevFebruary +
-                                  allLibraryObsFunFebruary +
-                                  allLibraryObsHighFunFebruary}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevMarch +
-                                  allLibraryObsFunMarch +
-                                  allLibraryObsHighFunMarch}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevApril +
-                                  allLibraryObsFunApril +
-                                  allLibraryObsHighFunApril}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevMay +
-                                  allLibraryObsFunMay +
-                                  allLibraryObsHighFunMay}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevJune +
-                                  allLibraryObsFunJune +
-                                  allLibraryObsHighFunJune}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevJuly +
-                                  allLibraryObsFunJuly +
-                                  allLibraryObsHighFunJuly}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevAugust +
-                                  allLibraryObsFunAugust +
-                                  allLibraryObsHighFunAugust}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevSeptember +
-                                  allLibraryObsFunSeptember +
-                                  allLibraryObsHighFunSeptember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevOctober +
-                                  allLibraryObsFunOctober +
-                                  allLibraryObsHighFunOctober}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevNovember +
-                                  allLibraryObsFunNovember +
-                                  allLibraryObsHighFunNovember}
-                              </CTableHeaderCell>
-                              <CTableHeaderCell scope="col">
-                                {allLibraryObsDevDecember +
-                                  allLibraryObsFunDecember +
-                                  allLibraryObsHighFunDecember}
-                              </CTableHeaderCell>
-                            </CTableRow>
-                          </CTableBody>
-                        </CTable>
-                      </CCardBody>
-                    </CCard> */}
                   </CAccordionBody>
                 </CAccordionItem>
               </CAccordion>
@@ -1091,79 +672,48 @@ const PLibraryObservation = () => {
       </CRow>
       <CRow>
         <CCol xs={12}>
-          <CCard style={{ width: '1310px', height: '900px' }}>
+          {/* Cleaned: Removed hardcoded pixel constraints. Let the container scale gracefully. */}
+          <CCard className="w-100 mb-4">
             <CCardHeader>
-              <strong>All PREVAIL Libarary Observation Data </strong>
-              <small>Total Libarary Observation -{allPLibraryObservation.length}</small>
+              <strong>All PREVAIL Library Observation Data </strong>
+              <small className="text-muted block-xs-only">
+                - Total Library Observation: {allPLibraryObservation.length}
+              </small>
             </CCardHeader>
-            <CCardBody>
+            <CCardBody style={{ width: '100%', overflowX: 'auto' }}>
+              {/* Responsive wrapper to prevent viewport breakage on mobile screens */}
               <CCardTitle></CCardTitle>
+
               <MaterialTable
                 title={observations.length + ' Library Observation '}
                 columns={[
-                  {
-                    title: 'date',
-                    field: 'date',
-                    type: 'date',
-                    sorting: 'true',
-                  },
+                  { title: 'date', field: 'date', type: 'date', sorting: true },
                   { title: 'school', field: 'school' },
-
                   {
                     title: 'libraryStatus',
                     field: 'libraryStatus',
                     cellStyle: {
                       backgroundColor: '#e0d0ca',
                       color: '#000',
-                      textDecorationColor: 'red',
                     },
                   },
-
-                  { title: 'month', field: 'month', sorting: 'true' },
-                  { title: 'year', field: 'year', sorting: 'true' },
+                  { title: 'month', field: 'month', sorting: true },
+                  { title: 'year', field: 'year', sorting: true },
                   { title: 'district', field: 'district' },
-                  { title: 'upazilla', field: 'upazilla', sorting: 'true' },
-
-                  { title: 'project', field: 'project', sorting: 'true' },
-                  { title: 'office', field: 'office', sorting: 'true' },
-
+                  { title: 'upazilla', field: 'upazilla', sorting: true },
+                  { title: 'project', field: 'project', sorting: true },
+                  { title: 'office', field: 'office', sorting: true },
                   { title: 'lpo', field: 'lpo', type: 'string' },
                   { title: 'lpoName', field: 'lpoName', type: 'string' },
-                  {
-                    title: 'lf',
-                    field: 'lf',
-                    type: 'string',
-                  },
-                  {
-                    title: 'lfName',
-                    field: 'lfName',
-                    type: 'string',
-                  },
+                  { title: 'lf', field: 'lf', type: 'string' },
+                  { title: 'lfName', field: 'lfName', type: 'string' },
                   { title: 'visitor', field: 'visitor' },
-                  {
-                    title: 'visitorDesignation',
-                    field: 'visitorDesignation',
-                  },
-                  {
-                    title: 'lastFollowupIndicator1',
-                    field: 'lastFollowupIndicator1',
-                  },
-                  {
-                    title: 'lastFollowupIndicator2',
-                    field: 'lastFollowupIndicator2',
-                  },
-                  {
-                    title: 'lastFollowupIndicator3',
-                    field: 'lastFollowupIndicator3',
-                  },
-                  {
-                    title: 'ind1IsTrainedOneTeacher',
-                    field: 'ind1IsTrainedOneTeacher',
-                  },
-                  {
-                    title: 'ind11IsPointTeacherIncharge',
-                    field: 'ind11IsPointTeacherIncharge',
-                  },
+                  { title: 'visitorDesignation', field: 'visitorDesignation' },
+                  { title: 'lastFollowupIndicator1', field: 'lastFollowupIndicator1' },
+                  { title: 'lastFollowupIndicator2', field: 'lastFollowupIndicator2' },
+                  { title: 'lastFollowupIndicator3', field: 'lastFollowupIndicator3' },
+                  { title: 'ind1IsTrainedOneTeacher', field: 'ind1IsTrainedOneTeacher' },
+                  { title: 'ind11IsPointTeacherIncharge', field: 'ind11IsPointTeacherIncharge' },
                   {
                     title: 'ind12IsTrainedLibraryManagementReadingHour',
                     field: 'ind12IsTrainedLibraryManagementReadingHour',
@@ -1172,7 +722,6 @@ const PLibraryObservation = () => {
                     title: 'ind2HeadTeacherTrainedLibraryManagementReadingHour',
                     field: 'ind2HeadTeacherTrainedLibraryManagementReadingHour',
                   },
-
                   {
                     title: 'ind3ClassroomSuitableLibraryActivity',
                     field: 'ind3ClassroomSuitableLibraryActivity',
@@ -1189,18 +738,9 @@ const PLibraryObservation = () => {
                     title: 'ind33ClassroomSafeFromRainWater',
                     field: 'ind33ClassroomSafeFromRainWater',
                   },
-                  {
-                    title: 'ind34ClassroomSafeClean',
-                    field: 'ind34ClassroomSafeClean',
-                  },
-                  {
-                    title: 'ind4LibraryFurnitureOkay',
-                    field: 'ind4LibraryFurnitureOkay',
-                  },
-                  {
-                    title: 'ind41BookshelfUsable',
-                    field: 'ind41BookshelfUsable',
-                  },
+                  { title: 'ind34ClassroomSafeClean', field: 'ind34ClassroomSafeClean' },
+                  { title: 'ind4LibraryFurnitureOkay', field: 'ind4LibraryFurnitureOkay' },
+                  { title: 'ind41BookshelfUsable', field: 'ind41BookshelfUsable' },
                   {
                     title: 'ind42BookshelfProtectedSunRain',
                     field: 'ind42BookshelfProtectedSunRain',
@@ -1209,23 +749,13 @@ const PLibraryObservation = () => {
                     title: 'ind43BookshelfPortableSafeForStudent',
                     field: 'ind43BookshelfPortableSafeForStudent',
                   },
-
-                  {
-                    title: 'ind44BookshelfReadingSpace',
-                    field: 'ind44BookshelfReadingSpace',
-                  },
+                  { title: 'ind44BookshelfReadingSpace', field: 'ind44BookshelfReadingSpace' },
                   {
                     title: 'ind45BookshelfFurnitureGoodCondition',
                     field: 'ind45BookshelfFurnitureGoodCondition',
                   },
-                  {
-                    title: 'ind5BookRegisterUpdated',
-                    field: 'ind5BookRegisterUpdated',
-                  },
-                  {
-                    title: 'ind6BookshelfOrganized',
-                    field: 'ind6BookshelfOrganized',
-                  },
+                  { title: 'ind5BookRegisterUpdated', field: 'ind5BookRegisterUpdated' },
+                  { title: 'ind6BookshelfOrganized', field: 'ind6BookshelfOrganized' },
                   {
                     title: 'ind61BookshelfBookOrganizedByGrade',
                     field: 'ind61BookshelfBookOrganizedByGrade',
@@ -1238,34 +768,13 @@ const PLibraryObservation = () => {
                     title: 'ind63BookshelfNonRtRBookLabelViewable',
                     field: 'ind63BookshelfNonRtRBookLabelViewable',
                   },
-                  {
-                    title: 'ind64BookOrganizedByLabel',
-                    field: 'ind64BookOrganizedByLabel',
-                  },
-                  {
-                    title: 'ind65BookAccessible',
-                    field: 'ind65BookAccessible',
-                  },
-                  {
-                    title: 'ind66BookCoverViewable',
-                    field: 'ind66BookCoverViewable',
-                  },
-                  {
-                    title: 'ind7PrintRichItemDisplayed',
-                    field: 'ind7PrintRichItemDisplayed',
-                  },
-                  {
-                    title: 'ind71ChartPosterDisplayed',
-                    field: 'ind71ChartPosterDisplayed',
-                  },
-                  {
-                    title: 'ind72ChartPosterCompatible',
-                    field: 'ind72ChartPosterCompatible',
-                  },
-                  {
-                    title: 'ind8BookCheckoutFunctional',
-                    field: 'ind8BookCheckoutFunctional',
-                  },
+                  { title: 'ind64BookOrganizedByLabel', field: 'ind64BookOrganizedByLabel' },
+                  { title: 'ind65BookAccessible', field: 'ind65BookAccessible' },
+                  { title: 'ind66BookCoverViewable', field: 'ind66BookCoverViewable' },
+                  { title: 'ind7PrintRichItemDisplayed', field: 'ind7PrintRichItemDisplayed' },
+                  { title: 'ind71ChartPosterDisplayed', field: 'ind71ChartPosterDisplayed' },
+                  { title: 'ind72ChartPosterCompatible', field: 'ind72ChartPosterCompatible' },
+                  { title: 'ind8BookCheckoutFunctional', field: 'ind8BookCheckoutFunctional' },
                   {
                     title: 'ind81BookCheckoutProcedureDisplayed',
                     field: 'ind81BookCheckoutProcedureDisplayed',
@@ -1342,10 +851,7 @@ const PLibraryObservation = () => {
                     title: 'ind13ParentMeetingAboutLibrary',
                     field: 'ind13ParentMeetingAboutLibrary',
                   },
-                  {
-                    title: 'ind14ReadPlayFestival',
-                    field: 'ind14ReadPlayFestival',
-                  },
+                  { title: 'ind14ReadPlayFestival', field: 'ind14ReadPlayFestival' },
                   {
                     title: 'ind141SchoolArrangeReadFestival',
                     field: 'ind141SchoolArrangeReadFestival',
@@ -1366,39 +872,14 @@ const PLibraryObservation = () => {
                     title: 'ind152ParentPublicResponsibility',
                     field: 'ind152ParentPublicResponsibility',
                   },
-                  {
-                    title: 'bestPracticeIndicator1',
-                    field: 'bestPracticeIndicator1',
-                  },
-                  {
-                    title: 'bestPracticeIndicator2',
-                    field: 'bestPracticeIndicator2',
-                  },
-                  {
-                    title: 'bestPracticeIndicator3',
-                    field: 'bestPracticeIndicator3',
-                  },
-                  {
-                    title: 'coachingSupportIndicator1',
-                    field: 'coachingSupportIndicator1',
-                  },
-                  {
-                    title: 'coachingSupportIndicator2',
-                    field: 'coachingSupportIndicator2',
-                  },
-                  {
-                    title: 'coachingSupportIndicator3',
-                    field: 'coachingSupportIndicator3',
-                  },
-                  {
-                    title: 'agreedSuggestion',
-                    field: 'agreedSuggestion',
-                  },
-                  {
-                    title: 'agreedStatement',
-                    field: 'agreedStatement',
-                  },
-
+                  { title: 'bestPracticeIndicator1', field: 'bestPracticeIndicator1' },
+                  { title: 'bestPracticeIndicator2', field: 'bestPracticeIndicator2' },
+                  { title: 'bestPracticeIndicator3', field: 'bestPracticeIndicator3' },
+                  { title: 'coachingSupportIndicator1', field: 'coachingSupportIndicator1' },
+                  { title: 'coachingSupportIndicator2', field: 'coachingSupportIndicator2' },
+                  { title: 'coachingSupportIndicator3', field: 'coachingSupportIndicator3' },
+                  { title: 'agreedSuggestion', field: 'agreedSuggestion' },
+                  { title: 'agreedStatement', field: 'agreedStatement' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
@@ -1423,44 +904,32 @@ const PLibraryObservation = () => {
                   grouping: true,
                   sorting: true,
                   pageSize: 5,
-                  pageSizeOptions: [10, 20, 30],
-                  maxBodyHeight: '700px',
+                  pageSizeOptions: [5, 10, 20, 30],
+                  maxBodyHeight: '600px', // Replaced static 700px to dynamically fit smaller viewports
+                  horizontalScroll: true, // Crucial for MaterialTable component tracking layout bounds
                   headerStyle: {
                     position: 'sticky',
                     top: 0,
                     backgroundColor: '#7e93b4ff',
                     fontWeight: 'bold',
-                    width: '5px',
-                    height: '5px',
+                    whiteSpace: 'nowrap', // Prevents headers from stacking vertically into unreadable text
                     textAlign: 'center',
                     color: '#0d0d0eff',
-                    borderRight: '1px solid #0e0d0dff',
-                    borderLeft: '1px solid #0e0d0dff',
-                    borderStyle: 'solid',
+                    border: '1px solid #0e0d0dff',
                   },
                   rowStyle: {
                     fontSize: 14,
                     backgroundColor: '#E5DED4',
-                    borderRight: '1px solid #131111ff',
-                    borderLeft: '1px solid #0e0d0dff',
-                    borderStyle: 'solid',
-                    width: '5px',
-                    height: '5px',
-                    padding: '0 5px',
+                    border: '1px solid #131111ff',
                   },
                   cellStyle: {
-                    borderRight: '1px solid #0c0b0bff',
-                    borderLeft: '1px solid #0e0d0dff',
-                    borderBottom: '1px solid #0c0b0bff',
-                    borderStyle: 'solid',
-                    height: '5px',
-                    minHeight: '5px',
-                    maxHeight: '5px',
-                    padding: '0 5px',
+                    border: '1px solid #0c0b0bff',
+                    whiteSpace: 'nowrap', // Keeps columns aligned cleanly over data
+                    padding: '8px 12px', // Cleaner padding approach over micro-managing table rows
                   },
-                  maintainAspectRatio: false,
                 }}
-                style={{ height: '700px', width: '1300px' }}
+                /* Removed fixed style attributes to avoid breaking fluid card bounds */
+                style={{ width: '100%' }}
                 data={observations.toReversed()}
               />
             </CCardBody>
