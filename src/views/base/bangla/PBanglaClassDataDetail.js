@@ -3800,7 +3800,8 @@ const PBanglaClassDataDetail = () => {
               <MaterialTable
                 title="For filtering drag and drop the headers below"
                 columns={[
-                  { title: 'Date', field: 'date', type: 'date', sorting: 'true' },
+                  { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                   { title: 'School', field: 'school' },
                   { title: 'Teacher', field: 'classTeacher' },
                   { title: 'Teacher Priority', field: 'teacherStatus', sorting: 'true' },
@@ -3961,6 +3962,7 @@ const PBanglaClassDataDetail = () => {
                   { title: 'noRightFor3', field: 'noRightFor3' },
                   { title: 'noWrongFor3', field: 'noWrongFor3' },
                   { title: 'totalFor3', field: 'totalFor3' },
+                  { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{

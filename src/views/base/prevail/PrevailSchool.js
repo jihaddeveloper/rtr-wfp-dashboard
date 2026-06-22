@@ -279,6 +279,92 @@ const PrevailSchool = () => {
                   title: 'address',
                   field: 'address',
                 },
+                {
+                  title: 'ppBoy',
+                  field: 'ppBoy',
+                },
+                {
+                  title: 'ppGirl',
+                  field: 'ppGirl',
+                },
+                {
+                  title: 'ppTotal',
+                  field: 'ppTotal',
+                },
+                {
+                  title: 'g1Boy',
+                  field: 'g1Boy',
+                },
+                {
+                  title: 'g1Girl',
+                  field: 'g1Girl',
+                },
+                {
+                  title: 'g1Total',
+                  field: 'g1Total',
+                },
+
+                {
+                  title: 'g2Boy',
+                  field: 'g2Boy',
+                },
+                {
+                  title: 'g2Girl',
+                  field: 'g2Girl',
+                },
+                {
+                  title: 'g2Total',
+                  field: 'g2Total',
+                },
+
+                {
+                  title: 'g3Boy',
+                  field: 'g3Boy',
+                },
+                {
+                  title: 'g3Girl',
+                  field: 'g3Girl',
+                },
+                {
+                  title: 'g3Total',
+                  field: 'g3Total',
+                },
+
+                {
+                  title: 'g4Boy',
+                  field: 'g4Boy',
+                },
+                {
+                  title: 'g4Girl',
+                  field: 'g4Girl',
+                },
+                {
+                  title: 'g4Total',
+                  field: 'g4Total',
+                },
+
+                {
+                  title: 'g5Boy',
+                  field: 'g5Boy',
+                },
+                {
+                  title: 'g5Girl',
+                  field: 'g5Girl',
+                },
+                {
+                  title: 'g5Total',
+                  field: 'g5Total',
+                },
+
+                {
+                  title: 'schoolTotal',
+                  field: 'schoolTotal',
+                },
+
+                {
+                  title: 'supportYear',
+                  field: 'supportYear',
+                },
               ]}
               editable={{
                 onRowUpdate: (newData, oldData) =>

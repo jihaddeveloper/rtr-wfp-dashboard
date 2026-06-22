@@ -2414,6 +2414,7 @@ const PLFObservationDetail = () => {
           const index = oldData.tableData.id
           dataDelete.splice(index, 1)
           setAllLFObservationData([...dataDelete])
+          getAllLFObservation()
           resolve()
           setIserror(false)
           setErrorMessages([])
@@ -3464,12 +3465,8 @@ const PLFObservationDetail = () => {
               <MaterialTable
                 title=""
                 columns={[
-                  {
-                    title: 'date',
-                    field: 'date',
-                    type: 'date',
-                    sorting: 'true',
-                  },
+                  { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                   {
                     title: 'lfName',
                     field: 'lfName',
@@ -3739,7 +3736,7 @@ const PLFObservationDetail = () => {
                     title: 'agreedStatement2',
                     field: 'agreedStatement2',
                   },
-
+                  { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   {
                     title: 'isChecked',
                     field: 'isChecked',

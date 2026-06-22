@@ -8289,6 +8289,7 @@ const PAnalysisBCO = () => {
           dataDelete.splice(index, 1)
           setAllBCOPData([...dataDelete])
           resolve()
+          getAllPBookCheckout()
           setIserror(false)
           setErrorMessages([])
           // console.log('newData.id: ' + newData.id)
@@ -8440,12 +8441,8 @@ const PAnalysisBCO = () => {
             <MaterialTable
               title={allBCOPData.length + ' BCO Data'}
               columns={[
-                {
-                  title: 'date',
-                  field: 'date',
-                  type: 'date',
-                  sorting: 'true',
-                },
+                { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                 { title: 'school', field: 'school' },
                 {
                   title: 'pointTeacher',
@@ -8556,7 +8553,7 @@ const PAnalysisBCO = () => {
                 { title: 'classFiveNoBookBoyBC', field: 'classFiveNoBookBoyBC' },
                 { title: 'classFiveNoBookGirlBC', field: 'classFiveNoBookGirlBC' },
                 { title: 'classFiveNoBookTotalBC', field: 'classFiveNoBookTotalBC' },
-
+                { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                 { title: 'isChecked', field: 'isChecked' },
               ]}
               editable={{
@@ -8568,10 +8565,10 @@ const PAnalysisBCO = () => {
                   new Promise((resolve) => {
                     handleRowUpdatePBCO(newData, oldData, resolve)
                   }),
-                // onRowDelete: (oldData) =>
-                //   new Promise((resolve) => {
-                //     handleRowDeletePBCO(oldData, resolve)
-                //   }),
+                onRowDelete: (oldData) =>
+                  new Promise((resolve) => {
+                    handleRowDeletePBCO(oldData, resolve)
+                  }),
               }}
               options={{
                 exportButton: true,

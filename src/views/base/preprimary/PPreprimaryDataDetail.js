@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
-//  Modify Date: 20/05/2026
+//  Modify Date: 22/06/2026
 //  Description: PPreprimaryDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -106,7 +106,7 @@ const PPreprimaryDataDetail = () => {
   // Teacher filter data
 
   const ppTeacher = allTeacherData.filter((item) => {
-    return item.instructionG1 === 'PP'
+    return item.instructionPreprimary === 'PP'
   }).length
 
   const g1Teacher = allTeacherData.filter((item) => {
@@ -125,7 +125,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1January = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'January' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -140,7 +140,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1February = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'February' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -155,7 +155,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1March = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'March' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -170,7 +170,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1April = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'April' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -185,7 +185,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1May = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'May' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -200,7 +200,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1June = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'June' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -215,7 +215,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1July = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'July' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -230,7 +230,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1August = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'August' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -245,7 +245,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1September = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'September' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -260,7 +260,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1October = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -274,7 +274,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1November = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -288,7 +288,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1December = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -304,7 +304,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2January = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'January' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -319,7 +319,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2February = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'February' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -334,7 +334,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2March = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'March' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -349,7 +349,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2April = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'April' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -364,7 +364,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2May = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'May' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -379,7 +379,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2June = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'June' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -394,7 +394,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2July = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'July' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -409,7 +409,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2August = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'August' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -424,7 +424,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2September = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'September' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -439,7 +439,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2October = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -453,7 +453,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2November = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -467,7 +467,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2December = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -483,7 +483,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3January = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'January' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -498,7 +498,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3February = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'February' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -513,7 +513,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3March = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'March' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -528,7 +528,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3April = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'April' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -543,7 +543,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3May = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'May' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -558,7 +558,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3June = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'June' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -573,7 +573,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3July = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'July' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -588,7 +588,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3August = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'August' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -603,7 +603,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3September = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'September' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -617,7 +617,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3October = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'October' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -631,7 +631,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3November = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'November' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -645,7 +645,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3December = allPPrePrimaryData.filter((item) => {
     return (
       item.month === 'December' &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -664,7 +664,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherPreviousMonth = allPPrePrimaryData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus
     )
@@ -673,7 +673,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP1PreviousMonth = allPPrePrimaryData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
@@ -683,7 +683,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP2PreviousMonth = allPPrePrimaryData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
@@ -693,7 +693,7 @@ const PPreprimaryDataDetail = () => {
   const allPPTeacherP3PreviousMonth = allPPrePrimaryData.filter((item) => {
     return (
       item.month === previousMonth &&
-      item.year === '2025' &&
+      item.year === '2026' &&
       item.grade === 'PP' &&
       item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
@@ -858,6 +858,7 @@ const PPreprimaryDataDetail = () => {
           resolve()
           setIserror(false)
           setErrorMessages([])
+          getAllPPrePrimary()
           // console.log('newData.id: ' + newData.id)
           // console.log(newData)
           // console.log(oldData)
@@ -1233,12 +1234,8 @@ const PPreprimaryDataDetail = () => {
               <MaterialTable
                 title={'For filtering drag and drop the headers bellow'}
                 columns={[
-                  {
-                    title: 'Date',
-                    field: 'date',
-                    type: 'date',
-                    sorting: 'true',
-                  },
+                  { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                   { title: 'School', field: 'school' },
                   {
                     title: 'Teacher',
@@ -1261,7 +1258,7 @@ const PPreprimaryDataDetail = () => {
                   { title: 'Month', field: 'month', sorting: 'true' },
                   { title: 'District', field: 'district' },
                   { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
-                  { title: 'Office', field: 'fieldOffice', sorting: 'true' },
+                  { title: 'Office', field: 'office', sorting: 'true' },
                   { title: 'Project', field: 'project', sorting: 'true' },
 
                   {
@@ -1273,6 +1270,15 @@ const PPreprimaryDataDetail = () => {
                     field: 'section',
                   },
                   {
+                    title: 'Visitor',
+                    field: 'visitor',
+                  },
+                  {
+                    title: 'Visitor Designation',
+                    field: 'visitorDesignation',
+                  },
+
+                  {
                     title: 'ClassStartTime',
                     field: 'classStartTime',
                   },
@@ -1282,13 +1288,26 @@ const PPreprimaryDataDetail = () => {
                   },
 
                   {
-                    title: 'ContentName',
-                    field: 'contentName',
+                    title: 'Lesson No',
+                    field: 'lessonNo',
                   },
                   {
-                    title: 'PeriodDay',
-                    field: 'periodDay',
+                    title: 'Story Name',
+                    field: 'storyName',
                   },
+                  {
+                    title: 'Picture Name',
+                    field: 'pictureName',
+                  },
+                  {
+                    title: 'Card Name',
+                    field: 'cardName',
+                  },
+                  {
+                    title: 'Game Name',
+                    field: 'gameName',
+                  },
+
                   {
                     title: 'TotalAdmittedStudent',
                     field: 'totalAdmittedStudent',
@@ -1453,7 +1472,7 @@ const PPreprimaryDataDetail = () => {
 
                   { title: 'agreedStatement1', field: 'agreedStatement1' },
                   { title: 'agreedStatement2', field: 'agreedStatement2' },
-
+                  { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{

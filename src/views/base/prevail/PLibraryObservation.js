@@ -687,7 +687,8 @@ const PLibraryObservation = () => {
               <MaterialTable
                 title={observations.length + ' Library Observation '}
                 columns={[
-                  { title: 'date', field: 'date', type: 'date', sorting: true },
+                  { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                   { title: 'school', field: 'school' },
                   {
                     title: 'libraryStatus',
@@ -880,6 +881,7 @@ const PLibraryObservation = () => {
                   { title: 'coachingSupportIndicator3', field: 'coachingSupportIndicator3' },
                   { title: 'agreedSuggestion', field: 'agreedSuggestion' },
                   { title: 'agreedStatement', field: 'agreedStatement' },
+                  { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{

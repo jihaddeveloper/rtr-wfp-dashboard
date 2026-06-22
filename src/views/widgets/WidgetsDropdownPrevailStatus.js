@@ -1150,10 +1150,11 @@ const WidgetsDropdownPrevailStatus = () => {
       <CRow>
         <CCol xs={12}>
           <CRow>
-            <CCol sm={2} lg={2}>
-              <CCard className="mb-4">
+            {/* G1 Teacher Priority */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <CCard className="h-100">
                 <CCardHeader>
-                  <strong>G1 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
+                  <strong>G1 Teacher Priority(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/bangla/p-bangla-detail">
@@ -1193,19 +1194,21 @@ const WidgetsDropdownPrevailStatus = () => {
                         },
                       }}
                       labels=""
-                      style={{ height: '350px' }} // Inline style for height
+                      style={{ height: '320px' }}
                     />
                   </CLink>
                 </CCardBody>
-                <CCardHeader>
+                <CCardHeader className="mt-auto">
                   <small>Total G1 Observation {allG1TeacherPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={2} lg={2}>
-              <CCard className="mb-4">
+
+            {/* G2 Teacher Priority */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <CCard className="h-100">
                 <CCardHeader>
-                  <strong>G2 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
+                  <strong>G2 Teacher Priority(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/bangla/p-bangla-detail">
@@ -1245,19 +1248,21 @@ const WidgetsDropdownPrevailStatus = () => {
                         },
                       }}
                       labels=""
-                      style={{ height: '350px' }} // Inline style for height
+                      style={{ height: '320px' }}
                     />
                   </CLink>
                 </CCardBody>
-                <CCardHeader>
+                <CCardHeader className="mt-auto">
                   <small>Total G2 Observation {allG2TeacherPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={2} lg={2}>
-              <CCard className="mb-4">
+
+            {/* G3 Teacher Priority */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <CCard className="h-100">
                 <CCardHeader>
-                  <strong>G3 Teacher Status(%)</strong> <small>({previousMonthYear})</small>
+                  <strong>G3 Teacher Priority(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/bangla/p-bangla-detail">
@@ -1297,19 +1302,21 @@ const WidgetsDropdownPrevailStatus = () => {
                         },
                       }}
                       labels=""
-                      style={{ height: '350px' }} // Inline style for height
+                      style={{ height: '320px' }}
                     />
                   </CLink>
                 </CCardBody>
-                <CCardHeader>
+                <CCardHeader className="mt-auto">
                   <small>Total G3 Observation {allG3TeacherPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={2} lg={2}>
-              <CCard className="mb-4">
+
+            {/* Literacy Facilitator */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <CCard className="h-100">
                 <CCardHeader>
-                  <strong>LF Priority Status(%)</strong> <small>({previousMonthYear})</small>
+                  <strong>Literacy Facilitator(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/prevail/p-lf-observation-detail">
@@ -1343,20 +1350,21 @@ const WidgetsDropdownPrevailStatus = () => {
                         },
                       }}
                       labels=""
-                      style={{ height: '350px' }} // Inline style for height
+                      style={{ height: '320px' }}
                     />
                   </CLink>
                 </CCardBody>
-                <CCardHeader>
+                <CCardHeader className="mt-auto">
                   <small>Total LF Observation {allLFObsPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={2} lg={2}>
-              <CCard className="mb-4">
+
+            {/* Library Functionality */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <CCard className="h-100">
                 <CCardHeader>
-                  <strong>Library Functionality Status(%)</strong>{' '}
-                  <small>({previousMonthYear})</small>
+                  <strong>Library Functionality(%)</strong> <small>({previousMonthYear})</small>
                 </CCardHeader>
                 <CCardBody>
                   <CLink href="/prevail/p-library-observation">
@@ -1390,92 +1398,65 @@ const WidgetsDropdownPrevailStatus = () => {
                         },
                       }}
                       labels=""
-                      style={{ height: '350px' }} // Inline style for height
+                      style={{ height: '320px' }}
                     />
                   </CLink>
                 </CCardBody>
-                <CCardHeader>
+                <CCardHeader className="mt-auto">
                   <small>Total Library Observation {allLibraryObsDataPreviousMonth}</small>
                 </CCardHeader>
               </CCard>
             </CCol>
-            <CCol sm={2} lg={2}>
-              <CRow>
+
+            {/* Stats Column */}
+            <CCol xs={12} md={6} xl={2} className="mb-4">
+              <div className="d-flex flex-column h-100 justify-content-between gap-3">
                 <CWidgetStatsF
-                  className="mb-3"
+                  className="m-0 flex-grow-1"
                   color="success"
-                  icon={<CIcon icon={cilInstitution} height={50} />}
+                  icon={<CIcon icon={cilInstitution} height={40} />}
                   title="School"
-                  //values={[{ title: 'Total School', value: '365' }]}
                   footer={
                     <CLink
                       className="font-weight-bold font-xs text-body-secondary"
                       href="/prevail/p-school-detail"
-                      // rel="noopener norefferer"
-                      // target="_blank"
                     >
                       View more
                       <CIcon icon={cilArrowRight} className="float-end" width={16} />
                     </CLink>
                   }
-                  value={
-                    <>
-                      {allSchoolData.length} <span className="fs-6 fw-normal"></span>
-                      <br></br>
-                    </>
-                  }
-                  style={{ height: '147px' }} // Inline style for height
+                  value={<>{allSchoolData.length}</>}
                 />
                 <CWidgetStatsF
-                  className="mb-3"
+                  className="m-0 flex-grow-1"
                   color="info"
-                  icon={<CIcon icon={cilUser} height={50} />}
+                  icon={<CIcon icon={cilUser} height={40} />}
                   title="Teacher"
-                  //values={[{ title: 'Total Teacher', value: '2365' }]}
-                  value={
-                    <>
-                      {allTeacherData.length} <span className="fs-6 fw-normal"></span>
-                    </>
-                  }
+                  value={<>{allTeacherData.length}</>}
                   footer={
                     <CLink
                       className="font-weight-bold font-xs text-body-secondary"
                       href="/prevail/p-teacher-detail"
-                      // rel="noopener norefferer"
-                      // target="_blank"
                     >
                       View more
                       <CIcon icon={cilArrowRight} className="float-end" width={16} />
                     </CLink>
                   }
-                  style={{ height: '147px' }} // Inline style for height
                 />
                 <CWidgetStatsF
-                  className="mb-3"
+                  className="m-0 flex-grow-1"
                   color="primary"
-                  icon={<CIcon icon={cilSchool} height={50} />}
+                  icon={<CIcon icon={cilSchool} height={40} />}
                   title="Student"
-                  //values={[{ title: 'Total Student', value: '91903' }]}
-                  value={
-                    <>
-                      ##### {/*  {allStudentData.length} */}
-                      <span className="fs-6 fw-normal"></span>
-                    </>
-                  }
+                  value={<>#####</>}
                   footer={
-                    <CLink
-                      className="font-weight-bold font-xs text-body-secondary"
-                      //href="/di/base/district"
-                      // rel="noopener norefferer"
-                      // target="_blank"
-                    >
+                    <CLink className="font-weight-bold font-xs text-body-secondary">
                       View more
                       <CIcon icon={cilArrowRight} className="float-end" width={16} />
                     </CLink>
                   }
-                  style={{ height: '147px' }} // Inline style for height
                 />
-              </CRow>
+              </div>
             </CCol>
           </CRow>
         </CCol>

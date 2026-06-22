@@ -578,26 +578,26 @@ const PSRMDataDetail = () => {
   // PreviousMonth
   // PP
   const allPSRMTeacherPreviousMonth = allPSRMData.filter((item) => {
-    return item.month === previousMonth && item.year === '2025' && item.teacherStatus
+    return item.month === previousMonth && item.year === '2026' && item.teacherStatus
   }).length
 
   const allPSRMTeacherP1PreviousMonth = allPSRMData.filter((item) => {
     return (
-      item.month === previousMonth && item.year === '2025' && item.teacherStatus === 'Priority 1'
+      item.month === previousMonth && item.year === '2026' && item.teacherStatus === 'Priority 1'
       // && item.fieldOffice === 'NrFO'
     )
   }).length
 
   const allPSRMTeacherP2PreviousMonth = allPSRMData.filter((item) => {
     return (
-      item.month === previousMonth && item.year === '2025' && item.teacherStatus === 'Priority 2'
+      item.month === previousMonth && item.year === '2026' && item.teacherStatus === 'Priority 2'
       // && item.fieldOffice === 'NrFO'
     )
   }).length
 
   const allPSRMTeacherP3PreviousMonth = allPSRMData.filter((item) => {
     return (
-      item.month === previousMonth && item.year === '2025' && item.teacherStatus === 'Priority 3'
+      item.month === previousMonth && item.year === '2026' && item.teacherStatus === 'Priority 3'
       // && item.fieldOffice === 'NrFO'
     )
   }).length
@@ -737,6 +737,7 @@ const PSRMDataDetail = () => {
           dataDelete.splice(index, 1)
           setAllPSRMData([...dataDelete])
           resolve()
+          getAllPSRM()
           setIserror(false)
           setErrorMessages([])
           // console.log('newData.id: ' + newData.id)
@@ -1112,12 +1113,8 @@ const PSRMDataDetail = () => {
               <MaterialTable
                 title={'For filtering drag and drop the headers bellow'}
                 columns={[
-                  {
-                    title: 'Date',
-                    field: 'date',
-                    type: 'date',
-                    sorting: 'true',
-                  },
+                  { title: 'Obs Date', field: 'date', type: 'date', sorting: 'true' },
+
                   { title: 'School', field: 'school' },
                   {
                     title: 'pointTeacher',
@@ -1416,7 +1413,7 @@ const PSRMDataDetail = () => {
                     title: 'agreedStatementLFPartB',
                     field: 'agreedStatementLFPartB',
                   },
-
+                  { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
                 editable={{
