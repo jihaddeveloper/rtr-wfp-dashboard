@@ -69,9 +69,15 @@ const DIBanglaNrFO = React.lazy(() => import('./views/base/bangla/DIBanglaNrFO')
 // Bangla
 
 // PREVAIL
+const PBanglaDataDetailLPO = React.lazy(() =>
+  import('./views/base/bangla/PBanglaClassDataDetailLPO'),
+)
+const PBanglaDataDetailLF = React.lazy(() => import('./views/base/bangla/PBanglaClassDataDetailLF'))
 const PBanglaDataDetail = React.lazy(() => import('./views/base/bangla/PBanglaClassDataDetail'))
 const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL'))
 const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
+
+const PLFObservationDetailLPO = React.lazy(() => import('./views/base/lf/PLFObservationDetailLPO'))
 const PLFObservationDetail = React.lazy(() => import('./views/base/lf/PLFObservationDetail'))
 
 const PPrePrimary = React.lazy(() => import('./views/base/preprimary/PPreprimaryDataDetail'))
@@ -308,6 +314,12 @@ const routes = [
   { path: '/bangla/di-bangla-nrfo', name: 'DIBanglaNrFO', element: DIBanglaNrFO },
 
   // PREVAIL
+  { path: '/bangla/p-bangla-detail/lf', name: 'PBanglaDataDetailLF', element: PBanglaDataDetailLF },
+  {
+    path: '/bangla/p-bangla-detail/lpo',
+    name: 'PBanglaDataDetailLPO',
+    element: PBanglaDataDetailLPO,
+  },
   { path: '/bangla/p-bangla-detail', name: 'PBanglaDataDetail', element: PBanglaDataDetail },
   { path: '/prevail/p-school-detail', name: 'PSchoolDetail', element: PSchoolDetail },
   { path: '/prevail/p-teacher-detail', name: 'PTeacherDetail', element: PTeacherDetail },
@@ -315,6 +327,11 @@ const routes = [
     path: '/prevail/p-lf-observation-detail',
     name: 'PLFObservationDetail',
     element: PLFObservationDetail,
+  },
+  {
+    path: '/prevail/p-lf-observation-detail/lpo',
+    name: 'PLFObservationDetailLPO',
+    element: PLFObservationDetailLPO,
   },
   {
     path: '/prevail/p-library-observation',

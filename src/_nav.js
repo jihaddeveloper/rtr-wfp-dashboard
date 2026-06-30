@@ -189,7 +189,7 @@ const _nav = [
   // },
   {
     component: CNavGroup,
-    name: 'PREVAIL INFO',
+    name: 'Project INFO',
     to: '#',
     icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
     items: [
@@ -216,38 +216,53 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'PREVAIL Observation',
+    name: 'Observation Info',
     to: '*',
     icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Prevail Bangla',
+        name: 'Bangla All',
         to: '/bangla/p-bangla-detail',
       },
       {
         component: CNavItem,
-        name: 'Prevail LF',
+        name: 'Bangla by LPO',
+        to: '/bangla/p-bangla-detail/lpo',
+      },
+      {
+        component: CNavItem,
+        name: 'Bangla by LF',
+        to: '/bangla/p-bangla-detail/lf',
+      },
+      {
+        component: CNavItem,
+        name: 'LF Observation All',
         to: '/prevail/p-lf-observation-detail',
       },
       {
         component: CNavItem,
-        name: 'Prevail Preprimary',
+        name: 'LF Observation by LPO',
+        to: '/prevail/p-lf-observation-detail/lpo',
+      },
+      {
+        component: CNavItem,
+        name: 'PPrimary Observation All',
         to: '/prevail/p-preprimary',
       },
       {
         component: CNavItem,
-        name: 'Prevail Library',
+        name: 'Library Observation All',
         to: '/prevail/p-library-observation',
       },
       {
         component: CNavItem,
-        name: 'Prevail BCO',
+        name: 'BCO Overall All',
         to: '/prevail/p-bco',
       },
       {
         component: CNavItem,
-        name: 'Prevail SRM',
+        name: 'SRM Observation All',
         to: '/prevail/p-srm',
       },
 

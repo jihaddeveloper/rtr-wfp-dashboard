@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 14/01/2026
-//  Modify Date: 14/01/2026
+//  Modify Date: 30/06/2026
 //  Description: PrevailEmployee  file
 
 import React, { useState, useEffect } from 'react'
@@ -249,7 +249,8 @@ const PrevailTeacher = () => {
               columns={[
                 { title: 'name', field: 'name', type: 'string', sorting: 'true' },
                 { title: 'bnName', field: 'bnName' },
-                { title: 'school', field: 'school', sorting: 'true' },
+                { title: 'school', field: 'schoolName', sorting: 'true' },
+                { title: 'schoolId', field: 'schoolId', sorting: 'true' },
                 { title: 'district', field: 'district' },
                 { title: 'upazilla', field: 'upazilla', sorting: 'true' },
                 { title: 'gender', field: 'gender', sorting: 'true' },

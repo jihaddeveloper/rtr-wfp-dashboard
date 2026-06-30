@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 09/09/2025
-//  Modify Date: 20/05/2026
-//  Description: PLFObservation  file
+//  Create Date: 10/06/2026
+//  Modify Date: 30/06/2026
+//  Description: PLFObservationLPO  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -62,16 +62,26 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 
 import { Chart } from 'react-google-charts'
 
-const PLFObservationDetail = () => {
+const PLFObservationDetailLPO = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allLFObservationData, setAllLFObservationData] = useState([])
-
   const [allLibraryObservation, setAllLibraryObservation] = useState([])
+  const [allEmployeeData, setAllEmployeeData] = useState([])
+  const [allSchoolData, setAllSchoolData] = useState([])
 
-  const [allDILibraryObservation, setAllDILibraryObservation] = useState([])
+  const LF = 'E-03848'
+  const LPO = 'E-04670'
+
+  const SchoolNo = allSchoolData.filter((item) => {
+    return item.lpo === LPO
+  }).length
+
+  const LFNo = allEmployeeData.filter((item) => {
+    return item.supervisor === LPO
+  }).length
 
   // Area wise library data
   const [kutubdiaLibraryObservation, setKutubdiaLibraryObservation] = useState([])
@@ -373,9 +383,10 @@ const PLFObservationDetail = () => {
     const call = async () => {
       console.log('use effect called')
 
+      await getAllSchool(console.log('get School class called'))
+      await getAllEmployee()
       await getAllLFObservation()
       await getAllLibraryObservation(console.log('Get All Library observation called'))
-      await getAllDILibraryObservation(console.log('Get All DI Library observation called'))
 
       pushOverallResultByPhase()
       pushOverallResultByProvince()
@@ -393,6 +404,50 @@ const PLFObservationDetail = () => {
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Get All School
+  const getAllSchool = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
+
+  // Get All School
+  const getAllEmployee = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllEmployeeData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
 
   // LF Observation Data by filter
   const allLFObsDataCurrent = allLFObservationData.filter((item) => {
@@ -603,7 +658,11 @@ const PLFObservationDetail = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllLFObservationData(response.data)
+      setAllLFObservationData(
+        response.data.filter((item) => {
+          return item.lpo === LPO
+        }),
+      )
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -2261,28 +2320,6 @@ const PLFObservationDetail = () => {
   }
   // Get All Library observation
 
-  // Get All Library observation
-  const getAllDILibraryObservation = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-library-observation', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllDILibraryObservation(response.data)
-
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Library observation
-
   // Row update function
   const handleRowUpdateAllLFObservation = (newData, oldData, resolve) => {
     //validation
@@ -2989,7 +3026,11 @@ const PLFObservationDetail = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total LF</CTableHeaderCell>
-                              <CTableDataCell>30</CTableDataCell>
+                              <CTableDataCell>{LFNo}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">No of School</CTableHeaderCell>
+                              <CTableDataCell>{SchoolNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">No of LF Observation</CTableHeaderCell>
@@ -3045,7 +3086,11 @@ const PLFObservationDetail = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total LF</CTableHeaderCell>
-                              <CTableDataCell>30</CTableDataCell>
+                              <CTableDataCell>{LFNo}</CTableDataCell>
+                            </CTableRow>
+                            <CTableRow color="secondary">
+                              <CTableHeaderCell scope="row">No of School</CTableHeaderCell>
+                              <CTableDataCell>{SchoolNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">No of LF Observation</CTableHeaderCell>
@@ -3812,4 +3857,4 @@ const PLFObservationDetail = () => {
   )
 }
 
-export default PLFObservationDetail
+export default PLFObservationDetailLPO
