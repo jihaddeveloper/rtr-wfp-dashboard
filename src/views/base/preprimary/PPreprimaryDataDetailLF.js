@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 11/01/2026
-//  Modify Date: 22/06/2026
-//  Description: PPreprimaryDataDetail  file
+//  Create Date: 11/06/2026
+//  Modify Date: 30/06/2026
+//  Description: PPreprimaryDataDetailLF  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -46,7 +46,7 @@ import { BorderBottom } from '@material-ui/icons'
 //Icon
 //Icon
 
-const PPreprimaryDataDetail = () => {
+const PPreprimaryDataDetailLF = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -56,6 +56,15 @@ const PPreprimaryDataDetail = () => {
   const [allPPrePrimaryData, setAllPPrePrimaryData] = useState([])
 
   const [allTeacherData, setAllTeacherData] = useState([])
+
+  const [allSchoolData, setAllSchoolData] = useState([])
+
+  const LF = 'E-03853'
+  const LPO = 'E-04629'
+
+  const TeacherNo = allSchoolData.filter((item) => {
+    return item.lf === LF
+  }).length
 
   // Get previous month
   const current = new Date()
@@ -76,10 +85,33 @@ const PPreprimaryDataDetail = () => {
       console.log('use effect called')
       await getAllPPrePrimary(console.log('get preprimary class called'))
       await getAllTeacher(console.log('get teacher class called'))
+      await getAllSchool(console.log('get School class called'))
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Get All School
+  const getAllSchool = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
 
   // Get All Teacher
   const getAllTeacher = async () => {
@@ -704,7 +736,7 @@ const PPreprimaryDataDetail = () => {
   // PreviousMonth
   // Bangla Observation Data by filter
 
-  // Get All Book-checkout Data for school
+  // Get All PPrePrimary Data for school
   const getAllPPrePrimary = async () => {
     setIsLoading(true)
     try {
@@ -716,14 +748,18 @@ const PPreprimaryDataDetail = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllPPrePrimaryData(response.data)
+      setAllPPrePrimaryData(
+        response.data.filter((item) => {
+          return item.lf === LF && item.office === 'NrFO'
+        }),
+      )
       setIsLoading(false)
       console.log('Data:' + response.data)
     } catch (error) {
       console.log(error)
     }
   }
-  // Get All Book-checkout Data for school
+  // Get All PPrePrimary Data for school
 
   // Row update function
   const handleRowUpdateAllPPrePrimaryClass = (newData, oldData, resolve) => {
@@ -917,8 +953,7 @@ const PPreprimaryDataDetail = () => {
                               <CTableHeaderCell scope="row">
                                 Total PrePrimary Teacher
                               </CTableHeaderCell>
-                              <CTableDataCell>494</CTableDataCell>
-                              {/* <CTableDataCell>{ppTeacher}</CTableDataCell> */}
+                              <CTableDataCell>{TeacherNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
@@ -1550,4 +1585,4 @@ const PPreprimaryDataDetail = () => {
   )
 }
 
-export default PPreprimaryDataDetail
+export default PPreprimaryDataDetailLF

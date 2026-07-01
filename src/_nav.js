@@ -237,23 +237,43 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'LF Observation All',
+        name: 'LF Obs All',
         to: '/prevail/p-lf-observation-detail',
       },
       {
         component: CNavItem,
-        name: 'LF Observation by LPO',
+        name: 'LF Obs by LPO',
         to: '/prevail/p-lf-observation-detail/lpo',
       },
       {
         component: CNavItem,
-        name: 'PPrimary Observation All',
+        name: 'PPrimary Obs All',
         to: '/prevail/p-preprimary',
       },
       {
         component: CNavItem,
-        name: 'Library Observation All',
+        name: 'PPrimary Obs by LPO',
+        to: '/prevail/p-preprimary/lpo',
+      },
+      {
+        component: CNavItem,
+        name: 'PPrimary Obs by LF',
+        to: '/prevail/p-preprimary/lf',
+      },
+      {
+        component: CNavItem,
+        name: 'Library Obs All',
         to: '/prevail/p-library-observation',
+      },
+      {
+        component: CNavItem,
+        name: 'Library Obs by LPO',
+        to: '/prevail/p-library-observation/lpo',
+      },
+      {
+        component: CNavItem,
+        name: 'Library Obs by LF',
+        to: '/prevail/p-library-observation/lf',
       },
       {
         component: CNavItem,

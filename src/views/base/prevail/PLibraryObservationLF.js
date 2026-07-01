@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 14/01/2026
-//  Modify Date: 19/05/2026
-//  Description: PLibraryObservation  file
+//  Create Date: 14/06/2026
+//  Modify Date: 30/06/2026
+//  Description: PLibraryObservationLF  file
 
 import React, { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
@@ -66,6 +66,8 @@ const BASE_URL = 'http://118.179.80.51:8080/api/v1'
 
 const API_URL = `${BASE_URL}/p-library-observation`
 
+const API_School = `${BASE_URL}/p-school`
+
 const YEAR = '2026'
 
 const MONTHS = [
@@ -103,12 +105,21 @@ const getPreviousMonth = () => {
   })
 }
 
-const PLibraryObservation = () => {
+const PLibraryObservationLF = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allPLibraryObservation, setAllPLibraryObservation] = useState([])
+
+  const [allSchoolData, setAllSchoolData] = useState([])
+
+  const LF = 'E-06344'
+  const LPO = 'E-06524'
+
+  const LibraryNo = allSchoolData.filter((item) => {
+    return item.lf === LF
+  }).length
 
   // Get previous month
   const current = new Date()
@@ -140,7 +151,11 @@ const PLibraryObservation = () => {
 
       const response = await axios.get(API_URL)
 
-      setObservations(response.data || [])
+      setObservations(
+        response.data.filter((item) => {
+          return item.lf === LF && item.office === 'NrFO'
+        }) || [],
+      )
     } catch (err) {
       console.error(err)
 
@@ -150,8 +165,31 @@ const PLibraryObservation = () => {
     }
   }
 
+  // Get All School
+  const getAllSchool = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(API_School, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
+
   useEffect(() => {
     fetchLibraryObservations()
+    getAllSchool(console.log('get School class called'))
   }, [])
 
   /* ---------------------------------------------------------------------- */
@@ -482,7 +520,7 @@ const PLibraryObservation = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
-                              <CTableDataCell>494</CTableDataCell>
+                              <CTableDataCell>{LibraryNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
@@ -940,4 +978,4 @@ const PLibraryObservation = () => {
   )
 }
 
-export default PLibraryObservation
+export default PLibraryObservationLF
