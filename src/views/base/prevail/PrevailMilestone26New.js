@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/03/2026
-//  Modify Date: 17/05/2026
+//  Modify Date: 17/08/2026
 //  Description: P Milestone 26  file
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -59,6 +59,7 @@ const PrevailMilestone26New = () => {
     bangla: [],
     lfObs: [],
     teachers: [],
+    ppObs: [],
   })
 
   const [milestoneData26, setMilestoneData26] = useState([])
@@ -69,16 +70,18 @@ const PrevailMilestone26New = () => {
       setIsLoading(true)
       try {
         // Execute all requests in parallel for speed
-        const [banglaRes, lfRes, teacherRes] = await Promise.all([
+        const [banglaRes, lfRes, teacherRes, ppRes] = await Promise.all([
           axios.get(`${BASE_URL}/p-bangla-class`),
           axios.get(`${BASE_URL}/p-lf-observation`),
           axios.get(`${BASE_URL}/p-teacher`),
+          axios.get(`${BASE_URL}/p-preprimary`),
         ])
 
         setAllData({
           bangla: banglaRes.data,
           lfObs: lfRes.data,
           teachers: teacherRes.data,
+          ppObs: ppRes.data,
         })
       } catch (error) {
         console.error('Data fetch failed', error)
@@ -93,12 +96,38 @@ const PrevailMilestone26New = () => {
   // New Code
   // Helper: Reusable calculation logic for any Month/Year
   const calculateMilestones = (data, month, year) => {
-    const { bangla, lfObs } = data
+    const { bangla, lfObs, teachers, ppObs } = data
 
     // 1. Pre-filter common datasets to save performance
+
+    // M7: Number of classroom observed
     const monthlyBangla = bangla.filter(
       (item) => item.month === month && item.year === year && item.teacherStatus,
     )
+
+    // M71: Number of classroom observed G1
+    const monthlyBanglaG1 = bangla.filter(
+      (item) =>
+        item.month === month && item.year === year && item.grade === 'G1' && item.teacherStatus,
+    )
+
+    // M72: Number of classroom observed G1
+    const monthlyBanglaG2 = bangla.filter(
+      (item) =>
+        item.month === month && item.year === year && item.grade === 'G2' && item.teacherStatus,
+    )
+
+    // M73: Number of classroom observed G1
+    const monthlyBanglaG3 = bangla.filter(
+      (item) =>
+        item.month === month && item.year === year && item.grade === 'G3' && item.teacherStatus,
+    )
+
+    // M8: Number of PP classroom observed
+    const monthlyPP = ppObs.filter(
+      (item) => item.month === month && item.year === year && item.teacherStatus,
+    )
+
     const monthlyLF = lfObs.filter(
       (item) => item.month === month && item.year === year && item.lfStatus,
     )
@@ -106,14 +135,32 @@ const PrevailMilestone26New = () => {
     if (monthlyBangla.length === 0)
       return {
         m1: 0,
-        mSchoolNumber: 0,
         m2: 0,
         m3: 0,
         m4: 0,
         m5: 0,
         m6: 0,
         m7: 0,
+        m71: 0,
+        m72: 0,
+        m73: 0,
         m8: 0,
+        m9: 0,
+        m91: 0,
+        m92: 0,
+        m93: 0,
+        m10: 0,
+        m101: 0,
+        m102: 0,
+        m103: 0,
+        m11: 0,
+        m111: 0,
+        m112: 0,
+        m113: 0,
+        m12: 0,
+        m121: 0,
+        m122: 0,
+        m123: 0,
 
         // All Bangla Indicator
         ind1a: 0,
@@ -138,42 +185,168 @@ const PrevailMilestone26New = () => {
     const getPct = (numerator, denominator) =>
       denominator > 0 ? ((numerator / denominator) * 100).toFixed(0) : '0'
 
-    // Number of School observed
-    const numberSchool26 = new Set(monthlyBangla.map((item) => item.rtrSchoolId)).size
-
-    // M2: Unique Schools
-    const uniqueSchools = new Set(monthlyBangla.map((item) => item.rtrSchoolId)).size
+    // M3: LFs visited monthly by LPOs
+    const monthlyLFUniqNum = lfObs
+      .filter((item) => item.month === month && item.year === year && item.lfStatus)
+      .filter((value, index, self) => index === self.findIndex((t) => t.lf === value.lf))
 
     // M4: LF Priority 2 & 3
     const lfPriorityCount = monthlyLF.filter(
       (item) => item.lfStatus === 'Priority 2' || item.lfStatus === 'Priority 3',
     ).length
 
-    // M8: Teacher Priority 1, 2, & 3
+    // M5:  Number of School observed
+    const numberSchool26 = new Set(monthlyBangla.map((item) => item.rtrSchoolId)).size
+
+    // M5: Unique Schools
+    const uniqueSchools = new Set(monthlyBangla.map((item) => item.rtrSchoolId)).size
+
+    // M12: Teacher Priority 1, 2, & 3
     const teacherPriorityCount = monthlyBangla.filter((item) =>
       ['Priority 1', 'Priority 2', 'Priority 3'].includes(item.teacherStatus),
     ).length
 
+    const teacherPriorityCountG1 = monthlyBangla.filter(
+      (item) =>
+        ['Priority 1', 'Priority 2', 'Priority 3'].includes(item.teacherStatus) &&
+        item.grade === 'G1',
+    ).length
+
+    const teacherPriorityCountG2 = monthlyBangla.filter(
+      (item) =>
+        ['Priority 1', 'Priority 2', 'Priority 3'].includes(item.teacherStatus) &&
+        item.grade === 'G2',
+    ).length
+
+    const teacherPriorityCountG3 = monthlyBangla.filter(
+      (item) =>
+        ['Priority 1', 'Priority 2', 'Priority 3'].includes(item.teacherStatus) &&
+        item.grade === 'G3',
+    ).length
+
     // Milestone logic
     return {
-      m1: monthlyBangla.length,
-      mSchoolNumber: numberSchool26,
-      m2: getPct(uniqueSchools, 494),
-      m3: 0,
+      // M3
+      m3: monthlyLFUniqNum.length,
+      // M4
       m4: getPct(lfPriorityCount, monthlyLF.length),
-      m5: getPct(
+      // M5
+      m5: numberSchool26,
+      // M6
+      m6: getPct(uniqueSchools, 494),
+      // M7
+      m7: monthlyBangla.length,
+      // M7.1
+      m71: monthlyBanglaG1.length,
+      // M7.2
+      m72: monthlyBanglaG2.length,
+      // M7.3
+      m73: monthlyBanglaG3.length,
+
+      // M8
+      m8: monthlyPP.length,
+
+      // M9
+      m9: getPct(
         monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes').length,
         monthlyBangla.length,
       ),
-      m6: getPct(
+      // M91
+      m91: getPct(
+        monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes' && i.grade === 'G1')
+          .length,
+        monthlyBangla.filter((i) => i.grade === 'G1').length,
+      ),
+      // M92
+      m92: getPct(
+        monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes' && i.grade === 'G2')
+          .length,
+        monthlyBangla.filter((i) => i.grade === 'G2').length,
+      ),
+      // M93
+      m93: getPct(
+        monthlyBangla.filter((i) => i.ind12FollowedIDoWeDoYouDoStatus === 'Yes' && i.grade === 'G3')
+          .length,
+        monthlyBangla.filter((i) => i.grade === 'G3').length,
+      ),
+
+      // M10
+      m10: getPct(
         monthlyBangla.filter((i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes').length,
         monthlyBangla.length,
       ),
-      m7: getPct(
+      // M101
+      m101: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes' && i.grade === 'G1',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G1').length,
+      ),
+      // M102
+      m102: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes' && i.grade === 'G2',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G2').length,
+      ),
+      // M103
+      m103: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind14ImplementedAllTaskInTimeStatus === 'Yes' && i.grade === 'G3',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G3').length,
+      ),
+
+      // M11
+      m11: getPct(
         monthlyBangla.filter((i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes').length,
         monthlyBangla.length,
       ),
-      m8: getPct(teacherPriorityCount, monthlyBangla.length),
+
+      // M111
+      m111: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes' && i.grade === 'G1',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G1').length,
+      ),
+
+      // M112
+      m112: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes' && i.grade === 'G2',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G2').length,
+      ),
+
+      // M113
+      m113: getPct(
+        monthlyBangla.filter(
+          (i) => i.ind13FollowedContinuityOfLessonStatus === 'Yes' && i.grade === 'G3',
+        ).length,
+        monthlyBangla.filter((i) => i.grade === 'G3').length,
+      ),
+
+      // M12
+      m12: getPct(teacherPriorityCount, monthlyBangla.length),
+
+      // M121
+      m121: getPct(
+        teacherPriorityCountG1,
+        monthlyBangla.filter((i) => i.grade === 'G1' && i.teacherStatus).length,
+      ),
+
+      // M122
+      m122: getPct(
+        teacherPriorityCountG2,
+        monthlyBangla.filter((i) => i.grade === 'G2' && i.teacherStatus).length,
+      ),
+
+      // M123
+      m123: getPct(
+        teacherPriorityCountG3,
+        monthlyBangla.filter((i) => i.grade === 'G3' && i.teacherStatus).length,
+      ),
 
       //All Bangla Indicator
       ind1a: getPct(
@@ -545,76 +718,59 @@ const PrevailMilestone26New = () => {
                           data={[
                             {
                               sl: 1,
-                              area: 'Number of classrooms observed',
+                              area: 'Number of School in PREVAIL project Narail',
                               target: '?',
-                              january: january26.m1,
-                              february: februay26.m1,
-                              march: march26.m1,
-                              april: april26.m1,
-                              may: may26.m1,
-                              june: june26.m1,
-                              july: july26.m1,
-                              august: august26.m1,
-                              september: september26.m1,
-                              october: october26.m1,
-                              november: november26.m1,
-                              december: december26.m1,
+                              january: '494',
+                              february: '494',
+                              march: '494',
+                              april: '494',
+                              may: '494',
+                              june: '494',
+                              july: '494',
+                              august: '494',
+                              september: '494',
+                              october: '494',
+                              november: '494',
+                              december: '494',
                             },
                             {
                               sl: 2,
-                              area: 'Number of School observed',
+                              area: 'Number of working days',
                               target: '?',
-                              january: january26.mSchoolNumber,
-                              february: februay26.mSchoolNumber,
-                              march: march26.mSchoolNumber,
-                              april: april26.mSchoolNumber,
-                              may: may26.mSchoolNumber,
-                              june: june26.mSchoolNumber,
-                              july: july26.mSchoolNumber,
-                              august: august26.mSchoolNumber,
-                              september: september26.mSchoolNumber,
-                              october: october26.mSchoolNumber,
-                              november: november26.mSchoolNumber,
-                              december: december26.mSchoolNumber,
+                              january: '21',
+                              february: '11',
+                              march: '3',
+                              april: '11',
+                              may: '18',
+                              june: '21',
+                              july: '22',
+                              august: '19',
+                              september: '20',
+                              october: '14',
+                              november: '21',
+                              december: '14',
                             },
                             {
                               sl: 3,
-                              area: '% of schools visited atleast once',
+                              area: 'Number of LFs observed by LPO',
                               target: '?',
-                              january: january26.m2 + '%',
-                              february: februay26.m2 + '%',
-                              march: march26.m2 + '%',
-                              april: april26.m2 + '%',
-                              may: may26.m2 + '%',
-                              june: june26.m2 + '%',
-                              july: july26.m2 + '%',
-                              august: august26.m2 + '%',
-                              september: september26.m2 + '%',
-                              october: october26.m2 + '%',
-                              november: november26.m2 + '%',
-                              december: december26.m2 + '%',
+                              january: january26.m3,
+                              february: februay26.m3,
+                              march: march26.m3,
+                              april: april26.m3,
+                              may: may26.m3,
+                              june: june26.m3,
+                              july: july26.m3,
+                              august: august26.m3,
+                              september: september26.m3,
+                              october: october26.m3,
+                              november: november26.m3,
+                              december: december26.m3,
                             },
                             {
                               sl: 4,
-                              area: 'Number of working days',
-                              target: '?',
-                              january: 0,
-                              february: 0,
-                              march: 0,
-                              april: 0,
-                              may: 0,
-                              june: 0,
-                              july: 0,
-                              august: 0,
-                              september: 0,
-                              october: 0,
-                              november: 0,
-                              december: 0,
-                            },
-                            {
-                              sl: 5,
                               area: '% of the Literacy Facilitators at Basic and above levels of coaching  skills at the end of year 1(P2&P3)',
-                              target: '80%',
+                              target: '90%',
                               january: january26.m4 + '%',
                               february: februay26.m4 + '%',
                               march: march26.m4 + '%',
@@ -629,26 +785,26 @@ const PrevailMilestone26New = () => {
                               december: december26.m4 + '%',
                             },
                             {
-                              sl: 6,
-                              area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
-                              target: '70%',
-                              january: january26.m5 + '%',
-                              february: februay26.m5 + '%',
-                              march: march26.m5 + '%',
-                              april: april26.m5 + '%',
-                              may: may26.m5 + '%',
-                              june: june26.m5 + '%',
-                              july: july26.m5 + '%',
-                              august: august26.m5 + '%',
-                              september: september26.m5 + '%',
-                              october: october26.m5 + '%',
-                              november: november26.m5 + '%',
-                              december: december26.m5 + '%',
+                              sl: 5,
+                              area: 'Number of School Visited',
+                              target: '?',
+                              january: january26.m5,
+                              february: februay26.m5,
+                              march: march26.m5,
+                              april: april26.m5,
+                              may: may26.m5,
+                              june: june26.m5,
+                              july: july26.m5,
+                              august: august26.m5,
+                              september: september26.m5,
+                              october: october26.m5,
+                              november: november26.m5,
+                              december: december26.m5,
                             },
                             {
-                              sl: 7,
-                              area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
-                              target: '50%',
+                              sl: 6,
+                              area: '% of schools visited atleast once',
+                              target: '?',
                               january: january26.m6 + '%',
                               february: februay26.m6 + '%',
                               march: march26.m6 + '%',
@@ -663,38 +819,361 @@ const PrevailMilestone26New = () => {
                               december: december26.m6 + '%',
                             },
                             {
+                              sl: 7,
+                              area: 'Number of classrooms observed Bangla',
+                              target: '?',
+                              january: january26.m7,
+                              february: februay26.m7,
+                              march: march26.m7,
+                              april: april26.m7,
+                              may: may26.m7,
+                              june: june26.m7,
+                              july: july26.m7,
+                              august: august26.m7,
+                              september: september26.m7,
+                              october: october26.m7,
+                              november: november26.m7,
+                              december: december26.m7,
+                            },
+                            {
+                              sl: 7.1,
+                              area: 'G1',
+                              target: '?',
+                              january: january26.m71,
+                              february: februay26.m71,
+                              march: march26.m71,
+                              april: april26.m71,
+                              may: may26.m71,
+                              june: june26.m71,
+                              july: july26.m71,
+                              august: august26.m71,
+                              september: september26.m71,
+                              october: october26.m71,
+                              november: november26.m71,
+                              december: december26.m71,
+                            },
+                            {
+                              sl: 7.2,
+                              area: 'G2',
+                              target: '?',
+                              january: january26.m72,
+                              february: februay26.m72,
+                              march: march26.m72,
+                              april: april26.m72,
+                              may: may26.m72,
+                              june: june26.m72,
+                              july: july26.m72,
+                              august: august26.m72,
+                              september: september26.m72,
+                              october: october26.m72,
+                              november: november26.m72,
+                              december: december26.m72,
+                            },
+                            {
+                              sl: 7.3,
+                              area: 'G3',
+                              target: '?',
+                              january: january26.m73,
+                              february: februay26.m73,
+                              march: march26.m73,
+                              april: april26.m73,
+                              may: may26.m73,
+                              june: june26.m73,
+                              july: july26.m73,
+                              august: august26.m73,
+                              september: september26.m73,
+                              october: october26.m73,
+                              november: november26.m73,
+                              december: december26.m73,
+                            },
+                            {
                               sl: 8,
-                              area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
-                              target: '90%',
-                              january: january26.m7 + '%',
-                              february: februay26.m7 + '%',
-                              march: march26.m7 + '%',
-                              april: april26.m7 + '%',
-                              may: may26.m7 + '%',
-                              june: june26.m7 + '%',
-                              july: july26.m7 + '%',
-                              august: august26.m7 + '%',
-                              september: september26.m7 + '%',
-                              october: october26.m7 + '%',
-                              november: november26.m7 + '%',
-                              december: december26.m7 + '%',
+                              area: 'Number of classrooms observed PPE',
+                              target: '?',
+                              january: january26.m8,
+                              february: februay26.m8,
+                              march: march26.m8,
+                              april: april26.m8,
+                              may: may26.m8,
+                              june: june26.m8,
+                              july: july26.m8,
+                              august: august26.m8,
+                              september: september26.m8,
+                              october: october26.m8,
+                              november: november26.m8,
+                              december: december26.m8,
                             },
                             {
                               sl: 9,
+                              area: '% Bangla teachers have adopted key instructional practices (I do-We do-You do, engaging students in individual and group work, assessments)(1b)',
+                              target: '80%',
+                              january: january26.m9 + '%',
+                              february: februay26.m9 + '%',
+                              march: march26.m9 + '%',
+                              april: april26.m9 + '%',
+                              may: may26.m9 + '%',
+                              june: june26.m9 + '%',
+                              july: july26.m9 + '%',
+                              august: august26.m9 + '%',
+                              september: september26.m9 + '%',
+                              october: october26.m9 + '%',
+                              november: november26.m9 + '%',
+                              december: december26.m9 + '%',
+                            },
+                            {
+                              sl: 9.1,
+                              area: 'G1: (1b)',
+                              target: '80%',
+                              january: january26.m91 + '%',
+                              february: februay26.m91 + '%',
+                              march: march26.m91 + '%',
+                              april: april26.m91 + '%',
+                              may: may26.m91 + '%',
+                              june: june26.m91 + '%',
+                              july: july26.m91 + '%',
+                              august: august26.m91 + '%',
+                              september: september26.m91 + '%',
+                              october: october26.m91 + '%',
+                              november: november26.m91 + '%',
+                              december: december26.m91 + '%',
+                            },
+                            {
+                              sl: 9.2,
+                              area: 'G2: (1b)',
+                              target: '80%',
+                              january: january26.m92 + '%',
+                              february: februay26.m92 + '%',
+                              march: march26.m92 + '%',
+                              april: april26.m92 + '%',
+                              may: may26.m92 + '%',
+                              june: june26.m92 + '%',
+                              july: july26.m92 + '%',
+                              august: august26.m92 + '%',
+                              september: september26.m92 + '%',
+                              october: october26.m92 + '%',
+                              november: november26.m92 + '%',
+                              december: december26.m92 + '%',
+                            },
+                            {
+                              sl: 9.3,
+                              area: 'G3: (1b)',
+                              target: '70%',
+                              january: january26.m93 + '%',
+                              february: februay26.m93 + '%',
+                              march: march26.m93 + '%',
+                              april: april26.m93 + '%',
+                              may: may26.m93 + '%',
+                              june: june26.m93 + '%',
+                              july: july26.m93 + '%',
+                              august: august26.m93 + '%',
+                              september: september26.m93 + '%',
+                              october: october26.m93 + '%',
+                              november: november26.m93 + '%',
+                              december: december26.m93 + '%',
+                            },
+                            {
+                              sl: 10,
+                              area: '% of teachers able to complete all planned activities in sequence and on time (1d).',
+                              target: '70%',
+                              january: january26.m10 + '%',
+                              february: februay26.m10 + '%',
+                              march: march26.m10 + '%',
+                              april: april26.m10 + '%',
+                              may: may26.m10 + '%',
+                              june: june26.m10 + '%',
+                              july: july26.m10 + '%',
+                              august: august26.m10 + '%',
+                              september: september26.m10 + '%',
+                              october: october26.m10 + '%',
+                              november: november26.m10 + '%',
+                              december: december26.m10 + '%',
+                            },
+                            {
+                              sl: 10.1,
+                              area: 'G1: (1d)',
+                              target: '70%',
+                              january: january26.m101 + '%',
+                              february: februay26.m101 + '%',
+                              march: march26.m101 + '%',
+                              april: april26.m101 + '%',
+                              may: may26.m101 + '%',
+                              june: june26.m101 + '%',
+                              july: july26.m101 + '%',
+                              august: august26.m101 + '%',
+                              september: september26.m101 + '%',
+                              october: october26.m101 + '%',
+                              november: november26.m101 + '%',
+                              december: december26.m101 + '%',
+                            },
+                            {
+                              sl: 10.2,
+                              area: 'G2: (1d)',
+                              target: '70%',
+                              january: january26.m102 + '%',
+                              february: februay26.m102 + '%',
+                              march: march26.m102 + '%',
+                              april: april26.m102 + '%',
+                              may: may26.m102 + '%',
+                              june: june26.m102 + '%',
+                              july: july26.m102 + '%',
+                              august: august26.m102 + '%',
+                              september: september26.m102 + '%',
+                              october: october26.m102 + '%',
+                              november: november26.m102 + '%',
+                              december: december26.m102 + '%',
+                            },
+                            {
+                              sl: 10.3,
+                              area: 'G3: (1d)',
+                              target: '50%',
+                              january: january26.m103 + '%',
+                              february: februay26.m103 + '%',
+                              march: march26.m103 + '%',
+                              april: april26.m103 + '%',
+                              may: may26.m103 + '%',
+                              june: june26.m103 + '%',
+                              july: july26.m103 + '%',
+                              august: august26.m103 + '%',
+                              september: september26.m103 + '%',
+                              october: october26.m103 + '%',
+                              november: november26.m103 + '%',
+                              december: december26.m103 + '%',
+                            },
+                            {
+                              sl: 11,
+                              area: '% of observed Bangla teachers that are following use of workbooks during the Bangla language classes(1c)',
+                              target: '90%',
+                              january: january26.m11 + '%',
+                              february: februay26.m11 + '%',
+                              march: march26.m11 + '%',
+                              april: april26.m11 + '%',
+                              may: may26.m11 + '%',
+                              june: june26.m11 + '%',
+                              july: july26.m11 + '%',
+                              august: august26.m11 + '%',
+                              september: september26.m11 + '%',
+                              october: october26.m11 + '%',
+                              november: november26.m11 + '%',
+                              december: december26.m11 + '%',
+                            },
+                            {
+                              sl: 11.1,
+                              area: 'G1: (1c)',
+                              target: '90%',
+                              january: january26.m111 + '%',
+                              february: februay26.m111 + '%',
+                              march: march26.m111 + '%',
+                              april: april26.m111 + '%',
+                              may: may26.m111 + '%',
+                              june: june26.m111 + '%',
+                              july: july26.m111 + '%',
+                              august: august26.m111 + '%',
+                              september: september26.m111 + '%',
+                              october: october26.m111 + '%',
+                              november: november26.m111 + '%',
+                              december: december26.m111 + '%',
+                            },
+                            {
+                              sl: 11.2,
+                              area: 'G2: (1c)',
+                              target: '90%',
+                              january: january26.m112 + '%',
+                              february: februay26.m112 + '%',
+                              march: march26.m112 + '%',
+                              april: april26.m112 + '%',
+                              may: may26.m112 + '%',
+                              june: june26.m112 + '%',
+                              july: july26.m112 + '%',
+                              august: august26.m112 + '%',
+                              september: september26.m112 + '%',
+                              october: october26.m112 + '%',
+                              november: november26.m112 + '%',
+                              december: december26.m112 + '%',
+                            },
+                            {
+                              sl: 11.3,
+                              area: 'G3: (1c)',
+                              target: '70%',
+                              january: january26.m113 + '%',
+                              february: februay26.m113 + '%',
+                              march: march26.m113 + '%',
+                              april: april26.m113 + '%',
+                              may: may26.m113 + '%',
+                              june: june26.m113 + '%',
+                              july: july26.m113 + '%',
+                              august: august26.m113 + '%',
+                              september: september26.m113 + '%',
+                              october: october26.m113 + '%',
+                              november: november26.m113 + '%',
+                              december: december26.m113 + '%',
+                            },
+                            {
+                              sl: 12,
                               area: '% of Bangla teachers achieved ‘Mastered Instructional Routine’ level or above as observed by the Literacy Facilitators during the Bangla class observation(P1,P2,P3)',
+                              target: '75%',
+                              january: january26.m12 + '%',
+                              february: februay26.m12 + '%',
+                              march: march26.m12 + '%',
+                              april: april26.m12 + '%',
+                              may: may26.m12 + '%',
+                              june: june26.m12 + '%',
+                              july: july26.m12 + '%',
+                              august: august26.m12 + '%',
+                              september: september26.m12 + '%',
+                              october: october26.m12 + '%',
+                              november: november26.m12 + '%',
+                              december: december26.m12 + '%',
+                            },
+                            {
+                              sl: 12.1,
+                              area: 'G1: ‘(P1,P2,P3)’',
+                              target: '75%',
+                              january: january26.m121 + '%',
+                              february: februay26.m121 + '%',
+                              march: march26.m121 + '%',
+                              april: april26.m121 + '%',
+                              may: may26.m121 + '%',
+                              june: june26.m121 + '%',
+                              july: july26.m121 + '%',
+                              august: august26.m121 + '%',
+                              september: september26.m121 + '%',
+                              october: october26.m121 + '%',
+                              november: november26.m121 + '%',
+                              december: december26.m121 + '%',
+                            },
+                            {
+                              sl: 12.2,
+                              area: 'G2: ‘(P1,P2,P3)’',
+                              target: '75%',
+                              january: january26.m122 + '%',
+                              february: februay26.m122 + '%',
+                              march: march26.m122 + '%',
+                              april: april26.m122 + '%',
+                              may: may26.m122 + '%',
+                              june: june26.m122 + '%',
+                              july: july26.m122 + '%',
+                              august: august26.m122 + '%',
+                              september: september26.m122 + '%',
+                              october: october26.m122 + '%',
+                              november: november26.m122 + '%',
+                              december: december26.m122 + '%',
+                            },
+                            {
+                              sl: 12.3,
+                              area: 'G3: ‘(P1,P2,P3)’',
                               target: '60%',
-                              january: january26.m8 + '%',
-                              february: februay26.m8 + '%',
-                              march: march26.m8 + '%',
-                              april: april26.m8 + '%',
-                              may: may26.m8 + '%',
-                              june: june26.m8 + '%',
-                              july: july26.m8 + '%',
-                              august: august26.m8 + '%',
-                              september: september26.m8 + '%',
-                              october: october26.m8 + '%',
-                              november: november26.m8 + '%',
-                              december: december26.m8 + '%',
+                              january: january26.m123 + '%',
+                              february: februay26.m123 + '%',
+                              march: march26.m123 + '%',
+                              april: april26.m123 + '%',
+                              may: may26.m123 + '%',
+                              june: june26.m123 + '%',
+                              july: july26.m123 + '%',
+                              august: august26.m123 + '%',
+                              september: september26.m123 + '%',
+                              october: october26.m123 + '%',
+                              november: november26.m123 + '%',
+                              december: december26.m123 + '%',
                             },
                           ]}
                         />

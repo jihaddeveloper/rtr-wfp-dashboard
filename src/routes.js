@@ -1,10 +1,15 @@
+//  Author: Mohammad Jihad Hossain
+//  Create Date: 12/07/2025
+//  Modify Date: 12/07/2026
+//  Description: Route  file
+
 import { element } from 'prop-types'
 import React from 'react'
 
 import DIBanglaClassDataDetail from './views/base/bangla/DIBanglaClassDataDetail'
 
 const DashboardWFP = React.lazy(() => import('./views/dashboard/DashboardWFP'))
-//const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const DashboardMain = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Dashboard = React.lazy(() => import('./views/dashboard/DashboardPrevail'))
 const DashboardPrevail = React.lazy(() => import('./views/dashboard/DashboardPrevail'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -69,13 +74,19 @@ const DIBanglaNrFO = React.lazy(() => import('./views/base/bangla/DIBanglaNrFO')
 // Bangla
 
 // PREVAIL
+const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL'))
+const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
+const PEmployeeDetail = React.lazy(() => import('./views/base/employee/EmployeePrevail'))
+
+const PrevailEmployee = React.lazy(() => import('./views/base/prevail/PrevailEmployee'))
+const PrevailSchool = React.lazy(() => import('./views/base/prevail/PrevailSchool'))
+const PrevailTeacher = React.lazy(() => import('./views/base/prevail/PrevailTeacher'))
+
 const PBanglaDataDetailLPO = React.lazy(() =>
   import('./views/base/bangla/PBanglaClassDataDetailLPO'),
 )
 const PBanglaDataDetailLF = React.lazy(() => import('./views/base/bangla/PBanglaClassDataDetailLF'))
 const PBanglaDataDetail = React.lazy(() => import('./views/base/bangla/PBanglaClassDataDetail'))
-const PSchoolDetail = React.lazy(() => import('./views/base/school/SchoolPREVAIL'))
-const PTeacherDetail = React.lazy(() => import('./views/base/teacher/TeacherPREVAIL'))
 
 const PLFObservationDetailLPO = React.lazy(() => import('./views/base/lf/PLFObservationDetailLPO'))
 const PLFObservationDetail = React.lazy(() => import('./views/base/lf/PLFObservationDetail'))
@@ -84,18 +95,20 @@ const PPrePrimary = React.lazy(() => import('./views/base/preprimary/PPreprimary
 const PPrePrimaryLPO = React.lazy(() => import('./views/base/preprimary/PPreprimaryDataDetailLPO'))
 const PPrePrimaryLF = React.lazy(() => import('./views/base/preprimary/PPreprimaryDataDetailLF'))
 
-const PLibraryObservation = React.lazy(() => import('./views/base/prevail/PLibraryObservation'))
+const PLibraryObservation = React.lazy(() => import('./views/base/library/PLibraryObservation'))
 const PLibraryObservationLPO = React.lazy(() =>
-  import('./views/base/prevail/PLibraryObservationLPO'),
+  import('./views/base/library/PLibraryObservationLPO'),
 )
-const PLibraryObservationLF = React.lazy(() => import('./views/base/prevail/PLibraryObservationLF'))
+const PLibraryObservationLF = React.lazy(() => import('./views/base/library/PLibraryObservationLF'))
 
-const PAnalysisBCO = React.lazy(() => import('./views/base/prevail/PAnalysisBCO'))
+const PAnalysisBCO = React.lazy(() => import('./views/base/bco/PAnalysisBCO'))
+const PAnalysisBCOLPO = React.lazy(() => import('./views/base/bco/PAnalysisBCOLPO'))
+const PAnalysisBCOLF = React.lazy(() => import('./views/base/bco/PAnalysisBCOLF'))
 
-const PrevailEmployee = React.lazy(() => import('./views/base/prevail/PrevailEmployee'))
-const PrevailSchool = React.lazy(() => import('./views/base/prevail/PrevailSchool'))
-const PrevailTeacher = React.lazy(() => import('./views/base/prevail/PrevailTeacher'))
 const PSRMCalss = React.lazy(() => import('./views/base/srm/PSRMDataDetail'))
+const PSRMCalssLPO = React.lazy(() => import('./views/base/srm/PSRMDataDetailLPO'))
+const PSRMCalssLF = React.lazy(() => import('./views/base/srm/PSRMDataDetailLF'))
+
 const PMilestone25 = React.lazy(() => import('./views/base/prevail/PrevailMilestone25'))
 // const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26'))
 const PMilestone26 = React.lazy(() => import('./views/base/prevail/PrevailMilestone26New'))
@@ -184,11 +197,14 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const District = React.lazy(() => import('./views/base/district/District'))
 
+const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
+const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
+
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
   { path: '/login', name: 'Login', element: Login },
-  { path: '/register', name: 'Register', element: Register },
+  { path: '/signup', name: 'Register', element: Register },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+
   { path: '/dashboard-prevail', name: 'DashboardPrevail', element: DashboardPrevail },
   { path: '/dashboard-wfp', name: 'DashboardWFP', element: DashboardWFP },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
@@ -322,96 +338,6 @@ const routes = [
   { path: '/bangla/di-bangla-mfo', name: 'DIBanglaMFO', element: DIBanglaMFO },
   { path: '/bangla/di-bangla-nrfo', name: 'DIBanglaNrFO', element: DIBanglaNrFO },
 
-  // PREVAIL
-  { path: '/bangla/p-bangla-detail/lf', name: 'PBanglaDataDetailLF', element: PBanglaDataDetailLF },
-  {
-    path: '/bangla/p-bangla-detail/lpo',
-    name: 'PBanglaDataDetailLPO',
-    element: PBanglaDataDetailLPO,
-  },
-  { path: '/bangla/p-bangla-detail', name: 'PBanglaDataDetail', element: PBanglaDataDetail },
-  { path: '/prevail/p-school-detail', name: 'PSchoolDetail', element: PSchoolDetail },
-  { path: '/prevail/p-teacher-detail', name: 'PTeacherDetail', element: PTeacherDetail },
-  {
-    path: '/prevail/p-lf-observation-detail',
-    name: 'PLFObservationDetail',
-    element: PLFObservationDetail,
-  },
-  {
-    path: '/prevail/p-lf-observation-detail/lpo',
-    name: 'PLFObservationDetailLPO',
-    element: PLFObservationDetailLPO,
-  },
-  {
-    path: '/prevail/p-library-observation',
-    name: 'PLibraryObservation',
-    element: PLibraryObservation,
-  },
-  {
-    path: '/prevail/p-library-observation/lpo',
-    name: 'PLibraryObservationLPO',
-    element: PLibraryObservationLPO,
-  },
-  {
-    path: '/prevail/p-library-observation/lf',
-    name: 'PLibraryObservationLF',
-    element: PLibraryObservationLF,
-  },
-  {
-    path: '/prevail/p-milestone-25',
-    name: 'PMilestone25',
-    element: PMilestone25,
-  },
-  {
-    path: '/prevail/p-milestone-26',
-    name: 'PMilestone26',
-    element: PMilestone26,
-  },
-
-  {
-    path: '/prevail/p-preprimary',
-    name: 'PPrePrimary',
-    element: PPrePrimary,
-  },
-  {
-    path: '/prevail/p-preprimary/lpo',
-    name: 'PPrePrimaryLPO',
-    element: PPrePrimaryLPO,
-  },
-  {
-    path: '/prevail/p-preprimary/lf',
-    name: 'PPrePrimaryLF',
-    element: PPrePrimaryLF,
-  },
-  {
-    path: '/prevail/p-bco',
-    name: 'PAnalysisBCO',
-    element: PAnalysisBCO,
-  },
-
-  {
-    path: '/prevail/p-employee',
-    name: 'PrevailEmployee',
-    element: PrevailEmployee,
-  },
-  {
-    path: '/prevail/p-school',
-    name: 'PrevailSchool',
-    element: PrevailSchool,
-  },
-  {
-    path: '/prevail/p-teacher',
-    name: 'PrevailTeacher',
-    element: PrevailTeacher,
-  },
-
-  {
-    path: '/prevail/p-srm',
-    name: 'PSRMClassData',
-    element: PSRMCalss,
-  },
-  // PREVAIL
-
   {
     path: '/preprimary/preprimary-class',
     name: 'PreprimaryClassData',
@@ -422,10 +348,457 @@ const routes = [
     name: 'PreprimaryClassReport',
     element: PreprimaryClassReport,
   },
-
   { path: '/srm/srm-class', name: 'SRMClass', element: SRMCalss },
-
   { path: '/di/base/district', name: 'District', element: District },
+
+  // PREVAIL
+
+  {
+    path: '/prevail/p-school-detail',
+    name: 'PSchoolDetail',
+    element: PSchoolDetail,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-teacher-detail',
+    name: 'PTeacherDetail',
+    element: PTeacherDetail,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-employee-detail',
+    name: 'PEmployeeDetail',
+    element: PEmployeeDetail,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  // Update route
+  {
+    path: '/prevail/p-employee',
+    name: 'PrevailEmployee',
+    element: PrevailEmployee,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-school',
+    name: 'PrevailSchool',
+    element: PrevailSchool,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-teacher',
+    name: 'PrevailTeacher',
+    element: PrevailTeacher,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  // Update route
+
+  {
+    path: '/bangla/p-bangla-detail',
+    name: 'PBanglaDataDetail',
+    element: PBanglaDataDetail,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/bangla/p-bangla-detail/lf',
+    name: 'PBanglaDataDetailLF',
+    element: PBanglaDataDetailLF,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/bangla/p-bangla-detail/lpo',
+    name: 'PBanglaDataDetailLPO',
+    element: PBanglaDataDetailLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-lf-observation-detail',
+    name: 'PLFObservationDetail',
+    element: PLFObservationDetail,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-lf-observation-detail/lpo',
+    name: 'PLFObservationDetailLPO',
+    element: PLFObservationDetailLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-library-observation',
+    name: 'PLibraryObservation',
+    element: PLibraryObservation,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-library-observation/lpo',
+    name: 'PLibraryObservationLPO',
+    element: PLibraryObservationLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-library-observation/lf',
+    name: 'PLibraryObservationLF',
+    element: PLibraryObservationLF,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-milestone-25',
+    name: 'PMilestone25',
+    element: PMilestone25,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-milestone-26',
+    name: 'PMilestone26',
+    element: PMilestone26,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-preprimary',
+    name: 'PPrePrimary',
+    element: PPrePrimary,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-preprimary/lpo',
+    name: 'PPrePrimaryLPO',
+    element: PPrePrimaryLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-preprimary/lf',
+    name: 'PPrePrimaryLF',
+    element: PPrePrimaryLF,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-bco',
+    name: 'PAnalysisBCO',
+    element: PAnalysisBCO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  {
+    path: '/prevail/p-bco/lpo',
+    name: 'PAnalysisBCOLPO',
+    element: PAnalysisBCOLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_LPO',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-bco/lf',
+    name: 'PAnalysisBCOLF',
+    element: PAnalysisBCOLF,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-srm',
+    name: 'PSRMClassData',
+    element: PSRMCalss,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-srm/lpo',
+    name: 'PSRMClassDataLPO',
+    element: PSRMCalssLPO,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_LPO',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+
+  {
+    path: '/prevail/p-srm/lf',
+    name: 'PSRMClassDataLF',
+    element: PSRMCalssLF,
+    allowedRoles: [
+      'ROLE_ADMIN',
+      'ROLE_TA',
+      'ROLE_FM',
+      'ROLE_LPO',
+      'ROLE_LF',
+      'ROLE_CO_RME',
+      'ROLE_F_RME',
+      'ROLE_CMT',
+      'ROLE_GO',
+      'ROLE_DONOR',
+      'ROLE_USER',
+    ],
+  },
+  // PREVAIL
+
+  // Fallback public route
+  { path: '/404', name: 'Unauthorized', element: Page404 },
+  // Fallback public route
+  { path: '/500', name: 'Unauthorized', element: Page500 },
 ]
 
 export default routes

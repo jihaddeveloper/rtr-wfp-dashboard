@@ -111,7 +111,11 @@ const Dashboard = () => {
     (item) => item.schoolPerformanceHeadteacher === 'Yes',
   )
 
-  // Filter Teacher data
+  // Logout method
+  const logout = () => {
+    localStorage.removeItem('user')
+  }
+  // Logout method
 
   // Get All School Data
   const getAllSchool = async () => {

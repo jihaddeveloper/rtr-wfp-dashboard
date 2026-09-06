@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 09/09/2025
-//  Modify Date: 04/11/2025
-//  Description: PLFObservation  file
+//  Create Date: 09/06/2026
+//  Modify Date: 27/08/2026
+//  Description: SchoolPREVAIL  file
 
 import React, { useState, useEffect, forwardRef } from 'react'
 import axios from 'axios'
@@ -303,20 +303,22 @@ const SchoolPREVAIL = () => {
                         field: 'address',
                       },
                     ]}
-                    editable={{
-                      onRowUpdate: (newData, oldData) =>
-                        new Promise((resolve) => {
-                          handleRowUpdateAllSchool(newData, oldData, resolve)
-                        }),
-                      onRowAdd: (newData) =>
-                        new Promise((resolve) => {
-                          handleRowAddSchool(newData, resolve)
-                        }),
-                      // onRowDelete: (oldData) =>
-                      //   new Promise((resolve) => {
-                      //     handleRowDeleteSchool(oldData, resolve)
-                      //   }),
-                    }}
+                    editable={
+                      {
+                        // onRowUpdate: (newData, oldData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowUpdateAllSchool(newData, oldData, resolve)
+                        //   }),
+                        // onRowAdd: (newData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowAddSchool(newData, resolve)
+                        //   }),
+                        // onRowDelete: (oldData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowDeleteSchool(oldData, resolve)
+                        //   }),
+                      }
+                    }
                     options={{
                       exportButton: true,
                       exportAllData: true,

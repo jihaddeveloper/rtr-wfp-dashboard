@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 20/05/2026
+//  Modify Date: 06/09/2026
 //  Description: PBanglaClassDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -43,6 +43,10 @@ import Box from '@mui/material/Box'
 import MaterialTable from 'material-table'
 import { BorderBottom } from '@material-ui/icons'
 
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const API_URL = `${BASE_URL}/p-bangla-class`
+
 //Icon
 //Icon
 
@@ -78,11 +82,50 @@ const PBanglaClassDataDetail = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
+  // Get All AllBanglaClass Data for school
+  const getAllBanglaClass = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(API_URL, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      const arrayData = Array.isArray(response.data) ? response.data : response.data?.data
+
+      if (!Array.isArray(arrayData)) {
+        setAllBanglaObsData([])
+        return
+      }
+
+      // Sort descending so the latest item comes first
+      const sortedData = [...arrayData].sort((a, b) => {
+        // 1. If you have a date/timestamp field (e.g., createdAt, date, timestamp)
+        return new Date(b.createDate) - new Date(a.createDate)
+
+        // 2. OR if you use an auto-incrementing numeric ID (e.g., id, _id):
+        // return b.id - a.id;
+      })
+
+      //const reversedData = Array.isArray(response.data) ? [...response.data].reverse() : []
+
+      setAllBanglaObsData(sortedData)
+
+      console.log('Data:' + response.data)
+    } catch (error) {
+      console.error('Error fetching Bangla class data:', error)
+    } finally {
+      setIsLoading(false) // Ensures loading stops even if the request fails
+    }
+  }
+  // Get All AllBanglaClass Data for school
+
   // Get All Teacher
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
+      const response = await axios(`${BASE_URL}/p-teacher`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -2319,31 +2362,9 @@ const PBanglaClassDataDetail = () => {
   // PreviousMonth
   // Bangla Observation Data by filter
 
-  // Get All Book-checkout Data for school
-  const getAllBanglaClass = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBanglaObsData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Book-checkout Data for school
-
   // Row update function
-  const handleRowUpdateAllBanglaClass = (newData, oldData, resolve) => {
+  const handleRowUpdateAllBanglaClass = (newData, oldData, resolve, reject) => {
     //validation
-
     let errorList = []
     // if (newData.first_name === '') {
     //   errorList.push('Please enter first name')
@@ -2357,40 +2378,42 @@ const PBanglaClassDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch('http://118.179.80.51:8080/api/v1/p-bangla-class/' + newData.id, newData, {
-          method: 'PATCH',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
+        .patch(`${API_URL}/${newData.id}`, newData)
         .then((res) => {
-          const dataUpdate = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataUpdate[index] = newData
-          setAllBanglaObsData([...dataUpdate])
+          // Fallback to res.data if your API returns the updated item, otherwise use newData
+          const updatedRowFromServer = res.data || newData
+
+          // Secure state update using item IDs to prevent bugs caused by .toReversed() layout ordering
+          setAllBanglaObsData((prevData) =>
+            prevData.map((item) => {
+              // Compare unique IDs as strings to rule out type discrepancies
+              if (String(item.id) === String(newData.id)) {
+                return {
+                  ...item, // Keep original row structure and historical tableData keys
+                  ...updatedRowFromServer, // Layer on top the freshly patched API parameters
+                  tableData: oldData.tableData, // Protect material-table's critical internal layout reference tracker
+                }
+              }
+              return item
+            }),
+          )
+
+          // // Resolve the promise to close the material-table inline edit mode
           resolve()
-          setIserror(false)
-          setErrorMessages([])
-          getAllBanglaClass()
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
           setIserror(true)
-          resolve()
+          reject()
         })
     } else {
       setErrorMessages(errorList)
-      setIserror(true)
-      resolve()
+      // Reject the promise to keep edit mode open for corrections
+      reject()
     }
   }
   // Row update function
+
   // Row add function
   const handleRowAddBanglaClass = (newData, resolve) => {
     //validation
@@ -2408,25 +2431,17 @@ const PBanglaClassDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-bangla-class/', newData, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
+        .post(`${API_URL}`, newData)
         .then((res) => {
-          const dataToAdd = [...allBanglaObsData]
-          dataToAdd.push(newData)
-          setAllBanglaObsData([...dataToAdd])
-          resolve()
+          // Fallback safely to input data if your API response body is wrapped or customized
+          const savedRowFromServer = res.data || newData
+
+          // Prepend directly to the front since the state isn't being reversed dynamically anymore
+          setAllBanglaObsData((prevData) => [savedRowFromServer, ...prevData])
+
           setIserror(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve()
         })
         .catch((error) => {
           setErrorMessages(['Add BanglaClass failed! Server error'])
@@ -2458,27 +2473,17 @@ const PBanglaClassDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/p-bangla-class/' + oldData.id, {
-          method: 'DELETE',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
+        .delete(`${API_URL}/${oldData.id}`)
         .then((res) => {
-          const dataDelete = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataDelete.splice(index, 1)
-          setAllBanglaObsData([...dataDelete])
-          resolve()
+          // This is safe against sorting, filtering, and array order shifts
+          setAllBanglaObsData((prevData) =>
+            prevData.filter((item) => String(item.id) !== String(oldData.id)),
+          )
+          // The table updates instantly from the filter state above, saving a network request
+
           setIserror(false)
           setErrorMessages([])
-          getAllBanglaClass()
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve() // Smoothly closes the material-table delete modal confirmation overlay
         })
         .catch((error) => {
           setErrorMessages(['Delete failed! Server error'])
@@ -3971,13 +3976,13 @@ const PBanglaClassDataDetail = () => {
                       handleRowAddBanglaClass(newData, resolve)
                     }),
                   onRowUpdate: (newData, oldData) =>
-                    new Promise((resolve) => {
-                      handleRowUpdateAllBanglaClass(newData, oldData, resolve)
+                    new Promise((resolve, reject) => {
+                      handleRowUpdateAllBanglaClass(newData, oldData, resolve, reject)
                     }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeleteBanglaClass(oldData, resolve)
-                  //   }),
+                  onRowDelete: (oldData) =>
+                    new Promise((resolve) => {
+                      handleRowDeleteBanglaClass(oldData, resolve)
+                    }),
                 }}
                 options={{
                   exportButton: true,
@@ -4017,10 +4022,30 @@ const PBanglaClassDataDetail = () => {
                     padding: '8px 12px', // Comfortable padding that scales better than hardcoded small heights
                   },
                   maintainAspectRatio: false,
+                  // selection: true,
                 }}
                 // Replaced fixed pixels with percentage widths to rely on container-driven layout
                 style={{ width: '100%' }}
-                data={allBanglaObsData.toReversed()}
+                detailPanel={[
+                  {
+                    tooltip: 'Show Detail',
+                    render: (rowData) => {
+                      return (
+                        <div
+                          style={{
+                            fontSize: 30,
+                            textAlign: 'match-parent',
+                            color: 'black',
+                            backgroundColor: '#c0efc4',
+                          }}
+                        >
+                          School: {rowData.school}, LPO: {rowData.lpoName}, LF: {rowData.lfName}
+                        </div>
+                      )
+                    },
+                  },
+                ]}
+                data={allBanglaObsData}
               />
             </CCardBody>
           </CCard>

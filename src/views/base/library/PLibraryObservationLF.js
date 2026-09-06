@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 14/01/2026
-//  Modify Date: 19/05/2026
-//  Description: PLibraryObservation  file
+//  Create Date: 14/06/2026
+//  Modify Date: 06/09/2026
+//  Description: PLibraryObservationLF  file
 
 import React, { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
@@ -66,6 +66,8 @@ const BASE_URL = 'http://118.179.80.51:8080/api/v1'
 
 const API_URL = `${BASE_URL}/p-library-observation`
 
+const API_School = `${BASE_URL}/p-school`
+
 const YEAR = '2026'
 
 const MONTHS = [
@@ -103,12 +105,27 @@ const getPreviousMonth = () => {
   })
 }
 
-const PLibraryObservation = () => {
+const PLibraryObservationLF = () => {
+  // This function runs synchronously before the initial render
+  const [user, setUser] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user || 'no user saved'
+  })
+
   // data state to store the BCO API data. Its initial value is an empty array
   //const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const [allPLibraryObservation, setAllPLibraryObservation] = useState([])
+
+  const [allSchoolData, setAllSchoolData] = useState([])
+
+  const LF = user?.username || 'E-06344'
+  const LPO = 'E-06524'
+
+  const LibraryNo = allSchoolData.filter((item) => {
+    return item.lf === LF
+  }).length
 
   // Get previous month
   const current = new Date()
@@ -140,7 +157,29 @@ const PLibraryObservation = () => {
 
       const response = await axios.get(API_URL)
 
-      setObservations(response.data || [])
+      const arrayData = Array.isArray(response.data) ? response.data : response.data?.data
+
+      if (!Array.isArray(arrayData)) {
+        setObservations([])
+        return
+      }
+
+      // Sort descending so the latest item comes first
+      const sortedData = [...arrayData].sort((a, b) => {
+        // 1. If you have a date/timestamp field (e.g., createdAt, date, timestamp)
+        return new Date(b.createDate) - new Date(a.createDate)
+
+        // 2. OR if you use an auto-incrementing numeric ID (e.g., id, _id):
+        // return b.id - a.id;
+      })
+
+      //const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
+
+      setObservations(
+        sortedData.filter((item) => {
+          return item.lf === LF && item.office === 'NrFO'
+        }) || [],
+      )
     } catch (err) {
       console.error(err)
 
@@ -150,8 +189,31 @@ const PLibraryObservation = () => {
     }
   }
 
+  // Get All School
+  const getAllSchool = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(API_School, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
+
   useEffect(() => {
     fetchLibraryObservations()
+    getAllSchool(console.log('get School class called'))
   }, [])
 
   /* ---------------------------------------------------------------------- */
@@ -260,30 +322,8 @@ const PLibraryObservation = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
-  // Get All Library observation
-  // const getAllPLibraryObservation = async () => {
-  //   setIsLoading(true)
-  //   try {
-  //     const response = await axios('http://118.179.80.51:8080/api/v1/p-library-observation', {
-  //       method: 'GET',
-  //       mode: 'no-cors',
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //       },
-  //     })
-  //     setAllPLibraryObservation(response.data)
-
-  //     setIsLoading(false)
-  //     console.log('Data:' + response)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-  // Get All Library observation
-
   // Row update function
-  const handleRowUpdatePLibraryObservation = (newData, oldData, resolve) => {
+  const handleRowUpdatePLibraryObservation = (newData, oldData, resolve, reject) => {
     //validation
 
     let errorList = []
@@ -299,7 +339,7 @@ const PLibraryObservation = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch('http://118.179.80.51:8080/api/v1/p-library-observation/' + newData.id, newData, {
+        .patch(`${API_URL}/${newData.id}`, newData, {
           method: 'PATCH',
           mode: 'no-cors',
           headers: {
@@ -308,27 +348,36 @@ const PLibraryObservation = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...allPLibraryObservation]
-          const index = oldData.tableData.id
-          dataUpdate[index] = newData
-          setAllPLibraryObservation([...dataUpdate])
+          // Fallback to res.data if your API returns the updated item, otherwise use newData
+          const updatedRowFromServer = res.data || newData
+
+          // Secure state update using item IDs to prevent bugs caused by .toReversed() layout ordering
+          setObservations((prevData) =>
+            prevData.map((item) => {
+              // Compare unique IDs as strings to rule out type discrepancies
+              if (String(item.id) === String(newData.id)) {
+                return {
+                  ...item, // Keep original row structure and historical tableData keys
+                  ...updatedRowFromServer, // Layer on top the freshly patched API parameters
+                  tableData: oldData.tableData, // Protect material-table's critical internal layout reference tracker
+                }
+              }
+              return item
+            }),
+          )
+
+          // // Resolve the promise to close the material-table inline edit mode
           resolve()
-          setIsError(false)
-          setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/library-observations/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
           setIsError(true)
-          resolve()
+          reject()
         })
     } else {
       setErrorMessages(errorList)
       setIsError(true)
-      resolve()
+      reject()
     }
   }
   // Row update function
@@ -350,7 +399,7 @@ const PLibraryObservation = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-library-observation/', newData, {
+        .post(`${API_URL}`, newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -359,16 +408,15 @@ const PLibraryObservation = () => {
           },
         })
         .then((res) => {
-          const dataToAdd = [...allPLibraryObservation]
-          dataToAdd.push(newData)
-          setAllPLibraryObservation([...dataToAdd])
-          resolve()
+          // Fallback safely to input data if your API response body is wrapped or customized
+          const savedRowFromServer = res.data || newData
+
+          // Prepend directly to the front since the state isn't being reversed dynamically anymore
+          setObservations((prevData) => [savedRowFromServer, ...prevData])
+
           setIsError(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve()
         })
         .catch((error) => {
           setErrorMessages(['Add LibraryObservation failed! Server error'])
@@ -400,7 +448,7 @@ const PLibraryObservation = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/p-library-observation/' + oldData.id, {
+        .delete(`${API_URL}/${oldData.id}`, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {
@@ -409,17 +457,15 @@ const PLibraryObservation = () => {
           },
         })
         .then((res) => {
-          const dataDelete = [...allPLibraryObservation]
-          const index = oldData.tableData.id
-          dataDelete.splice(index, 1)
-          setAllPLibraryObservation([...dataDelete])
-          resolve()
+          // This is safe against sorting, filtering, and array order shifts
+          setObservations((prevData) =>
+            prevData.filter((item) => String(item.id) !== String(oldData.id)),
+          )
+          // The table updates instantly from the filter state above, saving a network request
+
           setIsError(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve() // Smoothly closes the material-table delete modal confirmation overlay
         })
         .catch((error) => {
           setErrorMessages(['Delete failed! Server error'])
@@ -482,7 +528,7 @@ const PLibraryObservation = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total Library</CTableHeaderCell>
-                              <CTableDataCell>494</CTableDataCell>
+                              <CTableDataCell>{LibraryNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">
@@ -675,7 +721,7 @@ const PLibraryObservation = () => {
             <CCardHeader>
               <strong>All PREVAIL Library Observation Data </strong>
               <small className="text-muted block-xs-only">
-                - Total Library Observation: {allPLibraryObservation.length}
+                - Total Library Observation: {observations.length}
               </small>
             </CCardHeader>
             <CCardBody style={{ width: '100%', overflowX: 'auto' }}>
@@ -882,20 +928,22 @@ const PLibraryObservation = () => {
                   { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
-                editable={{
-                  onRowUpdate: (newData, oldData) =>
-                    new Promise((resolve) => {
-                      handleRowUpdatePLibraryObservation(newData, oldData, resolve)
-                    }),
-                  onRowAdd: (newData) =>
-                    new Promise((resolve) => {
-                      handleRowAddPLibraryObservation(newData, resolve)
-                    }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeletePLibraryObservation(oldData, resolve)
-                  //   }),
-                }}
+                editable={
+                  {
+                    // onRowUpdate: (newData, oldData) =>
+                    //   new Promise((resolve) => {
+                    //     handleRowUpdatePLibraryObservation(newData, oldData, resolve)
+                    //   }),
+                    // onRowAdd: (newData) =>
+                    //   new Promise((resolve) => {
+                    //     handleRowAddPLibraryObservation(newData, resolve)
+                    //   }),
+                    // // onRowDelete: (oldData) =>
+                    // //   new Promise((resolve) => {
+                    // //     handleRowDeletePLibraryObservation(oldData, resolve)
+                    // //   }),
+                  }
+                }
                 options={{
                   exportButton: true,
                   exportAllData: true,
@@ -930,7 +978,7 @@ const PLibraryObservation = () => {
                 }}
                 /* Removed fixed style attributes to avoid breaking fluid card bounds */
                 style={{ width: '100%' }}
-                data={observations.toReversed()}
+                data={observations}
               />
             </CCardBody>
           </CCard>
@@ -940,4 +988,4 @@ const PLibraryObservation = () => {
   )
 }
 
-export default PLibraryObservation
+export default PLibraryObservationLF

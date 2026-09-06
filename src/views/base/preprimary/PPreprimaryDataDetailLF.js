@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/06/2026
-//  Modify Date: 30/06/2026
+//  Modify Date: 06/09/2026
 //  Description: PPreprimaryDataDetailLF  file
 
 import React, { useState, useEffect } from 'react'
@@ -46,12 +46,19 @@ import { BorderBottom } from '@material-ui/icons'
 //Icon
 //Icon
 
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+const API_URL = `${BASE_URL}/p-preprimary`
+
 const PPreprimaryDataDetailLF = () => {
+  // This function runs synchronously before the initial render
+  const [user, setUser] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user || 'no user saved'
+  })
+
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-
-  const [allBanglaObsData, setAllBanglaObsData] = useState([])
 
   const [allPPrePrimaryData, setAllPPrePrimaryData] = useState([])
 
@@ -59,7 +66,7 @@ const PPreprimaryDataDetailLF = () => {
 
   const [allSchoolData, setAllSchoolData] = useState([])
 
-  const LF = 'E-03853'
+  const LF = user?.username || 'E-03853'
   const LPO = 'E-04629'
 
   const TeacherNo = allSchoolData.filter((item) => {
@@ -91,11 +98,52 @@ const PPreprimaryDataDetailLF = () => {
   }, [])
   // Using useEffect to call the API once mounted and set the data
 
+  // Get All PPrePrimary Data for school
+  const getAllPPrePrimary = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(`${API_URL}`, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      const arrayData = Array.isArray(response.data) ? response.data : response.data?.data
+
+      if (!Array.isArray(arrayData)) {
+        setAllPPrePrimaryData([])
+        return
+      }
+
+      // Sort descending so the latest item comes first
+      const sortedData = [...arrayData].sort((a, b) => {
+        // 1. If you have a date/timestamp field (e.g., createdAt, date, timestamp)
+        return new Date(b.createDate) - new Date(a.createDate)
+
+        // 2. OR if you use an auto-incrementing numeric ID (e.g., id, _id):
+        // return b.id - a.id;
+      })
+
+      //const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
+
+      setAllPPrePrimaryData(
+        sortedData.filter((item) => {
+          return item.lf === LF && item.office === 'NrFO'
+        }),
+      )
+      setIsLoading(false)
+      console.log('Data:' + response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All PPrePrimary Data for school
+
   // Get All School
   const getAllSchool = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+      const response = await axios(`${BASE_URL}/p-school`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -117,7 +165,7 @@ const PPreprimaryDataDetailLF = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
+      const response = await axios(`${BASE_URL}/p-teacher`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -736,183 +784,6 @@ const PPreprimaryDataDetailLF = () => {
   // PreviousMonth
   // Bangla Observation Data by filter
 
-  // Get All PPrePrimary Data for school
-  const getAllPPrePrimary = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-preprimary', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllPPrePrimaryData(
-        response.data.filter((item) => {
-          return item.lf === LF && item.office === 'NrFO'
-        }),
-      )
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All PPrePrimary Data for school
-
-  // Row update function
-  const handleRowUpdateAllPPrePrimaryClass = (newData, oldData, resolve) => {
-    //validation
-
-    let errorList = []
-    // if (newData.first_name === '') {
-    //   errorList.push('Please enter first name')
-    // }
-    // if (newData.last_name === '') {
-    //   errorList.push('Please enter last name')
-    // }
-    // if (newData.email === '' || validateEmail(newData.email) === false) {
-    //   errorList.push('Please enter a valid email')
-    // }
-
-    if (errorList.length < 1) {
-      axios
-        .patch('http://118.179.80.51:8080/api/v1/p-preprimary/' + newData.id, newData, {
-          method: 'PATCH',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          const dataUpdate = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataUpdate[index] = newData
-          setAllBanglaObsData([...dataUpdate])
-          resolve()
-          setIserror(false)
-          setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
-        })
-        .catch((error) => {
-          setErrorMessages(['Update failed! Server error'])
-          setIserror(true)
-          resolve()
-        })
-    } else {
-      setErrorMessages(errorList)
-      setIserror(true)
-      resolve()
-    }
-  }
-  // Row update function
-  // Row add function
-  const handleRowAddPPrePrimaryClass = (newData, resolve) => {
-    //validation
-
-    let errorList = []
-    // if (newData.first_name === '') {
-    //   errorList.push('Please enter first name')
-    // }
-    // if (newData.last_name === '') {
-    //   errorList.push('Please enter last name')
-    // }
-    // if (newData.email === '' || validateEmail(newData.email) === false) {
-    //   errorList.push('Please enter a valid email')
-    // }
-
-    if (errorList.length < 1) {
-      axios
-        .post('http://118.179.80.51:8080/api/v1/p-preprimary/', newData, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          const dataToAdd = [...allBanglaObsData]
-          dataToAdd.push(newData)
-          setAllBanglaObsData([...dataToAdd])
-          resolve()
-          setIserror(false)
-          setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
-        })
-        .catch((error) => {
-          setErrorMessages(['Add PPrePrimary failed! Server error'])
-          setIserror(true)
-          resolve()
-        })
-    } else {
-      setErrorMessages(errorList)
-      setIserror(true)
-      resolve()
-    }
-  }
-  // Row add function
-
-  // Row delete function
-  const handleRowDeletePPrePrimaryClass = (oldData, resolve) => {
-    //validation
-
-    let errorList = []
-    // if (newData.first_name === '') {
-    //   errorList.push('Please enter first name')
-    // }
-    // if (newData.last_name === '') {
-    //   errorList.push('Please enter last name')
-    // }
-    // if (newData.email === '' || validateEmail(newData.email) === false) {
-    //   errorList.push('Please enter a valid email')
-    // }
-
-    if (errorList.length < 1) {
-      axios
-        .delete('http://118.179.80.51:8080/api/v1/p-preprimary/' + oldData.id, {
-          method: 'DELETE',
-          mode: 'no-cors',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          const dataDelete = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataDelete.splice(index, 1)
-          setAllBanglaObsData([...dataDelete])
-          resolve()
-          setIserror(false)
-          setErrorMessages([])
-          getAllPPrePrimary()
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
-        })
-        .catch((error) => {
-          setErrorMessages(['Delete failed! Server error'])
-          setIserror(true)
-          resolve()
-        })
-    } else {
-      setErrorMessages(errorList)
-      setIserror(true)
-      resolve()
-    }
-  }
-  // Row delete function
-
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -1515,20 +1386,7 @@ const PPreprimaryDataDetailLF = () => {
                   { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
-                editable={{
-                  onRowAdd: (newData) =>
-                    new Promise((resolve) => {
-                      handleRowAddPPrePrimaryClass(newData, resolve)
-                    }),
-                  onRowUpdate: (newData, oldData) =>
-                    new Promise((resolve) => {
-                      handleRowUpdateAllPPrePrimaryClass(newData, oldData, resolve)
-                    }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeletePPrePrimaryClass(oldData, resolve)
-                  //   }),
-                }}
+                editable={{}}
                 options={{
                   exportButton: true,
                   exportAllData: true,
@@ -1575,7 +1433,7 @@ const PPreprimaryDataDetailLF = () => {
                   maintainAspectRatio: false,
                 }}
                 style={{ width: '100%' }}
-                data={allPPrePrimaryData.toReversed()}
+                data={allPPrePrimaryData}
               />
             </CCardBody>
           </CCard>

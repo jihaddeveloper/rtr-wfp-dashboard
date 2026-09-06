@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 14/06/2026
-//  Modify Date: 14/07/2026
-//  Description: PrevailEmployee  file
+//  Create Date: 12/07/2025
+//  Modify Date: 12/07/2026
+//  Description: EmployeePrevail  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -42,23 +42,11 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
-const BASE_URL = 'http://118.179.80.51:8080/api/v1'
-
-const API_URL = `${BASE_URL}/p-employee`
-
-const PrevailEmployee = () => {
-  // This function runs synchronously before the initial render
-  const [user, setUser] = useState(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user || 'no user saved'
-  })
-
+const EmployeePrevail = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [allBCOData, setAllBCOData] = useState([])
-  const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
 
   // For error handling row update
@@ -79,7 +67,7 @@ const PrevailEmployee = () => {
   // Get All Employee Data
   const getAllEmployee = async () => {
     try {
-      const response = await axios(`${BASE_URL}/p-employee`, {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -87,10 +75,7 @@ const PrevailEmployee = () => {
           'Content-Type': 'application/json',
         },
       })
-
-      const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
-
-      setAllEmployeeData(reversedData)
+      setAllEmployeeData(response.data)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -100,7 +85,7 @@ const PrevailEmployee = () => {
   // Get All Employee Data
 
   // Row update function
-  const handleRowUpdateEmployee = (newData, oldData, resolve, reject) => {
+  const handleRowUpdateEmployee = (newData, oldData, resolve) => {
     //validation
 
     let errorList = []
@@ -116,7 +101,7 @@ const PrevailEmployee = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch(`${API_URL}/${newData.id}`, newData, {
+        .patch('http://118.179.80.51:8080/api/v1/p-employee/' + newData.id, newData, {
           method: 'PATCH',
           mode: 'no-cors',
           headers: {
@@ -125,36 +110,26 @@ const PrevailEmployee = () => {
           },
         })
         .then((res) => {
-          // Fallback to res.data if your API returns the updated item, otherwise use newData
-          const updatedRowFromServer = res.data || newData
-
-          // Secure state update using item IDs to prevent bugs caused by .toReversed() layout ordering
-          setAllEmployeeData((prevData) =>
-            prevData.map((item) => {
-              // Compare unique IDs as strings to rule out type discrepancies
-              if (String(item.id) === String(newData.id)) {
-                return {
-                  ...item, // Keep original row structure and historical tableData keys
-                  ...updatedRowFromServer, // Layer on top the freshly patched API parameters
-                  tableData: oldData.tableData, // Protect material-table's critical internal layout reference tracker
-                }
-              }
-              return item
-            }),
-          )
-
-          // // Resolve the promise to close the material-table inline edit mode
+          const dataUpdate = [...allEmployeeData]
+          const index = oldData.tableData.id
+          dataUpdate[index] = newData
+          setAllEmployeeData([...dataUpdate])
           resolve()
+          setIserror(false)
+          setErrorMessages([])
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
           setIserror(true)
-          reject()
+          resolve()
         })
     } else {
       setErrorMessages(errorList)
       setIserror(true)
-      reject()
+      resolve()
     }
   }
   // Row update function
@@ -176,7 +151,7 @@ const PrevailEmployee = () => {
 
     if (errorList.length < 1) {
       axios
-        .post(`${API_URL}`, newData, {
+        .post('http://118.179.80.51:8080/api/v1/p-employee/', newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -185,15 +160,15 @@ const PrevailEmployee = () => {
           },
         })
         .then((res) => {
-          // Fallback safely to input data if your API response body is wrapped or customized
-          const savedRowFromServer = res.data || newData
-
-          // Prepend directly to the front since the state isn't being reversed dynamically anymore
-          setAllEmployeeData((prevData) => [savedRowFromServer, ...prevData])
-
+          const dataToAdd = [...allEmployeeData]
+          dataToAdd.push(newData)
+          setAllEmployeeData([...dataToAdd])
+          resolve()
           setIserror(false)
           setErrorMessages([])
-          resolve()
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
         })
         .catch((error) => {
           setErrorMessages(['Add School failed! Server error'])
@@ -225,7 +200,7 @@ const PrevailEmployee = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete(`${API_URL}/${oldData.id}`, {
+        .delete('http://118.179.80.51:8080/api/v1/p-employee/' + oldData.id, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {
@@ -234,15 +209,17 @@ const PrevailEmployee = () => {
           },
         })
         .then((res) => {
-          // This is safe against sorting, filtering, and array order shifts
-          setAllEmployeeData((prevData) =>
-            prevData.filter((item) => String(item.id) !== String(oldData.id)),
-          )
-          // The table updates instantly from the filter state above, saving a network request
-
+          const dataDelete = [...allEmployeeData]
+          const index = oldData.tableData.id
+          dataDelete.splice(index, 1)
+          setAllEmployeeData([...dataDelete])
+          resolve()
           setIserror(false)
           setErrorMessages([])
-          resolve() // Smoothly closes the material-table delete modal confirmation overlay
+          // console.log('newData.id: ' + newData.id)
+          // console.log(newData)
+          // console.log(oldData)
+          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Delete failed! Server error'])
@@ -262,7 +239,7 @@ const PrevailEmployee = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>PREVAIL Employee Data</strong>
+            <strong>ALL Employee Data</strong>
           </CCardHeader>
           <CCardBody>
             <MaterialTable
@@ -288,20 +265,22 @@ const PrevailEmployee = () => {
                 { title: 'addressCurrent', field: 'addressCurrent' },
                 { title: 'addressPermanent', field: 'addressPermanent' },
               ]}
-              editable={{
-                onRowUpdate: (newData, oldData) =>
-                  new Promise((resolve) => {
-                    handleRowUpdateEmployee(newData, oldData, resolve)
-                  }),
-                onRowAdd: (newData) =>
-                  new Promise((resolve) => {
-                    handleRowAddEmployee(newData, resolve)
-                  }),
-                onRowDelete: (oldData) =>
-                  new Promise((resolve) => {
-                    handleRowDeleteEmployee(oldData, resolve)
-                  }),
-              }}
+              editable={
+                {
+                  // onRowUpdate: (newData, oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowUpdateEmployee(newData, oldData, resolve)
+                  //   }),
+                  // onRowAdd: (newData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowAddEmployee(newData, resolve)
+                  //   }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeleteEmployee(oldData, resolve)
+                  //   }),
+                }
+              }
               options={{
                 exportButton: true,
                 exportAllData: true,
@@ -309,43 +288,30 @@ const PrevailEmployee = () => {
                 filtering: true,
                 grouping: true,
                 sorting: true,
-                pageSize: 10,
-                pageSizeOptions: [10, 20, 30],
-                maxBodyHeight: '700px',
+                pageSize: 5,
+                pageSizeOptions: [5, 20, 30],
+                maxBodyHeight: '600px',
                 headerStyle: {
                   position: 'sticky',
                   top: 0,
-                  backgroundColor: '#7e93b4ff',
+                  backgroundColor: '#bcceeb',
                   fontWeight: 'bold',
-                  width: '5px',
-                  height: '5px',
-                  textAlign: 'center',
-                  color: '#0d0d0eff',
-                  borderRight: '1px solid #0e0d0dff',
-                  borderLeft: '1px solid #0e0d0dff',
+                  width: 15,
+                  textAlign: 'left',
+                  color: '#884fc9',
+                  borderRight: '1px solid #fff',
                   borderStyle: 'solid',
                 },
                 rowStyle: {
                   fontSize: 14,
-                  backgroundColor: '#E5DED4',
-                  borderRight: '1px solid #131111ff',
-                  borderLeft: '1px solid #0e0d0dff',
+                  backgroundColor: '#f5f3f2',
+                  borderRight: '1px solid #fff',
                   borderStyle: 'solid',
-                  width: '5px',
-                  height: '5px',
-                  padding: '0 5px',
                 },
                 cellStyle: {
-                  borderRight: '1px solid #0c0b0bff',
-                  borderLeft: '1px solid #0e0d0dff',
-                  borderBottom: '1px solid #0c0b0bff',
+                  borderRight: '1px solid #fff',
                   borderStyle: 'solid',
-                  height: '5px',
-                  minHeight: '5px',
-                  maxHeight: '5px',
-                  padding: '0 5px',
                 },
-                maintainAspectRatio: false,
               }}
               data={allEmployeeData}
             />
@@ -356,4 +322,4 @@ const PrevailEmployee = () => {
   )
 }
 
-export default PrevailEmployee
+export default EmployeePrevail

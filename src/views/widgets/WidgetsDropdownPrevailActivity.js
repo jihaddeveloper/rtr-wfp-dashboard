@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 04/05/2026
-//  Description: PLFObservation  file
+//  Modify Date: 11/08/2026
+//  Description: PREVAIL Activity  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -71,6 +71,10 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
 
 import MaterialTable from 'material-table'
+
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const API_URL = `${BASE_URL}/p-bangla-class`
 
 const WidgetsDropdownPrevailActivity = () => {
   const random = () => Math.round(Math.random() * 100)
@@ -1765,19 +1769,18 @@ const WidgetsDropdownPrevailActivity = () => {
 
   // PreviousMonth
   // G1
-  const allG1TeacherPreviousMonth = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === previousMonth &&
-        item.year === '2026' &&
-        item.grade === 'G1' &&
-        item.teacherStatus
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG1TeacherPreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G1' &&
+      item.teacherStatus
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG1TeacherP1PreviousMonth = allBanglaObsData
     .filter((item) => {
@@ -1826,19 +1829,18 @@ const WidgetsDropdownPrevailActivity = () => {
   // G1
 
   // G2
-  const allG2TeacherPreviousMonth = allBanglaObsData
-    .filter((item) => {
-      return (
-        item.month === previousMonth &&
-        item.year === '2026' &&
-        item.grade === 'G2' &&
-        item.teacherStatus
-      )
-    })
-    .filter(
-      (value, index, self) =>
-        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
-    ).length
+  const allG2TeacherPreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G2' &&
+      item.teacherStatus
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
 
   const allG2TeacherP1PreviousMonth = allBanglaObsData
     .filter((item) => {
@@ -1885,6 +1887,66 @@ const WidgetsDropdownPrevailActivity = () => {
         index === self.findIndex((t) => t.classTeacher === value.classTeacher),
     ).length
   // G2
+
+  // G3
+  const allG3TeacherPreviousMonth = allBanglaObsData.filter((item) => {
+    return (
+      item.month === previousMonth &&
+      item.year === '2026' &&
+      item.grade === 'G3' &&
+      item.teacherStatus
+    )
+  }).length
+  // .filter(
+  //   (value, index, self) =>
+  //     index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+  // ).length
+
+  const allG3TeacherP1PreviousMonth = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2026' &&
+        item.grade === 'G3' &&
+        item.teacherStatus === 'Priority 1'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG3TeacherP2PreviousMonth = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2026' &&
+        item.grade === 'G3' &&
+        item.teacherStatus === 'Priority 2'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+
+  const allG3TeacherP3PreviousMonth = allBanglaObsData
+    .filter((item) => {
+      return (
+        item.month === previousMonth &&
+        item.year === '2026' &&
+        item.grade === 'G3' &&
+        item.teacherStatus === 'Priority 3'
+        // && item.fieldOffice === 'NrFO'
+      )
+    })
+    .filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.classTeacher === value.classTeacher),
+    ).length
+  // G3
   // PreviousMonth
   // Bangla Observation Data by filter
 
@@ -1976,6 +2038,7 @@ const WidgetsDropdownPrevailActivity = () => {
         },
       })
       setAllBCOdata(response.data)
+
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -1985,7 +2048,165 @@ const WidgetsDropdownPrevailActivity = () => {
   // Get All Book-checkout Data for school
 
   // BCO filter data
+  // Filter Data PBCO
+  // Previous Month Data
+  const allTotalStudent26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
 
+  const allTotalBookCheckout26 = allBCOdata
+    .filter(
+      (item) =>
+        item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+    )
+    .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allTotalBookCheckin26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoBookBCIn)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allNoBCOPerStudent26 = (
+    allBCOdata
+      .filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+      )
+      .map((ureportdata) => ureportdata.schoolTotalNoBookBC)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0) /
+    allBCOdata
+      .filter((item) => item.year === '2026' && item.month === previousMonth)
+      .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0)
+  ).toFixed(2)
+
+  const allNoStudentBCO26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allPercentStudentBCO26 = (
+    (allBCOdata
+      .filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+      )
+      .map((ureportdata) => ureportdata.schoolTotalNoStudentBC)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0) *
+      100) /
+    allBCOdata
+      .filter((item) => item.year === '2026' && item.month === previousMonth)
+      .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0)
+  ).toFixed(2)
+
+  const allNoStudentBCI26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allPercentStudentBCI26 = (
+    (allBCOdata
+      .filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+      )
+      .map((ureportdata) => ureportdata.schoolTotalNoStudentBCIn)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0) *
+      100) /
+    allBCOdata
+      .filter((item) => item.year === '2026' && item.month === previousMonth)
+      .map((ureportdata) => ureportdata.schoolTotalNoStudent)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0)
+  ).toFixed(2)
+
+  const allNoGirlBCO26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allPercentGirlBCO26 = (
+    (allBCOdata
+      .filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+      )
+      .map((ureportdata) => ureportdata.schoolTotalNoGirlBC)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0) *
+      100) /
+    allBCOdata
+      .filter((item) => item.year === '2026' && item.month === previousMonth)
+      .map((ureportdata) => ureportdata.schoolTotalNoGirl)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0)
+  ).toFixed(2)
+
+  const allNoBoyBCO26 = allBCOdata
+    .filter((item) => item.year === '2026' && item.month === previousMonth)
+    .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+    .reduce(function (acc, value) {
+      return acc + value
+    }, 0)
+
+  const allPercentBoyBCO26 = (
+    (allBCOdata
+      .filter(
+        (item) =>
+          item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+      )
+      .map((ureportdata) => ureportdata.schoolTotalNoBoyBC)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0) *
+      100) /
+    allBCOdata
+      .filter((item) => item.year === '2026' && item.month === previousMonth)
+      .map((ureportdata) => ureportdata.schoolTotalNoBoy)
+      .reduce(function (acc, value) {
+        return acc + value
+      }, 0)
+  ).toFixed(2)
+
+  const allNoSchoolBCO26 = allBCOdata.filter(
+    (item) =>
+      item.schoolTotalNoStudentBC !== 0 && item.year === '2026' && item.month === previousMonth,
+  ).length
+
+  const allNoSchoolZeroBCO26 = allBCOdata.filter(
+    (item) =>
+      item.year === '2026' && item.month === previousMonth && item.schoolTotalNoStudentBC === 0,
+  ).length
+  // Previous Month Data
+  // Filter Data PBCO
   // BCO filter data
 
   // Get All BookCaptain Data
@@ -2000,7 +2221,7 @@ const WidgetsDropdownPrevailActivity = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllBookCaptainData(response.data)
+      setAllBookCaptainData(allBCOdata)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -3039,10 +3260,10 @@ const WidgetsDropdownPrevailActivity = () => {
                     datasets: [
                       {
                         label: 'Priority 0',
-                        backgroundColor: '#addcecff',
-                        borderColor: '#addcecff',
-                        pointBackgroundColor: '#addcecff',
-                        pointBorderColor: '#addcecff',
+                        backgroundColor: '#807378',
+                        borderColor: '#807378',
+                        pointBackgroundColor: '#807378',
+                        pointBorderColor: '#807378',
                         data: [
                           allG1TeacherP0January,
                           allG1TeacherP0February,
@@ -3060,10 +3281,10 @@ const WidgetsDropdownPrevailActivity = () => {
                       },
                       {
                         label: 'Priority 1',
-                        backgroundColor: '#8ddaf3ff',
-                        borderColor: '#8ddaf3ff',
-                        pointBackgroundColor: '#8ddaf3ff',
-                        pointBorderColor: '#8ddaf3ff',
+                        backgroundColor: '#876270',
+                        borderColor: '#876270',
+                        pointBackgroundColor: '#876270',
+                        pointBorderColor: '#876270',
                         data: [
                           allG1TeacherP1January,
                           allG1TeacherP1February,
@@ -3081,10 +3302,10 @@ const WidgetsDropdownPrevailActivity = () => {
                       },
                       {
                         label: 'Priority 2',
-                        backgroundColor: '#35a8ceff',
-                        borderColor: '#35a8ceff',
-                        pointBackgroundColor: '#35a8ceff',
-                        pointBorderColor: '#35a8ceff',
+                        backgroundColor: '#894c63',
+                        borderColor: '#894c63',
+                        pointBackgroundColor: '#894c63',
+                        pointBorderColor: '#894c63',
                         data: [
                           allG1TeacherP2January,
                           allG1TeacherP2February,
@@ -3102,10 +3323,10 @@ const WidgetsDropdownPrevailActivity = () => {
                       },
                       {
                         label: 'Priority 3',
-                        backgroundColor: '#007AA4',
-                        borderColor: '#007AA4',
-                        pointBackgroundColor: '#007AA4',
-                        pointBorderColor: '#007AA4',
+                        backgroundColor: '#994263',
+                        borderColor: '#994263',
+                        pointBackgroundColor: '#994263',
+                        pointBorderColor: '#994263',
                         data: [
                           allG1TeacherP3January,
                           allG1TeacherP3February,
@@ -3562,7 +3783,7 @@ const WidgetsDropdownPrevailActivity = () => {
               <strong># of Teacher Supported</strong> <small>({previousMonthYear})</small>
             </CCardHeader>
             <CCardBody>
-              <CLink href="prevail/p-teacher">
+              <CLink href="/bangla/p-bangla-detail">
                 <CChartBar
                   data={{
                     labels: [
@@ -3592,11 +3813,11 @@ const WidgetsDropdownPrevailActivity = () => {
                           allTeacherPP,
                           allPPObsDataPreviousMonth,
                           allTeacherG1,
-                          160,
+                          allG1TeacherPreviousMonth,
                           allTeacherG2,
-                          134,
+                          allG2TeacherPreviousMonth,
                           allTeacherG3,
-                          110,
+                          allG3TeacherPreviousMonth,
                         ],
                       },
                     ],
@@ -3729,21 +3950,23 @@ const WidgetsDropdownPrevailActivity = () => {
                   <CTableBody>
                     <CTableRow color="success">
                       <CTableHeaderCell scope="row">Total Book Checked-out</CTableHeaderCell>
-                      <CTableDataCell>20570</CTableDataCell>
+                      <CTableDataCell>{allTotalBookCheckout26}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="primary">
                       <CTableHeaderCell scope="row">Per Child Book Checked-out</CTableHeaderCell>
-                      <CTableDataCell>1.90</CTableDataCell>
+                      <CTableDataCell>{allNoBCOPerStudent26}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="secondary">
                       <CTableHeaderCell scope="row">
                         Percentage of Student Checked-out Books
                       </CTableHeaderCell>
-                      <CTableDataCell>67.00</CTableDataCell>
+                      <CTableDataCell>{allPercentStudentBCO26}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="danger">
-                      <CTableHeaderCell scope="row">Number of Book Checked-in</CTableHeaderCell>
-                      <CTableDataCell>18904</CTableDataCell>
+                      <CTableHeaderCell scope="row">
+                        Number of Student Book Checkout
+                      </CTableHeaderCell>
+                      <CTableDataCell>{allNoGirlBCO26 + allNoBoyBCO26}</CTableDataCell>
                     </CTableRow>
                   </CTableBody>
                 </CTable>
@@ -3784,8 +4007,8 @@ const WidgetsDropdownPrevailActivity = () => {
                       <CTableDataCell>{allTeacherG3}</CTableDataCell>
                     </CTableRow>
                     <CTableRow color="danger">
-                      <CTableHeaderCell scope="row">Library Teacher Training</CTableHeaderCell>
-                      <CTableDataCell>{allTeacherLibary}</CTableDataCell>
+                      <CTableHeaderCell scope="row">PP Teacher Training</CTableHeaderCell>
+                      <CTableDataCell>{allTeacherPP}</CTableDataCell>
                     </CTableRow>
                   </CTableBody>
                 </CTable>

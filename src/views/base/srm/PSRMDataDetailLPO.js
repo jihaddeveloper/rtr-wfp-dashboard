@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
 //  Modify Date: 06/09/2026
-//  Description: PSRMDataDetail  file
+//  Description: PSRMDataDetailLPO  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -50,25 +50,21 @@ const API_URL = `${BASE_URL}/p-srm-class`
 //Icon
 
 const PSRMDataDetail = () => {
-  // data state to store the BCO API data. Its initial value is an empty array
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-
-  const [allPSRMData, setAllPSRMData] = useState([])
-
-  const [allTeacherData, setAllTeacherData] = useState([])
-
   // This function runs synchronously before the initial render
   const [user, setUser] = useState(() => {
     const user = JSON.parse(localStorage.getItem('user'))
     return user || 'no user saved'
   })
 
-  const LF = user?.username || 'E-03848'
+  // data state to store the BCO API data. Its initial value is an empty array
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
-  const TeacherNo = allPSRMData.filter((item) => {
-    return item.lf === LF
-  }).length
+  const [allSchoolData, setAllSchoolData] = useState([])
+
+  const [allPSRMData, setAllPSRMData] = useState([])
+
+  const [allTeacherData, setAllTeacherData] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -83,16 +79,47 @@ const PSRMDataDetail = () => {
   const [errorMessages, setErrorMessages] = useState([])
   // For error handling row update
 
+  const LF = 'E-03848'
+
+  const LPO = user?.username || 'E-04629'
+
+  const TeacherNo = allSchoolData.filter((item) => {
+    return item.lpo === LPO
+  }).length
+
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     const call = async () => {
       console.log('use effect called')
       await getAllPSRM(console.log('get SRM class called'))
       await getAllTeacher(console.log('get teacher class called'))
+      await getAllSchool(console.log('get School class called'))
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Get All School
+  const getAllSchool = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(`${BASE_URL}/p-school`, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSchoolData(response.data)
+
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All School
 
   // Get All SRM Data for school
   const getAllPSRM = async () => {
@@ -122,7 +149,11 @@ const PSRMDataDetail = () => {
 
       //const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
 
-      setAllPSRMData(sortedData)
+      setAllPSRMData(
+        sortedData.filter((item) => {
+          return item.lpo === LPO && item.office === 'NrFO'
+        }) || [],
+      )
       setIsLoading(false)
       console.log('Data:' + response.data)
     } catch (error) {
@@ -830,7 +861,7 @@ const PSRMDataDetail = () => {
                           <CTableBody>
                             <CTableRow color="success">
                               <CTableHeaderCell scope="row">Total SRM Teacher</CTableHeaderCell>
-                              <CTableDataCell>494</CTableDataCell>
+                              <CTableDataCell>{TeacherNo}</CTableDataCell>
                             </CTableRow>
                             <CTableRow color="primary">
                               <CTableHeaderCell scope="row">Visited SRM Teracher</CTableHeaderCell>
@@ -1464,10 +1495,10 @@ const PSRMDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowUpdateAllPSRMClass(newData, oldData, resolve)
                     }),
-                  onRowDelete: (oldData) =>
-                    new Promise((resolve) => {
-                      handleRowDeletePSRMClass(oldData, resolve)
-                    }),
+                  // onRowDelete: (oldData) =>
+                  //   new Promise((resolve) => {
+                  //     handleRowDeletePSRMClass(oldData, resolve)
+                  //   }),
                 }}
                 options={{
                   exportButton: true,

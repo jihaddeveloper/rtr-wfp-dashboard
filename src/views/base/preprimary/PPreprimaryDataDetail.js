@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 11/01/2026
-//  Modify Date: 22/06/2026
+//  Modify Date: 06/09/2026
 //  Description: PPreprimaryDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -46,12 +46,24 @@ import { BorderBottom } from '@material-ui/icons'
 //Icon
 //Icon
 
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const API_URL = `${BASE_URL}/p-preprimary`
+
 const PPreprimaryDataDetail = () => {
+  // This function runs synchronously before the initial render
+  const [user, setUser] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user || 'no user saved'
+  })
+
+  const LF = 'E-03848'
+
+  const LPO = user?.username || 'E-04629'
+
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-
-  const [allBanglaObsData, setAllBanglaObsData] = useState([])
 
   const [allPPrePrimaryData, setAllPPrePrimaryData] = useState([])
 
@@ -85,12 +97,9 @@ const PPreprimaryDataDetail = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
-        method: 'GET',
-        mode: 'no-cors',
+      const response = await axios(`${BASE_URL}/p-teacher`, {
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json',
         },
       })
       setAllTeacherData(response.data)
@@ -102,6 +111,43 @@ const PPreprimaryDataDetail = () => {
     }
   }
   // Get All Teacher
+
+  // Get All Book-checkout Data for school
+  const getAllPPrePrimary = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(API_URL, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      const arrayData = Array.isArray(response.data) ? response.data : response.data?.data
+
+      if (!Array.isArray(arrayData)) {
+        setAllPPrePrimaryData([])
+        return
+      }
+
+      // Sort descending so the latest item comes first
+      const sortedData = [...arrayData].sort((a, b) => {
+        // 1. If you have a date/timestamp field (e.g., createdAt, date, timestamp)
+        return new Date(b.createDate) - new Date(a.createDate)
+
+        // 2. OR if you use an auto-incrementing numeric ID (e.g., id, _id):
+        // return b.id - a.id;
+      })
+
+      //const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
+
+      setAllPPrePrimaryData(sortedData)
+      setIsLoading(false)
+      //console.log('Data:' + response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Book-checkout Data for school
 
   // Teacher filter data
 
@@ -704,29 +750,8 @@ const PPreprimaryDataDetail = () => {
   // PreviousMonth
   // Bangla Observation Data by filter
 
-  // Get All Book-checkout Data for school
-  const getAllPPrePrimary = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-preprimary', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllPPrePrimaryData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Book-checkout Data for school
-
   // Row update function
-  const handleRowUpdateAllPPrePrimaryClass = (newData, oldData, resolve) => {
+  const handleRowUpdateAllPPrePrimaryClass = (newData, oldData, resolve, reject) => {
     //validation
 
     let errorList = []
@@ -742,7 +767,7 @@ const PPreprimaryDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch('http://118.179.80.51:8080/api/v1/p-preprimary/' + newData.id, newData, {
+        .patch(`${API_URL}/${newData.id}`, newData, {
           method: 'PATCH',
           mode: 'no-cors',
           headers: {
@@ -751,27 +776,36 @@ const PPreprimaryDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataUpdate[index] = newData
-          setAllBanglaObsData([...dataUpdate])
+          // Fallback to res.data if your API returns the updated item, otherwise use newData
+          const updatedRowFromServer = res.data || newData
+
+          // Secure state update using item IDs to prevent bugs caused by .toReversed() layout ordering
+          setAllPPrePrimaryData((prevData) =>
+            prevData.map((item) => {
+              // Compare unique IDs as strings to rule out type discrepancies
+              if (String(item.id) === String(newData.id)) {
+                return {
+                  ...item, // Keep original row structure and historical tableData keys
+                  ...updatedRowFromServer, // Layer on top the freshly patched API parameters
+                  tableData: oldData.tableData, // Protect material-table's critical internal layout reference tracker
+                }
+              }
+              return item
+            }),
+          )
+
+          // // Resolve the promise to close the material-table inline edit mode
           resolve()
-          setIserror(false)
-          setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
           setIserror(true)
-          resolve()
+          reject()
         })
     } else {
       setErrorMessages(errorList)
       setIserror(true)
-      resolve()
+      reject()
     }
   }
   // Row update function
@@ -792,7 +826,7 @@ const PPreprimaryDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-preprimary/', newData, {
+        .post(`${API_URL}`, newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -801,16 +835,15 @@ const PPreprimaryDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataToAdd = [...allBanglaObsData]
-          dataToAdd.push(newData)
-          setAllBanglaObsData([...dataToAdd])
-          resolve()
+          // Fallback safely to input data if your API response body is wrapped or customized
+          const savedRowFromServer = res.data || newData
+
+          // Prepend directly to the front since the state isn't being reversed dynamically anymore
+          setAllPPrePrimaryData((prevData) => [savedRowFromServer, ...prevData])
+
           setIserror(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve()
         })
         .catch((error) => {
           setErrorMessages(['Add PPrePrimary failed! Server error'])
@@ -842,7 +875,7 @@ const PPreprimaryDataDetail = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/p-preprimary/' + oldData.id, {
+        .delete(`${API_URL}/${oldData.id}`, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {
@@ -851,18 +884,15 @@ const PPreprimaryDataDetail = () => {
           },
         })
         .then((res) => {
-          const dataDelete = [...allBanglaObsData]
-          const index = oldData.tableData.id
-          dataDelete.splice(index, 1)
-          setAllBanglaObsData([...dataDelete])
-          resolve()
+          // This is safe against sorting, filtering, and array order shifts
+          setAllPPrePrimaryData((prevData) =>
+            prevData.filter((item) => String(item.id) !== String(oldData.id)),
+          )
+          // The table updates instantly from the filter state above, saving a network request
+
           setIserror(false)
           setErrorMessages([])
-          getAllPPrePrimary()
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve() // Smoothly closes the material-table delete modal confirmation overlay
         })
         .catch((error) => {
           setErrorMessages(['Delete failed! Server error'])
@@ -1489,10 +1519,10 @@ const PPreprimaryDataDetail = () => {
                     new Promise((resolve) => {
                       handleRowUpdateAllPPrePrimaryClass(newData, oldData, resolve)
                     }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeletePPrePrimaryClass(oldData, resolve)
-                  //   }),
+                  onRowDelete: (oldData) =>
+                    new Promise((resolve) => {
+                      handleRowDeletePPrePrimaryClass(oldData, resolve)
+                    }),
                 }}
                 options={{
                   exportButton: true,
@@ -1540,7 +1570,7 @@ const PPreprimaryDataDetail = () => {
                   maintainAspectRatio: false,
                 }}
                 style={{ width: '100%' }}
-                data={allPPrePrimaryData.toReversed()}
+                data={allPPrePrimaryData}
               />
             </CCardBody>
           </CCard>

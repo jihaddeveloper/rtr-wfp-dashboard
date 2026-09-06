@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 09/09/2025
-//  Modify Date: 09/04/2026
-//  Description: PLFObservation  file
+//  Create Date: 09/07/2026
+//  Modify Date: 27/07/2026
+//  Description: TeacherPREVAIL  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -55,15 +55,8 @@ const TeacherPREVAIL = () => {
 
   const [allTeacherData, setAllTeacherData] = useState([])
 
-  // Report Data Ukhiya
-  const [ukhiyaReportData, setUkhiyaReportData] = useState([])
-  // Report Data Kutubdia
-  const [kutubdiaReportData, setKutubdiaReportData] = useState([])
-
   // Report Data
   const [reportData, setReportData] = useState([])
-  // data state to store the BCO API data. Its initial value is an empty array
-  const [allBCOData, setAllBCOData] = useState([])
 
   // Area wise teacher data
   const [narailSadarTeacher, setNarailSadarTeacher] = useState([])
@@ -76,38 +69,63 @@ const TeacherPREVAIL = () => {
   let [femaleTeacher, setFemaleTeacher] = useState([])
   // Gender wise teacher
 
-  // Ukhiya
-  let g1UTeacherMale = 0
-  let g1UTeacherFemale = 0
-  let g1UTeacherTotal = 0
-  let g2UTeacherMale = 0
-  let g2UTeacherFemale = 0
-  let g2UTeacherTotal = 0
-  let otherUTeacherMale = 0
-  let otherUTeacherFemale = 0
-  let otherUTeacherTotal = 0
-  // Ukhiya
+  // Narail Sadar
+  let ppNSTeacherMale = 0
+  let ppNSTeacherFemale = 0
+  let ppNSTeacherTotal = 0
+  let g1NSTeacherMale = 0
+  let g1NSTeacherFemale = 0
+  let g1NSTeacherTotal = 0
+  let g2NSTeacherMale = 0
+  let g2NSTeacherFemale = 0
+  let g2NSTeacherTotal = 0
+  let g3NSTeacherMale = 0
+  let g3NSTeacherFemale = 0
+  let g3NSTeacherTotal = 0
+  // Narail Sadar
 
-  // Kutubdia
+  // Lohagora
+  let ppLTeacherMale = 0
+  let ppLTeacherFemale = 0
+  let ppLTeacherTotal = 0
+  let g1LTeacherMale = 0
+  let g1LTeacherFemale = 0
+  let g1LTeacherTotal = 0
+  let g2LTeacherMale = 0
+  let g2LTeacherFemale = 0
+  let g2LTeacherTotal = 0
+  let g3LTeacherMale = 0
+  let g3LTeacherFemale = 0
+  let g3LTeacherTotal = 0
+  // Lohagora
+
+  // Kalia
+  let ppKTeacherMale = 0
+  let ppKTeacherFemale = 0
+  let ppKTeacherTotal = 0
   let g1KTeacherMale = 0
   let g1KTeacherFemale = 0
   let g1KTeacherTotal = 0
   let g2KTeacherMale = 0
   let g2KTeacherFemale = 0
   let g2KTeacherTotal = 0
-  let otherKTeacherMale = 0
-  let otherKTeacherFemale = 0
-  let otherKTeacherTotal = 0
-  // Kutubdia
+  let g3KTeacherMale = 0
+  let g3KTeacherFemale = 0
+  let g3KTeacherTotal = 0
+  // Kalia
 
   // Combined
+  let ppTotalTeacher = 0
   let g1TotalTeacher = 0
   let g2TotalTeacher = 0
-  let otherTotalTeacher = 0
+  let g3TotalTeacher = 0
 
-  let totalMaleTeacherU = 0
-  let totalFemaleTeacherU = 0
-  let totalTeacherU = 0
+  let totalMaleTeacherNS = 0
+  let totalFemaleTeacherNS = 0
+  let totalTeacherNS = 0
+  let totalMaleTeacherL = 0
+  let totalFemaleTeacherL = 0
+  let totalTeacherL = 0
   let totalMaleTeacherK = 0
   let totalFemaleTeacherK = 0
   let totalTeacherK = 0
@@ -155,131 +173,169 @@ const TeacherPREVAIL = () => {
       // Gender wise teacher
       setMaleTeacher(
         response.data.filter((item) => {
-          return item.gender === 'Male'
+          return item.gender === 'M'
         }),
       )
 
-      console.log('maleTeacher: ' + maleTeacher)
+      //console.log('maleTeacher: ' + maleTeacher)
 
       setFemaleTeacher(
         response.data.filter((item) => {
-          return item.gender === 'Female'
+          return item.gender === 'F'
         }),
       )
 
-      console.log('femaleTeacher: ' + femaleTeacher)
+      //console.log('femaleTeacher: ' + femaleTeacher)
       // Gender wise teacher
 
-      // Ukhiya
-      g1UTeacherMale = response.data.filter((item) => {
-        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instructionG1 === 'Yes'
+      // Narail Sadar
+      ppNSTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Narail Sadar' && item.gradePPrimary === '1'
       }).length
 
-      g1UTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instructionG1 === 'Yes'
-        )
+      ppNSTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Narail Sadar' && item.gradePPrimary === '1'
       }).length
 
-      g1UTeacherTotal = g1UTeacherMale + g1UTeacherFemale
+      ppNSTeacherTotal = ppNSTeacherMale + ppNSTeacherFemale
 
-      g2UTeacherMale = response.data.filter((item) => {
-        return item.gender === 'Male' && item.upazilla === 'Ukhiya' && item.instructionG2 === 'Yes'
+      g1NSTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Narail Sadar' && item.gradeG1 === '1'
       }).length
 
-      g2UTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' && item.upazilla === 'Ukhiya' && item.instructionG2 === 'Yes'
-        )
+      g1NSTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Narail Sadar' && item.gradeG1 === '1'
       }).length
 
-      g2UTeacherTotal = g2UTeacherMale + g2UTeacherFemale
+      g1NSTeacherTotal = g1NSTeacherMale + g1NSTeacherFemale
 
-      otherUTeacherMale = response.data.filter((item) => {
-        return (
-          item.gender === 'Male' &&
-          item.upazilla === 'Ukhiya' &&
-          item.instructionG2 === 'No' &&
-          item.instructionG1 === 'No'
-        )
+      g2NSTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Narail Sadar' && item.gradeG2 === '1'
       }).length
 
-      otherUTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' &&
-          item.upazilla === 'Ukhiya' &&
-          item.instructionG2 === 'No' &&
-          item.instructionG1 === 'No'
-        )
+      g2NSTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Narail Sadar' && item.gradeG2 === '1'
       }).length
 
-      otherUTeacherTotal = otherUTeacherMale + otherUTeacherFemale
-      // Ukhiya
+      g2NSTeacherTotal = g2NSTeacherMale + g2NSTeacherFemale
 
-      // Kutubdia
+      g3NSTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Narail Sadar' && item.gradeG3 === '1'
+      }).length
+
+      g3NSTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Narail Sadar' && item.gradeG3 === '1'
+      }).length
+
+      g3NSTeacherTotal = g3NSTeacherMale + g3NSTeacherFemale
+
+      // Narail Sadar
+
+      // Lohagara
+      ppLTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Lohagara' && item.gradePPrimary === '1'
+      }).length
+
+      ppLTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Lohagara' && item.gradePPrimary === '1'
+      }).length
+
+      ppLTeacherTotal = ppLTeacherMale + ppLTeacherFemale
+
+      g1LTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Lohagara' && item.gradeG1 === '1'
+      }).length
+
+      g1LTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Lohagara' && item.gradeG1 === '1'
+      }).length
+
+      g1LTeacherTotal = g1LTeacherMale + g1LTeacherFemale
+
+      g2LTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Lohagara' && item.gradeG2 === '1'
+      }).length
+
+      g2LTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Lohagara' && item.gradeG2 === '1'
+      }).length
+
+      g2LTeacherTotal = g2LTeacherMale + g2LTeacherFemale
+
+      g3LTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Lohagara' && item.gradeG3 === '1'
+      }).length
+
+      g3LTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Lohagara' && item.gradeG3 === '1'
+      }).length
+
+      g3LTeacherTotal = g3LTeacherMale + g3LTeacherFemale
+      // Lohagara
+
+      // Kalia
+      ppKTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Kalia' && item.gradePPrimary === '1'
+      }).length
+
+      ppKTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Kalia' && item.gradePPrimary === '1'
+      }).length
+
+      ppKTeacherTotal = ppNSTeacherMale + ppNSTeacherFemale
+
       g1KTeacherMale = response.data.filter((item) => {
-        return (
-          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instructionG1 === 'Yes'
-        )
+        return item.gender === 'M' && item.upazilla === 'Kalia' && item.gradeG1 === '1'
       }).length
 
       g1KTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instructionG1 === 'Yes'
-        )
+        return item.gender === 'F' && item.upazilla === 'Kalia' && item.gradeG1 === '1'
       }).length
 
       g1KTeacherTotal = g1KTeacherMale + g1KTeacherFemale
 
       g2KTeacherMale = response.data.filter((item) => {
-        return (
-          item.gender === 'Male' && item.upazilla === 'Kutubdia' && item.instructionG2 === 'Yes'
-        )
+        return item.gender === 'M' && item.upazilla === 'Kalia' && item.gradeG2 === '1'
       }).length
 
       g2KTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' && item.upazilla === 'Kutubdia' && item.instructionG2 === 'Yes'
-        )
+        return item.gender === 'F' && item.upazilla === 'Kalia' && item.gradeG2 === '1'
       }).length
 
       g2KTeacherTotal = g2KTeacherMale + g2KTeacherFemale
 
-      otherKTeacherMale = response.data.filter((item) => {
-        return (
-          item.gender === 'Male' &&
-          item.upazilla === 'Kutubdia' &&
-          item.instructionG2 === 'No' &&
-          item.instructionG1 === 'No'
-        )
+      g3KTeacherMale = response.data.filter((item) => {
+        return item.gender === 'M' && item.upazilla === 'Kalia' && item.gradeG3 === '1'
       }).length
 
-      otherKTeacherFemale = response.data.filter((item) => {
-        return (
-          item.gender === 'Female' &&
-          item.upazilla === 'Kutubdia' &&
-          item.instructionG2 === 'No' &&
-          item.instructionG1 === 'No'
-        )
+      g3KTeacherFemale = response.data.filter((item) => {
+        return item.gender === 'F' && item.upazilla === 'Kalia' && item.gradeG3 === '1'
       }).length
 
-      otherKTeacherTotal = otherKTeacherMale + otherKTeacherFemale
-      // Kutubdia
+      g3KTeacherTotal = g3KTeacherMale + g3KTeacherFemale
+      // Kalia
 
       // Combined
 
-      g1TotalTeacher = g1UTeacherTotal + g1KTeacherTotal
-      g2TotalTeacher = g2UTeacherTotal + g2KTeacherTotal
-      otherTotalTeacher = otherUTeacherTotal + otherKTeacherTotal
+      ppTotalTeacher = ppNSTeacherTotal + ppLTeacherTotal + ppKTeacherTotal
+      g1TotalTeacher = g1NSTeacherTotal + g1LTeacherTotal + g1KTeacherTotal
+      g2TotalTeacher = g2NSTeacherTotal + g2LTeacherTotal + g2KTeacherTotal
+      g3TotalTeacher = g3NSTeacherTotal + g3LTeacherTotal + g3KTeacherTotal
 
-      totalMaleTeacherU = g1UTeacherMale + g2UTeacherMale + otherUTeacherMale
-      totalFemaleTeacherU = g1UTeacherFemale + g2UTeacherFemale + otherUTeacherFemale
-      totalTeacherU = g1UTeacherTotal + g2UTeacherTotal + otherUTeacherTotal
-      totalMaleTeacherK = g1KTeacherMale + g2KTeacherMale + otherKTeacherMale
-      totalFemaleTeacherK = g1KTeacherFemale + g2KTeacherFemale + otherKTeacherFemale
-      totalTeacherK = g1KTeacherTotal + g2KTeacherTotal + otherKTeacherTotal
+      totalMaleTeacherNS = ppNSTeacherMale + g1NSTeacherMale + g2NSTeacherMale + g3NSTeacherMale
+      totalFemaleTeacherNS =
+        ppNSTeacherFemale + g1NSTeacherFemale + g2NSTeacherFemale + g3NSTeacherFemale
+      totalTeacherNS = ppNSTeacherTotal + g1NSTeacherTotal + g2NSTeacherTotal + g3NSTeacherTotal
+      totalMaleTeacherL = ppLTeacherMale + g1LTeacherMale + g2LTeacherMale + g3LTeacherMale
+      totalFemaleTeacherL =
+        ppLTeacherFemale + g1LTeacherFemale + g2LTeacherFemale + g3LTeacherFemale
+      totalTeacherL = ppLTeacherTotal + g1LTeacherTotal + g2LTeacherTotal + g3LTeacherTotal
+      totalMaleTeacherK = ppKTeacherMale + g1KTeacherMale + g2KTeacherMale + g3KTeacherMale
+      totalFemaleTeacherK =
+        ppKTeacherFemale + g1KTeacherFemale + g2KTeacherFemale + g3KTeacherFemale
+      totalTeacherK = ppKTeacherTotal + g1KTeacherTotal + g2KTeacherTotal + g3KTeacherTotal
 
-      grandTotal = g1TotalTeacher + g2TotalTeacher + otherTotalTeacher
+      grandTotal = ppTotalTeacher + g1TotalTeacher + g2TotalTeacher + g3TotalTeacher
       // Combined
 
       // Set all calculated data
@@ -295,42 +351,67 @@ const TeacherPREVAIL = () => {
   const pushReportData = () => {
     const reportObject = [
       {
+        grade: 'PP',
+        maleNS: ppNSTeacherMale,
+        femaleNS: ppNSTeacherFemale,
+        totalTeacherNS: ppNSTeacherTotal,
+        maleL: ppLTeacherMale,
+        femaleL: ppLTeacherFemale,
+        totalTeacherL: ppLTeacherTotal,
+        maleK: ppKTeacherMale,
+        femaleK: ppKTeacherFemale,
+        totalTeacherK: ppKTeacherTotal,
+        totalTeacher: ppTotalTeacher,
+      },
+      {
         grade: 'G1',
-        maleukhiya: g1UTeacherMale,
-        femaleukhiya: g1UTeacherFemale,
-        totalTeacherU: g1UTeacherTotal,
-        maleKutubdia: g1KTeacherMale,
-        femaleKutubdia: g1KTeacherFemale,
+        maleNS: g1NSTeacherMale,
+        femaleNS: g1NSTeacherFemale,
+        totalTeacherNS: g1NSTeacherTotal,
+        maleL: g1LTeacherMale,
+        femaleL: g1LTeacherFemale,
+        totalTeacherL: g1LTeacherTotal,
+        maleK: g1KTeacherMale,
+        femaleK: g1KTeacherFemale,
         totalTeacherK: g1KTeacherTotal,
         totalTeacher: g1TotalTeacher,
       },
       {
         grade: 'G2',
-        maleukhiya: g2UTeacherMale,
-        femaleukhiya: g2UTeacherFemale,
-        totalTeacherU: g2UTeacherTotal,
-        maleKutubdia: g2KTeacherMale,
-        femaleKutubdia: g2KTeacherFemale,
+        maleNS: g2NSTeacherMale,
+        femaleNS: g2NSTeacherFemale,
+        totalTeacherNS: g2NSTeacherTotal,
+        maleL: g2LTeacherMale,
+        femaleL: g2LTeacherFemale,
+        totalTeacherL: g2LTeacherTotal,
+        maleK: g2KTeacherMale,
+        femaleK: g2KTeacherFemale,
         totalTeacherK: g2KTeacherTotal,
         totalTeacher: g2TotalTeacher,
       },
       {
-        grade: 'G3-G5',
-        maleukhiya: otherUTeacherMale,
-        femaleukhiya: otherUTeacherFemale,
-        totalTeacherU: otherUTeacherTotal,
-        maleKutubdia: otherKTeacherMale,
-        femaleKutubdia: otherKTeacherFemale,
-        totalTeacherK: otherKTeacherTotal,
-        totalTeacher: otherTotalTeacher,
+        grade: 'G3',
+        maleNS: g3NSTeacherMale,
+        femaleNS: g3NSTeacherFemale,
+        totalTeacherNS: g3NSTeacherTotal,
+        maleL: g3LTeacherMale,
+        femaleL: g3LTeacherFemale,
+        totalTeacherL: g3LTeacherTotal,
+        maleK: g3KTeacherMale,
+        femaleK: g3KTeacherFemale,
+        totalTeacherK: g3KTeacherTotal,
+        totalTeacher: g3TotalTeacher,
       },
       {
         grade: 'Total',
-        maleukhiya: totalMaleTeacherU,
-        femaleukhiya: totalFemaleTeacherU,
-        totalTeacherU: totalTeacherU,
-        maleKutubdia: totalMaleTeacherK,
-        femaleKutubdia: totalFemaleTeacherK,
+        maleNS: totalMaleTeacherNS,
+        femaleNS: totalFemaleTeacherNS,
+        totalTeacherNS: totalTeacherNS,
+        maleL: totalMaleTeacherL,
+        femaleL: totalFemaleTeacherL,
+        totalTeacherL: totalTeacherL,
+        maleK: totalMaleTeacherK,
+        femaleK: totalFemaleTeacherK,
         totalTeacherK: totalTeacherK,
         totalTeacher: grandTotal,
       },
@@ -526,11 +607,11 @@ const TeacherPREVAIL = () => {
                     // title={JSON.stringify(reportData)}
                     columns={[
                       { title: 'Grade', field: 'grade' },
-                      { title: 'Male Teacher in Ukhiya ', field: 'maleukhiya' },
-                      { title: 'Female Teacher in Ukhiya', field: 'femaleukhiya' },
+                      { title: 'Male Teacher in Narail Sadar ', field: 'maleNS' },
+                      { title: 'Female Teacher in Narail Sadar', field: 'femaleNS' },
                       {
-                        title: 'Total Teacher in Ukhiya',
-                        field: 'totalTeacherU',
+                        title: 'Total Teacher in Narail Sadar',
+                        field: 'totalTeacherNS',
                         cellStyle: {
                           backgroundColor: '#e0d0ca',
                           color: '#000',
@@ -539,10 +620,23 @@ const TeacherPREVAIL = () => {
                           backgroundColor: '#bcceeb',
                         },
                       },
-                      { title: 'Male Teacher in Kutubdia', field: 'maleKutubdia' },
-                      { title: 'Female Teacher in Kutubdia ', field: 'femaleKutubdia' },
+                      { title: 'Male Teacher in Lohagara', field: 'maleL' },
+                      { title: 'Female Teacher in Lohagara ', field: 'femaleL' },
                       {
-                        title: 'Total Teacher in Kutubdia',
+                        title: 'Total Teacher in Lohagara',
+                        field: 'totalTeacherL',
+                        cellStyle: {
+                          backgroundColor: '#e0d0ca',
+                          color: '#000',
+                        },
+                        headerStyle: {
+                          backgroundColor: '#bcceeb',
+                        },
+                      },
+                      { title: 'Male Teacher in Kalia', field: 'maleK' },
+                      { title: 'Female Teacher in Kalia ', field: 'femaleK' },
+                      {
+                        title: 'Total Teacher in Kalia',
                         field: 'totalTeacherK',
                         cellStyle: {
                           backgroundColor: '#e0d0ca',
@@ -553,10 +647,10 @@ const TeacherPREVAIL = () => {
                         },
                       },
                       {
-                        title: 'Total Trained Teacher',
+                        title: 'Total Teacher in Narail',
                         field: 'totalTeacher',
                         cellStyle: {
-                          backgroundColor: '#b8a49c',
+                          backgroundColor: '#a86046',
                           color: '#000',
                         },
                         headerStyle: {
@@ -609,7 +703,8 @@ const TeacherPREVAIL = () => {
                     title={narailSadarTeacher.length + ' Teacher'}
                     columns={[
                       { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
-                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'School', field: 'schoolName', sorting: 'true' },
+                      { title: 'School ID', field: 'schoolId', sorting: 'true' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                       { title: 'Gender', field: 'gender', sorting: 'true' },
@@ -617,8 +712,7 @@ const TeacherPREVAIL = () => {
                         title: 'Designation',
                         field: 'designation',
                       },
-                      // { title: 'Grade', field: 'grade' },
-                      { title: 'Training', field: 'teacherTraining' },
+                      { title: 'Training Year', field: 'trainingYear' },
                     ]}
                     // actions={[
                     //   {
@@ -681,7 +775,8 @@ const TeacherPREVAIL = () => {
                     title={lohagoraTeacher.length + ' Teacher Data'}
                     columns={[
                       { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
-                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'School', field: 'schoolName', sorting: 'true' },
+                      { title: 'School ID', field: 'schoolId', sorting: 'true' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                       { title: 'Gender', field: 'gender', sorting: 'true' },
@@ -689,8 +784,7 @@ const TeacherPREVAIL = () => {
                         title: 'Designation',
                         field: 'designation',
                       },
-                      // { title: 'Grade', field: 'grade' },
-                      { title: 'Training', field: 'teacherTraining' },
+                      { title: 'Training Year', field: 'trainingYear' },
                     ]}
                     // actions={[
                     //   {
@@ -750,10 +844,11 @@ const TeacherPREVAIL = () => {
                 </CAccordionHeader>
                 <CAccordionBody>
                   <MaterialTable
-                    title={lohagoraTeacher.length + ' Teacher Data'}
+                    title={kaliaTeacher.length + ' Teacher Data'}
                     columns={[
                       { title: 'Name', field: 'name', type: 'string', sorting: 'true' },
-                      { title: 'School', field: 'school', sorting: 'true' },
+                      { title: 'School', field: 'schoolName', sorting: 'true' },
+                      { title: 'School ID', field: 'schoolId', sorting: 'true' },
                       { title: 'District', field: 'district' },
                       { title: 'Upazilla', field: 'upazilla', sorting: 'true' },
                       { title: 'Gender', field: 'gender', sorting: 'true' },
@@ -761,8 +856,7 @@ const TeacherPREVAIL = () => {
                         title: 'Designation',
                         field: 'designation',
                       },
-                      // { title: 'Grade', field: 'grade' },
-                      { title: 'Training', field: 'teacherTraining' },
+                      { title: 'Training Year', field: 'trainingYear' },
                     ]}
                     // actions={[
                     //   {
@@ -826,7 +920,8 @@ const TeacherPREVAIL = () => {
                     columns={[
                       { title: 'name', field: 'name', type: 'string', sorting: 'true' },
                       { title: 'bnName', field: 'bnName' },
-                      { title: 'school', field: 'school', sorting: 'true' },
+                      { title: 'School', field: 'schoolName', sorting: 'true' },
+                      { title: 'School ID', field: 'schoolId', sorting: 'true' },
                       { title: 'district', field: 'district' },
                       { title: 'upazilla', field: 'upazilla', sorting: 'true' },
                       { title: 'gender', field: 'gender', sorting: 'true' },
@@ -835,42 +930,61 @@ const TeacherPREVAIL = () => {
                         field: 'designation',
                       },
                       { title: 'phone1', field: 'phone1' },
-                      { title: 'phone2', field: 'phone2' },
                       { title: 'project', field: 'project' },
                       { title: 'currentAddress', field: 'currentAddress' },
-                      { title: 'permanentAddress', field: 'permanentAddress' },
-                      { title: 'grade', field: 'grade' },
+                      { title: 'Grade PPrimary', field: 'gradePPrimary' },
+                      { title: 'Grade G1', field: 'gradeG1' },
+                      { title: 'Grade G2', field: 'gradeG2' },
+                      { title: 'Grade G3', field: 'gradeG3' },
+                      { title: 'Grade G4', field: 'gradeG4' },
+                      { title: 'Grade G5', field: 'gradeG5' },
                       { title: 'section', field: 'section' },
-                      { title: 'teacherTraining', field: 'teacherTraining' },
+                      { title: 'Point Teacher', field: 'pointTeacher' },
+
+                      { title: 'trainingYear', field: 'trainingYear' },
+
                       { title: 'instructionPreprimary', field: 'instructionPreprimary' },
                       { title: 'instructionG1', field: 'instructionG1' },
-                      { title: 'instructionG2', field: 'instructionG2' },
-                      { title: 'libraryManagementSRM', field: 'libraryManagementSRM' },
-                      { title: 'headteacherTraining', field: 'headteacherTraining' },
-                      { title: 'goodGovernanceHeadteacher', field: 'goodGovernanceHeadteacher' },
+                      {
+                        title: 'instructionG2',
+                        field: 'instructionG2',
+                      },
+                      {
+                        title: 'libraryManagementSRM',
+                        field: 'libraryManagementSRM',
+                      },
+                      {
+                        title: 'headteacherTraining',
+                        field: 'headteacherTraining',
+                      },
+                      {
+                        title: 'goodGovernanceHeadteacher',
+                        field: 'goodGovernanceHeadteacher',
+                      },
                       {
                         title: 'schoolPerformanceHeadteacher',
                         field: 'schoolPerformanceHeadteacher',
                       },
-                      { title: 'trainingYear', field: 'trainingYear' },
                       { title: 'activity', field: 'activity' },
                       // { title: 'isActive', field: 'isActive' },
                       // { title: 'isDeleted', field: 'isDeleted' },
                     ]}
-                    editable={{
-                      onRowUpdate: (newData, oldData) =>
-                        new Promise((resolve) => {
-                          handleRowUpdateTeacher(newData, oldData, resolve)
-                        }),
-                      onRowAdd: (newData) =>
-                        new Promise((resolve) => {
-                          handleRowAddTeacher(newData, resolve)
-                        }),
-                      onRowDelete: (oldData) =>
-                        new Promise((resolve) => {
-                          handleRowDeleteTeacher(oldData, resolve)
-                        }),
-                    }}
+                    editable={
+                      {
+                        // onRowUpdate: (newData, oldData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowUpdateTeacher(newData, oldData, resolve)
+                        //   }),
+                        // onRowAdd: (newData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowAddTeacher(newData, resolve)
+                        //   }),
+                        // onRowDelete: (oldData) =>
+                        //   new Promise((resolve) => {
+                        //     handleRowDeleteTeacher(oldData, resolve)
+                        //   }),
+                      }
+                    }
                     options={{
                       exportButton: true,
                       exportAllData: true,

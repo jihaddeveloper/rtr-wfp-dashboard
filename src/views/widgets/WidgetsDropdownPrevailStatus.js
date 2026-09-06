@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 09/04/2025
-//  Description: PLFObservation  file
+//  Modify Date: 11/08/2026
+//  Description: PREVAIl Status  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -1277,13 +1277,8 @@ const WidgetsDropdownPrevailStatus = () => {
                               allG3TeacherP2PreviousMonthPercent,
                               allG3TeacherP3PreviousMonthPercent,
                             ],
-                            backgroundColor: ['#addcecff', '#8ddaf3ff', '#35a8ceff', '#007AA4'],
-                            hoverBackgroundColor: [
-                              '#e3e9d5ff',
-                              '#cae09aff',
-                              '#8eac4fff',
-                              '#658f0aff',
-                            ],
+                            backgroundColor: ['#807378', '#876270', '#894c63', '#994263'],
+                            hoverBackgroundColor: ['#807378', '#876270', '#894c63', '#994263'],
                           },
                         ],
                       }}
@@ -1416,6 +1411,8 @@ const WidgetsDropdownPrevailStatus = () => {
                   color="success"
                   icon={<CIcon icon={cilInstitution} height={40} />}
                   title="School"
+                  // {allSchoolData.length}
+                  value={<>494</>}
                   footer={
                     <CLink
                       className="font-weight-bold font-xs text-body-secondary"
@@ -1425,14 +1422,14 @@ const WidgetsDropdownPrevailStatus = () => {
                       <CIcon icon={cilArrowRight} className="float-end" width={16} />
                     </CLink>
                   }
-                  value={<>{allSchoolData.length}</>}
                 />
                 <CWidgetStatsF
                   className="m-0 flex-grow-1"
                   color="info"
                   icon={<CIcon icon={cilUser} height={40} />}
                   title="Teacher"
-                  value={<>{allTeacherData.length}</>}
+                  // {allTeacherData.length}
+                  value={<>2631</>}
                   footer={
                     <CLink
                       className="font-weight-bold font-xs text-body-secondary"
@@ -1448,7 +1445,7 @@ const WidgetsDropdownPrevailStatus = () => {
                   color="primary"
                   icon={<CIcon icon={cilSchool} height={40} />}
                   title="Student"
-                  value={<>#####</>}
+                  value={<>64382</>}
                   footer={
                     <CLink className="font-weight-bold font-xs text-body-secondary">
                       View more

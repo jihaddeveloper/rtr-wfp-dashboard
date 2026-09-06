@@ -29,18 +29,29 @@ import { useNavigate } from 'react-router-dom' // Import useHistory hook
 import RTR11 from './../../assets/images/rtrnew.png'
 
 const AppHeaderDropdown = () => {
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     // Perform logout actions here (e.g., clear session, remove authentication token)
+    localStorage.removeItem('user')
     // After logout, redirect to the login page
-    history('/login')
+    navigate('/login')
   }
+
+  // Logout method
+  const logout = () => {
+    localStorage.removeItem('user')
+    // After logout, redirect to the login page
+    navigate('/login')
+  }
+  // Logout method
 
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
-        <CAvatar src={RTR11} size="md" />
+        {/* <CAvatar src={RTR11} size="md" /> */}
+        <CIcon icon={cilUser} className="me-2" />
+        Profile
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
@@ -75,12 +86,12 @@ const AppHeaderDropdown = () => {
         <CDropdownHeader className="bg-light fw-semibold py-2">Settings</CDropdownHeader> */}
         <CDropdownItem href="#">
           <CIcon icon={cilUser} className="me-2" />
-          Profile
+          Profile Detail
         </CDropdownItem>
-        <CDropdownItem href="#">
+        {/* <CDropdownItem href="#">
           <CIcon icon={cilSettings} className="me-2" />
           Settings
-        </CDropdownItem>
+        </CDropdownItem> */}
         {/* <CDropdownItem href="#">
           <CIcon icon={cilCreditCard} className="me-2" />
           Payments

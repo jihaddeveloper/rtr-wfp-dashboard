@@ -29,6 +29,12 @@ const AppHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
 
+  // Logout method
+  const logout = () => {
+    localStorage.removeItem('user')
+  }
+  // Logout method
+
   return (
     <CHeader position="sticky" className="mb-4">
       <CContainer fluid>
@@ -47,12 +53,12 @@ const AppHeader = () => {
               Dashboard
             </CNavLink>
           </CNavItem>
-          <CNavItem>
+          {/* <CNavItem>
             <CNavLink href="#">Users</CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
-          </CNavItem>
+          </CNavItem> */}
         </CHeaderNav>
         <CHeaderNav>
           {/* <CNavItem>

@@ -1,3 +1,8 @@
+//  Author: Mohammad Jihad Hossain
+//  Create Date: 12/07/2025
+//  Modify Date: 12/07/2026
+//  Description: AppSidebar  file
+
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -26,6 +31,53 @@ import 'simplebar/dist/simplebar.min.css'
 import navigation from '../_nav'
 import { rtr25 } from 'src/assets/brand/rtr25'
 
+const useAuth = () => {
+  const rawUser = localStorage.getItem('user')
+  const user = rawUser ? JSON.parse(rawUser) : null
+  const token = user.token
+
+  console.log('user: ' + user)
+
+  // Extract roles safely whether it's a string, array, or null
+  let userRoles = []
+  if (user?.role) {
+    userRoles = Array.isArray(user.role) ? user.role : [user.role]
+  } else if (user?.roles) {
+    userRoles = Array.isArray(user.roles) ? user.roles : [user.roles]
+  }
+
+  return {
+    user: user ? user : null,
+    isAuthenticated: !!token,
+    roles: userRoles,
+  }
+}
+
+const filterNavigationByRole = (navItems, userRoles) => {
+  return navItems
+    .map((item) => {
+      // 1. Check if top-level item is allowed
+      if (item.allowedRoles && !item.allowedRoles.some((r) => userRoles.includes(r))) {
+        return null
+      }
+
+      // 2. If item is a CNavGroup with nested items, filter its children recursively
+      if (item.items && Array.isArray(item.items)) {
+        const filteredChildren = filterNavigationByRole(item.items, userRoles)
+
+        // If all children in a group were filtered out, hide the parent group too
+        if (filteredChildren.length === 0) {
+          return null
+        }
+
+        return { ...item, items: filteredChildren }
+      }
+
+      return item
+    })
+    .filter(Boolean)
+}
+
 const customVars = {
   '--cui-sidebar-bg': '#333333', // Your desired background color
   '--cui-sidebar-color': '#131212ff', // Your desired text color
@@ -35,6 +87,12 @@ const customVars = {
 }
 
 const AppSidebar = () => {
+  const { user, isAuthenticated, roles } = useAuth()
+
+  console.log('roles: ' + roles)
+
+  const allowedNav = filterNavigationByRole(navigation, roles)
+
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
@@ -58,7 +116,7 @@ const AppSidebar = () => {
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
-          <AppSidebarNav items={navigation} />
+          <AppSidebarNav items={allowedNav} />
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler

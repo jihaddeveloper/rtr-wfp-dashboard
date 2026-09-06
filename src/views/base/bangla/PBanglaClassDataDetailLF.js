@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 12/06/2026
-//  Modify Date: 30/06/2026
+//  Modify Date: 06/09/2026
 //  Description: PBanglaClassDataDetailLF  file
 
 import React, { useState, useEffect } from 'react'
@@ -43,10 +43,20 @@ import Box from '@mui/material/Box'
 import MaterialTable from 'material-table'
 import { BorderBottom } from '@material-ui/icons'
 
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const API_URL = `${BASE_URL}/p-bangla-class`
+
 //Icon
 //Icon
 
 const PBanglaClassDataDetailLF = () => {
+  // This function runs synchronously before the initial render
+  const [user, setUser] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user || 'no user saved'
+  })
+
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -55,7 +65,7 @@ const PBanglaClassDataDetailLF = () => {
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allSchoolData, setAllSchoolData] = useState([])
 
-  const LF = 'E-03848'
+  const LF = user?.username || 'E-03848'
 
   const TeacherNo = allSchoolData.filter((item) => {
     return item.lf === LF
@@ -90,7 +100,7 @@ const PBanglaClassDataDetailLF = () => {
   const getAllSchool = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+      const response = await axios(`${BASE_URL}/p-school`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -112,7 +122,7 @@ const PBanglaClassDataDetailLF = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
+      const response = await axios(`${BASE_URL}/p-teacher`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -129,6 +139,47 @@ const PBanglaClassDataDetailLF = () => {
     }
   }
   // Get All Teacher
+
+  // Get All Book-checkout Data for school
+  const getAllBanglaClass = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios(API_URL, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      const arrayData = Array.isArray(response.data) ? response.data : response.data?.data
+
+      if (!Array.isArray(arrayData)) {
+        setAllBanglaObsData([])
+        return
+      }
+
+      // Sort descending so the latest item comes first
+      const sortedData = [...arrayData].sort((a, b) => {
+        // 1. If you have a date/timestamp field (e.g., createdAt, date, timestamp)
+        return new Date(b.createDate) - new Date(a.createDate)
+
+        // 2. OR if you use an auto-incrementing numeric ID (e.g., id, _id):
+        // return b.id - a.id;
+      })
+
+      //const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
+
+      setAllBanglaObsData(
+        sortedData.filter((item) => {
+          return item.lf === LF && item.fieldOffice === 'NrFO'
+        }) || [],
+      )
+      setIsLoading(false)
+      //console.log('Data:' + response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All Book-checkout Data for school
 
   // Teacher filter data
   const g1Teacher = allTeacherData.filter((item) => {
@@ -2349,31 +2400,6 @@ const PBanglaClassDataDetailLF = () => {
   // PreviousMonth
   // Bangla Observation Data by filter
 
-  // Get All Book-checkout Data for school
-  const getAllBanglaClass = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBanglaObsData(
-        response.data.filter((item) => {
-          return item.lf === LF && item.fieldOffice === 'NrFO'
-        }),
-      )
-      setIsLoading(false)
-      console.log('Data:' + response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Book-checkout Data for school
-
   // Row update function
   const handleRowUpdateAllBanglaClass = (newData, oldData, resolve) => {
     //validation
@@ -3999,20 +4025,7 @@ const PBanglaClassDataDetailLF = () => {
                   { title: 'Subm Date', field: 'createDate', type: 'date', sorting: 'true' },
                   { title: 'isChecked', field: 'isChecked' },
                 ]}
-                editable={{
-                  onRowAdd: (newData) =>
-                    new Promise((resolve) => {
-                      handleRowAddBanglaClass(newData, resolve)
-                    }),
-                  onRowUpdate: (newData, oldData) =>
-                    new Promise((resolve) => {
-                      handleRowUpdateAllBanglaClass(newData, oldData, resolve)
-                    }),
-                  // onRowDelete: (oldData) =>
-                  //   new Promise((resolve) => {
-                  //     handleRowDeleteBanglaClass(oldData, resolve)
-                  //   }),
-                }}
+                editable={{}}
                 options={{
                   exportButton: true,
                   exportAllData: true,
@@ -4054,7 +4067,7 @@ const PBanglaClassDataDetailLF = () => {
                 }}
                 // Replaced fixed pixels with percentage widths to rely on container-driven layout
                 style={{ width: '100%' }}
-                data={allBanglaObsData.toReversed()}
+                data={allBanglaObsData}
               />
             </CCardBody>
           </CCard>

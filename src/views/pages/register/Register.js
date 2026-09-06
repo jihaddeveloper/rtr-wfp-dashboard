@@ -19,19 +19,22 @@ import { Link, useNavigate } from 'react-router-dom'
 import { cilLockLocked, cilUser, cilPhone, cilPeople } from '@coreui/icons'
 
 const Register = () => {
-  const [fullName, setFullName] = useState('')
+  const [name, setName] = useState('')
+  const [username, setUsername] = useState('')
+  const [employeeId, setEmployeeId] = useState('')
+  const [designation, setDesignation] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [role, setRole] = useState('ROLE_CUSTOMER')
+  const [role, setRole] = useState('')
   const [mobile, setMobileNumber] = useState('')
   const [error, setError] = useState('') // State to manage error messages
-  const history = useNavigate() // Get the history object for redirection
+  const navaigate = useNavigate() // Get the history object for redirection
 
   const handleSignup = async () => {
     try {
       // Check for empty fields
-      if (!fullName || !email || !password || !confirmPassword || !mobile) {
+      if (!name || !email || !password || !confirmPassword || !mobile) {
         setError('Please fill in all fields.')
         return
       }
@@ -40,16 +43,18 @@ const Register = () => {
         throw new Error('Passwords do not match')
       }
 
-      const response = await axios.post('http://localhost:8081/auth/signup', {
-        fullName,
+      const response = await axios.post('http://localhost:8080/api/auth/signup', {
+        name,
+        username,
+        employeeId,
+        designation,
         email,
         password,
         role,
-        mobile,
       })
       // Handle successful signup
       console.log(response.data)
-      history('/dashboard')
+      navaigate('/login')
     } catch (error) {
       // Handle signup error
       console.error('Signup failed:', error.response ? error.response.data : error.message)
@@ -77,9 +82,9 @@ const Register = () => {
                       autoComplete="username"
                       id="fullName"
                       placeholder={'Full Name'}
-                      value={fullName}
+                      value={name}
                       type="text"
-                      onChange={(e) => setFullName(e.target.value)}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
@@ -93,7 +98,7 @@ const Register = () => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </CInputGroup>
-                  <CInputGroup className="mb-3">
+                  {/* <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilPhone} />
                     </CInputGroupText>
@@ -105,17 +110,17 @@ const Register = () => {
                       value={mobile}
                       onChange={(e) => setMobileNumber(e.target.value)}
                     />
-                  </CInputGroup>
+                  </CInputGroup> */}
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilPeople} />
                     </CInputGroupText>
                     <CFormSelect value={role} onChange={(e) => setRole(e.target.value)}>
                       <option>Select Role</option>
-                      <option value="ROLE_CMT">CMT</option>
-                      <option value="ROLE_MANAGER">Manager</option>
-                      <option value="ROLE_LPO">LPO</option>
-                      <option value="ROLE_LF">LF</option>
+                      <option value="cmt">CMT</option>
+                      <option value="manager">Manager</option>
+                      <option value="lpo">LPO</option>
+                      <option value="lf">LF</option>
                     </CFormSelect>
                   </CInputGroup>
                   <CInputGroup className="mb-3">

@@ -17,7 +17,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-const Login = () => {
+const Login2 = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [allEmployeeData, setAllEmployeeData] = useState([])
 
@@ -35,7 +35,7 @@ const Login = () => {
   const getAllEmployee = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/di-employee', {
+      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -118,4 +118,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login2

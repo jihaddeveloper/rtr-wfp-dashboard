@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 14/01/2026
-//  Modify Date: 09/04/2026
-//  Description: PrevailEmployee  file
+//  Create Date: 12/07/2025
+//  Modify Date: 12/08/2026
+//  Description: PrevailSchool  file
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -40,9 +40,20 @@ import Remove from '@material-ui/icons/Remove'
 import SaveAlt from '@material-ui/icons/SaveAlt'
 import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
+
 //Icon
 
+const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+
+const API_URL = `${BASE_URL}/p-school`
+
 const PrevailSchool = () => {
+  // This function runs synchronously before the initial render
+  const [user, setUser] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user || 'no user saved'
+  })
+
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -67,7 +78,7 @@ const PrevailSchool = () => {
   // Get All School Data
   const getAllSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+      const response = await axios(`${BASE_URL}/p-school`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -75,7 +86,10 @@ const PrevailSchool = () => {
           'Content-Type': 'application/json',
         },
       })
-      setAllSchoolData(response.data)
+
+      const reversedData = Array.isArray(response.data) ? response.data.reverse() : []
+
+      setAllSchoolData(reversedData)
       setIsLoading(false)
       console.log('Data:' + response)
     } catch (error) {
@@ -85,7 +99,7 @@ const PrevailSchool = () => {
   // Get All School Data
 
   // Row update function
-  const handleRowUpdateSchool = (newData, oldData, resolve) => {
+  const handleRowUpdateSchool = (newData, oldData, resolve, reject) => {
     //validation
 
     let errorList = []
@@ -101,7 +115,7 @@ const PrevailSchool = () => {
 
     if (errorList.length < 1) {
       axios
-        .patch('http://118.179.80.51:8080/api/v1/p-school/' + newData.id, newData, {
+        .patch(`${API_URL}/${newData.id}`, newData, {
           method: 'PATCH',
           mode: 'no-cors',
           headers: {
@@ -110,27 +124,36 @@ const PrevailSchool = () => {
           },
         })
         .then((res) => {
-          const dataUpdate = [...allSchoolData]
-          const index = oldData.tableData.id
-          dataUpdate[index] = newData
-          setAllSchoolData([...dataUpdate])
+          // Fallback to res.data if your API returns the updated item, otherwise use newData
+          const updatedRowFromServer = res.data || newData
+
+          // Secure state update using item IDs to prevent bugs caused by .toReversed() layout ordering
+          setAllSchoolData((prevData) =>
+            prevData.map((item) => {
+              // Compare unique IDs as strings to rule out type discrepancies
+              if (String(item.id) === String(newData.id)) {
+                return {
+                  ...item, // Keep original row structure and historical tableData keys
+                  ...updatedRowFromServer, // Layer on top the freshly patched API parameters
+                  tableData: oldData.tableData, // Protect material-table's critical internal layout reference tracker
+                }
+              }
+              return item
+            }),
+          )
+
+          // // Resolve the promise to close the material-table inline edit mode
           resolve()
-          setIserror(false)
-          setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
         })
         .catch((error) => {
           setErrorMessages(['Update failed! Server error'])
           setIserror(true)
-          resolve()
+          reject()
         })
     } else {
       setErrorMessages(errorList)
       setIserror(true)
-      resolve()
+      reject()
     }
   }
   // Row update function
@@ -152,7 +175,7 @@ const PrevailSchool = () => {
 
     if (errorList.length < 1) {
       axios
-        .post('http://118.179.80.51:8080/api/v1/p-school/', newData, {
+        .post(`${API_URL}`, newData, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -161,16 +184,15 @@ const PrevailSchool = () => {
           },
         })
         .then((res) => {
-          const dataToAdd = [...allSchoolData]
-          dataToAdd.push(newData)
-          setAllSchoolData([...dataToAdd])
-          resolve()
+          // Fallback safely to input data if your API response body is wrapped or customized
+          const savedRowFromServer = res.data || newData
+
+          // Prepend directly to the front since the state isn't being reversed dynamically anymore
+          setAllSchoolData((prevData) => [savedRowFromServer, ...prevData])
+
           setIserror(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve()
         })
         .catch((error) => {
           setErrorMessages(['Add School failed! Server error'])
@@ -202,7 +224,7 @@ const PrevailSchool = () => {
 
     if (errorList.length < 1) {
       axios
-        .delete('http://118.179.80.51:8080/api/v1/p-school/' + oldData.id, {
+        .delete(`${API_URL}/${oldData.id}`, {
           method: 'DELETE',
           mode: 'no-cors',
           headers: {
@@ -211,17 +233,15 @@ const PrevailSchool = () => {
           },
         })
         .then((res) => {
-          const dataDelete = [...allSchoolData]
-          const index = oldData.tableData.id
-          dataDelete.splice(index, 1)
-          setAllSchoolData([...dataDelete])
-          resolve()
+          // This is safe against sorting, filtering, and array order shifts
+          setAllSchoolData((prevData) =>
+            prevData.filter((item) => String(item.id) !== String(oldData.id)),
+          )
+          // The table updates instantly from the filter state above, saving a network request
+
           setIserror(false)
           setErrorMessages([])
-          // console.log('newData.id: ' + newData.id)
-          // console.log(newData)
-          // console.log(oldData)
-          // console.log('url: ' + 'http://118.179.80.51:8080/api/v1/book-checkouts/' + newData.id)
+          resolve() // Smoothly closes the material-table delete modal confirmation overlay
         })
         .catch((error) => {
           setErrorMessages(['Delete failed! Server error'])
@@ -375,10 +395,10 @@ const PrevailSchool = () => {
                   new Promise((resolve) => {
                     handleRowAddSchool(newData, resolve)
                   }),
-                // onRowDelete: (oldData) =>
-                //   new Promise((resolve) => {
-                //     handleRowDeleteSchool(oldData, resolve)
-                //   }),
+                onRowDelete: (oldData) =>
+                  new Promise((resolve) => {
+                    handleRowDeleteSchool(oldData, resolve)
+                  }),
               }}
               options={{
                 exportButton: true,
