@@ -33,7 +33,8 @@ const Login = () => {
   const navigate = useNavigate()
 
   // Make sure your backend port matches this and is running!
-  const API_URL = 'http://118.179.80.51:8080/api/auth/'
+  const BASE_URL = process.env.REACT_APP_API_URL
+  const API_URL = process.env.REACT_APP_API_URL_AUTH
 
   // Login method
   const handleLogin = async (e) => {

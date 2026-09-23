@@ -42,6 +42,9 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
+const BASE_URL = process.env.REACT_APP_API_URL
+const API_URL = `${BASE_URL}/p-employee`
+
 const EmployeePrevail = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
@@ -67,7 +70,7 @@ const EmployeePrevail = () => {
   // Get All Employee Data
   const getAllEmployee = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
+      const response = await axios(API_URL, {
         method: 'GET',
         mode: 'no-cors',
         headers: {

@@ -1,173 +1,144 @@
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]  
-[![@coreui react](https://img.shields.io/badge/@coreui%20-react-lightgrey.svg?style=flat-square)](https://github.com/coreui/react)
-[![npm package][npm-coreui-react-badge]][npm-coreui-react]
-[![NPM downloads][npm-coreui-react-download]][npm-coreui-react]  
+## 🚀 Getting Started
 
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
-[npm-coreui-react]: https://www.npmjs.com/package/@coreui/react
-[npm-coreui-react-badge]: https://img.shields.io/npm/v/@coreui/react.png?style=flat-square
-[npm-coreui-react-download]: https://img.shields.io/npm/dm/@coreui/react.svg?style=flat-square
-[npm]: https://www.npmjs.com/package/@coreui/react
+### Prerequisites
 
-# CoreUI Free React Admin Template v4
+- **Node.js**: Version 14.x or higher (Commands are optimized below for Node 17+ compatibility)
+- **Package Manager**: `npm` (v6+) or `yarn` (v1.x+)
 
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
+### Installation
 
-## Table of Contents
+Install all required project dependencies using one of the following commands from the root directory:
 
-* [Versions](#versions)
-* [CoreUI Pro](#coreui-pro)
-* [Quick Start](#quick-start)
-* [Installation](#installation)
-* [Basic usage](#basic-usage)
-* [What's included](#whats-included)
-* [Documentation](#documentation)
-* [Versioning](#versioning)
-* [Creators](#creators)
-* [Community](#community)
-* [Copyright and License](#copyright-and-license)
-
-## Versions
-
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
-
-## CoreUI Pro
-
-* 💪  [CoreUI Pro Bootstrap Admin Template](https://coreui.io/pro/)
-* 💪  [CoreUI Pro Angular Admin Template](https://coreui.io/pro/angular)
-* 💪  [CoreUI Pro React Admin Template](https://coreui.io/pro/react)
-* 💪  [CoreUI Pro Vue Admin Template](https://coreui.io/pro/vue)
-
-## Quick Start
-
-- [Download the latest release](https://github.com/coreui/coreui-free-react-admin-template/archive/refs/heads/main.zip)
-- Clone the repo: `git clone https://github.com/coreui/coreui-free-react-admin-template.git`
-
-### Instalation
-
-``` bash
+```bash
+# Using npm
 $ npm install
-```
 
-or
-
-``` bash
+# Using yarn
 $ yarn install
 ```
 
-### Basic usage
+### Development Server
 
-``` bash
-# dev server with hot reload at http://localhost:3000
-$ npm start 
+Run the local development server with hot module reloading (HMR) active.
 
-# if you use Node 17+ use this command instead of `npm start`
-$ npm run start:n17 
-```
-
-or 
-
-``` bash
-# dev server with hot reload at http://localhost:3000
+```bash
+# Standard environment (Node 16 and below)
+$ npm start
+# OR
 $ yarn start
 
-# if you use Node 17+ use this command instead of `yarn start`
-$ yarn start:n17 
+# Modern environment (Node 17+)
+$ npm run start:n17
+# OR
+$ yarn start:n17
 ```
 
-Navigate to [http://localhost:3000](http://localhost:3000). The app will automatically reload if you change any of the source files.
+Once initialized, navigate your browser to **[http://localhost:3000](http://localhost:3000)**. The page automatically shifts and updates whenever you save edits inside the `src/` directory.
 
-#### Build
+### Production Build
 
-Run `build` to build the project. The build artifacts will be stored in the `build/` directory.
+Compile and optimize the React application for live production deployment. The minified, production-ready assets will be compiled into the root `build/` directory.
 
 ```bash
-# build for production with minification
+# Standard environment (Node 16 and below)
 $ npm run build
-
-# if you use Node 17+ use this command instead of `build run build`
-$ npm run build:n17 
-```
-
-or
-
-```bash
-# build for production with minification
+# OR
 $ yarn build
 
-# if you use Node 17+ use this command instead of `yarn build`
-$ yarn build:n17 
+# Modern environment (Node 17+)
+$ npm run build:n17
+# OR
+$ yarn build:n17
 ```
 
-## What's included
+---
 
-Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+## 📂 Codebase Architecture & File Layout
 
-```
+The application isolates visual view presentation, shared functional layout wrappers, and state layers into a clean, modular file structure:
+
+```text
 coreui-free-react-admin-template
-├── public/          # static files
-│   └── index.html   # html template
-│
-├── src/             # project root
-│   ├── assets/      # images, icons, etc.
-│   ├── components/  # common components - header, footer, sidebar, etc.
-│   ├── layouts/     # layout containers
-│   ├── scss/        # scss styles
-│   ├── views/       # application views
-│   ├── _nav.js      # sidebar navigation config
-│   ├── App.js
-│   ├── ...
-│   ├── index.js
-│   ├── routes.js    # routes config
-│   └── store.js     # template state example 
-│
-└── package.json
+├── public/                # Static public assets
+│   └── index.html         # Application root HTML template
+├── src/                   # Main application source directory
+│   ├── assets/            # Global media assets (images, logos, icons)
+│   ├── components/        # Reusable global layout elements (Header, Footer, Sidebar)
+│   ├── layouts/           # Page structural wrappers and route layouts
+│   ├── scss/              # Global application styles and CoreUI design overrides
+│   ├── views/             # Domain-specific page views and features (Dashboard, Users, Settings)
+│   ├── _nav.js            # Sidebar menu structural navigation schema
+│   ├── App.js             # Root application component and shell execution
+│   ├── index.js           # DOM entry point that initializes React and Redux contexts
+│   ├── routes.js          # Dynamic structural mapping array for views
+│   └── store.js           # Central Redux / state management layout
+└── package.json           # Application dependencies and execution script actions
 ```
 
-## Documentation
+---
 
-The documentation for the CoreUI Admin Template is hosted at our website [CoreUI for React](https://coreui.io/react/)
+## 🛠️ Application Engine & Key Architectures
 
-## Versioning
+### 1. Global Navigation Configuration (`src/_nav.js`)
 
-For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
+The layout sidebar is dynamically driven by a JSON array export configuration found in `_nav.js`. Adding links, drop-downs, or sub-menus to your navigation panel does not require UI rewrites. Instead, simply insert objects matching this structural format:
 
-See [the Releases section of our project](https://github.com/coreui/coreui-free-react-admin-template/releases) for changelogs for each release version.
+```javascript
+const _nav = [
+  {
+    component: 'CNavItem',
+    name: 'Dashboard',
+    to: '/dashboard',
+    icon: 'cil-speedometer',
+    badge: { color: 'info', text: 'NEW' },
+  },
+  {
+    component: 'CNavGroup',
+    name: 'Buttons',
+    to: '/buttons',
+    icon: 'cil-cursor',
+    items: [
+      { component: 'CNavItem', name: 'Buttons', to: '/buttons/buttons' },
+      { component: 'CNavItem', name: 'Dropdowns', to: '/buttons/dropdowns' },
+    ],
+  },
+]
+```
 
-## Creators
+### 2. Centralized Routing Logic (`src/routes.js`)
 
-**Łukasz Holeczek**
-* <https://twitter.com/lukaszholeczek>
-* <https://github.com/mrholek>
-* <https://github.com/coreui>
+To decouple path configurations from component files, paths are declared as an object array mapping within `routes.js`. The layout wrapper parses this file to lazy-load routes on demand.
 
-**CoreUI team**
-* https://github.com/orgs/coreui/people
+```javascript
+import React from 'react'
 
-## Community
+const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 
-Get updates on CoreUI's development and chat with the project maintainers and community members.
+const routes = [
+  { path: '/', exact: true, name: 'Home' },
+  { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/theme/colors', name: 'Colors', element: Colors },
+]
 
-- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
-- Read and subscribe to [CoreUI Blog](https://blog.coreui.ui/).
+export default routes
+```
 
-## Copyright and License
+### 3. State Management Setup (`src/store.js`)
 
-copyright 2021 creativeLabs Łukasz Holeczek.   
+Global application interactions (such as opening/closing the sidebar, theme switching, and user interface states) are governed via a Redux centralized store architecture initialized within `store.js`.
 
- 
-Code released under [the MIT license](https://github.com/coreui/coreui-free-react-admin-template/blob/master/LICENSE).
-There is only one limitation you can't can’t re-distribute the CoreUI as stock. You can’t do this if you modify the CoreUI. In past we faced some problems with persons who tried to sell CoreUI based templates.
+- To append a global slice, define your standard actions and execution mutations directly inside this module.
+- To read or mutate store values within functional page views, invoke the standard native hook selectors:
 
-## Support CoreUI Development
+  ```javascript
+  import { useSelector, useDispatch } from 'react-redux'
 
-CoreUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying [CoreUI Pro Version](https://coreui.io/pro/).
+  // Sample state usage within a component
+  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const dispatch = useDispatch()
 
-We're also open to conversations regarding custom sponsorship / consulting arrangements. Get in touch on [Twitter](https://twitter.com/lukaszholeczek).
+  const toggleSidebar = () => {
+    dispatch({ type: 'set', sidebarShow: !sidebarShow })
+  }
+  ```

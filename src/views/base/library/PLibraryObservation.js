@@ -62,7 +62,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 
 import { Chart } from 'react-google-charts'
 
-const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 const API_URL = `${BASE_URL}/p-library-observation`
 

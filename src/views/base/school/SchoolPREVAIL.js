@@ -43,6 +43,9 @@ import Search from '@material-ui/icons/Search'
 import ViewColumn from '@material-ui/icons/ViewColumn'
 //Icon
 
+const BASE_URL = process.env.REACT_APP_API_URL
+const API_URL = `${BASE_URL}/p-school`
+
 const SchoolPREVAIL = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
@@ -74,7 +77,7 @@ const SchoolPREVAIL = () => {
   // Get All School Data
   const getAllSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+      const response = await axios(API_URL, {
         method: 'GET',
         mode: 'no-cors',
         headers: {

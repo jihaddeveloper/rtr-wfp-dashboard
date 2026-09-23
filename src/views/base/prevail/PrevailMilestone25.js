@@ -52,6 +52,8 @@ import { saveAs } from 'file-saver'
 //Icon
 //Icon
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
 const PrevailMilestone25 = () => {
   // data state to store the BCO API data. Its initial value is an empty array
   const [data, setData] = useState([])
@@ -90,7 +92,7 @@ const PrevailMilestone25 = () => {
   // Get All LFObservation Data
   const getAllLFObservation = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-lf-observation', {
+      const response = await axios(`${BASE_URL}/p-lf-observation`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -111,7 +113,7 @@ const PrevailMilestone25 = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
+      const response = await axios(`${BASE_URL}/p-teacher`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -907,7 +909,7 @@ const PrevailMilestone25 = () => {
   const getAllBanglaClass = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
+      const response = await axios(`${BASE_URL}/p-bangla-class`, {
         method: 'GET',
         mode: 'no-cors',
         headers: {

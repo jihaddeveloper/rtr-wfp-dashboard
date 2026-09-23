@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 09/09/2025
-//  Modify Date: 06/09/2026
+//  Modify Date: 16/09/2026
 //  Description: PBanglaClassDataDetail  file
 
 import React, { useState, useEffect } from 'react'
@@ -43,9 +43,9 @@ import Box from '@mui/material/Box'
 import MaterialTable from 'material-table'
 import { BorderBottom } from '@material-ui/icons'
 
-const BASE_URL = 'http://118.179.80.51:8080/api/v1'
-
+const BASE_URL = process.env.REACT_APP_API_URL
 const API_URL = `${BASE_URL}/p-bangla-class`
+const TEACHER_API_URL = `${BASE_URL}/p-teacher`
 
 //Icon
 //Icon
@@ -125,7 +125,7 @@ const PBanglaClassDataDetail = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios(`${BASE_URL}/p-teacher`, {
+      const response = await axios(TEACHER_API_URL, {
         method: 'GET',
         mode: 'no-cors',
         headers: {

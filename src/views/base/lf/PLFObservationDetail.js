@@ -62,7 +62,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn'
 
 import { Chart } from 'react-google-charts'
 
-const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 const API_URL = `${BASE_URL}/p-lf-observation`
 
@@ -832,7 +832,7 @@ const PLFObservationDetail = () => {
                   <CAccordionBody>
                     <CCard className="mb-4">
                       <CCardHeader>
-                        <strong>Trending LF Status</strong> <small>(2025)</small>
+                        <strong>Trending LF Status</strong> <small>(2026)</small>
                       </CCardHeader>
                       <CCardBody>
                         <CTable bordered hover responsive striped>

@@ -46,7 +46,7 @@ import { BorderBottom } from '@material-ui/icons'
 //Icon
 //Icon
 
-const BASE_URL = 'http://118.179.80.51:8080/api/v1'
+const BASE_URL = process.env.REACT_APP_API_URL
 const API_URL = `${BASE_URL}/p-preprimary`
 
 const PPreprimaryDataDetailLF = () => {
