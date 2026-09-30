@@ -1,0 +1,54 @@
+diff --git a/node_modules/@material-ui/pickers/esm/DatePicker/index.js b/node_modules/@material-ui/pickers/esm/DatePicker/index.js
+index 61b2cb4..65ca1a4 100644
+--- a/node_modules/@material-ui/pickers/esm/DatePicker/index.js
++++ b/node_modules/@material-ui/pickers/esm/DatePicker/index.js
+@@ -1,2 +1 @@
+-import { DatePickerProps, KeyboardDatePickerProps } from './DatePicker';
+-export { KeyboardDatePicker, DatePicker } from './DatePicker';
+\ No newline at end of file
++export { DatePicker } from './DatePicker'; export { KeyboardDatePicker } from './DatePicker';
+diff --git a/node_modules/@material-ui/pickers/esm/DateTimePicker/index.js b/node_modules/@material-ui/pickers/esm/DateTimePicker/index.js
+index b830aee..53d609f 100644
+--- a/node_modules/@material-ui/pickers/esm/DateTimePicker/index.js
++++ b/node_modules/@material-ui/pickers/esm/DateTimePicker/index.js
+@@ -1,2 +1 @@
+-import { DateTimePickerProps, KeyboardDateTimePickerProps } from './DateTimePicker';
+-export { KeyboardDateTimePicker, DateTimePicker } from './DateTimePicker';
+\ No newline at end of file
++export { DateTimePicker } from './DateTimePicker'; export { KeyboardDateTimePicker } from './DateTimePicker';
+diff --git a/node_modules/@material-ui/pickers/esm/TimePicker/index.js b/node_modules/@material-ui/pickers/esm/TimePicker/index.js
+index fce05dc..22b4370 100644
+--- a/node_modules/@material-ui/pickers/esm/TimePicker/index.js
++++ b/node_modules/@material-ui/pickers/esm/TimePicker/index.js
+@@ -1,2 +1 @@
+-import { KeyboardTimePickerProps, TimePickerProps } from './TimePicker';
+-export { KeyboardTimePicker, TimePicker } from './TimePicker';
+\ No newline at end of file
++export { TimePicker } from './TimePicker'; export { KeyboardTimePicker } from './TimePicker';
+diff --git a/node_modules/@material-ui/pickers/esm/index.js b/node_modules/@material-ui/pickers/esm/index.js
+deleted file mode 100644
+index 85ef1f7..0000000
+--- a/node_modules/@material-ui/pickers/esm/index.js
++++ /dev/null
+@@ -1,20 +0,0 @@
+-import { MaterialUiPickersDate } from './typings/date';
+-import { KeyboardTimePickerProps } from './TimePicker';
+-import { DatePickerProps, KeyboardDatePickerProps } from './DatePicker';
+-import { DateTimePickerProps, KeyboardDateTimePickerProps } from './DateTimePicker';
+-export { DatePicker, KeyboardDatePicker } from './DatePicker';
+-export { TimePicker, KeyboardTimePicker } from './TimePicker';
+-export { DateTimePicker, KeyboardDateTimePicker } from './DateTimePicker';
+-export { default as Calendar } from './views/Calendar/Calendar';
+-export { default as Day } from './views/Calendar/Day';
+-export { default as TimePickerView, ClockView } from './views/Clock/ClockView';
+-export { default as Clock } from './views/Clock/Clock';
+-export { Picker } from './Picker/Picker';
+-export { makePurePicker } from './Picker/WrappedPurePicker';
+-export { makeKeyboardPicker } from './Picker/WrappedKeyboardPicker';
+-export { validate } from './_helpers/text-field-helper';
+-export { useUtils } from './_shared/hooks/useUtils';
+-export { usePickerState } from './_shared/hooks/usePickerState';
+-export { useStaticState } from './_shared/hooks/useStaticState';
+-export { useKeyboardPickerState } from './_shared/hooks/useKeyboardPickerState';
+-export { default as MuiPickersUtilsProvider, MuiPickersContext } from './MuiPickersUtilsProvider';
+\ No newline at end of file
