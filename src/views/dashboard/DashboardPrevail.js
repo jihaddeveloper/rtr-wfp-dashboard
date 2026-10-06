@@ -74,13 +74,23 @@ import WidgetsDropdownPrevailActivity from '../widgets/WidgetsDropdownPrevailAct
 import WidgetsDropdownPrevailStatus from '../widgets/WidgetsDropdownPrevailStatus'
 import WidgetDropdown from '../widgets/WidgetsDropdown'
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
+const API_URL_Teacher = `${BASE_URL}/p-teacher`
+const API_URL_Employee = `${BASE_URL}/p-employee`
+const API_URL_School = `${BASE_URL}/p-school`
+const API_URL_Bangla = `${BASE_URL}/p-bangla-class`
+const API_URL_Library = `${BASE_URL}/p-library-observation`
+const API_URL_SRM = `${BASE_URL}/p-srm-class`
+const API_URL_LFObs = `${BASE_URL}/p-lf-observation`
+const API_URL_BCO = `${BASE_URL}/p-book-checkout`
+const API_URL_PPrimary = `${BASE_URL}/p-preprimary`
+
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [allBCOdata, setAllBCOdata] = useState([])
   const [allSchoolData, setAllSchoolData] = useState([])
   const [allTeacherData, setAllTeacherData] = useState([])
   const [allEmployeeData, setAllEmployeeData] = useState([])
-  const [allBookCaptainData, setAllBookCaptainData] = useState([])
 
   const currentMonth = new Date().toLocaleString('default', { month: 'long', year: 'numeric' })
 
@@ -88,11 +98,10 @@ const Dashboard = () => {
   useEffect(() => {
     const call = async () => {
       console.log('use effect called')
-      await getAllBookCheckoutSchool(console.log('get bookcheckout called'))
+
       await getAllSchool(console.log('get all school called'))
       await getAllTeacher(console.log('get all teacher called'))
       await getAllEmployee(console.log('get all employee called'))
-      await getAllBookCaptain(console.log('get all BookCaptain called'))
     }
     call()
   }, [])
@@ -121,7 +130,7 @@ const Dashboard = () => {
   const getAllSchool = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/schools', {
+      const response = await axios(API_URL_School, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -142,7 +151,7 @@ const Dashboard = () => {
   const getAllEmployee = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/employees', {
+      const response = await axios(API_URL_Employee, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -163,7 +172,7 @@ const Dashboard = () => {
   const getAllTeacher = async () => {
     setIsLoading(true)
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/teachers', {
+      const response = await axios(API_URL_Teacher, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -179,48 +188,6 @@ const Dashboard = () => {
     }
   }
   // Get All Teacher
-
-  // Get All Book-checkout Data for school
-  const getAllBookCheckoutSchool = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBCOdata(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All Book-checkout Data for school
-
-  // Get All BookCaptain Data
-  const getAllBookCaptain = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-captain', {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      setAllBookCaptainData(response.data)
-      setIsLoading(false)
-      console.log('Data:' + response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // Get All BookCaptain Data
 
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 

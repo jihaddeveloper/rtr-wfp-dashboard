@@ -75,6 +75,18 @@ import Box from '@mui/material/Box'
 
 import MaterialTable from 'material-table'
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
+const API_URL_Teacher = `${BASE_URL}/p-teacher`
+const API_URL_Employee = `${BASE_URL}/p-employee`
+const API_URL_School = `${BASE_URL}/p-school`
+const API_URL_Bangla = `${BASE_URL}/p-bangla-class`
+const API_URL_Library = `${BASE_URL}/p-library-observation`
+const API_URL_SRM = `${BASE_URL}/p-srm-class`
+const API_URL_LFObs = `${BASE_URL}/p-lf-observation`
+const API_URL_BCO = `${BASE_URL}/p-book-checkout`
+const API_URL_PPrimary = `${BASE_URL}/p-preprimary`
+
 const WidgetsDropdownPrevailStatus = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [allBCOdata, setAllBCOdata] = useState([])
@@ -88,6 +100,8 @@ const WidgetsDropdownPrevailStatus = () => {
   const [allBanglaObsData, setAllBanglaObsData] = useState([])
   const [allSchoolMonitoringData, setAllSchoolMonitoringData] = useState([])
   const [allLFObservationData, setAllLFObservationData] = useState([])
+  const [allPPObsData, setAllPPObsData] = useState([])
+  const [allSRMObsData, setAllSRMObsData] = useState([])
 
   // Get previous month
   const current = new Date()
@@ -113,10 +127,51 @@ const WidgetsDropdownPrevailStatus = () => {
       await getAllBanglaObs()
       await getAllSchoolMonitoring()
       await getAllLFObservation()
+      await getAllPPObservation()
+      await getAllSRMObservation()
     }
     call()
   }, [])
   // Using useEffect to call the API once mounted and set the data
+
+  // Get All PP Observation Data
+  const getAllPPObservation = async () => {
+    try {
+      const response = await axios(API_URL_PPrimary, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllPPObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // Get All PP Observation Data
+
+  // Get All SRM Observation Data
+  const getAllSRMObservation = async () => {
+    try {
+      const response = await axios(API_URL_SRM, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      setAllSRMObsData(response.data)
+      setIsLoading(false)
+      console.log('Data:' + response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // Filter Teacher data
   // const headTeacherTrained = allTeacherData.filter((item) => item.headteacherTraining === 'Yes')
@@ -915,7 +970,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All School Data
   const getAllSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-school', {
+      const response = await axios(API_URL_School, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -935,7 +990,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All Employee Data
   const getAllEmployee = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-employee', {
+      const response = await axios(API_URL_Employee, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -955,7 +1010,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All Teacher
   const getAllTeacher = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-teacher', {
+      const response = await axios(API_URL_Teacher, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -975,7 +1030,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All Book-checkout Data for school
   const getAllBookCheckoutSchool = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/book-checkouts', {
+      const response = await axios(API_URL_BCO, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -1058,7 +1113,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All LibraryObs Data
   const getAllLibraryObs = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-library-observation', {
+      const response = await axios(API_URL_Library, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -1077,7 +1132,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All BanglaObs Data
   const getAllBanglaObs = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-bangla-class', {
+      const response = await axios(API_URL_Bangla, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
@@ -1096,7 +1151,7 @@ const WidgetsDropdownPrevailStatus = () => {
   // Get All LFObservation Data
   const getAllLFObservation = async () => {
     try {
-      const response = await axios('http://118.179.80.51:8080/api/v1/p-lf-observation', {
+      const response = await axios(API_URL_LFObs, {
         method: 'GET',
         mode: 'no-cors',
         headers: {
